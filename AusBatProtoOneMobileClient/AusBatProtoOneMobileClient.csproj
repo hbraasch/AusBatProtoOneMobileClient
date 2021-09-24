@@ -1,0 +1,204 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\BatImages\Aust_aust2.jpg" />
+    <None Remove="Data\BatImages\Aust_aust3.jpg" />
+    <None Remove="Data\BatImages\Aust_aust_head.jpg" />
+    <None Remove="Data\BatImages\Chae_job1.jpg" />
+    <None Remove="Data\BatImages\Chae_job2.jpg" />
+    <None Remove="Data\BatImages\Chae_job_Head.jpg" />
+    <None Remove="Data\BatImages\Chal_dwye1.jpg" />
+    <None Remove="Data\BatImages\Chal_dwye2.jpg" />
+    <None Remove="Data\BatImages\Chal_dwye_head.jpg" />
+    <None Remove="Data\BatImages\Chal_gould.jpg" />
+    <None Remove="Data\BatImages\Chal_gould2.jpg" />
+    <None Remove="Data\BatImages\Chal_gould_head.jpg" />
+    <None Remove="Data\BatImages\Chal_morio1.jpg" />
+    <None Remove="Data\BatImages\Chal_morio2.jpg" />
+    <None Remove="Data\BatImages\Chal_morio_head.jpg" />
+    <None Remove="Data\BatImages\Chal_nigro1.jpg" />
+    <None Remove="Data\BatImages\Chal_nigro2.jpg" />
+    <None Remove="Data\BatImages\Chal_nigro_head.jpg" />
+    <None Remove="Data\BatImages\Dory_semon1.jpg" />
+    <None Remove="Data\BatImages\Dory_semon3.jpg" />
+    <None Remove="Data\BatImages\Dory_semon_head.jpg" />
+    <None Remove="Data\CallAudio\bat.wav" />
+    <None Remove="Data\CallAudio\bat2.wav" />
+    <None Remove="Data\CallAudio\bat3.wav" />
+    <None Remove="Data\CallImages\Aust_australis.jpg" />
+    <None Remove="Data\CallImages\Chaer_job.jpg" />
+    <None Remove="Data\CallImages\Chal_dwyeri.jpg" />
+    <None Remove="Data\CallImages\Chal_gouldi.jpg" />
+    <None Remove="Data\CallImages\Chal_morio.jpg" />
+    <None Remove="Data\CallImages\Chal_nigro.jpg" />
+    <None Remove="Data\CallImages\Doryhi_semoni.jpg" />
+    <None Remove="Data\Map\map.jpg" />
+    <None Remove="Data\Map\map000.jpg" />
+    <None Remove="Data\Map\map000.png" />
+    <None Remove="Data\Map\map102.jpg" />
+    <None Remove="Data\Map\map102.png" />
+    <None Remove="Data\Map\map103.jpg" />
+    <None Remove="Data\Map\map103.png" />
+    <None Remove="Data\Map\map104.jpg" />
+    <None Remove="Data\Map\map104.png" />
+    <None Remove="Data\Map\map105.jpg" />
+    <None Remove="Data\Map\map105.png" />
+    <None Remove="Data\Map\map106.jpg" />
+    <None Remove="Data\Map\map106.png" />
+    <None Remove="Data\Map\map107.jpg" />
+    <None Remove="Data\Map\map107.png" />
+    <None Remove="Data\Map\map108.jpg" />
+    <None Remove="Data\Map\map108.png" />
+    <None Remove="Data\Map\map201.jpg" />
+    <None Remove="Data\Map\map201.png" />
+    <None Remove="Data\Map\map202.jpg" />
+    <None Remove="Data\Map\map202.png" />
+    <None Remove="Data\Map\map203.jpg" />
+    <None Remove="Data\Map\map203.png" />
+    <None Remove="Data\Map\map301.jpg" />
+    <None Remove="Data\Map\map301.png" />
+    <None Remove="Data\Map\map302.jpg" />
+    <None Remove="Data\Map\map302.png" />
+    <None Remove="Data\Map\map303.jpg" />
+    <None Remove="Data\Map\map303.png" />
+    <None Remove="Data\Map\map304.jpg" />
+    <None Remove="Data\Map\map304.png" />
+    <None Remove="Data\Map\map306.jpg" />
+    <None Remove="Data\Map\map306.png" />
+    <None Remove="Data\Map\map307.jpg" />
+    <None Remove="Data\Map\map307.png" />
+    <None Remove="Data\Map\map308.jpg" />
+    <None Remove="Data\Map\map308.png" />
+    <None Remove="Data\Map\map309.jpg" />
+    <None Remove="Data\Map\map309.png" />
+    <None Remove="Data\Map\map310.jpg" />
+    <None Remove="Data\Map\map310.png" />
+    <None Remove="Data\Map\map311.jpg" />
+    <None Remove="Data\Map\map311.png" />
+    <None Remove="Data\Map\map312.jpg" />
+    <None Remove="Data\Map\map312.png" />
+    <None Remove="Images\background.png" />
+    <None Remove="Images\GhostTreeview\ic_action.png" />
+    <None Remove="Images\GhostTreeview\ic_close.png" />
+    <None Remove="Images\GhostTreeview\ic_close_bar2.png" />
+    <None Remove="Images\GhostTreeview\ic_empty.png" />
+    <None Remove="Images\GhostTreeview\ic_open.png" />
+    <None Remove="Images\GhostTreeview\ic_open_bar.png" />
+    <None Remove="Images\GhostTreeview\ic_select.png" />
+    <None Remove="Images\ic_audio_playback_play.png" />
+    <None Remove="Images\ic_audio_playback_stop.png" />
+    <None Remove="Images\ic_details.png" />
+    <None Remove="Images\ic_photos.png" />
+    <None Remove="Images\ic_regions.png" />
+    <None Remove="Images\ic_sounds.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\BusinessException.cs" Link="Helpers\BusinessException.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\CommandHelper.cs" Link="Helpers\CommandHelper.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\ContentPageBase.cs" Link="Helpers\ContentPageBase.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\CustomActivityIndicator.cs" Link="Helpers\CustomActivityIndicator.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\Extensions.cs" Link="Helpers\Extensions.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\GhostTreeview\GhostTreeview.cs" Link="Helpers\GhostTreeview.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\GhostTreeview\IndentLabel.cs" Link="Helpers\IndentLabel.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\MenuGenerator.cs" Link="Helpers\MenuGenerator.cs" />
+    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\ViewModelBase.cs" Link="Helpers\ViewModelBase.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\CallAudio\bat.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\CallAudio\bat2.wav" />
+    <EmbeddedResource Include="Data\CallAudio\bat3.wav" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
+    <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.5.0" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharedImage Include="Data\BatImages\Aust_aust2.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Aust_aust3.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Aust_aust_head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chae_job1.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chae_job2.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chae_job_Head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_dwye1.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_dwye2.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_dwye_head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_gould.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_gould2.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_gould_head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_morio1.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_morio2.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_morio_head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_nigro1.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_nigro2.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Chal_nigro_head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Dory_semon1.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Dory_semon3.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\BatImages\Dory_semon_head.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Aust_australis.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Chaer_job.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Chal_dwyeri.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Chal_gouldi.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Chal_morio.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Chal_nigro.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\CallImages\Doryhi_semoni.jpg" BaseSize="300,300" />
+    <SharedImage Include="Data\Map\map.jpg" />
+    <SharedImage Include="Data\Map\map000.png" />
+    <SharedImage Include="Data\Map\map102.png" />
+    <SharedImage Include="Data\Map\map103.png" />
+    <SharedImage Include="Data\Map\map104.png" />
+    <SharedImage Include="Data\Map\map105.png" />
+    <SharedImage Include="Data\Map\map106.png" />
+    <SharedImage Include="Data\Map\map107.png" />
+    <SharedImage Include="Data\Map\map108.png" />
+    <SharedImage Include="Data\Map\map201.png" />
+    <SharedImage Include="Data\Map\map202.png" />
+    <SharedImage Include="Data\Map\map203.png" />
+    <SharedImage Include="Data\Map\map301.png" />
+    <SharedImage Include="Data\Map\map302.png" />
+    <SharedImage Include="Data\Map\map303.png" />
+    <SharedImage Include="Data\Map\map304.png" />
+    <SharedImage Include="Data\Map\map306.png" />
+    <SharedImage Include="Data\Map\map307.png" />
+    <SharedImage Include="Data\Map\map308.png" />
+    <SharedImage Include="Data\Map\map309.png" />
+    <SharedImage Include="Data\Map\map310.png" />
+    <SharedImage Include="Data\Map\map311.png" />
+    <SharedImage Include="Data\Map\map312.png" />
+    <SharedImage Include="Images\background.png" BaseSize="500,500" />
+    <SharedImage Include="Images\GhostTreeview\ic_action.png" BaseSize="75,75" />
+    <SharedImage Include="Images\GhostTreeview\ic_close.png" BaseSize="50,50" />
+    <SharedImage Include="Images\GhostTreeview\ic_close_bar2.png" BaseSize="50,50" />
+    <SharedImage Include="Images\GhostTreeview\ic_empty.png" BaseSize="50,50" />
+    <SharedImage Include="Images\GhostTreeview\ic_open.png" BaseSize="50,50" />
+    <SharedImage Include="Images\GhostTreeview\ic_open_bar.png" BaseSize="50,50" />
+    <SharedImage Include="Images\GhostTreeview\ic_select.png" BaseSize="75,75" />
+    <SharedImage Include="Images\ic_audio_playback_play.png" />
+    <SharedImage Include="Images\ic_audio_playback_stop.png" />
+    <SharedImage Include="Images\ic_photos.png" BaseSize="150,150" />
+    <SharedImage Include="Images\ic_sounds.png" BaseSize="150,150" />
+    <SharedImage Include="Images\ic_details.png" BaseSize="150,150" />
+    <SharedImage Include="Images\ic_regions.png" BaseSize="150,150" />
+  </ItemGroup>
+</Project>
