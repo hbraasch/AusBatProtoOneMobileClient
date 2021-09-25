@@ -45,16 +45,18 @@ namespace AusBatProtoOneMobileClient.ViewModels
         {
             this.bat = bat;
             ImageDataItems = new ObservableCollection<ImageDataItem>();
+            SelectedMapItems = new ObservableCollection<MapRegion>();
+            DetailsHtmlSource = new HtmlWebViewSource();
+            CallDataItems = new ObservableCollection<CallDataItem>();
+
             foreach (var imageSource in bat.Images)
             {
                 ImageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
-            }
+                }
 
-            var htmlSource = new HtmlWebViewSource();          
-            htmlSource.Html = bat.Details;
-            DetailsHtmlSource = htmlSource;
+            DetailsHtmlSource.Html = bat.Details;
 
-            SelectedMapItems = new ObservableCollection<MapRegion>();
+
             foreach (var region in bat.MapRegions)
             {
                 SelectedMapItems.Add(region);
@@ -62,12 +64,12 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.PlaybackEnded += (s, e) => { IsPlaying = false; };
-            CallDataItems = new ObservableCollection<CallDataItem>();
             foreach (var call in bat.Calls)
             {
                 CallDataItems.Add(call);
             }
-            IsPlaying = false;
+            IsPlaying = false; 
+
         }
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => { 

@@ -5,6 +5,7 @@ using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
 using System.Globalization;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -28,13 +29,14 @@ namespace AusBatProtoOneMobileClient
             carouselView.SetBinding(CarouselView.TabIndexProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.CallDataItemIndex), BindingMode.TwoWay, source: viewModel));
             carouselView.ItemTemplate = new DataTemplate(() =>
             {
-
+                var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
                 CachedImage image = new CachedImage
                 {
                     Aspect = Aspect.AspectFit,
                 };
+                image.WidthRequest = mainDisplayInfo.Width;
                 image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(CallDataItem.CallImage), BindingMode.OneWay));
-                return new StackLayout { Children = { image } };
+                return image;
             });
 
             var indicatorView = new IndicatorView
@@ -47,7 +49,7 @@ namespace AusBatProtoOneMobileClient
             };
             carouselView.IndicatorView = indicatorView;
 
-            var startStopPlaybackButton = new ImageButton();
+            var startStopPlaybackButton = new ImageButton() { BackgroundColor = Color.Transparent };
             startStopPlaybackButton.Clicked += (s, e) => { viewModel.OnStartStopPlaybackPressed.Execute(null); };
             startStopPlaybackButton.SetBinding(ImageButton.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.IsPlaying), BindingMode.OneWay, new IsPlayingToImageConverter()));
 

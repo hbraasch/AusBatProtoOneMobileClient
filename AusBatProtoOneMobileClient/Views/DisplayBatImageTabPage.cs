@@ -4,6 +4,7 @@ using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.ViewModels.DisplayBatTabbedPageViewModel;
 
@@ -26,15 +27,16 @@ namespace AusBatProtoOneMobileClient
             carouselView.ItemTemplate = new DataTemplate(() =>
             {
 
-                CachedImage image = new CachedImage
+                var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+                var image = new CachedImage
                 {
                     Aspect = Aspect.AspectFit,
                 };
+                image.WidthRequest = mainDisplayInfo.Width;
                 image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
 
-
-
-                return new StackLayout { Children = { image } }; 
+                return image; 
             });
 
             var indicatorView = new IndicatorView

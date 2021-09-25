@@ -34,7 +34,7 @@ namespace AusBatProtoOneMobileClient
             Children.Add(displayBatRegionsTabPage);
             Children.Add(displayBatCallTabPage);
 
-            On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
+            // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
             BarBackgroundColor = Xamarin.Forms.Color.Black;
             BarTextColor = Xamarin.Forms.Color.White;
             On<Windows>().SetHeaderIconsEnabled(true);

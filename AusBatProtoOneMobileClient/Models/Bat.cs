@@ -35,9 +35,9 @@ namespace AusBatProtoOneMobileClient.Data
 
         public void GenerateMockImageIds()
         {
-            Images.Add($"{ImageTag}_head.jpg");
-            Images.Add($"{ImageTag}2.jpg");
-            Images.Add($"{ImageTag}3.jpg");
+            Images.Add($"{ImageTag}_head.png");
+            Images.Add($"{ImageTag}2.png");
+            Images.Add($"{ImageTag}3.png");
         }
 
         public void GenerateMockDetails()
@@ -68,7 +68,7 @@ namespace AusBatProtoOneMobileClient.Data
 
         public void GenerateMockCalls()
         {
-            var images = new List<string> { "Aust_australis.jpg", "Chaer_job.jpg", "Chal_dwyeri.jpg", "Chal_gouldi.jpg", "Chal_morio.jpg", "Chal_nigro.jpg", "Doryhi_semoni.jpg" };
+            var images = new List<string> { "aust_australis.jpg", "chaer_job.jpg", "chal_dwyeri.jpg", "chal_gouldi.jpg", "chal_morio.jpg", "chal_nigro.jpg", "doryhi_semoni.jpg" };
             var audioFiles = new List<string> { "bat.wav", "bat2.wav", "bat3.wav" };
             var rnd = new Random();
             var imagesAmount = rnd.Next(1, images.Count - 1);

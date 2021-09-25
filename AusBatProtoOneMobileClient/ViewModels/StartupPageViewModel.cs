@@ -168,13 +168,13 @@ namespace AusBatProtoOneMobileClient.ViewModels
                         dbase.Classifications.Add(new Classification { Id = "Tasmaniensis", Type = Classification.ClassificationType.Species, Parent = "Falsistrellus" });
 
 
-                dbase.Bats.Add(new Bat {ClassificationId = "Cobourgianus", Name = "Western little free-tailed bat", ImageTag = "Aust_aust" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Ridei", Name = "Eastern little free-tailed bat", ImageTag = "Chae_job" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Jobensis", Name = "Great Northern free-tailed bat", ImageTag = "Chal_dwye" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Dwyeri", Name = "Large-eared pied bat", ImageTag = "Chal_gould" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Gouldii", Name = "Gould's wattled bat", ImageTag = "Chal_morio" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Mackenziei", Name = "Western false pipistrelle", ImageTag = "Dory_semon" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Tasmaniensis", Name = "Eastern false pipistrelle", ImageTag = "Chal_nigro" });
+                dbase.Bats.Add(new Bat {ClassificationId = "Cobourgianus", Name = "Western little free-tailed bat", ImageTag = "aust_aust" });
+                dbase.Bats.Add(new Bat { ClassificationId = "Ridei", Name = "Eastern little free-tailed bat", ImageTag = "chae_job" });
+                dbase.Bats.Add(new Bat { ClassificationId = "Jobensis", Name = "Great Northern free-tailed bat", ImageTag = "chal_dwye" });
+                dbase.Bats.Add(new Bat { ClassificationId = "Dwyeri", Name = "Large-eared pied bat", ImageTag = "chal_gould" });
+                dbase.Bats.Add(new Bat { ClassificationId = "Gouldii", Name = "Gould's wattled bat", ImageTag = "chal_morio" });
+                dbase.Bats.Add(new Bat { ClassificationId = "Mackenziei", Name = "Western false pipistrelle", ImageTag = "dory_semon" });
+                dbase.Bats.Add(new Bat { ClassificationId = "Tasmaniensis", Name = "Eastern false pipistrelle", ImageTag = "chal_nigro" });
 
                 foreach (var bat in dbase.Bats)
                 {

@@ -15,8 +15,9 @@ namespace AusBatProtoOneMobileClient
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
-
+            var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
             var map = new Map();
+            map.WidthRequest = mainDisplayInfo.Width;
             map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.SelectedMapItems), BindingMode.TwoWay));
 
             Title = "Regions";

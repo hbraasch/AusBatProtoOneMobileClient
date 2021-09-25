@@ -76,8 +76,9 @@ namespace AusBatProtoOneMobileClient.Views.Components
                         Padding = 0,
                         Margin = 0,
                         CornerRadius = 0,
-                        VerticalOptions = LayoutOptions.Center,
-                        HorizontalOptions = LayoutOptions.Center
+                        VerticalOptions = LayoutOptions.CenterAndExpand,
+                        HorizontalOptions = LayoutOptions.CenterAndExpand,
+                        BackgroundColor = Color.Transparent
                     };
                     TouchEffect touchEffect = new TouchEffect();
                     touchEffect.TouchAction += OnTouchEffectAction;
@@ -87,6 +88,13 @@ namespace AusBatProtoOneMobileClient.Views.Components
                     AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0, 0, 1, 1));
                 }
             }
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            frame.WidthRequest = width;
+            frame.HeightRequest = height;
         }
 
         private void OnTouchEffectAction(object sender, TouchActionEventArgs args)
