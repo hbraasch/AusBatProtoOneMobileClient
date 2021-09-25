@@ -1,5 +1,4 @@
-﻿using AusBatProtoOneMobileClient.ViewModels;
-using Mobile.Helpers;
+﻿using Mobile.Helpers;
 using Mobile.ViewModels;
 using Xamarin.Forms;
 
@@ -20,19 +19,21 @@ namespace DocGenOneMobileClient.Views
             var searchButton = new SearchBar();
             searchButton.SearchButtonPressed += (s, e) => { viewModel.OnSearchButtonPressed.Execute(true); };
 
-            var criteriaListView = new ListView { SelectionMode = ListViewSelectionMode.Single };
-            criteriaListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItems), BindingMode.TwoWay));
-            criteriaListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.CriteriaSelectedItem), BindingMode.TwoWay));
-            criteriaListView.ItemTapped += (s, e) => { ToggleSelection(e, criteriaListView); };
-            criteriaListView.Refreshing += (s, e) => {};
+            var criteriaListView = new CollectionView { SelectionMode = SelectionMode.Single };
+            criteriaListView.SetBinding(CollectionView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItems), BindingMode.TwoWay));
+            criteriaListView.SetBinding(CollectionView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.CriteriaSelectedItem), BindingMode.TwoWay));
+            criteriaListView.ItemTemplate = new CriteriaDataTemplateSelector();
 
+
+#if false
             var resultsListView = new ListView { SelectionMode = ListViewSelectionMode.Single };
             resultsListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.ResultsDisplayItems), BindingMode.TwoWay));
             resultsListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.ResultsSelectedItem), BindingMode.TwoWay));
             resultsListView.ItemTapped += (s, e) => { ToggleSelection(e, resultsListView); };
-            resultsListView.Refreshing += (s, e) => { };
+            resultsListView.Refreshing += (s, e) => { }; 
+#endif
 
-            var layout = new StackLayout { Children = { searchButton, criteriaListView, resultsListView } };
+            var layout = new StackLayout { Children = { searchButton, criteriaListView } };
 
             var listViewLayout = new ScrollView
             {
@@ -61,18 +62,18 @@ namespace DocGenOneMobileClient.Views
                 .AddMenuItem("edit", "Edit", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnEditMenuPressed.Execute(null); }, iconPath: "ic_edit.png")
                 .AddMenuItem("rename", "Rename", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnRenameMenuPressed.Execute(null); })
                 .AddMenuItem("delete", "Delete", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnDeleteMenuPressed.Execute(null); });
- 
+
             menu.SetVisibilityFactors(viewModel, "IsSelected", "IsChecked")
                 .ToShowMenuItem("edit", true, null)
                 .ToShowMenuItem("delete", true, null)
                 .ToShowMenuItem("delete", null, true)
                 .ToShowMenuItem("rename", true, null)
-                .ToShowMenuItem("rename", null, true); 
+                .ToShowMenuItem("rename", null, true);
 
             // menu.AddUwpIcon("back", "ic_back.png");
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(SearchPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
-            
+
         }
 
 
@@ -90,50 +91,55 @@ namespace DocGenOneMobileClient.Views
             }
         }
 
-        public class ListViewDataSearch: ViewCell
+        internal class CriteriaDataTemplateSelector : DataTemplateSelector
         {
-            CheckBox checkBox;
+            DataTemplate regionTemplate;
+            DataTemplate floatValueTemplate;
 
-            public static readonly BindableProperty OnCheckChangedCommandProperty = BindableProperty.Create(nameof(OnCheckChangedCommand), typeof(Command), typeof(ListViewDataSearch), null);
-            public Command OnCheckChangedCommand
+            public CriteriaDataTemplateSelector()
             {
-                get { return (Command)GetValue(OnCheckChangedCommandProperty); }
-                set { SetValue(OnCheckChangedCommandProperty, value); }
+                regionTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItemBase.Description), BindingMode.TwoWay), source: viewModel);
+
+                    // var selectButton = new Button { Text = "Select" };
+
+                    // var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, selectButton }, Margin = 5 };
+
+                    return new ViewCell { View = descriptionLabel };
+
+                });
+
+                floatValueTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItemBase.Description), BindingMode.TwoWay));
+
+                    // var selectButton = new Button { Text = "Select" };
+                    // var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, selectButton }, Margin = 5 };
+
+                    return new ViewCell { View = descriptionLabel };
+                });
             }
 
-            public class DisplayItem
+            protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                public int Id { get; set; }
-                public bool IsChecked { get; set; }
-                public string Description { get; set; }
-                public object Content { get; set; } 
-                public Command OnCheckChangedCommand { get; set; }
-
+                if (item is SearchPageViewModel.MapRegionsDisplayItem)
+                {
+                    return regionTemplate;
+                }
+                else
+                {
+                    if (item is SearchPageViewModel.ForeArmLengthDisplayItem)
+                    {
+                        return floatValueTemplate;
+                    }
+                    else
+                    {
+                        return new DataTemplate();
+                    }
+                }
             }
-
-
-            public ListViewDataSearch()
-            {
-                SetBinding(OnCheckChangedCommandProperty, new Binding(nameof(DisplayItem.OnCheckChangedCommand), BindingMode.TwoWay));
-
-                var descriptionLabel = new Label {  VerticalTextAlignment = TextAlignment.Center };
-                descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayItem.Description), BindingMode.TwoWay));
-
-                checkBox = new CheckBox { Visual = VisualMarker.Material };
-                checkBox.SetBinding(CheckBox.IsCheckedProperty, new Binding(nameof(DisplayItem.IsChecked), BindingMode.TwoWay));
-
-                View = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { checkBox, descriptionLabel }, Margin = 5};
-
-            }
-
-            protected override void OnAppearing()
-            {
-                base.OnAppearing();
-                checkBox.CheckedChanged += (s, e) => { OnCheckChangedCommand?.Execute(null); };
-            }
-
         }
-
 
         protected override void OnAppearing()
         {
@@ -154,5 +160,6 @@ namespace DocGenOneMobileClient.Views
             viewModel.OnBackButtonPressed.Execute(null);
             return viewModel.isBackCancelled;
         }
+
     }
 }

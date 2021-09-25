@@ -1,5 +1,6 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
+using DocGenOneMobileClient.Views;
 using Mobile.Helpers;
 using Mobile.Models;
 using Mobile.ViewModels;
@@ -104,8 +105,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnIdentificationKeysClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new ClassificationPageViewModel();
-                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                var viewModel = new SearchPageViewModel();
+                var page = new SearchPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)

@@ -14,13 +14,81 @@ using AusBatProtoOneMobileClient.ViewModels;
 using Mobile.ViewModels;
 using Mobile.Helpers;
 using TreeApp.Helpers;
+using AusBatProtoOneMobileClient.Models;
 
 namespace DocGenOneMobileClient.Views
 {
     public class SearchPageViewModel : ViewModelBase
     {
 
-        public ObservableCollection<DisplayItem> CriteriaDisplayItems { get; set; }
+        public class CriteriaDisplayItemBase
+        {
+            public int Id { get; set; }
+            public string Description { get; set; } = "XXXXXXX";
+            public int DisplayOrder { get; set; }
+            public Action<CriteriaDisplayItemBase> OnChanged { get; set; }
+            public object Content { get; set; }
+
+        }
+        public class MapRegionsDisplayItem: CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Regions";
+            public List<MapRegion> MapRegions { get; set; }
+        }
+        public class ForeArmLengthDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Forearm length (mm)";
+            public float Value { get; set; }
+        }
+        public class OuterCanineWidthDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Outer canine width (mm)";
+            public float Value { get; set; }
+        }
+        public class TailLengthDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Tail length (mm)";
+            public float Value { get; set; }
+        }
+        public class FootWithClawLengthDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Foot with claw length (mm)";
+            public float Value { get; set; }
+        }
+
+        public class PenisLengthDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Penis length (mm)";
+            public float Value { get; set; }
+        }
+        public class HeadToBodyLengthDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Head to body length (mm)";
+            public float Value { get; set; }
+        }
+        public class WeightDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Weight (g)";
+            public float Value { get; set; }
+        }
+        public class ThreeMetDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "3-MET (mm)";
+            public float Value { get; set; }
+        }
+
+        public class IsGularPoachPresentDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Gular Poach present?";
+            public bool Value { get; set; }
+        }
+        public class HasFleshyGenitalProjectionsDisplayItem : CriteriaDisplayItemBase
+        {
+            //public string Description { get; set; } = "Has fleshy genital projections?";
+            public bool Value { get; set; }
+        }
+
+        public ObservableCollection<CriteriaDisplayItemBase> CriteriaDisplayItems { get; set; }
 
         public DisplayItem CriteriaSelectedItem { get; set; }
 
@@ -33,12 +101,6 @@ namespace DocGenOneMobileClient.Views
             IsSelected = CriteriaSelectedItem != null;
             InvalidateMenu.Execute(null);
         }
-
-        private bool isItemChecked;
-        public Command OnCheckChanged => new Command(() => {
-            isItemChecked = (CriteriaDisplayItems.FirstOrDefault(o => o.IsChecked == true) != null);
-            InvalidateMenu.Execute(null);
-        });
 
 
         public bool IsDirty { get; set; }
@@ -53,14 +115,14 @@ namespace DocGenOneMobileClient.Views
         #region *// Menu related 
 
         public bool IsSelected { get; set; }
-        public bool IsChecked => isItemChecked;
 
         #endregion
 
 
         public SearchPageViewModel()
         {
-            CriteriaDisplayItems = new ObservableCollection<DisplayItem>();
+            CriteriaDisplayItems = new ObservableCollection<CriteriaDisplayItemBase>();
+            ResultsDisplayItems = new ObservableCollection<DisplayItem>();
         }
 
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -75,7 +137,7 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                CriteriaDisplayItems = UpdateCriteriaDisplay();
+                CriteriaDisplayItems = GenerateCriteriaDisplay();
                 ResultsDisplayItems = UpdateResultsDisplay();
 
             }
@@ -93,10 +155,33 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public ObservableCollection<ListViewDataTemplate.DisplayItem> UpdateCriteriaDisplay()
+        public ObservableCollection<CriteriaDisplayItemBase> GenerateCriteriaDisplay()
         {
-            var displayItems = new ObservableCollection<ListViewDataTemplate.DisplayItem>();
+            var displayItems = new ObservableCollection<CriteriaDisplayItemBase>();
+            displayItems.Add(new MapRegionsDisplayItem());
+            displayItems.Add(new ForeArmLengthDisplayItem());
+#if false
+            displayItems.Add(new OuterCanineWidthDisplayItem());
+            displayItems.Add(new TailLengthDisplayItem());
+            displayItems.Add(new FootWithClawLengthDisplayItem());
+            displayItems.Add(new PenisLengthDisplayItem());
+            displayItems.Add(new HeadToBodyLengthDisplayItem());
+            displayItems.Add(new WeightDisplayItem());
+            displayItems.Add(new ThreeMetDisplayItem());
+            displayItems.Add(new IsGularPoachPresentDisplayItem());
+            displayItems.Add(new HasFleshyGenitalProjectionsDisplayItem()); 
+#endif
             return displayItems;
+        }
+
+        private void OnCriteriaChanged(CriteriaDisplayItemBase criteria)
+        {
+            switch (criteria)
+            {
+                default:
+                    break;
+            }
+            throw new NotImplementedException();
         }
 
         public ObservableCollection<ListViewDataTemplate.DisplayItem> UpdateResultsDisplay()
@@ -142,7 +227,7 @@ namespace DocGenOneMobileClient.Views
                 ActivityIndicatorStart();
 
 
-                CriteriaDisplayItems = UpdateCriteriaDisplay();
+                CriteriaDisplayItems = GenerateCriteriaDisplay();
 
             }
             catch (Exception ex)
@@ -165,7 +250,7 @@ namespace DocGenOneMobileClient.Views
                 ActivityIndicatorStart();
 
 
-                UpdateCriteriaDisplay();
+                GenerateCriteriaDisplay();
 
             }
             catch (Exception ex) when (ex is BusinessException exb)
@@ -189,7 +274,7 @@ namespace DocGenOneMobileClient.Views
             try
             {
 
-                UpdateCriteriaDisplay();
+                GenerateCriteriaDisplay();
 
             }
             catch (Exception ex) when (ex is BusinessException exb)
