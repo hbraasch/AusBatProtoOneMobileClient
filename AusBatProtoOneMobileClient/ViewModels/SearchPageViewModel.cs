@@ -22,6 +22,7 @@ namespace DocGenOneMobileClient.Views
     public class SearchPageViewModel : ViewModelBase
     {
 
+        public string SearchBarText { get; set; }
         public abstract class CriteriaDisplayItemBase
         {
             public int Id { get; set; }

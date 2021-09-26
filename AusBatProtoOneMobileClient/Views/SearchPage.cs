@@ -17,8 +17,11 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var searchButton = new SearchBar();
-            searchButton.SearchButtonPressed += (s, e) => { viewModel.OnSearchButtonPressed.Execute(true); };
+            var searchButton = new Button();
+            searchButton.Clicked += (s, e) => { viewModel.OnSearchButtonPressed.Execute(true); };
+
+            var searchEntry = new SearchBar();
+            searchEntry.SetBinding(SearchBar.TextProperty, new Binding(nameof(SearchPageViewModel.SearchBarText), BindingMode.TwoWay));
 
             var criteriaListView = new ListView { SelectionMode = ListViewSelectionMode.Single };
             criteriaListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItems), BindingMode.TwoWay));
@@ -43,7 +46,7 @@ namespace DocGenOneMobileClient.Views
 
             var resultFrame = new Frame { BorderColor = Color.Red, CornerRadius = 5, Content = resultsListView, Margin = 5 };
 
-            var layout = new StackLayout { Children = { searchButton, criteriaFrame, resultFrame } };
+            var layout = new StackLayout { Children = { searchButton, searchEntry, criteriaFrame, resultFrame } };
 
             var listViewLayout = new ScrollView
             {
@@ -125,6 +128,8 @@ namespace DocGenOneMobileClient.Views
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.ForeArmLengthDisplayItem.Description), BindingMode.TwoWay));
 
                     var valueEntry = new Entry { };
+
+                    valueEntry.Behaviors.Add(new Xamarin.CommunityToolkit.Behaviors.NumericValidationBehavior() { MinimumValue = 0 });
                     valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.ForeArmLengthDisplayItem.Value), BindingMode.TwoWay));
                     var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
 
