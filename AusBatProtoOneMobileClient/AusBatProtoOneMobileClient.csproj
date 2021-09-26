@@ -6,8 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\BatImages\aust_aust2.jpg" />
     <None Remove="Data\BatImages\aust_aust2.png" />
-    <None Remove="Data\BatImages\aust_aust3.png" />
+    <None Remove="Data\BatImages\aust_aust3.jpg" />
+    <None Remove="Data\BatImages\aust_aust_head.jpg" />
     <None Remove="Data\BatImages\chae_job1.jpg" />
     <None Remove="Data\BatImages\chae_job2.jpg" />
     <None Remove="Data\BatImages\chae_job_head.jpg" />
@@ -135,9 +137,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	<SharedImage Include="Data\BatImages\aust_aust2.png" BaseSize="150,150" />
-	<SharedImage Include="Data\BatImages\aust_aust3.png" BaseSize="150,150" />
-	<SharedImage Include="Data\BatImages\aust_aust_head.png" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\aust_aust2.jpg"  BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\aust_aust3.jpg"  BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\aust_aust_head.jpg"  BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job_head.jpg" BaseSize="150,150" />
@@ -163,29 +165,29 @@
     <SharedImage Include="Data\CallImages\chal_morio.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\CallImages\chal_nigro.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\CallImages\doryhi_semoni.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\Map\map.jpg" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map000.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map102.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map103.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map104.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map105.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map106.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map107.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map108.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map201.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map202.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map203.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map301.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map302.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map303.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map304.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map306.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map307.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map308.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map309.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map310.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map311.png" BaseSize="150,150"/>
-    <SharedImage Include="Data\Map\map312.png" BaseSize="150,150"/>
+    <SharedImage Include="Data\Map\map.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map000.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map102.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map103.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map104.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map105.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map106.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map107.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map108.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map201.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map202.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map203.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map301.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map302.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map303.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map304.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map306.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map307.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map308.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map309.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map310.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map311.png" BaseSize="150,150" />
+    <SharedImage Include="Data\Map\map312.png" BaseSize="150,150" />
     <SharedImage Include="Images\background.png" BaseSize="500,500" />
     <SharedImage Include="Images\GhostTreeview\ic_action.png" BaseSize="75,75" />
 	  <SharedImage Include="Images\GhostTreeview\ic_select.png" BaseSize="75,75" />
@@ -194,8 +196,8 @@
     <SharedImage Include="Images\GhostTreeview\ic_empty.png" BaseSize="50,50" />
     <SharedImage Include="Images\GhostTreeview\ic_open.png" BaseSize="50,50" />
     <SharedImage Include="Images\GhostTreeview\ic_open_bar.png" BaseSize="50,50" />
-    <SharedImage Include="Images\ic_audio_playback_play.png" BaseSize="50,50"/>
-    <SharedImage Include="Images\ic_audio_playback_stop.png" BaseSize="50,50"/>
+    <SharedImage Include="Images\ic_audio_playback_play.png" BaseSize="50,50" />
+    <SharedImage Include="Images\ic_audio_playback_stop.png" BaseSize="50,50" />
     <SharedImage Include="Images\ic_photos.png" BaseSize="25,25" />
     <SharedImage Include="Images\ic_sounds.png" BaseSize="25,25" />
     <SharedImage Include="Images\ic_details.png" BaseSize="25,25" />

@@ -14,6 +14,5 @@ namespace AusBatProtoOneMobileClient.Models
             public Point Center { get; set; }
             public float Radius { get; set; }
         }
-
     }
 }

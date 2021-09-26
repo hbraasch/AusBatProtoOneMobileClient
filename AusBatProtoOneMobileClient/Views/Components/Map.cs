@@ -10,8 +10,9 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Views.Components
 {
-    public class Map : AbsoluteLayout
+    public class Map : Grid
     {
+        float aspect = (float)( 378.0/ 398.0);
 
         public static readonly BindableProperty SelectedItemsProperty = BindableProperty.Create("SelectedItems", typeof(ObservableCollection<MapRegion>), typeof(Map), new ObservableCollection<MapRegion>(), propertyChanged: OnSelectedChanged);
 
@@ -32,19 +33,41 @@ namespace AusBatProtoOneMobileClient.Views.Components
         public bool IsSelectable
         {
             get { return (bool)GetValue(IsSelectableProperty); }
-            set { SetValue(SelectedItemsProperty, value); }
+            set { SetValue(IsSelectableProperty, value); }
         }
 
         public Map()
         {
-            // BackgroundColor = Color.Black;
+            absoluteLayout = new AbsoluteLayout();
+            frame = new Frame();
+            frame.Content = absoluteLayout;
+            frame.BorderColor = Color.Red;
+            frame.Padding = 0;
+            frame.Margin = 0;
+            frame.CornerRadius = 0;
+            frame.BackgroundColor = Color.Transparent;
+            frame.HorizontalOptions = LayoutOptions.Center;
+            frame.VerticalOptions = LayoutOptions.Center;
+
+
+            TouchEffect touchEffect = new TouchEffect();
+            touchEffect.TouchAction += OnTouchEffectAction;
+            frame.Effects.Add(touchEffect);
+
+            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            Children.Add(frame, 0, 0);
+            HorizontalOptions = LayoutOptions.Center;
+            VerticalOptions = LayoutOptions.Center;
 
             MakeItemsVisible(SelectedItems);
         }
 
+        AbsoluteLayout absoluteLayout;
         Frame frame;
         private void MakeItemsVisible(ObservableCollection<MapRegion> items)
         {
+
             var layeredImages = new List<string>();
             layeredImages.Add("Map000.png");
             if (items != null)
@@ -55,46 +78,25 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 }
             }
 
-            Children.Clear();
+            absoluteLayout.Children.Clear();
             foreach (var layeredImage in layeredImages)
             {
-                if (layeredImage != layeredImages.Last())
-                {
-                    var image = new Image { Source = layeredImage, Aspect = Aspect.AspectFit };
-                    Children.Add(image);
-                    AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
-                    AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
-                }
-                else
-                {
-                    // Last image
-                    var image = new Image { Source = layeredImage, Aspect = Aspect.AspectFit };
-                    frame = new Frame
-                    {
-                        Content = image,
-                        BorderColor = Color.Black,
-                        Padding = 0,
-                        Margin = 0,
-                        CornerRadius = 0,
-                        VerticalOptions = LayoutOptions.CenterAndExpand,
-                        HorizontalOptions = LayoutOptions.CenterAndExpand,
-                        BackgroundColor = Color.Transparent
-                    };
-                    TouchEffect touchEffect = new TouchEffect();
-                    touchEffect.TouchAction += OnTouchEffectAction;
-                    frame.Effects.Add(touchEffect);
-                    Children.Add(frame);
-                    AbsoluteLayout.SetLayoutFlags(frame, AbsoluteLayoutFlags.All);
-                    AbsoluteLayout.SetLayoutBounds(frame, new Rectangle(0, 0, 1, 1));
-                }
+                var image = new Image { Source = layeredImage, 
+                    Aspect = Aspect.AspectFit ,
+                };
+                absoluteLayout.Children.Add(image);
+                AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
+                AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
             }
+            
+
         }
 
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
-            frame.WidthRequest = width;
-            frame.HeightRequest = height;
+            WidthRequest = 300;
+            HeightRequest = WidthRequest * aspect;
         }
 
         private void OnTouchEffectAction(object sender, TouchActionEventArgs args)
@@ -118,7 +120,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                                 Debug.WriteLine($"Region: {mapRegion.Id} pressed");
                                 if (IsSelectable)
                                 {
-                                    var item = SelectedItems.ToList().FirstOrDefault(o => o.Id == mapRegion.Id);
+                                    var item = SelectedItems?.ToList().FirstOrDefault(o => o.Id == mapRegion.Id) ?? null;
                                     if (item != null)
                                     {
                                         // Remove selected item
@@ -127,6 +129,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                                     else
                                     {
                                         // Add selected item
+                                        if (SelectedItems == null) SelectedItems = new ObservableCollection<MapRegion>();
                                         SelectedItems.Add(mapRegion);
                                     }
                                     MakeItemsVisible(SelectedItems); 

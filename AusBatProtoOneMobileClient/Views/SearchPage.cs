@@ -1,5 +1,6 @@
 ﻿using Mobile.Helpers;
 using Mobile.ViewModels;
+using System;
 using Xamarin.Forms;
 
 namespace DocGenOneMobileClient.Views
@@ -19,21 +20,30 @@ namespace DocGenOneMobileClient.Views
             var searchButton = new SearchBar();
             searchButton.SearchButtonPressed += (s, e) => { viewModel.OnSearchButtonPressed.Execute(true); };
 
-            var criteriaListView = new CollectionView { SelectionMode = SelectionMode.Single };
-            criteriaListView.SetBinding(CollectionView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItems), BindingMode.TwoWay));
-            criteriaListView.SetBinding(CollectionView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.CriteriaSelectedItem), BindingMode.TwoWay));
+            var criteriaListView = new ListView { SelectionMode = ListViewSelectionMode.Single };
+            criteriaListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItems), BindingMode.TwoWay));
+            criteriaListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.CriteriaSelectedItem), BindingMode.TwoWay));
             criteriaListView.ItemTemplate = new CriteriaDataTemplateSelector();
 
+            var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+            var criteriaFrame = new Frame { BorderColor = Color.Red, CornerRadius = 5, Content = criteriaListView, Margin = 5, HeightRequest = mainDisplayInfo.Height/3 };
 
-#if false
+
             var resultsListView = new ListView { SelectionMode = ListViewSelectionMode.Single };
             resultsListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.ResultsDisplayItems), BindingMode.TwoWay));
             resultsListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.ResultsSelectedItem), BindingMode.TwoWay));
-            resultsListView.ItemTapped += (s, e) => { ToggleSelection(e, resultsListView); };
-            resultsListView.Refreshing += (s, e) => { }; 
-#endif
+            resultsListView.ItemTapped += (s, e) => { viewModel.OnResultsListTapped.Execute(null); };
+            resultsListView.Refreshing += (s, e) => { };
+            resultsListView.ItemTemplate = new DataTemplate(() => {
+                var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.ResultDisplayItem.Description), BindingMode.TwoWay));
+                var descriptionLayout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel }, Margin = 5 };
+                return new ViewCell { View = descriptionLayout };
+            });
 
-            var layout = new StackLayout { Children = { searchButton, criteriaListView } };
+            var resultFrame = new Frame { BorderColor = Color.Red, CornerRadius = 5, Content = resultsListView, Margin = 5 };
+
+            var layout = new StackLayout { Children = { searchButton, criteriaFrame, resultFrame } };
 
             var listViewLayout = new ScrollView
             {
@@ -58,17 +68,7 @@ namespace DocGenOneMobileClient.Views
             Content = finalLayout;
 
             menu = new MenuGenerator().Configure()
-                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png")
-                .AddMenuItem("edit", "Edit", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnEditMenuPressed.Execute(null); }, iconPath: "ic_edit.png")
-                .AddMenuItem("rename", "Rename", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnRenameMenuPressed.Execute(null); })
-                .AddMenuItem("delete", "Delete", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnDeleteMenuPressed.Execute(null); });
-
-            menu.SetVisibilityFactors(viewModel, "IsSelected", "IsChecked")
-                .ToShowMenuItem("edit", true, null)
-                .ToShowMenuItem("delete", true, null)
-                .ToShowMenuItem("delete", null, true)
-                .ToShowMenuItem("rename", true, null)
-                .ToShowMenuItem("rename", null, true);
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
 
             // menu.AddUwpIcon("back", "ic_back.png");
             menu.GenerateToolbarItemsForPage(this);
@@ -94,30 +94,131 @@ namespace DocGenOneMobileClient.Views
         internal class CriteriaDataTemplateSelector : DataTemplateSelector
         {
             DataTemplate regionTemplate;
-            DataTemplate floatValueTemplate;
+            DataTemplate foreArmLengthTemplate;
+            DataTemplate OuterCanineWidthTemplate;
+            DataTemplate TailLengthTemplate;
+            DataTemplate FootWithClawLengthTemplate;
+            DataTemplate PenisLengthTemplate;
+            DataTemplate HeadToBodyLengthTemplate;
+            DataTemplate WeightTemplate;
+            DataTemplate ThreeMetTemplate;
+            DataTemplate IsGularPoachPresentTemplate;
+            DataTemplate HasFleshyGenitalProjectionsTemplate;
 
             public CriteriaDataTemplateSelector()
             {
                 regionTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItemBase.Description), BindingMode.TwoWay), source: viewModel);
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.MapRegionsDisplayItem.Description), BindingMode.TwoWay));
 
-                    // var selectButton = new Button { Text = "Select" };
+                    var selectButton = new Button { Text = "Select" };
+                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(SearchPageViewModel.MapRegionsDisplayItem.OnSearch), BindingMode.TwoWay));
 
-                    // var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, selectButton }, Margin = 5 };
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, selectButton }, Margin = 5 };
 
-                    return new ViewCell { View = descriptionLabel };
+                    return new ViewCell { View = layout };
 
                 });
 
-                floatValueTemplate = new DataTemplate(() => {
+                foreArmLengthTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.CriteriaDisplayItemBase.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.ForeArmLengthDisplayItem.Description), BindingMode.TwoWay));
 
-                    // var selectButton = new Button { Text = "Select" };
-                    // var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, selectButton }, Margin = 5 };
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.ForeArmLengthDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
 
-                    return new ViewCell { View = descriptionLabel };
+                    return new ViewCell { View = layout };
+                });
+                OuterCanineWidthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.OuterCanineWidthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.OuterCanineWidthDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                TailLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.TailLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.TailLengthDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                FootWithClawLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.FootWithClawLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.FootWithClawLengthDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                PenisLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.PenisLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.PenisLengthDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                HeadToBodyLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.HeadToBodyLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.HeadToBodyLengthDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                WeightTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.WeightDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.WeightDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                ThreeMetTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.ThreeMetDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(SearchPageViewModel.ThreeMetDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueEntry }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                IsGularPoachPresentTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.IsGularPoachPresentDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueCheck = new Switch { };
+                    valueCheck.SetBinding(Switch.IsToggledProperty, new Binding(nameof(SearchPageViewModel.IsGularPoachPresentDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueCheck }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
+                });
+                HasFleshyGenitalProjectionsTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueCheck = new Switch { };
+                    valueCheck.SetBinding(Switch.IsToggledProperty, new Binding(nameof(SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Value), BindingMode.TwoWay));
+                    var layout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, valueCheck }, Margin = 5 };
+
+                    return new ViewCell { View = layout };
                 });
             }
 
@@ -127,16 +228,49 @@ namespace DocGenOneMobileClient.Views
                 {
                     return regionTemplate;
                 }
+                else if (item is SearchPageViewModel.ForeArmLengthDisplayItem)
+                {
+                    return foreArmLengthTemplate;
+                }
+                else if (item is SearchPageViewModel.OuterCanineWidthDisplayItem)
+                {
+                    return OuterCanineWidthTemplate;
+                }
+                else if (item is SearchPageViewModel.TailLengthDisplayItem)
+                {
+                    return TailLengthTemplate;
+                }
+                else if (item is SearchPageViewModel.FootWithClawLengthDisplayItem)
+                {
+                    return FootWithClawLengthTemplate;
+                }
+                else if (item is SearchPageViewModel.PenisLengthDisplayItem)
+                {
+                    return PenisLengthTemplate;
+                }
+                else if (item is SearchPageViewModel.HeadToBodyLengthDisplayItem)
+                {
+                    return HeadToBodyLengthTemplate;
+                }
+                else if (item is SearchPageViewModel.WeightDisplayItem)
+                {
+                    return WeightTemplate;
+                }
+                else if (item is SearchPageViewModel.ThreeMetDisplayItem)
+                {
+                    return ThreeMetTemplate;
+                }
+                else if (item is SearchPageViewModel.IsGularPoachPresentDisplayItem)
+                {
+                    return IsGularPoachPresentTemplate;
+                }
+                else if (item is SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem)
+                {
+                    return HasFleshyGenitalProjectionsTemplate;
+                }
                 else
                 {
-                    if (item is SearchPageViewModel.ForeArmLengthDisplayItem)
-                    {
-                        return floatValueTemplate;
-                    }
-                    else
-                    {
-                        return new DataTemplate();
-                    }
+                    throw new ApplicationException("Unidentified template type");
                 }
             }
         }

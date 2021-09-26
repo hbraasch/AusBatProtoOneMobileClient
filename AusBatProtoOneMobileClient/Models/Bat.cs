@@ -35,9 +35,9 @@ namespace AusBatProtoOneMobileClient.Data
 
         public void GenerateMockImageIds()
         {
-            Images.Add($"{ImageTag}_head.png");
-            Images.Add($"{ImageTag}2.png");
-            Images.Add($"{ImageTag}3.png");
+            Images.Add($"{ImageTag}_head.jpg");
+            Images.Add($"{ImageTag}2.jpg");
+            Images.Add($"{ImageTag}3.jpg");
         }
 
         public void GenerateMockDetails()

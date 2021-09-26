@@ -15,86 +15,161 @@ using Mobile.ViewModels;
 using Mobile.Helpers;
 using TreeApp.Helpers;
 using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.Data;
 
 namespace DocGenOneMobileClient.Views
 {
     public class SearchPageViewModel : ViewModelBase
     {
 
-        public class CriteriaDisplayItemBase
+        public abstract class CriteriaDisplayItemBase
         {
             public int Id { get; set; }
-            public string Description { get; set; } = "XXXXXXX";
             public int DisplayOrder { get; set; }
             public Action<CriteriaDisplayItemBase> OnChanged { get; set; }
-            public object Content { get; set; }
 
+            public abstract bool HasEntry();
+            public abstract List<Bat> ConductSearch();
         }
         public class MapRegionsDisplayItem: CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Regions";
+            public string Description { get; set; } = "Regions";
             public List<MapRegion> MapRegions { get; set; }
+            public ICommand OnSearch { get; set; }
+
+            public override List<Bat> ConductSearch()
+            {
+                return App.dbase.Bats.Where(o => o.MapRegions.Intersect(MapRegions, new RegionComparer()).Count() > 0).ToList();
+            }
+
+            public override bool HasEntry() => MapRegions?.Count > 0;
         }
         public class ForeArmLengthDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Forearm length (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Forearm length (mm)";
+            public string Value { get; set; }
+
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.ForeArmLength.Min <= value && value <= o.ForeArmLength.Max).ToList();
+            }
+
+            public override bool HasEntry() => Value != "";
         }
         public class OuterCanineWidthDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Outer canine width (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Outer canine width (mm)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.OuterCanineWidth.Min <= value && value <= o.OuterCanineWidth.Max).ToList();
+            }
         }
         public class TailLengthDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Tail length (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Tail length (mm)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.TailLength.Min <= value && value <= o.TailLength.Max).ToList();
+            }
         }
         public class FootWithClawLengthDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Foot with claw length (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Foot with claw length (mm)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.FootWithClawLength.Min <= value && value <= o.FootWithClawLength.Max).ToList();
+            }
         }
 
         public class PenisLengthDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Penis length (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Penis length (mm)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.PenisLength.Min <= value && value <= o.PenisLength.Max).ToList();
+            }
         }
         public class HeadToBodyLengthDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Head to body length (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Head to body length (mm)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.HeadToBodyLength.Min <= value && value <= o.HeadToBodyLength.Max).ToList();
+            }
         }
         public class WeightDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Weight (g)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "Weight (g)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.Weight.Min <= value && value <= o.Weight.Max).ToList();
+            }
         }
         public class ThreeMetDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "3-MET (mm)";
-            public float Value { get; set; }
+            public string Description { get; set; } = "3-MET (mm)";
+            public string Value { get; set; }
+            public override bool HasEntry() => Value != "";
+            public override List<Bat> ConductSearch()
+            {
+                float value = float.Parse(Value);
+                return App.dbase.Bats.Where(o => o.ThreeMet.Min <= value && value <= o.ThreeMet.Max).ToList();
+            }
         }
 
         public class IsGularPoachPresentDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Gular Poach present?";
-            public bool Value { get; set; }
+            public string Description { get; set; } = "Gular Poach present?";
+            public bool? Value { get; set; }
+            public override bool HasEntry() => Value != null;
+            public override List<Bat> ConductSearch()
+            {
+                return App.dbase.Bats.Where(o => o.IsGularPoachPresent).ToList();
+            }
         }
         public class HasFleshyGenitalProjectionsDisplayItem : CriteriaDisplayItemBase
         {
-            //public string Description { get; set; } = "Has fleshy genital projections?";
-            public bool Value { get; set; }
+            public string Description { get; set; } = "Has fleshy genital projections?";
+            public bool? Value { get; set; }
+            public override bool HasEntry() => Value != null;
+            public override List<Bat> ConductSearch()
+            {
+                return App.dbase.Bats.Where(o => o.HasFleshyGenitalProjections).ToList();
+            }
         }
 
         public ObservableCollection<CriteriaDisplayItemBase> CriteriaDisplayItems { get; set; }
 
-        public DisplayItem CriteriaSelectedItem { get; set; }
+        public CriteriaDisplayItemBase CriteriaSelectedItem { get; set; }
 
-        public ObservableCollection<DisplayItem> ResultsDisplayItems { get; set; }
 
-        public DisplayItem ResultsSelectedItem { get; set; }
+        public class ResultDisplayItem
+        {
+            public string Description { get; set; }
+            public object Content { get; set; }
+        }
+        public ObservableCollection<ResultDisplayItem> ResultsDisplayItems { get; set; }
+
+        public ResultDisplayItem ResultsSelectedItem { get; set; }
 
         public void OnSelectedItemChanged()
         {
@@ -122,7 +197,7 @@ namespace DocGenOneMobileClient.Views
         public SearchPageViewModel()
         {
             CriteriaDisplayItems = new ObservableCollection<CriteriaDisplayItemBase>();
-            ResultsDisplayItems = new ObservableCollection<DisplayItem>();
+            ResultsDisplayItems = new ObservableCollection<ResultDisplayItem>();
         }
 
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -138,6 +213,7 @@ namespace DocGenOneMobileClient.Views
                 });
 
                 CriteriaDisplayItems = GenerateCriteriaDisplay();
+                
                 ResultsDisplayItems = UpdateResultsDisplay();
 
             }
@@ -158,9 +234,8 @@ namespace DocGenOneMobileClient.Views
         public ObservableCollection<CriteriaDisplayItemBase> GenerateCriteriaDisplay()
         {
             var displayItems = new ObservableCollection<CriteriaDisplayItemBase>();
-            displayItems.Add(new MapRegionsDisplayItem());
+            displayItems.Add(new MapRegionsDisplayItem() { OnSearch = OnSearchButtonPressed });
             displayItems.Add(new ForeArmLengthDisplayItem());
-#if false
             displayItems.Add(new OuterCanineWidthDisplayItem());
             displayItems.Add(new TailLengthDisplayItem());
             displayItems.Add(new FootWithClawLengthDisplayItem());
@@ -170,7 +245,8 @@ namespace DocGenOneMobileClient.Views
             displayItems.Add(new ThreeMetDisplayItem());
             displayItems.Add(new IsGularPoachPresentDisplayItem());
             displayItems.Add(new HasFleshyGenitalProjectionsDisplayItem()); 
-#endif
+
+            displayItems.OrderBy(o=>o.DisplayOrder);
             return displayItems;
         }
 
@@ -184,9 +260,16 @@ namespace DocGenOneMobileClient.Views
             throw new NotImplementedException();
         }
 
-        public ObservableCollection<ListViewDataTemplate.DisplayItem> UpdateResultsDisplay()
+        public ObservableCollection<ResultDisplayItem> UpdateResultsDisplay(List<Bat> searchResults = null)
         {
-            var displayItems = new ObservableCollection<ListViewDataTemplate.DisplayItem>();
+            var displayItems = new ObservableCollection<ResultDisplayItem>();
+            if (searchResults == null) return displayItems;
+
+            foreach (var searchResult in searchResults)
+            {
+                displayItems.Add(new ResultDisplayItem { Description = searchResult.Name, Content = searchResult });
+            }
+
             return displayItems;
         }
 
@@ -223,11 +306,27 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
+                MapRegionsDisplayItem mapRegionsDisplayItem = null;
+                List<MapRegion> regions = new List<MapRegion>();
+                foreach (var displayItem in CriteriaDisplayItems)
+                {
+                    if (displayItem is MapRegionsDisplayItem)
+                    {
+                        mapRegionsDisplayItem = (MapRegionsDisplayItem) displayItem;
+                        regions = (displayItem as MapRegionsDisplayItem).MapRegions;
+                    }
+                }
+                var selectedRegions = (regions == null) ? new ObservableCollection<MapRegion>(): new ObservableCollection<MapRegion>(regions) ;
+                var viewModel = new SelectBatRegionsPageViewModel() { SelectedMapRegions = selectedRegions };
+                var page = new SelectBatRegionsPage(viewModel);
+                var accept = await NavigateToPageAsync(page, viewModel);
+                if (!accept) return;
+                mapRegionsDisplayItem.MapRegions = viewModel.SelectedMapRegions.ToList();
 
-                ActivityIndicatorStart();
+                List<Bat> searchResult = ConductSearch();
+                ResultsDisplayItems = UpdateResultsDisplay(searchResult);
 
-
-                CriteriaDisplayItems = GenerateCriteriaDisplay();
+                CriteriaDisplayItems = UpdateCriteriaDisplay();
 
             }
             catch (Exception ex)
@@ -240,7 +339,39 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
+        private List<Bat> ConductSearch()
+        {
+            List<CriteriaDisplayItemBase> activeCriteria = new List<CriteriaDisplayItemBase>();
+            foreach (var displayItem in CriteriaDisplayItems)
+            {              
+                if (displayItem is MapRegionsDisplayItem)
+                {
+                    if (displayItem.HasEntry()) activeCriteria.Add(displayItem); 
+                }
+            }
 
+            List<Bat> currentResults = new List<Bat>();
+            foreach (var criteria in activeCriteria)
+            {
+                var interimResult = criteria.ConductSearch();
+                if (interimResult.Count == 0) return new List<Bat>();
+                if (currentResults.Count == 0)
+                {
+                    currentResults = interimResult;
+                }
+                else
+                {
+                    currentResults = (List<Bat>)currentResults.Intersect(interimResult, new BatComparer());
+                    if (currentResults.Count == 0) return new List<Bat>();
+                }
+            }
+            return currentResults;
+        }
+
+        private ObservableCollection<CriteriaDisplayItemBase> UpdateCriteriaDisplay()
+        {
+            return CriteriaDisplayItems;
+        }
 
         public ICommand OnEditMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
         {
@@ -291,13 +422,15 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public ICommand OnRenameMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        public ICommand OnResultsListTapped => commandHelper.ProduceDebouncedCommand(async () =>
         {
 
             try
             {
-                ActivityIndicatorStart();
-
+                var bat = ResultsSelectedItem.Content as Bat;
+                var viewModel = new DisplayBatTabbedPageViewModel(bat);
+                var page = new DisplayBatTabbed(viewModel);
+                await NavigateToPageAsync(page, viewModel);
 
             }
             catch (Exception ex) when (ex is BusinessException exb)
@@ -314,6 +447,32 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
+    }
+
+    internal class RegionComparer : IEqualityComparer<MapRegion>
+    {
+        public bool Equals(MapRegion x, MapRegion y)
+        {
+            return x.Id == y.Id;
+        }
+
+        public int GetHashCode(MapRegion obj)
+        {
+            return obj.Id.GetHashCode();
+        }
+    }
+
+    internal class BatComparer : IEqualityComparer<Bat>
+    {
+        public bool Equals(Bat x, Bat y)
+        {
+            return x.Name == y.Name ;
+        }
+
+        public int GetHashCode(Bat obj)
+        {
+            return obj.Name.GetHashCode();
+        }
     }
 }
 
