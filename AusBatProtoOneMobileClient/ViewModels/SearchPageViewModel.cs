@@ -36,6 +36,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "Regions";
             public List<MapRegion> MapRegions { get; set; }
+            public string SelectionAmount { get; set; }
             public ICommand OnSearch { get; set; }
 
             public override List<Bat> ConductSearch()
@@ -140,21 +141,31 @@ namespace DocGenOneMobileClient.Views
         public class IsGularPoachPresentDisplayItem : CriteriaDisplayItemBase
         {
             public string Description { get; set; } = "Gular Poach present?";
-            public bool? Value { get; set; }
-            public override bool HasEntry() => Value != null;
+            public IsPresent Value { get; set; } = IsPresent.DoNotCare;
+            public List<IsPresent> Values { get; set; } = new List<IsPresent> { IsPresent.DoNotCare, IsPresent.IsPresent, IsPresent.IsNotPresent };
+            public override bool HasEntry() => Value != IsPresent.DoNotCare;
             public override List<Bat> ConductSearch()
             {
-                return App.dbase.Bats.Where(o => o.IsGularPoachPresent).ToList();
+                if (Value == IsPresent.DoNotCare)
+                {
+                    return App.dbase.Bats;
+                }
+                return App.dbase.Bats.Where(o => o.IsGularPoachPresent == Value).ToList();
             }
         }
         public class HasFleshyGenitalProjectionsDisplayItem : CriteriaDisplayItemBase
         {
             public string Description { get; set; } = "Has fleshy genital projections?";
-            public bool? Value { get; set; }
-            public override bool HasEntry() => Value != null;
+            public IsPresent Value { get; set; } = IsPresent.DoNotCare;
+            public List<IsPresent> Values { get; set; } = new List<IsPresent> { IsPresent.DoNotCare, IsPresent.IsPresent, IsPresent.IsNotPresent };
+            public override bool HasEntry() => Value != IsPresent.DoNotCare;
             public override List<Bat> ConductSearch()
             {
-                return App.dbase.Bats.Where(o => o.HasFleshyGenitalProjections).ToList();
+                if (Value == IsPresent.DoNotCare)
+                {
+                    return App.dbase.Bats;
+                }
+                return App.dbase.Bats.Where(o => o.HasFleshyGenitalProjections == Value).ToList();
             }
         }
 
@@ -235,7 +246,7 @@ namespace DocGenOneMobileClient.Views
         public ObservableCollection<CriteriaDisplayItemBase> GenerateCriteriaDisplay()
         {
             var displayItems = new ObservableCollection<CriteriaDisplayItemBase>();
-            displayItems.Add(new MapRegionsDisplayItem() { OnSearch = OnSearchButtonPressed });
+            displayItems.Add(new MapRegionsDisplayItem() { OnSearch = OnRegionSelectButtonPressed });
             displayItems.Add(new ForeArmLengthDisplayItem());
             displayItems.Add(new OuterCanineWidthDisplayItem());
             displayItems.Add(new TailLengthDisplayItem());
@@ -303,7 +314,7 @@ namespace DocGenOneMobileClient.Views
         });
 
 
-        public ICommand OnSearchButtonPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        public ICommand OnRegionSelectButtonPressed => commandHelper.ProduceDebouncedCommand(async () =>
         {
             try
             {
@@ -322,13 +333,29 @@ namespace DocGenOneMobileClient.Views
                 var page = new SelectBatRegionsPage(viewModel);
                 var accept = await NavigateToPageAsync(page, viewModel);
                 if (!accept) return;
-                mapRegionsDisplayItem.MapRegions = viewModel.SelectedMapRegions.ToList();
+
+                var updatedDisplayItem = new MapRegionsDisplayItem { Description = mapRegionsDisplayItem.Description, MapRegions = viewModel.SelectedMapRegions.ToList(), SelectionAmount = $"{viewModel.SelectedMapRegions.Count} selected", OnSearch = OnRegionSelectButtonPressed };
+                CriteriaDisplayItems[CriteriaDisplayItems.IndexOf(mapRegionsDisplayItem)] = updatedDisplayItem;
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
+        public ICommand OnSearchButtonPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        {
+            try
+            {
+                ActivityIndicatorStart();
 
                 List<Bat> searchResult = ConductSearch();
                 ResultsDisplayItems = UpdateResultsDisplay(searchResult);
-
                 CriteriaDisplayItems = UpdateCriteriaDisplay();
-
             }
             catch (Exception ex)
             {

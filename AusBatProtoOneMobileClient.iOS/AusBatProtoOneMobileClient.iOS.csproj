@@ -63,11 +63,13 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\GhostTreeview\IndentLabelIOS.cs">
+    <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\IndentLabelIOS.cs">
       <Link>IndentLabelIOS.cs</Link>
     </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="TouchEffectIOS.cs" />
+    <Compile Include="TouchRecognizer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

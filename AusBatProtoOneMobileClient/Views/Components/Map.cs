@@ -46,8 +46,8 @@ namespace AusBatProtoOneMobileClient.Views.Components
             frame.Margin = 0;
             frame.CornerRadius = 0;
             frame.BackgroundColor = Color.Transparent;
-            frame.HorizontalOptions = LayoutOptions.Center;
-            frame.VerticalOptions = LayoutOptions.Center;
+            frame.HorizontalOptions = LayoutOptions.CenterAndExpand;
+            frame.VerticalOptions = LayoutOptions.CenterAndExpand;
 
 
             TouchEffect touchEffect = new TouchEffect();
@@ -56,9 +56,10 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
             RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
             ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            Children.Add(frame, 0, 0);
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
+
+            Children.Add(frame, 0, 0);
 
             MakeItemsVisible(SelectedItems);
         }
@@ -95,8 +96,10 @@ namespace AusBatProtoOneMobileClient.Views.Components
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
-            WidthRequest = 300;
+            WidthRequest = 400;
             HeightRequest = WidthRequest * aspect;
+            frame.WidthRequest = 400;
+            frame.HeightRequest = WidthRequest * aspect;
         }
 
         private void OnTouchEffectAction(object sender, TouchActionEventArgs args)

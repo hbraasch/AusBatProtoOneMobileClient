@@ -101,15 +101,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\BusinessException.cs" Link="Helpers\BusinessException.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\CommandHelper.cs" Link="Helpers\CommandHelper.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\ContentPageBase.cs" Link="Helpers\ContentPageBase.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\CustomActivityIndicator.cs" Link="Helpers\CustomActivityIndicator.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\Extensions.cs" Link="Helpers\Extensions.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\GhostTreeview\GhostTreeview.cs" Link="Helpers\GhostTreeview.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\GhostTreeview\IndentLabel.cs" Link="Helpers\IndentLabel.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\MenuGenerator.cs" Link="Helpers\MenuGenerator.cs" />
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\ViewModelBase.cs" Link="Helpers\ViewModelBase.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\BusinessException.cs" Link="Helpers\BusinessException.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\CommandHelper.cs" Link="Helpers\CommandHelper.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\ContentPageBase.cs" Link="Helpers\ContentPageBase.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\CustomActivityIndicator.cs" Link="Helpers\CustomActivityIndicator.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\Extensions.cs" Link="Helpers\Extensions.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\GhostTreeview.cs" Link="Helpers\GhostTreeview.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\IndentLabel.cs" Link="Helpers\IndentLabel.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\MenuGenerator.cs" Link="Helpers\MenuGenerator.cs" />
+    <Compile Include="..\..\XamarinMobileClientShared\ViewModelBase.cs" Link="Helpers\ViewModelBase.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -134,6 +134,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Helpers\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
 

@@ -90,7 +90,7 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\XamarinMobileClientShared\XamarinMobileClientShared\GhostTreeview\IdentLabelUwp.cs">
+    <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\IdentLabelUwp.cs">
       <Link>IdentLabelUwp.cs</Link>
     </Compile>
     <Compile Include="App.xaml.cs">

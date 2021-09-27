@@ -24,13 +24,13 @@ namespace AusBatProtoOneMobileClient.Data
         public FloatRange HeadToBodyLength { get; set; } = FloatRange.GetRandom(75, 87);
         public FloatRange Weight { get; set; } = FloatRange.GetRandom(30, 48);
         public FloatRange ThreeMet{ get; set; } = FloatRange.GetRandom(33, 40);
-        public bool IsGularPoachPresent { get; set; } = GetRandomBool();
-        public bool HasFleshyGenitalProjections { get; set; } = GetRandomBool();
+        public IsPresent IsGularPoachPresent { get; set; } = GetRandomIsPresent();
+        public IsPresent HasFleshyGenitalProjections { get; set; } = GetRandomIsPresent();
 
-        public static bool GetRandomBool()
+        public static IsPresent GetRandomIsPresent()
         {
             System.Random random = new System.Random();
-            return (random.NextDouble() > 0.5) ? true : false;
+            return (random.NextDouble() > 0.5) ? IsPresent.IsPresent : IsPresent.IsNotPresent;
         }
 
         public void GenerateMockImageIds()
@@ -109,6 +109,11 @@ namespace AusBatProtoOneMobileClient.Data
     {
         public string CallImage { get; set; }
         public string CallFilename { get; set; }
+    }
+
+    public enum IsPresent
+    {
+        IsPresent, IsNotPresent, DoNotCare
     }
 
 

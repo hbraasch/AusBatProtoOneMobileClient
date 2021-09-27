@@ -52,13 +52,8 @@ namespace AusBatProtoOneMobileClient
             Content = centeredLayout;
 
             menu = new MenuGenerator().Configure()
-                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png")
-                .AddMenuItem("test", "Test", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnTestMenuPressed.Execute(null); }, iconPath: "ic_check.png");
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png");
                 
-
-            menu.SetVisibilityFactors(viewModel, "IsLoggedIn")
-                .ToShowMenuItem("test", null);
-
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(ClassificationPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
             menu.FindMenuUnit("back").isVisible = viewModel.IsPageReturnable;

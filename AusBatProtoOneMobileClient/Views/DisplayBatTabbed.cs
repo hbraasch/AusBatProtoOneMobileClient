@@ -37,7 +37,8 @@ namespace AusBatProtoOneMobileClient
             // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
             BarBackgroundColor = Xamarin.Forms.Color.Black;
             BarTextColor = Xamarin.Forms.Color.White;
-            On<Windows>().SetHeaderIconsEnabled(true);
+            
+            //On<Windows>().SetHeaderIconsEnabled(true);
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png");

@@ -106,7 +106,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             try
             {
                 var viewModel = new SearchPageViewModel();
-                var page = new SearchPage(viewModel);
+                var page = new SearchPageTabbed(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
