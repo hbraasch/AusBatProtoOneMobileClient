@@ -22,34 +22,65 @@ namespace AusBatProtoOneMobileClient
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
+            introButton.Clicked += (s, e) => { viewModel.OnIntroButtonClicked.Execute(null); };
 
-            var keyToFamiliesButton = new Button
+            var familyKeyButton = new Button
             {
-                Text = "Key to Families",
+                Text = "Family Key",
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
-            keyToFamiliesButton.Clicked += (s, e) => { viewModel.OnClassificationClicked.Execute(null); };
+            familyKeyButton.Clicked += (s, e) => { viewModel.OnFamilyKeyButtonClicked.Execute(null); };
 
-            var identificationKeysButton = new Button
+            var speciesAtozButton = new Button
+            {
+                Text = "Species A-Z",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+            };
+            speciesAtozButton.Clicked += (s, e) => { viewModel.OnSpeciesAtoZClicked.Execute(null); };
+
+            var speciesByFamilyButton = new Button
+            {
+                Text = "Species by Family",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+            };
+            speciesAtozButton.Clicked += (s, e) => { viewModel.OnSpeciesByFamilyClicked.Execute(null); };
+
+            var areaListingButton = new Button
+            {
+                Text = "Area Listing",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+            };
+            areaListingButton.Clicked += (s, e) => { viewModel.OnAreaListingClicked.Execute(null); };
+
+            var characterKeysButton = new Button
             {
                 Text = "Identification Keys",
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
-            identificationKeysButton.Clicked += (s, e) => { viewModel.OnIdentificationKeysClicked.Execute(null); };
+            characterKeysButton.Clicked += (s, e) => { viewModel.OnCharacterKeysClicked.Execute(null); };
 
-            var searchButton = new Button
+            var aboutButton = new Button
             {
-                Text = "Search",
+                Text = "About",
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
+            aboutButton.Clicked += (s, e) => { viewModel.OnAboutClicked.Execute(null); };
+
+
 
             var grid = new Grid
             {
                 RowDefinitions =
                 {
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
@@ -64,9 +95,12 @@ namespace AusBatProtoOneMobileClient
                 BackgroundColor = Color.Transparent
             };
             grid.Children.Add(introButton, 0, 0);
-            grid.Children.Add(keyToFamiliesButton, 0, 1);
-            grid.Children.Add(identificationKeysButton, 0, 2);
-            grid.Children.Add(searchButton, 0, 3);
+            grid.Children.Add(familyKeyButton, 0, 1);
+            grid.Children.Add(speciesAtozButton, 0, 2);
+            grid.Children.Add(speciesByFamilyButton, 0, 3);
+            grid.Children.Add(areaListingButton, 0, 4);
+            grid.Children.Add(characterKeysButton, 0, 5);
+            grid.Children.Add(aboutButton, 0, 6);
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
 
@@ -92,11 +126,8 @@ namespace AusBatProtoOneMobileClient
             Content = centeredLayout;
 
             menu = new MenuGenerator().Configure()
-                .AddMenuItem("test", "Test", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnGenerateMockDataPressed.Execute(null); }, iconPath: "ic_check.png");
+                .AddMenuItem("init", "Init", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
                 
-
-            menu.SetVisibilityFactors(viewModel, "IsLoggedIn")
-                .ToShowMenuItem("test", null);
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(StartupPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));

@@ -13,5 +13,6 @@ namespace AusBatProtoOneMobileClient.Models
         public string Id { get; set; }
         public ClassificationType Type { get; set; }
         public string Parent { get; set; }
+        public string ImageTag { get; set; }
     }
 }

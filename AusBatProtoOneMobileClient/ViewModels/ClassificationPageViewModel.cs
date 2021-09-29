@@ -151,7 +151,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             try
             {
                 var classification = (SelectedItem.Content as Classification);
-                var bat = App.dbase.Bats.FirstOrDefault(o=>o.ClassificationId == classification.Id);
+                var bat = App.dbase.Bats.FirstOrDefault(o=>o.GenusId == classification.Id);
                 if (bat == null) throw new BusinessException("Select a [species]");
 
                 var viewModel = new DisplayBatTabbedPageViewModel(bat);

@@ -66,6 +66,7 @@
     <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\IndentLabelIOS.cs">
       <Link>IndentLabelIOS.cs</Link>
     </Compile>
+    <Compile Include="ImageCheckerIOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="TouchEffectIOS.cs" />

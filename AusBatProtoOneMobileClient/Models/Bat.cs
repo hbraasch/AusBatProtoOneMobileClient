@@ -1,17 +1,27 @@
-﻿using AusBatProtoOneMobileClient.Models;
+﻿using AusBatProtoOneMobileClient.Helpers;
+using AusBatProtoOneMobileClient.Models;
+using Mobile.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using TreeApp.Helpers;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Data
 {
     public class Bat
     {
-        public string ClassificationId { get; set; } 
+        public string GenusId { get; set; }
+        public string SpeciesId { get; set; }
         public string Name { get; set; }
-        public string Details { get; set; }
-        public string ImageTag { get; set; }
+        public string DetailsHtml { get; set; }
+        public string DataTag { get; set; }
         public List<string> Images { get; set; } = new List<string>();
         public List<CallDataItem> Calls { get; set; } = new List<CallDataItem>();
         public List<MapRegion> MapRegions { get; set; } = new List<MapRegion>();
@@ -24,25 +34,21 @@ namespace AusBatProtoOneMobileClient.Data
         public FloatRange HeadToBodyLength { get; set; } = FloatRange.GetRandom(75, 87);
         public FloatRange Weight { get; set; } = FloatRange.GetRandom(30, 48);
         public FloatRange ThreeMet{ get; set; } = FloatRange.GetRandom(33, 40);
-        public IsPresent IsGularPoachPresent { get; set; } = GetRandomIsPresent();
-        public IsPresent HasFleshyGenitalProjections { get; set; } = GetRandomIsPresent();
+        public IsCharacteristicPresent IsGularPoachPresent { get; set; } = GetRandomIsPresent();
+        public IsCharacteristicPresent HasFleshyGenitalProjections { get; set; } = GetRandomIsPresent();
 
-        public static IsPresent GetRandomIsPresent()
+
+
+        public static IsCharacteristicPresent GetRandomIsPresent()
         {
             System.Random random = new System.Random();
-            return (random.NextDouble() > 0.5) ? IsPresent.IsPresent : IsPresent.IsNotPresent;
+            return (random.NextDouble() > 0.5) ? IsCharacteristicPresent.Is_present : IsCharacteristicPresent.Is_not_present;
         }
 
-        public void GenerateMockImageIds()
-        {
-            Images.Add($"{ImageTag}_head.jpg");
-            Images.Add($"{ImageTag}2.jpg");
-            Images.Add($"{ImageTag}3.jpg");
-        }
 
         public void GenerateMockDetails()
         {
-            Details = $"<p><strong>ForeArmLength</strong><br />{ForeArmLength.Min} - {ForeArmLength.Max} mm<br /><strong>" +
+            DetailsHtml = $"<p><strong>ForeArmLength</strong><br />{ForeArmLength.Min} - {ForeArmLength.Max} mm<br /><strong>" +
                 $"OuterCanineWidth</strong><br />{OuterCanineWidth.Min} - {OuterCanineWidth.Max} mm<br /><strong>" +
                 $"TailLength</strong><br />{TailLength.Min} - {TailLength.Max} mm<br /><strong>" +
                 $"FootWithClawLength</strong><br />{FootWithClawLength.Min} - {FootWithClawLength.Max} mm<br /><strong>" +
@@ -55,29 +61,140 @@ namespace AusBatProtoOneMobileClient.Data
                 $"HasFleshyGenitalProjections</strong> = {HasFleshyGenitalProjections}</p>";
         }
 
-        public void GenerateMockRegions(List<MapRegion> regions)
+
+        internal void LoadDetails()
         {
-            var rnd = new Random();
-            var randomRegions = regions.ToRandomOrder();
-            var regionAmount = rnd.Next(1, regions.Count - 1);
-            for (int i = 0; i < regionAmount; i++)
+            try
             {
-                MapRegions.Add(randomRegions[i]);
+                using (Stream stream = FileHelper.GetStreamFromFile($"Data.BatDetails.{DataTag.ToLower()}.html"))
+                {
+                    if (stream == null)
+                    {
+                        Debug.WriteLine($"Details file for [{DataTag}] does not exist");
+                        DetailsHtml = @"<p>No detials defined</p>";
+                        return;
+                    }
+
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string detailsHtml = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(detailsHtml))
+                        {
+                            throw new BusinessException($"No data inside details file for [{DataTag}]");
+                        }
+                        DetailsHtml = detailsHtml;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading details file for [{DataTag}]. {ex.Message}");
             }
         }
 
-        public void GenerateMockCalls()
+        internal void LoadImages()
         {
-            var images = new List<string> { "aust_australis.jpg", "chaer_job.jpg", "chal_dwyeri.jpg", "chal_gouldi.jpg", "chal_morio.jpg", "chal_nigro.jpg", "doryhi_semoni.jpg" };
-            var audioFiles = new List<string> { "bat.wav", "bat2.wav", "bat3.wav" };
-            var rnd = new Random();
-            var imagesAmount = rnd.Next(1, images.Count - 1);
-            Calls = new List<CallDataItem>();
-            var randomImages = images.ToRandomOrder();
-            for (int i = 0; i < imagesAmount; i++)
+            var postFixes = new List<string> { "_head.jpg", "2.jpg", "3.jpg" };
+            foreach (var postFix in postFixes)
             {
-                var randomAudioFile = audioFiles[rnd.Next(0, audioFiles.Count - 1)];
-                Calls.Add(new CallDataItem { CallImage = randomImages[i], CallFilename = randomAudioFile });                          
+                var imageName = $"{DataTag.ToLower()}{postFix}";
+                if (ImageChecker.DoesImageExist(imageName))
+                {
+                    Images.Add(imageName);
+                }
+            }
+            if (Images.Count == 0)
+            {
+                Debug.WriteLine($"No images exist for[{DataTag}]");
+                Images.Add("bat.png");
+            }
+        }
+
+        
+
+        internal void LoadCalls()
+        {
+            try
+            {
+                bool isCallAudioExist = true;
+                bool IsCallImageExist = true;
+                using (Stream stream = FileHelper.GetStreamFromFile($"Data.CallAudio.{DataTag.ToLower()}.wav"))
+                {
+                    if (stream == null)
+                    {
+                        Debug.WriteLine($"Call audio file for [{DataTag}] does not exist");
+                        isCallAudioExist = false;
+                    }
+                    else
+                    {
+                        using (Stream stream2 = FileHelper.GetStreamFromFile($"Data.CallImages.{DataTag.ToLower()}.jpg"))
+                        {
+                            if (stream2 == null)
+                            {
+                                Debug.WriteLine($"Call image file for [{DataTag}] does not exist");
+                                IsCallImageExist = false;
+                            }
+                        }
+                    }
+                    if (isCallAudioExist && IsCallImageExist)
+                    {
+                        Calls.Add(new CallDataItem { CallImage = $"{DataTag}.wav", CallFilename = $"{DataTag}.jpg" });
+                    }
+                    else if (isCallAudioExist)
+                    {
+                        Calls.Add(new CallDataItem { CallImage = $"{DataTag}.wav", CallFilename = "" });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem finding call files for [{DataTag}]. {ex.Message}");
+            }
+        }
+
+        internal void LoadRegions()
+        {
+            try
+            {
+                var regionFilename = $"Data.BatRegions.{DataTag.ToLower()}_regions.json";
+                using (Stream stream = FileHelper.GetStreamFromFile(regionFilename))
+                {
+                    if (stream == null)
+                    {
+                        Debug.WriteLine($"Regions file for [{DataTag}] does not exist");
+                        return;
+                    }
+
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string regionsJson = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(regionsJson))
+                        {
+                            throw new BusinessException($"No data inside regions file for [{DataTag}]");
+                        }
+                        try
+                        {
+                            var regionIds = JsonConvert.DeserializeObject<List<int>>(regionsJson);
+                            foreach (var regionId in regionIds)
+                            {
+                                var mapRegion = App.dbase.MapRegions.FirstOrDefault(o=>o.Id == regionId);
+                                if (mapRegion == null)
+                                {
+                                    throw new BusinessException($"Data inside [{DataTag}] regions file refers to non-existing region [{regionId}]");
+                                }
+                                MapRegions.Add(mapRegion);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new BusinessException($"JSON paring error in [{DataTag}] regions file. {ex.Message}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading details file for [{DataTag}]. {ex.Message}");
             }
         }
     }
@@ -111,9 +228,9 @@ namespace AusBatProtoOneMobileClient.Data
         public string CallFilename { get; set; }
     }
 
-    public enum IsPresent
+    public enum IsCharacteristicPresent
     {
-        IsPresent, IsNotPresent, DoNotCare
+        Is_present, Is_not_present, Do_not_care
     }
 
 

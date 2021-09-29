@@ -268,7 +268,7 @@ namespace DocGenOneMobileClient.Views
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.IsGularPoachPresentDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.IsGularPoachPresentDisplayItem.Values), BindingMode.OneWay, new IsPresentToListConverter()));
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.IsGularPoachPresentDisplayItem.Values), BindingMode.OneWay));
                     valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.IsGularPoachPresentDisplayItem.Value), BindingMode.TwoWay));
 
                     var grid = new Grid();
@@ -287,7 +287,7 @@ namespace DocGenOneMobileClient.Views
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Values), BindingMode.OneWay, new IsPresentToListConverter()));
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Values), BindingMode.OneWay));
                     valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Value), BindingMode.TwoWay));
 
                     var grid = new Grid();
@@ -359,17 +359,5 @@ namespace DocGenOneMobileClient.Views
 
     }
 
-    internal class IsPresentToListConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var isPresent = (List<IsPresent>) value;
-            return isPresent.Select(o => $"{o}").ToList();
-        }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }

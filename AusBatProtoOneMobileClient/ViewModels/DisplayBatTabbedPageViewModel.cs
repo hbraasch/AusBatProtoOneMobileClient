@@ -1,4 +1,5 @@
 ﻿using AusBatProtoOneMobileClient.Data;
+using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
 using Mobile.ViewModels;
@@ -54,7 +55,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ImageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
                 }
 
-            DetailsHtmlSource.Html = bat.Details;
+            DetailsHtmlSource.Html = bat.DetailsHtml;
 
 
             foreach (var region in bat.MapRegions)
@@ -132,7 +133,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 else
                 {
                     var audioFilename = CallDataItems[CallDataItemIndex].CallFilename;
-                    player.Load(GetStreamFromFile($"Data.CallAudio.{audioFilename}"));
+                    player.Load(FileHelper.GetStreamFromFile($"Data.CallAudio.{audioFilename}"));
                     player.Play();
                     IsPlaying = true;
                 }
@@ -156,14 +157,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        Stream GetStreamFromFile(string filename)
-        {
-            var assembly = typeof(App).GetTypeInfo().Assembly;
 
-            var stream = assembly.GetManifestResourceStream("AusBatProtoOneMobileClient." + filename);
-
-            return stream;
-        }
         public ICommand OnTestMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {

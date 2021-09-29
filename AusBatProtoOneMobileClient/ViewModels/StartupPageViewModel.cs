@@ -77,11 +77,35 @@ namespace AusBatProtoOneMobileClient.ViewModels
         });
         
 
-        public ICommand OnClassificationClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnIntroButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new IntroductionPageViewModel();
+                var page = new IntroductionPage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
              try
              {
-                var viewModel = new ClassificationPageViewModel();
-                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                var viewModel = new SpeciesByFamilyPageViewModel();
+                var page = new SpeciesByFamilyPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
              }
              catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -102,7 +126,81 @@ namespace AusBatProtoOneMobileClient.ViewModels
              }
          });
 
-        public ICommand OnIdentificationKeysClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnSpeciesAtoZClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new ClassificationPageViewModel();
+                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
+        public ICommand OnSpeciesByFamilyClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new ClassificationPageViewModel();
+                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
+        public ICommand OnAreaListingClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new ClassificationPageViewModel();
+                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        public ICommand OnCharacterKeysClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
                 var viewModel = new SearchPageViewModel();
@@ -127,79 +225,34 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        public ICommand OnGenerateMockDataPressed => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnAboutClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var dbase = new Dbase();
-
-                var hotspotRadius = 0.05f;
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 102, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.79, 0.21), Radius = hotspotRadius} } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 103, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.81, 0.32), Radius = hotspotRadius} } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 104, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.87, 0.42), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 105, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.93, 0.59), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 106, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.87, 0.70), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 107, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.81, 0.80), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 108, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.78, 0.94), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 201, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.73, 0.23), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 202, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.70, 0.50), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 203, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.73, 0.72), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 301, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.46, 0.13), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 302, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.31, 0.23), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 304, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.50, 0.29), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 306, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.28, 0.40), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 307, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.12, 0.41), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 308, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.07, 0.50), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 309, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.19, 0.59), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 310, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.37, 0.61), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 311, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.56, 0.67), Radius = hotspotRadius } } });
-                dbase.MapRegions.Add(new Models.MapRegion { Id = 312, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.63, 0.66), Radius = hotspotRadius } } });
-
-                dbase.Classifications.Add(new Classification { Id = "Molossid", Type = Classification.ClassificationType.Family });
-                    dbase.Classifications.Add(new Classification { Id = "Mormopterus", Type = Classification.ClassificationType.Genus, Parent = "Molossid" });
-                        dbase.Classifications.Add(new Classification { Id = "Cobourgianus", Type = Classification.ClassificationType.Species, Parent = "Mormopterus" });
-                        dbase.Classifications.Add(new Classification { Id = "Ridei", Type = Classification.ClassificationType.Species, Parent = "Mormopterus" });
-                    dbase.Classifications.Add(new Classification { Id = "Chaerephon", Type = Classification.ClassificationType.Genus, Parent = "Molossid" });
-                        dbase.Classifications.Add(new Classification { Id = "Jobensis", Type = Classification.ClassificationType.Species, Parent = "Chaerephon" });
-                dbase.Classifications.Add(new Classification { Id = "Vespertilionidae", Type = Classification.ClassificationType.Family });
-                    dbase.Classifications.Add(new Classification { Id = "Chalinolobus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
-                        dbase.Classifications.Add(new Classification { Id = "Dwyeri", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
-                        dbase.Classifications.Add(new Classification { Id = "Gouldii", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
-                    dbase.Classifications.Add(new Classification { Id = "Falsistrellus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
-                        dbase.Classifications.Add(new Classification { Id = "Mackenziei", Type = Classification.ClassificationType.Species, Parent = "Falsistrellus" });
-                        dbase.Classifications.Add(new Classification { Id = "Tasmaniensis", Type = Classification.ClassificationType.Species, Parent = "Falsistrellus" });
-
-
-                dbase.Bats.Add(new Bat {ClassificationId = "Cobourgianus", Name = "Western little free-tailed bat", ImageTag = "aust_aust" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Ridei", Name = "Eastern little free-tailed bat", ImageTag = "chae_job" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Jobensis", Name = "Great Northern free-tailed bat", ImageTag = "chal_dwye" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Dwyeri", Name = "Large-eared pied bat", ImageTag = "chal_gould" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Gouldii", Name = "Gould's wattled bat", ImageTag = "chal_morio" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Mackenziei", Name = "Western false pipistrelle", ImageTag = "dory_semon" });
-                dbase.Bats.Add(new Bat { ClassificationId = "Tasmaniensis", Name = "Eastern false pipistrelle", ImageTag = "chal_nigro" });
-
-                foreach (var bat in dbase.Bats)
-                {
-                    bat.GenerateMockImageIds();
-                    bat.GenerateMockDetails();
-                    bat.GenerateMockRegions(dbase.MapRegions);
-                    bat.GenerateMockCalls();
-                }
-
-
-                var folderPath = Path.Combine(FileSystem.AppDataDirectory, "Library");
-                if (!Directory.Exists(folderPath))
-                {
-                    Directory.CreateDirectory(folderPath);
-                }
-                Debug.WriteLine($"Writing files to path: {folderPath}");
-
-                var classifJson = JsonConvert.SerializeObject(dbase.Classifications, Formatting.Indented);
-                File.WriteAllText(Path.Combine(folderPath,"classification.json"), classifJson);
-                var batsJson = JsonConvert.SerializeObject(dbase.Bats, Formatting.Indented);
-                File.WriteAllText(Path.Combine(folderPath, "bats.json"), batsJson);
-
-                Dbase.Save(dbase);
-                App.dbase = dbase;
+                var viewModel = new SearchPageViewModel();
+                var page = new SearchPageTabbed(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        public ICommand OnInitPressed => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                App.dbase.Init();
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {

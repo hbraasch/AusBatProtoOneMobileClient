@@ -57,13 +57,13 @@ namespace DocGenOneMobileClient.Views
                 return App.dbase.Bats.Where(o => o.ForeArmLength.Min <= value && value <= o.ForeArmLength.Max).ToList();
             }
 
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
         }
         public class OuterCanineWidthDisplayItem : CriteriaDisplayItemBase
         {
             public string Description { get; set; } = "Outer canine width (mm)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -74,7 +74,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "Tail length (mm)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -85,7 +85,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "Foot with claw length (mm)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -97,7 +97,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "Penis length (mm)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -108,7 +108,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "Head to body length (mm)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -119,7 +119,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "Weight (g)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -130,7 +130,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string Description { get; set; } = "3-MET (mm)";
             public string Value { get; set; }
-            public override bool HasEntry() => Value != "";
+            public override bool HasEntry() => !string.IsNullOrEmpty(Value);
             public override List<Bat> ConductSearch()
             {
                 float value = float.Parse(Value);
@@ -141,31 +141,33 @@ namespace DocGenOneMobileClient.Views
         public class IsGularPoachPresentDisplayItem : CriteriaDisplayItemBase
         {
             public string Description { get; set; } = "Gular Poach present?";
-            public IsPresent Value { get; set; } = IsPresent.DoNotCare;
-            public List<IsPresent> Values { get; set; } = new List<IsPresent> { IsPresent.DoNotCare, IsPresent.IsPresent, IsPresent.IsNotPresent };
-            public override bool HasEntry() => Value != IsPresent.DoNotCare;
+            public string Value { get; set; } 
+            public List<string> Values { get; set; } = new List<string> { IsCharacteristicPresent.Do_not_care.ToString(), IsCharacteristicPresent.Is_present.ToString(), IsCharacteristicPresent.Is_not_present.ToString() };
+            public override bool HasEntry() => Value != null && Value != IsCharacteristicPresent.Do_not_care.ToString();
             public override List<Bat> ConductSearch()
             {
-                if (Value == IsPresent.DoNotCare)
+                if (Value == IsCharacteristicPresent.Do_not_care.ToString())
                 {
                     return App.dbase.Bats;
                 }
-                return App.dbase.Bats.Where(o => o.IsGularPoachPresent == Value).ToList();
+                var value = (IsCharacteristicPresent)Enum.Parse(typeof(IsCharacteristicPresent), Value);
+                return App.dbase.Bats.Where(o => o.IsGularPoachPresent == value).ToList();
             }
         }
         public class HasFleshyGenitalProjectionsDisplayItem : CriteriaDisplayItemBase
         {
             public string Description { get; set; } = "Has fleshy genital projections?";
-            public IsPresent Value { get; set; } = IsPresent.DoNotCare;
-            public List<IsPresent> Values { get; set; } = new List<IsPresent> { IsPresent.DoNotCare, IsPresent.IsPresent, IsPresent.IsNotPresent };
-            public override bool HasEntry() => Value != IsPresent.DoNotCare;
+            public string Value { get; set; }
+            public List<string> Values { get; set; } = new List<string> { IsCharacteristicPresent.Do_not_care.ToString(), IsCharacteristicPresent.Is_present.ToString(), IsCharacteristicPresent.Is_not_present.ToString() };
+            public override bool HasEntry() => Value != null && Value != IsCharacteristicPresent.Do_not_care.ToString();
             public override List<Bat> ConductSearch()
             {
-                if (Value == IsPresent.DoNotCare)
+                if (Value == IsCharacteristicPresent.Do_not_care.ToString())
                 {
                     return App.dbase.Bats;
                 }
-                return App.dbase.Bats.Where(o => o.HasFleshyGenitalProjections == Value).ToList();
+                var value = (IsCharacteristicPresent) Enum.Parse(typeof(IsCharacteristicPresent), Value);
+                return App.dbase.Bats.Where(o => o.HasFleshyGenitalProjections == value).ToList();
             }
         }
 
@@ -371,11 +373,8 @@ namespace DocGenOneMobileClient.Views
         {
             List<CriteriaDisplayItemBase> activeCriteria = new List<CriteriaDisplayItemBase>();
             foreach (var displayItem in CriteriaDisplayItems)
-            {              
-                if (displayItem is MapRegionsDisplayItem)
-                {
-                    if (displayItem.HasEntry()) activeCriteria.Add(displayItem); 
-                }
+            {
+                if (displayItem.HasEntry()) activeCriteria.Add(displayItem);
             }
 
             List<Bat> currentResults = new List<Bat>();
@@ -389,8 +388,8 @@ namespace DocGenOneMobileClient.Views
                 }
                 else
                 {
-                    currentResults = (List<Bat>)currentResults.Intersect(interimResult, new BatComparer());
-                    if (currentResults.Count == 0) return new List<Bat>();
+                    currentResults = currentResults.Intersect(interimResult, new BatComparer()).ToList();
+                    if (currentResults == null) return new List<Bat>();
                 }
             }
             return currentResults;

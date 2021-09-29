@@ -6,38 +6,255 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\BatImages\aust_aust2.jpg" />
+    <None Remove="Data\BatDetails\aust_aust.html" />
+    <None Remove="Data\BatDetails\default.html" />
+    <None Remove="Data\BatImages\Aust_aust2.jpg" />
     <None Remove="Data\BatImages\aust_aust2.png" />
-    <None Remove="Data\BatImages\aust_aust3.jpg" />
-    <None Remove="Data\BatImages\aust_aust_head.jpg" />
-    <None Remove="Data\BatImages\chae_job1.jpg" />
-    <None Remove="Data\BatImages\chae_job2.jpg" />
-    <None Remove="Data\BatImages\chae_job_head.jpg" />
-    <None Remove="Data\BatImages\chal_dwye1.jpg" />
-    <None Remove="Data\BatImages\chal_dwye2.jpg" />
-    <None Remove="Data\BatImages\chal_dwye_head.jpg" />
-    <None Remove="Data\BatImages\chal_gould.jpg" />
-    <None Remove="Data\BatImages\chal_gould2.jpg" />
-    <None Remove="Data\BatImages\chal_gould_head.jpg" />
-    <None Remove="Data\BatImages\chal_morio1.jpg" />
-    <None Remove="Data\BatImages\chal_morio2.jpg" />
-    <None Remove="Data\BatImages\chal_morio_head.jpg" />
-    <None Remove="Data\BatImages\chal_nigro1.jpg" />
-    <None Remove="Data\BatImages\chal_nigro2.jpg" />
-    <None Remove="Data\BatImages\chal_nigro_head.jpg" />
-    <None Remove="Data\BatImages\dory_semon1.jpg" />
-    <None Remove="Data\BatImages\dory_semon3.jpg" />
-    <None Remove="Data\BatImages\dory_semon_head.jpg" />
-    <None Remove="Data\CallAudio\bat.wav" />
-    <None Remove="Data\CallAudio\bat2.wav" />
-    <None Remove="Data\CallAudio\bat3.wav" />
-    <None Remove="Data\CallImages\aust_australis.jpg" />
-    <None Remove="Data\CallImages\chaer_job.jpg" />
-    <None Remove="Data\CallImages\chal_dwyeri.jpg" />
-    <None Remove="Data\CallImages\chal_gouldi.jpg" />
-    <None Remove="Data\CallImages\chal_morio.jpg" />
-    <None Remove="Data\CallImages\chal_nigro.jpg" />
-    <None Remove="Data\CallImages\doryhi_semoni.jpg" />
+    <None Remove="Data\BatImages\Aust_aust3.jpg" />
+    <None Remove="Data\BatImages\Aust_aust_head.jpg" />
+    <None Remove="Data\BatImages\bat.png" />
+    <None Remove="Data\BatImages\Chae_job1.jpg" />
+    <None Remove="Data\BatImages\Chae_job2.jpg" />
+    <None Remove="Data\BatImages\Chae_job_Head.jpg" />
+    <None Remove="Data\BatImages\Chal_dwye1.jpg" />
+    <None Remove="Data\BatImages\Chal_dwye2.jpg" />
+    <None Remove="Data\BatImages\Chal_dwye_head.jpg" />
+    <None Remove="Data\BatImages\Chal_gould.jpg" />
+    <None Remove="Data\BatImages\Chal_gould2.jpg" />
+    <None Remove="Data\BatImages\Chal_gould_head.jpg" />
+    <None Remove="Data\BatImages\Chal_morio1.jpg" />
+    <None Remove="Data\BatImages\Chal_morio2.jpg" />
+    <None Remove="Data\BatImages\Chal_morio_head.jpg" />
+    <None Remove="Data\BatImages\Chal_nigro1.jpg" />
+    <None Remove="Data\BatImages\Chal_nigro2.jpg" />
+    <None Remove="Data\BatImages\Chal_nigro_head.jpg" />
+    <None Remove="Data\BatImages\Chal_pic1.jpg" />
+    <None Remove="Data\BatImages\Chal_pic2.jpg" />
+    <None Remove="Data\BatImages\Chal_pic_head.jpg" />
+    <None Remove="Data\BatImages\cob_mag1.jpg" />
+    <None Remove="Data\BatImages\cob_mag2.jpg" />
+    <None Remove="Data\BatImages\cob_mag_head.jpg" />
+    <None Remove="Data\BatImages\Dobs_Family_Pic.jpg" />
+    <None Remove="Data\BatImages\Dory_semon1.jpg" />
+    <None Remove="Data\BatImages\Dory_semon3.jpg" />
+    <None Remove="Data\BatImages\Dory_semon_head.jpg" />
+    <None Remove="Data\BatImages\Dory_stenot1.jpg" />
+    <None Remove="Data\BatImages\Dory_stenot_head.jpg" />
+    <None Remove="Data\BatImages\Embal_family.jpg" />
+    <None Remove="Data\BatImages\Falsi_mack1.jpg" />
+    <None Remove="Data\BatImages\Falsi_mack2.jpg" />
+    <None Remove="Data\BatImages\Falsi_mack_head.jpg" />
+    <None Remove="Data\BatImages\Falsi_tasman1.jpg" />
+    <None Remove="Data\BatImages\Falsi_tasman2.jpg" />
+    <None Remove="Data\BatImages\Falsi_tasman_head.jpg" />
+    <None Remove="Data\BatImages\Hipp_ater2.jpg" />
+    <None Remove="Data\BatImages\Hipp_ater3.jpg" />
+    <None Remove="Data\BatImages\hipp_ater_head.jpg" />
+    <None Remove="Data\BatImages\Hipp_cerv3.jpg" />
+    <None Remove="Data\BatImages\hipp_cerv_head.jpg" />
+    <None Remove="Data\BatImages\Hipp_diadem1.jpg" />
+    <None Remove="Data\BatImages\Hipp_diadem2.jpg" />
+    <None Remove="Data\BatImages\Hipp_diadem_head.jpg" />
+    <None Remove="Data\BatImages\Hipp_family.jpg" />
+    <None Remove="Data\BatImages\Hipp_inorn1.jpg" />
+    <None Remove="Data\BatImages\Hipp_inorn2.jpg" />
+    <None Remove="Data\BatImages\Hipp_inorn_head.jpg" />
+    <None Remove="Data\BatImages\Macro_family_pic.jpg" />
+    <None Remove="Data\BatImages\Macro_family_pic1.jpg" />
+    <None Remove="Data\BatImages\Macro_gigas1.jpg" />
+    <None Remove="Data\BatImages\Macro_gigas2.jpg" />
+    <None Remove="Data\BatImages\Macro_gigas_head.jpg" />
+    <None Remove="Data\BatImages\Macro_minimus1.jpg" />
+    <None Remove="Data\BatImages\Macro_minimus2.jpg" />
+    <None Remove="Data\BatImages\Macro_minimus_head.jpg" />
+    <None Remove="Data\BatImages\Micro_norfolk1.jpg" />
+    <None Remove="Data\BatImages\Micro_norfolk_head.jpg" />
+    <None Remove="Data\BatImages\Mini_aust1.jpg" />
+    <None Remove="Data\BatImages\Mini_aust2.jpg" />
+    <None Remove="Data\BatImages\Mini_aust_head.jpg" />
+    <None Remove="Data\BatImages\Mini_oc_bassani1.jpg" />
+    <None Remove="Data\BatImages\Mini_oc_bassani2.jpg" />
+    <None Remove="Data\BatImages\Mini_oc_bassani_head.jpg" />
+    <None Remove="Data\BatImages\Mini_or_ocean1.jpg" />
+    <None Remove="Data\BatImages\mini_or_ocean2.jpg" />
+    <None Remove="Data\BatImages\Mini_or_ocean_head.jpg" />
+    <None Remove="Data\BatImages\Mini_or_orianae1.jpg" />
+    <None Remove="Data\BatImages\Mini_or_orianae2.jpg" />
+    <None Remove="Data\BatImages\Mini_or_orianae_head.jpg" />
+    <None Remove="Data\BatImages\Murin_florium1.jpg" />
+    <None Remove="Data\BatImages\Murin_florium2.jpg" />
+    <None Remove="Data\BatImages\Murin_florium_head.jpg" />
+    <None Remove="Data\BatImages\myct_arnhem_head.jpg" />
+    <None Remove="Data\BatImages\Myotis_mac1.jpg" />
+    <None Remove="Data\BatImages\Myot_mac2.jpg" />
+    <None Remove="Data\BatImages\Myot_mac_head.jpg" />
+    <None Remove="Data\BatImages\Nyctophilus-sherrini.jpg" />
+    <None Remove="Data\BatImages\Nyct_arnhem1.jpg" />
+    <None Remove="Data\BatImages\Nyct_arnhem2.jpg" />
+    <None Remove="Data\BatImages\Nyct_bifax3.jpg" />
+    <None Remove="Data\BatImages\Nyct_bifax4.jpg" />
+    <None Remove="Data\BatImages\Nyct_bifax_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_corben1.jpg" />
+    <None Remove="Data\BatImages\Nyct_corben2.jpg" />
+    <None Remove="Data\BatImages\Nyct_corben_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_daed2.jpg" />
+    <None Remove="Data\BatImages\Nyct_daed3.jpg" />
+    <None Remove="Data\BatImages\Nyct_daed_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_geoff1.jpg" />
+    <None Remove="Data\BatImages\Nyct_geoff2.jpg" />
+    <None Remove="Data\BatImages\Nyct_geoff_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_gould1.jpg" />
+    <None Remove="Data\BatImages\Nyct_gould2.jpg" />
+    <None Remove="Data\BatImages\Nyct_gould_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_holt.jpg" />
+    <None Remove="Data\BatImages\Nyct_holt2.jpg" />
+    <None Remove="Data\BatImages\Nyct_major1.jpg" />
+    <None Remove="Data\BatImages\Nyct_major2.jpg" />
+    <None Remove="Data\BatImages\Nyct_major_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_major_tor1.jpg" />
+    <None Remove="Data\BatImages\Nyct_major_tor2.jpg" />
+    <None Remove="Data\BatImages\Nyct_major_tor_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_robin1.jpg" />
+    <None Remove="Data\BatImages\Nyct_robin2.jpg" />
+    <None Remove="Data\BatImages\Nyct_robin_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_sherrim_head.jpg" />
+    <None Remove="Data\BatImages\Nyct_walkeri3.jpg" />
+    <None Remove="Data\BatImages\Nyct_walkeri4.jpg" />
+    <None Remove="Data\BatImages\Nyct_walkeri_head.jpg" />
+    <None Remove="Data\BatImages\Ozie_halli2.jpg" />
+    <None Remove="Data\BatImages\Ozie_kitchen1.jpg" />
+    <None Remove="Data\BatImages\Ozie_kitchen2.jpg" />
+    <None Remove="Data\BatImages\Ozie_planic2.jpg" />
+    <None Remove="Data\BatImages\Ozie_ridei1.jpg" />
+    <None Remove="Data\BatImages\Ozie_ridei2.jpg" />
+    <None Remove="Data\BatImages\Ozi_coburg2.jpg" />
+    <None Remove="Data\BatImages\Ozi_coburg3.jpg" />
+    <None Remove="Data\BatImages\Ozi_coburghead.jpg" />
+    <None Remove="Data\BatImages\Ozi_coburg_head.jpg" />
+    <None Remove="Data\BatImages\Ozi_kitchen_head.jpg" />
+    <None Remove="Data\BatImages\Ozi_lumsd1.jpg" />
+    <None Remove="Data\BatImages\Ozi_lumsd2.jpg" />
+    <None Remove="Data\BatImages\Ozi_lumsd_head.jpg" />
+    <None Remove="Data\BatImages\Ozi_peters1.jpg" />
+    <None Remove="Data\BatImages\Ozi_peters2.jpg" />
+    <None Remove="Data\BatImages\Ozi_peters_head.jpg" />
+    <None Remove="Data\BatImages\Ozi_planic1.jpg" />
+    <None Remove="Data\BatImages\Ozi_planic_head.jpg" />
+    <None Remove="Data\BatImages\perop_alect1.jpg" />
+    <None Remove="Data\BatImages\phino_inter_head.jpg" />
+    <None Remove="Data\BatImages\Phoni_pap1.jpg" />
+    <None Remove="Data\BatImages\Phoni_pap2.jpg" />
+    <None Remove="Data\BatImages\Phoni_pap_head.jpg" />
+    <None Remove="Data\BatImages\Pip_adams1.jpg" />
+    <None Remove="Data\BatImages\Pip_adams2.jpg" />
+    <None Remove="Data\BatImages\Pip_adams_head.jpg" />
+    <None Remove="Data\BatImages\Pip_west1.jpg" />
+    <None Remove="Data\BatImages\Pip_west2.jpg" />
+    <None Remove="Data\BatImages\Pip_west_head.jpg" />
+    <None Remove="Data\BatImages\Pterop_alect2.jpg" />
+    <None Remove="Data\BatImages\Pterop_alect3.jpg" />
+    <None Remove="Data\BatImages\Pterop_alect_head.jpg" />
+    <None Remove="Data\BatImages\Pterop_conspic1.jpg" />
+    <None Remove="Data\BatImages\Pterop_conspic_head.jpg" />
+    <None Remove="Data\BatImages\Pterop_natalis1.jpg" />
+    <None Remove="Data\BatImages\Pterop_natalis2.jpg" />
+    <None Remove="Data\BatImages\Pterop_natalis_head.jpg" />
+    <None Remove="Data\BatImages\Pterop_polioc1.jpg" />
+    <None Remove="Data\BatImages\Pterop_polioc2.jpg" />
+    <None Remove="Data\BatImages\Pterop_polioc3.jpg" />
+    <None Remove="Data\BatImages\Pterop_scap1.jpg" />
+    <None Remove="Data\BatImages\Pterop_scap2.jpg" />
+    <None Remove="Data\BatImages\Pterop_scap_head.jpg" />
+    <None Remove="Data\BatImages\Rhinon_aurant1.jpg" />
+    <None Remove="Data\BatImages\Rhinon_aurant2.jpg" />
+    <None Remove="Data\BatImages\Rhinon_aurant3.jpg" />
+    <None Remove="Data\BatImages\Rhinon_aurant_head.jpg" />
+    <None Remove="Data\BatImages\Rhino_intermed1.jpg" />
+    <None Remove="Data\BatImages\Rhino_intermed2.jpg" />
+    <None Remove="Data\BatImages\Rhino_mega1.jpg" />
+    <None Remove="Data\BatImages\Rhino_mega3.jpg" />
+    <None Remove="Data\BatImages\Rhino_mega_head.jpg" />
+    <None Remove="Data\BatImages\Rhino_robert1.jpg" />
+    <None Remove="Data\BatImages\Rhino_robert2.jpg" />
+    <None Remove="Data\BatImages\Rhino_robert_head.jpg" />
+    <None Remove="Data\BatImages\Rhino_sp1.jpg" />
+    <None Remove="Data\BatImages\Rhino_sp2.jpg" />
+    <None Remove="Data\BatImages\Rhino_spHead.jpg" />
+    <None Remove="Data\BatImages\Sacc_flav1.jpg" />
+    <None Remove="Data\BatImages\Sacc_flav2.jpg" />
+    <None Remove="Data\BatImages\Sacc_flav_head.jpg" />
+    <None Remove="Data\BatImages\Sacc_mixtus1.jpg" />
+    <None Remove="Data\BatImages\Sacc_sacc2.jpg" />
+    <None Remove="Data\BatImages\Sacc_sacc3.jpg" />
+    <None Remove="Data\BatImages\Sacc_sacc_head.jpg" />
+    <None Remove="Data\BatImages\Scoto_parnaby2.jpg" />
+    <None Remove="Data\BatImages\Scot_balst1.jpg" />
+    <None Remove="Data\BatImages\Scot_balst2.jpg" />
+    <None Remove="Data\BatImages\Scot_balst_head.jpg" />
+    <None Remove="Data\BatImages\Scot_greyi1.jpg" />
+    <None Remove="Data\BatImages\Scot_greyi2.jpg" />
+    <None Remove="Data\BatImages\Scot_greyi_head.jpg" />
+    <None Remove="Data\BatImages\Scot_orion1.jpg" />
+    <None Remove="Data\BatImages\Scot_parnaby1.jpg" />
+    <None Remove="Data\BatImages\Scot_parnaby_head.jpg" />
+    <None Remove="Data\BatImages\Scot_ruepp1.jpg" />
+    <None Remove="Data\BatImages\Scot_sanborn1.jpg" />
+    <None Remove="Data\BatImages\Scot_sanborn2.jpg" />
+    <None Remove="Data\BatImages\Scot_sanborn_head.jpg" />
+    <None Remove="Data\BatImages\Seti_eleryi1.jpg" />
+    <None Remove="Data\BatImages\Seti_eleryi2.jpg" />
+    <None Remove="Data\BatImages\Seti_eleryi_head.jpg" />
+    <None Remove="Data\BatImages\Sycon_aust1.jpg" />
+    <None Remove="Data\BatImages\Sycon_aust2.jpg" />
+    <None Remove="Data\BatImages\Sycon_aust_head.jpg" />
+    <None Remove="Data\BatImages\Taph_aust1.jpg" />
+    <None Remove="Data\BatImages\Taph_aust2.jpg" />
+    <None Remove="Data\BatImages\Taph_aust_head.jpg" />
+    <None Remove="Data\BatImages\Taph_georg1.jpg" />
+    <None Remove="Data\BatImages\Taph_georg2.jpg" />
+    <None Remove="Data\BatImages\Taph_georg_head.jpg" />
+    <None Remove="Data\BatImages\Taph_hilli1.jpg" />
+    <None Remove="Data\BatImages\Taph_hilli2.jpg" />
+    <None Remove="Data\BatImages\Taph_hilli_head.jpg" />
+    <None Remove="Data\BatImages\Taph_kapalg1.jpg" />
+    <None Remove="Data\BatImages\Taph_trought1.jpg" />
+    <None Remove="Data\BatImages\Taph_trought2.jpg" />
+    <None Remove="Data\BatImages\Taph_trought_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_baver1.jpg" />
+    <None Remove="Data\BatImages\Vesp_baver2.jpg" />
+    <None Remove="Data\BatImages\Vesp_baver_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_caur1.jpg" />
+    <None Remove="Data\BatImages\Vesp_caur2.jpg" />
+    <None Remove="Data\BatImages\Vesp_caur_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_darling1.jpg" />
+    <None Remove="Data\BatImages\Vesp_darling2.jpg" />
+    <None Remove="Data\BatImages\Vesp_darling_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_douglas1.jpg" />
+    <None Remove="Data\BatImages\Vesp_douglas2.jpg" />
+    <None Remove="Data\BatImages\Vesp_douglas_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_family.jpg" />
+    <None Remove="Data\BatImages\Vesp_finlay1.jpg" />
+    <None Remove="Data\BatImages\Vesp_finlay2.jpg" />
+    <None Remove="Data\BatImages\Vesp_finlay_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_pumilus1.jpg" />
+    <None Remove="Data\BatImages\Vesp_pumilus2.jpg" />
+    <None Remove="Data\BatImages\Vesp_pumilus_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_regulus1.jpg" />
+    <None Remove="Data\BatImages\Vesp_regulus2.jpg" />
+    <None Remove="Data\BatImages\Vesp_regulus_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_trought2.jpg" />
+    <None Remove="Data\BatImages\Vesp_trought_head.jpg" />
+    <None Remove="Data\BatImages\Vesp_vult1.jpg" />
+    <None Remove="Data\BatImages\Vesp_vult2.jpg" />
+    <None Remove="Data\BatImages\Vesp_vult_head.jpg" />
+    <None Remove="Data\BatRegions\aust_aust_regions.json" />
+    <None Remove="Data\CallAudio\aust_aust.wav" />
+    <None Remove="Data\CallAudio\chae_job.wav" />
+    <None Remove="Data\CallAudio\chal_dwye.wav" />
+    <None Remove="Data\CallImages\aust_aust.jpg" />
+    <None Remove="Data\CallImages\chae_job.jpg" />
+    <None Remove="Data\CallImages\Chal_dwye.jpg" />
+    <None Remove="Data\Introduction\Introduction.html" />
     <None Remove="Data\Map\map.jpg" />
     <None Remove="Data\Map\map000.jpg" />
     <None Remove="Data\Map\map000.png" />
@@ -113,11 +330,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\CallAudio\bat.wav">
+    <EmbeddedResource Include="Data\BatDetails\aust_aust.html" />
+    <EmbeddedResource Include="Data\BatDetails\default.html" />
+    <EmbeddedResource Include="Data\BatRegions\aust_aust_regions.json" />
+    <EmbeddedResource Include="Data\CallAudio\aust_aust.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\CallAudio\bat2.wav" />
-    <EmbeddedResource Include="Data\CallAudio\bat3.wav" />
+    <EmbeddedResource Include="Data\CallAudio\chae_job.wav" />
+    <EmbeddedResource Include="Data\CallAudio\chal_dwye.wav" />
+    <EmbeddedResource Include="Data\Introduction\introduction.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -134,14 +355,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Helpers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <SharedImage Include="Data\BatImages\aust_aust2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\aust_aust3.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\aust_aust_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\bat.png" BaseSize="150,150"/>
     <SharedImage Include="Data\BatImages\chae_job1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job_head.jpg" BaseSize="150,150" />
@@ -157,16 +374,228 @@
     <SharedImage Include="Data\BatImages\chal_nigro1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chal_nigro2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chal_nigro_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\chal_pic1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\chal_pic2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\chal_pic_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\dobs_Family_Pic.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\cob_mag1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\cob_mag2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\cob_mag_head.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\dory_semon1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\dory_semon3.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\dory_semon_head.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\aust_australis.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chaer_job.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chal_dwyeri.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chal_gouldi.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chal_morio.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chal_nigro.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\doryhi_semoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\dory_stenot1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\dory_stenot_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\embal_family.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\falsi_mack1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\falsi_mack2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\falsi_mack_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\falsi_tasman1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\falsi_tasman2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\falsi_tasman_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_ater_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_ater2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_ater3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_cerv_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_cerv3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_diadem1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_diadem2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_diadem_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_family.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_inorn1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_inorn2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\hipp_inorn_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_family_pic.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_family_pic1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_gigas1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_gigas2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_gigas_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_minimus1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_minimus2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\macro_minimus_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\micro_norfolk1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\micro_norfolk_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_aust1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_aust2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_aust_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_oc_bassani1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_oc_bassani2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_oc_bassani_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_or_ocean1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_or_ocean2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_or_ocean_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_or_orianae1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_or_orianae2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\mini_or_orianae_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\murin_florium1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\murin_florium2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\murin_florium_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\myotis_mac1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\myot_mac2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\myot_mac_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyctophilus-sherrini.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_arnhem1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_arnhem2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\myct_arnhem_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_bifax3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_bifax4.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_bifax_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_corben1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_corben2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_corben_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_daed2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_daed3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_daed_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_geoff1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_geoff2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_geoff_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_gould1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_gould2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_gould_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_holt.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_holt2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_major1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_major2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_major_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_major_tor1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_major_tor2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_major_tor_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_robin1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_robin2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_robin_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_sherrim_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_walkeri3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_walkeri4.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\nyct_walkeri_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozie_halli2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozie_kitchen1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozie_kitchen2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozie_planic2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozie_ridei1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozie_ridei2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_coburg2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_coburg3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_coburghead.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_coburg_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_kitchen_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_lumsd1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_lumsd2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_lumsd_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_peters1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_peters2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_peters_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_planic1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\ozi_planic_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\phoni_pap1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\phoni_pap2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\phoni_pap_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pip_adams1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pip_adams2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pip_adams_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pip_west1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pip_west2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pip_west_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\perop_alect1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_alect2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_alect3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_alect_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_conspic1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_conspic_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_natalis1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_natalis2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_natalis_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_polioc1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_polioc2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_polioc3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_scap1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_scap2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\pterop_scap_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhinon_aurant1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhinon_aurant2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhinon_aurant3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhinon_aurant_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_intermed1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_intermed2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\phino_inter_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_mega1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_mega3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_mega_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_robert1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_robert2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_robert_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_sp1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_sp2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\rhino_spHead.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_flav1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_flav2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_flav_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_mixtus1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_sacc2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_sacc3.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sacc_sacc_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scoto_parnaby2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_balst1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_balst2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_balst_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_greyi1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_greyi2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_greyi_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_orion1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_parnaby1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_parnaby_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_ruepp1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_sanborn1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_sanborn2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\scot_sanborn_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\seti_eleryi1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\seti_eleryi2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\seti_eleryi_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sycon_aust1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sycon_aust2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\sycon_aust_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_aust1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_aust2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_aust_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_georg1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_georg2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_georg_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_hilli1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_hilli2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_hilli_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_kapalg1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_trought1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_trought2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\taph_trought_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_baver1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_baver2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_baver_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_caur1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_caur2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_caur_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_darling1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_darling2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_darling_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_douglas1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_douglas2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_douglas_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_family.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_finlay1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_finlay2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_finlay_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_pumilus1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_pumilus2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_pumilus_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_regulus1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_regulus2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_regulus_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_trought2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_trought_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_vult1.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_vult2.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\BatImages\vesp_vult_head.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\CallImages\aust_aust.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\CallImages\chae_job.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\CallImages\chal_dwye.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\Map\map.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\Map\map000.png" BaseSize="150,150" />
     <SharedImage Include="Data\Map\map102.png" BaseSize="150,150" />
