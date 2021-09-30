@@ -14,7 +14,10 @@ namespace DocGenOneMobileClient.Views
 
             BindingContext = viewModel;
 
-            var resultsListView = new ListView { SelectionMode = ListViewSelectionMode.Single };
+            var resultsListView = new ListView { 
+                SelectionMode = ListViewSelectionMode.Single,
+                SeparatorColor = Constants.APP_COLOUR
+            };
             resultsListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SearchPageViewModel.ResultsDisplayItems), BindingMode.TwoWay));
             resultsListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SearchPageViewModel.ResultsSelectedItem), BindingMode.TwoWay));
             resultsListView.ItemTapped += (s, e) => { viewModel.OnResultsListTapped.Execute(null); };

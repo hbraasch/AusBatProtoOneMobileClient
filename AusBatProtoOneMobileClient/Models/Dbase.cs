@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -355,6 +356,16 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 throw;
             }
+        }
+
+        internal List<Bat> GetAllSpecies(Classification genus)
+        {
+            return App.dbase.Bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").Where(o => o.GenusId == genus.Id).ToList();
+        }
+
+        internal List<Bat> GetAllSpecies()
+        {
+            return App.dbase.Bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList(); 
         }
 
         private string LoadIntroduction()

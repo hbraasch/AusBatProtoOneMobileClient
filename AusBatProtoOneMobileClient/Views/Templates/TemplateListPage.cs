@@ -1,4 +1,5 @@
-﻿using Mobile.Helpers;
+﻿using AusBatProtoOneMobileClient.Models;
+using Mobile.Helpers;
 using Mobile.ViewModels;
 using Xamarin.Forms;
 
@@ -17,7 +18,7 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var listView = new ListView { SelectionMode = ListViewSelectionMode.Single };
+            var listView = new ListView { SelectionMode = ListViewSelectionMode.Single, SeparatorColor = Constants.APP_COLOUR };
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(TemplateListListsPageViewModel.DisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(TemplateListListsPageViewModel.SelectedItem), BindingMode.TwoWay));
             listView.ItemTapped += (s, e) => { ToggleSelection(e, listView); };

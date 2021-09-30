@@ -50,11 +50,11 @@ namespace AusBatProtoOneMobileClient
 
             var areaListingButton = new Button
             {
-                Text = "Area Listing",
+                Text = "Area Listings",
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
-            areaListingButton.Clicked += (s, e) => { viewModel.OnSpeciesAtoZClicked.Execute(null); };
+            areaListingButton.Clicked += (s, e) => { viewModel.OnAreaListingsClicked.Execute(null); };
 
             var characterKeysButton = new Button
             {
@@ -99,8 +99,8 @@ namespace AusBatProtoOneMobileClient
             grid.Children.Add(speciesAtozButton, 0, 2);
             grid.Children.Add(speciesByFamilyButton, 0, 3);
             grid.Children.Add(areaListingButton, 0, 4);
-            grid.Children.Add(characterKeysButton, 0, 5);
-            grid.Children.Add(aboutButton, 0, 6);
+            //grid.Children.Add(characterKeysButton, 0, 5);
+            grid.Children.Add(aboutButton, 0, 5);
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
 

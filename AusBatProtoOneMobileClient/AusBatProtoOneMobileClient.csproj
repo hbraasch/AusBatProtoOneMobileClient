@@ -248,6 +248,8 @@
     <None Remove="Data\BatImages\Vesp_vult2.jpg" />
     <None Remove="Data\BatImages\Vesp_vult_head.jpg" />
     <None Remove="Data\BatRegions\aust_aust_regions.json" />
+    <None Remove="Data\BatRegions\macro_minimus_regions.json" />
+    <None Remove="Data\BatRegions\pterop_alect_regions.json" />
     <None Remove="Data\CallAudio\aust_aust.wav" />
     <None Remove="Data\CallAudio\chae_job.wav" />
     <None Remove="Data\CallAudio\chal_dwye.wav" />
@@ -332,6 +334,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Data\BatDetails\macro_minimus.html" />
     <EmbeddedResource Include="Data\BatDetails\aust_aust.html" />
+    <EmbeddedResource Include="Data\BatRegions\pterop_alect_regions.json" />
+    <EmbeddedResource Include="Data\BatRegions\macro_minimus_regions.json" />
     <EmbeddedResource Include="Data\BatRegions\aust_aust_regions.json" />
     <EmbeddedResource Include="Data\CallAudio\aust_aust.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

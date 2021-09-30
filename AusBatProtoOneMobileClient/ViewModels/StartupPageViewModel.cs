@@ -7,8 +7,10 @@ using Mobile.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -154,8 +156,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new ClassificationPageViewModel();
-                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                var viewModel = new FamilyKeyPageViewModel();
+                var page = new FamilyKeyPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -176,12 +178,20 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        public ICommand OnAreaListingClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnAreaListingsClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new ClassificationPageViewModel();
-                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                var selectedRegions =  new ObservableCollection<MapRegion>();
+                var viewModelRegions = new SelectBatRegionsPageViewModel() { SelectedMapRegions = selectedRegions };
+                var pageRegions = new SelectBatRegionsPage(viewModelRegions);
+                var accept = await NavigateToPageAsync(pageRegions, viewModelRegions);
+                if (!accept) return;
+                selectedRegions = viewModelRegions.SelectedMapRegions;
+
+                var viewModel = new SpeciesKeyPageViewModel(selectedRegions.ToList());
+                var page = new SpeciesKeyPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
+
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {

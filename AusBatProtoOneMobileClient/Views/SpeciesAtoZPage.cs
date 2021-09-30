@@ -25,7 +25,8 @@ namespace DocGenOneMobileClient.Views
                 HasUnevenRows = true,
                 IsGroupingEnabled = true,
                 GroupDisplayBinding = new Binding (nameof(GroupedSpeciesDisplayItem.Alphabet)),
-                BackgroundColor = Color.Transparent
+                BackgroundColor = Color.Transparent,
+                SeparatorColor = Constants.APP_COLOUR
             };
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SpeciesGroupDisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SelectedItem), BindingMode.TwoWay));
