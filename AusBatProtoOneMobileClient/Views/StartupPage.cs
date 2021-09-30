@@ -46,7 +46,7 @@ namespace AusBatProtoOneMobileClient
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
-            speciesAtozButton.Clicked += (s, e) => { viewModel.OnSpeciesByFamilyClicked.Execute(null); };
+            speciesByFamilyButton.Clicked += (s, e) => { viewModel.OnSpeciesByFamilyClicked.Execute(null); };
 
             var areaListingButton = new Button
             {
@@ -54,7 +54,7 @@ namespace AusBatProtoOneMobileClient
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
-            areaListingButton.Clicked += (s, e) => { viewModel.OnAreaListingClicked.Execute(null); };
+            areaListingButton.Clicked += (s, e) => { viewModel.OnSpeciesAtoZClicked.Execute(null); };
 
             var characterKeysButton = new Button
             {
@@ -104,10 +104,10 @@ namespace AusBatProtoOneMobileClient
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
 
-            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = "background.png" };
+            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
 
             Title = Constants.APP_NAME;
-            BackgroundImageSource = "background.png";
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             var centeredLayout = new AbsoluteLayout
             {

@@ -10,7 +10,7 @@ namespace AusBatProtoOneMobileClient.Models
         public static Style ContentPageStyle = new Style(typeof(ContentPage))
         {
             Setters = {
-                new Setter { Property = ContentPage.BackgroundImageSourceProperty,   Value = "background.png" }
+                new Setter { Property = ContentPage.BackgroundImageSourceProperty,   Value = Constants.BACKGROUND_IMAGE }
             }
         };
         public static Style NavigationPageStyle = new Style(typeof(NavigationPage))

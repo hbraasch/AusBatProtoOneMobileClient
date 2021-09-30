@@ -19,22 +19,22 @@ using AusBatProtoOneMobileClient.Data;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class SpeciesByFamilyPageViewModel : ViewModelBase
+    public class SpeciesAtoZPageViewModel : ViewModelBase
     {
         public class SpeciesDisplayItem
         {
             public string SpeciesName { get; set; }
             public string FriendlyName { get; set; }
+            
             public string ImageSource { get; set; }
             public Bat Bat { get; set; }
         }
         public class GroupedSpeciesDisplayItem : ObservableCollection<SpeciesDisplayItem>
         {
-            public string FamilyName { get; set; }
-            public string ImageSource { get; set; }
+            public string Alphabet { get; set; }
         }
 
-        public ObservableCollection<GroupedSpeciesDisplayItem> FamilyGroupDisplayItems { get; set; }
+        public ObservableCollection<GroupedSpeciesDisplayItem> SpeciesGroupDisplayItems { get; set; }
 
         public GroupedSpeciesDisplayItem pageTypeGroup {get;set;}
 
@@ -63,9 +63,9 @@ namespace DocGenOneMobileClient.Views
         #endregion
           
 
-        public SpeciesByFamilyPageViewModel()
+        public SpeciesAtoZPageViewModel()
         {
-            FamilyGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            SpeciesGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
         }
 
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -101,32 +101,66 @@ namespace DocGenOneMobileClient.Views
         public void UpdateDisplay()
         {
 
-            FamilyGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            SpeciesGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
 
-            foreach (var family in App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Family))
+            var bats = App.dbase.Bats.OrderBy(bat=>$"{bat.GenusId} {bat.SpeciesId}");
+            GroupedSpeciesDisplayItem familyGroupDisplayItem = null;
+            foreach (var bat in bats)
             {
-                var genusInFamily = App.dbase.Classifications.Where(o => o.Parent == family.Id).ToList();
-                var speciesInFamily = App.dbase.Classifications.Where(o => genusInFamily.Select(g => g.Id).Contains(o.Parent)).ToList();
-                var familyGroupDisplayItem = new GroupedSpeciesDisplayItem { FamilyName = family.Id };
-                foreach (var species in speciesInFamily)
+                var alphabet = bat.GenusId.Substring(0, 1);
+                if (!SpeciesGroupDisplayItems.ToList().Exists(o => o.Alphabet == alphabet))
                 {
-                    var bat = App.dbase.Bats.FirstOrDefault(o => o.SpeciesId.ToLower() == species.Id.ToLower());
-                    if (bat != null)
-                    {
-                        familyGroupDisplayItem.Add(new SpeciesDisplayItem
-                        {
-                            SpeciesName = species.Id,
-                            FriendlyName = bat?.Name,
-                            Bat = bat,
-                            ImageSource = bat.Images.First()
-                        }); 
-                    }
+                    familyGroupDisplayItem = new GroupedSpeciesDisplayItem { Alphabet = alphabet.ToUpper() };
+                    SpeciesGroupDisplayItems.Add(familyGroupDisplayItem);
                 }
-                FamilyGroupDisplayItems.Add(familyGroupDisplayItem);
+                familyGroupDisplayItem.Add(new SpeciesDisplayItem
+                {
+                    SpeciesName = $"{bat.GenusId} {bat.SpeciesId.ToLower()}",
+                    FriendlyName = bat.Name,
+                    ImageSource = bat.Images.First(),
+                    Bat = bat
+                });                
             }
-            Debug.WriteLine($"Data count: {FamilyGroupDisplayItems.Count}"); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
+
 
 
         public ICommand OnSubsequentAppearance => new Command(() =>

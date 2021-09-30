@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <None Remove="Data\BatDetails\aust_aust.html" />
-    <None Remove="Data\BatDetails\default.html" />
+    <None Remove="Data\BatDetails\macro_minimus.html" />
     <None Remove="Data\BatImages\Aust_aust2.jpg" />
     <None Remove="Data\BatImages\aust_aust2.png" />
     <None Remove="Data\BatImages\Aust_aust3.jpg" />
@@ -330,8 +330,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\BatDetails\macro_minimus.html" />
     <EmbeddedResource Include="Data\BatDetails\aust_aust.html" />
-    <EmbeddedResource Include="Data\BatDetails\default.html" />
     <EmbeddedResource Include="Data\BatRegions\aust_aust_regions.json" />
     <EmbeddedResource Include="Data\CallAudio\aust_aust.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -358,7 +358,7 @@
     <SharedImage Include="Data\BatImages\aust_aust2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\aust_aust3.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\aust_aust_head.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\BatImages\bat.png" BaseSize="150,150"/>
+    <SharedImage Include="Data\BatImages\bat.png" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\chae_job_head.jpg" BaseSize="150,150" />

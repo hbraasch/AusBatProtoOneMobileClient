@@ -94,7 +94,7 @@ namespace AusBatProtoOneMobileClient.Models
                 #region *// Family/Genus/Species
                 dbase.Classifications.Add(new Classification { Id = "Pteropodidae", Type = Classification.ClassificationType.Family });
                 dbase.Classifications.Add(new Classification { Id = "Macroglossus", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
-                dbase.Classifications.Add(new Classification { Id = "Minimus ", Type = Classification.ClassificationType.Species, Parent = "Macroglossus" });
+                dbase.Classifications.Add(new Classification { Id = "Minimus", Type = Classification.ClassificationType.Species, Parent = "Macroglossus" });
                 dbase.Classifications.Add(new Classification { Id = "Nyctimene", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
                 dbase.Classifications.Add(new Classification { Id = "Robinsoni", Type = Classification.ClassificationType.Species, Parent = "Nyctimene" });
                 dbase.Classifications.Add(new Classification { Id = "Pteropus", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
@@ -324,10 +324,10 @@ namespace AusBatProtoOneMobileClient.Models
 
                 foreach (var bat in dbase.Bats)
                 {
-                    bat.LoadRegions();
-                    bat.LoadDetails();
-                    bat.LoadImages();
-                    bat.LoadCalls();
+                    bat.LoadRegions(dbase);
+                    bat.LoadDetails(dbase);
+                    bat.LoadImages(dbase);
+                    bat.LoadCalls(dbase);
 
                 }
 

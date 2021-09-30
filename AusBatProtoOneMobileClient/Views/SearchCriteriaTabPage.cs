@@ -64,7 +64,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
             Title = "Criteria";
-            BackgroundImageSource = "background.png";
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
 
         }

@@ -62,7 +62,7 @@ namespace AusBatProtoOneMobileClient.Data
         }
 
 
-        internal void LoadDetails()
+        internal void LoadDetails(Dbase dbase)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace AusBatProtoOneMobileClient.Data
                     if (stream == null)
                     {
                         Debug.WriteLine($"Details file for [{DataTag}] does not exist");
-                        DetailsHtml = @"<p>No detials defined</p>";
+                        DetailsHtml = @"<p>No details defined</p>";
                         return;
                     }
 
@@ -92,7 +92,7 @@ namespace AusBatProtoOneMobileClient.Data
             }
         }
 
-        internal void LoadImages()
+        internal void LoadImages(Dbase dbase)
         {
             var postFixes = new List<string> { "_head.jpg", "2.jpg", "3.jpg" };
             foreach (var postFix in postFixes)
@@ -112,7 +112,7 @@ namespace AusBatProtoOneMobileClient.Data
 
         
 
-        internal void LoadCalls()
+        internal void LoadCalls(Dbase dbase)
         {
             try
             {
@@ -152,7 +152,7 @@ namespace AusBatProtoOneMobileClient.Data
             }
         }
 
-        internal void LoadRegions()
+        internal void LoadRegions(Dbase dbase)
         {
             try
             {
@@ -177,7 +177,7 @@ namespace AusBatProtoOneMobileClient.Data
                             var regionIds = JsonConvert.DeserializeObject<List<int>>(regionsJson);
                             foreach (var regionId in regionIds)
                             {
-                                var mapRegion = App.dbase.MapRegions.FirstOrDefault(o=>o.Id == regionId);
+                                var mapRegion = dbase.MapRegions.FirstOrDefault(o=>o.Id == regionId);
                                 if (mapRegion == null)
                                 {
                                     throw new BusinessException($"Data inside [{DataTag}] regions file refers to non-existing region [{regionId}]");

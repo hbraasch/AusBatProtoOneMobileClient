@@ -101,7 +101,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
-        public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnSpeciesByFamilyClicked => commandHelper.ProduceDebouncedCommand(async () => {
              try
              {
                 var viewModel = new SpeciesByFamilyPageViewModel();
@@ -129,8 +129,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnSpeciesAtoZClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new ClassificationPageViewModel();
-                var page = new ClassificationPage<ClassificationPageViewModel.DisplayItem>(viewModel);
+                var viewModel = new SpeciesAtoZPageViewModel();
+                var page = new SpeciesAtoZPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -151,7 +151,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        public ICommand OnSpeciesByFamilyClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
                 var viewModel = new ClassificationPageViewModel();

@@ -46,7 +46,7 @@ namespace DocGenOneMobileClient.Views
 
             Title = "Results";
 
-            BackgroundImageSource = "background.png";
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
 
 
