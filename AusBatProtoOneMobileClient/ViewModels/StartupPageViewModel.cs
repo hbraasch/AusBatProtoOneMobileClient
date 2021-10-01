@@ -103,6 +103,31 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
+
+        public ICommand OnAboutButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new AboutPageViewModel();
+                var page = new AboutPage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
         public ICommand OnSpeciesByFamilyClicked => commandHelper.ProduceDebouncedCommand(async () => {
              try
              {
@@ -235,30 +260,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        public ICommand OnAboutClicked => commandHelper.ProduceDebouncedCommand(async () => {
-            try
-            {
-                var viewModel = new SearchPageViewModel();
-                var page = new SearchPageTabbed(viewModel);
-                await NavigateToPageAsync(page, viewModel);
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user");
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
         public ICommand OnInitPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {

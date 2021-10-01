@@ -1,4 +1,6 @@
-﻿using AusBatProtoOneMobileClient.ViewModels;
+﻿using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.ViewModels;
+using AusBatProtoOneMobileClient.Views.Components;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using Xamarin.Forms;
@@ -15,12 +17,13 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var webView = new WebView();
+            var webView = new TransparentWebView();
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(IntroductionPageViewModel.WebViewSource), BindingMode.OneWay));
 
-            var mainLayout = new StackLayout { Children = { webView } };
+            var mainLayout = new StackLayout { Children = { webView }, Margin = 5 };
 
             Title = "Introduction";
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             Content = webView;
 

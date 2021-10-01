@@ -31,8 +31,14 @@ namespace AusBatProtoOneMobileClient
             displayBatCallTabPage.IconImageSource = "ic_sounds.png";
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
-            Children.Add(displayBatRegionsTabPage);
-            Children.Add(displayBatCallTabPage);
+            if (viewModel.bat.MapRegions.Count != 0)
+            {
+                Children.Add(displayBatRegionsTabPage); 
+            }
+            if (viewModel.bat.Calls.Count != 0)
+            {
+                Children.Add(displayBatCallTabPage); 
+            }
 
             // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
             BarBackgroundColor = Xamarin.Forms.Color.Black;

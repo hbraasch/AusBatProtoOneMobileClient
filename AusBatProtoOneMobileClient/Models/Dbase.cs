@@ -21,6 +21,7 @@ namespace AusBatProtoOneMobileClient.Models
         const string DBASE_FILENAME = "dbase.json";
 
         public string IntroductionHtml;
+        public string AboutHtml;
         public List<Classification> Classifications = new List<Classification>();
         public List<Bat> Bats = new List<Bat>();
         public List<MapRegion> MapRegions = new List<MapRegion>();
@@ -65,6 +66,7 @@ namespace AusBatProtoOneMobileClient.Models
                 var dbase = new Dbase();
 
                 dbase.IntroductionHtml = LoadIntroduction();
+                dbase.AboutHtml = LoadAbout();
 
                 Debug.WriteLine(JsonConvert.SerializeObject(new List<int> { 101, 102 }).ToString());
 
@@ -384,7 +386,7 @@ namespace AusBatProtoOneMobileClient.Models
                         string result = reader.ReadToEnd();
                         if (string.IsNullOrEmpty(result))
                         {
-                            throw new BusinessException($"No data inside introduction file");
+                            throw new BusinessException($"No data inside Introduction file");
                         }
                         return result;
                     }
@@ -392,7 +394,35 @@ namespace AusBatProtoOneMobileClient.Models
             }
             catch (Exception ex)
             {
-                throw new BusinessException($"Problem reading introduction file. {ex.Message}");
+                throw new BusinessException($"Problem reading Introduction file. {ex.Message}");
+            }
+        }
+
+        private string LoadAbout()
+        {
+            try
+            {
+                using (Stream stream = FileHelper.GetStreamFromFile("Data.About.about.html"))
+                {
+                    if (stream == null)
+                    {
+                        throw new BusinessException("About file does not exist");
+                    }
+
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string result = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(result))
+                        {
+                            throw new BusinessException($"No data inside About file");
+                        }
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading About file. {ex.Message}");
             }
         }
     }

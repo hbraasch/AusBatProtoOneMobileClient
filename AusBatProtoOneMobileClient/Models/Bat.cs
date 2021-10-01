@@ -71,7 +71,7 @@ namespace AusBatProtoOneMobileClient.Data
                     if (stream == null)
                     {
                         Debug.WriteLine($"Details file for [{DataTag}] does not exist");
-                        DetailsHtml = @"<p>No details defined</p>";
+                        DetailsHtml = @"<p style=""color: white"">No details defined</p>";
                         return;
                     }
 
@@ -116,33 +116,15 @@ namespace AusBatProtoOneMobileClient.Data
         {
             try
             {
-                bool isCallAudioExist = true;
-                bool IsCallImageExist = true;
                 using (Stream stream = FileHelper.GetStreamFromFile($"Data.CallAudio.{DataTag.ToLower()}.wav"))
                 {
                     if (stream == null)
                     {
                         Debug.WriteLine($"Call audio file for [{DataTag}] does not exist");
-                        isCallAudioExist = false;
                     }
                     else
                     {
-                        using (Stream stream2 = FileHelper.GetStreamFromFile($"Data.CallImages.{DataTag.ToLower()}.jpg"))
-                        {
-                            if (stream2 == null)
-                            {
-                                Debug.WriteLine($"Call image file for [{DataTag}] does not exist");
-                                IsCallImageExist = false;
-                            }
-                        }
-                    }
-                    if (isCallAudioExist && IsCallImageExist)
-                    {
-                        Calls.Add(new CallDataItem { CallImage = $"{DataTag}.wav", CallFilename = $"{DataTag}.jpg" });
-                    }
-                    else if (isCallAudioExist)
-                    {
-                        Calls.Add(new CallDataItem { CallImage = $"{DataTag}.wav", CallFilename = "" });
+                        Calls.Add(new CallDataItem { CallAudioFilename = $"{DataTag.ToLower()}.wav", CallImageFilename = $"{DataTag.ToLower()}.jpg" });
                     }
                 }
             }
@@ -224,8 +206,8 @@ namespace AusBatProtoOneMobileClient.Data
 
     public class CallDataItem
     {
-        public string CallImage { get; set; }
-        public string CallFilename { get; set; }
+        public string CallImageFilename { get; set; }
+        public string CallAudioFilename { get; set; }
     }
 
     public enum IsCharacteristicPresent

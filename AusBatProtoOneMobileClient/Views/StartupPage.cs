@@ -70,7 +70,7 @@ namespace AusBatProtoOneMobileClient
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
-            aboutButton.Clicked += (s, e) => { viewModel.OnAboutClicked.Execute(null); };
+            aboutButton.Clicked += (s, e) => { viewModel.OnAboutButtonClicked.Execute(null); };
 
 
 

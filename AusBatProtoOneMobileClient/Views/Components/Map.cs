@@ -41,7 +41,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
             absoluteLayout = new AbsoluteLayout();
             frame = new Frame();
             frame.Content = absoluteLayout;
-            frame.BorderColor = Color.Red;
+            frame.BorderColor = Color.Black;
             frame.Padding = 0;
             frame.Margin = 0;
             frame.CornerRadius = 0;

@@ -8,23 +8,30 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient
 {
-    public class DisplayBatDetailsTabPage : ContentPageBase
+    public class AboutPage : ContentPageBase
     {
-        DisplayBatTabbedPageViewModel viewModel;
-        TransparentWebView webView;
-        public DisplayBatDetailsTabPage(DisplayBatTabbedPageViewModel viewModel) : base(viewModel)
+        AboutPageViewModel viewModel;
+        MenuGenerator menu;
+        public AboutPage(AboutPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            webView = new TransparentWebView() { Margin = 5 };          
-            webView.SetBinding(WebView.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.DetailsHtmlSource), BindingMode.OneWay));
+            var webView = new TransparentWebView();
+            webView.SetBinding(WebView.SourceProperty, new Binding(nameof(AboutPageViewModel.WebViewSource), BindingMode.OneWay));
 
+            var mainLayout = new StackLayout { Children = { webView }, Margin = 5 };
 
-            Title = "Details";
-            BackgroundColor = Color.Black;
+            Title = "About";
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             Content = webView;
+
+            menu = new MenuGenerator().Configure()
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
+                
+            menu.GenerateToolbarItemsForPage(this);
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(AboutPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
             
         }
 

@@ -107,7 +107,7 @@ namespace DocGenOneMobileClient.Views
 
                     var selectButton = new Button
                     {
-                        Text = "Regions",
+                        Text = "Filter",
                         Style = Styles.RoundedButtonStyle,
                         BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
                     };

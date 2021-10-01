@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\About\about.html" />
     <None Remove="Data\BatDetails\aust_aust.html" />
     <None Remove="Data\BatDetails\macro_minimus.html" />
     <None Remove="Data\BatImages\Aust_aust2.jpg" />
@@ -332,6 +333,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Data\About\about.html" />
     <EmbeddedResource Include="Data\BatDetails\macro_minimus.html" />
     <EmbeddedResource Include="Data\BatDetails\aust_aust.html" />
     <EmbeddedResource Include="Data\BatRegions\pterop_alect_regions.json" />

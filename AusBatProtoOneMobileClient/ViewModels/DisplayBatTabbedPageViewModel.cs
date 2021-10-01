@@ -132,7 +132,11 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 }
                 else
                 {
-                    var audioFilename = CallDataItems[CallDataItemIndex].CallFilename;
+                    var audioFilename = CallDataItems[CallDataItemIndex].CallAudioFilename;
+                    if (audioFilename == "")
+                    {
+                        throw new BusinessException("There is no audio to play");
+                    }
                     player.Load(FileHelper.GetStreamFromFile($"Data.CallAudio.{audioFilename}"));
                     player.Play();
                     IsPlaying = true;

@@ -71,6 +71,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="TouchEffectIOS.cs" />
     <Compile Include="TouchRecognizer.cs" />
+    <Compile Include="TransparentWebViewIOS.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

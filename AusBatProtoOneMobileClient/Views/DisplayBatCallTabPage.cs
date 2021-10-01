@@ -35,7 +35,7 @@ namespace AusBatProtoOneMobileClient
                     Aspect = Aspect.AspectFit,
                 };
                 image.WidthRequest = mainDisplayInfo.Width;
-                image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(CallDataItem.CallImage), BindingMode.OneWay));
+                image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(CallDataItem.CallImageFilename), BindingMode.OneWay));
                 return image;
             });
 
