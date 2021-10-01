@@ -365,9 +365,44 @@ namespace AusBatProtoOneMobileClient.Models
             return App.dbase.Bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").Where(o => o.GenusId == genus.Id).ToList();
         }
 
+        internal List<Bat> GetAllSpecies(Classification genus, List<MapRegion> selectedRegions) 
+        {
+            var bats = GetAllSpecies(genus);
+            return Filter(bats, selectedRegions);
+        }
+
+        private List<Bat> Filter(List<Bat> bats, List<MapRegion> selectedRegions)
+        {
+            var filteredBats = new List<Bat>();
+            if (!selectedRegions.IsEmpty())
+            {
+                foreach (var bat in bats)
+                {
+                    var selectedRegionIds = selectedRegions.Select(o => o.Id);
+                    var batRegionIds = bat.MapRegions.Select(o => o.Id);
+                    var intersectRegionIds = batRegionIds.Intersect(selectedRegionIds);
+                    if (intersectRegionIds.Count() > 0)
+                    {
+                        filteredBats.Add(bat);
+                    }
+                }
+                return filteredBats;
+            }
+            else
+            {
+                return bats;
+            }
+        }
+
+        internal List<Bat> GetAllSpecies(List<MapRegion> selectedRegions)
+        {
+            var bats = GetAllSpecies();
+            return Filter(bats, selectedRegions);
+        }
+
         internal List<Bat> GetAllSpecies()
         {
-            return App.dbase.Bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList(); 
+            return App.dbase.Bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList();
         }
 
         private string LoadIntroduction()

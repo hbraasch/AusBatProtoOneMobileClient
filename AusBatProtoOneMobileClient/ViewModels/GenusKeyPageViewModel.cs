@@ -99,7 +99,7 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                UpdateDisplay();
+                UpdateDisplay(new List<MapRegion>());
 
 
             }
@@ -117,7 +117,7 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public void UpdateDisplay()
+        public void UpdateDisplay(List<MapRegion> selectedRegion)
         {
 
             DisplayItems = new ObservableCollection<DisplayItemBase>();
@@ -125,12 +125,13 @@ namespace DocGenOneMobileClient.Views
             foreach (var genus in App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Genus))
             {
                 if (genus.Parent != family.Id) continue;
-                List<Bat> specieses = App.dbase.GetAllSpecies(genus);
+
+                List<Bat> specieses = App.dbase.GetAllSpecies(genus, selectedRegion);
                 if (specieses.Count > 1) DisplayItems.Add(new GenusDisplayItem { GenusName = $"{genus.Id} ({specieses.Count})", Genus =  genus });
                 if (specieses.Count == 1) DisplayItems.Add(new SpeciesDisplayItem { SpeciesName = $"{genus.Id} {specieses[0].SpeciesId.ToLower()}", ImageSource = specieses[0].Images[0]??"", Bat = specieses[0] });
             }
             DisplayItems.Add(new BarDisplayItem());
-            DisplayItems.Add(new MapRegionsDisplayItem() { OnSearch = OnRegionSelectButtonPressed });
+            DisplayItems.Add(new MapRegionsDisplayItem { Description = "Select regions", MapRegions = selectedRegion, SelectionAmount = $"({selectedRegion.Count} selected)", OnSearch = OnRegionSelectButtonPressed });
             Debug.WriteLine($"Data count: {DisplayItems.Count}"); 
 
         }
@@ -176,8 +177,7 @@ namespace DocGenOneMobileClient.Views
                 var accept = await NavigateToPageAsync(page, viewModel);
                 if (!accept) return;
 
-                var updatedDisplayItem = new MapRegionsDisplayItem { Description = mapRegionsDisplayItem.Description, MapRegions = viewModel.SelectedMapRegions.ToList(), SelectionAmount = $"({viewModel.SelectedMapRegions.Count} selected)", OnSearch = OnRegionSelectButtonPressed };
-                DisplayItems[DisplayItems.IndexOf(mapRegionsDisplayItem)] = updatedDisplayItem;
+                UpdateDisplay(viewModel.SelectedMapRegions.ToList());
             }
             catch (Exception ex)
             {
@@ -199,6 +199,14 @@ namespace DocGenOneMobileClient.Views
                     regions = (displayItem as MapRegionsDisplayItem).MapRegions;
                 }
             }
+        }
+
+        private List<MapRegion> GetSelectedRegions()
+        {
+            MapRegionsDisplayItem mapRegionsDisplayItem = null;
+            List<MapRegion> regions = new List<MapRegion>();
+            GetSelectedRegions(ref mapRegionsDisplayItem, ref regions);
+            return regions;
         }
 
         public ICommand OnSelectMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>

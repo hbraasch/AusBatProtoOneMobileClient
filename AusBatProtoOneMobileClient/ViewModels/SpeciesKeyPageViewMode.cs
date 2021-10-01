@@ -110,29 +110,16 @@ namespace DocGenOneMobileClient.Views
 
             if (genus != null)
             {
-                bats = App.dbase.GetAllSpecies(genus); 
+                bats = App.dbase.GetAllSpecies(genus, regions); 
             }
             else
             {
-                bats = App.dbase.GetAllSpecies();
+                bats = App.dbase.GetAllSpecies(regions);
             }
 
             foreach (var bat in bats)
             {
-                if (!regions.IsEmpty())
-                {
-                    var selectedRegionIds = regions.Select(o => o.Id);
-                    var batRegionIds = bat.MapRegions.Select(o => o.Id);
-                    var intersectRegionIds = batRegionIds.Intersect(selectedRegionIds);
-                    if (intersectRegionIds.Count() > 0)
-                    {
-                        DisplayItems.Add(new SpeciesDisplayItem { SpeciesName = $"{bat.GenusId} {bat.SpeciesId.ToLower()}", ImageSource = bat.Images[0] ?? "", Bat = bat });
-                    }
-                }
-                else
-                {
-                    DisplayItems.Add(new SpeciesDisplayItem { SpeciesName = $"{bat.GenusId} {bat.SpeciesId.ToLower()}", ImageSource = bat.Images[0] ?? "", Bat = bat });
-                }
+                DisplayItems.Add(new SpeciesDisplayItem { SpeciesName = $"{bat.GenusId} {bat.SpeciesId.ToLower()}", ImageSource = bat.Images[0] ?? "", Bat = bat });
             }
         }
 
