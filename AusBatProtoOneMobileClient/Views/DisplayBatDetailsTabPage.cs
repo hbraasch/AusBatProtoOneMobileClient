@@ -22,7 +22,7 @@ namespace AusBatProtoOneMobileClient
 
 
             Title = "Details";
-            BackgroundColor = Color.Black;
+            BackgroundColor = Color.White;
 
             Content = webView;
             
