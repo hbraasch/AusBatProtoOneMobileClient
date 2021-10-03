@@ -6,7 +6,7 @@ using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 
 namespace AusBatProtoOneMobileClient
 {
-    public class DisplayBatTabbed : Xamarin.Forms.TabbedPage
+    public class DisplayBatTabbedPage : Xamarin.Forms.TabbedPage
     {
         DisplayBatTabbedPageViewModel viewModel;
         MenuGenerator menu;
@@ -15,7 +15,7 @@ namespace AusBatProtoOneMobileClient
         DisplayBatDetailsTabPage displayBatDetailsTabPage;
         DisplayBatRegionsTabPage displayBatRegionsTabPage;
         DisplayBatCallTabPage displayBatCallTabPage;
-        public DisplayBatTabbed(DisplayBatTabbedPageViewModel viewModel)
+        public DisplayBatTabbedPage(DisplayBatTabbedPageViewModel viewModel)
         {
             this.viewModel = viewModel;
 
@@ -47,7 +47,11 @@ namespace AusBatProtoOneMobileClient
             //On<Windows>().SetHeaderIconsEnabled(true);
 
             menu = new MenuGenerator().Configure()
+                .AddMenuItem("home", "Home", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
                 .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png");
+
+            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled")
+                .ToShowMenuItem("home", true);
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Xamarin.Forms.Binding(nameof(DisplayBatTabbedPageViewModel.InvalidateMenuCommand), Xamarin.Forms.BindingMode.OneWayToSource, source: viewModel));          

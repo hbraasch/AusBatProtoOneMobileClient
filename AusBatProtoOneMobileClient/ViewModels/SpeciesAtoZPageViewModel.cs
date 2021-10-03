@@ -181,7 +181,7 @@ namespace DocGenOneMobileClient.Views
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
         });
 
         public bool isBackCancelled = false;
@@ -198,7 +198,7 @@ namespace DocGenOneMobileClient.Views
             {
                 if (SelectedItem == null) return;
                 var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Bat);
-                var page = new DisplayBatTabbed(viewModel);
+                var page = new DisplayBatTabbedPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
 
             }

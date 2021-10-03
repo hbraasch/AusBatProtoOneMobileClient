@@ -56,14 +56,6 @@ namespace AusBatProtoOneMobileClient
             };
             areaListingButton.Clicked += (s, e) => { viewModel.OnAreaListingsClicked.Execute(null); };
 
-            var characterKeysButton = new Button
-            {
-                Text = "Identification Keys",
-                Style = Styles.RoundedButtonStyle,
-                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
-            };
-            characterKeysButton.Clicked += (s, e) => { viewModel.OnCharacterKeysClicked.Execute(null); };
-
             var aboutButton = new Button
             {
                 Text = "About",
@@ -127,7 +119,6 @@ namespace AusBatProtoOneMobileClient
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("init", "Init", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
-                
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(StartupPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));

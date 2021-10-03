@@ -1,77 +1,74 @@
-﻿using AusBatProtoOneMobileClient.Models;
-using FFImageLoading.Forms;
-using FFImageLoading.Transformations;
+﻿using AusBatProtoOneMobileClient.Data;
+using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Linq;
 using Xamarin.Forms;
-using static DocGenOneMobileClient.Views.FamilyKeyPageViewModel;
 
 namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPage : ContentPageBase
     {
-        bool isFirstAppearance = true; 
         FamilyKeyPageViewModel viewModel;
-        MenuGenerator menu;
-        ImageButton actionButton;
-
         public FamilyKeyPage(FamilyKeyPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var listView = new ListView {
-                SelectionMode = ListViewSelectionMode.Single,
-                HasUnevenRows = true,
-                BackgroundColor = Color.Transparent,
-                SeparatorColor = Constants.APP_COLOUR
-            };
-            listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.DisplayItems), BindingMode.TwoWay));
-            listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.SelectedItem), BindingMode.TwoWay));
-            listView.ItemTapped += (s, e) => {  };
-            listView.ItemTemplate = new FamilyKeyDataTemplateSelector();
+            var characteristicListView = new ListView { SelectionMode = ListViewSelectionMode.None };
+            characteristicListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacteristicDisplayItems), BindingMode.TwoWay));
+            characteristicListView.ItemTemplate = new characteristicDataTemplateSelector();
 
-            actionButton = new ImageButton { Source = "ic_select.png", BackgroundColor = Color.Transparent };
-            actionButton.Clicked += (s,e) => { viewModel.OnSelectMenuPressed.Execute(true); };
-            actionButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.IsSelected), BindingMode.TwoWay));
-
-            var listViewLayout = new ScrollView
+            var regionButton = new Button
             {
-                Content = listView,
-                Orientation = ScrollOrientation.Vertical
+                Text = "Specify region",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
+            regionButton.Clicked += (s, e) => { viewModel.OnSpecifyRegionClicked.Execute(null); };
+
+            var filterNowButton = new Button
+            {
+                Text = "Filter now",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+            };
+            filterNowButton.Clicked += (s, e) => { viewModel.OnFilterNowClicked.Execute(null); };
+
+            var layout = new StackLayout { Children = {characteristicListView, regionButton, filterNowButton } };
 
             var finalLayout = new AbsoluteLayout
             {
-                Children = { listViewLayout, actionButton, activityIndicator },
+                Children = { layout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
-            AbsoluteLayout.SetLayoutFlags(listViewLayout, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(listViewLayout, new Rectangle(0, 0, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(actionButton, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(actionButton, new Rectangle(0.95, .95, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+            AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Species by Family";
-
-            Content = finalLayout;
+            Title = "Filter";
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
+            Content = finalLayout;
+            var menu = new MenuGenerator().Configure()
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
+                .AddMenuItem("clear", "Clear selections", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnClearFiltersClicked.Execute(null); });
 
-            menu = new MenuGenerator().Configure()
-                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
- 
+
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(FamilyKeyPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(GenusKeyPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
 
-            
+
         }
 
 
-
+        bool isFirstAppearance = true;
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -92,27 +89,22 @@ namespace DocGenOneMobileClient.Views
             return viewModel.isBackCancelled;
         }
 
-        internal class FamilyKeyDataTemplateSelector : DataTemplateSelector
+
+
+        internal class characteristicDataTemplateSelector : DataTemplateSelector
         {
-            DataTemplate regionTemplate;
-            DataTemplate familyTemplate;
+            DataTemplate tailPresentCharacteristicTemplate;
+            DataTemplate tailMembraneStructureCharacteristicTemplate;
 
-            public FamilyKeyDataTemplateSelector()
-            {
-                regionTemplate = new DataTemplate(() => {
+            public characteristicDataTemplateSelector()
+            {  
+                tailPresentCharacteristicTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var selectButton = new Button
-                    {
-                        Text = "Select",
-                        Style = Styles.RoundedButtonStyle,
-                        BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
-                    };
-                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(SearchPageViewModel.MapRegionsDisplayItem.OnSearch), BindingMode.TwoWay));
-
-                    var selectionAmountLabel = new Label { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center };
-                    selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacteristicConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -120,30 +112,27 @@ namespace DocGenOneMobileClient.Views
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    grid.Children.Add(selectionAmountLabel, 1, 0);
-                    grid.Children.Add(selectButton, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valuePicker, 2, 0);
 
                     return new ViewCell { View = grid };
-
                 });
+                tailMembraneStructureCharacteristicTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                familyTemplate = new DataTemplate(() => {
-                    var familyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    familyNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FamilyDisplayItem.FamilyName), BindingMode.TwoWay));
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailMembraneStructureConverter()));
 
-                    var image = new CachedImage
-                    {
-                        Aspect = Aspect.AspectFit
-                    };
-                    image.Transformations.Add(new CircleTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.FamilyDisplayItem.ImageSource), BindingMode.OneWay));
-
-                    var grid = new Grid() { Margin = 5 };
+                    var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.Children.Add(familyNameLabel, 0, 0);
-                    grid.Children.Add(image, 1, 0);
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valuePicker, 2, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -151,13 +140,13 @@ namespace DocGenOneMobileClient.Views
 
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                if (item is FamilyKeyPageViewModel.MapRegionsDisplayItem)
+                if (item is FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem)
                 {
-                    return regionTemplate;
+                    return tailPresentCharacteristicTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.FamilyDisplayItem)
+                else if (item is FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem)
                 {
-                    return familyTemplate;
+                    return tailMembraneStructureCharacteristicTemplate;
                 }
                 else
                 {
@@ -165,5 +154,55 @@ namespace DocGenOneMobileClient.Views
                 }
             }
         }
+
+
+    }
+
+    internal class TailPresentCharacteristicConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is TailPresentCharacteristic)
+            {
+                var characteristic = value as TailPresentCharacteristic;
+                return characteristic.GetPrompt();
+            }
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is string)
+            {
+                var prompt = (string)value;
+                return TailPresentCharacteristic.CreateFromPrompt(prompt);
+            }
+            return new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Undefined);
+        }
+    }
+
+    internal class TailMembraneStructureConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is TailMembraneStructureCharacteristic)
+            {
+                var characteristic = value as TailMembraneStructureCharacteristic;
+                return characteristic.GetPrompt();
+            }
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is string)
+            {
+
+                var prompt = (string) value;
+                return TailMembraneStructureCharacteristic.CreateFromPrompt(prompt);
+            }
+            return new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Undefined);
+        }
+
     }
 }

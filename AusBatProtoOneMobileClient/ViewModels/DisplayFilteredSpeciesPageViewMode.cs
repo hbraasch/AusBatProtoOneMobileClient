@@ -19,26 +19,23 @@ using AusBatProtoOneMobileClient.Data;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class SpeciesByFamilyPageViewModel : ViewModelBase
+    public class DisplayFilteredSpeciesPageViewModel : ViewModelBase
     {
-        public class SpeciesDisplayItem
+        List<Bat> specieses;
+        public class DisplayItemBase { }
+
+
+        public class SpeciesDisplayItem : DisplayItemBase
         {
             public string SpeciesName { get; set; }
-            public string FriendlyName { get; set; }
             public string ImageSource { get; set; }
-            public Bat Species { get; set; }
-        }
-        public class GroupedSpeciesDisplayItem : ObservableCollection<SpeciesDisplayItem>
-        {
-            public string FamilyName { get; set; }
-            public string ImageSource { get; set; }
+            public Bat Bat { set; get; }
         }
 
-        public ObservableCollection<GroupedSpeciesDisplayItem> FamilyGroupDisplayItems { get; set; }
+        
+        public ObservableCollection<DisplayItemBase> DisplayItems { get; set; }
 
-        public GroupedSpeciesDisplayItem pageTypeGroup {get;set;}
-
-        public SpeciesDisplayItem SelectedItem { get; set; }
+        public DisplayItemBase SelectedItem { get; set; }
 
         public void OnSelectedItemChanged()
         {
@@ -61,13 +58,12 @@ namespace DocGenOneMobileClient.Views
         public bool IsSelected { get; set; }
 
         #endregion
-          
 
-        public SpeciesByFamilyPageViewModel()
+        public DisplayFilteredSpeciesPageViewModel(List<Bat> specieses)
         {
-            FamilyGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            this.specieses = specieses;
+            DisplayItems = new ObservableCollection<DisplayItemBase>();
         }
-
         public ICommand OnFirstAppearance => new Command(async () =>
         {
             try
@@ -101,30 +97,12 @@ namespace DocGenOneMobileClient.Views
         public void UpdateDisplay()
         {
 
-            FamilyGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            DisplayItems = new ObservableCollection<DisplayItemBase>();
 
-            foreach (var family in App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Family))
+            foreach (var species in specieses)
             {
-                var genusesInFamily = App.dbase.Classifications.Where(o => o.Parent == family.Id).ToList();
-                var speciesesInFamily = App.dbase.GetAllSpecies(genusesInFamily);
-                var familyGroupDisplayItem = new GroupedSpeciesDisplayItem { FamilyName = family.Id };
-                foreach (var species in speciesesInFamily)
-                {
-                    if (species != null)
-                    {
-                        familyGroupDisplayItem.Add(new SpeciesDisplayItem
-                        {
-                            SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}",
-                            FriendlyName = species.Name,
-                            Species = species,
-                            ImageSource = species.Images.First()
-                        }); 
-                    }
-                }
-                FamilyGroupDisplayItems.Add(familyGroupDisplayItem);
+                DisplayItems.Add(new SpeciesDisplayItem { SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}", ImageSource = species.Images[0] ?? "", Bat = species });
             }
-            Debug.WriteLine($"Data count: {FamilyGroupDisplayItems.Count}"); 
-
         }
 
 
@@ -149,12 +127,20 @@ namespace DocGenOneMobileClient.Views
             NavigateBack(NavigateReturnType.IsCancelled);
         });
 
+        public bool IsHomeEnabled { get; set; }
+        public ICommand OnHomeMenuPressed => new Command(() =>
+        {
+            NavigateBack(NavigateReturnType.GotoRoot);
+        });
+        
+
         public bool isBackCancelled = false;
+        
+
         public ICommand OnBackButtonPressed => new Command(() =>
         {
             isBackCancelled = true;
         });
-
 
         public ICommand OnSelectMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
         {
@@ -162,10 +148,10 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 if (SelectedItem == null) return;
-                var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Species);
+                var viewModel = new DisplayBatTabbedPageViewModel((SelectedItem as SpeciesDisplayItem).Bat) { IsHomeEnabled = IsHomeEnabled };
                 var page = new DisplayBatTabbedPage(viewModel);
-                await NavigateToPageAsync(page, viewModel);
-
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
             }
             catch (Exception ex) when (ex is BusinessException exb)
             {

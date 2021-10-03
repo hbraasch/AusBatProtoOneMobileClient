@@ -5,18 +5,18 @@ using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
 using Xamarin.Forms;
-using static DocGenOneMobileClient.Views.SpeciesKeyPageViewModel;
+using static DocGenOneMobileClient.Views.DisplayFilteredSpeciesPageViewModel;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class SpeciesKeyPage : ContentPageBase
+    public class DisplayFilteredSpeciesPage : ContentPageBase
     {
         bool isFirstAppearance = true; 
-        SpeciesKeyPageViewModel viewModel;
+        DisplayFilteredSpeciesPageViewModel viewModel;
         MenuGenerator menu;
         ImageButton actionButton;
 
-        public SpeciesKeyPage(SpeciesKeyPageViewModel viewModel) : base(viewModel)
+        public DisplayFilteredSpeciesPage(DisplayFilteredSpeciesPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
@@ -27,14 +27,14 @@ namespace DocGenOneMobileClient.Views
                 BackgroundColor = Color.Transparent,
                 SeparatorColor = Constants.APP_COLOUR
             };
-            listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SpeciesKeyPageViewModel.DisplayItems), BindingMode.TwoWay));
-            listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SpeciesKeyPageViewModel.SelectedItem), BindingMode.TwoWay));
+            listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.DisplayItems), BindingMode.TwoWay));
+            listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SelectedItem), BindingMode.TwoWay));
             listView.ItemTapped += (s, e) => {  };
             listView.ItemTemplate = new SpeciesKeyDataTemplateSelector();
 
             actionButton = new ImageButton { Source = "ic_select.png", BackgroundColor = Color.Transparent };
             actionButton.Clicked += (s,e) => { viewModel.OnSelectMenuPressed.Execute(true); };
-            actionButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(SpeciesKeyPageViewModel.IsSelected), BindingMode.TwoWay));
+            actionButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.IsSelected), BindingMode.TwoWay));
 
             var listViewLayout = new ScrollView
             {
@@ -62,10 +62,13 @@ namespace DocGenOneMobileClient.Views
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             menu = new MenuGenerator().Configure()
+                .AddMenuItem("home", "Home", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
- 
+
+            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled")
+                .ToShowMenuItem("home", true);
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(SpeciesKeyPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
 
             
         }
@@ -101,7 +104,7 @@ namespace DocGenOneMobileClient.Views
 
                 speciesTemplate = new DataTemplate(() => {
                     var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SpeciesKeyPageViewModel.SpeciesDisplayItem.SpeciesName), BindingMode.TwoWay));
+                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.SpeciesName), BindingMode.TwoWay));
                     var heightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 2;
                     var image = new CachedImage
                     {
@@ -109,7 +112,7 @@ namespace DocGenOneMobileClient.Views
                         HeightRequest = heightRequest
                     };
                     image.Transformations.Add(new CircleTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(SpeciesKeyPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
                     var grid = new Grid() { Margin = 5 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
@@ -127,7 +130,7 @@ namespace DocGenOneMobileClient.Views
 
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                if (item is SpeciesKeyPageViewModel.SpeciesDisplayItem)
+                if (item is DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem)
                 {
                     return speciesTemplate;
                 }

@@ -107,13 +107,13 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
         });
 
         public bool isBackCancelled = false;
         public ICommand OnBackButtonPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
             isBackCancelled = true;
         });
 
@@ -155,7 +155,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 if (bat == null) throw new BusinessException("Select a [species]");
 
                 var viewModel = new DisplayBatTabbedPageViewModel(bat);
-                var page = new DisplayBatTabbed(viewModel);
+                var page = new DisplayBatTabbedPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)

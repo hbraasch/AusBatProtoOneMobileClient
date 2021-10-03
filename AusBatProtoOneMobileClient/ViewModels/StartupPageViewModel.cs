@@ -38,13 +38,13 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
         });
 
         public bool isBackCancelled = false;
         public ICommand OnBackButtonPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
             isBackCancelled = true;
         });
 
@@ -209,12 +209,14 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 var selectedRegions =  new ObservableCollection<MapRegion>();
                 var viewModelRegions = new SelectBatRegionsPageViewModel() { SelectedMapRegions = selectedRegions };
                 var pageRegions = new SelectBatRegionsPage(viewModelRegions);
-                var accept = await NavigateToPageAsync(pageRegions, viewModelRegions);
-                if (!accept) return;
+                var returnType = await NavigateToPageAsync(pageRegions, viewModelRegions);
+                if (returnType == NavigateReturnType.IsCancelled) return;
+
                 selectedRegions = viewModelRegions.SelectedMapRegions;
 
-                var viewModel = new SpeciesKeyPageViewModel(selectedRegions.ToList());
-                var page = new SpeciesKeyPage(viewModel);
+                var currentResults = Dbase.Filter(App.dbase.Bats, selectedRegions.ToList());
+                var viewModel = new DisplayFilteredSpeciesPageViewModel(currentResults) { IsHomeEnabled = false };
+                var page = new DisplayFilteredSpeciesPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
 
             }
@@ -235,30 +237,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
-        public ICommand OnCharacterKeysClicked => commandHelper.ProduceDebouncedCommand(async () => {
-            try
-            {
-                var viewModel = new SearchPageViewModel();
-                var page = new SearchPageTabbed(viewModel);
-                await NavigateToPageAsync(page, viewModel);
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user");
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
+
 
         public ICommand OnInitPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try

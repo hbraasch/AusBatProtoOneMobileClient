@@ -21,42 +21,57 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-
-        public class DisplayItemBase { }
-        public class FamilyDisplayItem: DisplayItemBase
+        public ObservableCollection<MapRegion> MapRegions { get; set; } = new ObservableCollection<MapRegion>();
+        public abstract class CharacteristicDisplayItemBase
         {
-            public string FamilyName { get; set; }
-            public string ImageSource { get; set; }
-            public Classification Family { get; set; }
+            public int Id { get; set; }
+            public int DisplayOrder { get; set; }
+            public Action<CharacteristicDisplayItemBase> OnChanged { get; set; }
+            public abstract List<Classification> ConductSearch(List<Classification> source);
         }
 
-        public class MapRegionsDisplayItem : DisplayItemBase
+        public class TailPresentCharacteristicDisplayItem : CharacteristicDisplayItemBase
         {
-            public string Description { get; set; } = "Regions";
-            public List<MapRegion> MapRegions { get; set; }
-            public string SelectionAmount { get; set; }
-            public ICommand OnSearch { get; set; }
+            public string Description { get; set; } = "Tail present/absent";
 
-            public List<Bat> ConductSearch()
+            public TailPresentCharacteristic Value { get; set; }
+            public List<string> Values { get; set; } = TailPresentCharacteristic.Prompts;
+
+            public override List<Classification> ConductSearch(List<Classification> source)
             {
-                return App.dbase.Bats.Where(o => o.MapRegions.Intersect(MapRegions, new RegionComparer()).Count() > 0).ToList();
+                var result = new List<Classification>();
+                if (Value.Key == TailPresentCharacteristic.TailPresentEnum.Undefined) return source;
+                foreach (var family in source)
+                {
+                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                }
+                return result;
             }
 
-            public bool HasEntry() => MapRegions?.Count > 0;
         }
-
-        public ObservableCollection<DisplayItemBase> DisplayItems { get; set; }
-
-        public DisplayItemBase SelectedItem { get; set; }
-
-        public void OnSelectedItemChanged()
+        public class TailMembraneStructureCharacteristicDisplayItem : CharacteristicDisplayItemBase
         {
-            IsSelected = SelectedItem != null;
-            InvalidateMenu.Execute(null);
+            public string Description { get; set; } = "Tail/Membrane structure";
+            public TailMembraneStructureCharacteristic Value { get; set; }
+            public List<string> Values { get; set; } = TailMembraneStructureCharacteristic.Prompts;
+
+            public override List<Classification> ConductSearch(List<Classification> source)
+            {
+                var result = new List<Classification>();
+                if (Value.Key == TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Undefined) return source;
+                foreach (var family in source)
+                {
+                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                }
+                return result;
+            }
+
         }
 
-       
-        public bool IsDirty { get; set; }
+
+        public ObservableCollection<CharacteristicDisplayItemBase> CharacteristicDisplayItems { get; set; }
+
+
 
         public ICommand InvalidateMenu { get; set; }
 
@@ -70,11 +85,11 @@ namespace DocGenOneMobileClient.Views
         public bool IsSelected { get; set; }
 
         #endregion
-          
+
 
         public FamilyKeyPageViewModel()
         {
-            DisplayItems = new ObservableCollection<DisplayItemBase>();
+            CharacteristicDisplayItems = new ObservableCollection<CharacteristicDisplayItemBase>();
         }
 
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -89,8 +104,8 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                UpdateDisplay();
-
+                CharacteristicDisplayItems = GenerateCharacteristicDisplay();
+                
 
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -99,7 +114,7 @@ namespace DocGenOneMobileClient.Views
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Error",ex.CompleteMessage(), "Ok");
+                await Application.Current.MainPage.DisplayAlert("Error", ex.CompleteMessage(), "Ok");
             }
             finally
             {
@@ -107,20 +122,25 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public void UpdateDisplay()
+        public ObservableCollection<CharacteristicDisplayItemBase> GenerateCharacteristicDisplay()
         {
+            var displayItems = new ObservableCollection<CharacteristicDisplayItemBase>();
+            displayItems.Add(new TailPresentCharacteristicDisplayItem());
+            displayItems.Add(new TailMembraneStructureCharacteristicDisplayItem());
 
-            DisplayItems = new ObservableCollection<DisplayItemBase>();
-
-            foreach (var family in App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Family))
-            {
-                DisplayItems.Add(new FamilyDisplayItem { FamilyName = family .Id, ImageSource =  "", Family = family});
-            }
-            // DisplayItems.Add(new MapRegionsDisplayItem() { OnSearch = OnRegionSelectButtonPressed });
-            Debug.WriteLine($"Data count: {DisplayItems.Count}"); 
-
+            displayItems.OrderBy(o=>o.DisplayOrder);
+            return displayItems;
         }
 
+        private void OnCharacteristicChanged(CharacteristicDisplayItemBase characteristic)
+        {
+            switch (characteristic)
+            {
+                default:
+                    break;
+            }
+            throw new NotImplementedException();
+        }
 
         public ICommand OnSubsequentAppearance => new Command(() =>
         {
@@ -140,7 +160,7 @@ namespace DocGenOneMobileClient.Views
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
         });
 
         public bool isBackCancelled = false;
@@ -149,28 +169,16 @@ namespace DocGenOneMobileClient.Views
             isBackCancelled = true;
         });
 
-        public ICommand OnRegionSelectButtonPressed => commandHelper.ProduceDebouncedCommand(async () =>
+
+        public ICommand OnSpecifyRegionClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
             try
             {
-                MapRegionsDisplayItem mapRegionsDisplayItem = null;
-                List<MapRegion> regions = new List<MapRegion>();
-                foreach (var displayItem in DisplayItems)
-                {
-                    if (displayItem is MapRegionsDisplayItem)
-                    {
-                        mapRegionsDisplayItem = (MapRegionsDisplayItem)displayItem;
-                        regions = (displayItem as MapRegionsDisplayItem).MapRegions;
-                    }
-                }
-                var selectedRegions = (regions == null) ? new ObservableCollection<MapRegion>() : new ObservableCollection<MapRegion>(regions);
-                var viewModel = new SelectBatRegionsPageViewModel() { SelectedMapRegions = selectedRegions };
+                var viewModel = new SelectBatRegionsPageViewModel() { SelectedMapRegions = MapRegions };
                 var page = new SelectBatRegionsPage(viewModel);
-                var accept = await NavigateToPageAsync(page, viewModel);
-                if (!accept) return;
-
-                var updatedDisplayItem = new MapRegionsDisplayItem { Description = mapRegionsDisplayItem.Description, MapRegions = viewModel.SelectedMapRegions.ToList(), SelectionAmount = $"{viewModel.SelectedMapRegions.Count} selected", OnSearch = OnRegionSelectButtonPressed };
-                DisplayItems[DisplayItems.IndexOf(mapRegionsDisplayItem)] = updatedDisplayItem;
+                var returnType = await NavigateToPageAsync(page, viewModel);
+                if (returnType == NavigateReturnType.IsCancelled) return;
+                MapRegions = viewModel.SelectedMapRegions;
             }
             catch (Exception ex)
             {
@@ -181,31 +189,98 @@ namespace DocGenOneMobileClient.Views
                 ActivityIndicatorStop();
             }
         });
-        public ICommand OnSelectMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
-        {
 
+        public ICommand OnClearFiltersClicked => commandHelper.ProduceDebouncedCommand(async () =>
+        {
             try
             {
-                if (SelectedItem == null) return;
-                var viewModel = new GenusKeyPageViewModel((SelectedItem as FamilyDisplayItem).Family);
-                var page = new GenusKeyPage(viewModel);
-                await NavigateToPageAsync(page, viewModel);
+                CharacteristicDisplayItems = GenerateCharacteristicDisplay();
+                MapRegions.Clear();
 
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await Application.Current.MainPage.DisplayAlert("Notification", exb.CompleteMessage(), "OK");
             }
             catch (Exception ex)
             {
-                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
             }
             finally
             {
                 ActivityIndicatorStop();
             }
         });
+        public ICommand OnFilterNowClicked => commandHelper.ProduceDebouncedCommand(async () =>
+        {
+            try
+            {
+                ActivityIndicatorStart();
+
+                List<Classification> searchResult = ConductSearch();
+                var viewModel = new DisplayFamilyPageViewModel(searchResult) { IsHomeEnabled = true };
+                var page = new DisplayFamilyPage(viewModel);
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
+        private List<Classification> ConductSearch()
+        {
+
+            List<Classification> currentFamilyResults = App.dbase.Classifications.Where(o=>o.Type == Classification.ClassificationType.Family).ToList();
+            foreach (var characteristic in CharacteristicDisplayItems)
+            {
+                currentFamilyResults = characteristic.ConductSearch(currentFamilyResults);
+                if (currentFamilyResults.Count == 0) return new List<Classification>();                
+            }
+            if (MapRegions.Count > 0)
+            {
+                var familiesInRegions = new List<Classification>();
+                // Get all bats in these regions
+                var speciesesInRegions = App.dbase.GetAllSpecies(MapRegions.ToList());
+                foreach (var species in speciesesInRegions)
+                {
+                    #region // Get the species family 
+                    var speciesFamily = species.GetFamily(App.dbase);
+                    #endregion
+                    if (!familiesInRegions.Exists(o=>o.Id == speciesFamily.Id))
+                    {
+                        familiesInRegions.Add(speciesFamily);
+                    }
+                }
+                currentFamilyResults = currentFamilyResults.Intersect(familiesInRegions, new ClassificationComparer()).ToList();
+                if (currentFamilyResults.IsEmpty()) return new List<Classification>();
+            }
+            return currentFamilyResults;
+        }
+
+        private ObservableCollection<CharacteristicDisplayItemBase> UpdateCharacteristicDisplay()
+        {
+            return CharacteristicDisplayItems;
+        }
+
+
+    }
+
+
+    internal class ClassificationComparer : IEqualityComparer<Classification>
+    {
+        public bool Equals(Classification x, Classification y)
+        {
+            return x.Id == y.Id ;
+        }
+
+        public int GetHashCode(Classification obj)
+        {
+            return obj.Id.GetHashCode();
+        }
     }
 }
-    
+
 

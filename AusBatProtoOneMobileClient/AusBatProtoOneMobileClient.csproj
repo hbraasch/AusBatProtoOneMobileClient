@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Helpers\EnumBase.cs" />
+    <Compile Remove="Views\SearchResultsTabPage.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Data\About\about.html" />
     <None Remove="Data\BatDetails\aust_aust.html" />
     <None Remove="Data\BatDetails\macro_minimus.html" />

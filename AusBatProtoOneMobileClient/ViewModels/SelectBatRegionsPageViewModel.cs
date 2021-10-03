@@ -34,7 +34,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ICommand OnBackMenuPressed => new Command<bool>((isSelect) =>
         {
-            NavigateBack(isSelect);
+            NavigateBack((isSelect?NavigateReturnType.IsAccepted:NavigateReturnType.IsCancelled));
         });
 
         public bool isBackCancelled = false;

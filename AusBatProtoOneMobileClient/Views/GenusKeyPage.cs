@@ -1,77 +1,77 @@
-﻿using AusBatProtoOneMobileClient.Models;
-using FFImageLoading.Forms;
-using FFImageLoading.Transformations;
+﻿using AusBatProtoOneMobileClient.Data;
+using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using Xamarin.Forms;
-using static DocGenOneMobileClient.Views.GenusKeyPageViewModel;
 
 namespace DocGenOneMobileClient.Views
 {
     public class GenusKeyPage : ContentPageBase
     {
-        bool isFirstAppearance = true; 
         GenusKeyPageViewModel viewModel;
-        MenuGenerator menu;
-        ImageButton actionButton;
-
         public GenusKeyPage(GenusKeyPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var listView = new ListView {
-                SelectionMode = ListViewSelectionMode.Single,
-                HasUnevenRows = true,
-                BackgroundColor = Color.Transparent,
-                SeparatorColor = Constants.APP_COLOUR
-            };
-            listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(GenusKeyPageViewModel.DisplayItems), BindingMode.TwoWay));
-            listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(GenusKeyPageViewModel.SelectedItem), BindingMode.TwoWay));
-            listView.ItemTapped += (s, e) => {  };
-            listView.ItemTemplate = new GenusKeyDataTemplateSelector();
+            var characteristicListView = new ListView { SelectionMode = ListViewSelectionMode.None };
+            characteristicListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(GenusKeyPageViewModel.CharacteristicDisplayItems), BindingMode.TwoWay));
+            characteristicListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(GenusKeyPageViewModel.CharacteristicSelectedItem), BindingMode.TwoWay));
+            characteristicListView.ItemTemplate = new CharacteristicDataTemplateSelector();
 
-            actionButton = new ImageButton { Source = "ic_select.png", BackgroundColor = Color.Transparent };
-            actionButton.Clicked += (s,e) => { viewModel.OnSelectMenuPressed.Execute(true); };
-            actionButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(GenusKeyPageViewModel.IsSelected), BindingMode.TwoWay));
 
-            var listViewLayout = new ScrollView
+            var regionButton = new Button
             {
-                Content = listView,
-                Orientation = ScrollOrientation.Vertical
+                Text = "Specify region",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
+            regionButton.Clicked += (s, e) => { viewModel.OnSpecifyRegionClicked.Execute(null); };
+
+            var filterNowButton = new Button
+            {
+                Text = "Filter now",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+            };
+            filterNowButton.Clicked += (s, e) => { viewModel.OnFilterNowClicked.Execute(null); };
+
+            var layout = new StackLayout { Children = { characteristicListView, regionButton, filterNowButton } };
 
             var finalLayout = new AbsoluteLayout
             {
-                Children = { listViewLayout, actionButton, activityIndicator },
+                Children = { layout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
-            AbsoluteLayout.SetLayoutFlags(listViewLayout, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(listViewLayout, new Rectangle(0, 0, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(actionButton, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(actionButton, new Rectangle(0.95, .95, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+            AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Keys to Genera/Species";
-
-            Content = finalLayout;
+            Title = "Filter";
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
+            Content = finalLayout;
 
-            menu = new MenuGenerator().Configure()
-                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
- 
+            var menu = new MenuGenerator().Configure()
+                .AddMenuItem("home", "Home", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
+                .AddMenuItem("clear", "Clear selections", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnClearFiltersClicked.Execute(null); });
+
+            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled")
+                .ToShowMenuItem("home", true);
+
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(GenusKeyPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
 
-            
         }
 
-
-
+        bool isFirstAppearance = true;
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -92,95 +92,205 @@ namespace DocGenOneMobileClient.Views
             return viewModel.isBackCancelled;
         }
 
-        internal class GenusKeyDataTemplateSelector : DataTemplateSelector
+
+        internal class CharacteristicDataTemplateSelector : DataTemplateSelector
         {
-            DataTemplate regionTemplate;
-            DataTemplate genusTemplate;
-            DataTemplate speciesTemplate;
-            DataTemplate barTemplate;
+            DataTemplate foreArmLengthTemplate;
+            DataTemplate OuterCanineWidthTemplate;
+            DataTemplate TailLengthTemplate;
+            DataTemplate FootWithClawLengthTemplate;
+            DataTemplate PenisLengthTemplate;
+            DataTemplate HeadToBodyLengthTemplate;
+            DataTemplate WeightTemplate;
+            DataTemplate ThreeMetTemplate;
+            DataTemplate IsGularPoachPresentTemplate;
+            DataTemplate HasFleshyGenitalProjectionsTemplate;
 
-            public GenusKeyDataTemplateSelector()
+            public CharacteristicDataTemplateSelector()
             {
-                regionTemplate = new DataTemplate(() => {
+
+                foreArmLengthTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.MapRegionsDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.ForeArmLengthDisplayItem.Description), BindingMode.TwoWay));
 
-                    var selectButton = new Button
-                    {
-                        Text = "Filter",
-                        Style = Styles.RoundedButtonStyle,
-                        BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
-                    };
-                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(SearchPageViewModel.MapRegionsDisplayItem.OnSearch), BindingMode.TwoWay));
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
 
-                    var selectionAmountLabel = new Label { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center };
-                    selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(SearchPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));
+                    valueEntry.Behaviors.Add(new Xamarin.CommunityToolkit.Behaviors.NumericValidationBehavior() { MinimumValue = 0 });
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.ForeArmLengthDisplayItem.Value), BindingMode.TwoWay));
 
                     var grid = new Grid();
-                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    grid.Children.Add(selectionAmountLabel, 1, 0);
-                    grid.Children.Add(selectButton, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
 
-                    return new ViewCell { View = grid };
-
-                });
-
-                genusTemplate = new DataTemplate(() => {
-                    var genusNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    genusNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.GenusDisplayItem.GenusName), BindingMode.TwoWay));
-
-                   
-                    var grid = new Grid() { Margin = 5 };
-                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-
-                    grid.Children.Add(genusNameLabel, 0, 0);
-                    Grid.SetColumnSpan(genusNameLabel, 3);
 
                     return new ViewCell { View = grid };
                 });
+                OuterCanineWidthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.OuterCanineWidthDisplayItem.Description), BindingMode.TwoWay));
 
-                speciesTemplate = new DataTemplate(() => {
-                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.SpeciesDisplayItem.SpeciesName), BindingMode.TwoWay));
-                    var heightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 2;
-                    var image = new CachedImage
-                    {
-                        Aspect = Aspect.AspectFit,
-                        HeightRequest = heightRequest
-                    };
-                    image.Transformations.Add(new CircleTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(GenusKeyPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.OuterCanineWidthDisplayItem.Value), BindingMode.TwoWay));
 
-                    var grid = new Grid() { Margin = 5 };
-                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.Children.Add(speciesNameLabel, 0, 0);
-                    grid.Children.Add(image, 2, 0);
-                    Grid.SetColumnSpan(speciesNameLabel, 2);
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
 
                     return new ViewCell { View = grid };
                 });
+                TailLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.TailLengthDisplayItem.Description), BindingMode.TwoWay));
 
-                barTemplate = new DataTemplate(() => {
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.TailLengthDisplayItem.Value), BindingMode.TwoWay));
 
-                    var bar = new BoxView { BackgroundColor = Constants.APP_COLOUR, HeightRequest = 5, CornerRadius = 5 };
-
-                    var grid = new Grid() { Margin = 5 };
-                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.Children.Add(bar, 0, 0);
-                    Grid.SetColumnSpan(bar, 3);
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                FootWithClawLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.FootWithClawLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.FootWithClawLengthDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                PenisLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.PenisLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.PenisLengthDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                HeadToBodyLengthTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.HeadToBodyLengthDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.HeadToBodyLengthDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                WeightTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.WeightDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.WeightDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                ThreeMetTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.ThreeMetDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(GenusKeyPageViewModel.ThreeMetDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valueEntry, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                IsGularPoachPresentTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.IsGularPoachPresentDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(GenusKeyPageViewModel.IsGularPoachPresentDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(GenusKeyPageViewModel.IsGularPoachPresentDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valuePicker, 2, 0);
+
+                    return new ViewCell { View = grid };
+                });
+                HasFleshyGenitalProjectionsTemplate = new DataTemplate(() => {
+                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(GenusKeyPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Description), BindingMode.TwoWay));
+
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(GenusKeyPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(GenusKeyPageViewModel.HasFleshyGenitalProjectionsDisplayItem.Value), BindingMode.TwoWay));
+
+                    var grid = new Grid();
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.Children.Add(descriptionLabel, 0, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 2);
+                    grid.Children.Add(valuePicker, 2, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -188,21 +298,45 @@ namespace DocGenOneMobileClient.Views
 
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                if (item is GenusKeyPageViewModel.MapRegionsDisplayItem)
+                if (item is GenusKeyPageViewModel.ForeArmLengthDisplayItem)
                 {
-                    return regionTemplate;
+                    return foreArmLengthTemplate;
                 }
-                else if (item is GenusKeyPageViewModel.GenusDisplayItem)
+                else if (item is GenusKeyPageViewModel.OuterCanineWidthDisplayItem)
                 {
-                    return genusTemplate;
+                    return OuterCanineWidthTemplate;
                 }
-                else if (item is GenusKeyPageViewModel.SpeciesDisplayItem)
+                else if (item is GenusKeyPageViewModel.TailLengthDisplayItem)
                 {
-                    return speciesTemplate;
+                    return TailLengthTemplate;
                 }
-                else if (item is GenusKeyPageViewModel.BarDisplayItem)
+                else if (item is GenusKeyPageViewModel.FootWithClawLengthDisplayItem)
                 {
-                    return barTemplate;
+                    return FootWithClawLengthTemplate;
+                }
+                else if (item is GenusKeyPageViewModel.PenisLengthDisplayItem)
+                {
+                    return PenisLengthTemplate;
+                }
+                else if (item is GenusKeyPageViewModel.HeadToBodyLengthDisplayItem)
+                {
+                    return HeadToBodyLengthTemplate;
+                }
+                else if (item is GenusKeyPageViewModel.WeightDisplayItem)
+                {
+                    return WeightTemplate;
+                }
+                else if (item is GenusKeyPageViewModel.ThreeMetDisplayItem)
+                {
+                    return ThreeMetTemplate;
+                }
+                else if (item is GenusKeyPageViewModel.IsGularPoachPresentDisplayItem)
+                {
+                    return IsGularPoachPresentTemplate;
+                }
+                else if (item is GenusKeyPageViewModel.HasFleshyGenitalProjectionsDisplayItem)
+                {
+                    return HasFleshyGenitalProjectionsTemplate;
                 }
                 else
                 {
@@ -210,5 +344,9 @@ namespace DocGenOneMobileClient.Views
                 }
             }
         }
+
+
     }
+
+
 }

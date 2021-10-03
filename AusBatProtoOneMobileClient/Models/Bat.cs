@@ -4,6 +4,7 @@ using Mobile.Helpers;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 using TreeApp.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using static AusBatProtoOneMobileClient.Data.TailMembraneStructureCharacteristic;
 
 namespace AusBatProtoOneMobileClient.Data
 {
@@ -35,7 +37,7 @@ namespace AusBatProtoOneMobileClient.Data
         public FloatRange Weight { get; set; } = FloatRange.GetRandom(30, 48);
         public FloatRange ThreeMet{ get; set; } = FloatRange.GetRandom(33, 40);
         public IsCharacteristicPresent IsGularPoachPresent { get; set; } = GetRandomIsPresent();
-        public IsCharacteristicPresent HasFleshyGenitalProjections { get; set; } = GetRandomIsPresent();
+        public IsCharacteristicPresent BothSexesHasFleshyGenitalProjections { get; set; } = GetRandomIsPresent();
 
 
 
@@ -58,7 +60,7 @@ namespace AusBatProtoOneMobileClient.Data
                 $"Weight</strong> <br />{Weight.Min} - {Weight.Max} g<br /><strong>" +
                 $"3-Met</strong><br />{ThreeMet.Min} - {ThreeMet.Max} mm<br /><strong>" +
                 $"IsGularPoachPresent</strong> = {IsGularPoachPresent}<br /><strong>" +
-                $"HasFleshyGenitalProjections</strong> = {HasFleshyGenitalProjections}</p>";
+                $"HasFleshyGenitalProjections</strong> = {BothSexesHasFleshyGenitalProjections}</p>";
         }
 
 
@@ -179,6 +181,12 @@ namespace AusBatProtoOneMobileClient.Data
                 throw new BusinessException($"Problem reading details file for [{DataTag}]. {ex.Message}");
             }
         }
+
+        internal Classification GetFamily(Dbase dbase)
+        {
+            var batFamilyId = dbase.Classifications.FirstOrDefault(o => o.Id == GenusId).Parent;
+            return dbase.Classifications.FirstOrDefault(o => o.Id == batFamilyId);
+        }
     }
 
     public class FloatRange
@@ -215,5 +223,102 @@ namespace AusBatProtoOneMobileClient.Data
         Is_present, Is_not_present, Do_not_care
     }
 
+    #region *// Option Characteristics
+    public class TailPresentCharacteristic : CharacteristicEnumBase
+    {
+        public enum TailPresentEnum
+        {
+            Undefined, Absent, Present
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "",  "Is absent", "Is present" };
 
+        public TailPresentEnum Key { get; set; }
+
+        public TailPresentCharacteristic(TailPresentEnum key)
+        {
+            Key = key;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is TailPresentCharacteristic)
+                {
+                    if (Key == ((TailPresentCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static TailPresentCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (TailPresentEnum) promptIndex;
+            return new TailPresentCharacteristic(key);
+        }
+    }
+
+    public class TailMembraneStructureCharacteristic : CharacteristicEnumBase
+    {
+       
+        public enum TailMembraneStructureEnum
+        {
+            Undefined, Absent, PresentNotAttached, PresentFullyEnclosed, PresentProjectingThrough, PresentProjectingFree
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Present, not attached to tail membrane", "Present, fully enclosed in membrane", "Present, projecting through upper surface of tail membrane", "Present, projecting free foe > 8mm past tail membrane" };
+
+        public TailMembraneStructureEnum Key { get; set; }
+
+        public TailMembraneStructureCharacteristic(TailMembraneStructureEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is TailMembraneStructureCharacteristic)
+                {
+                    if (Key == ((TailMembraneStructureCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static TailMembraneStructureCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (TailMembraneStructureEnum)promptIndex;
+            return new TailMembraneStructureCharacteristic(key);
+        }
+    }
+    #endregion
 }

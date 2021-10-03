@@ -114,7 +114,7 @@ namespace DocGenOneMobileClient.Views
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
         });
 
         public bool isBackCancelled = false;

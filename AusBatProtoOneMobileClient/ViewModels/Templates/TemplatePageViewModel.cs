@@ -28,13 +28,13 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
         });
 
         public bool isBackCancelled = false;
         public ICommand OnBackButtonPressed => new Command(() =>
         {
-            NavigateBack(true);
+            NavigateBack(NavigateReturnType.IsCancelled);
             isBackCancelled = true;
         });
 
