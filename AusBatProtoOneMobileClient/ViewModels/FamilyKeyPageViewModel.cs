@@ -29,7 +29,6 @@ namespace DocGenOneMobileClient.Views
             public Action<CharacteristicDisplayItemBase> OnChanged { get; set; }
             public abstract List<Classification> ConductSearch(List<Classification> source);
         }
-
         public class TailPresentCharacteristicDisplayItem : CharacteristicDisplayItemBase
         {
             public string Description { get; set; } = "Tail present/absent";
@@ -67,8 +66,78 @@ namespace DocGenOneMobileClient.Views
             }
 
         }
+        public class SecondFingerClawCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        {
+            public string Description { get; set; } = "Second finger claw";
+            public SecondFingerClawCharacteristic Value { get; set; }
+            public List<string> Values { get; set; } = SecondFingerClawCharacteristic.Prompts;
 
+            public override List<Classification> ConductSearch(List<Classification> source)
+            {
+                var result = new List<Classification>();
+                if (Value.Key == SecondFingerClawCharacteristic.SecondFingerClawEnum.Undefined) return source;
+                foreach (var family in source)
+                {
+                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                }
+                return result;
+            }
 
+        }
+        public class FaceStructureNoseLeafCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        {
+            public string Description { get; set; } = "Face structure / NoseLeaf";
+            public FaceStructureNoseLeafCharacteristic Value { get; set; }
+            public List<string> Values { get; set; } = FaceStructureNoseLeafCharacteristic.Prompts;
+
+            public override List<Classification> ConductSearch(List<Classification> source)
+            {
+                var result = new List<Classification>();
+                if (Value.Key == FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.Undefined) return source;
+                foreach (var family in source)
+                {
+                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                }
+                return result;
+            }
+
+        }
+        public class WingThirdFingerCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        {
+            public string Description { get; set; } = "Wing - third finger";
+            public WingThirdFingerCharacteristic Value { get; set; }
+            public List<string> Values { get; set; } = WingThirdFingerCharacteristic.Prompts;
+
+            public override List<Classification> ConductSearch(List<Classification> source)
+            {
+                var result = new List<Classification>();
+                if (Value.Key == WingThirdFingerCharacteristic.WingThirdFingerEnum.Undefined) return source;
+                foreach (var family in source)
+                {
+                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                }
+                return result;
+            }
+
+        }
+        public class TragusCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        {
+            public string Description { get; set; } = "Tragus";
+            public TragusCharacteristic Value { get; set; }
+            public List<string> Values { get; set; } = TragusCharacteristic.Prompts;
+
+            public override List<Classification> ConductSearch(List<Classification> source)
+            {
+                var result = new List<Classification>();
+                if (Value.Key == TragusCharacteristic.TragusEnum.Undefined) return source;
+                foreach (var family in source)
+                {
+                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                }
+                return result;
+            }
+
+        }
         public ObservableCollection<CharacteristicDisplayItemBase> CharacteristicDisplayItems { get; set; }
 
 
@@ -127,6 +196,10 @@ namespace DocGenOneMobileClient.Views
             var displayItems = new ObservableCollection<CharacteristicDisplayItemBase>();
             displayItems.Add(new TailPresentCharacteristicDisplayItem());
             displayItems.Add(new TailMembraneStructureCharacteristicDisplayItem());
+            displayItems.Add(new SecondFingerClawCharacteristicDisplayItem());
+            displayItems.Add(new FaceStructureNoseLeafCharacteristicDisplayItem());
+            displayItems.Add(new WingThirdFingerCharacteristicDisplayItem());
+            displayItems.Add(new TragusCharacteristicDisplayItem());
 
             displayItems.OrderBy(o=>o.DisplayOrder);
             return displayItems;

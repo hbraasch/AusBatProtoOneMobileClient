@@ -6,6 +6,7 @@ using Mobile.ViewModels;
 using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -30,12 +31,24 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ObservableCollection<ImageDataItem> ImageDataItems { get; set; }
         public ObservableCollection<MapRegion> SelectedMapItems { get; set; }
-        
+
+        public string DistributionMapImage { get; set; }
+
+
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
 
         ISimpleAudioPlayer player;
-        public bool IsPlaying { get; set; }
-        public ObservableCollection<CallDataItem> CallDataItems { get; set; }
+
+        public class CallDisplayItem : INotifyPropertyChanged
+        {
+            public Command OnStartStopClicked { get;  set; }
+            public bool IsPlaying { get; set; }
+            public CallDataItem Content { get; set; }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+        }
+        public ObservableCollection<CallDisplayItem> CallDisplayItems { get; set; }
+        public CallDisplayItem SelectedCallDisplayItem { get; set; }
         public int CallDataItemIndex { get; set; }
 
         #region *// Menu related
@@ -45,32 +58,30 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public DisplayBatTabbedPageViewModel(Bat bat)
         {
             this.bat = bat;
-            ImageDataItems = new ObservableCollection<ImageDataItem>();
-            SelectedMapItems = new ObservableCollection<MapRegion>();
-            DetailsHtmlSource = new HtmlWebViewSource();
-            CallDataItems = new ObservableCollection<CallDataItem>();
 
+            ImageDataItems = new ObservableCollection<ImageDataItem>();
             foreach (var imageSource in bat.Images)
             {
                 ImageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
-                }
+            }
 
+
+            DetailsHtmlSource = new HtmlWebViewSource();
             DetailsHtmlSource.Html = bat.DetailsHtml;
 
-
-            foreach (var region in bat.MapRegions)
-            {
-                SelectedMapItems.Add(region);
-            }
+            DistributionMapImage = bat.DistributionMapImage;
 
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.PlaybackEnded += (s, e) => { IsPlaying = false; };
+            player.PlaybackEnded += (s, e) => { SelectedCallDisplayItem.IsPlaying = false; };
+            CallDisplayItems = new ObservableCollection<CallDisplayItem>();
             foreach (var call in bat.Calls)
             {
-                CallDataItems.Add(call);
+                CallDisplayItems.Add(new CallDisplayItem { 
+                    OnStartStopClicked = new Command(async ()=> { await OnStartStopPlaybackPressed(call); }), 
+                    IsPlaying = false,
+                    Content = call
+                }); 
             }
-            IsPlaying = false; 
-
         }
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => { 
@@ -128,26 +139,28 @@ namespace AusBatProtoOneMobileClient.ViewModels
         });
 
 
-        public ICommand OnStartStopPlaybackPressed => commandHelper.ProduceDebouncedCommand(async () => {
+        public async Task OnStartStopPlaybackPressed(CallDataItem callDataItem)
+        { 
             try
             {
+                SelectedCallDisplayItem = CallDisplayItems.FirstOrDefault(o => o.Content == callDataItem);
+
                 if (player.IsPlaying)
                 {
                     player.Stop();
-                    IsPlaying = false;
+                    SelectedCallDisplayItem.IsPlaying = false;
                 }
                 else
                 {
-                    var audioFilename = CallDataItems[CallDataItemIndex].CallAudioFilename;
+                    var audioFilename = callDataItem.CallAudioFilename;
                     if (audioFilename == "")
                     {
                         throw new BusinessException("There is no audio to play");
                     }
                     player.Load(FileHelper.GetStreamFromFile($"Data.CallAudio.{audioFilename}"));
                     player.Play();
-                    IsPlaying = true;
-                }
-                
+                    SelectedCallDisplayItem.IsPlaying = true;
+                }              
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {
@@ -165,7 +178,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             {
                 ActivityIndicatorStop();
             }
-        });
+        }
 
 
         public ICommand OnTestMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {

@@ -31,10 +31,7 @@ namespace AusBatProtoOneMobileClient
             displayBatCallTabPage.IconImageSource = "ic_sounds.png";
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
-            if (viewModel.bat.MapRegions.Count != 0)
-            {
-                Children.Add(displayBatRegionsTabPage); 
-            }
+            Children.Add(displayBatRegionsTabPage);
             if (viewModel.bat.Calls.Count != 0)
             {
                 Children.Add(displayBatCallTabPage); 

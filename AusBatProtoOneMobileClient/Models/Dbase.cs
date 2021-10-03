@@ -99,7 +99,13 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Pteropodidae", Type = Classification.ClassificationType.Family, 
                     Characteristics = new List<CharacteristicBase> {  
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Absent), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Absent)} });
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Absent),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Present),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.Absent)
+                    },
+                });
                 dbase.Classifications.Add(new Classification { Id = "Macroglossus", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
                 dbase.Classifications.Add(new Classification { Id = "Minimus", Type = Classification.ClassificationType.Species, Parent = "Macroglossus" });
                 dbase.Classifications.Add(new Classification { Id = "Nyctimene", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
@@ -116,14 +122,22 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Pteropodidae(Dobsonia)", Type = Classification.ClassificationType.Family, 
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentNotAttached) } });
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentNotAttached),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.Absent) } });
                 dbase.Classifications.Add(new Classification { Id = "Macroderma", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae(Dobsonia)" });
                 dbase.Classifications.Add(new Classification { Id = "Magna", Type = Classification.ClassificationType.Species, Parent = "Macroderma" });
 
                 dbase.Classifications.Add(new Classification { Id = "Megadermatidae", Type = Classification.ClassificationType.Family , 
                     Characteristics = new List<CharacteristicBase> {  
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Absent) } }); 
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Absent),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.LargeHorshoe),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.Present) } }); 
                 dbase.Classifications.Add(new Classification { Id = "Dobsonia", Type = Classification.ClassificationType.Genus, Parent = "Megadermatidae" });
                 dbase.Classifications.Add(new Classification { Id = "Gigas", Type = Classification.ClassificationType.Species, Parent = "Dobsonia" });
 
@@ -131,7 +145,11 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Rhinolophidae", Type = Classification.ClassificationType.Family, 
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed) } });
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.LargeHorshoe),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) } });
                 dbase.Classifications.Add(new Classification { Id = "Rhinolophus", Type = Classification.ClassificationType.Genus, Parent = "Rhinolophidae" });
                 dbase.Classifications.Add(new Classification { Id = "Megaphyllus", Type = Classification.ClassificationType.Species, Parent = "Rhinolophus" });
                 dbase.Classifications.Add(new Classification { Id = "Robertsi", Type = Classification.ClassificationType.Species, Parent = "Rhinolophus" });
@@ -142,7 +160,12 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Hipposideridae", Type = Classification.ClassificationType.Family, ImageTag = "Hipp_family",
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed) }}); 
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.LargeFlattenned),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                }); 
                 dbase.Classifications.Add(new Classification { Id = "Hipposideros", Type = Classification.ClassificationType.Genus, Parent = "Hipposideridae" });
                 dbase.Classifications.Add(new Classification { Id = "Ater", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
                 dbase.Classifications.Add(new Classification { Id = "Cervinus", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
@@ -156,7 +179,12 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Minioperidae", Type = Classification.ClassificationType.Family,
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed) }});
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Long),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Miniopterus", Type = Classification.ClassificationType.Genus, Parent = "Minioperidae" });
                 dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Miniopterus" });
                 dbase.Classifications.Add(new Classification { Id = "Orianae bassanii", Type = Classification.ClassificationType.Species, Parent = "Miniopterus" });
@@ -168,7 +196,12 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Emballonuridae", Type = Classification.ClassificationType.Family, ImageTag = "Embal_family",
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present) , 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentProjectingThrough)  }});
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentProjectingThrough),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent)  }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Saccolaimus", Type = Classification.ClassificationType.Genus, Parent = "Emballonuridae" });
                 dbase.Classifications.Add(new Classification { Id = "Flaviventris", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus" });
                 dbase.Classifications.Add(new Classification { Id = "Mixtus", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus" });
@@ -185,7 +218,12 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Molossidae", Type = Classification.ClassificationType.Family,
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentProjectingFree) }});
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentProjectingFree),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Austonomus", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
                 dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Austonomus" });
                 dbase.Classifications.Add(new Classification { Id = "Chaerephon", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
@@ -208,7 +246,12 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Vespertilionidae", Type = Classification.ClassificationType.Family, ImageTag = "Vesp_family",
                     Characteristics = new List<CharacteristicBase> { 
                         new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed) }});
+                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.SmallTransverseLeaf),
+                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
+                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Chalinolobus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
                 dbase.Classifications.Add(new Classification { Id = "Dwyeri", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
                 dbase.Classifications.Add(new Classification { Id = "Gouldii", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
@@ -267,7 +310,6 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Troughtoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
                 dbase.Classifications.Add(new Classification { Id = "Vulturnus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
                 #endregion
-
 
                 #region *// Bats
                 dbase.Bats.Add(new Bat { GenusId = "Austonomus", SpeciesId = "australis", Name = "White-striped Freetail Bat", DataTag = "Aust_aust" });
@@ -359,7 +401,7 @@ namespace AusBatProtoOneMobileClient.Models
                     bat.LoadDetails(dbase);
                     bat.LoadImages(dbase);
                     bat.LoadCalls(dbase);
-
+                    bat.SetDistributionMapFilename();
                 }
 
 
@@ -370,11 +412,9 @@ namespace AusBatProtoOneMobileClient.Models
                 }
                 Debug.WriteLine($"Writing files to path: {folderPath}");
 
-#if false
-                var classifJson = JsonConvert.SerializeObject(dbase.Classifications, Formatting.Indented);
-                File.WriteAllText(Path.Combine(folderPath, "classification.json"), classifJson);
-                var batsJson = JsonConvert.SerializeObject(dbase.Bats, Formatting.Indented);
-                File.WriteAllText(Path.Combine(folderPath, "bats.json"), batsJson); 
+#if true
+                var batsCharsJson = JsonConvert.SerializeObject(dbase.Bats[0].Characteristics, Formatting.Indented);
+                File.WriteAllText(Path.Combine(folderPath, "batChars.json"), batsCharsJson); 
 #endif
 
                 Dbase.Save(dbase);

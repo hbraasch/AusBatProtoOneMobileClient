@@ -1,7 +1,9 @@
 ﻿using AusBatProtoOneMobileClient.ViewModels;
 using AusBatProtoOneMobileClient.Views.Components;
+using FFImageLoading.Forms;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -15,15 +17,25 @@ namespace AusBatProtoOneMobileClient
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
+#if false
             var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
             var map = new Map();
             map.WidthRequest = mainDisplayInfo.Width;
             map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.SelectedMapItems), BindingMode.TwoWay));
+#else
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
-            Title = "Regions";
+            var image = new CachedImage
+            {
+                Aspect = Aspect.AspectFit,
+            };
+            image.WidthRequest = mainDisplayInfo.Width;
+            image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.DistributionMapImage), BindingMode.OneWay));
+#endif
+            Title = "Distribution";
             BackgroundColor = Color.Black;
 
-            Content = map;
+            Content = image;
         }
 
         bool isFirstAppearance = true;

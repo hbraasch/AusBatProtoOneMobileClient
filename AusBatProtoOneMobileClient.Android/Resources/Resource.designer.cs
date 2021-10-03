@@ -19902,6 +19902,12 @@ namespace AusBatProtoOneMobileClient.Droid
 			// aapt resource value: 0x7F070054
 			public const int abc_vector_test = 2131165268;
 			
+			// aapt resource value: 0x7F070059
+			public const int austonomus_australis = 2131165273;
+			
+			// aapt resource value: 0x7F07005A
+			public const int austronomus_australis = 2131165274;
+			
 			// aapt resource value: 0x7F070055
 			public const int aust_aust = 2131165269;
 			
@@ -19914,1013 +19920,1238 @@ namespace AusBatProtoOneMobileClient.Droid
 			// aapt resource value: 0x7F070058
 			public const int aust_aust_head = 2131165272;
 			
-			// aapt resource value: 0x7F070059
-			public const int avd_hide_password = 2131165273;
-			
-			// aapt resource value: 0x7F07005A
-			public const int avd_show_password = 2131165274;
-			
 			// aapt resource value: 0x7F07005B
-			public const int background = 2131165275;
+			public const int avd_hide_password = 2131165275;
 			
 			// aapt resource value: 0x7F07005C
-			public const int bat = 2131165276;
+			public const int avd_show_password = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int btn_checkbox_checked_mtrl = 2131165277;
+			public const int background = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131165278;
+			public const int bat = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int btn_checkbox_unchecked_mtrl = 2131165279;
+			public const int btn_checkbox_checked_mtrl = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131165280;
+			public const int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int btn_radio_off_mtrl = 2131165281;
+			public const int btn_checkbox_unchecked_mtrl = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int btn_radio_off_to_on_mtrl_animation = 2131165282;
+			public const int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int btn_radio_on_mtrl = 2131165283;
+			public const int btn_radio_off_mtrl = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int btn_radio_on_to_off_mtrl_animation = 2131165284;
+			public const int btn_radio_off_to_on_mtrl_animation = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int chae_job = 2131165285;
+			public const int btn_radio_on_mtrl = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int chae_job1 = 2131165286;
-			
-			// aapt resource value: 0x7F070067
-			public const int chae_job2 = 2131165287;
-			
-			// aapt resource value: 0x7F070068
-			public const int chae_job_head = 2131165288;
-			
-			// aapt resource value: 0x7F070069
-			public const int chal_dwye = 2131165289;
-			
-			// aapt resource value: 0x7F07006A
-			public const int chal_dwye1 = 2131165290;
+			public const int btn_radio_on_to_off_mtrl_animation = 2131165286;
 			
 			// aapt resource value: 0x7F07006B
-			public const int chal_dwye2 = 2131165291;
+			public const int chaerephon_jobensis = 2131165291;
 			
-			// aapt resource value: 0x7F07006C
-			public const int chal_dwye_head = 2131165292;
+			// aapt resource value: 0x7F070067
+			public const int chae_job = 2131165287;
 			
-			// aapt resource value: 0x7F07006D
-			public const int chal_gould = 2131165293;
+			// aapt resource value: 0x7F070068
+			public const int chae_job1 = 2131165288;
 			
-			// aapt resource value: 0x7F07006E
-			public const int chal_gould2 = 2131165294;
+			// aapt resource value: 0x7F070069
+			public const int chae_job2 = 2131165289;
 			
-			// aapt resource value: 0x7F07006F
-			public const int chal_gould_head = 2131165295;
-			
-			// aapt resource value: 0x7F070070
-			public const int chal_morio1 = 2131165296;
-			
-			// aapt resource value: 0x7F070071
-			public const int chal_morio2 = 2131165297;
-			
-			// aapt resource value: 0x7F070072
-			public const int chal_morio_head = 2131165298;
-			
-			// aapt resource value: 0x7F070073
-			public const int chal_nigro1 = 2131165299;
-			
-			// aapt resource value: 0x7F070074
-			public const int chal_nigro2 = 2131165300;
-			
-			// aapt resource value: 0x7F070075
-			public const int chal_nigro_head = 2131165301;
-			
-			// aapt resource value: 0x7F070076
-			public const int chal_pic1 = 2131165302;
-			
-			// aapt resource value: 0x7F070077
-			public const int chal_pic2 = 2131165303;
-			
-			// aapt resource value: 0x7F070078
-			public const int chal_pic_head = 2131165304;
-			
-			// aapt resource value: 0x7F070079
-			public const int cob_mag1 = 2131165305;
-			
-			// aapt resource value: 0x7F07007A
-			public const int cob_mag2 = 2131165306;
-			
-			// aapt resource value: 0x7F07007B
-			public const int cob_mag_head = 2131165307;
+			// aapt resource value: 0x7F07006A
+			public const int chae_job_head = 2131165290;
 			
 			// aapt resource value: 0x7F07007C
-			public const int design_fab_background = 2131165308;
+			public const int chalinolobus_dwyeri = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int design_ic_visibility = 2131165309;
+			public const int chalinolobus_gouldii = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int design_ic_visibility_off = 2131165310;
+			public const int chalinolobus_morio = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int design_password_eye = 2131165311;
+			public const int chalinolobus_nigrogriseus = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int design_snackbar_background = 2131165312;
+			public const int chalinolobus_picatus = 2131165312;
+			
+			// aapt resource value: 0x7F07006C
+			public const int chal_dwye = 2131165292;
+			
+			// aapt resource value: 0x7F07006D
+			public const int chal_dwye1 = 2131165293;
+			
+			// aapt resource value: 0x7F07006E
+			public const int chal_dwye2 = 2131165294;
+			
+			// aapt resource value: 0x7F07006F
+			public const int chal_dwye_head = 2131165295;
+			
+			// aapt resource value: 0x7F070070
+			public const int chal_gould = 2131165296;
+			
+			// aapt resource value: 0x7F070071
+			public const int chal_gould2 = 2131165297;
+			
+			// aapt resource value: 0x7F070072
+			public const int chal_gould_head = 2131165298;
+			
+			// aapt resource value: 0x7F070073
+			public const int chal_morio1 = 2131165299;
+			
+			// aapt resource value: 0x7F070074
+			public const int chal_morio2 = 2131165300;
+			
+			// aapt resource value: 0x7F070075
+			public const int chal_morio_head = 2131165301;
+			
+			// aapt resource value: 0x7F070076
+			public const int chal_nigro1 = 2131165302;
+			
+			// aapt resource value: 0x7F070077
+			public const int chal_nigro2 = 2131165303;
+			
+			// aapt resource value: 0x7F070078
+			public const int chal_nigro_head = 2131165304;
+			
+			// aapt resource value: 0x7F070079
+			public const int chal_pic1 = 2131165305;
+			
+			// aapt resource value: 0x7F07007A
+			public const int chal_pic2 = 2131165306;
+			
+			// aapt resource value: 0x7F07007B
+			public const int chal_pic_head = 2131165307;
 			
 			// aapt resource value: 0x7F070081
-			public const int dobs_Family_Pic = 2131165313;
+			public const int cob_mag1 = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int dory_semon1 = 2131165314;
+			public const int cob_mag2 = 2131165314;
 			
 			// aapt resource value: 0x7F070083
-			public const int dory_semon3 = 2131165315;
+			public const int cob_mag_head = 2131165315;
 			
 			// aapt resource value: 0x7F070084
-			public const int dory_semon_head = 2131165316;
+			public const int design_fab_background = 2131165316;
 			
 			// aapt resource value: 0x7F070085
-			public const int dory_stenot1 = 2131165317;
+			public const int design_ic_visibility = 2131165317;
 			
 			// aapt resource value: 0x7F070086
-			public const int dory_stenot_head = 2131165318;
+			public const int design_ic_visibility_off = 2131165318;
 			
 			// aapt resource value: 0x7F070087
-			public const int embal_family = 2131165319;
+			public const int design_password_eye = 2131165319;
 			
 			// aapt resource value: 0x7F070088
-			public const int falsi_mack1 = 2131165320;
-			
-			// aapt resource value: 0x7F070089
-			public const int falsi_mack2 = 2131165321;
+			public const int design_snackbar_background = 2131165320;
 			
 			// aapt resource value: 0x7F07008A
-			public const int falsi_mack_head = 2131165322;
+			public const int dobsonia_moluccensis = 2131165322;
+			
+			// aapt resource value: 0x7F070089
+			public const int dobs_Family_Pic = 2131165321;
 			
 			// aapt resource value: 0x7F07008B
-			public const int falsi_tasman1 = 2131165323;
+			public const int dory_semon1 = 2131165323;
 			
 			// aapt resource value: 0x7F07008C
-			public const int falsi_tasman2 = 2131165324;
+			public const int dory_semon3 = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int falsi_tasman_head = 2131165325;
+			public const int dory_semon_head = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int hipp_ater2 = 2131165326;
+			public const int dory_stenot1 = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int hipp_ater3 = 2131165327;
+			public const int dory_stenot_head = 2131165327;
 			
 			// aapt resource value: 0x7F070090
-			public const int hipp_ater_head = 2131165328;
-			
-			// aapt resource value: 0x7F070091
-			public const int hipp_cerv3 = 2131165329;
-			
-			// aapt resource value: 0x7F070092
-			public const int hipp_cerv_head = 2131165330;
-			
-			// aapt resource value: 0x7F070093
-			public const int hipp_diadem1 = 2131165331;
-			
-			// aapt resource value: 0x7F070094
-			public const int hipp_diadem2 = 2131165332;
-			
-			// aapt resource value: 0x7F070095
-			public const int hipp_diadem_head = 2131165333;
-			
-			// aapt resource value: 0x7F070096
-			public const int hipp_family = 2131165334;
+			public const int embal_family = 2131165328;
 			
 			// aapt resource value: 0x7F070097
-			public const int hipp_inorn1 = 2131165335;
+			public const int falsistrellus_mackenziei = 2131165335;
 			
 			// aapt resource value: 0x7F070098
-			public const int hipp_inorn2 = 2131165336;
+			public const int falsistrellus_tasmaniensis = 2131165336;
 			
-			// aapt resource value: 0x7F070099
-			public const int hipp_inorn_head = 2131165337;
+			// aapt resource value: 0x7F070091
+			public const int falsi_mack1 = 2131165329;
 			
-			// aapt resource value: 0x7F0700AE
-			public const int icon_about = 2131165358;
+			// aapt resource value: 0x7F070092
+			public const int falsi_mack2 = 2131165330;
 			
-			// aapt resource value: 0x7F0700AF
-			public const int icon_feed = 2131165359;
+			// aapt resource value: 0x7F070093
+			public const int falsi_mack_head = 2131165331;
 			
-			// aapt resource value: 0x7F07009A
-			public const int ic_action = 2131165338;
+			// aapt resource value: 0x7F070094
+			public const int falsi_tasman1 = 2131165332;
 			
-			// aapt resource value: 0x7F07009B
-			public const int ic_arrow_down_24dp = 2131165339;
+			// aapt resource value: 0x7F070095
+			public const int falsi_tasman2 = 2131165333;
 			
-			// aapt resource value: 0x7F07009C
-			public const int ic_audio_playback_play = 2131165340;
-			
-			// aapt resource value: 0x7F07009D
-			public const int ic_audio_playback_stop = 2131165341;
-			
-			// aapt resource value: 0x7F07009E
-			public const int ic_clock_black_24dp = 2131165342;
-			
-			// aapt resource value: 0x7F07009F
-			public const int ic_close = 2131165343;
-			
-			// aapt resource value: 0x7F0700A0
-			public const int ic_close_bar2 = 2131165344;
-			
-			// aapt resource value: 0x7F0700A1
-			public const int ic_details = 2131165345;
-			
-			// aapt resource value: 0x7F0700A2
-			public const int ic_empty = 2131165346;
-			
-			// aapt resource value: 0x7F0700A3
-			public const int ic_keyboard_black_24dp = 2131165347;
-			
-			// aapt resource value: 0x7F0700A4
-			public const int ic_mtrl_checked_circle = 2131165348;
+			// aapt resource value: 0x7F070096
+			public const int falsi_tasman_head = 2131165334;
 			
 			// aapt resource value: 0x7F0700A5
-			public const int ic_mtrl_chip_checked_black = 2131165349;
+			public const int hipposideros_ater = 2131165349;
 			
 			// aapt resource value: 0x7F0700A6
-			public const int ic_mtrl_chip_checked_circle = 2131165350;
+			public const int hipposideros_cervinus = 2131165350;
 			
 			// aapt resource value: 0x7F0700A7
-			public const int ic_mtrl_chip_close_circle = 2131165351;
+			public const int hipposideros_diadema = 2131165351;
 			
 			// aapt resource value: 0x7F0700A8
-			public const int ic_open = 2131165352;
+			public const int hipposideros_inornatus = 2131165352;
 			
 			// aapt resource value: 0x7F0700A9
-			public const int ic_open_bar = 2131165353;
+			public const int hipposideros_semoni = 2131165353;
 			
 			// aapt resource value: 0x7F0700AA
-			public const int ic_photos = 2131165354;
+			public const int hipposideros_stenotis = 2131165354;
 			
-			// aapt resource value: 0x7F0700AB
-			public const int ic_regions = 2131165355;
+			// aapt resource value: 0x7F070099
+			public const int hipp_ater2 = 2131165337;
 			
-			// aapt resource value: 0x7F0700AC
-			public const int ic_select = 2131165356;
+			// aapt resource value: 0x7F07009A
+			public const int hipp_ater3 = 2131165338;
 			
-			// aapt resource value: 0x7F0700AD
-			public const int ic_sounds = 2131165357;
+			// aapt resource value: 0x7F07009B
+			public const int hipp_ater_head = 2131165339;
 			
-			// aapt resource value: 0x7F0700B0
-			public const int macro_family_pic = 2131165360;
+			// aapt resource value: 0x7F07009C
+			public const int hipp_cerv3 = 2131165340;
 			
-			// aapt resource value: 0x7F0700B1
-			public const int macro_family_pic1 = 2131165361;
+			// aapt resource value: 0x7F07009D
+			public const int hipp_cerv_head = 2131165341;
 			
-			// aapt resource value: 0x7F0700B2
-			public const int macro_gigas1 = 2131165362;
+			// aapt resource value: 0x7F07009E
+			public const int hipp_diadem1 = 2131165342;
 			
-			// aapt resource value: 0x7F0700B3
-			public const int macro_gigas2 = 2131165363;
+			// aapt resource value: 0x7F07009F
+			public const int hipp_diadem2 = 2131165343;
 			
-			// aapt resource value: 0x7F0700B4
-			public const int macro_gigas_head = 2131165364;
+			// aapt resource value: 0x7F0700A0
+			public const int hipp_diadem_head = 2131165344;
 			
-			// aapt resource value: 0x7F0700B5
-			public const int macro_minimus1 = 2131165365;
+			// aapt resource value: 0x7F0700A1
+			public const int hipp_family = 2131165345;
 			
-			// aapt resource value: 0x7F0700B6
-			public const int macro_minimus2 = 2131165366;
+			// aapt resource value: 0x7F0700A2
+			public const int hipp_inorn1 = 2131165346;
 			
-			// aapt resource value: 0x7F0700B7
-			public const int macro_minimus_head = 2131165367;
+			// aapt resource value: 0x7F0700A3
+			public const int hipp_inorn2 = 2131165347;
 			
-			// aapt resource value: 0x7F0700B8
-			public const int map = 2131165368;
-			
-			// aapt resource value: 0x7F0700B9
-			public const int map000 = 2131165369;
-			
-			// aapt resource value: 0x7F0700BA
-			public const int map102 = 2131165370;
-			
-			// aapt resource value: 0x7F0700BB
-			public const int map103 = 2131165371;
-			
-			// aapt resource value: 0x7F0700BC
-			public const int map104 = 2131165372;
-			
-			// aapt resource value: 0x7F0700BD
-			public const int map105 = 2131165373;
-			
-			// aapt resource value: 0x7F0700BE
-			public const int map106 = 2131165374;
+			// aapt resource value: 0x7F0700A4
+			public const int hipp_inorn_head = 2131165348;
 			
 			// aapt resource value: 0x7F0700BF
-			public const int map107 = 2131165375;
+			public const int icon_about = 2131165375;
 			
 			// aapt resource value: 0x7F0700C0
-			public const int map108 = 2131165376;
+			public const int icon_feed = 2131165376;
 			
-			// aapt resource value: 0x7F0700C1
-			public const int map201 = 2131165377;
+			// aapt resource value: 0x7F0700AB
+			public const int ic_action = 2131165355;
 			
-			// aapt resource value: 0x7F0700C2
-			public const int map202 = 2131165378;
+			// aapt resource value: 0x7F0700AC
+			public const int ic_arrow_down_24dp = 2131165356;
 			
-			// aapt resource value: 0x7F0700C3
-			public const int map203 = 2131165379;
+			// aapt resource value: 0x7F0700AD
+			public const int ic_audio_playback_play = 2131165357;
 			
-			// aapt resource value: 0x7F0700C4
-			public const int map301 = 2131165380;
+			// aapt resource value: 0x7F0700AE
+			public const int ic_audio_playback_stop = 2131165358;
 			
-			// aapt resource value: 0x7F0700C5
-			public const int map302 = 2131165381;
+			// aapt resource value: 0x7F0700AF
+			public const int ic_clock_black_24dp = 2131165359;
 			
-			// aapt resource value: 0x7F0700C6
-			public const int map303 = 2131165382;
+			// aapt resource value: 0x7F0700B0
+			public const int ic_close = 2131165360;
 			
-			// aapt resource value: 0x7F0700C7
-			public const int map304 = 2131165383;
+			// aapt resource value: 0x7F0700B1
+			public const int ic_close_bar2 = 2131165361;
 			
-			// aapt resource value: 0x7F0700C8
-			public const int map306 = 2131165384;
+			// aapt resource value: 0x7F0700B2
+			public const int ic_details = 2131165362;
+			
+			// aapt resource value: 0x7F0700B3
+			public const int ic_empty = 2131165363;
+			
+			// aapt resource value: 0x7F0700B4
+			public const int ic_keyboard_black_24dp = 2131165364;
+			
+			// aapt resource value: 0x7F0700B5
+			public const int ic_mtrl_checked_circle = 2131165365;
+			
+			// aapt resource value: 0x7F0700B6
+			public const int ic_mtrl_chip_checked_black = 2131165366;
+			
+			// aapt resource value: 0x7F0700B7
+			public const int ic_mtrl_chip_checked_circle = 2131165367;
+			
+			// aapt resource value: 0x7F0700B8
+			public const int ic_mtrl_chip_close_circle = 2131165368;
+			
+			// aapt resource value: 0x7F0700B9
+			public const int ic_open = 2131165369;
+			
+			// aapt resource value: 0x7F0700BA
+			public const int ic_open_bar = 2131165370;
+			
+			// aapt resource value: 0x7F0700BB
+			public const int ic_photos = 2131165371;
+			
+			// aapt resource value: 0x7F0700BC
+			public const int ic_regions = 2131165372;
+			
+			// aapt resource value: 0x7F0700BD
+			public const int ic_select = 2131165373;
+			
+			// aapt resource value: 0x7F0700BE
+			public const int ic_sounds = 2131165374;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int map307 = 2131165385;
+			public const int macroderma_gigas = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int map308 = 2131165386;
+			public const int macroglossus_minimus = 2131165386;
+			
+			// aapt resource value: 0x7F0700C1
+			public const int macro_family_pic = 2131165377;
+			
+			// aapt resource value: 0x7F0700C2
+			public const int macro_family_pic1 = 2131165378;
+			
+			// aapt resource value: 0x7F0700C3
+			public const int macro_gigas1 = 2131165379;
+			
+			// aapt resource value: 0x7F0700C4
+			public const int macro_gigas2 = 2131165380;
+			
+			// aapt resource value: 0x7F0700C5
+			public const int macro_gigas_head = 2131165381;
+			
+			// aapt resource value: 0x7F0700C6
+			public const int macro_minimus1 = 2131165382;
+			
+			// aapt resource value: 0x7F0700C7
+			public const int macro_minimus2 = 2131165383;
+			
+			// aapt resource value: 0x7F0700C8
+			public const int macro_minimus_head = 2131165384;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int map309 = 2131165387;
+			public const int map = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int map310 = 2131165388;
+			public const int map000 = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int map311 = 2131165389;
+			public const int map102 = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int map312 = 2131165390;
+			public const int map103 = 2131165390;
 			
 			// aapt resource value: 0x7F0700CF
-			public const int material_cursor_drawable = 2131165391;
+			public const int map104 = 2131165391;
 			
 			// aapt resource value: 0x7F0700D0
-			public const int material_ic_calendar_black_24dp = 2131165392;
+			public const int map105 = 2131165392;
 			
 			// aapt resource value: 0x7F0700D1
-			public const int material_ic_clear_black_24dp = 2131165393;
+			public const int map106 = 2131165393;
 			
 			// aapt resource value: 0x7F0700D2
-			public const int material_ic_edit_black_24dp = 2131165394;
+			public const int map107 = 2131165394;
 			
 			// aapt resource value: 0x7F0700D3
-			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165395;
+			public const int map108 = 2131165395;
 			
 			// aapt resource value: 0x7F0700D4
-			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165396;
+			public const int map201 = 2131165396;
 			
 			// aapt resource value: 0x7F0700D5
-			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165397;
+			public const int map202 = 2131165397;
 			
 			// aapt resource value: 0x7F0700D6
-			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165398;
+			public const int map203 = 2131165398;
 			
 			// aapt resource value: 0x7F0700D7
-			public const int material_ic_menu_arrow_down_black_24dp = 2131165399;
+			public const int map301 = 2131165399;
 			
 			// aapt resource value: 0x7F0700D8
-			public const int material_ic_menu_arrow_up_black_24dp = 2131165400;
+			public const int map302 = 2131165400;
 			
 			// aapt resource value: 0x7F0700D9
-			public const int micro_norfolk1 = 2131165401;
+			public const int map303 = 2131165401;
 			
 			// aapt resource value: 0x7F0700DA
-			public const int micro_norfolk_head = 2131165402;
+			public const int map304 = 2131165402;
 			
 			// aapt resource value: 0x7F0700DB
-			public const int mini_aust1 = 2131165403;
+			public const int map306 = 2131165403;
 			
 			// aapt resource value: 0x7F0700DC
-			public const int mini_aust2 = 2131165404;
+			public const int map307 = 2131165404;
 			
 			// aapt resource value: 0x7F0700DD
-			public const int mini_aust_head = 2131165405;
+			public const int map308 = 2131165405;
 			
 			// aapt resource value: 0x7F0700DE
-			public const int mini_oc_bassani1 = 2131165406;
+			public const int map309 = 2131165406;
 			
 			// aapt resource value: 0x7F0700DF
-			public const int mini_oc_bassani2 = 2131165407;
+			public const int map310 = 2131165407;
 			
 			// aapt resource value: 0x7F0700E0
-			public const int mini_oc_bassani_head = 2131165408;
+			public const int map311 = 2131165408;
 			
 			// aapt resource value: 0x7F0700E1
-			public const int mini_or_ocean1 = 2131165409;
+			public const int map312 = 2131165409;
 			
 			// aapt resource value: 0x7F0700E2
-			public const int mini_or_ocean2 = 2131165410;
+			public const int material_cursor_drawable = 2131165410;
 			
 			// aapt resource value: 0x7F0700E3
-			public const int mini_or_ocean_head = 2131165411;
+			public const int material_ic_calendar_black_24dp = 2131165411;
 			
 			// aapt resource value: 0x7F0700E4
-			public const int mini_or_orianae1 = 2131165412;
+			public const int material_ic_clear_black_24dp = 2131165412;
 			
 			// aapt resource value: 0x7F0700E5
-			public const int mini_or_orianae2 = 2131165413;
+			public const int material_ic_edit_black_24dp = 2131165413;
 			
 			// aapt resource value: 0x7F0700E6
-			public const int mini_or_orianae_head = 2131165414;
+			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165414;
 			
 			// aapt resource value: 0x7F0700E7
-			public const int mtrl_dialog_background = 2131165415;
+			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165415;
 			
 			// aapt resource value: 0x7F0700E8
-			public const int mtrl_dropdown_arrow = 2131165416;
+			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165416;
 			
 			// aapt resource value: 0x7F0700E9
-			public const int mtrl_ic_arrow_drop_down = 2131165417;
+			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165417;
 			
 			// aapt resource value: 0x7F0700EA
-			public const int mtrl_ic_arrow_drop_up = 2131165418;
+			public const int material_ic_menu_arrow_down_black_24dp = 2131165418;
 			
 			// aapt resource value: 0x7F0700EB
-			public const int mtrl_ic_cancel = 2131165419;
-			
-			// aapt resource value: 0x7F0700EC
-			public const int mtrl_ic_error = 2131165420;
-			
-			// aapt resource value: 0x7F0700ED
-			public const int mtrl_navigation_bar_item_background = 2131165421;
+			public const int material_ic_menu_arrow_up_black_24dp = 2131165419;
 			
 			// aapt resource value: 0x7F0700EE
-			public const int mtrl_popupmenu_background = 2131165422;
+			public const int micronomus_norfolkensis = 2131165422;
 			
-			// aapt resource value: 0x7F0700EF
-			public const int mtrl_popupmenu_background_dark = 2131165423;
+			// aapt resource value: 0x7F0700EC
+			public const int micro_norfolk1 = 2131165420;
 			
-			// aapt resource value: 0x7F0700F0
-			public const int mtrl_tabs_default_indicator = 2131165424;
-			
-			// aapt resource value: 0x7F0700F1
-			public const int murin_florium1 = 2131165425;
-			
-			// aapt resource value: 0x7F0700F2
-			public const int murin_florium2 = 2131165426;
-			
-			// aapt resource value: 0x7F0700F3
-			public const int murin_florium_head = 2131165427;
-			
-			// aapt resource value: 0x7F0700F4
-			public const int myct_arnhem_head = 2131165428;
-			
-			// aapt resource value: 0x7F0700F7
-			public const int myotis_mac1 = 2131165431;
-			
-			// aapt resource value: 0x7F0700F5
-			public const int myot_mac2 = 2131165429;
-			
-			// aapt resource value: 0x7F0700F6
-			public const int myot_mac_head = 2131165430;
-			
-			// aapt resource value: 0x7F0700F8
-			public const int navigation_empty_icon = 2131165432;
-			
-			// aapt resource value: 0x7F0700F9
-			public const int notification_action_background = 2131165433;
-			
-			// aapt resource value: 0x7F0700FA
-			public const int notification_bg = 2131165434;
+			// aapt resource value: 0x7F0700ED
+			public const int micro_norfolk_head = 2131165421;
 			
 			// aapt resource value: 0x7F0700FB
-			public const int notification_bg_low = 2131165435;
+			public const int miniopterus_australis = 2131165435;
 			
 			// aapt resource value: 0x7F0700FC
-			public const int notification_bg_low_normal = 2131165436;
+			public const int miniopterus_orianae_bassanii = 2131165436;
 			
 			// aapt resource value: 0x7F0700FD
-			public const int notification_bg_low_pressed = 2131165437;
+			public const int miniopterus_orianae_oceanensis = 2131165437;
 			
 			// aapt resource value: 0x7F0700FE
-			public const int notification_bg_normal = 2131165438;
+			public const int miniopterus_orianae_orianae = 2131165438;
+			
+			// aapt resource value: 0x7F0700EF
+			public const int mini_aust1 = 2131165423;
+			
+			// aapt resource value: 0x7F0700F0
+			public const int mini_aust2 = 2131165424;
+			
+			// aapt resource value: 0x7F0700F1
+			public const int mini_aust_head = 2131165425;
+			
+			// aapt resource value: 0x7F0700F2
+			public const int mini_oc_bassani1 = 2131165426;
+			
+			// aapt resource value: 0x7F0700F3
+			public const int mini_oc_bassani2 = 2131165427;
+			
+			// aapt resource value: 0x7F0700F4
+			public const int mini_oc_bassani_head = 2131165428;
+			
+			// aapt resource value: 0x7F0700F5
+			public const int mini_or_ocean1 = 2131165429;
+			
+			// aapt resource value: 0x7F0700F6
+			public const int mini_or_ocean2 = 2131165430;
+			
+			// aapt resource value: 0x7F0700F7
+			public const int mini_or_ocean_head = 2131165431;
+			
+			// aapt resource value: 0x7F0700F8
+			public const int mini_or_orianae1 = 2131165432;
+			
+			// aapt resource value: 0x7F0700F9
+			public const int mini_or_orianae2 = 2131165433;
+			
+			// aapt resource value: 0x7F0700FA
+			public const int mini_or_orianae_head = 2131165434;
 			
 			// aapt resource value: 0x7F0700FF
-			public const int notification_bg_normal_pressed = 2131165439;
+			public const int mtrl_dialog_background = 2131165439;
 			
 			// aapt resource value: 0x7F070100
-			public const int notification_icon_background = 2131165440;
+			public const int mtrl_dropdown_arrow = 2131165440;
 			
 			// aapt resource value: 0x7F070101
-			public const int notification_template_icon_bg = 2131165441;
+			public const int mtrl_ic_arrow_drop_down = 2131165441;
 			
 			// aapt resource value: 0x7F070102
-			public const int notification_template_icon_low_bg = 2131165442;
+			public const int mtrl_ic_arrow_drop_up = 2131165442;
 			
 			// aapt resource value: 0x7F070103
-			public const int notification_tile_bg = 2131165443;
+			public const int mtrl_ic_cancel = 2131165443;
 			
 			// aapt resource value: 0x7F070104
-			public const int notify_panel_notification_icon_bg = 2131165444;
-			
-			// aapt resource value: 0x7F070125
-			public const int nyctophilus_sherrini = 2131165477;
+			public const int mtrl_ic_error = 2131165444;
 			
 			// aapt resource value: 0x7F070105
-			public const int nyct_arnhem1 = 2131165445;
+			public const int mtrl_navigation_bar_item_background = 2131165445;
 			
 			// aapt resource value: 0x7F070106
-			public const int nyct_arnhem2 = 2131165446;
+			public const int mtrl_popupmenu_background = 2131165446;
 			
 			// aapt resource value: 0x7F070107
-			public const int nyct_bifax3 = 2131165447;
+			public const int mtrl_popupmenu_background_dark = 2131165447;
 			
 			// aapt resource value: 0x7F070108
-			public const int nyct_bifax4 = 2131165448;
-			
-			// aapt resource value: 0x7F070109
-			public const int nyct_bifax_head = 2131165449;
-			
-			// aapt resource value: 0x7F07010A
-			public const int nyct_corben1 = 2131165450;
-			
-			// aapt resource value: 0x7F07010B
-			public const int nyct_corben2 = 2131165451;
+			public const int mtrl_tabs_default_indicator = 2131165448;
 			
 			// aapt resource value: 0x7F07010C
-			public const int nyct_corben_head = 2131165452;
+			public const int murina_florium = 2131165452;
+			
+			// aapt resource value: 0x7F070109
+			public const int murin_florium1 = 2131165449;
+			
+			// aapt resource value: 0x7F07010A
+			public const int murin_florium2 = 2131165450;
+			
+			// aapt resource value: 0x7F07010B
+			public const int murin_florium_head = 2131165451;
 			
 			// aapt resource value: 0x7F07010D
-			public const int nyct_daed2 = 2131165453;
-			
-			// aapt resource value: 0x7F07010E
-			public const int nyct_daed3 = 2131165454;
-			
-			// aapt resource value: 0x7F07010F
-			public const int nyct_daed_head = 2131165455;
+			public const int myct_arnhem_head = 2131165453;
 			
 			// aapt resource value: 0x7F070110
-			public const int nyct_geoff1 = 2131165456;
+			public const int myotis_mac1 = 2131165456;
 			
 			// aapt resource value: 0x7F070111
-			public const int nyct_geoff2 = 2131165457;
+			public const int myotis_macropus = 2131165457;
+			
+			// aapt resource value: 0x7F07010E
+			public const int myot_mac2 = 2131165454;
+			
+			// aapt resource value: 0x7F07010F
+			public const int myot_mac_head = 2131165455;
 			
 			// aapt resource value: 0x7F070112
-			public const int nyct_geoff_head = 2131165458;
+			public const int navigation_empty_icon = 2131165458;
 			
 			// aapt resource value: 0x7F070113
-			public const int nyct_gould1 = 2131165459;
+			public const int notification_action_background = 2131165459;
 			
 			// aapt resource value: 0x7F070114
-			public const int nyct_gould2 = 2131165460;
+			public const int notification_bg = 2131165460;
 			
 			// aapt resource value: 0x7F070115
-			public const int nyct_gould_head = 2131165461;
+			public const int notification_bg_low = 2131165461;
 			
 			// aapt resource value: 0x7F070116
-			public const int nyct_holt = 2131165462;
+			public const int notification_bg_low_normal = 2131165462;
 			
 			// aapt resource value: 0x7F070117
-			public const int nyct_holt2 = 2131165463;
+			public const int notification_bg_low_pressed = 2131165463;
 			
 			// aapt resource value: 0x7F070118
-			public const int nyct_major1 = 2131165464;
+			public const int notification_bg_normal = 2131165464;
 			
 			// aapt resource value: 0x7F070119
-			public const int nyct_major2 = 2131165465;
+			public const int notification_bg_normal_pressed = 2131165465;
 			
 			// aapt resource value: 0x7F07011A
-			public const int nyct_major_head = 2131165466;
+			public const int notification_icon_background = 2131165466;
 			
 			// aapt resource value: 0x7F07011B
-			public const int nyct_major_tor1 = 2131165467;
+			public const int notification_template_icon_bg = 2131165467;
 			
 			// aapt resource value: 0x7F07011C
-			public const int nyct_major_tor2 = 2131165468;
+			public const int notification_template_icon_low_bg = 2131165468;
 			
 			// aapt resource value: 0x7F07011D
-			public const int nyct_major_tor_head = 2131165469;
+			public const int notification_tile_bg = 2131165469;
 			
 			// aapt resource value: 0x7F07011E
-			public const int nyct_robin1 = 2131165470;
-			
-			// aapt resource value: 0x7F07011F
-			public const int nyct_robin2 = 2131165471;
-			
-			// aapt resource value: 0x7F070120
-			public const int nyct_robin_head = 2131165472;
-			
-			// aapt resource value: 0x7F070121
-			public const int nyct_sherrim_head = 2131165473;
-			
-			// aapt resource value: 0x7F070122
-			public const int nyct_walkeri3 = 2131165474;
-			
-			// aapt resource value: 0x7F070123
-			public const int nyct_walkeri4 = 2131165475;
-			
-			// aapt resource value: 0x7F070124
-			public const int nyct_walkeri_head = 2131165476;
-			
-			// aapt resource value: 0x7F070133
-			public const int ozie_halli2 = 2131165491;
-			
-			// aapt resource value: 0x7F070134
-			public const int ozie_kitchen1 = 2131165492;
-			
-			// aapt resource value: 0x7F070135
-			public const int ozie_kitchen2 = 2131165493;
-			
-			// aapt resource value: 0x7F070136
-			public const int ozie_planic2 = 2131165494;
-			
-			// aapt resource value: 0x7F070137
-			public const int ozie_ridei1 = 2131165495;
-			
-			// aapt resource value: 0x7F070138
-			public const int ozie_ridei2 = 2131165496;
-			
-			// aapt resource value: 0x7F070126
-			public const int ozi_coburg2 = 2131165478;
-			
-			// aapt resource value: 0x7F070127
-			public const int ozi_coburg3 = 2131165479;
-			
-			// aapt resource value: 0x7F070129
-			public const int ozi_coburghead = 2131165481;
-			
-			// aapt resource value: 0x7F070128
-			public const int ozi_coburg_head = 2131165480;
-			
-			// aapt resource value: 0x7F07012A
-			public const int ozi_kitchen_head = 2131165482;
-			
-			// aapt resource value: 0x7F07012B
-			public const int ozi_lumsd1 = 2131165483;
-			
-			// aapt resource value: 0x7F07012C
-			public const int ozi_lumsd2 = 2131165484;
-			
-			// aapt resource value: 0x7F07012D
-			public const int ozi_lumsd_head = 2131165485;
-			
-			// aapt resource value: 0x7F07012E
-			public const int ozi_peters1 = 2131165486;
-			
-			// aapt resource value: 0x7F07012F
-			public const int ozi_peters2 = 2131165487;
-			
-			// aapt resource value: 0x7F070130
-			public const int ozi_peters_head = 2131165488;
-			
-			// aapt resource value: 0x7F070131
-			public const int ozi_planic1 = 2131165489;
-			
-			// aapt resource value: 0x7F070132
-			public const int ozi_planic_head = 2131165490;
-			
-			// aapt resource value: 0x7F070139
-			public const int perop_alect1 = 2131165497;
-			
-			// aapt resource value: 0x7F07013A
-			public const int phino_inter_head = 2131165498;
-			
-			// aapt resource value: 0x7F07013B
-			public const int phoni_pap1 = 2131165499;
-			
-			// aapt resource value: 0x7F07013C
-			public const int phoni_pap2 = 2131165500;
-			
-			// aapt resource value: 0x7F07013D
-			public const int phoni_pap_head = 2131165501;
-			
-			// aapt resource value: 0x7F07013E
-			public const int pip_adams1 = 2131165502;
+			public const int notify_panel_notification_icon_bg = 2131165470;
 			
 			// aapt resource value: 0x7F07013F
-			public const int pip_adams2 = 2131165503;
-			
-			// aapt resource value: 0x7F070140
-			public const int pip_adams_head = 2131165504;
+			public const int nyctimene_robinsoni = 2131165503;
 			
 			// aapt resource value: 0x7F070141
-			public const int pip_west1 = 2131165505;
+			public const int nyctophilus_arnhemensis = 2131165505;
 			
 			// aapt resource value: 0x7F070142
-			public const int pip_west2 = 2131165506;
+			public const int nyctophilus_bifax = 2131165506;
 			
 			// aapt resource value: 0x7F070143
-			public const int pip_west_head = 2131165507;
+			public const int nyctophilus_corbeni = 2131165507;
 			
 			// aapt resource value: 0x7F070144
-			public const int preference_list_divider_material = 2131165508;
+			public const int nyctophilus_daedalus = 2131165508;
 			
 			// aapt resource value: 0x7F070145
-			public const int pterop_alect2 = 2131165509;
+			public const int nyctophilus_geoffroyi = 2131165509;
 			
 			// aapt resource value: 0x7F070146
-			public const int pterop_alect3 = 2131165510;
+			public const int nyctophilus_gouldi = 2131165510;
 			
 			// aapt resource value: 0x7F070147
-			public const int pterop_alect_head = 2131165511;
+			public const int nyctophilus_major = 2131165511;
 			
-			// aapt resource value: 0x7F070148
-			public const int pterop_conspic1 = 2131165512;
+			// aapt resource value: 0x7F070140
+			public const int nyctophilus_sherrini = 2131165504;
 			
 			// aapt resource value: 0x7F070149
-			public const int pterop_conspic_head = 2131165513;
+			public const int nyctophilus_walkeri = 2131165513;
 			
-			// aapt resource value: 0x7F07014A
-			public const int pterop_natalis1 = 2131165514;
+			// aapt resource value: 0x7F07011F
+			public const int nyct_arnhem1 = 2131165471;
 			
-			// aapt resource value: 0x7F07014B
-			public const int pterop_natalis2 = 2131165515;
+			// aapt resource value: 0x7F070120
+			public const int nyct_arnhem2 = 2131165472;
 			
-			// aapt resource value: 0x7F07014C
-			public const int pterop_natalis_head = 2131165516;
+			// aapt resource value: 0x7F070121
+			public const int nyct_bifax3 = 2131165473;
 			
-			// aapt resource value: 0x7F07014D
-			public const int pterop_polioc1 = 2131165517;
+			// aapt resource value: 0x7F070122
+			public const int nyct_bifax4 = 2131165474;
 			
-			// aapt resource value: 0x7F07014E
-			public const int pterop_polioc2 = 2131165518;
+			// aapt resource value: 0x7F070123
+			public const int nyct_bifax_head = 2131165475;
 			
-			// aapt resource value: 0x7F07014F
-			public const int pterop_polioc3 = 2131165519;
+			// aapt resource value: 0x7F070124
+			public const int nyct_corben1 = 2131165476;
 			
-			// aapt resource value: 0x7F070150
-			public const int pterop_scap1 = 2131165520;
+			// aapt resource value: 0x7F070125
+			public const int nyct_corben2 = 2131165477;
 			
-			// aapt resource value: 0x7F070151
-			public const int pterop_scap2 = 2131165521;
+			// aapt resource value: 0x7F070126
+			public const int nyct_corben_head = 2131165478;
 			
-			// aapt resource value: 0x7F070152
-			public const int pterop_scap_head = 2131165522;
+			// aapt resource value: 0x7F070127
+			public const int nyct_daed2 = 2131165479;
 			
-			// aapt resource value: 0x7F07015E
-			public const int rhinon_aurant1 = 2131165534;
+			// aapt resource value: 0x7F070128
+			public const int nyct_daed3 = 2131165480;
 			
-			// aapt resource value: 0x7F07015F
-			public const int rhinon_aurant2 = 2131165535;
+			// aapt resource value: 0x7F070129
+			public const int nyct_daed_head = 2131165481;
 			
-			// aapt resource value: 0x7F070160
-			public const int rhinon_aurant3 = 2131165536;
+			// aapt resource value: 0x7F07012A
+			public const int nyct_geoff1 = 2131165482;
 			
-			// aapt resource value: 0x7F070161
-			public const int rhinon_aurant_head = 2131165537;
+			// aapt resource value: 0x7F07012B
+			public const int nyct_geoff2 = 2131165483;
 			
-			// aapt resource value: 0x7F070153
-			public const int rhino_intermed1 = 2131165523;
+			// aapt resource value: 0x7F07012C
+			public const int nyct_geoff_head = 2131165484;
 			
-			// aapt resource value: 0x7F070154
-			public const int rhino_intermed2 = 2131165524;
+			// aapt resource value: 0x7F07012D
+			public const int nyct_gould1 = 2131165485;
 			
-			// aapt resource value: 0x7F070155
-			public const int rhino_mega1 = 2131165525;
+			// aapt resource value: 0x7F07012E
+			public const int nyct_gould2 = 2131165486;
 			
-			// aapt resource value: 0x7F070156
-			public const int rhino_mega3 = 2131165526;
+			// aapt resource value: 0x7F07012F
+			public const int nyct_gould_head = 2131165487;
+			
+			// aapt resource value: 0x7F070130
+			public const int nyct_holt = 2131165488;
+			
+			// aapt resource value: 0x7F070131
+			public const int nyct_holt2 = 2131165489;
+			
+			// aapt resource value: 0x7F070132
+			public const int nyct_major1 = 2131165490;
+			
+			// aapt resource value: 0x7F070133
+			public const int nyct_major2 = 2131165491;
+			
+			// aapt resource value: 0x7F070134
+			public const int nyct_major_head = 2131165492;
+			
+			// aapt resource value: 0x7F070135
+			public const int nyct_major_tor1 = 2131165493;
+			
+			// aapt resource value: 0x7F070136
+			public const int nyct_major_tor2 = 2131165494;
+			
+			// aapt resource value: 0x7F070137
+			public const int nyct_major_tor_head = 2131165495;
+			
+			// aapt resource value: 0x7F070138
+			public const int nyct_robin1 = 2131165496;
+			
+			// aapt resource value: 0x7F070139
+			public const int nyct_robin2 = 2131165497;
+			
+			// aapt resource value: 0x7F07013A
+			public const int nyct_robin_head = 2131165498;
+			
+			// aapt resource value: 0x7F07013B
+			public const int nyct_sherrim_head = 2131165499;
+			
+			// aapt resource value: 0x7F07013C
+			public const int nyct_walkeri3 = 2131165500;
+			
+			// aapt resource value: 0x7F07013D
+			public const int nyct_walkeri4 = 2131165501;
+			
+			// aapt resource value: 0x7F07013E
+			public const int nyct_walkeri_head = 2131165502;
 			
 			// aapt resource value: 0x7F070157
-			public const int rhino_mega_head = 2131165527;
+			public const int ozie_halli2 = 2131165527;
 			
 			// aapt resource value: 0x7F070158
-			public const int rhino_robert1 = 2131165528;
+			public const int ozie_kitchen1 = 2131165528;
 			
 			// aapt resource value: 0x7F070159
-			public const int rhino_robert2 = 2131165529;
+			public const int ozie_kitchen2 = 2131165529;
 			
 			// aapt resource value: 0x7F07015A
-			public const int rhino_robert_head = 2131165530;
+			public const int ozie_planic2 = 2131165530;
 			
 			// aapt resource value: 0x7F07015B
-			public const int rhino_sp1 = 2131165531;
+			public const int ozie_ridei1 = 2131165531;
 			
 			// aapt resource value: 0x7F07015C
-			public const int rhino_sp2 = 2131165532;
+			public const int ozie_ridei2 = 2131165532;
 			
 			// aapt resource value: 0x7F07015D
-			public const int rhino_spHead = 2131165533;
+			public const int ozimops_cobourgianus = 2131165533;
+			
+			// aapt resource value: 0x7F07015E
+			public const int ozimops_halli = 2131165534;
+			
+			// aapt resource value: 0x7F07015F
+			public const int ozimops_kitcheneri = 2131165535;
+			
+			// aapt resource value: 0x7F070160
+			public const int ozimops_lumsdenae = 2131165536;
+			
+			// aapt resource value: 0x7F070161
+			public const int ozimops_petersi = 2131165537;
 			
 			// aapt resource value: 0x7F070162
-			public const int sacc_flav1 = 2131165538;
+			public const int ozimops_planiceps = 2131165538;
 			
 			// aapt resource value: 0x7F070163
-			public const int sacc_flav2 = 2131165539;
+			public const int ozimops_ridei = 2131165539;
+			
+			// aapt resource value: 0x7F07014A
+			public const int ozi_coburg2 = 2131165514;
+			
+			// aapt resource value: 0x7F07014B
+			public const int ozi_coburg3 = 2131165515;
+			
+			// aapt resource value: 0x7F07014D
+			public const int ozi_coburghead = 2131165517;
+			
+			// aapt resource value: 0x7F07014C
+			public const int ozi_coburg_head = 2131165516;
+			
+			// aapt resource value: 0x7F07014E
+			public const int ozi_kitchen_head = 2131165518;
+			
+			// aapt resource value: 0x7F07014F
+			public const int ozi_lumsd1 = 2131165519;
+			
+			// aapt resource value: 0x7F070150
+			public const int ozi_lumsd2 = 2131165520;
+			
+			// aapt resource value: 0x7F070151
+			public const int ozi_lumsd_head = 2131165521;
+			
+			// aapt resource value: 0x7F070152
+			public const int ozi_peters1 = 2131165522;
+			
+			// aapt resource value: 0x7F070153
+			public const int ozi_peters2 = 2131165523;
+			
+			// aapt resource value: 0x7F070154
+			public const int ozi_peters_head = 2131165524;
+			
+			// aapt resource value: 0x7F070155
+			public const int ozi_planic1 = 2131165525;
+			
+			// aapt resource value: 0x7F070156
+			public const int ozi_planic_head = 2131165526;
 			
 			// aapt resource value: 0x7F070164
-			public const int sacc_flav_head = 2131165540;
+			public const int perop_alect1 = 2131165540;
 			
 			// aapt resource value: 0x7F070165
-			public const int sacc_mixtus1 = 2131165541;
-			
-			// aapt resource value: 0x7F070166
-			public const int sacc_sacc2 = 2131165542;
-			
-			// aapt resource value: 0x7F070167
-			public const int sacc_sacc3 = 2131165543;
-			
-			// aapt resource value: 0x7F070168
-			public const int sacc_sacc_head = 2131165544;
-			
-			// aapt resource value: 0x7F070176
-			public const int scoto_parnaby2 = 2131165558;
+			public const int phino_inter_head = 2131165541;
 			
 			// aapt resource value: 0x7F070169
-			public const int scot_balst1 = 2131165545;
+			public const int phoniscus_papuensis = 2131165545;
 			
-			// aapt resource value: 0x7F07016A
-			public const int scot_balst2 = 2131165546;
+			// aapt resource value: 0x7F070166
+			public const int phoni_pap1 = 2131165542;
 			
-			// aapt resource value: 0x7F07016B
-			public const int scot_balst_head = 2131165547;
+			// aapt resource value: 0x7F070167
+			public const int phoni_pap2 = 2131165543;
 			
-			// aapt resource value: 0x7F07016C
-			public const int scot_greyi1 = 2131165548;
-			
-			// aapt resource value: 0x7F07016D
-			public const int scot_greyi2 = 2131165549;
-			
-			// aapt resource value: 0x7F07016E
-			public const int scot_greyi_head = 2131165550;
-			
-			// aapt resource value: 0x7F07016F
-			public const int scot_orion1 = 2131165551;
+			// aapt resource value: 0x7F070168
+			public const int phoni_pap_head = 2131165544;
 			
 			// aapt resource value: 0x7F070170
-			public const int scot_parnaby1 = 2131165552;
+			public const int pipistrellus_adamsi = 2131165552;
 			
 			// aapt resource value: 0x7F070171
-			public const int scot_parnaby_head = 2131165553;
+			public const int pipistrellus_westralis = 2131165553;
+			
+			// aapt resource value: 0x7F07016A
+			public const int pip_adams1 = 2131165546;
+			
+			// aapt resource value: 0x7F07016B
+			public const int pip_adams2 = 2131165547;
+			
+			// aapt resource value: 0x7F07016C
+			public const int pip_adams_head = 2131165548;
+			
+			// aapt resource value: 0x7F07016D
+			public const int pip_west1 = 2131165549;
+			
+			// aapt resource value: 0x7F07016E
+			public const int pip_west2 = 2131165550;
+			
+			// aapt resource value: 0x7F07016F
+			public const int pip_west_head = 2131165551;
 			
 			// aapt resource value: 0x7F070172
-			public const int scot_ruepp1 = 2131165554;
-			
-			// aapt resource value: 0x7F070173
-			public const int scot_sanborn1 = 2131165555;
-			
-			// aapt resource value: 0x7F070174
-			public const int scot_sanborn2 = 2131165556;
-			
-			// aapt resource value: 0x7F070175
-			public const int scot_sanborn_head = 2131165557;
-			
-			// aapt resource value: 0x7F070177
-			public const int seti_eleryi1 = 2131165559;
-			
-			// aapt resource value: 0x7F070178
-			public const int seti_eleryi2 = 2131165560;
-			
-			// aapt resource value: 0x7F070179
-			public const int seti_eleryi_head = 2131165561;
-			
-			// aapt resource value: 0x7F07017A
-			public const int sycon_aust1 = 2131165562;
-			
-			// aapt resource value: 0x7F07017B
-			public const int sycon_aust2 = 2131165563;
-			
-			// aapt resource value: 0x7F07017C
-			public const int sycon_aust_head = 2131165564;
-			
-			// aapt resource value: 0x7F07017D
-			public const int taph_aust1 = 2131165565;
-			
-			// aapt resource value: 0x7F07017E
-			public const int taph_aust2 = 2131165566;
-			
-			// aapt resource value: 0x7F07017F
-			public const int taph_aust_head = 2131165567;
-			
-			// aapt resource value: 0x7F070180
-			public const int taph_georg1 = 2131165568;
+			public const int preference_list_divider_material = 2131165554;
 			
 			// aapt resource value: 0x7F070181
-			public const int taph_georg2 = 2131165569;
+			public const int pteropus_alecto = 2131165569;
 			
 			// aapt resource value: 0x7F070182
-			public const int taph_georg_head = 2131165570;
+			public const int pteropus_conspicillatus = 2131165570;
 			
 			// aapt resource value: 0x7F070183
-			public const int taph_hilli1 = 2131165571;
+			public const int pteropus_poliocephalus = 2131165571;
 			
 			// aapt resource value: 0x7F070184
-			public const int taph_hilli2 = 2131165572;
+			public const int pteropus_scapulatus = 2131165572;
 			
-			// aapt resource value: 0x7F070185
-			public const int taph_hilli_head = 2131165573;
+			// aapt resource value: 0x7F070173
+			public const int pterop_alect2 = 2131165555;
 			
-			// aapt resource value: 0x7F070186
-			public const int taph_kapalg1 = 2131165574;
+			// aapt resource value: 0x7F070174
+			public const int pterop_alect3 = 2131165556;
 			
-			// aapt resource value: 0x7F070187
-			public const int taph_trought1 = 2131165575;
+			// aapt resource value: 0x7F070175
+			public const int pterop_alect_head = 2131165557;
 			
-			// aapt resource value: 0x7F070188
-			public const int taph_trought2 = 2131165576;
+			// aapt resource value: 0x7F070176
+			public const int pterop_conspic1 = 2131165558;
 			
-			// aapt resource value: 0x7F070189
-			public const int taph_trought_head = 2131165577;
+			// aapt resource value: 0x7F070177
+			public const int pterop_conspic_head = 2131165559;
 			
-			// aapt resource value: 0x7F07018A
-			public const int test_custom_background = 2131165578;
+			// aapt resource value: 0x7F070178
+			public const int pterop_natalis1 = 2131165560;
 			
-			// aapt resource value: 0x7F07018B
-			public const int tooltip_frame_dark = 2131165579;
+			// aapt resource value: 0x7F070179
+			public const int pterop_natalis2 = 2131165561;
 			
-			// aapt resource value: 0x7F07018C
-			public const int tooltip_frame_light = 2131165580;
+			// aapt resource value: 0x7F07017A
+			public const int pterop_natalis_head = 2131165562;
 			
-			// aapt resource value: 0x7F07018D
-			public const int vesp_baver1 = 2131165581;
+			// aapt resource value: 0x7F07017B
+			public const int pterop_polioc1 = 2131165563;
 			
-			// aapt resource value: 0x7F07018E
-			public const int vesp_baver2 = 2131165582;
+			// aapt resource value: 0x7F07017C
+			public const int pterop_polioc2 = 2131165564;
 			
-			// aapt resource value: 0x7F07018F
-			public const int vesp_baver_head = 2131165583;
+			// aapt resource value: 0x7F07017D
+			public const int pterop_polioc3 = 2131165565;
+			
+			// aapt resource value: 0x7F07017E
+			public const int pterop_scap1 = 2131165566;
+			
+			// aapt resource value: 0x7F07017F
+			public const int pterop_scap2 = 2131165567;
+			
+			// aapt resource value: 0x7F070180
+			public const int pterop_scap_head = 2131165568;
 			
 			// aapt resource value: 0x7F070190
-			public const int vesp_caur1 = 2131165584;
+			public const int rhinolophus_megaphyllus = 2131165584;
 			
 			// aapt resource value: 0x7F070191
-			public const int vesp_caur2 = 2131165585;
-			
-			// aapt resource value: 0x7F070192
-			public const int vesp_caur_head = 2131165586;
-			
-			// aapt resource value: 0x7F070193
-			public const int vesp_darling1 = 2131165587;
-			
-			// aapt resource value: 0x7F070194
-			public const int vesp_darling2 = 2131165588;
-			
-			// aapt resource value: 0x7F070195
-			public const int vesp_darling_head = 2131165589;
+			public const int rhinolophus_robertsi = 2131165585;
 			
 			// aapt resource value: 0x7F070196
-			public const int vesp_douglas1 = 2131165590;
+			public const int rhinonicteris_aurantia = 2131165590;
 			
 			// aapt resource value: 0x7F070197
-			public const int vesp_douglas2 = 2131165591;
+			public const int rhinonicteris_aurantia_pilbera = 2131165591;
 			
-			// aapt resource value: 0x7F070198
-			public const int vesp_douglas_head = 2131165592;
+			// aapt resource value: 0x7F070192
+			public const int rhinon_aurant1 = 2131165586;
 			
-			// aapt resource value: 0x7F070199
-			public const int vesp_family = 2131165593;
+			// aapt resource value: 0x7F070193
+			public const int rhinon_aurant2 = 2131165587;
 			
-			// aapt resource value: 0x7F07019A
-			public const int vesp_finlay1 = 2131165594;
+			// aapt resource value: 0x7F070194
+			public const int rhinon_aurant3 = 2131165588;
 			
-			// aapt resource value: 0x7F07019B
-			public const int vesp_finlay2 = 2131165595;
+			// aapt resource value: 0x7F070195
+			public const int rhinon_aurant_head = 2131165589;
 			
-			// aapt resource value: 0x7F07019C
-			public const int vesp_finlay_head = 2131165596;
+			// aapt resource value: 0x7F070185
+			public const int rhino_intermed1 = 2131165573;
 			
-			// aapt resource value: 0x7F07019D
-			public const int vesp_pumilus1 = 2131165597;
+			// aapt resource value: 0x7F070186
+			public const int rhino_intermed2 = 2131165574;
 			
-			// aapt resource value: 0x7F07019E
-			public const int vesp_pumilus2 = 2131165598;
+			// aapt resource value: 0x7F070187
+			public const int rhino_mega1 = 2131165575;
+			
+			// aapt resource value: 0x7F070188
+			public const int rhino_mega3 = 2131165576;
+			
+			// aapt resource value: 0x7F070189
+			public const int rhino_mega_head = 2131165577;
+			
+			// aapt resource value: 0x7F07018A
+			public const int rhino_robert1 = 2131165578;
+			
+			// aapt resource value: 0x7F07018B
+			public const int rhino_robert2 = 2131165579;
+			
+			// aapt resource value: 0x7F07018C
+			public const int rhino_robert_head = 2131165580;
+			
+			// aapt resource value: 0x7F07018D
+			public const int rhino_sp1 = 2131165581;
+			
+			// aapt resource value: 0x7F07018E
+			public const int rhino_sp2 = 2131165582;
+			
+			// aapt resource value: 0x7F07018F
+			public const int rhino_spHead = 2131165583;
 			
 			// aapt resource value: 0x7F07019F
-			public const int vesp_pumilus_head = 2131165599;
+			public const int saccolaimus_flaviventris = 2131165599;
 			
 			// aapt resource value: 0x7F0701A0
-			public const int vesp_regulus1 = 2131165600;
+			public const int saccolaimus_mixtus = 2131165600;
 			
 			// aapt resource value: 0x7F0701A1
-			public const int vesp_regulus2 = 2131165601;
+			public const int saccolaimus_saccolaimus = 2131165601;
+			
+			// aapt resource value: 0x7F070198
+			public const int sacc_flav1 = 2131165592;
+			
+			// aapt resource value: 0x7F070199
+			public const int sacc_flav2 = 2131165593;
+			
+			// aapt resource value: 0x7F07019A
+			public const int sacc_flav_head = 2131165594;
+			
+			// aapt resource value: 0x7F07019B
+			public const int sacc_mixtus1 = 2131165595;
+			
+			// aapt resource value: 0x7F07019C
+			public const int sacc_sacc2 = 2131165596;
+			
+			// aapt resource value: 0x7F07019D
+			public const int sacc_sacc3 = 2131165597;
+			
+			// aapt resource value: 0x7F07019E
+			public const int sacc_sacc_head = 2131165598;
+			
+			// aapt resource value: 0x7F0701AF
+			public const int scoteanax_rueppellii = 2131165615;
+			
+			// aapt resource value: 0x7F0701B1
+			public const int scotorepens_balstoni = 2131165617;
+			
+			// aapt resource value: 0x7F0701B2
+			public const int scotorepens_greyii = 2131165618;
+			
+			// aapt resource value: 0x7F0701B3
+			public const int scotorepens_orion = 2131165619;
+			
+			// aapt resource value: 0x7F0701B4
+			public const int scotorepens_sanborni = 2131165620;
+			
+			// aapt resource value: 0x7F0701B0
+			public const int scoto_parnaby2 = 2131165616;
 			
 			// aapt resource value: 0x7F0701A2
-			public const int vesp_regulus_head = 2131165602;
+			public const int scot_balst1 = 2131165602;
 			
 			// aapt resource value: 0x7F0701A3
-			public const int vesp_trought2 = 2131165603;
+			public const int scot_balst2 = 2131165603;
 			
 			// aapt resource value: 0x7F0701A4
-			public const int vesp_trought_head = 2131165604;
+			public const int scot_balst_head = 2131165604;
 			
 			// aapt resource value: 0x7F0701A5
-			public const int vesp_vult1 = 2131165605;
+			public const int scot_greyi1 = 2131165605;
 			
 			// aapt resource value: 0x7F0701A6
-			public const int vesp_vult2 = 2131165606;
+			public const int scot_greyi2 = 2131165606;
 			
 			// aapt resource value: 0x7F0701A7
-			public const int vesp_vult_head = 2131165607;
+			public const int scot_greyi_head = 2131165607;
 			
 			// aapt resource value: 0x7F0701A8
-			public const int xamarin_logo = 2131165608;
+			public const int scot_orion1 = 2131165608;
+			
+			// aapt resource value: 0x7F0701A9
+			public const int scot_parnaby1 = 2131165609;
+			
+			// aapt resource value: 0x7F0701AA
+			public const int scot_parnaby_head = 2131165610;
+			
+			// aapt resource value: 0x7F0701AB
+			public const int scot_ruepp1 = 2131165611;
+			
+			// aapt resource value: 0x7F0701AC
+			public const int scot_sanborn1 = 2131165612;
+			
+			// aapt resource value: 0x7F0701AD
+			public const int scot_sanborn2 = 2131165613;
+			
+			// aapt resource value: 0x7F0701AE
+			public const int scot_sanborn_head = 2131165614;
+			
+			// aapt resource value: 0x7F0701B8
+			public const int setirostris_eleryi = 2131165624;
+			
+			// aapt resource value: 0x7F0701B5
+			public const int seti_eleryi1 = 2131165621;
+			
+			// aapt resource value: 0x7F0701B6
+			public const int seti_eleryi2 = 2131165622;
+			
+			// aapt resource value: 0x7F0701B7
+			public const int seti_eleryi_head = 2131165623;
+			
+			// aapt resource value: 0x7F0701BC
+			public const int syconycteris_australis = 2131165628;
+			
+			// aapt resource value: 0x7F0701B9
+			public const int sycon_aust1 = 2131165625;
+			
+			// aapt resource value: 0x7F0701BA
+			public const int sycon_aust2 = 2131165626;
+			
+			// aapt resource value: 0x7F0701BB
+			public const int sycon_aust_head = 2131165627;
+			
+			// aapt resource value: 0x7F0701CA
+			public const int taphozous_australis = 2131165642;
+			
+			// aapt resource value: 0x7F0701CB
+			public const int taphozous_georgianus = 2131165643;
+			
+			// aapt resource value: 0x7F0701CC
+			public const int taphozous_hilli = 2131165644;
+			
+			// aapt resource value: 0x7F0701CD
+			public const int taphozous_kapalgensis = 2131165645;
+			
+			// aapt resource value: 0x7F0701CE
+			public const int taphozous_troughtoni = 2131165646;
+			
+			// aapt resource value: 0x7F0701BD
+			public const int taph_aust1 = 2131165629;
+			
+			// aapt resource value: 0x7F0701BE
+			public const int taph_aust2 = 2131165630;
+			
+			// aapt resource value: 0x7F0701BF
+			public const int taph_aust_head = 2131165631;
+			
+			// aapt resource value: 0x7F0701C0
+			public const int taph_georg1 = 2131165632;
+			
+			// aapt resource value: 0x7F0701C1
+			public const int taph_georg2 = 2131165633;
+			
+			// aapt resource value: 0x7F0701C2
+			public const int taph_georg_head = 2131165634;
+			
+			// aapt resource value: 0x7F0701C3
+			public const int taph_hilli1 = 2131165635;
+			
+			// aapt resource value: 0x7F0701C4
+			public const int taph_hilli2 = 2131165636;
+			
+			// aapt resource value: 0x7F0701C5
+			public const int taph_hilli_head = 2131165637;
+			
+			// aapt resource value: 0x7F0701C6
+			public const int taph_kapalg1 = 2131165638;
+			
+			// aapt resource value: 0x7F0701C7
+			public const int taph_trought1 = 2131165639;
+			
+			// aapt resource value: 0x7F0701C8
+			public const int taph_trought2 = 2131165640;
+			
+			// aapt resource value: 0x7F0701C9
+			public const int taph_trought_head = 2131165641;
+			
+			// aapt resource value: 0x7F0701CF
+			public const int test_custom_background = 2131165647;
+			
+			// aapt resource value: 0x7F0701D0
+			public const int tooltip_frame_dark = 2131165648;
+			
+			// aapt resource value: 0x7F0701D1
+			public const int tooltip_frame_light = 2131165649;
+			
+			// aapt resource value: 0x7F0701ED
+			public const int vespadelus_baverstocki = 2131165677;
+			
+			// aapt resource value: 0x7F0701EE
+			public const int vespadelus_caurinus = 2131165678;
+			
+			// aapt resource value: 0x7F0701EF
+			public const int vespadelus_darlingtoni = 2131165679;
+			
+			// aapt resource value: 0x7F0701F0
+			public const int vespadelus_douglasorum = 2131165680;
+			
+			// aapt resource value: 0x7F0701F1
+			public const int vespadelus_finlaysoni = 2131165681;
+			
+			// aapt resource value: 0x7F0701F2
+			public const int vespadelus_pumilus = 2131165682;
+			
+			// aapt resource value: 0x7F0701F3
+			public const int vespadelus_regulus = 2131165683;
+			
+			// aapt resource value: 0x7F0701F4
+			public const int vespadelus_troughtoni = 2131165684;
+			
+			// aapt resource value: 0x7F0701F5
+			public const int vespadelus_vulturnus = 2131165685;
+			
+			// aapt resource value: 0x7F0701D2
+			public const int vesp_baver1 = 2131165650;
+			
+			// aapt resource value: 0x7F0701D3
+			public const int vesp_baver2 = 2131165651;
+			
+			// aapt resource value: 0x7F0701D4
+			public const int vesp_baver_head = 2131165652;
+			
+			// aapt resource value: 0x7F0701D5
+			public const int vesp_caur1 = 2131165653;
+			
+			// aapt resource value: 0x7F0701D6
+			public const int vesp_caur2 = 2131165654;
+			
+			// aapt resource value: 0x7F0701D7
+			public const int vesp_caur_head = 2131165655;
+			
+			// aapt resource value: 0x7F0701D8
+			public const int vesp_darling1 = 2131165656;
+			
+			// aapt resource value: 0x7F0701D9
+			public const int vesp_darling2 = 2131165657;
+			
+			// aapt resource value: 0x7F0701DA
+			public const int vesp_darling_head = 2131165658;
+			
+			// aapt resource value: 0x7F0701DB
+			public const int vesp_douglas1 = 2131165659;
+			
+			// aapt resource value: 0x7F0701DC
+			public const int vesp_douglas2 = 2131165660;
+			
+			// aapt resource value: 0x7F0701DD
+			public const int vesp_douglas_head = 2131165661;
+			
+			// aapt resource value: 0x7F0701DE
+			public const int vesp_family = 2131165662;
+			
+			// aapt resource value: 0x7F0701DF
+			public const int vesp_finlay1 = 2131165663;
+			
+			// aapt resource value: 0x7F0701E0
+			public const int vesp_finlay2 = 2131165664;
+			
+			// aapt resource value: 0x7F0701E1
+			public const int vesp_finlay_head = 2131165665;
+			
+			// aapt resource value: 0x7F0701E2
+			public const int vesp_pumilus1 = 2131165666;
+			
+			// aapt resource value: 0x7F0701E3
+			public const int vesp_pumilus2 = 2131165667;
+			
+			// aapt resource value: 0x7F0701E4
+			public const int vesp_pumilus_head = 2131165668;
+			
+			// aapt resource value: 0x7F0701E5
+			public const int vesp_regulus1 = 2131165669;
+			
+			// aapt resource value: 0x7F0701E6
+			public const int vesp_regulus2 = 2131165670;
+			
+			// aapt resource value: 0x7F0701E7
+			public const int vesp_regulus_head = 2131165671;
+			
+			// aapt resource value: 0x7F0701E8
+			public const int vesp_trought2 = 2131165672;
+			
+			// aapt resource value: 0x7F0701E9
+			public const int vesp_trought_head = 2131165673;
+			
+			// aapt resource value: 0x7F0701EA
+			public const int vesp_vult1 = 2131165674;
+			
+			// aapt resource value: 0x7F0701EB
+			public const int vesp_vult2 = 2131165675;
+			
+			// aapt resource value: 0x7F0701EC
+			public const int vesp_vult_head = 2131165676;
+			
+			// aapt resource value: 0x7F0701F6
+			public const int xamarin_logo = 2131165686;
 			
 			static Drawable()
 			{

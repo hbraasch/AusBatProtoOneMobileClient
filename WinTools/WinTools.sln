@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinTools", "WinTools\WinTools.csproj", "{594C1CFF-16AE-4CB6-961F-9DB585B908B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{594C1CFF-16AE-4CB6-961F-9DB585B908B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594C1CFF-16AE-4CB6-961F-9DB585B908B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{594C1CFF-16AE-4CB6-961F-9DB585B908B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{594C1CFF-16AE-4CB6-961F-9DB585B908B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABF51C9E-9B0B-4ABC-B96D-5C3233EE1E78}
+	EndGlobalSection
+EndGlobal

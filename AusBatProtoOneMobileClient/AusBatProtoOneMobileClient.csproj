@@ -259,9 +259,83 @@
     <None Remove="Data\CallAudio\aust_aust.wav" />
     <None Remove="Data\CallAudio\chae_job.wav" />
     <None Remove="Data\CallAudio\chal_dwye.wav" />
-    <None Remove="Data\CallImages\aust_aust.jpg" />
-    <None Remove="Data\CallImages\chae_job.jpg" />
-    <None Remove="Data\CallImages\Chal_dwye.jpg" />
+    <None Remove="Data\DistributionMaps\austonomus_australis.jpg" />
+    <None Remove="Data\DistributionMaps\chaerephon_jobensis.jpg" />
+    <None Remove="Data\DistributionMaps\chalinolobus_dwyeri.jpg" />
+    <None Remove="Data\DistributionMaps\chalinolobus_gouldii.jpg" />
+    <None Remove="Data\DistributionMaps\chalinolobus_morio.jpg" />
+    <None Remove="Data\DistributionMaps\chalinolobus_nigrogriseus.jpg" />
+    <None Remove="Data\DistributionMaps\chalinolobus_picatus.jpg" />
+    <None Remove="Data\DistributionMaps\dobsonia_moluccensis.jpg" />
+    <None Remove="Data\DistributionMaps\falsistrellus_mackenziei.jpg" />
+    <None Remove="Data\DistributionMaps\falsistrellus_tasmaniensis.jpg" />
+    <None Remove="Data\DistributionMaps\hipposideros_ater.jpg" />
+    <None Remove="Data\DistributionMaps\hipposideros_cervinus.jpg" />
+    <None Remove="Data\DistributionMaps\hipposideros_diadema.jpg" />
+    <None Remove="Data\DistributionMaps\hipposideros_inornatus.jpg" />
+    <None Remove="Data\DistributionMaps\hipposideros_semoni.jpg" />
+    <None Remove="Data\DistributionMaps\hipposideros_stenotis.jpg" />
+    <None Remove="Data\DistributionMaps\macroderma_gigas.jpg" />
+    <None Remove="Data\DistributionMaps\macroglossus_minimus.jpg" />
+    <None Remove="Data\DistributionMaps\micronomus_norfolkensis.jpg" />
+    <None Remove="Data\DistributionMaps\miniopterus_australis.jpg" />
+    <None Remove="Data\DistributionMaps\miniopterus_orianae_bassanii.jpg" />
+    <None Remove="Data\DistributionMaps\miniopterus_orianae_oceanensis.jpg" />
+    <None Remove="Data\DistributionMaps\miniopterus_orianae_orianae.jpg" />
+    <None Remove="Data\DistributionMaps\murina_florium.jpg" />
+    <None Remove="Data\DistributionMaps\myotis_macropus.jpg" />
+    <None Remove="Data\DistributionMaps\nyctimene_robinsoni.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_arnhemensis.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_bifax.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_corbeni.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_daedalus.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_geoffroyi.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_gouldi.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_major.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_sherrini.jpg" />
+    <None Remove="Data\DistributionMaps\nyctophilus_walkeri.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_cobourgianus.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_halli.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_kitcheneri.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_lumsdenae.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_petersi.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_planiceps.jpg" />
+    <None Remove="Data\DistributionMaps\ozimops_ridei.jpg" />
+    <None Remove="Data\DistributionMaps\phoniscus_papuensis.jpg" />
+    <None Remove="Data\DistributionMaps\pipistrellus_adamsi.jpg" />
+    <None Remove="Data\DistributionMaps\pipistrellus_westralis.jpg" />
+    <None Remove="Data\DistributionMaps\pteropus_alecto.jpg" />
+    <None Remove="Data\DistributionMaps\pteropus_conspicillatus.jpg" />
+    <None Remove="Data\DistributionMaps\pteropus_poliocephalus.jpg" />
+    <None Remove="Data\DistributionMaps\pteropus_scapulatus.jpg" />
+    <None Remove="Data\DistributionMaps\rhinolophus_megaphyllus.jpg" />
+    <None Remove="Data\DistributionMaps\rhinolophus_robertsi.jpg" />
+    <None Remove="Data\DistributionMaps\rhinonicteris_aurantia.jpg" />
+    <None Remove="Data\DistributionMaps\rhinonicteris_aurantia_pilbera.jpg" />
+    <None Remove="Data\DistributionMaps\saccolaimus_flaviventris.jpg" />
+    <None Remove="Data\DistributionMaps\saccolaimus_mixtus.jpg" />
+    <None Remove="Data\DistributionMaps\saccolaimus_saccolaimus.jpg" />
+    <None Remove="Data\DistributionMaps\scoteanax_rueppellii.jpg" />
+    <None Remove="Data\DistributionMaps\scotorepens_balstoni.jpg" />
+    <None Remove="Data\DistributionMaps\scotorepens_greyii.jpg" />
+    <None Remove="Data\DistributionMaps\scotorepens_orion.jpg" />
+    <None Remove="Data\DistributionMaps\scotorepens_sanborni.jpg" />
+    <None Remove="Data\DistributionMaps\setirostris_eleryi.jpg" />
+    <None Remove="Data\DistributionMaps\syconycteris_australis.jpg" />
+    <None Remove="Data\DistributionMaps\taphozous_australis.jpg" />
+    <None Remove="Data\DistributionMaps\taphozous_georgianus.jpg" />
+    <None Remove="Data\DistributionMaps\taphozous_hilli.jpg" />
+    <None Remove="Data\DistributionMaps\taphozous_kapalgensis.jpg" />
+    <None Remove="Data\DistributionMaps\taphozous_troughtoni.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_baverstocki.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_caurinus.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_darlingtoni.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_douglasorum.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_finlaysoni.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_pumilus.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_regulus.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_troughtoni.jpg" />
+    <None Remove="Data\DistributionMaps\vespadelus_vulturnus.jpg" />
     <None Remove="Data\Introduction\Introduction.html" />
     <None Remove="Data\Map\map.jpg" />
     <None Remove="Data\Map\map000.jpg" />
@@ -604,9 +678,83 @@
     <SharedImage Include="Data\BatImages\vesp_vult1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\vesp_vult2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\BatImages\vesp_vult_head.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\aust_aust.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chae_job.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\CallImages\chal_dwye.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\austonomus_australis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\chaerephon_jobensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\chalinolobus_dwyeri.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\chalinolobus_gouldii.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\chalinolobus_morio.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\chalinolobus_nigrogriseus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\chalinolobus_picatus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\dobsonia_moluccensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\falsistrellus_mackenziei.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\falsistrellus_tasmaniensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\hipposideros_ater.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\hipposideros_cervinus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\hipposideros_diadema.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\hipposideros_inornatus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\hipposideros_semoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\hipposideros_stenotis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\macroderma_gigas.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\macroglossus_minimus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\micronomus_norfolkensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\miniopterus_australis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\miniopterus_orianae_bassanii.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\miniopterus_orianae_oceanensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\miniopterus_orianae_orianae.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\murina_florium.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\myotis_macropus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctimene_robinsoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_arnhemensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_bifax.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_corbeni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_daedalus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_geoffroyi.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_gouldi.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_major.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_sherrini.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\nyctophilus_walkeri.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_cobourgianus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_halli.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_kitcheneri.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_lumsdenae.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_petersi.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_planiceps.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\ozimops_ridei.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\phoniscus_papuensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\pipistrellus_adamsi.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\pipistrellus_westralis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\pteropus_alecto.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\pteropus_conspicillatus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\pteropus_poliocephalus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\pteropus_scapulatus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\rhinolophus_megaphyllus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\rhinolophus_robertsi.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\rhinonicteris_aurantia.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\rhinonicteris_aurantia_pilbera.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\saccolaimus_flaviventris.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\saccolaimus_mixtus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\saccolaimus_saccolaimus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\scoteanax_rueppellii.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\scotorepens_balstoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\scotorepens_greyii.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\scotorepens_orion.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\scotorepens_sanborni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\setirostris_eleryi.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\syconycteris_australis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\taphozous_australis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\taphozous_georgianus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\taphozous_hilli.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\taphozous_kapalgensis.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\taphozous_troughtoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_baverstocki.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_caurinus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_darlingtoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_douglasorum.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_finlaysoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_pumilus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_regulus.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_troughtoni.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\DistributionMaps\vespadelus_vulturnus.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\Map\map.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\Map\map000.png" BaseSize="150,150" />
     <SharedImage Include="Data\Map\map102.png" BaseSize="150,150" />
