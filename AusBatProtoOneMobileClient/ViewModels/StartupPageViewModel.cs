@@ -242,7 +242,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnInitPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                App.dbase.Init();
+                ActivityIndicatorStart();
+                await App.dbase.Init();
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {

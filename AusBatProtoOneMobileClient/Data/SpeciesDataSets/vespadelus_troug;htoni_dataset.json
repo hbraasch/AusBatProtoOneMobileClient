@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadelus",
+  "SpeciesId": "troug;htoni",
+  "Name": "Eastern Cave Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_trought",
+  "Images": [
+    "vesp_trought_head.jpg",
+    "vesp_trought2.jpg",
+    "vesp_trought3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_trought.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadelus_troug;htoni.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.0323,
+      "Max": 68.84842
+    },
+    "OuterCanineWidth": {
+      "Min": 5.84028,
+      "Max": 6.3611727
+    },
+    "TailLength": {
+      "Min": 43.934776,
+      "Max": 56.52136
+    },
+    "FootWithClawLength": {
+      "Min": 10.826269,
+      "Max": 12.925226
+    },
+    "TibiaLength": {
+      "Min": 20.403427,
+      "Max": 23.661499
+    },
+    "PenisLength": {
+      "Min": 3.2026393,
+      "Max": 3.8633947
+    },
+    "HeadToBodyLength": {
+      "Min": 80.12828,
+      "Max": 92.647156
+    },
+    "Weight": {
+      "Min": 21.705452,
+      "Max": 42.924442
+    },
+    "ThreeMet": {
+      "Min": 31.097473,
+      "Max": 39.067932
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

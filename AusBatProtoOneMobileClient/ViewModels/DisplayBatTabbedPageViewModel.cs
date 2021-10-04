@@ -157,7 +157,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     {
                         throw new BusinessException("There is no audio to play");
                     }
-                    player.Load(FileHelper.GetStreamFromFile($"Data.CallAudio.{audioFilename}"));
+                    player.Load(FileHelper.GetStreamFromFile($"Data.SpeciesCallAudio.{audioFilename}"));
                     player.Play();
                     SelectedCallDisplayItem.IsPlaying = true;
                 }              

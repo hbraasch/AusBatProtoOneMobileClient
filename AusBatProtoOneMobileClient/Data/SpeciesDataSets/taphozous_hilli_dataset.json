@@ -1,0 +1,59 @@
+{
+  "GenusId": "Taphozous",
+  "SpeciesId": "hilli",
+  "Name": "Hill's Sheath-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Taph_hilli_",
+  "Images": [
+    "taph_hilli__head.jpg",
+    "taph_hilli_2.jpg",
+    "taph_hilli_3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "taph_hilli_.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "taphozous_hilli.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 55.17174,
+      "Max": 63.51179
+    },
+    "OuterCanineWidth": {
+      "Min": 5.9547997,
+      "Max": 6.5278974
+    },
+    "TailLength": {
+      "Min": 45.464832,
+      "Max": 47.99714
+    },
+    "FootWithClawLength": {
+      "Min": 9.523978,
+      "Max": 12.061741
+    },
+    "TibiaLength": {
+      "Min": 18.31336,
+      "Max": 23.436636
+    },
+    "PenisLength": {
+      "Min": 3.0833826,
+      "Max": 4.1130376
+    },
+    "HeadToBodyLength": {
+      "Min": 73.11784,
+      "Max": 84.29499
+    },
+    "Weight": {
+      "Min": 32.085724,
+      "Max": 39.501797
+    },
+    "ThreeMet": {
+      "Min": 30.689577,
+      "Max": 41.127983
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "GenusId": "Rhinonicteris",
+  "SpeciesId": "aurantia",
+  "Name": "Orange Leaf-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Rhinon_aurant",
+  "Images": [
+    "rhinon_aurant_head.jpg",
+    "rhinon_aurant2.jpg",
+    "rhinon_aurant3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "rhinon_aurant.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "rhinonicteris_aurantia.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.742035,
+      "Max": 63.56671
+    },
+    "OuterCanineWidth": {
+      "Min": 5.972886,
+      "Max": 6.420721
+    },
+    "TailLength": {
+      "Min": 42.365726,
+      "Max": 50.72852
+    },
+    "FootWithClawLength": {
+      "Min": 9.370026,
+      "Max": 12.622526
+    },
+    "TibiaLength": {
+      "Min": 18.99525,
+      "Max": 22.69281
+    },
+    "PenisLength": {
+      "Min": 3.0879166,
+      "Max": 4.374382
+    },
+    "HeadToBodyLength": {
+      "Min": 69.55196,
+      "Max": 92.77513
+    },
+    "Weight": {
+      "Min": 30.352777,
+      "Max": 48.220924
+    },
+    "ThreeMet": {
+      "Min": 31.718718,
+      "Max": 43.08669
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

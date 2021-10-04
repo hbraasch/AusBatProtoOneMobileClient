@@ -1,0 +1,59 @@
+{
+  "GenusId": "Chalinolobus",
+  "SpeciesId": "dwyeri",
+  "Name": "Large-eared Pied Bat",
+  "DetailsHtml": null,
+  "DataTag": "Chal_dwye",
+  "Images": [
+    "chal_dwye_head.jpg",
+    "chal_dwye2.jpg",
+    "chal_dwye3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "chal_dwye.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "chalinolobus_dwyeri.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 53.6848,
+      "Max": 66.96775
+    },
+    "OuterCanineWidth": {
+      "Min": 6.0084333,
+      "Max": 6.3229556
+    },
+    "TailLength": {
+      "Min": 45.3679,
+      "Max": 52.890713
+    },
+    "FootWithClawLength": {
+      "Min": 10.33501,
+      "Max": 13.616495
+    },
+    "TibiaLength": {
+      "Min": 18.658327,
+      "Max": 25.812853
+    },
+    "PenisLength": {
+      "Min": 2.6060193,
+      "Max": 4.200516
+    },
+    "HeadToBodyLength": {
+      "Min": 69.11246,
+      "Max": 81.88926
+    },
+    "Weight": {
+      "Min": 28.822412,
+      "Max": 45.387993
+    },
+    "ThreeMet": {
+      "Min": 31.925167,
+      "Max": 40.389782
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

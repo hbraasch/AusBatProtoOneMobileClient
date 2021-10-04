@@ -1,0 +1,59 @@
+{
+  "GenusId": "Ozimops",
+  "SpeciesId": "kitcheneri",
+  "Name": "South-western Free-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Ozi_kitchen",
+  "Images": [
+    "ozi_kitchen_head.jpg",
+    "ozi_kitchen2.jpg",
+    "ozi_kitchen3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "ozi_kitchen.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "ozimops_kitcheneri.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.38436,
+      "Max": 65.0941
+    },
+    "OuterCanineWidth": {
+      "Min": 5.682825,
+      "Max": 6.1619625
+    },
+    "TailLength": {
+      "Min": 44.39053,
+      "Max": 54.557274
+    },
+    "FootWithClawLength": {
+      "Min": 10.491323,
+      "Max": 12.430695
+    },
+    "TibiaLength": {
+      "Min": 19.041521,
+      "Max": 23.027588
+    },
+    "PenisLength": {
+      "Min": 2.5130289,
+      "Max": 3.9668236
+    },
+    "HeadToBodyLength": {
+      "Min": 80.7681,
+      "Max": 88.855896
+    },
+    "Weight": {
+      "Min": 26.258904,
+      "Max": 51.048904
+    },
+    "ThreeMet": {
+      "Min": 35.765064,
+      "Max": 40.089287
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

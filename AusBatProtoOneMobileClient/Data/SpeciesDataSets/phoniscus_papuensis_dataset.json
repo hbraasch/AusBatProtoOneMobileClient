@@ -1,0 +1,59 @@
+{
+  "GenusId": "Phoniscus",
+  "SpeciesId": "papuensis",
+  "Name": "Golden-tipped Bat",
+  "DetailsHtml": null,
+  "DataTag": "Phoni_pap",
+  "Images": [
+    "phoni_pap_head.jpg",
+    "phoni_pap2.jpg",
+    "phoni_pap3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "phoni_pap.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "phoniscus_papuensis.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 57.79719,
+      "Max": 66.71698
+    },
+    "OuterCanineWidth": {
+      "Min": 5.861991,
+      "Max": 6.6468973
+    },
+    "TailLength": {
+      "Min": 38.24775,
+      "Max": 47.177692
+    },
+    "FootWithClawLength": {
+      "Min": 11.117931,
+      "Max": 12.715124
+    },
+    "TibiaLength": {
+      "Min": 21.099976,
+      "Max": 24.792284
+    },
+    "PenisLength": {
+      "Min": 3.1739655,
+      "Max": 4.007551
+    },
+    "HeadToBodyLength": {
+      "Min": 74.18983,
+      "Max": 83.73749
+    },
+    "Weight": {
+      "Min": 36.656624,
+      "Max": 55.047646
+    },
+    "ThreeMet": {
+      "Min": 30.789703,
+      "Max": 39.052505
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "GenusId": "Chalinolobus",
+  "SpeciesId": "picatus",
+  "Name": "Little Pied Bat",
+  "DetailsHtml": null,
+  "DataTag": "Chal_pic",
+  "Images": [
+    "chal_pic_head.jpg",
+    "chal_pic2.jpg",
+    "chal_pic3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "chal_pic.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "chalinolobus_picatus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 55.909164,
+      "Max": 68.12563
+    },
+    "OuterCanineWidth": {
+      "Min": 5.5221715,
+      "Max": 6.2444572
+    },
+    "TailLength": {
+      "Min": 39.35124,
+      "Max": 46.12772
+    },
+    "FootWithClawLength": {
+      "Min": 11.213381,
+      "Max": 13.30289
+    },
+    "TibiaLength": {
+      "Min": 18.185291,
+      "Max": 25.349314
+    },
+    "PenisLength": {
+      "Min": 3.365708,
+      "Max": 3.7787707
+    },
+    "HeadToBodyLength": {
+      "Min": 78.61424,
+      "Max": 83.50931
+    },
+    "Weight": {
+      "Min": 36.93267,
+      "Max": 42.65424
+    },
+    "ThreeMet": {
+      "Min": 30.84307,
+      "Max": 40.65501
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

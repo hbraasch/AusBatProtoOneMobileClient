@@ -1,0 +1,59 @@
+{
+  "GenusId": "Syconycteris",
+  "SpeciesId": "australis",
+  "Name": "Eastern Blossom Bat",
+  "DetailsHtml": null,
+  "DataTag": "Sycon_aust",
+  "Images": [
+    "sycon_aust_head.jpg",
+    "sycon_aust2.jpg",
+    "sycon_aust3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "sycon_aust.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "syconycteris_australis.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.2969,
+      "Max": 64.813484
+    },
+    "OuterCanineWidth": {
+      "Min": 5.536085,
+      "Max": 6.144729
+    },
+    "TailLength": {
+      "Min": 45.341537,
+      "Max": 53.755966
+    },
+    "FootWithClawLength": {
+      "Min": 9.975136,
+      "Max": 11.808811
+    },
+    "TibiaLength": {
+      "Min": 18.971539,
+      "Max": 24.80986
+    },
+    "PenisLength": {
+      "Min": 3.3895822,
+      "Max": 4.032637
+    },
+    "HeadToBodyLength": {
+      "Min": 78.18617,
+      "Max": 89.080894
+    },
+    "Weight": {
+      "Min": 31.303356,
+      "Max": 41.484367
+    },
+    "ThreeMet": {
+      "Min": 32.530663,
+      "Max": 41.286903
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

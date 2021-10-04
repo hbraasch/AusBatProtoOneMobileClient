@@ -1,0 +1,59 @@
+{
+  "GenusId": "Pteropus",
+  "SpeciesId": "natalis",
+  "Name": "Christmas Island Flying-fox",
+  "DetailsHtml": null,
+  "DataTag": "Pterop_natalis",
+  "Images": [
+    "pterop_natalis_head.jpg",
+    "pterop_natalis2.jpg",
+    "pterop_natalis3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "pterop_natalis.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "pteropus_natalis.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.004692,
+      "Max": 62.905247
+    },
+    "OuterCanineWidth": {
+      "Min": 5.9717913,
+      "Max": 6.5375843
+    },
+    "TailLength": {
+      "Min": 33.084236,
+      "Max": 53.396835
+    },
+    "FootWithClawLength": {
+      "Min": 10.98769,
+      "Max": 13.137965
+    },
+    "TibiaLength": {
+      "Min": 20.61449,
+      "Max": 24.47573
+    },
+    "PenisLength": {
+      "Min": 2.8294163,
+      "Max": 3.6131148
+    },
+    "HeadToBodyLength": {
+      "Min": 76.34842,
+      "Max": 89.360695
+    },
+    "Weight": {
+      "Min": 24.54267,
+      "Max": 44.66455
+    },
+    "ThreeMet": {
+      "Min": 33.93397,
+      "Max": 41.220165
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

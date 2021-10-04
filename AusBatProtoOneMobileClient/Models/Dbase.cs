@@ -60,7 +60,7 @@ namespace AusBatProtoOneMobileClient.Models
             Save(new Dbase());
         }
 
-        public void Init()
+        public async Task Init()
         {
             try
             {
@@ -312,95 +312,95 @@ namespace AusBatProtoOneMobileClient.Models
                 #endregion
 
                 #region *// Bats
-                dbase.Bats.Add(new Bat { GenusId = "Austonomus", SpeciesId = "australis", Name = "White-striped Freetail Bat", DataTag = "Aust_aust" });
-                dbase.Bats.Add(new Bat { GenusId = "Chaerephon", SpeciesId = "jobensis", Name = "Northern Wrinkle-lipped Bat", DataTag = "Chae_job" });
-                dbase.Bats.Add(new Bat { GenusId = "Chalinolobus", SpeciesId = "dwyeri", Name = "Large-eared Pied Bat", DataTag = "Chal_dwye" });
-                dbase.Bats.Add(new Bat { GenusId = "Chalinolobus", SpeciesId = "gouldii", Name = "Gould's Wattled Bat", DataTag = "Chal_gould" });
-                dbase.Bats.Add(new Bat { GenusId = "Chalinolobus", SpeciesId = "morio", Name = "Chocolate Wattled Bat", DataTag = "Chal_morio" });
-                dbase.Bats.Add(new Bat { GenusId = "Chalinolobus", SpeciesId = "nigrogriseus", Name = "Hoary Wattled Bat", DataTag = "Chal_nigro" });
-                dbase.Bats.Add(new Bat { GenusId = "Chalinolobus", SpeciesId = "picatus", Name = "Little Pied Bat", DataTag = "Chal_pic" });
-                dbase.Bats.Add(new Bat { GenusId = "Dobsonia", SpeciesId = "magna", Name = "Bare-backed Fruit Bat", DataTag = "Dob_mag" });
-                dbase.Bats.Add(new Bat { GenusId = "Falsistrellus", SpeciesId = "mackenziei", Name = "Western False Pipistrelle", DataTag = "Falsi_mack_" });
-                dbase.Bats.Add(new Bat { GenusId = "Falsistrellus", SpeciesId = "tasmaniensis", Name = "Eastern False Pipistrelle", DataTag = "Falsi_tasman" });
-                dbase.Bats.Add(new Bat { GenusId = "Hipposideros", SpeciesId = "ater", Name = "Dusky Leaf-nosed Bat", DataTag = "Hipp_ater" });
-                dbase.Bats.Add(new Bat { GenusId = "Hipposideros", SpeciesId = "cervinus", Name = "Fawn Leaf-nosed Bat", DataTag = "Hipp_cerv" });
-                dbase.Bats.Add(new Bat { GenusId = "Hipposideros", SpeciesId = "diadema", Name = "Diadem Leaf-nosed Bat", DataTag = "Hipp_diadem" });
-                dbase.Bats.Add(new Bat { GenusId = "Hipposideros", SpeciesId = "inornatus", Name = "Arnhem Leaf-nosed Bat", DataTag = "Hipp_inorn" });
-                dbase.Bats.Add(new Bat { GenusId = "Hipposideros", SpeciesId = "semoni", Name = "Semon's Leaf-nosed Bat", DataTag = "AAAAAAAAAAAAAAAAAAAAA" });
-                dbase.Bats.Add(new Bat { GenusId = "Hipposideros", SpeciesId = "stenotis", Name = "Northern Leaf-nosed Bat", DataTag = "AAAAAAAAAAAAAAAAAAAAA" });
-                dbase.Bats.Add(new Bat { GenusId = "Macroderma", SpeciesId = "gigas", Name = "Ghost Bat", DataTag = "Macro_gigas" });
-                dbase.Bats.Add(new Bat { GenusId = "Macroglossus", SpeciesId = "minimus", Name = "Northern Blossom Bat", DataTag = "Macro_minimus" });
-                dbase.Bats.Add(new Bat { GenusId = "Micronomus", SpeciesId = "norfolkensis", Name = "East Coast Free-tailed Bat", DataTag = "Micro_norfolk_" });
-                dbase.Bats.Add(new Bat { GenusId = "Miniopterus", SpeciesId = "australis", Name = "Little Bent-winged Bat", DataTag = "Mini_aust_" });
-                dbase.Bats.Add(new Bat { GenusId = "Miniopterus", SpeciesId = "orianae bassanii", Name = "Southern Bent-winged Bat", DataTag = "Mini_oc_bassani" });
-                dbase.Bats.Add(new Bat { GenusId = "Miniopterus", SpeciesId = "orianae oceanensi", Name = "Eastern Bent-winged bat", DataTag = "Mini_or_ocean" });
-                dbase.Bats.Add(new Bat { GenusId = "Miniopterus", SpeciesId = "orianae orianae", Name = "Northern Bent-winged Bat", DataTag = "Mini_or_orianae" });
-                dbase.Bats.Add(new Bat { GenusId = "Murina", SpeciesId = "florium", Name = "Flute-nosed Bat", DataTag = "Murin_florium" });
-                dbase.Bats.Add(new Bat { GenusId = "Myotis", SpeciesId = "macropus", Name = "Large-footed Myotis", DataTag = "Myot_mac" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctimene", SpeciesId = "robinsoni", Name = "Eastern Tube-nosed Bat", DataTag = "Nyct_robin" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "arnhemensis", Name = "Northern Long-eared Bat", DataTag = "Nyct_arnhem" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "bifax", Name = "Eastern Long-eared Bat", DataTag = "Nyct_bifax" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "corbeni", Name = "South-eastern Long-eared Bat", DataTag = "Nyct_corben" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "daedalus", Name = "Pallid Long-eared Bat", DataTag = "Nyct_daed" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "geoffroyi", Name = "Lesser Long-eared Bat", DataTag = "Nyct_geoff" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "gouldi", Name = "Gould's Long-eared Bat", DataTag = "Nyct_gould" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "major major", Name = "Western Long-eared Bat", DataTag = "Nyct_major" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "major tor", Name = "Central Long-eared Bat", DataTag = "Nyct_major_tor" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "sherrini", Name = "Tasmanian Long-eared Bat", DataTag = "Nyctophilus-sherrini" });
-                dbase.Bats.Add(new Bat { GenusId = "Nyctophilus", SpeciesId = "walkeri", Name = "Pygmy Long-eared Bat", DataTag = "Nyct_walkeri" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "cobourgianus", Name = "Western Little Free-tailed Bat", DataTag = "Ozi_coburg" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "halli", Name = "Cape York Free-tailed Bat", DataTag = "Ozie_halli" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "kitcheneri", Name = "South-western Free-tailed Bat", DataTag = "Ozi_kitchen" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "lumsdenae", Name = "Northern Free-tail Bat", DataTag = "Ozi_lumsd" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "petersi", Name = "Inland Free-tailed Bat", DataTag = "Ozi_peters" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "planiceps", Name = "South-eastern Free-tailed Bat", DataTag = "Ozi_planic" });
-                dbase.Bats.Add(new Bat { GenusId = "Ozimops", SpeciesId = "ridei", Name = "Eastern Free-tailed Bat", DataTag = "Ozie_ridei" });
-                dbase.Bats.Add(new Bat { GenusId = "Phoniscus", SpeciesId = "papuensis", Name = "Golden-tipped Bat", DataTag = "Phoni_pap" });
-                dbase.Bats.Add(new Bat { GenusId = "Pipistrellus", SpeciesId = "adamsi", Name = "Forest Pipistrelle", DataTag = "Pip_adams" });
-                dbase.Bats.Add(new Bat { GenusId = "Pipistrellus", SpeciesId = "murrayi", Name = "Christmas Island Pipistrelle", DataTag = "AAAAAAAAAAAAAAAAAAAAA" });
-                dbase.Bats.Add(new Bat { GenusId = "Pipistrellus", SpeciesId = "westralis", Name = "Northern Pipistrelle", DataTag = "Pip_west" });
-                dbase.Bats.Add(new Bat { GenusId = "Pteropus", SpeciesId = "alecto", Name = "Black Flying-fox", DataTag = "Pterop_alect" });
-                dbase.Bats.Add(new Bat { GenusId = "Pteropus", SpeciesId = "conspicillatus", Name = "Spectacled Flying-fox", DataTag = "Pterop_conspic" });
-                dbase.Bats.Add(new Bat { GenusId = "Pteropus", SpeciesId = "natalis", Name = "Christmas Island Flying-fox", DataTag = "Pterop_natalis" });
-                dbase.Bats.Add(new Bat { GenusId = "Pteropus", SpeciesId = "poliocephalus", Name = "Grey-headed Flying-fox", DataTag = "Pterop_polioc" });
-                dbase.Bats.Add(new Bat { GenusId = "Pteropus", SpeciesId = "scapulatus", Name = "Little Red Flying-fox", DataTag = "Pterop_scap" });
-                dbase.Bats.Add(new Bat { GenusId = "Rhinolophus", SpeciesId = "megaphyllus", Name = "Eastern Horseshoe-bat", DataTag = "Rhino_mega" });
-                dbase.Bats.Add(new Bat { GenusId = "Rhinolophus", SpeciesId = "robertsi", Name = "Greater Large-eared Horseshoe-bat", DataTag = "Rhino_robert_" });
-                dbase.Bats.Add(new Bat { GenusId = "Rhinolophus", SpeciesId = "sp 'intermediate'", Name = "Lesser Large-eared Horseshoe-bat", DataTag = "Rhino_sp" });
-                dbase.Bats.Add(new Bat { GenusId = "Rhinonicteris", SpeciesId = "aurantia", Name = "Orange Leaf-nosed Bat", DataTag = "Rhinon_aurant" });
-                dbase.Bats.Add(new Bat { GenusId = "Saccolaimus", SpeciesId = "flaviventris", Name = "Yellow-bellied Sheath-tailed Bat", DataTag = "Sacc_flav" });
-                dbase.Bats.Add(new Bat { GenusId = "Saccolaimus", SpeciesId = "mixtus", Name = "Cape York Sheath-tailed Bat", DataTag = "Sacc_mixtus" });
-                dbase.Bats.Add(new Bat { GenusId = "Saccolaimus", SpeciesId = "saccolaimus", Name = "Bare-rumped Sheath-tailed Bat", DataTag = "Sacc_sacc" });
-                dbase.Bats.Add(new Bat { GenusId = "Scoteanax", SpeciesId = "rueppellii", Name = "Greater Broad-nosed Bat", DataTag = "Scot_ruepp" });
-                dbase.Bats.Add(new Bat { GenusId = "Scotorepens", SpeciesId = "balstoni", Name = "Inland Broad-nosed Bat", DataTag = "Scot_balst" });
-                dbase.Bats.Add(new Bat { GenusId = "Scotorepens", SpeciesId = "greyii", Name = "Little Broad-nosed Bat", DataTag = "Scot_greyi" });
-                dbase.Bats.Add(new Bat { GenusId = "Scotorepens", SpeciesId = "orion", Name = "Eastern Broad-nosed Bat", DataTag = "Scot_orion" });
-                dbase.Bats.Add(new Bat { GenusId = "Scotorepens", SpeciesId = "sanborni", Name = "Northern Broad-nosed Bat", DataTag = "Scot_sanborn" });
-                dbase.Bats.Add(new Bat { GenusId = "Scotorepens", SpeciesId = "sp.", Name = "Central-eastern Broad-nosed Bat", DataTag = "AAAAAAAAAAAAAAAAAAAAA" });
-                dbase.Bats.Add(new Bat { GenusId = "Setirostris", SpeciesId = "eleryi", Name = "Bristle-faced Free-tailed Bat", DataTag = "Seti_eleryi" });
-                dbase.Bats.Add(new Bat { GenusId = "Syconycteris", SpeciesId = "australis", Name = "Eastern Blossom Bat", DataTag = "Sycon_aust" });
-                dbase.Bats.Add(new Bat { GenusId = "Taphozous", SpeciesId = "australis", Name = "Coastal Sheath-tailed Bat", DataTag = "Taph_aust" });
-                dbase.Bats.Add(new Bat { GenusId = "Taphozous", SpeciesId = "georgianus", Name = "Common Sheath-tailed Bat", DataTag = "Taph_georg" });
-                dbase.Bats.Add(new Bat { GenusId = "Taphozous", SpeciesId = "hilli", Name = "Hill's Sheath-tailed Bat", DataTag = "Taph_hilli_" });
-                dbase.Bats.Add(new Bat { GenusId = "Taphozous", SpeciesId = "kapalgensis", Name = "Arnhem Sheath-tailed Bat", DataTag = "Taph_kapalg" });
-                dbase.Bats.Add(new Bat { GenusId = "Taphozous", SpeciesId = "troughtoni", Name = "Troughton's Sheath-tailed Bat", DataTag = "Taph_trought" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadalus", SpeciesId = "caurinus", Name = "Northern Cave Bat", DataTag = "Vesp_caur" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadalus", SpeciesId = "douglasorum", Name = "Yellow-lipped Cave Bat", DataTag = "Vesp_douglas" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadalus", SpeciesId = "finlaysoni", Name = "Finlayson's Cave Bat, Inland Cave Bat", DataTag = "Vesp_finlay" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadalus", SpeciesId = "regulus", Name = "Southern Forest Bat", DataTag = "Vesp_regulus" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadelus", SpeciesId = "baverstocki", Name = "Inland Forest Bat", DataTag = "Vesp_baver_" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadelus", SpeciesId = "darlingtoni", Name = "Large Forest Bat", DataTag = "Vesp_darling" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadelus", SpeciesId = "pumilus", Name = "Eastern Forest Bat", DataTag = "Vesp_pumilus" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadelus", SpeciesId = "troug;htoni", Name = "Eastern Cave Bat", DataTag = "Vesp_trought" });
-                dbase.Bats.Add(new Bat { GenusId = "Vespadelus", SpeciesId = "vulturnus", Name = "Little Forest Bat", DataTag = "Vesp_vult_" });
+                dbase.Bats.Add(LoadSpecies( "Austonomus", "australis")); 
+                dbase.Bats.Add(LoadSpecies( "Chaerephon", "jobensis"));
+                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "dwyeri"));
+                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "gouldii"));
+                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "morio"));
+                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "nigrogriseus"));
+                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "picatus"));
+                dbase.Bats.Add(LoadSpecies( "Dobsonia", "magna"));
+                dbase.Bats.Add(LoadSpecies( "Falsistrellus", "mackenziei"));
+                dbase.Bats.Add(LoadSpecies( "Falsistrellus", "tasmaniensis"));
+                dbase.Bats.Add(LoadSpecies( "Hipposideros", "ater"));
+                dbase.Bats.Add(LoadSpecies( "Hipposideros", "cervinus"));
+                dbase.Bats.Add(LoadSpecies( "Hipposideros", "diadema"));
+                dbase.Bats.Add(LoadSpecies( "Hipposideros", "inornatus"));
+                dbase.Bats.Add(LoadSpecies( "Hipposideros", "semoni"));
+                dbase.Bats.Add(LoadSpecies( "Hipposideros", "stenotis"));
+                dbase.Bats.Add(LoadSpecies( "Macroderma", "gigas"));
+                dbase.Bats.Add(LoadSpecies( "Macroglossus", "minimus"));
+                dbase.Bats.Add(LoadSpecies( "Micronomus", "norfolkensis"));
+                dbase.Bats.Add(LoadSpecies( "Miniopterus", "australis"));
+                dbase.Bats.Add(LoadSpecies( "Miniopterus", "orianae bassanii"));
+                dbase.Bats.Add(LoadSpecies( "Miniopterus", "orianae oceanensi"));
+                dbase.Bats.Add(LoadSpecies( "Miniopterus", "orianae orianae"));
+                dbase.Bats.Add(LoadSpecies( "Murina", "florium"));
+                dbase.Bats.Add(LoadSpecies( "Myotis", "macropus"));
+                dbase.Bats.Add(LoadSpecies( "Nyctimene", "robinsoni"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "arnhemensis"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "bifax"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "corbeni"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "daedalus"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "geoffroyi"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "gouldi"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "major major"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "major tor"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "sherrini"));
+                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "walkeri"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "cobourgianus"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "halli"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "kitcheneri"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "lumsdenae"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "petersi"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "planiceps"));
+                dbase.Bats.Add(LoadSpecies( "Ozimops", "ridei"));
+                dbase.Bats.Add(LoadSpecies( "Phoniscus", "papuensis"));
+                dbase.Bats.Add(LoadSpecies( "Pipistrellus", "adamsi"));
+                dbase.Bats.Add(LoadSpecies( "Pipistrellus", "murrayi"));
+                dbase.Bats.Add(LoadSpecies( "Pipistrellus", "westralis"));
+                dbase.Bats.Add(LoadSpecies( "Pteropus", "alecto"));
+                dbase.Bats.Add(LoadSpecies( "Pteropus", "conspicillatus"));
+                dbase.Bats.Add(LoadSpecies( "Pteropus", "natalis"));
+                dbase.Bats.Add(LoadSpecies( "Pteropus", "poliocephalus"));
+                dbase.Bats.Add(LoadSpecies( "Pteropus", "scapulatus"));
+                dbase.Bats.Add(LoadSpecies( "Rhinolophus", "megaphyllus"));
+                dbase.Bats.Add(LoadSpecies( "Rhinolophus", "robertsi"));
+                dbase.Bats.Add(LoadSpecies( "Rhinolophus", "sp 'intermediate'"));
+                dbase.Bats.Add(LoadSpecies( "Rhinonicteris", "aurantia"));
+                dbase.Bats.Add(LoadSpecies( "Saccolaimus", "flaviventris"));
+                dbase.Bats.Add(LoadSpecies( "Saccolaimus", "mixtus"));
+                dbase.Bats.Add(LoadSpecies( "Saccolaimus", "saccolaimus"));
+                dbase.Bats.Add(LoadSpecies( "Scoteanax", "rueppellii"));
+                dbase.Bats.Add(LoadSpecies( "Scotorepens", "balstoni"));
+                dbase.Bats.Add(LoadSpecies( "Scotorepens", "greyii"));
+                dbase.Bats.Add(LoadSpecies( "Scotorepens", "orion"));
+                dbase.Bats.Add(LoadSpecies( "Scotorepens", "sanborni"));
+                dbase.Bats.Add(LoadSpecies( "Scotorepens", "sp."));
+                dbase.Bats.Add(LoadSpecies( "Setirostris", "eleryi"));
+                dbase.Bats.Add(LoadSpecies( "Syconycteris", "australis"));
+                dbase.Bats.Add(LoadSpecies( "Taphozous", "australis"));
+                dbase.Bats.Add(LoadSpecies( "Taphozous", "georgianus"));
+                dbase.Bats.Add(LoadSpecies( "Taphozous", "hilli"));
+                dbase.Bats.Add(LoadSpecies( "Taphozous", "kapalgensis"));
+                dbase.Bats.Add(LoadSpecies( "Taphozous", "troughtoni"));
+                dbase.Bats.Add(LoadSpecies( "Vespadalus", "caurinus"));
+                dbase.Bats.Add(LoadSpecies( "Vespadalus", "douglasorum"));
+                dbase.Bats.Add(LoadSpecies( "Vespadalus", "finlaysoni"));
+                dbase.Bats.Add(LoadSpecies( "Vespadalus", "regulus"));
+                dbase.Bats.Add(LoadSpecies( "Vespadelus", "baverstocki"));
+                dbase.Bats.Add(LoadSpecies( "Vespadelus", "darlingtoni"));
+                dbase.Bats.Add(LoadSpecies( "Vespadelus", "pumilus"));
+                dbase.Bats.Add(LoadSpecies( "Vespadelus", "troughtoni"));
+                dbase.Bats.Add(LoadSpecies( "Vespadelus", "vulturnus"));
                 #endregion
 
                 foreach (var bat in dbase.Bats)
                 {
                     bat.LoadRegions(dbase);
-                    bat.LoadDetails(dbase);
-                    bat.LoadImages(dbase);
-                    bat.LoadCalls(dbase);
+                    bat.LoadDetails();
+                    await bat.LoadImages();
+                    bat.LoadCalls();
                     bat.SetDistributionMapFilename();
                 }
 
@@ -412,8 +412,8 @@ namespace AusBatProtoOneMobileClient.Models
                 }
                 Debug.WriteLine($"Writing files to path: {folderPath}");
 
-#if true
-                var batsCharsJson = JsonConvert.SerializeObject(dbase.Bats[0].Characteristics, Formatting.Indented);
+#if false
+                var batsCharsJson = JsonConvert.SerializeObject(dbase.Bats[0], Formatting.Indented);
                 File.WriteAllText(Path.Combine(folderPath, "batChars.json"), batsCharsJson); 
 #endif
 
@@ -521,6 +521,43 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+        private Bat LoadSpecies(string genusId, string speciesId)
+        {
+            var datasetFilename = $"{genusId.ToLower()}_{speciesId.ToLower()}_dataset.json";
+            try
+            {                
+                using (Stream stream = FileHelper.GetStreamFromFile($"Data.SpeciesDataSets.{datasetFilename}"))
+                {
+                    if (stream == null)
+                    {
+                        throw new BusinessException($"Dataset file [{datasetFilename}] does not exist");
+                    }
+
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string speciesDatasetJson = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(speciesDatasetJson))
+                        {
+                            throw new BusinessException($"No data inside dataset file [{datasetFilename}]");
+                        }
+                        try
+                        {
+                            var species = JsonConvert.DeserializeObject<Bat>(speciesDatasetJson);
+                            return species;
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new BusinessException($"JSON paring error in [{datasetFilename}] file. {ex.Message}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading dataset file [{datasetFilename}]. {ex.Message}");
+            }
+        }
+
         private string LoadAbout()
         {
             try
@@ -549,4 +586,266 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
     }
+
+    #region *// Family Key Characteristics
+    public class TailPresentCharacteristic : CharacteristicEnumBase
+    {
+        public enum TailPresentEnum
+        {
+            Undefined, Absent, Present
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+
+        public TailPresentEnum Key { get; set; }
+
+        public TailPresentCharacteristic(TailPresentEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is TailPresentCharacteristic)
+                {
+                    if (Key == ((TailPresentCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static TailPresentCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (TailPresentEnum)promptIndex;
+            return new TailPresentCharacteristic(key);
+        }
+    }
+
+    public class TailMembraneStructureCharacteristic : CharacteristicEnumBase
+    {
+
+        public enum TailMembraneStructureEnum
+        {
+            Undefined, Absent, PresentNotAttached, PresentFullyEnclosed, PresentProjectingThrough, PresentProjectingFree
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Present, not attached to tail membrane", "Present, fully enclosed in membrane", "Present, projecting through upper surface of tail membrane", "Present, projecting free foe > 8mm past tail membrane" };
+
+        public TailMembraneStructureEnum Key { get; set; }
+
+        public TailMembraneStructureCharacteristic(TailMembraneStructureEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is TailMembraneStructureCharacteristic)
+                {
+                    if (Key == ((TailMembraneStructureCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static TailMembraneStructureCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (TailMembraneStructureEnum)promptIndex;
+            return new TailMembraneStructureCharacteristic(key);
+        }
+    }
+
+    public class SecondFingerClawCharacteristic : CharacteristicEnumBase
+    {
+
+        public enum SecondFingerClawEnum
+        {
+            Undefined, Present, Absent
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Present", "Not present" };
+
+        public SecondFingerClawEnum Key { get; set; }
+
+        public SecondFingerClawCharacteristic(SecondFingerClawEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is SecondFingerClawCharacteristic)
+                {
+                    if (Key == ((SecondFingerClawCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static SecondFingerClawCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (SecondFingerClawEnum)promptIndex;
+            return new SecondFingerClawCharacteristic(key);
+        }
+    }
+
+    public class FaceStructureNoseLeafCharacteristic : CharacteristicEnumBase
+    {
+
+        public enum FaceStructureNoseLeafEnum
+        {
+            Undefined, None, LargeHorshoe, LargeFlattenned, SmallTransverseLeaf
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() {
+            "",
+            "None, face simple",
+            "Large complex noseleaf with the lower section horse-shoe shaped",
+            "Large complex noseleaf flattenned square, oval",
+            "Small transverse leaf above nostrils"
+        };
+
+        public FaceStructureNoseLeafEnum Key { get; set; }
+
+        public FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is FaceStructureNoseLeafCharacteristic)
+                {
+                    if (Key == ((FaceStructureNoseLeafCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static FaceStructureNoseLeafCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (FaceStructureNoseLeafEnum)promptIndex;
+            return new FaceStructureNoseLeafCharacteristic(key);
+        }
+    }
+
+    public class WingThirdFingerCharacteristic : CharacteristicEnumBase
+    {
+
+        public enum WingThirdFingerEnum
+        {
+            Undefined, Short, Long
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() {
+            "",
+            "Termina phalage < 3x the length of the second last phalage",
+            "Termina phalage > 3x the length of the second last phalage"
+        };
+
+        public WingThirdFingerEnum Key { get; set; }
+
+        public WingThirdFingerCharacteristic(WingThirdFingerEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is WingThirdFingerCharacteristic)
+                {
+                    if (Key == ((WingThirdFingerCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static WingThirdFingerCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (WingThirdFingerEnum)promptIndex;
+            return new WingThirdFingerCharacteristic(key);
+        }
+    }
+
+    public class TragusCharacteristic : CharacteristicEnumBase
+    {
+
+        public enum TragusEnum
+        {
+            Undefined, Absent, Present, AlmostAbsent
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() {
+            "",
+            "Absent",
+            "Present, deeply bifurcate",
+            "Absent or if present, entire (no deep divisions)"
+        };
+
+        public TragusEnum Key { get; set; }
+
+        public TragusCharacteristic(TragusEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        {
+            foreach (var characteristic in characteristics)
+            {
+                if (characteristic is TragusCharacteristic)
+                {
+                    if (Key == ((TragusCharacteristic)characteristic).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static TragusCharacteristic CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (TragusEnum)promptIndex;
+            return new TragusCharacteristic(key);
+        }
+    }
+    #endregion
 }

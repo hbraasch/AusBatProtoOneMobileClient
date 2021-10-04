@@ -1,0 +1,59 @@
+{
+  "GenusId": "Hipposideros",
+  "SpeciesId": "ater",
+  "Name": "Dusky Leaf-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Hipp_ater",
+  "Images": [
+    "hipp_ater_head.jpg",
+    "hipp_ater2.jpg",
+    "hipp_ater3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "hipp_ater.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "hipposideros_ater.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.264187,
+      "Max": 67.31597
+    },
+    "OuterCanineWidth": {
+      "Min": 5.9981117,
+      "Max": 6.328225
+    },
+    "TailLength": {
+      "Min": 36.57118,
+      "Max": 56.44745
+    },
+    "FootWithClawLength": {
+      "Min": 9.368857,
+      "Max": 11.770446
+    },
+    "TibiaLength": {
+      "Min": 20.059862,
+      "Max": 22.571163
+    },
+    "PenisLength": {
+      "Min": 3.3621454,
+      "Max": 4.466573
+    },
+    "HeadToBodyLength": {
+      "Min": 78.97547,
+      "Max": 88.946396
+    },
+    "Weight": {
+      "Min": 36.03701,
+      "Max": 51.138027
+    },
+    "ThreeMet": {
+      "Min": 35.699688,
+      "Max": 40.669758
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

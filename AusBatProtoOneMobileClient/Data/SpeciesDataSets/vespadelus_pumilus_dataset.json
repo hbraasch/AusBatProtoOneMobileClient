@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadelus",
+  "SpeciesId": "pumilus",
+  "Name": "Eastern Forest Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_pumilus",
+  "Images": [
+    "vesp_pumilus_head.jpg",
+    "vesp_pumilus2.jpg",
+    "vesp_pumilus3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_pumilus.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadelus_pumilus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.84602,
+      "Max": 64.42625
+    },
+    "OuterCanineWidth": {
+      "Min": 5.627848,
+      "Max": 6.2886415
+    },
+    "TailLength": {
+      "Min": 37.812946,
+      "Max": 55.114277
+    },
+    "FootWithClawLength": {
+      "Min": 10.321981,
+      "Max": 12.711707
+    },
+    "TibiaLength": {
+      "Min": 19.809378,
+      "Max": 24.166855
+    },
+    "PenisLength": {
+      "Min": 2.5138454,
+      "Max": 3.7286522
+    },
+    "HeadToBodyLength": {
+      "Min": 70.79775,
+      "Max": 92.18937
+    },
+    "Weight": {
+      "Min": 28.970873,
+      "Max": 47.626812
+    },
+    "ThreeMet": {
+      "Min": 33.69706,
+      "Max": 39.410618
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

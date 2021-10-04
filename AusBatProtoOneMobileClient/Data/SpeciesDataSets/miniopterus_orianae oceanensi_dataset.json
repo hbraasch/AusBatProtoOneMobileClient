@@ -1,0 +1,59 @@
+{
+  "GenusId": "Miniopterus",
+  "SpeciesId": "orianae oceanensi",
+  "Name": "Eastern Bent-winged bat",
+  "DetailsHtml": null,
+  "DataTag": "Mini_or_ocean",
+  "Images": [
+    "mini_or_ocean_head.jpg",
+    "mini_or_ocean2.jpg",
+    "mini_or_ocean3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "mini_or_ocean.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "miniopterus_orianae oceanensi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.360405,
+      "Max": 64.891235
+    },
+    "OuterCanineWidth": {
+      "Min": 5.5065346,
+      "Max": 6.1142473
+    },
+    "TailLength": {
+      "Min": 34.792244,
+      "Max": 57.14064
+    },
+    "FootWithClawLength": {
+      "Min": 11.06302,
+      "Max": 11.7520075
+    },
+    "TibiaLength": {
+      "Min": 21.453047,
+      "Max": 22.20574
+    },
+    "PenisLength": {
+      "Min": 3.271915,
+      "Max": 3.594431
+    },
+    "HeadToBodyLength": {
+      "Min": 80.0722,
+      "Max": 90.43492
+    },
+    "Weight": {
+      "Min": 22.089697,
+      "Max": 49.2444
+    },
+    "ThreeMet": {
+      "Min": 29.721903,
+      "Max": 37.646263
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

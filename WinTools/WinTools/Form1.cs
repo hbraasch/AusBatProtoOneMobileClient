@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AusBatProtoOneMobileClient.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,6 +50,24 @@ namespace WinTools
                 }
             }
         
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            var dbase = Dbase.Load();
+            await dbase.Init();
+            var destPath = @"c:\temp\spesies";
+            if (!Directory.Exists(destPath))
+            {
+                Directory.CreateDirectory(destPath);
+            }
+            foreach (var bat in dbase.Bats)
+            {
+                var filename = $"{bat.GenusId.ToLower()}_{bat.SpeciesId.ToLower()}_dataset.json";
+                var fileFullname = Path.Combine(destPath, filename);
+                var speciesJson = JsonConvert.SerializeObject(bat,  Formatting.Indented);
+                File.WriteAllText(fileFullname, speciesJson);
+            }
         }
     }
 }

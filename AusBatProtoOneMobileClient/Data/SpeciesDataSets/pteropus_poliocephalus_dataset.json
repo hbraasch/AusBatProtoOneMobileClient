@@ -1,0 +1,59 @@
+{
+  "GenusId": "Pteropus",
+  "SpeciesId": "poliocephalus",
+  "Name": "Grey-headed Flying-fox",
+  "DetailsHtml": null,
+  "DataTag": "Pterop_polioc",
+  "Images": [
+    "pterop_polioc_head.jpg",
+    "pterop_polioc2.jpg",
+    "pterop_polioc3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "pterop_polioc.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "pteropus_poliocephalus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.015026,
+      "Max": 65.37381
+    },
+    "OuterCanineWidth": {
+      "Min": 5.8035665,
+      "Max": 6.5032253
+    },
+    "TailLength": {
+      "Min": 38.674576,
+      "Max": 47.68382
+    },
+    "FootWithClawLength": {
+      "Min": 9.534132,
+      "Max": 12.032544
+    },
+    "TibiaLength": {
+      "Min": 18.017954,
+      "Max": 25.119907
+    },
+    "PenisLength": {
+      "Min": 2.739833,
+      "Max": 4.0284834
+    },
+    "HeadToBodyLength": {
+      "Min": 72.08294,
+      "Max": 87.77668
+    },
+    "Weight": {
+      "Min": 29.491829,
+      "Max": 53.603508
+    },
+    "ThreeMet": {
+      "Min": 34.677433,
+      "Max": 40.32284
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

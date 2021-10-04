@@ -1,0 +1,59 @@
+{
+  "GenusId": "Macroderma",
+  "SpeciesId": "gigas",
+  "Name": "Ghost Bat",
+  "DetailsHtml": null,
+  "DataTag": "Macro_gigas",
+  "Images": [
+    "macro_gigas_head.jpg",
+    "macro_gigas2.jpg",
+    "macro_gigas3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "macro_gigas.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "macroderma_gigas.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 54.787853,
+      "Max": 66.68304
+    },
+    "OuterCanineWidth": {
+      "Min": 5.510274,
+      "Max": 6.5676074
+    },
+    "TailLength": {
+      "Min": 33.823208,
+      "Max": 54.00739
+    },
+    "FootWithClawLength": {
+      "Min": 9.255722,
+      "Max": 13.053169
+    },
+    "TibiaLength": {
+      "Min": 19.272726,
+      "Max": 24.578583
+    },
+    "PenisLength": {
+      "Min": 2.894121,
+      "Max": 3.8684776
+    },
+    "HeadToBodyLength": {
+      "Min": 76.31198,
+      "Max": 82.953865
+    },
+    "Weight": {
+      "Min": 31.082006,
+      "Max": 56.28094
+    },
+    "ThreeMet": {
+      "Min": 32.158836,
+      "Max": 41.818035
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "GenusId": "Taphozous",
+  "SpeciesId": "kapalgensis",
+  "Name": "Arnhem Sheath-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Taph_kapalg",
+  "Images": [
+    "taph_kapalg_head.jpg",
+    "taph_kapalg2.jpg",
+    "taph_kapalg3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "taph_kapalg.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "taphozous_kapalgensis.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 55.24022,
+      "Max": 62.29195
+    },
+    "OuterCanineWidth": {
+      "Min": 5.8679514,
+      "Max": 6.578043
+    },
+    "TailLength": {
+      "Min": 42.02653,
+      "Max": 57.056053
+    },
+    "FootWithClawLength": {
+      "Min": 9.350711,
+      "Max": 11.682193
+    },
+    "TibiaLength": {
+      "Min": 20.526968,
+      "Max": 22.514242
+    },
+    "PenisLength": {
+      "Min": 3.0736835,
+      "Max": 4.2208166
+    },
+    "HeadToBodyLength": {
+      "Min": 77.9142,
+      "Max": 84.2813
+    },
+    "Weight": {
+      "Min": 33.448147,
+      "Max": 41.867874
+    },
+    "ThreeMet": {
+      "Min": 36.096405,
+      "Max": 37.646225
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

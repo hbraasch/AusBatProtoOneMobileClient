@@ -1,0 +1,59 @@
+{
+  "GenusId": "Ozimops",
+  "SpeciesId": "petersi",
+  "Name": "Inland Free-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Ozi_peters",
+  "Images": [
+    "ozi_peters_head.jpg",
+    "ozi_peters2.jpg",
+    "ozi_peters3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "ozi_peters.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "ozimops_petersi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.922207,
+      "Max": 62.248863
+    },
+    "OuterCanineWidth": {
+      "Min": 5.980564,
+      "Max": 6.475819
+    },
+    "TailLength": {
+      "Min": 43.468044,
+      "Max": 57.716206
+    },
+    "FootWithClawLength": {
+      "Min": 10.009196,
+      "Max": 12.61632
+    },
+    "TibiaLength": {
+      "Min": 18.64781,
+      "Max": 24.668142
+    },
+    "PenisLength": {
+      "Min": 2.5958302,
+      "Max": 3.9947724
+    },
+    "HeadToBodyLength": {
+      "Min": 72.59709,
+      "Max": 83.92869
+    },
+    "Weight": {
+      "Min": 37.65296,
+      "Max": 51.575825
+    },
+    "ThreeMet": {
+      "Min": 33.41717,
+      "Max": 42.169094
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

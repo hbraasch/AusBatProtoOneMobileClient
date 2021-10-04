@@ -1,0 +1,59 @@
+{
+  "GenusId": "Nyctophilus",
+  "SpeciesId": "major major",
+  "Name": "Western Long-eared Bat",
+  "DetailsHtml": null,
+  "DataTag": "Nyct_major",
+  "Images": [
+    "nyct_major_head.jpg",
+    "nyct_major2.jpg",
+    "nyct_major3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "nyct_major.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "nyctophilus_major major.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.672554,
+      "Max": 68.355804
+    },
+    "OuterCanineWidth": {
+      "Min": 5.6696897,
+      "Max": 6.298666
+    },
+    "TailLength": {
+      "Min": 43.73344,
+      "Max": 54.78918
+    },
+    "FootWithClawLength": {
+      "Min": 9.419257,
+      "Max": 12.251405
+    },
+    "TibiaLength": {
+      "Min": 20.368853,
+      "Max": 24.311668
+    },
+    "PenisLength": {
+      "Min": 3.1024234,
+      "Max": 4.299211
+    },
+    "HeadToBodyLength": {
+      "Min": 80.35058,
+      "Max": 83.35233
+    },
+    "Weight": {
+      "Min": 28.348,
+      "Max": 48.966507
+    },
+    "ThreeMet": {
+      "Min": 31.714128,
+      "Max": 39.38643
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

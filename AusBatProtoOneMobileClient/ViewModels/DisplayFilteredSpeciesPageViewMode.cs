@@ -28,6 +28,7 @@ namespace DocGenOneMobileClient.Views
         public class SpeciesDisplayItem : DisplayItemBase
         {
             public string SpeciesName { get; set; }
+            public string SpeciesFriendlyName { get; set; }
             public string ImageSource { get; set; }
             public Bat Bat { set; get; }
         }
@@ -101,7 +102,11 @@ namespace DocGenOneMobileClient.Views
 
             foreach (var species in specieses)
             {
-                DisplayItems.Add(new SpeciesDisplayItem { SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}", ImageSource = species.Images[0] ?? "", Bat = species });
+                DisplayItems.Add(new SpeciesDisplayItem { 
+                    SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}", ImageSource = species.Images[0] ?? "", 
+                    SpeciesFriendlyName = species.Name,
+                    Bat = species 
+                });
             }
         }
 

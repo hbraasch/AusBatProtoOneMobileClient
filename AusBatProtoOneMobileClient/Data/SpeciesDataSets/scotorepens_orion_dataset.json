@@ -1,0 +1,59 @@
+{
+  "GenusId": "Scotorepens",
+  "SpeciesId": "orion",
+  "Name": "Eastern Broad-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Scot_orion",
+  "Images": [
+    "scot_orion_head.jpg",
+    "scot_orion2.jpg",
+    "scot_orion3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "scot_orion.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "scotorepens_orion.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.93154,
+      "Max": 64.09338
+    },
+    "OuterCanineWidth": {
+      "Min": 5.5108423,
+      "Max": 6.478786
+    },
+    "TailLength": {
+      "Min": 35.77901,
+      "Max": 48.762592
+    },
+    "FootWithClawLength": {
+      "Min": 10.689434,
+      "Max": 12.399697
+    },
+    "TibiaLength": {
+      "Min": 18.046827,
+      "Max": 23.17431
+    },
+    "PenisLength": {
+      "Min": 3.0859969,
+      "Max": 3.7409947
+    },
+    "HeadToBodyLength": {
+      "Min": 80.322426,
+      "Max": 85.00415
+    },
+    "Weight": {
+      "Min": 36.888165,
+      "Max": 41.063786
+    },
+    "ThreeMet": {
+      "Min": 31.212946,
+      "Max": 37.93406
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

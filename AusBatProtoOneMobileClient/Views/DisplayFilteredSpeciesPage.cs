@@ -56,7 +56,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Species by Species";
+            Title = "Filter results";
 
             Content = finalLayout;
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
@@ -105,23 +105,33 @@ namespace DocGenOneMobileClient.Views
                 speciesTemplate = new DataTemplate(() => {
                     var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.SpeciesName), BindingMode.TwoWay));
+
+                    var speciesFriendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    speciesFriendlyNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.SpeciesFriendlyName), BindingMode.TwoWay));
+
+
                     var heightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 2;
                     var image = new CachedImage
                     {
                         Aspect = Aspect.AspectFit,
-                        HeightRequest = heightRequest
+                        HeightRequest = heightRequest,
+                        ErrorPlaceholder = "bat.png"
                     };
                     image.Transformations.Add(new CircleTransformation());
                     image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
                     var grid = new Grid() { Margin = 5 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(speciesNameLabel, 0, 0);
+                    grid.Children.Add(speciesFriendlyNameLabel, 0, 1);
                     grid.Children.Add(image, 2, 0);
-                    Grid.SetRowSpan(speciesNameLabel, 2);
+                    Grid.SetColumnSpan(speciesNameLabel, 2);
+                    Grid.SetColumnSpan(speciesFriendlyNameLabel, 2);
+                    Grid.SetRowSpan(image, 2);
 
                     return new ViewCell { View = grid };
                 });

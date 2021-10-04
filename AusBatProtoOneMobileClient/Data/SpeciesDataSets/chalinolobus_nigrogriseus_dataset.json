@@ -1,0 +1,59 @@
+{
+  "GenusId": "Chalinolobus",
+  "SpeciesId": "nigrogriseus",
+  "Name": "Hoary Wattled Bat",
+  "DetailsHtml": null,
+  "DataTag": "Chal_nigro",
+  "Images": [
+    "chal_nigro_head.jpg",
+    "chal_nigro2.jpg",
+    "chal_nigro3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "chal_nigro.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "chalinolobus_nigrogriseus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 57.53182,
+      "Max": 63.650185
+    },
+    "OuterCanineWidth": {
+      "Min": 6.017854,
+      "Max": 6.2841144
+    },
+    "TailLength": {
+      "Min": 42.216114,
+      "Max": 53.211052
+    },
+    "FootWithClawLength": {
+      "Min": 9.670064,
+      "Max": 12.902711
+    },
+    "TibiaLength": {
+      "Min": 21.756926,
+      "Max": 23.846188
+    },
+    "PenisLength": {
+      "Min": 2.797997,
+      "Max": 4.3263
+    },
+    "HeadToBodyLength": {
+      "Min": 79.535255,
+      "Max": 85.56721
+    },
+    "Weight": {
+      "Min": 25.614328,
+      "Max": 42.23454
+    },
+    "ThreeMet": {
+      "Min": 33.797077,
+      "Max": 42.697346
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

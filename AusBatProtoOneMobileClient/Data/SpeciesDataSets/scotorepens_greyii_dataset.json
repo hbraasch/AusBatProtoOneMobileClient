@@ -1,0 +1,59 @@
+{
+  "GenusId": "Scotorepens",
+  "SpeciesId": "greyii",
+  "Name": "Little Broad-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Scot_greyi",
+  "Images": [
+    "scot_greyi_head.jpg",
+    "scot_greyi2.jpg",
+    "scot_greyi3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "scot_greyi.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "scotorepens_greyii.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.91875,
+      "Max": 66.87493
+    },
+    "OuterCanineWidth": {
+      "Min": 5.617726,
+      "Max": 6.6131997
+    },
+    "TailLength": {
+      "Min": 33.290737,
+      "Max": 46.489136
+    },
+    "FootWithClawLength": {
+      "Min": 9.587016,
+      "Max": 12.678908
+    },
+    "TibiaLength": {
+      "Min": 21.08735,
+      "Max": 23.124264
+    },
+    "PenisLength": {
+      "Min": 3.0356228,
+      "Max": 4.2527175
+    },
+    "HeadToBodyLength": {
+      "Min": 70.73125,
+      "Max": 89.51725
+    },
+    "Weight": {
+      "Min": 26.97181,
+      "Max": 50.994236
+    },
+    "ThreeMet": {
+      "Min": 32.607952,
+      "Max": 43.37859
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

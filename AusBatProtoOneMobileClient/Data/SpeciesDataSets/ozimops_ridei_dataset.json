@@ -1,0 +1,59 @@
+{
+  "GenusId": "Ozimops",
+  "SpeciesId": "ridei",
+  "Name": "Eastern Free-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Ozie_ridei",
+  "Images": [
+    "ozie_ridei_head.jpg",
+    "ozie_ridei2.jpg",
+    "ozie_ridei3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "ozie_ridei.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "ozimops_ridei.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.87958,
+      "Max": 62.74952
+    },
+    "OuterCanineWidth": {
+      "Min": 5.658719,
+      "Max": 6.285799
+    },
+    "TailLength": {
+      "Min": 33.322464,
+      "Max": 58.016518
+    },
+    "FootWithClawLength": {
+      "Min": 10.870275,
+      "Max": 12.772375
+    },
+    "TibiaLength": {
+      "Min": 21.97079,
+      "Max": 24.956137
+    },
+    "PenisLength": {
+      "Min": 2.7083519,
+      "Max": 3.860855
+    },
+    "HeadToBodyLength": {
+      "Min": 76.14613,
+      "Max": 89.254585
+    },
+    "Weight": {
+      "Min": 25.282185,
+      "Max": 52.391777
+    },
+    "ThreeMet": {
+      "Min": 36.040005,
+      "Max": 43.31389
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

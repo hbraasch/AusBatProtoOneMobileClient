@@ -1,0 +1,59 @@
+{
+  "GenusId": "Scoteanax",
+  "SpeciesId": "rueppellii",
+  "Name": "Greater Broad-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Scot_ruepp",
+  "Images": [
+    "scot_ruepp_head.jpg",
+    "scot_ruepp2.jpg",
+    "scot_ruepp3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "scot_ruepp.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "scoteanax_rueppellii.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.238213,
+      "Max": 61.413647
+    },
+    "OuterCanineWidth": {
+      "Min": 5.6574,
+      "Max": 6.4375973
+    },
+    "TailLength": {
+      "Min": 36.451702,
+      "Max": 57.15717
+    },
+    "FootWithClawLength": {
+      "Min": 9.132162,
+      "Max": 13.637046
+    },
+    "TibiaLength": {
+      "Min": 21.280514,
+      "Max": 22.59503
+    },
+    "PenisLength": {
+      "Min": 2.730029,
+      "Max": 4.4202952
+    },
+    "HeadToBodyLength": {
+      "Min": 76.56984,
+      "Max": 88.62021
+    },
+    "Weight": {
+      "Min": 23.867155,
+      "Max": 55.515686
+    },
+    "ThreeMet": {
+      "Min": 32.23044,
+      "Max": 37.088993
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

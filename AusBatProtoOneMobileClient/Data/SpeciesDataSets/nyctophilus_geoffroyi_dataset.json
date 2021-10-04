@@ -1,0 +1,59 @@
+{
+  "GenusId": "Nyctophilus",
+  "SpeciesId": "geoffroyi",
+  "Name": "Lesser Long-eared Bat",
+  "DetailsHtml": null,
+  "DataTag": "Nyct_geoff",
+  "Images": [
+    "nyct_geoff_head.jpg",
+    "nyct_geoff2.jpg",
+    "nyct_geoff3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "nyct_geoff.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "nyctophilus_geoffroyi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.24655,
+      "Max": 65.52257
+    },
+    "OuterCanineWidth": {
+      "Min": 5.549283,
+      "Max": 6.4335074
+    },
+    "TailLength": {
+      "Min": 32.714756,
+      "Max": 46.832634
+    },
+    "FootWithClawLength": {
+      "Min": 9.934349,
+      "Max": 11.683971
+    },
+    "TibiaLength": {
+      "Min": 19.047626,
+      "Max": 22.019976
+    },
+    "PenisLength": {
+      "Min": 3.2342172,
+      "Max": 4.352596
+    },
+    "HeadToBodyLength": {
+      "Min": 77.87458,
+      "Max": 92.04233
+    },
+    "Weight": {
+      "Min": 32.595196,
+      "Max": 55.296555
+    },
+    "ThreeMet": {
+      "Min": 33.143703,
+      "Max": 40.50482
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

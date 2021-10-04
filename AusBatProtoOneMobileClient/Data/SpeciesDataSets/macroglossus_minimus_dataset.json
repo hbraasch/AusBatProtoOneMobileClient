@@ -1,0 +1,59 @@
+{
+  "GenusId": "Macroglossus",
+  "SpeciesId": "minimus",
+  "Name": "Northern Blossom Bat",
+  "DetailsHtml": null,
+  "DataTag": "Macro_minimus",
+  "Images": [
+    "macro_minimus_head.jpg",
+    "macro_minimus2.jpg",
+    "macro_minimus3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "macro_minimus.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "macroglossus_minimus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.37558,
+      "Max": 62.759567
+    },
+    "OuterCanineWidth": {
+      "Min": 5.6478715,
+      "Max": 6.476037
+    },
+    "TailLength": {
+      "Min": 39.001514,
+      "Max": 56.523064
+    },
+    "FootWithClawLength": {
+      "Min": 10.659651,
+      "Max": 13.3046
+    },
+    "TibiaLength": {
+      "Min": 19.624596,
+      "Max": 22.001759
+    },
+    "PenisLength": {
+      "Min": 3.4687655,
+      "Max": 3.7905984
+    },
+    "HeadToBodyLength": {
+      "Min": 79.59168,
+      "Max": 83.00844
+    },
+    "Weight": {
+      "Min": 29.2353,
+      "Max": 54.066147
+    },
+    "ThreeMet": {
+      "Min": 33.754875,
+      "Max": 42.105743
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

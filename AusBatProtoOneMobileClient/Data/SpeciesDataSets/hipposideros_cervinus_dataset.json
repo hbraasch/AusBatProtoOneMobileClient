@@ -1,0 +1,59 @@
+{
+  "GenusId": "Hipposideros",
+  "SpeciesId": "cervinus",
+  "Name": "Fawn Leaf-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Hipp_cerv",
+  "Images": [
+    "hipp_cerv_head.jpg",
+    "hipp_cerv2.jpg",
+    "hipp_cerv3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "hipp_cerv.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "hipposideros_cervinus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.518993,
+      "Max": 66.73339
+    },
+    "OuterCanineWidth": {
+      "Min": 5.7818108,
+      "Max": 6.543138
+    },
+    "TailLength": {
+      "Min": 40.26272,
+      "Max": 56.82011
+    },
+    "FootWithClawLength": {
+      "Min": 10.397619,
+      "Max": 12.68152
+    },
+    "TibiaLength": {
+      "Min": 20.426443,
+      "Max": 23.484966
+    },
+    "PenisLength": {
+      "Min": 3.485462,
+      "Max": 4.2434278
+    },
+    "HeadToBodyLength": {
+      "Min": 70.43226,
+      "Max": 84.18619
+    },
+    "Weight": {
+      "Min": 32.49021,
+      "Max": 43.553123
+    },
+    "ThreeMet": {
+      "Min": 31.474102,
+      "Max": 39.716885
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

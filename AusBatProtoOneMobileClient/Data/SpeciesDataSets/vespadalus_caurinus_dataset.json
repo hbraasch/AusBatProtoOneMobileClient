@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadalus",
+  "SpeciesId": "caurinus",
+  "Name": "Northern Cave Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_caur",
+  "Images": [
+    "vesp_caur_head.jpg",
+    "vesp_caur2.jpg",
+    "vesp_caur3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_caur.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadalus_caurinus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.42437,
+      "Max": 67.903656
+    },
+    "OuterCanineWidth": {
+      "Min": 5.7515187,
+      "Max": 6.505614
+    },
+    "TailLength": {
+      "Min": 39.152348,
+      "Max": 53.154522
+    },
+    "FootWithClawLength": {
+      "Min": 10.241076,
+      "Max": 13.239889
+    },
+    "TibiaLength": {
+      "Min": 19.23705,
+      "Max": 22.731163
+    },
+    "PenisLength": {
+      "Min": 3.311777,
+      "Max": 4.2324367
+    },
+    "HeadToBodyLength": {
+      "Min": 74.78947,
+      "Max": 83.23292
+    },
+    "Weight": {
+      "Min": 23.21662,
+      "Max": 56.355385
+    },
+    "ThreeMet": {
+      "Min": 33.59664,
+      "Max": 43.199673
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

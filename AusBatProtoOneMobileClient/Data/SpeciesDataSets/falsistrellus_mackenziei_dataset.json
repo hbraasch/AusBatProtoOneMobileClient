@@ -1,0 +1,59 @@
+{
+  "GenusId": "Falsistrellus",
+  "SpeciesId": "mackenziei",
+  "Name": "Western False Pipistrelle",
+  "DetailsHtml": null,
+  "DataTag": "Falsi_mack_",
+  "Images": [
+    "falsi_mack__head.jpg",
+    "falsi_mack_2.jpg",
+    "falsi_mack_3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "falsi_mack_.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "falsistrellus_mackenziei.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 55.67239,
+      "Max": 63.184906
+    },
+    "OuterCanineWidth": {
+      "Min": 5.704603,
+      "Max": 6.5968876
+    },
+    "TailLength": {
+      "Min": 36.68707,
+      "Max": 55.191105
+    },
+    "FootWithClawLength": {
+      "Min": 10.628391,
+      "Max": 12.237681
+    },
+    "TibiaLength": {
+      "Min": 18.886782,
+      "Max": 25.118326
+    },
+    "PenisLength": {
+      "Min": 3.214073,
+      "Max": 4.2465386
+    },
+    "HeadToBodyLength": {
+      "Min": 79.55302,
+      "Max": 86.89488
+    },
+    "Weight": {
+      "Min": 38.60007,
+      "Max": 54.60911
+    },
+    "ThreeMet": {
+      "Min": 31.3628,
+      "Max": 41.96164
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

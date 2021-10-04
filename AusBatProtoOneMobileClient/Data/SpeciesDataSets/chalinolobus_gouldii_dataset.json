@@ -1,0 +1,59 @@
+{
+  "GenusId": "Chalinolobus",
+  "SpeciesId": "gouldii",
+  "Name": "Gould's Wattled Bat",
+  "DetailsHtml": null,
+  "DataTag": "Chal_gould",
+  "Images": [
+    "chal_gould_head.jpg",
+    "chal_gould2.jpg",
+    "chal_gould3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "chal_gould.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "chalinolobus_gouldii.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.257336,
+      "Max": 61.49449
+    },
+    "OuterCanineWidth": {
+      "Min": 6.0474415,
+      "Max": 6.3058147
+    },
+    "TailLength": {
+      "Min": 44.542988,
+      "Max": 55.83447
+    },
+    "FootWithClawLength": {
+      "Min": 10.570705,
+      "Max": 11.322435
+    },
+    "TibiaLength": {
+      "Min": 21.239006,
+      "Max": 24.335873
+    },
+    "PenisLength": {
+      "Min": 3.432063,
+      "Max": 3.7391047
+    },
+    "HeadToBodyLength": {
+      "Min": 69.7048,
+      "Max": 81.89436
+    },
+    "Weight": {
+      "Min": 36.500103,
+      "Max": 51.586945
+    },
+    "ThreeMet": {
+      "Min": 34.981945,
+      "Max": 38.22477
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

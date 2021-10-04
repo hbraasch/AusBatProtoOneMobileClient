@@ -1,0 +1,59 @@
+{
+  "GenusId": "Setirostris",
+  "SpeciesId": "eleryi",
+  "Name": "Bristle-faced Free-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Seti_eleryi",
+  "Images": [
+    "seti_eleryi_head.jpg",
+    "seti_eleryi2.jpg",
+    "seti_eleryi3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "seti_eleryi.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "setirostris_eleryi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.51948,
+      "Max": 65.918236
+    },
+    "OuterCanineWidth": {
+      "Min": 6.0366774,
+      "Max": 6.2971
+    },
+    "TailLength": {
+      "Min": 34.393047,
+      "Max": 52.141285
+    },
+    "FootWithClawLength": {
+      "Min": 9.928452,
+      "Max": 12.918267
+    },
+    "TibiaLength": {
+      "Min": 18.608805,
+      "Max": 25.11802
+    },
+    "PenisLength": {
+      "Min": 2.8983586,
+      "Max": 4.1798067
+    },
+    "HeadToBodyLength": {
+      "Min": 76.22117,
+      "Max": 91.33777
+    },
+    "Weight": {
+      "Min": 30.59491,
+      "Max": 56.209938
+    },
+    "ThreeMet": {
+      "Min": 31.084307,
+      "Max": 43.280064
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

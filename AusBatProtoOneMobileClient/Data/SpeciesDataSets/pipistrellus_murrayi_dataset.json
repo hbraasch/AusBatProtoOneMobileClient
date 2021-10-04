@@ -1,0 +1,59 @@
+{
+  "GenusId": "Pipistrellus",
+  "SpeciesId": "murrayi",
+  "Name": "Christmas Island Pipistrelle",
+  "DetailsHtml": null,
+  "DataTag": "AAAAAAAAAAAAAAAAAAAAA",
+  "Images": [
+    "aaaaaaaaaaaaaaaaaaaaa_head.jpg",
+    "aaaaaaaaaaaaaaaaaaaaa2.jpg",
+    "aaaaaaaaaaaaaaaaaaaaa3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "aaaaaaaaaaaaaaaaaaaaa.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "pipistrellus_murrayi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 58.935036,
+      "Max": 68.906425
+    },
+    "OuterCanineWidth": {
+      "Min": 5.8361197,
+      "Max": 6.1125226
+    },
+    "TailLength": {
+      "Min": 42.787056,
+      "Max": 51.051575
+    },
+    "FootWithClawLength": {
+      "Min": 10.386533,
+      "Max": 11.484076
+    },
+    "TibiaLength": {
+      "Min": 20.177252,
+      "Max": 22.290426
+    },
+    "PenisLength": {
+      "Min": 2.7859874,
+      "Max": 3.795886
+    },
+    "HeadToBodyLength": {
+      "Min": 74.7949,
+      "Max": 90.74175
+    },
+    "Weight": {
+      "Min": 35.089535,
+      "Max": 41.56134
+    },
+    "ThreeMet": {
+      "Min": 30.84415,
+      "Max": 41.210297
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

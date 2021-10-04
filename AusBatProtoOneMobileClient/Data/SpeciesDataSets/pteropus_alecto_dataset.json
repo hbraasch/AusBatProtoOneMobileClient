@@ -1,0 +1,59 @@
+{
+  "GenusId": "Pteropus",
+  "SpeciesId": "alecto",
+  "Name": "Black Flying-fox",
+  "DetailsHtml": null,
+  "DataTag": "Pterop_alect",
+  "Images": [
+    "pterop_alect_head.jpg",
+    "pterop_alect2.jpg",
+    "pterop_alect3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "pterop_alect.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "pteropus_alecto.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.1053,
+      "Max": 64.650925
+    },
+    "OuterCanineWidth": {
+      "Min": 5.7964807,
+      "Max": 6.449159
+    },
+    "TailLength": {
+      "Min": 40.53164,
+      "Max": 47.783463
+    },
+    "FootWithClawLength": {
+      "Min": 10.61775,
+      "Max": 12.04539
+    },
+    "TibiaLength": {
+      "Min": 20.08429,
+      "Max": 23.0705
+    },
+    "PenisLength": {
+      "Min": 2.9057896,
+      "Max": 3.8949587
+    },
+    "HeadToBodyLength": {
+      "Min": 76.9485,
+      "Max": 86.61805
+    },
+    "Weight": {
+      "Min": 27.392797,
+      "Max": 40.924393
+    },
+    "ThreeMet": {
+      "Min": 31.813843,
+      "Max": 43.239376
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

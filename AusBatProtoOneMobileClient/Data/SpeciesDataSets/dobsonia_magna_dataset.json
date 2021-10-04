@@ -1,0 +1,59 @@
+{
+  "GenusId": "Dobsonia",
+  "SpeciesId": "magna",
+  "Name": "Bare-backed Fruit Bat",
+  "DetailsHtml": null,
+  "DataTag": "Dob_mag",
+  "Images": [
+    "dob_mag_head.jpg",
+    "dob_mag2.jpg",
+    "dob_mag3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "dob_mag.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "dobsonia_magna.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.037224,
+      "Max": 62.781727
+    },
+    "OuterCanineWidth": {
+      "Min": 5.7105002,
+      "Max": 6.6897764
+    },
+    "TailLength": {
+      "Min": 41.90523,
+      "Max": 54.380775
+    },
+    "FootWithClawLength": {
+      "Min": 9.895813,
+      "Max": 12.0640955
+    },
+    "TibiaLength": {
+      "Min": 19.734852,
+      "Max": 23.203989
+    },
+    "PenisLength": {
+      "Min": 3.3624067,
+      "Max": 3.900718
+    },
+    "HeadToBodyLength": {
+      "Min": 80.67811,
+      "Max": 90.19805
+    },
+    "Weight": {
+      "Min": 26.106968,
+      "Max": 46.236298
+    },
+    "ThreeMet": {
+      "Min": 29.64395,
+      "Max": 38.940002
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "GenusId": "Hipposideros",
+  "SpeciesId": "inornatus",
+  "Name": "Arnhem Leaf-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Hipp_inorn",
+  "Images": [
+    "hipp_inorn_head.jpg",
+    "hipp_inorn2.jpg",
+    "hipp_inorn3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "hipp_inorn.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "hipposideros_inornatus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.274456,
+      "Max": 64.20943
+    },
+    "OuterCanineWidth": {
+      "Min": 5.6966867,
+      "Max": 6.62198
+    },
+    "TailLength": {
+      "Min": 43.98644,
+      "Max": 56.484493
+    },
+    "FootWithClawLength": {
+      "Min": 10.183653,
+      "Max": 11.9800415
+    },
+    "TibiaLength": {
+      "Min": 21.000391,
+      "Max": 23.234726
+    },
+    "PenisLength": {
+      "Min": 2.6185634,
+      "Max": 3.652358
+    },
+    "HeadToBodyLength": {
+      "Min": 74.247345,
+      "Max": 92.93006
+    },
+    "Weight": {
+      "Min": 37.441227,
+      "Max": 50.09185
+    },
+    "ThreeMet": {
+      "Min": 32.794994,
+      "Max": 43.225903
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

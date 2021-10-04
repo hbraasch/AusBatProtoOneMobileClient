@@ -1,0 +1,59 @@
+{
+  "GenusId": "Nyctimene",
+  "SpeciesId": "robinsoni",
+  "Name": "Eastern Tube-nosed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Nyct_robin",
+  "Images": [
+    "nyct_robin_head.jpg",
+    "nyct_robin2.jpg",
+    "nyct_robin3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "nyct_robin.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "nyctimene_robinsoni.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 55.339943,
+      "Max": 67.19648
+    },
+    "OuterCanineWidth": {
+      "Min": 6.0296073,
+      "Max": 6.6410294
+    },
+    "TailLength": {
+      "Min": 36.850136,
+      "Max": 56.173626
+    },
+    "FootWithClawLength": {
+      "Min": 8.849157,
+      "Max": 13.1273
+    },
+    "TibiaLength": {
+      "Min": 20.045898,
+      "Max": 25.624996
+    },
+    "PenisLength": {
+      "Min": 2.5909975,
+      "Max": 3.6821806
+    },
+    "HeadToBodyLength": {
+      "Min": 72.38998,
+      "Max": 87.776375
+    },
+    "Weight": {
+      "Min": 33.55536,
+      "Max": 45.948803
+    },
+    "ThreeMet": {
+      "Min": 30.489994,
+      "Max": 38.649567
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

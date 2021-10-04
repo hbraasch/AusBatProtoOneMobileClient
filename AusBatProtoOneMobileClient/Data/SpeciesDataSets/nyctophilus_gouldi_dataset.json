@@ -1,0 +1,59 @@
+{
+  "GenusId": "Nyctophilus",
+  "SpeciesId": "gouldi",
+  "Name": "Gould's Long-eared Bat",
+  "DetailsHtml": null,
+  "DataTag": "Nyct_gould",
+  "Images": [
+    "nyct_gould_head.jpg",
+    "nyct_gould2.jpg",
+    "nyct_gould3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "nyct_gould.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "nyctophilus_gouldi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.760284,
+      "Max": 61.626938
+    },
+    "OuterCanineWidth": {
+      "Min": 6.0851564,
+      "Max": 6.3376207
+    },
+    "TailLength": {
+      "Min": 35.693436,
+      "Max": 53.257317
+    },
+    "FootWithClawLength": {
+      "Min": 8.830361,
+      "Max": 12.404926
+    },
+    "TibiaLength": {
+      "Min": 20.351639,
+      "Max": 23.757818
+    },
+    "PenisLength": {
+      "Min": 2.568653,
+      "Max": 4.220127
+    },
+    "HeadToBodyLength": {
+      "Min": 70.80505,
+      "Max": 92.6036
+    },
+    "Weight": {
+      "Min": 34.05829,
+      "Max": 43.4376
+    },
+    "ThreeMet": {
+      "Min": 34.696987,
+      "Max": 39.47061
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

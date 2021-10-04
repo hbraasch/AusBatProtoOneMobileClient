@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadelus",
+  "SpeciesId": "baverstocki",
+  "Name": "Inland Forest Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_baver_",
+  "Images": [
+    "vesp_baver__head.jpg",
+    "vesp_baver_2.jpg",
+    "vesp_baver_3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_baver_.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadelus_baverstocki.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 56.744576,
+      "Max": 67.62674
+    },
+    "OuterCanineWidth": {
+      "Min": 6.035014,
+      "Max": 6.119184
+    },
+    "TailLength": {
+      "Min": 36.79789,
+      "Max": 58.35355
+    },
+    "FootWithClawLength": {
+      "Min": 10.131069,
+      "Max": 12.68312
+    },
+    "TibiaLength": {
+      "Min": 21.701206,
+      "Max": 22.50257
+    },
+    "PenisLength": {
+      "Min": 2.795041,
+      "Max": 3.8279867
+    },
+    "HeadToBodyLength": {
+      "Min": 69.67447,
+      "Max": 83.73571
+    },
+    "Weight": {
+      "Min": 36.43359,
+      "Max": 48.26649
+    },
+    "ThreeMet": {
+      "Min": 35.2392,
+      "Max": 36.854664
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadalus",
+  "SpeciesId": "douglasorum",
+  "Name": "Yellow-lipped Cave Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_douglas",
+  "Images": [
+    "vesp_douglas_head.jpg",
+    "vesp_douglas2.jpg",
+    "vesp_douglas3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_douglas.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadalus_douglasorum.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.706814,
+      "Max": 65.84136
+    },
+    "OuterCanineWidth": {
+      "Min": 5.671657,
+      "Max": 6.3388343
+    },
+    "TailLength": {
+      "Min": 37.433582,
+      "Max": 47.35603
+    },
+    "FootWithClawLength": {
+      "Min": 8.861657,
+      "Max": 12.797047
+    },
+    "TibiaLength": {
+      "Min": 18.13494,
+      "Max": 24.326359
+    },
+    "PenisLength": {
+      "Min": 2.958604,
+      "Max": 4.4810834
+    },
+    "HeadToBodyLength": {
+      "Min": 71.20073,
+      "Max": 90.55872
+    },
+    "Weight": {
+      "Min": 24.573332,
+      "Max": 54.694252
+    },
+    "ThreeMet": {
+      "Min": 31.943897,
+      "Max": 38.96906
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

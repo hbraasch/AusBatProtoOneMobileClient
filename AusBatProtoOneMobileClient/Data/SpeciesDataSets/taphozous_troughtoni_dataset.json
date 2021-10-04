@@ -1,0 +1,59 @@
+{
+  "GenusId": "Taphozous",
+  "SpeciesId": "troughtoni",
+  "Name": "Troughton's Sheath-tailed Bat",
+  "DetailsHtml": null,
+  "DataTag": "Taph_trought",
+  "Images": [
+    "taph_trought_head.jpg",
+    "taph_trought2.jpg",
+    "taph_trought3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "taph_trought.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "taphozous_troughtoni.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 53.068935,
+      "Max": 61.336662
+    },
+    "OuterCanineWidth": {
+      "Min": 5.6815014,
+      "Max": 6.3294396
+    },
+    "TailLength": {
+      "Min": 35.933743,
+      "Max": 50.213856
+    },
+    "FootWithClawLength": {
+      "Min": 10.379547,
+      "Max": 12.153394
+    },
+    "TibiaLength": {
+      "Min": 20.4521,
+      "Max": 25.839714
+    },
+    "PenisLength": {
+      "Min": 2.9752975,
+      "Max": 3.6571555
+    },
+    "HeadToBodyLength": {
+      "Min": 73.82876,
+      "Max": 91.2033
+    },
+    "Weight": {
+      "Min": 38.3871,
+      "Max": 54.05191
+    },
+    "ThreeMet": {
+      "Min": 32.488758,
+      "Max": 41.312527
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

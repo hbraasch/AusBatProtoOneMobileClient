@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadelus",
+  "SpeciesId": "vulturnus",
+  "Name": "Little Forest Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_vult_",
+  "Images": [
+    "vesp_vult__head.jpg",
+    "vesp_vult_2.jpg",
+    "vesp_vult_3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_vult_.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadelus_vulturnus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.73732,
+      "Max": 68.82001
+    },
+    "OuterCanineWidth": {
+      "Min": 5.842911,
+      "Max": 6.650132
+    },
+    "TailLength": {
+      "Min": 44.57252,
+      "Max": 51.60842
+    },
+    "FootWithClawLength": {
+      "Min": 10.624795,
+      "Max": 11.293796
+    },
+    "TibiaLength": {
+      "Min": 19.583101,
+      "Max": 24.401352
+    },
+    "PenisLength": {
+      "Min": 2.7949538,
+      "Max": 4.3488493
+    },
+    "HeadToBodyLength": {
+      "Min": 72.16449,
+      "Max": 84.16392
+    },
+    "Weight": {
+      "Min": 21.632595,
+      "Max": 47.566986
+    },
+    "ThreeMet": {
+      "Min": 33.611736,
+      "Max": 40.028255
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

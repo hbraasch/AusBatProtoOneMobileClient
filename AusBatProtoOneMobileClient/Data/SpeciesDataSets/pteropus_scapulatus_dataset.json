@@ -1,0 +1,59 @@
+{
+  "GenusId": "Pteropus",
+  "SpeciesId": "scapulatus",
+  "Name": "Little Red Flying-fox",
+  "DetailsHtml": null,
+  "DataTag": "Pterop_scap",
+  "Images": [
+    "pterop_scap_head.jpg",
+    "pterop_scap2.jpg",
+    "pterop_scap3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "pterop_scap.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "pteropus_scapulatus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 53.097523,
+      "Max": 64.96858
+    },
+    "OuterCanineWidth": {
+      "Min": 6.099543,
+      "Max": 6.4874597
+    },
+    "TailLength": {
+      "Min": 45.137306,
+      "Max": 47.21638
+    },
+    "FootWithClawLength": {
+      "Min": 8.944805,
+      "Max": 13.3426695
+    },
+    "TibiaLength": {
+      "Min": 20.420115,
+      "Max": 24.405888
+    },
+    "PenisLength": {
+      "Min": 2.8942404,
+      "Max": 4.145255
+    },
+    "HeadToBodyLength": {
+      "Min": 74.628746,
+      "Max": 92.94365
+    },
+    "Weight": {
+      "Min": 31.421597,
+      "Max": 39.991867
+    },
+    "ThreeMet": {
+      "Min": 32.70919,
+      "Max": 42.383636
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}

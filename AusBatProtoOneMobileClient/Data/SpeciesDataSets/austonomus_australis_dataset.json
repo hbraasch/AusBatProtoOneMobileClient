@@ -1,0 +1,59 @@
+{
+  "GenusId": "Austonomus",
+  "SpeciesId": "australis",
+  "Name": "White-striped Freetail Bat",
+  "DetailsHtml": null,
+  "DataTag": "Aust_aust",
+  "Images": [
+    "aust_aust_head.jpg",
+    "aust_aust2.jpg",
+    "aust_aust3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "aust_aust.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "austonomus_australis.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 57.2634,
+      "Max": 65.095634
+    },
+    "OuterCanineWidth": {
+      "Min": 5.798214,
+      "Max": 6.232692
+    },
+    "TailLength": {
+      "Min": 36.760254,
+      "Max": 53.3649
+    },
+    "FootWithClawLength": {
+      "Min": 11.120233,
+      "Max": 11.666098
+    },
+    "TibiaLength": {
+      "Min": 18.3286,
+      "Max": 24.783394
+    },
+    "PenisLength": {
+      "Min": 3.0094008,
+      "Max": 4.4137225
+    },
+    "HeadToBodyLength": {
+      "Min": 77.75197,
+      "Max": 81.08864
+    },
+    "Weight": {
+      "Min": 25.700293,
+      "Max": 50.615032
+    },
+    "ThreeMet": {
+      "Min": 30.524477,
+      "Max": 42.857536
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

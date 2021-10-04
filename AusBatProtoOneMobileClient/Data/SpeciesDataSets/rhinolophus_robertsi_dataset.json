@@ -1,0 +1,59 @@
+{
+  "GenusId": "Rhinolophus",
+  "SpeciesId": "robertsi",
+  "Name": "Greater Large-eared Horseshoe-bat",
+  "DetailsHtml": null,
+  "DataTag": "Rhino_robert_",
+  "Images": [
+    "rhino_robert__head.jpg",
+    "rhino_robert_2.jpg",
+    "rhino_robert_3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "rhino_robert_.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "rhinolophus_robertsi.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 59.530457,
+      "Max": 62.622623
+    },
+    "OuterCanineWidth": {
+      "Min": 5.7605395,
+      "Max": 6.177556
+    },
+    "TailLength": {
+      "Min": 33.955738,
+      "Max": 49.670677
+    },
+    "FootWithClawLength": {
+      "Min": 10.714162,
+      "Max": 13.719626
+    },
+    "TibiaLength": {
+      "Min": 20.847956,
+      "Max": 22.57163
+    },
+    "PenisLength": {
+      "Min": 2.5790935,
+      "Max": 4.125357
+    },
+    "HeadToBodyLength": {
+      "Min": 72.501366,
+      "Max": 85.20498
+    },
+    "Weight": {
+      "Min": 27.258307,
+      "Max": 46.74238
+    },
+    "ThreeMet": {
+      "Min": 34.71763,
+      "Max": 37.379147
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

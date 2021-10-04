@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Helpers
 {
     public interface IImageChecker
     {
-        bool DoesImageExist(string image);
+        Task<bool> DoesImageExist(string image);
     }
 
     public class ImageChecker
     {
-        public static bool DoesImageExist(string image) => DependencyService.Get<IImageChecker>().DoesImageExist(image);
+        public static async Task<bool> DoesImageExist(string image) => await DependencyService.Get<IImageChecker>().DoesImageExist(image);
 
         public static bool IsResourceAvailable(string resource)
         {

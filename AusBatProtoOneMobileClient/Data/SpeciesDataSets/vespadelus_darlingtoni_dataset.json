@@ -1,0 +1,59 @@
+{
+  "GenusId": "Vespadelus",
+  "SpeciesId": "darlingtoni",
+  "Name": "Large Forest Bat",
+  "DetailsHtml": null,
+  "DataTag": "Vesp_darling",
+  "Images": [
+    "vesp_darling_head.jpg",
+    "vesp_darling2.jpg",
+    "vesp_darling3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "vesp_darling.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "vespadelus_darlingtoni.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 60.360497,
+      "Max": 66.72038
+    },
+    "OuterCanineWidth": {
+      "Min": 6.073004,
+      "Max": 6.221278
+    },
+    "TailLength": {
+      "Min": 33.968292,
+      "Max": 55.181286
+    },
+    "FootWithClawLength": {
+      "Min": 10.83985,
+      "Max": 11.994048
+    },
+    "TibiaLength": {
+      "Min": 20.92943,
+      "Max": 22.86503
+    },
+    "PenisLength": {
+      "Min": 3.4722874,
+      "Max": 3.6734877
+    },
+    "HeadToBodyLength": {
+      "Min": 71.68467,
+      "Max": 82.3483
+    },
+    "Weight": {
+      "Min": 27.360521,
+      "Max": 42.02923
+    },
+    "ThreeMet": {
+      "Min": 33.268864,
+      "Max": 37.77914
+    },
+    "IsGularPoachPresent": 0,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

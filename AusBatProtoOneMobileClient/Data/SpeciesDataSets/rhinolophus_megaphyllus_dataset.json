@@ -1,0 +1,59 @@
+{
+  "GenusId": "Rhinolophus",
+  "SpeciesId": "megaphyllus",
+  "Name": "Eastern Horseshoe-bat",
+  "DetailsHtml": null,
+  "DataTag": "Rhino_mega",
+  "Images": [
+    "rhino_mega_head.jpg",
+    "rhino_mega2.jpg",
+    "rhino_mega3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "rhino_mega.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "rhinolophus_megaphyllus.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 53.160316,
+      "Max": 63.46641
+    },
+    "OuterCanineWidth": {
+      "Min": 5.7861648,
+      "Max": 6.4599333
+    },
+    "TailLength": {
+      "Min": 33.869457,
+      "Max": 52.353287
+    },
+    "FootWithClawLength": {
+      "Min": 10.206116,
+      "Max": 13.184721
+    },
+    "TibiaLength": {
+      "Min": 21.804798,
+      "Max": 22.447008
+    },
+    "PenisLength": {
+      "Min": 2.8013074,
+      "Max": 4.3135476
+    },
+    "HeadToBodyLength": {
+      "Min": 71.078186,
+      "Max": 91.44304
+    },
+    "Weight": {
+      "Min": 36.787643,
+      "Max": 49.926876
+    },
+    "ThreeMet": {
+      "Min": 31.41612,
+      "Max": 40.604942
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 1
+  }
+}

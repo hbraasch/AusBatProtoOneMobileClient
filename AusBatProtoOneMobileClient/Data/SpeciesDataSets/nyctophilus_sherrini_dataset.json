@@ -1,0 +1,59 @@
+{
+  "GenusId": "Nyctophilus",
+  "SpeciesId": "sherrini",
+  "Name": "Tasmanian Long-eared Bat",
+  "DetailsHtml": null,
+  "DataTag": "Nyctophilus-sherrini",
+  "Images": [
+    "nyctophilus-sherrini_head.jpg",
+    "nyctophilus-sherrini2.jpg",
+    "nyctophilus-sherrini3.jpg"
+  ],
+  "Calls": [
+    {
+      "CallAudioFilename": "nyctophilus-sherrini.wav"
+    }
+  ],
+  "MapRegions": [],
+  "DistributionMapImage": "nyctophilus_sherrini.jpg",
+  "Characteristics": {
+    "ForeArmLength": {
+      "Min": 53.442055,
+      "Max": 63.862606
+    },
+    "OuterCanineWidth": {
+      "Min": 5.8576007,
+      "Max": 6.5417414
+    },
+    "TailLength": {
+      "Min": 39.822563,
+      "Max": 58.44391
+    },
+    "FootWithClawLength": {
+      "Min": 10.001222,
+      "Max": 12.9515915
+    },
+    "TibiaLength": {
+      "Min": 19.13995,
+      "Max": 25.592035
+    },
+    "PenisLength": {
+      "Min": 3.1564724,
+      "Max": 3.556323
+    },
+    "HeadToBodyLength": {
+      "Min": 70.370125,
+      "Max": 83.973694
+    },
+    "Weight": {
+      "Min": 31.246765,
+      "Max": 53.801403
+    },
+    "ThreeMet": {
+      "Min": 31.836576,
+      "Max": 39.722546
+    },
+    "IsGularPoachPresent": 1,
+    "BothSexesHasFleshyGenitalProjections": 0
+  }
+}
