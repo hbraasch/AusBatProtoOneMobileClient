@@ -26,6 +26,7 @@ namespace AusBatProtoOneMobileClient.Models
         public List<Classification> Classifications = new List<Classification>();
         public List<Bat> Bats = new List<Bat>();
         public List<MapRegion> MapRegions = new List<MapRegion>();
+        public List<Sighting> Sightings = new List<Sighting>();
 
         public static Dbase Load()
         {
@@ -846,6 +847,18 @@ namespace AusBatProtoOneMobileClient.Models
             var key = (TragusEnum)promptIndex;
             return new TragusCharacteristic(key);
         }
+    }
+    #endregion
+
+    #region *// Sightings
+    public class Sighting
+    {
+        public double Lat { get; set; }
+        public double Lon { get; set; }
+        public int MapRegionId { get; set; }
+        public string GenusId { get; set; }
+        public string SpeciesId { get; set; }
+        public DateTimeOffset TimeStamp { get; set; }
     }
     #endregion
 }

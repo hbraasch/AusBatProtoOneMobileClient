@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
+using DocGenOneMobileClient.Views;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using Plugin.SimpleAudioPlayer;
@@ -15,6 +16,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TreeApp.Helpers;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.ViewModels
@@ -138,7 +140,88 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
+        
+        public ICommand OnAddSightingMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var cts = new CancellationTokenSource();
+                ActivityIndicatorStart("Starting ...", () =>
+                {
+                    cts.Cancel();
+                    ActivityIndicatorStop();
+                });
+                var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+                var location = await Geolocation.GetLocationAsync(request, cts.Token);
+                if (location == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Notice", "Unable to read location. Sighting to be saves without location data", "Ok");
+                }
 
+                #region *// Get region
+                var viewModel = new SelectBatRegionsPageViewModel() {  };
+                var page = new SelectBatRegionsPage(viewModel);
+                var returnType = await NavigateToPageAsync(page, viewModel);
+                if (returnType == NavigateReturnType.IsCancelled) return;
+                var mapRegions = viewModel.SelectedMapRegions;
+                if (mapRegions.Count == 0)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Notice", "You must select a region", "Ok");
+                    return;
+                }
+                #endregion
+
+
+                #region *// Create sighting
+                App.dbase.Sightings.Add(new Sighting
+                {
+                    Lat = location?.Latitude ?? 0,
+                    Lon = location?.Longitude?? 0,
+                    TimeStamp = DateTimeOffset.Now,
+                    GenusId = bat.GenusId,
+                    SpeciesId = bat.SpeciesId,
+                    MapRegionId = mapRegions[0].Id
+                });
+                Dbase.Save(App.dbase);
+                #endregion
+
+                #region *// Display sighting
+                var sightingsPageViewModel = new SightingsPageViewModel() { IsHomeEnabled = IsHomeEnabled };
+                var sightingsPage = new SightingsPage(sightingsPageViewModel);
+                returnType = await NavigateToPageAsync(sightingsPage, sightingsPageViewModel);
+                if (returnType == NavigateReturnType.IsCancelled) return;
+                if (returnType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                #endregion
+
+            }
+            catch (FeatureNotSupportedException)
+            {
+                throw new BusinessException("Location not supported on device");
+            }
+            catch (FeatureNotEnabledException)
+            {
+                throw new BusinessException("Location not enabled on device");
+            }
+            catch (PermissionException)
+            {
+                throw new BusinessException("No permission to access location on device");
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
         public async Task OnStartStopPlaybackPressed(CallDataItem callDataItem)
         { 
             try

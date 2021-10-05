@@ -262,5 +262,33 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
+
+        public ICommand OnSightingsPressed => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var sightingsPageViewModel = new SightingsPageViewModel();
+                var sightingsPage = new SightingsPage(sightingsPageViewModel);
+                var returnType = await NavigateToPageAsync(sightingsPage, sightingsPageViewModel);
+                if (returnType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        
+
     }
 }

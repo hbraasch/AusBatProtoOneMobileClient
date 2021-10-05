@@ -118,6 +118,7 @@ namespace AusBatProtoOneMobileClient
             Content = centeredLayout;
 
             menu = new MenuGenerator().Configure()
+                .AddMenuItem("sightings", "Sightings", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnSightingsPressed.Execute(null); })
                 .AddMenuItem("init", "Init", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
 
             menu.GenerateToolbarItemsForPage(this);
