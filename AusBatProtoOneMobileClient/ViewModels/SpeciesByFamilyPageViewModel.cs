@@ -26,7 +26,7 @@ namespace DocGenOneMobileClient.Views
             public string SpeciesName { get; set; }
             public string FriendlyName { get; set; }
             public string ImageSource { get; set; }
-            public Bat Species { get; set; }
+            public Species Species { get; set; }
         }
         public class GroupedSpeciesDisplayItem : ObservableCollection<SpeciesDisplayItem>
         {

@@ -22,16 +22,10 @@ namespace AusBatProtoOneMobileClient
 #endif
             dbase = Dbase.Load();
 
-#if true
             var viewModel = new StartupPageViewModel();
             MainPage = new NavigationPage(new StartupPage(viewModel)) { BarBackgroundColor = Color.Black, BarTextColor = Color.White };
 
-#else
-            var bat = App.dbase.Bats.First();
-            var viewModel = new DisplayBatTabbedPageViewModel(bat);
-            MainPage = new NavigationPage(new DisplayBatTabbed(viewModel)) { BarBackgroundColor = Color.Black, BarTextColor = Color.White };
 
-#endif
         }
 
         protected override void OnStart()

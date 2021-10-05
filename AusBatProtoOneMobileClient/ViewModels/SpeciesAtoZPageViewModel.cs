@@ -27,7 +27,7 @@ namespace DocGenOneMobileClient.Views
             public string FriendlyName { get; set; }
             
             public string ImageSource { get; set; }
-            public Bat Bat { get; set; }
+            public Species Species { get; set; }
         }
         public class GroupedSpeciesDisplayItem : ObservableCollection<SpeciesDisplayItem>
         {
@@ -103,11 +103,11 @@ namespace DocGenOneMobileClient.Views
 
             SpeciesGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
 
-            var bats = App.dbase.Bats.OrderBy(bat=>$"{bat.GenusId} {bat.SpeciesId}");
+            var specieses = App.dbase.Species.OrderBy(species=>$"{species.GenusId} {species.SpeciesId}");
             GroupedSpeciesDisplayItem familyGroupDisplayItem = null;
-            foreach (var bat in bats)
+            foreach (var species in specieses)
             {
-                var alphabet = bat.GenusId.Substring(0, 1);
+                var alphabet = species.GenusId.Substring(0, 1);
                 if (!SpeciesGroupDisplayItems.ToList().Exists(o => o.Alphabet == alphabet))
                 {
                     familyGroupDisplayItem = new GroupedSpeciesDisplayItem { Alphabet = alphabet.ToUpper() };
@@ -115,10 +115,10 @@ namespace DocGenOneMobileClient.Views
                 }
                 familyGroupDisplayItem.Add(new SpeciesDisplayItem
                 {
-                    SpeciesName = $"{bat.GenusId} {bat.SpeciesId.ToLower()}",
-                    FriendlyName = bat.Name,
-                    ImageSource = bat.Images.First(),
-                    Bat = bat
+                    SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}",
+                    FriendlyName = species.Name,
+                    ImageSource = species.Images.First(),
+                    Species = species
                 });                
             }
 
@@ -197,7 +197,7 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 if (SelectedItem == null) return;
-                var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Bat);
+                var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Species);
                 var page = new DisplayBatTabbedPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
 

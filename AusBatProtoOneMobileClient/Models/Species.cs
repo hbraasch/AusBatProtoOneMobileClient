@@ -16,7 +16,7 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Data
 {
-    public class Bat
+    public class Species
     {
         public string GenusId { get; set; }
         public string SpeciesId { get; set; }
@@ -24,7 +24,7 @@ namespace AusBatProtoOneMobileClient.Data
         public string DetailsHtml { get; set; }
         public string DataTag { get; set; }
         public List<string> Images { get; set; } = new List<string>();
-        public List<CallDataItem> Calls { get; set; } = new List<CallDataItem>();
+        public List<string> CallImages { get; set; } = new List<string>();
         public List<MapRegion> MapRegions { get; set; } = new List<MapRegion>();
         public string DistributionMapImage { get; set; }
         public SpeciesCharacteristics Characteristics { get; set; } = new SpeciesCharacteristics();
@@ -97,25 +97,16 @@ namespace AusBatProtoOneMobileClient.Data
             }
         }
 
-        internal void LoadCalls()
+        internal async Task LoadCalls()
         {
-            try
+            var imageName = $"{DataTag.ToLower()}_call_image.jpg";
+            if (await ImageChecker.DoesImageExist(imageName))
             {
-                using (Stream stream = FileHelper.GetStreamFromFile($"Data.SpeciesCallAudio.{DataTag.ToLower()}.wav"))
-                {
-                    if (stream == null)
-                    {
-                        Debug.WriteLine($"Call audio file for [{DataTag}] does not exist");
-                    }
-                    else
-                    {
-                        Calls.Add(new CallDataItem { CallAudioFilename = $"{DataTag.ToLower()}.wav" });
-                    }
-                }
+                CallImages.Add(imageName);
             }
-            catch (Exception ex)
+            else
             {
-                throw new BusinessException($"Problem finding call files for [{DataTag}]. {ex.Message}");
+                Debug.WriteLine($"No call images exist for[{DataTag}]");
             }
         }
 
@@ -202,7 +193,7 @@ namespace AusBatProtoOneMobileClient.Data
 
     public class CallDataItem
     {
-        public string CallAudioFilename { get; set; }
+        public string CallAudioImageFilename { get; set; }
     }
 
     public enum IsCharacteristicPresent

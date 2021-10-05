@@ -1,5 +1,4 @@
 ﻿using AusBatProtoOneMobileClient.Data;
-using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
 using FFImageLoading.Forms;
 using Mobile.Helpers;
@@ -20,30 +19,52 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var listView = new ListView
+            var carouselView = new CarouselView
             {
-                SelectionMode = ListViewSelectionMode.Single,
-                BackgroundColor = Color.Transparent,
-                SeparatorColor = Color.Black
+                EmptyView = "Nothing to display",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.CenterAndExpand
             };
-            listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.CallDisplayItems), BindingMode.TwoWay));
-            listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.SelectedCallDisplayItem), BindingMode.TwoWay));
-            listView.ItemTemplate = new DataTemplate(typeof(CallListViewDataTemplate));
+            carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.CallDisplayItems), BindingMode.TwoWay, source: viewModel));
+            carouselView.SetBinding(CarouselView.TabIndexProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.SelectedCallDisplayItem), BindingMode.TwoWay, source: viewModel));
+            carouselView.ItemTemplate = new DataTemplate(() =>
+            {
+                var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+                CachedImage image = new CachedImage
+                {
+                    Aspect = Aspect.AspectFit,
+                };
+                image.WidthRequest = mainDisplayInfo.Width;
+                image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.CallDataItem.ImageSource), BindingMode.OneWay));
+                return image;
+            });
 
-            var layout = new StackLayout { VerticalOptions = LayoutOptions.Center, Children = { listView } };
+            var indicatorView = new IndicatorView
+            {
+                IndicatorColor = Color.LightGray,
+                SelectedIndicatorColor = Color.DarkGray,
+                HorizontalOptions = LayoutOptions.Center,
+                IndicatorsShape = IndicatorShape.Square,
+                IndicatorSize = 18
+            };
+            carouselView.IndicatorView = indicatorView;
+
+            
+
+            var mainLayout = new StackLayout { Children = { carouselView, indicatorView } };
 
             Title = "Calls";
             BackgroundColor = Color.Black;
 
             var centeredLayout = new AbsoluteLayout
             {
-                Children = { layout, activityIndicator },
+                Children = { mainLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
-            AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(mainLayout, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(mainLayout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
@@ -74,19 +95,6 @@ namespace AusBatProtoOneMobileClient
         }
     }
 
-    public class CallListViewDataTemplate : ViewCell
-    {
-        public CallListViewDataTemplate()
-        {
-
-            var startStopPlaybackButton = new ImageButton() { BackgroundColor = Color.Transparent };
-            startStopPlaybackButton.SetBinding(ImageButton.CommandProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.CallDisplayItem.OnStartStopClicked), BindingMode.OneWay));
-            startStopPlaybackButton.SetBinding(ImageButton.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.CallDisplayItem.IsPlaying), BindingMode.OneWay, new IsPlayingToImageConverter()));
-
-            View = startStopPlaybackButton;
-
-        }
-    }
     internal class IsPlayingToImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

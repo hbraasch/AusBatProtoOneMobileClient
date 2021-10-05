@@ -151,10 +151,10 @@ namespace AusBatProtoOneMobileClient.ViewModels
             try
             {
                 var classification = (SelectedItem.Content as Classification);
-                var bat = App.dbase.Bats.FirstOrDefault(o=>o.GenusId == classification.Id);
-                if (bat == null) throw new BusinessException("Select a [species]");
+                var species = App.dbase.Species.FirstOrDefault(o=>o.GenusId == classification.Id);
+                if (species == null) throw new BusinessException("Select a [species]");
 
-                var viewModel = new DisplayBatTabbedPageViewModel(bat);
+                var viewModel = new DisplayBatTabbedPageViewModel(species);
                 var page = new DisplayBatTabbedPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }

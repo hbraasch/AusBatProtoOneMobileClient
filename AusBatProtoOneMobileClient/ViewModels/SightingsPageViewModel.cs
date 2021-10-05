@@ -105,7 +105,7 @@ namespace DocGenOneMobileClient.Views
 
             foreach (var sighting in App.dbase.Sightings.OrderByDescending(o=>o.TimeStamp))
             {
-                var species = App.dbase.Bats.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
+                var species = App.dbase.Species.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
                 if (species == null) continue;
                 DisplayItems.Add(new DisplayItem { 
                     SpeciesName = $"{sighting.GenusId} {sighting.SpeciesId.ToLower()}",
@@ -163,7 +163,7 @@ namespace DocGenOneMobileClient.Views
             {
                 if (SelectedItem == null) return;
                 var sighting = SelectedItem.Content;
-                var species = App.dbase.Bats.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
+                var species = App.dbase.Species.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
                 var viewModel = new DisplayBatTabbedPageViewModel(species) { IsHomeEnabled = IsHomeEnabled };
                 var page = new DisplayBatTabbedPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);

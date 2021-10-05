@@ -21,7 +21,7 @@ namespace DocGenOneMobileClient.Views
 {
     public class DisplayFilteredSpeciesPageViewModel : ViewModelBase
     {
-        List<Bat> specieses;
+        List<Species> specieses;
         public class DisplayItemBase { }
 
 
@@ -30,7 +30,7 @@ namespace DocGenOneMobileClient.Views
             public string SpeciesName { get; set; }
             public string SpeciesFriendlyName { get; set; }
             public string ImageSource { get; set; }
-            public Bat Bat { set; get; }
+            public Species Species { set; get; }
         }
 
         
@@ -60,7 +60,7 @@ namespace DocGenOneMobileClient.Views
 
         #endregion
 
-        public DisplayFilteredSpeciesPageViewModel(List<Bat> specieses)
+        public DisplayFilteredSpeciesPageViewModel(List<Species> specieses)
         {
             this.specieses = specieses;
             DisplayItems = new ObservableCollection<DisplayItemBase>();
@@ -105,7 +105,7 @@ namespace DocGenOneMobileClient.Views
                 DisplayItems.Add(new SpeciesDisplayItem { 
                     SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}", ImageSource = species.Images[0] ?? "", 
                     SpeciesFriendlyName = species.Name,
-                    Bat = species 
+                    Species = species 
                 });
             }
         }
@@ -153,7 +153,7 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 if (SelectedItem == null) return;
-                var viewModel = new DisplayBatTabbedPageViewModel((SelectedItem as SpeciesDisplayItem).Bat) { IsHomeEnabled = IsHomeEnabled };
+                var viewModel = new DisplayBatTabbedPageViewModel((SelectedItem as SpeciesDisplayItem).Species) { IsHomeEnabled = IsHomeEnabled };
                 var page = new DisplayBatTabbedPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);

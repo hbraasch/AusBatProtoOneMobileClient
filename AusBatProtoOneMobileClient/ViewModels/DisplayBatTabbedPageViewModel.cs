@@ -23,7 +23,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 {
     public class DisplayBatTabbedPageViewModel : ViewModelBase
     {
-        public Bat bat;
+        public Species Species;
         CommandHelper commandHelper = new CommandHelper();
 
         public class ImageDataItem
@@ -39,50 +39,37 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
 
-        ISimpleAudioPlayer player;
-
-        public class CallDisplayItem : INotifyPropertyChanged
+        public class CallDataItem
         {
-            public Command OnStartStopClicked { get;  set; }
-            public bool IsPlaying { get; set; }
-            public CallDataItem Content { get; set; }
-
-            public event PropertyChangedEventHandler PropertyChanged;
+            public string ImageSource { get; set; }
         }
-        public ObservableCollection<CallDisplayItem> CallDisplayItems { get; set; }
-        public CallDisplayItem SelectedCallDisplayItem { get; set; }
-        public int CallDataItemIndex { get; set; }
+        public ObservableCollection<CallDataItem> CallDisplayItems { get; set; }
+        public CallDataItem SelectedCallDisplayItem { get; set; }
 
         #region *// Menu related
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsLoggedIn { get; set; } = false;
         #endregion
-        public DisplayBatTabbedPageViewModel(Bat bat)
+        public DisplayBatTabbedPageViewModel(Species species)
         {
-            this.bat = bat;
+            this.Species = species;
 
             ImageDataItems = new ObservableCollection<ImageDataItem>();
-            foreach (var imageSource in bat.Images)
+            foreach (var imageSource in species.Images)
             {
                 ImageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
             }
 
 
             DetailsHtmlSource = new HtmlWebViewSource();
-            DetailsHtmlSource.Html = bat.DetailsHtml;
+            DetailsHtmlSource.Html = species.DetailsHtml;
 
-            DistributionMapImage = bat.DistributionMapImage;
+            DistributionMapImage = species.DistributionMapImage;
 
-            player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.PlaybackEnded += (s, e) => { SelectedCallDisplayItem.IsPlaying = false; };
-            CallDisplayItems = new ObservableCollection<CallDisplayItem>();
-            foreach (var call in bat.Calls)
+            CallDisplayItems = new ObservableCollection<CallDataItem>();
+            foreach (var callImage in species.CallImages)
             {
-                CallDisplayItems.Add(new CallDisplayItem { 
-                    OnStartStopClicked = new Command(async ()=> { await OnStartStopPlaybackPressed(call); }), 
-                    IsPlaying = false,
-                    Content = call
-                }); 
+                CallDisplayItems.Add(new CallDataItem { ImageSource = callImage }); 
             }
         }
 
@@ -177,8 +164,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     Lat = location?.Latitude ?? 0,
                     Lon = location?.Longitude?? 0,
                     TimeStamp = DateTimeOffset.Now,
-                    GenusId = bat.GenusId,
-                    SpeciesId = bat.SpeciesId,
+                    GenusId = Species.GenusId,
+                    SpeciesId = Species.SpeciesId,
                     MapRegionId = mapRegions[0].Id
                 });
                 Dbase.Save(App.dbase);
@@ -222,76 +209,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
-        public async Task OnStartStopPlaybackPressed(CallDataItem callDataItem)
-        { 
-            try
-            {
-                SelectedCallDisplayItem = CallDisplayItems.FirstOrDefault(o => o.Content == callDataItem);
-
-                if (player.IsPlaying)
-                {
-                    player.Stop();
-                    SelectedCallDisplayItem.IsPlaying = false;
-                }
-                else
-                {
-                    var audioFilename = callDataItem.CallAudioFilename;
-                    if (audioFilename == "")
-                    {
-                        throw new BusinessException("There is no audio to play");
-                    }
-                    player.Load(FileHelper.GetStreamFromFile($"Data.SpeciesCallAudio.{audioFilename}"));
-                    player.Play();
-                    SelectedCallDisplayItem.IsPlaying = true;
-                }              
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user");
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        }
 
 
-        public ICommand OnTestMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
-            try
-            {
-                await DisplayAlert("Alert", "Next page", "Ok");
-                var cts = new CancellationTokenSource();
-                ActivityIndicatorStart("Starting ...", () =>
-                {
-                    cts.Cancel();
-                    ActivityIndicatorStop();
-                    Debug.WriteLine("Cancel pressed");
-                });
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user"); 
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
     }
 }

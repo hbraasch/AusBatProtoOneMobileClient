@@ -24,7 +24,7 @@ namespace AusBatProtoOneMobileClient.Models
         public string IntroductionHtml;
         public string AboutHtml;
         public List<Classification> Classifications = new List<Classification>();
-        public List<Bat> Bats = new List<Bat>();
+        public List<Species> Species = new List<Species>();
         public List<MapRegion> MapRegions = new List<MapRegion>();
         public List<Sighting> Sightings = new List<Sighting>();
 
@@ -313,96 +313,96 @@ namespace AusBatProtoOneMobileClient.Models
                 #endregion
 
                 #region *// Bats
-                dbase.Bats.Add(LoadSpecies( "Austonomus", "australis")); 
-                dbase.Bats.Add(LoadSpecies( "Chaerephon", "jobensis"));
-                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "dwyeri"));
-                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "gouldii"));
-                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "morio"));
-                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "nigrogriseus"));
-                dbase.Bats.Add(LoadSpecies( "Chalinolobus", "picatus"));
-                dbase.Bats.Add(LoadSpecies( "Dobsonia", "magna"));
-                dbase.Bats.Add(LoadSpecies( "Falsistrellus", "mackenziei"));
-                dbase.Bats.Add(LoadSpecies( "Falsistrellus", "tasmaniensis"));
-                dbase.Bats.Add(LoadSpecies( "Hipposideros", "ater"));
-                dbase.Bats.Add(LoadSpecies( "Hipposideros", "cervinus"));
-                dbase.Bats.Add(LoadSpecies( "Hipposideros", "diadema"));
-                dbase.Bats.Add(LoadSpecies( "Hipposideros", "inornatus"));
-                dbase.Bats.Add(LoadSpecies( "Hipposideros", "semoni"));
-                dbase.Bats.Add(LoadSpecies( "Hipposideros", "stenotis"));
-                dbase.Bats.Add(LoadSpecies( "Macroderma", "gigas"));
-                dbase.Bats.Add(LoadSpecies( "Macroglossus", "minimus"));
-                dbase.Bats.Add(LoadSpecies( "Micronomus", "norfolkensis"));
-                dbase.Bats.Add(LoadSpecies( "Miniopterus", "australis"));
-                dbase.Bats.Add(LoadSpecies( "Miniopterus", "orianae bassanii"));
-                dbase.Bats.Add(LoadSpecies( "Miniopterus", "orianae oceanensi"));
-                dbase.Bats.Add(LoadSpecies( "Miniopterus", "orianae orianae"));
-                dbase.Bats.Add(LoadSpecies( "Murina", "florium"));
-                dbase.Bats.Add(LoadSpecies( "Myotis", "macropus"));
-                dbase.Bats.Add(LoadSpecies( "Nyctimene", "robinsoni"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "arnhemensis"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "bifax"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "corbeni"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "daedalus"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "geoffroyi"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "gouldi"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "major major"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "major tor"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "sherrini"));
-                dbase.Bats.Add(LoadSpecies( "Nyctophilus", "walkeri"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "cobourgianus"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "halli"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "kitcheneri"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "lumsdenae"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "petersi"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "planiceps"));
-                dbase.Bats.Add(LoadSpecies( "Ozimops", "ridei"));
-                dbase.Bats.Add(LoadSpecies( "Phoniscus", "papuensis"));
-                dbase.Bats.Add(LoadSpecies( "Pipistrellus", "adamsi"));
-                dbase.Bats.Add(LoadSpecies( "Pipistrellus", "murrayi"));
-                dbase.Bats.Add(LoadSpecies( "Pipistrellus", "westralis"));
-                dbase.Bats.Add(LoadSpecies( "Pteropus", "alecto"));
-                dbase.Bats.Add(LoadSpecies( "Pteropus", "conspicillatus"));
-                dbase.Bats.Add(LoadSpecies( "Pteropus", "natalis"));
-                dbase.Bats.Add(LoadSpecies( "Pteropus", "poliocephalus"));
-                dbase.Bats.Add(LoadSpecies( "Pteropus", "scapulatus"));
-                dbase.Bats.Add(LoadSpecies( "Rhinolophus", "megaphyllus"));
-                dbase.Bats.Add(LoadSpecies( "Rhinolophus", "robertsi"));
-                dbase.Bats.Add(LoadSpecies( "Rhinolophus", "sp 'intermediate'"));
-                dbase.Bats.Add(LoadSpecies( "Rhinonicteris", "aurantia"));
-                dbase.Bats.Add(LoadSpecies( "Saccolaimus", "flaviventris"));
-                dbase.Bats.Add(LoadSpecies( "Saccolaimus", "mixtus"));
-                dbase.Bats.Add(LoadSpecies( "Saccolaimus", "saccolaimus"));
-                dbase.Bats.Add(LoadSpecies( "Scoteanax", "rueppellii"));
-                dbase.Bats.Add(LoadSpecies( "Scotorepens", "balstoni"));
-                dbase.Bats.Add(LoadSpecies( "Scotorepens", "greyii"));
-                dbase.Bats.Add(LoadSpecies( "Scotorepens", "orion"));
-                dbase.Bats.Add(LoadSpecies( "Scotorepens", "sanborni"));
-                dbase.Bats.Add(LoadSpecies( "Scotorepens", "sp."));
-                dbase.Bats.Add(LoadSpecies( "Setirostris", "eleryi"));
-                dbase.Bats.Add(LoadSpecies( "Syconycteris", "australis"));
-                dbase.Bats.Add(LoadSpecies( "Taphozous", "australis"));
-                dbase.Bats.Add(LoadSpecies( "Taphozous", "georgianus"));
-                dbase.Bats.Add(LoadSpecies( "Taphozous", "hilli"));
-                dbase.Bats.Add(LoadSpecies( "Taphozous", "kapalgensis"));
-                dbase.Bats.Add(LoadSpecies( "Taphozous", "troughtoni"));
-                dbase.Bats.Add(LoadSpecies( "Vespadalus", "caurinus"));
-                dbase.Bats.Add(LoadSpecies( "Vespadalus", "douglasorum"));
-                dbase.Bats.Add(LoadSpecies( "Vespadalus", "finlaysoni"));
-                dbase.Bats.Add(LoadSpecies( "Vespadalus", "regulus"));
-                dbase.Bats.Add(LoadSpecies( "Vespadelus", "baverstocki"));
-                dbase.Bats.Add(LoadSpecies( "Vespadelus", "darlingtoni"));
-                dbase.Bats.Add(LoadSpecies( "Vespadelus", "pumilus"));
-                dbase.Bats.Add(LoadSpecies( "Vespadelus", "troughtoni"));
-                dbase.Bats.Add(LoadSpecies( "Vespadelus", "vulturnus"));
+                dbase.Species.Add(LoadSpecies( "Austonomus", "australis")); 
+                dbase.Species.Add(LoadSpecies( "Chaerephon", "jobensis"));
+                dbase.Species.Add(LoadSpecies( "Chalinolobus", "dwyeri"));
+                dbase.Species.Add(LoadSpecies( "Chalinolobus", "gouldii"));
+                dbase.Species.Add(LoadSpecies( "Chalinolobus", "morio"));
+                dbase.Species.Add(LoadSpecies( "Chalinolobus", "nigrogriseus"));
+                dbase.Species.Add(LoadSpecies( "Chalinolobus", "picatus"));
+                dbase.Species.Add(LoadSpecies( "Dobsonia", "magna"));
+                dbase.Species.Add(LoadSpecies( "Falsistrellus", "mackenziei"));
+                dbase.Species.Add(LoadSpecies( "Falsistrellus", "tasmaniensis"));
+                dbase.Species.Add(LoadSpecies( "Hipposideros", "ater"));
+                dbase.Species.Add(LoadSpecies( "Hipposideros", "cervinus"));
+                dbase.Species.Add(LoadSpecies( "Hipposideros", "diadema"));
+                dbase.Species.Add(LoadSpecies( "Hipposideros", "inornatus"));
+                dbase.Species.Add(LoadSpecies( "Hipposideros", "semoni"));
+                dbase.Species.Add(LoadSpecies( "Hipposideros", "stenotis"));
+                dbase.Species.Add(LoadSpecies( "Macroderma", "gigas"));
+                dbase.Species.Add(LoadSpecies( "Macroglossus", "minimus"));
+                dbase.Species.Add(LoadSpecies( "Micronomus", "norfolkensis"));
+                dbase.Species.Add(LoadSpecies( "Miniopterus", "australis"));
+                dbase.Species.Add(LoadSpecies( "Miniopterus", "orianae bassanii"));
+                dbase.Species.Add(LoadSpecies( "Miniopterus", "orianae oceanensi"));
+                dbase.Species.Add(LoadSpecies( "Miniopterus", "orianae orianae"));
+                dbase.Species.Add(LoadSpecies( "Murina", "florium"));
+                dbase.Species.Add(LoadSpecies( "Myotis", "macropus"));
+                dbase.Species.Add(LoadSpecies( "Nyctimene", "robinsoni"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "arnhemensis"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "bifax"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "corbeni"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "daedalus"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "geoffroyi"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "gouldi"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "major major"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "major tor"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "sherrini"));
+                dbase.Species.Add(LoadSpecies( "Nyctophilus", "walkeri"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "cobourgianus"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "halli"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "kitcheneri"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "lumsdenae"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "petersi"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "planiceps"));
+                dbase.Species.Add(LoadSpecies( "Ozimops", "ridei"));
+                dbase.Species.Add(LoadSpecies( "Phoniscus", "papuensis"));
+                dbase.Species.Add(LoadSpecies( "Pipistrellus", "adamsi"));
+                dbase.Species.Add(LoadSpecies( "Pipistrellus", "murrayi"));
+                dbase.Species.Add(LoadSpecies( "Pipistrellus", "westralis"));
+                dbase.Species.Add(LoadSpecies( "Pteropus", "alecto"));
+                dbase.Species.Add(LoadSpecies( "Pteropus", "conspicillatus"));
+                dbase.Species.Add(LoadSpecies( "Pteropus", "natalis"));
+                dbase.Species.Add(LoadSpecies( "Pteropus", "poliocephalus"));
+                dbase.Species.Add(LoadSpecies( "Pteropus", "scapulatus"));
+                dbase.Species.Add(LoadSpecies( "Rhinolophus", "megaphyllus"));
+                dbase.Species.Add(LoadSpecies( "Rhinolophus", "robertsi"));
+                dbase.Species.Add(LoadSpecies( "Rhinolophus", "sp 'intermediate'"));
+                dbase.Species.Add(LoadSpecies( "Rhinonicteris", "aurantia"));
+                dbase.Species.Add(LoadSpecies( "Saccolaimus", "flaviventris"));
+                dbase.Species.Add(LoadSpecies( "Saccolaimus", "mixtus"));
+                dbase.Species.Add(LoadSpecies( "Saccolaimus", "saccolaimus"));
+                dbase.Species.Add(LoadSpecies( "Scoteanax", "rueppellii"));
+                dbase.Species.Add(LoadSpecies( "Scotorepens", "balstoni"));
+                dbase.Species.Add(LoadSpecies( "Scotorepens", "greyii"));
+                dbase.Species.Add(LoadSpecies( "Scotorepens", "orion"));
+                dbase.Species.Add(LoadSpecies( "Scotorepens", "sanborni"));
+                dbase.Species.Add(LoadSpecies( "Scotorepens", "sp."));
+                dbase.Species.Add(LoadSpecies( "Setirostris", "eleryi"));
+                dbase.Species.Add(LoadSpecies( "Syconycteris", "australis"));
+                dbase.Species.Add(LoadSpecies( "Taphozous", "australis"));
+                dbase.Species.Add(LoadSpecies( "Taphozous", "georgianus"));
+                dbase.Species.Add(LoadSpecies( "Taphozous", "hilli"));
+                dbase.Species.Add(LoadSpecies( "Taphozous", "kapalgensis"));
+                dbase.Species.Add(LoadSpecies( "Taphozous", "troughtoni"));
+                dbase.Species.Add(LoadSpecies( "Vespadalus", "caurinus"));
+                dbase.Species.Add(LoadSpecies( "Vespadalus", "douglasorum"));
+                dbase.Species.Add(LoadSpecies( "Vespadalus", "finlaysoni"));
+                dbase.Species.Add(LoadSpecies( "Vespadalus", "regulus"));
+                dbase.Species.Add(LoadSpecies( "Vespadelus", "baverstocki"));
+                dbase.Species.Add(LoadSpecies( "Vespadelus", "darlingtoni"));
+                dbase.Species.Add(LoadSpecies( "Vespadelus", "pumilus"));
+                dbase.Species.Add(LoadSpecies( "Vespadelus", "troughtoni"));
+                dbase.Species.Add(LoadSpecies( "Vespadelus", "vulturnus"));
                 #endregion
 
-                foreach (var bat in dbase.Bats)
+                foreach (var species in dbase.Species)
                 {
-                    bat.LoadRegions(dbase);
-                    bat.LoadDetails();
-                    await bat.LoadImages();
-                    bat.LoadCalls();
-                    bat.SetDistributionMapFilename();
+                    species.LoadRegions(dbase);
+                    species.LoadDetails();
+                    await species.LoadImages();
+                    await species.LoadCalls();
+                    species.SetDistributionMapFilename();
                 }
 
 
@@ -433,15 +433,15 @@ namespace AusBatProtoOneMobileClient.Models
 
 
 
-        public static List<Bat> Filter(List<Bat> bats, List<MapRegion> selectedRegions)
+        public static List<Species> Filter(List<Species> bats, List<MapRegion> selectedRegions)
         {
             if (selectedRegions.IsEmpty()) return bats;
             return bats.Where(o => o.MapRegions.Intersect(selectedRegions, new RegionComparer()).Count() > 0).ToList();
         }
 
-        public static List<Bat> Order(List<Bat> bats)
+        public static List<Species> Order(List<Species> specieses)
         {
-            return bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList();
+            return specieses.OrderBy(species => $"{species.GenusId} {species.SpeciesId}").ToList();
         }
 
         public class RegionComparer : IEqualityComparer<MapRegion>
@@ -457,39 +457,39 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
-        internal List<Bat> GetAllSpecies()
+        internal List<Species> GetAllSpecies()
         {
-            return Bats.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList();
+            return Species.OrderBy(species => $"{species.GenusId} {species.SpeciesId}").ToList();
         }
 
-        internal List<Bat> GetAllSpeciesInFamily(Classification family)
+        internal List<Species> GetAllSpeciesInFamily(Classification family)
         {
             var genusesInFamily = App.dbase.Classifications.Where(o => o.Parent == family.Id).ToList();
             return GetAllSpecies(genusesInFamily);
         }
 
-        internal List<Bat> GetAllSpecies(List<Classification> genuses)
+        internal List<Species> GetAllSpecies(List<Classification> genuses)
         {
-            List<Bat> result = new List<Bat>();
+            List<Species> result = new List<Species>();
             foreach (var genus in genuses)
             {
                 result.AddRange(GetAllSpeciesInGenus(genus));
             }
-            return result.OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList();
+            return result.OrderBy(species => $"{species.GenusId} {species.SpeciesId}").ToList();
         }
-        internal List<Bat> GetAllSpeciesInGenus(Classification genus)
+        internal List<Species> GetAllSpeciesInGenus(Classification genus)
         {
-            return Bats.Where(o => o.GenusId == genus.Id).OrderBy(bat => $"{bat.GenusId} {bat.SpeciesId}").ToList();
+            return Species.Where(o => o.GenusId == genus.Id).OrderBy(species => $"{species.GenusId} {species.SpeciesId}").ToList();
         }
 
-        public List<Bat> GetAllSpecies(List<MapRegion> selectedRegions)
+        public List<Species> GetAllSpecies(List<MapRegion> selectedRegions)
         {
             var bats = GetAllSpecies();
             return Filter(bats, selectedRegions);
         }
 
 
-        internal List<Bat> GetAllSpecies(Classification genus, List<MapRegion> selectedRegions)
+        internal List<Species> GetAllSpecies(Classification genus, List<MapRegion> selectedRegions)
         {
             var bats = GetAllSpeciesInGenus(genus);
             return Filter(bats, selectedRegions);
@@ -522,7 +522,7 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
-        private Bat LoadSpecies(string genusId, string speciesId)
+        private Species LoadSpecies(string genusId, string speciesId)
         {
             var datasetFilename = $"{genusId.ToLower()}_{speciesId.ToLower()}_dataset.json";
             try
@@ -543,7 +543,7 @@ namespace AusBatProtoOneMobileClient.Models
                         }
                         try
                         {
-                            var species = JsonConvert.DeserializeObject<Bat>(speciesDatasetJson);
+                            var species = JsonConvert.DeserializeObject<Species>(speciesDatasetJson);
                             return species;
                         }
                         catch (Exception ex)

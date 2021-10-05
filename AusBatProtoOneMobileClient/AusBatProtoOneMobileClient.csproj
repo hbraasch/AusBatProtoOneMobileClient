@@ -12,6 +12,83 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
+    <None Remove="Data\SpeciesCallImages\aust_aust_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\chae_job_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\chal_dwye_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\chal_gould_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\chal_morio_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\chal_nigro_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\chal_pic_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\dob_mag_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\falsi_mack__call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\falsi_tasman_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\hipp_ater_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\hipp_cerv_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\hipp_diadem_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\hipp_inorn_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\macro_gigas_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\macro_minimus_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\micro_norfolk__call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\mini_aust__call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\mini_oc_bassani_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\mini_or_ocean_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\mini_or_orianae_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\murin_florium_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\myot_mac_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyctophilus-sherrini_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_arnhem_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_bifax_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_corben_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_daed_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_geoff_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_gould_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_major_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_major_tor_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_robin_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\nyct_walkeri_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozie_halli_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozie_ridei_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozi_coburg_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozi_kitchen_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozi_lumsd_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozi_peters_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\ozi_planic_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\phoni_pap_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pip_adams_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pip_west_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pterop_alect_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pterop_conspic_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pterop_natalis_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pterop_polioc_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\pterop_scap_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\rhinon_aurant_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\rhino_mega_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\rhino_robert__call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\rhino_sp_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\sacc_flav_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\sacc_mixtus_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\sacc_sacc_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\scot_balst_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\scot_greyi_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\scot_orion_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\scot_ruepp_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\scot_sanborn_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\seti_eleryi_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\sycon_aust_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\taph_aust_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\taph_georg_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\taph_hilli__call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\taph_kapalg_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\taph_trought_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_baver__call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_caur_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_darling_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_douglas_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_finlay_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_pumilus_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_regulus_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_trought_call_image.jpg" />
+    <None Remove="Data\SpeciesCallImages\vesp_vult__call_image.jpg" />
     <None Remove="Data\SpeciesDataSets\vespadelus_troughtoni_dataset.json" />
     <None Remove="Data\SpeciesDetails\aust_aust.html" />
     <None Remove="Data\SpeciesDetails\macro_minimus.html" />
@@ -257,9 +334,6 @@
     <None Remove="Data\SpeciesRegions\aust_aust_regions.json" />
     <None Remove="Data\SpeciesRegions\macro_minimus_regions.json" />
     <None Remove="Data\SpeciesRegions\pterop_alect_regions.json" />
-    <None Remove="Data\SpeciesCallAudio\aust_aust.wav" />
-    <None Remove="Data\SpeciesCallAudio\chae_job.wav" />
-    <None Remove="Data\SpeciesCallAudio\chal_dwye.wav" />
     <None Remove="Data\SpeciesDistributionMaps\austonomus_australis.jpg" />
     <None Remove="Data\SpeciesDistributionMaps\chaerephon_jobensis.jpg" />
     <None Remove="Data\SpeciesDistributionMaps\chalinolobus_dwyeri.jpg" />
@@ -501,9 +575,6 @@
     <EmbeddedResource Include="Data\SpeciesRegions\pterop_alect_regions.json" />
     <EmbeddedResource Include="Data\SpeciesRegions\macro_minimus_regions.json" />
     <EmbeddedResource Include="Data\SpeciesRegions\aust_aust_regions.json" />
-    <EmbeddedResource Include="Data\SpeciesCallAudio\aust_aust.wav"/>
-    <EmbeddedResource Include="Data\SpeciesCallAudio\chae_job.wav" />
-    <EmbeddedResource Include="Data\SpeciesCallAudio\chal_dwye.wav" />
     <EmbeddedResource Include="Data\Introduction\introduction.html" />
     <EmbeddedResource Include="Data\SpeciesDataSets\austonomus_australis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\austronomus_australis_characteristics.json" />
@@ -602,6 +673,83 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SharedImage Include="Data\SpeciesCallImages\aust_aust_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\chae_job_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\chal_dwye_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\chal_gould_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\chal_morio_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\chal_nigro_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\chal_pic_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\dob_mag_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\falsi_mack__call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\falsi_tasman_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\hipp_ater_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\hipp_cerv_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\hipp_diadem_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\hipp_inorn_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\macro_gigas_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\macro_minimus_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\micro_norfolk__call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\mini_aust__call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\mini_oc_bassani_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\mini_or_ocean_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\mini_or_orianae_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\murin_florium_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\myot_mac_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyctophilus-sherrini_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_arnhem_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_bifax_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_corben_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_daed_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_geoff_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_gould_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_major_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_major_tor_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_robin_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\nyct_walkeri_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozie_halli_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozie_ridei_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozi_coburg_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozi_kitchen_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozi_lumsd_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozi_peters_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\ozi_planic_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\phoni_pap_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pip_adams_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pip_west_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pterop_alect_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pterop_conspic_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pterop_natalis_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pterop_polioc_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\pterop_scap_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\rhinon_aurant_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\rhino_mega_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\rhino_robert__call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\rhino_sp_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\sacc_flav_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\sacc_mixtus_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\sacc_sacc_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\scot_balst_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\scot_greyi_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\scot_orion_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\scot_ruepp_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\scot_sanborn_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\seti_eleryi_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\sycon_aust_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\taph_aust_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\taph_georg_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\taph_hilli__call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\taph_kapalg_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\taph_trought_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_baver__call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_caur_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_darling_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_douglas_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_finlay_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_pumilus_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_regulus_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_trought_call_image.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesCallImages\vesp_vult__call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\aust_aust2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\aust_aust3.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\aust_aust_head.jpg" BaseSize="150,150" />

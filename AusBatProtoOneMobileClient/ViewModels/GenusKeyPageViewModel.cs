@@ -30,7 +30,7 @@ namespace DocGenOneMobileClient.Views
             public Action<CharacteristicDisplayItemBase> OnChanged { get; set; }
 
             public abstract bool HasEntry();
-            public abstract List<Bat> ConductSearch(List<Bat> source);
+            public abstract List<Species> ConductSearch(List<Species> source);
         }
 
         public class ForeArmLengthDisplayItem : CharacteristicDisplayItemBase
@@ -38,10 +38,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Forearm length (mm)";
             public string Value { get; set; }
 
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.ForeArmLength.Min <= value && value <= o.Characteristics.ForeArmLength.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.ForeArmLength.Min <= value && value <= o.Characteristics.ForeArmLength.Max).ToList();
             }
 
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
@@ -51,10 +51,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Outer canine width (mm)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.OuterCanineWidth.Min <= value && value <= o.Characteristics.OuterCanineWidth.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.OuterCanineWidth.Min <= value && value <= o.Characteristics.OuterCanineWidth.Max).ToList();
             }
         }
         public class TailLengthDisplayItem : CharacteristicDisplayItemBase
@@ -62,10 +62,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Tail length (mm)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.TailLength.Min <= value && value <= o.Characteristics.TailLength.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.TailLength.Min <= value && value <= o.Characteristics.TailLength.Max).ToList();
             }
         }
         public class FootWithClawLengthDisplayItem : CharacteristicDisplayItemBase
@@ -73,10 +73,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Foot with claw length (mm)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.FootWithClawLength.Min <= value && value <= o.Characteristics.FootWithClawLength.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.FootWithClawLength.Min <= value && value <= o.Characteristics.FootWithClawLength.Max).ToList();
             }
         }
 
@@ -85,10 +85,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Penis length (mm)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.PenisLength.Min <= value && value <= o.Characteristics.PenisLength.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.PenisLength.Min <= value && value <= o.Characteristics.PenisLength.Max).ToList();
             }
         }
         public class HeadToBodyLengthDisplayItem : CharacteristicDisplayItemBase
@@ -96,10 +96,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Head to body length (mm)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.HeadToBodyLength.Min <= value && value <= o.Characteristics.HeadToBodyLength.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.HeadToBodyLength.Min <= value && value <= o.Characteristics.HeadToBodyLength.Max).ToList();
             }
         }
         public class WeightDisplayItem : CharacteristicDisplayItemBase
@@ -107,10 +107,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Weight (g)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.Weight.Min <= value && value <= o.Characteristics.Weight.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.Weight.Min <= value && value <= o.Characteristics.Weight.Max).ToList();
             }
         }
         public class ThreeMetDisplayItem : CharacteristicDisplayItemBase
@@ -118,10 +118,10 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "3-MET (mm)";
             public string Value { get; set; }
             public override bool HasEntry() => !string.IsNullOrEmpty(Value);
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 float value = float.Parse(Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.ThreeMet.Min <= value && value <= o.Characteristics.ThreeMet.Max).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.ThreeMet.Min <= value && value <= o.Characteristics.ThreeMet.Max).ToList();
             }
         }
 
@@ -131,14 +131,14 @@ namespace DocGenOneMobileClient.Views
             public string Value { get; set; } 
             public List<string> Values { get; set; } = new List<string> { IsCharacteristicPresent.Do_not_care.ToString(), IsCharacteristicPresent.Is_present.ToString(), IsCharacteristicPresent.Is_not_present.ToString() };
             public override bool HasEntry() => Value != null && Value != IsCharacteristicPresent.Do_not_care.ToString();
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 if (Value == IsCharacteristicPresent.Do_not_care.ToString())
                 {
-                    return App.dbase.Bats;
+                    return App.dbase.Species;
                 }
                 var value = (IsCharacteristicPresent)Enum.Parse(typeof(IsCharacteristicPresent), Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.IsGularPoachPresent == value).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.IsGularPoachPresent == value).ToList();
             }
         }
         public class HasFleshyGenitalProjectionsDisplayItem : CharacteristicDisplayItemBase
@@ -147,14 +147,14 @@ namespace DocGenOneMobileClient.Views
             public string Value { get; set; }
             public List<string> Values { get; set; } = new List<string> { IsCharacteristicPresent.Do_not_care.ToString(), IsCharacteristicPresent.Is_present.ToString(), IsCharacteristicPresent.Is_not_present.ToString() };
             public override bool HasEntry() => Value != null && Value != IsCharacteristicPresent.Do_not_care.ToString();
-            public override List<Bat> ConductSearch(List<Bat> source)
+            public override List<Species> ConductSearch(List<Species> source)
             {
                 if (Value == IsCharacteristicPresent.Do_not_care.ToString())
                 {
-                    return App.dbase.Bats;
+                    return App.dbase.Species;
                 }
                 var value = (IsCharacteristicPresent) Enum.Parse(typeof(IsCharacteristicPresent), Value);
-                return App.dbase.Bats.Where(o => o.Characteristics.BothSexesHasFleshyGenitalProjections == value).ToList();
+                return App.dbase.Species.Where(o => o.Characteristics.BothSexesHasFleshyGenitalProjections == value).ToList();
             }
         }
 
@@ -328,7 +328,7 @@ namespace DocGenOneMobileClient.Views
 
                 var speciesInFamily = App.dbase.GetAllSpeciesInFamily(Family);
 
-                List<Bat> searchResult = ConductSearch(speciesInFamily);
+                List<Species> searchResult = ConductSearch(speciesInFamily);
                 var viewModel = new DisplayFilteredSpeciesPageViewModel(searchResult) { IsHomeEnabled = true };
                 var page = new DisplayFilteredSpeciesPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
@@ -344,7 +344,7 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        private List<Bat> ConductSearch(List<Bat> source)
+        private List<Species> ConductSearch(List<Species> source)
         {
             List<CharacteristicDisplayItemBase> activeCharacteristic = new List<CharacteristicDisplayItemBase>();
             foreach (var displayItem in CharacteristicDisplayItems)
@@ -354,16 +354,16 @@ namespace DocGenOneMobileClient.Views
 
             if (activeCharacteristic.Count == 0) return source;
 
-            List<Bat> currentResults = source;
+            List<Species> currentResults = source;
             foreach (var characteristic in activeCharacteristic)
             {
                 currentResults = characteristic.ConductSearch(currentResults);
-                if (currentResults == null) return new List<Bat>();
+                if (currentResults == null) return new List<Species>();
             }
             if (MapRegions.Count > 0)
             {
                 currentResults = Dbase.Filter(currentResults, MapRegions.ToList());
-                if (currentResults.IsEmpty()) return new List<Bat>();
+                if (currentResults.IsEmpty()) return new List<Species>();
             }
             return currentResults;
         }
@@ -377,14 +377,14 @@ namespace DocGenOneMobileClient.Views
 
 
 
-    internal class BatComparer : IEqualityComparer<Bat>
+    internal class BatComparer : IEqualityComparer<Species>
     {
-        public bool Equals(Bat x, Bat y)
+        public bool Equals(Species x, Species y)
         {
             return x.Name == y.Name ;
         }
 
-        public int GetHashCode(Bat obj)
+        public int GetHashCode(Species obj)
         {
             return obj.Name.GetHashCode();
         }

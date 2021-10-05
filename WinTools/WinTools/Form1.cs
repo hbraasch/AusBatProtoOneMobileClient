@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -68,6 +69,26 @@ namespace WinTools
                 var speciesJson = JsonConvert.SerializeObject(bat,  Formatting.Indented);
                 File.WriteAllText(fileFullname, speciesJson);
             }
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            var dbase = Dbase.Load();
+            await dbase.Init();
+            var sourcePath = @"c:\temp\calls\orig";
+            var sourceFiles = Directory.EnumerateFiles(sourcePath);
+            var destPath = @"c:\temp\calls\dest";
+            int index = 0;
+            if (!Directory.Exists(destPath))
+            {
+                Directory.CreateDirectory(destPath);
+            }
+            foreach (var bat in dbase.Bats)
+            {
+                var destFullFilename = Path.Combine(destPath, $"{bat.DataTag.ToLower()}_call_image.jpg");
+                File.Copy(sourceFiles.ToList()[index++], destFullFilename, true);
+            }
+            Debug.WriteLine("Done");
         }
     }
 }

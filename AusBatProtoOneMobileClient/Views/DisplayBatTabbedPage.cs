@@ -20,7 +20,7 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
 
 
-            Title = viewModel.bat.Name;
+            Title = viewModel.Species.Name;
             displayBatImagesTabPage = new DisplayBatImageTabPage(viewModel);
             displayBatImagesTabPage.IconImageSource = "ic_photos.png";
             displayBatDetailsTabPage = new DisplayBatDetailsTabPage(viewModel);
@@ -32,7 +32,7 @@ namespace AusBatProtoOneMobileClient
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
             Children.Add(displayBatRegionsTabPage);
-            if (viewModel.bat.Calls.Count != 0)
+            if (viewModel.Species.CallImages.Count != 0)
             {
                 Children.Add(displayBatCallTabPage); 
             }
