@@ -100,9 +100,7 @@ namespace DocGenOneMobileClient.Views
 
         public void UpdateDisplay()
         {
-
-            var displayItems = new ObservableCollection<DisplayItem>();
-
+            DisplayItems.Clear();
             foreach (var sighting in App.dbase.Sightings.OrderByDescending(o=>o.TimeStamp))
             {
                 var species = App.dbase.Species.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
@@ -183,7 +181,29 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        
+        public ICommand OnClearAllMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        {
+
+            try
+            {
+                if (!await Application.Current.MainPage.DisplayAlert("Clear all sightings", "Are you sure?", "Ok", "Cancel")) return;
+                App.dbase.Sightings.Clear();
+                Dbase.Save(App.dbase);
+                UpdateDisplay();
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
 
         public ICommand OnMailMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
         {
@@ -192,11 +212,8 @@ namespace DocGenOneMobileClient.Views
             {
                 ActivityIndicatorStart();
 
-                if (SelectedItem == null) return;
-                var sighting = SelectedItem.Content;
-
                 var result = await Application.Current.MainPage.DisplayPromptAsync("Mail", "Enter email address", "Send", "Cancel", keyboard: Keyboard.Email );
-                if (result == "Cancel") return;
+                if (result == null) return;
                 await SendEmail($"Mail from {Constants.APP_NAME}", "Please see attachment for sightings data", new List<string> { result });
 
                 async Task SendEmail(string subject, string body, List<string> recipients)

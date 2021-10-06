@@ -58,8 +58,8 @@ namespace DocGenOneMobileClient.Views
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("home", "Home", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
-                .AddMenuItem("mail", "Mail", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnMailMenuPressed.Execute(null); });
-
+                .AddMenuItem("mail", "Mail", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnMailMenuPressed.Execute(null); })
+                .AddMenuItem("clear", "Clear all", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnClearAllMenuPressed.Execute(null); });
             menu.SetVisibilityFactors(viewModel, "IsHomeEnabled")
                 .ToShowMenuItem("home", true);
             menu.GenerateToolbarItemsForPage(this);

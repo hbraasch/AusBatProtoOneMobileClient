@@ -119,7 +119,7 @@ namespace AusBatProtoOneMobileClient
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("sightings", "Sightings", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnSightingsPressed.Execute(null); })
-                .AddMenuItem("init", "Init", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
+                .AddMenuItem("dev", "Development", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(StartupPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
