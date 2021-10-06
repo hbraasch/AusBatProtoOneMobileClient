@@ -864,7 +864,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         public static List<string> ImageSources { get; set; } = new List<string>()
         {
-            "", "tragus-absent.jpg",  "tragus_entire.jpg", "tragus_bifurcate.jpg"
+            "", "tragus_absent.jpg",  "tragus_entire.jpg", "tragus_bifurcate.jpg"
         };
 
         public static List<string> ShortPrompts { get; set; } = new List<string>() {
