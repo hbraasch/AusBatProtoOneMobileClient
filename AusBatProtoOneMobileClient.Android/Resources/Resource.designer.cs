@@ -21234,143 +21234,152 @@ namespace AusBatProtoOneMobileClient.Droid
 			// aapt resource value: 0x7F070211
 			public const int tooltip_frame_light = 2131165713;
 			
-			// aapt resource value: 0x7F070236
-			public const int vespadelus_baverstocki = 2131165750;
-			
-			// aapt resource value: 0x7F070237
-			public const int vespadelus_caurinus = 2131165751;
-			
-			// aapt resource value: 0x7F070238
-			public const int vespadelus_darlingtoni = 2131165752;
-			
-			// aapt resource value: 0x7F070239
-			public const int vespadelus_douglasorum = 2131165753;
-			
-			// aapt resource value: 0x7F07023A
-			public const int vespadelus_finlaysoni = 2131165754;
-			
-			// aapt resource value: 0x7F07023B
-			public const int vespadelus_pumilus = 2131165755;
-			
-			// aapt resource value: 0x7F07023C
-			public const int vespadelus_regulus = 2131165756;
-			
-			// aapt resource value: 0x7F07023D
-			public const int vespadelus_troughtoni = 2131165757;
-			
-			// aapt resource value: 0x7F07023E
-			public const int vespadelus_vulturnus = 2131165758;
-			
 			// aapt resource value: 0x7F070212
-			public const int vesp_baver1 = 2131165714;
-			
-			// aapt resource value: 0x7F070213
-			public const int vesp_baver2 = 2131165715;
-			
-			// aapt resource value: 0x7F070215
-			public const int vesp_baver_head = 2131165717;
+			public const int tragus_absent = 2131165714;
 			
 			// aapt resource value: 0x7F070214
-			public const int vesp_baver__call_image = 2131165716;
+			public const int tragus_bifurcate = 2131165716;
 			
-			// aapt resource value: 0x7F070216
-			public const int vesp_caur1 = 2131165718;
+			// aapt resource value: 0x7F070215
+			public const int tragus_entire = 2131165717;
 			
-			// aapt resource value: 0x7F070217
-			public const int vesp_caur2 = 2131165719;
+			// aapt resource value: 0x7F07023A
+			public const int vespadelus_baverstocki = 2131165754;
 			
-			// aapt resource value: 0x7F070218
-			public const int vesp_caur_call_image = 2131165720;
+			// aapt resource value: 0x7F07023B
+			public const int vespadelus_caurinus = 2131165755;
 			
-			// aapt resource value: 0x7F070219
-			public const int vesp_caur_head = 2131165721;
+			// aapt resource value: 0x7F07023C
+			public const int vespadelus_darlingtoni = 2131165756;
 			
-			// aapt resource value: 0x7F07021A
-			public const int vesp_darling1 = 2131165722;
+			// aapt resource value: 0x7F07023D
+			public const int vespadelus_douglasorum = 2131165757;
 			
-			// aapt resource value: 0x7F07021B
-			public const int vesp_darling2 = 2131165723;
-			
-			// aapt resource value: 0x7F07021C
-			public const int vesp_darling_call_image = 2131165724;
-			
-			// aapt resource value: 0x7F07021D
-			public const int vesp_darling_head = 2131165725;
-			
-			// aapt resource value: 0x7F07021E
-			public const int vesp_douglas1 = 2131165726;
-			
-			// aapt resource value: 0x7F07021F
-			public const int vesp_douglas2 = 2131165727;
-			
-			// aapt resource value: 0x7F070220
-			public const int vesp_douglas_call_image = 2131165728;
-			
-			// aapt resource value: 0x7F070221
-			public const int vesp_douglas_head = 2131165729;
-			
-			// aapt resource value: 0x7F070222
-			public const int vesp_family = 2131165730;
-			
-			// aapt resource value: 0x7F070223
-			public const int vesp_finlay1 = 2131165731;
-			
-			// aapt resource value: 0x7F070224
-			public const int vesp_finlay2 = 2131165732;
-			
-			// aapt resource value: 0x7F070225
-			public const int vesp_finlay_call_image = 2131165733;
-			
-			// aapt resource value: 0x7F070226
-			public const int vesp_finlay_head = 2131165734;
-			
-			// aapt resource value: 0x7F070227
-			public const int vesp_pumilus1 = 2131165735;
-			
-			// aapt resource value: 0x7F070228
-			public const int vesp_pumilus2 = 2131165736;
-			
-			// aapt resource value: 0x7F070229
-			public const int vesp_pumilus_call_image = 2131165737;
-			
-			// aapt resource value: 0x7F07022A
-			public const int vesp_pumilus_head = 2131165738;
-			
-			// aapt resource value: 0x7F07022B
-			public const int vesp_regulus1 = 2131165739;
-			
-			// aapt resource value: 0x7F07022C
-			public const int vesp_regulus2 = 2131165740;
-			
-			// aapt resource value: 0x7F07022D
-			public const int vesp_regulus_call_image = 2131165741;
-			
-			// aapt resource value: 0x7F07022E
-			public const int vesp_regulus_head = 2131165742;
-			
-			// aapt resource value: 0x7F07022F
-			public const int vesp_trought2 = 2131165743;
-			
-			// aapt resource value: 0x7F070230
-			public const int vesp_trought_call_image = 2131165744;
-			
-			// aapt resource value: 0x7F070231
-			public const int vesp_trought_head = 2131165745;
-			
-			// aapt resource value: 0x7F070232
-			public const int vesp_vult1 = 2131165746;
-			
-			// aapt resource value: 0x7F070233
-			public const int vesp_vult2 = 2131165747;
-			
-			// aapt resource value: 0x7F070235
-			public const int vesp_vult_head = 2131165749;
-			
-			// aapt resource value: 0x7F070234
-			public const int vesp_vult__call_image = 2131165748;
+			// aapt resource value: 0x7F07023E
+			public const int vespadelus_finlaysoni = 2131165758;
 			
 			// aapt resource value: 0x7F07023F
-			public const int xamarin_logo = 2131165759;
+			public const int vespadelus_pumilus = 2131165759;
+			
+			// aapt resource value: 0x7F070240
+			public const int vespadelus_regulus = 2131165760;
+			
+			// aapt resource value: 0x7F070241
+			public const int vespadelus_troughtoni = 2131165761;
+			
+			// aapt resource value: 0x7F070242
+			public const int vespadelus_vulturnus = 2131165762;
+			
+			// aapt resource value: 0x7F070216
+			public const int vesp_baver1 = 2131165718;
+			
+			// aapt resource value: 0x7F070217
+			public const int vesp_baver2 = 2131165719;
+			
+			// aapt resource value: 0x7F070219
+			public const int vesp_baver_head = 2131165721;
+			
+			// aapt resource value: 0x7F070218
+			public const int vesp_baver__call_image = 2131165720;
+			
+			// aapt resource value: 0x7F07021A
+			public const int vesp_caur1 = 2131165722;
+			
+			// aapt resource value: 0x7F07021B
+			public const int vesp_caur2 = 2131165723;
+			
+			// aapt resource value: 0x7F07021C
+			public const int vesp_caur_call_image = 2131165724;
+			
+			// aapt resource value: 0x7F07021D
+			public const int vesp_caur_head = 2131165725;
+			
+			// aapt resource value: 0x7F07021E
+			public const int vesp_darling1 = 2131165726;
+			
+			// aapt resource value: 0x7F07021F
+			public const int vesp_darling2 = 2131165727;
+			
+			// aapt resource value: 0x7F070220
+			public const int vesp_darling_call_image = 2131165728;
+			
+			// aapt resource value: 0x7F070221
+			public const int vesp_darling_head = 2131165729;
+			
+			// aapt resource value: 0x7F070222
+			public const int vesp_douglas1 = 2131165730;
+			
+			// aapt resource value: 0x7F070223
+			public const int vesp_douglas2 = 2131165731;
+			
+			// aapt resource value: 0x7F070224
+			public const int vesp_douglas_call_image = 2131165732;
+			
+			// aapt resource value: 0x7F070225
+			public const int vesp_douglas_head = 2131165733;
+			
+			// aapt resource value: 0x7F070226
+			public const int vesp_family = 2131165734;
+			
+			// aapt resource value: 0x7F070227
+			public const int vesp_finlay1 = 2131165735;
+			
+			// aapt resource value: 0x7F070228
+			public const int vesp_finlay2 = 2131165736;
+			
+			// aapt resource value: 0x7F070229
+			public const int vesp_finlay_call_image = 2131165737;
+			
+			// aapt resource value: 0x7F07022A
+			public const int vesp_finlay_head = 2131165738;
+			
+			// aapt resource value: 0x7F07022B
+			public const int vesp_pumilus1 = 2131165739;
+			
+			// aapt resource value: 0x7F07022C
+			public const int vesp_pumilus2 = 2131165740;
+			
+			// aapt resource value: 0x7F07022D
+			public const int vesp_pumilus_call_image = 2131165741;
+			
+			// aapt resource value: 0x7F07022E
+			public const int vesp_pumilus_head = 2131165742;
+			
+			// aapt resource value: 0x7F07022F
+			public const int vesp_regulus1 = 2131165743;
+			
+			// aapt resource value: 0x7F070230
+			public const int vesp_regulus2 = 2131165744;
+			
+			// aapt resource value: 0x7F070231
+			public const int vesp_regulus_call_image = 2131165745;
+			
+			// aapt resource value: 0x7F070232
+			public const int vesp_regulus_head = 2131165746;
+			
+			// aapt resource value: 0x7F070233
+			public const int vesp_trought2 = 2131165747;
+			
+			// aapt resource value: 0x7F070234
+			public const int vesp_trought_call_image = 2131165748;
+			
+			// aapt resource value: 0x7F070235
+			public const int vesp_trought_head = 2131165749;
+			
+			// aapt resource value: 0x7F070236
+			public const int vesp_vult1 = 2131165750;
+			
+			// aapt resource value: 0x7F070237
+			public const int vesp_vult2 = 2131165751;
+			
+			// aapt resource value: 0x7F070239
+			public const int vesp_vult_head = 2131165753;
+			
+			// aapt resource value: 0x7F070238
+			public const int vesp_vult__call_image = 2131165752;
+			
+			// aapt resource value: 0x7F070243
+			public const int xamarin_logo = 2131165763;
 			
 			static Drawable()
 			{

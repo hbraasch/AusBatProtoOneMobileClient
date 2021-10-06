@@ -596,6 +596,11 @@ namespace AusBatProtoOneMobileClient.Models
             Undefined, Absent, Present
         }
         public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+        public static List<string> ShortPrompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "ic_bat.jpg",  "ic_bat.jpg"
+        };
 
         public TailPresentEnum Key { get; set; }
 
@@ -619,6 +624,11 @@ namespace AusBatProtoOneMobileClient.Models
         public override string GetPrompt()
         {
             return Prompts[(int)Key];
+        }
+
+        public override string GetShortPrompt()
+        {
+            return ShortPrompts[(int)Key];
         }
 
         internal static TailPresentCharacteristic CreateFromPrompt(string prompt)
@@ -662,6 +672,11 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
+        public override string GetShortPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
         internal static TailMembraneStructureCharacteristic CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
@@ -678,6 +693,8 @@ namespace AusBatProtoOneMobileClient.Models
             Undefined, Present, Absent
         }
         public static List<string> Prompts { get; set; } = new List<string>() { "", "Present", "Not present" };
+
+        public static List<string> ShortPrompts { get; set; } = new List<string>() { "", "Present", "Not present" };
 
         public SecondFingerClawEnum Key { get; set; }
 
@@ -703,6 +720,11 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
+        public override string GetShortPrompt()
+        {
+            return ShortPrompts[(int)Key];
+        }
+
         internal static SecondFingerClawCharacteristic CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
@@ -724,6 +746,14 @@ namespace AusBatProtoOneMobileClient.Models
             "Large complex noseleaf with the lower section horse-shoe shaped",
             "Large complex noseleaf flattenned square, oval",
             "Small transverse leaf above nostrils"
+        };
+
+        public static List<string> ShortPrompts { get; set; } = new List<string>() {
+            "",
+            "None, face simple",
+            "Large complex horse-shoe",
+            "Large complex flattened",
+            "Small transverse leaf"
         };
 
         public FaceStructureNoseLeafEnum Key { get; set; }
@@ -749,6 +779,10 @@ namespace AusBatProtoOneMobileClient.Models
         {
             return Prompts[(int)Key];
         }
+        public override string GetShortPrompt()
+        {
+            return ShortPrompts[(int)Key];
+        }
 
         internal static FaceStructureNoseLeafCharacteristic CreateFromPrompt(string prompt)
         {
@@ -769,6 +803,12 @@ namespace AusBatProtoOneMobileClient.Models
             "",
             "Termina phalage < 3x the length of the second last phalage",
             "Termina phalage > 3x the length of the second last phalage"
+        };
+
+        public static List<string> ShortPrompts { get; set; } = new List<string>() {
+            "",
+            "Phalage < 3x",
+            "Phalage > 3x"
         };
 
         public WingThirdFingerEnum Key { get; set; }
@@ -795,6 +835,11 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
+        public override string GetShortPrompt()
+        {
+            return ShortPrompts[(int)Key];
+        }
+
         internal static WingThirdFingerCharacteristic CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
@@ -814,7 +859,19 @@ namespace AusBatProtoOneMobileClient.Models
             "",
             "Absent",
             "Present, deeply bifurcate",
-            "Absent or if present, entire (no deep divisions)"
+            "Bifurcate (divided into two)"
+        };
+
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "tragus-absent.jpg",  "tragus_entire.jpg", "tragus_bifurcate.jpg"
+        };
+
+        public static List<string> ShortPrompts { get; set; } = new List<string>() {
+            "",
+            "Absent",
+            "Deeply bifurcate",
+            "Absent or entire"
         };
 
         public TragusEnum Key { get; set; }
@@ -839,6 +896,11 @@ namespace AusBatProtoOneMobileClient.Models
         public override string GetPrompt()
         {
             return Prompts[(int)Key];
+        }
+
+        public override string GetShortPrompt()
+        {
+            return ShortPrompts[(int)Key];
         }
 
         internal static TragusCharacteristic CreateFromPrompt(string prompt)

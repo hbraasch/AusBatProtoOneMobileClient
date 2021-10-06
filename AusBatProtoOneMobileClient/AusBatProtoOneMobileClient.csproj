@@ -12,6 +12,9 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
+    <None Remove="Data\FamilyKeyImages\tragus_absent.jpg" />
+    <None Remove="Data\FamilyKeyImages\tragus_bifurcate.jpg" />
+    <None Remove="Data\FamilyKeyImages\tragus_entire.jpg" />
     <None Remove="Data\SpeciesCallImages\aust_aust_call_image.jpg" />
     <None Remove="Data\SpeciesCallImages\chae_job_call_image.jpg" />
     <None Remove="Data\SpeciesCallImages\chal_dwye_call_image.jpg" />
@@ -673,6 +676,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SharedImage Include="Data\FamilyKeyImages\tragus_absent.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FamilyKeyImages\tragus_entire.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\aust_aust_call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\chae_job_call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\chal_dwye_call_image.jpg" BaseSize="150,150" />

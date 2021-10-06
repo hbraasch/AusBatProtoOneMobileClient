@@ -1,5 +1,6 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.Views.Components;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
@@ -21,7 +22,7 @@ namespace DocGenOneMobileClient.Views
 
             var characteristicListView = new ListView { SelectionMode = ListViewSelectionMode.None };
             characteristicListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacteristicDisplayItems), BindingMode.TwoWay));
-            characteristicListView.ItemTemplate = new characteristicDataTemplateSelector();
+            characteristicListView.ItemTemplate = new characteristicDataTemplateSelector(this);
 
             var regionButton = new Button
             {
@@ -101,24 +102,25 @@ namespace DocGenOneMobileClient.Views
             DataTemplate tragusStructureCharacteristicTemplate;
 
 
-            public characteristicDataTemplateSelector()
+            public characteristicDataTemplateSelector(Page page)
             {  
                 tailPresentCharacteristicTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacteristicConverter()));
+
+                    var valuePicker = new PickerWithImages(page);
+                    valuePicker.SetBinding(PickerWithImages.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.ImagesItemSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.ImageSources), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacteristicConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valuePicker, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -126,7 +128,7 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
                     valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Values), BindingMode.OneWay));
                     valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailMembraneStructureConverter()));
 
@@ -134,10 +136,9 @@ namespace DocGenOneMobileClient.Views
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valuePicker, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -145,7 +146,7 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
                     valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem.Values), BindingMode.OneWay));
                     valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem.Value), BindingMode.TwoWay, new SecondFingerClawConverter()));
 
@@ -153,10 +154,9 @@ namespace DocGenOneMobileClient.Views
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valuePicker, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -164,7 +164,7 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
                     valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem.Values), BindingMode.OneWay));
                     valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem.Value), BindingMode.TwoWay, new FaceStructureNoseLeafConverter()));
 
@@ -172,10 +172,9 @@ namespace DocGenOneMobileClient.Views
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valuePicker, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -183,7 +182,7 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
+                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
                     valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem.Values), BindingMode.OneWay));
                     valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem.Value), BindingMode.TwoWay, new WingThirdFingerConverter()));
 
@@ -191,10 +190,9 @@ namespace DocGenOneMobileClient.Views
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valuePicker, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -202,18 +200,18 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Description), BindingMode.TwoWay));
 
-                    var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TragusCharacteristicConverter()));
+                    var valuePicker = new PickerWithImages(page);
+                    valuePicker.SetBinding(PickerWithImages.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.ImagesItemSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.ImageSources), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacteristicConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valuePicker, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
                 });
@@ -356,7 +354,7 @@ namespace DocGenOneMobileClient.Views
                 var characteristic = value as TailPresentCharacteristic;
                 return characteristic.GetPrompt();
             }
-            return 0;
+            return "";
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

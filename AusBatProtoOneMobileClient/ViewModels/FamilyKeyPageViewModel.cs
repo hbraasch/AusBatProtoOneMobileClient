@@ -35,6 +35,7 @@ namespace DocGenOneMobileClient.Views
 
             public TailPresentCharacteristic Value { get; set; }
             public List<string> Values { get; set; } = TailPresentCharacteristic.Prompts;
+            public List<string> ImageSources { get; set; } = TailPresentCharacteristic.ImageSources;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
@@ -125,6 +126,7 @@ namespace DocGenOneMobileClient.Views
             public string Description { get; set; } = "Tragus";
             public TragusCharacteristic Value { get; set; }
             public List<string> Values { get; set; } = TragusCharacteristic.Prompts;
+            public List<string> ImageSources { get; set; } = TragusCharacteristic.ImageSources;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {

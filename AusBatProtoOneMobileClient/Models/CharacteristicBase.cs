@@ -12,5 +12,6 @@ namespace AusBatProtoOneMobileClient.Models
     public class CharacteristicEnumBase: CharacteristicBase
     {
         public virtual string GetPrompt() { return ""; }
+        public virtual string GetShortPrompt() { return ""; }
     }
 }
