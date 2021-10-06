@@ -107,8 +107,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
         protected override bool OnBackButtonPressed()
         {
-            ExecutionStops();
-            return true;
+            return false;
         }
 
         protected override void OnDisappearing()
