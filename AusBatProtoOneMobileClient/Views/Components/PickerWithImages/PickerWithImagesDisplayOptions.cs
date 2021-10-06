@@ -37,7 +37,6 @@ namespace AusBatProtoOneMobileClient.Views.Components
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(DisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SelectedDisplayItem), BindingMode.TwoWay));
             listView.ItemSelected += async (s, e) => {
-                ExecutionStops();
                 await Navigation.PopAsync(); 
             };
             listView.ItemTemplate = new DataTemplate(typeof(ListViewTemplate));
@@ -104,6 +103,18 @@ namespace AusBatProtoOneMobileClient.Views.Components
         private void ExecutionStops()
         {
             tcs?.SetResult(null);
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            ExecutionStops();
+            return true;
+        }
+
+        protected override void OnDisappearing()
+        {
+            ExecutionStops();
+            base.OnDisappearing();
         }
     }
 }
