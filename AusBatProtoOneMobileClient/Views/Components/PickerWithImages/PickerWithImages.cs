@@ -81,30 +81,11 @@ namespace AusBatProtoOneMobileClient.Views.Components
                     SelectedDisplayItem = null
                 };
                 await parentPage.Navigation.PushAsync(page);
-                await page.ExecutionStarts();
+                await page.WaitUntilExecutionStops();
                 SelectedItem = page.SelectedDisplayItem?.Description ?? "";
                 Text = SelectedItem;
             };
             GestureRecognizers.Add(tapRecognizer);
-        }
-        public Task<object> NavigateToOptionPage(Page parentPage, PickerWithImagesDisplayOptions page)
-        {
-            var tcs = new TaskCompletionSource<object>();
-            Device.BeginInvokeOnMainThread(async () => {
-                bool hasDisappeared = false;
-                page.Disappearing += (s, e) =>
-                {
-                    tcs.SetResult(null);
-                    hasDisappeared = true;
-                };
-                await parentPage.Navigation.PushAsync(page);
-                while (!hasDisappeared)
-                {
-                    await Task.Delay(500);
-                }
-            });
-
-            return tcs.Task;
         }
     }
 }

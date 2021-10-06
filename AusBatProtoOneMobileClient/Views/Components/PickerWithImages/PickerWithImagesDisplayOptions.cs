@@ -96,7 +96,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
         }
 
         TaskCompletionSource<object> tcs;
-        public async Task<object> ExecutionStarts()
+        public async Task<object> WaitUntilExecutionStops()
         {
             tcs = new TaskCompletionSource<object>();
             return await tcs.Task;
