@@ -935,7 +935,7 @@ namespace AusBatProtoOneMobileClient.Models
                         new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.NoneToLightBrown),
                     }
                 });
-                #endregion
+                #endregion  
 
                 #region *// Species
                 dbase.Species.Add(LoadSpecies( "Austonomus", "australis")); 
