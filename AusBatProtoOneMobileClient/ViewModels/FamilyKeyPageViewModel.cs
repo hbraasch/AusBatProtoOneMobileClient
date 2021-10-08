@@ -22,125 +22,125 @@ namespace DocGenOneMobileClient.Views
     public class FamilyKeyPageViewModel : ViewModelBase
     {
         public ObservableCollection<MapRegion> MapRegions { get; set; } = new ObservableCollection<MapRegion>();
-        public abstract class CharacteristicDisplayItemBase
+        public abstract class CharacterDisplayItemBase
         {
             public int Id { get; set; }
             public int DisplayOrder { get; set; }
-            public Action<CharacteristicDisplayItemBase> OnChanged { get; set; }
+            public Action<CharacterDisplayItemBase> OnChanged { get; set; }
             public abstract List<Classification> ConductSearch(List<Classification> source);
         }
-        public class TailPresentCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        public class TailPresentCharacterDisplayItem : CharacterDisplayItemBase
         {
             public string Description { get; set; } = "Tail present/absent";
 
-            public TailPresentCharacteristic Value { get; set; }
-            public List<string> Values { get; set; } = TailPresentCharacteristic.Prompts;
-            public List<string> ImageSources { get; set; } = TailPresentCharacteristic.ImageSources;
+            public TailPresentCharacter Value { get; set; }
+            public List<string> Values { get; set; } = TailPresentCharacter.Prompts;
+            public List<string> ImageSources { get; set; } = TailPresentCharacter.ImageSources;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
                 var result = new List<Classification>();
-                if (Value.Key == TailPresentCharacteristic.TailPresentEnum.Undefined) return source;
+                if (Value.Key == TailPresentCharacter.TailPresentEnum.Undefined) return source;
                 foreach (var family in source)
                 {
-                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                    if (Value.ExistsIn(family.Characters)) result.Add(family);
                 }
                 return result;
             }
 
         }
-        public class TailMembraneStructureCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        public class TailMembraneStructureCharacterDisplayItem : CharacterDisplayItemBase
         {
             public string Description { get; set; } = "Tail/Membrane structure";
-            public TailMembraneStructureCharacteristic Value { get; set; }
-            public List<string> Values { get; set; } = TailMembraneStructureCharacteristic.Prompts;
+            public TailMembraneStructureCharacter Value { get; set; }
+            public List<string> Values { get; set; } = TailMembraneStructureCharacter.Prompts;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
                 var result = new List<Classification>();
-                if (Value.Key == TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Undefined) return source;
+                if (Value.Key == TailMembraneStructureCharacter.TailMembraneStructureEnum.Undefined) return source;
                 foreach (var family in source)
                 {
-                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                    if (Value.ExistsIn(family.Characters)) result.Add(family);
                 }
                 return result;
             }
 
         }
-        public class SecondFingerClawCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        public class SecondFingerClawCharacterDisplayItem : CharacterDisplayItemBase
         {
             public string Description { get; set; } = "Second finger claw";
-            public SecondFingerClawCharacteristic Value { get; set; }
-            public List<string> Values { get; set; } = SecondFingerClawCharacteristic.Prompts;
+            public SecondFingerClawCharacter Value { get; set; }
+            public List<string> Values { get; set; } = SecondFingerClawCharacter.Prompts;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
                 var result = new List<Classification>();
-                if (Value.Key == SecondFingerClawCharacteristic.SecondFingerClawEnum.Undefined) return source;
+                if (Value.Key == SecondFingerClawCharacter.SecondFingerClawEnum.Undefined) return source;
                 foreach (var family in source)
                 {
-                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                    if (Value.ExistsIn(family.Characters)) result.Add(family);
                 }
                 return result;
             }
 
         }
-        public class FaceStructureNoseLeafCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        public class FaceStructureNoseLeafCharacterDisplayItem : CharacterDisplayItemBase
         {
             public string Description { get; set; } = "Face structure / NoseLeaf";
-            public FaceStructureNoseLeafCharacteristic Value { get; set; }
-            public List<string> Values { get; set; } = FaceStructureNoseLeafCharacteristic.Prompts;
+            public FaceStructureNoseLeafCharacter Value { get; set; }
+            public List<string> Values { get; set; } = FaceStructureNoseLeafCharacter.Prompts;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
                 var result = new List<Classification>();
-                if (Value.Key == FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.Undefined) return source;
+                if (Value.Key == FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.Undefined) return source;
                 foreach (var family in source)
                 {
-                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                    if (Value.ExistsIn(family.Characters)) result.Add(family);
                 }
                 return result;
             }
 
         }
-        public class WingThirdFingerCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        public class WingThirdFingerCharacterDisplayItem : CharacterDisplayItemBase
         {
             public string Description { get; set; } = "Wing - third finger";
-            public WingThirdFingerCharacteristic Value { get; set; }
-            public List<string> Values { get; set; } = WingThirdFingerCharacteristic.Prompts;
+            public WingThirdFingerCharacter Value { get; set; }
+            public List<string> Values { get; set; } = WingThirdFingerCharacter.Prompts;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
                 var result = new List<Classification>();
-                if (Value.Key == WingThirdFingerCharacteristic.WingThirdFingerEnum.Undefined) return source;
+                if (Value.Key == WingThirdFingerCharacter.WingThirdFingerEnum.Undefined) return source;
                 foreach (var family in source)
                 {
-                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                    if (Value.ExistsIn(family.Characters)) result.Add(family);
                 }
                 return result;
             }
 
         }
-        public class TragusCharacteristicDisplayItem : CharacteristicDisplayItemBase
+        public class TragusCharacterDisplayItem : CharacterDisplayItemBase
         {
             public string Description { get; set; } = "Tragus";
-            public TragusCharacteristic Value { get; set; }
-            public List<string> Values { get; set; } = TragusCharacteristic.Prompts;
-            public List<string> ImageSources { get; set; } = TragusCharacteristic.ImageSources;
+            public TragusCharacter Value { get; set; }
+            public List<string> Values { get; set; } = TragusCharacter.Prompts;
+            public List<string> ImageSources { get; set; } = TragusCharacter.ImageSources;
 
             public override List<Classification> ConductSearch(List<Classification> source)
             {
                 var result = new List<Classification>();
-                if (Value.Key == TragusCharacteristic.TragusEnum.Undefined) return source;
+                if (Value.Key == TragusCharacter.TragusEnum.Undefined) return source;
                 foreach (var family in source)
                 {
-                    if (Value.ExistsIn(family.Characteristics)) result.Add(family);
+                    if (Value.ExistsIn(family.Characters)) result.Add(family);
                 }
                 return result;
             }
 
         }
-        public ObservableCollection<CharacteristicDisplayItemBase> CharacteristicDisplayItems { get; set; }
+        public ObservableCollection<CharacterDisplayItemBase> CharacterDisplayItems { get; set; }
 
 
 
@@ -160,7 +160,7 @@ namespace DocGenOneMobileClient.Views
 
         public FamilyKeyPageViewModel()
         {
-            CharacteristicDisplayItems = new ObservableCollection<CharacteristicDisplayItemBase>();
+            CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
         }
 
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -175,7 +175,7 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                CharacteristicDisplayItems = GenerateCharacteristicDisplay();
+                CharacterDisplayItems = GenerateCharacterDisplay();
                 
 
             }
@@ -193,23 +193,23 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public ObservableCollection<CharacteristicDisplayItemBase> GenerateCharacteristicDisplay()
+        public ObservableCollection<CharacterDisplayItemBase> GenerateCharacterDisplay()
         {
-            var displayItems = new ObservableCollection<CharacteristicDisplayItemBase>();
-            displayItems.Add(new TailPresentCharacteristicDisplayItem());
-            displayItems.Add(new TailMembraneStructureCharacteristicDisplayItem());
-            displayItems.Add(new SecondFingerClawCharacteristicDisplayItem());
-            displayItems.Add(new FaceStructureNoseLeafCharacteristicDisplayItem());
-            displayItems.Add(new WingThirdFingerCharacteristicDisplayItem());
-            displayItems.Add(new TragusCharacteristicDisplayItem());
+            var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
+            displayItems.Add(new TailPresentCharacterDisplayItem());
+            displayItems.Add(new TailMembraneStructureCharacterDisplayItem());
+            displayItems.Add(new SecondFingerClawCharacterDisplayItem());
+            displayItems.Add(new FaceStructureNoseLeafCharacterDisplayItem());
+            displayItems.Add(new WingThirdFingerCharacterDisplayItem());
+            displayItems.Add(new TragusCharacterDisplayItem());
 
             displayItems.OrderBy(o=>o.DisplayOrder);
             return displayItems;
         }
 
-        private void OnCharacteristicChanged(CharacteristicDisplayItemBase characteristic)
+        private void OnCharacterChanged(CharacterDisplayItemBase Character)
         {
-            switch (characteristic)
+            switch (Character)
             {
                 default:
                     break;
@@ -269,7 +269,7 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                CharacteristicDisplayItems = GenerateCharacteristicDisplay();
+                CharacterDisplayItems = GenerateCharacterDisplay();
                 MapRegions.Clear();
 
             }
@@ -309,9 +309,9 @@ namespace DocGenOneMobileClient.Views
         {
 
             List<Classification> currentFamilyResults = App.dbase.Classifications.Where(o=>o.Type == Classification.ClassificationType.Family).ToList();
-            foreach (var characteristic in CharacteristicDisplayItems)
+            foreach (var Character in CharacterDisplayItems)
             {
-                currentFamilyResults = characteristic.ConductSearch(currentFamilyResults);
+                currentFamilyResults = Character.ConductSearch(currentFamilyResults);
                 if (currentFamilyResults.Count == 0) return new List<Classification>();                
             }
             if (MapRegions.Count > 0)
@@ -335,9 +335,9 @@ namespace DocGenOneMobileClient.Views
             return currentFamilyResults;
         }
 
-        private ObservableCollection<CharacteristicDisplayItemBase> UpdateCharacteristicDisplay()
+        private ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay()
         {
-            return CharacteristicDisplayItems;
+            return CharacterDisplayItems;
         }
 
 

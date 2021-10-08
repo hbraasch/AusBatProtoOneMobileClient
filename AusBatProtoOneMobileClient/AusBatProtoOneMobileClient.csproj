@@ -12,6 +12,13 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
+    <None Remove="Data\FacialFeatures\dory_semoni_facial.jpg" />
+    <None Remove="Data\FacialFeatures\dory_stenotis_facial.jpg" />
+    <None Remove="Data\FacialFeatures\hipp_ater_facial.jpg" />
+    <None Remove="Data\FacialFeatures\hipp_diad_facial.jpg" />
+    <None Remove="Data\FacialFeatures\hipp_inornat_facial.jpg" />
+    <None Remove="Data\FacialFeatures\hip_cerv_facial.jpg" />
+    <None Remove="Data\FacialFeatures\rhino_aur_facial.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_absent.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_bifurcate.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_entire.jpg" />
@@ -676,6 +683,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SharedImage Include="Data\FacialFeatures\dory_semoni_facial.jpg" />
+    <SharedImage Include="Data\FacialFeatures\dory_stenotis_facial.jpg" />
+    <SharedImage Include="Data\FacialFeatures\hipp_ater_facial.jpg" />
+    <SharedImage Include="Data\FacialFeatures\hipp_diad_facial.jpg" />
+    <SharedImage Include="Data\FacialFeatures\hipp_inornat_facial.jpg" />
+    <SharedImage Include="Data\FacialFeatures\hip_cerv_facial.jpg" />
+    <SharedImage Include="Data\FacialFeatures\rhino_aur_facial.jpg" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_absent.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_entire.jpg" BaseSize="150,150" />

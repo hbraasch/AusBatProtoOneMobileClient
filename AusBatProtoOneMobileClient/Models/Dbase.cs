@@ -98,13 +98,13 @@ namespace AusBatProtoOneMobileClient.Models
 
                 #region *// Family/Genus/Species
                 dbase.Classifications.Add(new Classification { Id = "Pteropodidae", Type = Classification.ClassificationType.Family, 
-                    Characteristics = new List<CharacteristicBase> {  
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Absent), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Absent),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Present),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.Absent)
+                    Characters = new List<CharacterBase> {  
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Absent), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.Absent),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Present),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.Absent)
                     },
                 });
                 dbase.Classifications.Add(new Classification { Id = "Macroglossus", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
@@ -121,36 +121,36 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Syconycteris" });
 
                 dbase.Classifications.Add(new Classification { Id = "Pteropodidae(Dobsonia)", Type = Classification.ClassificationType.Family, 
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentNotAttached),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.Absent) } });
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentNotAttached),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.Absent) } });
                 dbase.Classifications.Add(new Classification { Id = "Macroderma", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae(Dobsonia)" });
                 dbase.Classifications.Add(new Classification { Id = "Magna", Type = Classification.ClassificationType.Species, Parent = "Macroderma" });
 
                 dbase.Classifications.Add(new Classification { Id = "Megadermatidae", Type = Classification.ClassificationType.Family , 
-                    Characteristics = new List<CharacteristicBase> {  
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Absent),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.LargeHorshoe),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.Present) } }); 
+                    Characters = new List<CharacterBase> {  
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.Absent),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.LargeHorshoe),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.Present) } }); 
                 dbase.Classifications.Add(new Classification { Id = "Dobsonia", Type = Classification.ClassificationType.Genus, Parent = "Megadermatidae" });
                 dbase.Classifications.Add(new Classification { Id = "Gigas", Type = Classification.ClassificationType.Species, Parent = "Dobsonia" });
 
 
                 dbase.Classifications.Add(new Classification { Id = "Rhinolophidae", Type = Classification.ClassificationType.Family, 
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.LargeHorshoe),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) } });
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.LargeHorshoe),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent) } });
                 dbase.Classifications.Add(new Classification { Id = "Rhinolophus", Type = Classification.ClassificationType.Genus, Parent = "Rhinolophidae" });
                 dbase.Classifications.Add(new Classification { Id = "Megaphyllus", Type = Classification.ClassificationType.Species, Parent = "Rhinolophus" });
                 dbase.Classifications.Add(new Classification { Id = "Robertsi", Type = Classification.ClassificationType.Species, Parent = "Rhinolophus" });
@@ -159,32 +159,77 @@ namespace AusBatProtoOneMobileClient.Models
 
 
                 dbase.Classifications.Add(new Classification { Id = "Hipposideridae", Type = Classification.ClassificationType.Family, ImageTag = "Hipp_family",
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.LargeFlattenned),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.LargeFlattenned),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent) }
                 }); 
                 dbase.Classifications.Add(new Classification { Id = "Hipposideros", Type = Classification.ClassificationType.Genus, Parent = "Hipposideridae" });
-                dbase.Classifications.Add(new Classification { Id = "Ater", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
-                dbase.Classifications.Add(new Classification { Id = "Cervinus", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
-                dbase.Classifications.Add(new Classification { Id = "Diadema", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
-                dbase.Classifications.Add(new Classification { Id = "Inornatus", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
+                dbase.Classifications.Add(new Classification { Id = "Ater", Type = Classification.ClassificationType.Species, Parent = "Hipposideros",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(34.0f, 41.0f),
+                        new FiveMetCharacter(26.0f, 32.0f),
+                        new ThreeMetCharacter(25.0f, 31.0f),
+                        new WingspanCharacter(220.0f, 275.0f),
+                        new HiposideridaeFacialFeaturesCharacter(HiposideridaeFacialFeaturesCharacter.HiposideridaeFacialFeaturesEnum.Dory_semoni),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Cervinus", Type = Classification.ClassificationType.Species, Parent = "Hipposideros",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(45.0f, 48.0f),
+                        new FiveMetCharacter(29.0f, 33.0f),
+                        new ThreeMetCharacter(31.0f, 39.0f),
+                        new WingspanCharacter(280.0f, 300.0f),
+                        new HiposideridaeFacialFeaturesCharacter(HiposideridaeFacialFeaturesCharacter.HiposideridaeFacialFeaturesEnum.Hipp_cerv),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Diadema", Type = Classification.ClassificationType.Species, Parent = "Hipposideros",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(77.0f, 86.0f),
+                        new FiveMetCharacter(53.0f, 59.0f),
+                        new ThreeMetCharacter(59.0f, 66.0f),
+                        new WingspanCharacter(470.0f, 520.0f),
+                        new HiposideridaeFacialFeaturesCharacter(HiposideridaeFacialFeaturesCharacter.HiposideridaeFacialFeaturesEnum.Hipp_diad),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Inornatus", Type = Classification.ClassificationType.Species, Parent = "Hipposideros",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(68.0f, 74.0f),
+                        new FiveMetCharacter(48.0f, 51.0f),
+                        new ThreeMetCharacter(53.0f, 57.0f),
+                        new WingspanCharacter(380.0f, 448.0f),
+                        new HiposideridaeFacialFeaturesCharacter(HiposideridaeFacialFeaturesCharacter.HiposideridaeFacialFeaturesEnum.Hipp_inornat),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Semoni", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
-                dbase.Classifications.Add(new Classification { Id = "Stenotis", Type = Classification.ClassificationType.Species, Parent = "Hipposideros" });
+                dbase.Classifications.Add(new Classification { Id = "Stenotis", Type = Classification.ClassificationType.Species, Parent = "Hipposideros",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(41.0f, 46.0f),
+                        new FiveMetCharacter(30.0f, 32.0f),
+                        new ThreeMetCharacter(30.0f, 33.0f),
+                        new WingspanCharacter(235.0f, 280.0f),
+                        new HiposideridaeFacialFeaturesCharacter(HiposideridaeFacialFeaturesCharacter.HiposideridaeFacialFeaturesEnum.Dory_stenotis),
+                    }
+                });
 
 
 
                 dbase.Classifications.Add(new Classification { Id = "Minioperidae", Type = Classification.ClassificationType.Family,
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Long),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Long),
+                        new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent) }
                 });
                 dbase.Classifications.Add(new Classification { Id = "Miniopterus", Type = Classification.ClassificationType.Genus, Parent = "Minioperidae" });
                 dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Miniopterus" });
@@ -195,63 +240,329 @@ namespace AusBatProtoOneMobileClient.Models
 
 
                 dbase.Classifications.Add(new Classification { Id = "Emballonuridae", Type = Classification.ClassificationType.Family, ImageTag = "Embal_family",
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present) , 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentProjectingThrough),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent)  }
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present) , 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentProjectingThrough),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent)  }
                 });
                 dbase.Classifications.Add(new Classification { Id = "Saccolaimus", Type = Classification.ClassificationType.Genus, Parent = "Emballonuridae" });
-                dbase.Classifications.Add(new Classification { Id = "Flaviventris", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus" });
-                dbase.Classifications.Add(new Classification { Id = "Mixtus", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus" });
-                dbase.Classifications.Add(new Classification { Id = "Saccolaimus", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus" });
+                dbase.Classifications.Add(new Classification { Id = "Flaviventris", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(5.8f, 5.7f),
+                        new TibiaCharacter(26.0f, 33.0f),
+                        new ThreeMetCharacter(72.0f, 84.5f),
+                        new ForeArmCharacter(65.0f, 83.0f),
+                        new TailLengthCharacter(21.0f, 33.5f),
+                        new EarLengthCharacter(16.0f, 23.0f),
+                        new SnoutToVentLengthCharacter(72.0f, 92.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.AbsentOrRudimentary),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Present),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Mixtus", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(4.4f, 4.9f),
+                        new TibiaCharacter(22.0f, 26.0f),
+                        new ThreeMetCharacter(61.0f, 65.0f),
+                        new ForeArmCharacter(61.0f, 68.0f),
+                        new TailLengthCharacter(21.0f, 27.0f),
+                        new EarLengthCharacter(16.5f, 21.5f),
+                        new SnoutToVentLengthCharacter(70.0f, 79.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.PresentOrRudimentary),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Present),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Present),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Saccolaimus", Type = Classification.ClassificationType.Species, Parent = "Saccolaimus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(5.0f, 5.7f),
+                        new TibiaCharacter(28.0f, 32.0f),
+                        new ThreeMetCharacter(73.0f, 83.0f),
+                        new ForeArmCharacter(72.0f, 81.0f),
+                        new TailLengthCharacter(22.0f, 41.0f),
+                        new EarLengthCharacter(16.0f, 23.0f),
+                        new SnoutToVentLengthCharacter(81.0f, 110.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.PresentOrRudimentary),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Present),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Absent),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Taphozous", Type = Classification.ClassificationType.Genus, Parent = "Emballonuridae" });
-                dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Taphozous" });
-                dbase.Classifications.Add(new Classification { Id = "Georgianus", Type = Classification.ClassificationType.Species, Parent = "Taphozous" });
-                dbase.Classifications.Add(new Classification { Id = "Hilli", Type = Classification.ClassificationType.Species, Parent = "Taphozous" });
-                dbase.Classifications.Add(new Classification { Id = "Kapalgensis", Type = Classification.ClassificationType.Species, Parent = "Taphozous" });
-                dbase.Classifications.Add(new Classification { Id = "Troughtoni", Type = Classification.ClassificationType.Species, Parent = "Taphozous" });
+                dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Taphozous",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(3.6f, 4.2f),
+                        new TibiaCharacter(23.5f, 27.5f),
+                        new ThreeMetCharacter(57.0f, 61.0f),
+                        new ForeArmCharacter(61.0f, 68.0f),
+                        new TailLengthCharacter(22.0f, 31.0f),
+                        new EarLengthCharacter(18.0f, 25.0f),
+                        new SnoutToVentLengthCharacter(61.0f, 75.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.AbsentOrRudimentary),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Present),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Present),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Georgianus", Type = Classification.ClassificationType.Species, Parent = "Taphozous",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(3.7f, 4.5f),
+                        new TibiaCharacter(26.0f, 31.0f),
+                        new ThreeMetCharacter(55.0f, 61.0f),
+                        new ForeArmCharacter(61.0f, 74.0f),
+                        new TailLengthCharacter(27.0f, 34.5f),
+                        new EarLengthCharacter(16.0f, 25.5f),
+                        new SnoutToVentLengthCharacter(60.0f, 82.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.Absent),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Absent),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Present),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Hilli", Type = Classification.ClassificationType.Species, Parent = "Taphozous",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(3.0f, 4.9f),
+                        new TibiaCharacter(25.0f, 32.0f),
+                        new ThreeMetCharacter(54.0f, 65.0f),
+                        new ForeArmCharacter(60.0f, 72.0f),
+                        new TailLengthCharacter(23.0f, 38.0f),
+                        new EarLengthCharacter(18.0f, 24.0f),
+                        new SnoutToVentLengthCharacter(64.0f, 82.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.AbsentOrRudimentary),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Present),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Present),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Kapalgensis", Type = Classification.ClassificationType.Species, Parent = "Taphozous",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(4.0f, 4.5f),
+                        new TibiaCharacter(22.0f, 26.0f),
+                        new ThreeMetCharacter(57.0f, 61.0f),
+                        new ForeArmCharacter(58.0f, 65.0f),
+                        new TailLengthCharacter(17.0f, 25.0f),
+                        new EarLengthCharacter(16.0f, 20.0f),
+                        new SnoutToVentLengthCharacter(68.0f, 82.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.AbsentOrRudimentary),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Present),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Present),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Troughtoni", Type = Classification.ClassificationType.Species, Parent = "Taphozous",
+                    Characters = new List<CharacterBase>
+                    {
+                        new OuterCanineWidthCharacter(3.9f, 4.7f),
+                        new TibiaCharacter(29.0f, 33.5f),
+                        new ThreeMetCharacter(57.0f, 65.0f),
+                        new ForeArmCharacter(67.0f, 76.0f),
+                        new TailLengthCharacter(28.0f, 38.0f),
+                        new EarLengthCharacter(19.0f, 27.5f),
+                        new SnoutToVentLengthCharacter(79.0f, 95.0f),
+                        new GularPouchFemaleCharacter(GularPouchFemaleCharacter.GularPouchFemaleEnum.Absent),
+                        new GularPouchMaleCharacter(GularPouchMaleCharacter.GularPouchMaleEnum.Absent),
+                        new MetacarpalWingPouchCharacter(MetacarpalWingPouchCharacter.MetacarpalWingPouchEnum.Present),
+                    }
+                });
 
 
 
                 dbase.Classifications.Add(new Classification { Id = "Molossidae", Type = Classification.ClassificationType.Family,
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentProjectingFree),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.None),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentProjectingFree),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.None),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent) }
                 });
                 dbase.Classifications.Add(new Classification { Id = "Austonomus", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
-                dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Austonomus" });
+                dbase.Classifications.Add(new Classification { Id = "Australis", Type = Classification.ClassificationType.Species, Parent = "Austonomus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(57.0f, 65.0f),
+                        new OuterCanineWidthCharacter(5.8f, 6.4f),
+                        new TailLengthCharacter(39.0f, 53.0f),
+                        new FootCharacter(10.0f, 12.5f),
+                        new TibiaCharacter(17.0f, 24.0f),
+                        new PenisLengthCharacter(2.8f, 8.0f),
+                        new ThreeMetCharacter(54.0f, 59.0f),
+                        new FiveMetCharacter(29.0f, 33.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Present),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });      
                 dbase.Classifications.Add(new Classification { Id = "Chaerephon", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
-                dbase.Classifications.Add(new Classification { Id = "Jobensis", Type = Classification.ClassificationType.Species, Parent = "Chaerephon" });
+                dbase.Classifications.Add(new Classification { Id = "Jobensis", Type = Classification.ClassificationType.Species, Parent = "Chaerephon",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(46.0f, 52.0f),
+                        new OuterCanineWidthCharacter(5.6f, 6.2f),
+                        new TailLengthCharacter(32.0f, 38.0f),
+                        new FootCharacter(8.0f, 10.0f),
+                        new TibiaCharacter(14.0f, 18.0f),
+                        new PenisLengthCharacter(3.0f, 8.0f),
+                        new ThreeMetCharacter(42.0f, 52.0f),
+                        new FiveMetCharacter(27.0f, 32.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Micronomus", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
-                dbase.Classifications.Add(new Classification { Id = "Norfolkensis", Type = Classification.ClassificationType.Species, Parent = "Micronomus" });
+                dbase.Classifications.Add(new Classification { Id = "Norfolkensis", Type = Classification.ClassificationType.Species, Parent = "Micronomus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(35.0f, 39.0f),
+                        new OuterCanineWidthCharacter(3.7f, 4.2f),
+                        new TailLengthCharacter(30.0f, 40.0f),
+                        new FootCharacter(5.9f, 8.1f),
+                        new TibiaCharacter(11.0f, 12.2f),
+                        new PenisLengthCharacter(2.0f, 3.0f),
+                        new ThreeMetCharacter(27.0f, 29.0f),
+                        new FiveMetCharacter(30.0f, 37.2f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Present),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Ozimops", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
-                dbase.Classifications.Add(new Classification { Id = "Cobourgianus", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
-                dbase.Classifications.Add(new Classification { Id = "Halli", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
-                dbase.Classifications.Add(new Classification { Id = "Kitcheneri", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
-                dbase.Classifications.Add(new Classification { Id = "Lumsdenae", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
-                dbase.Classifications.Add(new Classification { Id = "Petersi", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
-                dbase.Classifications.Add(new Classification { Id = "Planiceps", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
-                dbase.Classifications.Add(new Classification { Id = "Ridei", Type = Classification.ClassificationType.Species, Parent = "Ozimops" });
+                dbase.Classifications.Add(new Classification { Id = "Cobourgianus", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(32.0f, 36.1f),
+                        new OuterCanineWidthCharacter(3.7f, 4.4f),
+                        new TailLengthCharacter(28.0f, 36.0f),
+                        new FootCharacter(3.8f, 6.0f),
+                        new TibiaCharacter(9.9f, 13.2f),
+                        new PenisLengthCharacter(3.0f, 5.0f),
+                        new ThreeMetCharacter(34.0f, 38.0f),
+                        new FiveMetCharacter(25.0f, 28.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Halli", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.1f, 36.0f),
+                        new OuterCanineWidthCharacter(4.4f, 4.9f),
+                        new TailLengthCharacter(23.0f, 28.0f),
+                        new FootCharacter(4.5f, 7.0f),
+                        new TibiaCharacter(10.4f, 13.0f),
+                        new PenisLengthCharacter(4.0f, 6.0f),
+                        new ThreeMetCharacter(33.5f, 36.6f),
+                        new FiveMetCharacter(25.0f, 28.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Kitcheneri", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(32.0f, 36.0f),
+                        new OuterCanineWidthCharacter(4.2f, 4.9f),
+                        new TailLengthCharacter(28.0f, 36.0f),
+                        new FootCharacter(4.3f, 6.9f),
+                        new TibiaCharacter(10.6f, 11.8f),
+                        new PenisLengthCharacter(4.0f, 6.0f),
+                        new ThreeMetCharacter(34.0f, 38.0f),
+                        new FiveMetCharacter(24.5f, 27.5f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Lumsdenae", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(35.2f, 40.4f),
+                        new OuterCanineWidthCharacter(4.4f, 5.6f),
+                        new TailLengthCharacter(24.0f, 37.0f),
+                        new FootCharacter(4.6f, 7.4f),
+                        new TibiaCharacter(9.3f, 14.0f),
+                        new PenisLengthCharacter(3.5f, 4.5f),
+                        new ThreeMetCharacter(36.6f, 42.5f),
+                        new FiveMetCharacter(24.0f, 30.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Petersi", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.0f, 39.0f),
+                        new OuterCanineWidthCharacter(4.0f, 4.9f),
+                        new TailLengthCharacter(24.0f, 35.0f),
+                        new FootCharacter(4.1f, 6.8f),
+                        new TibiaCharacter(9.3f, 12.2f),
+                        new PenisLengthCharacter(2.0f, 5.0f),
+                        new ThreeMetCharacter(33.0f, 41.2f),
+                        new FiveMetCharacter(33.0f, 39.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Planiceps", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                    new ForeArmCharacter(32.2f, 36.2f),
+                    new OuterCanineWidthCharacter(4.0f, 4.8f),
+                    new TailLengthCharacter(22.0f, 33.0f),
+                    new FootCharacter(4.2f, 6.6f),
+                    new TibiaCharacter(9.9f, 12.0f),
+                    new PenisLengthCharacter(7.8f, 10.0f),
+                    new ThreeMetCharacter(33.0f, 38.0f),
+                    new FiveMetCharacter(24.0f, 29.0f),
+                    new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                    new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Ridei", Type = Classification.ClassificationType.Species, Parent = "Ozimops",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(30.0f, 35.3f),
+                        new OuterCanineWidthCharacter(3.6f, 4.6f),
+                        new TailLengthCharacter(18.0f, 31.0f),
+                        new FootCharacter(4.0f, 7.0f),
+                        new TibiaCharacter(9.0f, 13.0f),
+                        new PenisLengthCharacter(2.6f, 5.0f),
+                        new ThreeMetCharacter(31.0f, 38.0f),
+                        new FiveMetCharacter(22.0f, 29.0f),
+                        new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                        new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Absent),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Setirostris", Type = Classification.ClassificationType.Genus, Parent = "Molossidae" });
-                dbase.Classifications.Add(new Classification { Id = "Eleryi", Type = Classification.ClassificationType.Species, Parent = "Setirostris" });
+                dbase.Classifications.Add(new Classification { Id = "Eleryi", Type = Classification.ClassificationType.Species, Parent = "Setirostris",
+                    Characters = new List<CharacterBase>
+                    {
+                    new ForeArmCharacter(31.0f, 36.0f),
+                    new OuterCanineWidthCharacter(2.9f, 3.8f),
+                    new TailLengthCharacter(27.0f, 37.0f),
+                    new FootCharacter(5.0f, 7.0f),
+                    new TibiaCharacter(9.0f, 12.0f),
+                    new PenisLengthCharacter(2.8f, 4.1f),
+                    new ThreeMetCharacter(32.0f, 35.0f),
+                    new FiveMetCharacter(22.6f, 30.0f),
+                    new GularPouchCharacter(GularPouchCharacter.GularPouchEnum.Absent),
+                    new BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsCharacter.BothSexesWithFleshyGenitalProjectionsEnum.Present),
+                    }
+                });
 
 
 
                 dbase.Classifications.Add(new Classification { Id = "Vespertilionidae", Type = Classification.ClassificationType.Family, ImageTag = "Vesp_family",
-                    Characteristics = new List<CharacteristicBase> { 
-                        new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Present), 
-                        new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.PresentFullyEnclosed),
-                        new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Absent),
-                        new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.SmallTransverseLeaf),
-                        new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Short),
-                        new TragusCharacteristic(TragusCharacteristic.TragusEnum.AlmostAbsent) }
+                    Characters = new List<CharacterBase> { 
+                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Present), 
+                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.PresentFullyEnclosed),
+                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Absent),
+                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.SmallTransverseLeaf),
+                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
+                        new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent) }
                 });
                 dbase.Classifications.Add(new Classification { Id = "Chalinolobus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
                 dbase.Classifications.Add(new Classification { Id = "Dwyeri", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
@@ -588,34 +899,147 @@ namespace AusBatProtoOneMobileClient.Models
         }
     }
 
-    #region *// Family Key Characteristics
-    public class TailPresentCharacteristic : CharacteristicEnumBase
+    #region *// Famaly To species Characters
+    #region *// Numerics
+    public class ForeArmCharacter : CharacterNumericBase
     {
-        public enum TailPresentEnum
+        public ForeArmCharacter(float min, float max) : base("Fore arm", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class OuterCanineWidthCharacter : CharacterNumericBase
+    {
+        public OuterCanineWidthCharacter(float min, float max) : base("Outer canine width", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class TailLengthCharacter : CharacterNumericBase
+    {
+        public TailLengthCharacter(float min, float max) : base("Tail length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class SnoutToVentLengthCharacter : CharacterNumericBase
+    {
+        public SnoutToVentLengthCharacter(float min, float max) : base("SnoutToVent length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is SnoutToVentLengthCharacter);
+        }
+    }
+
+    public class EarLengthCharacter : CharacterNumericBase
+    {
+        public EarLengthCharacter(float min, float max) : base("Ear length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is EarLengthCharacter);
+        }
+    }
+
+    public class FootCharacter : CharacterNumericBase
+    {
+        public FootCharacter(float min, float max) : base("Foot length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class TibiaCharacter : CharacterNumericBase
+    {
+        public TibiaCharacter(float min, float max) : base("Tibia length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class PenisLengthCharacter : CharacterNumericBase
+    {
+        public PenisLengthCharacter(float min, float max) : base("Penis length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class ThreeMetCharacter : CharacterNumericBase
+    {
+        public ThreeMetCharacter(float min, float max) : base("3-MET length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class FiveMetCharacter : CharacterNumericBase
+    {
+        public FiveMetCharacter(float min, float max) : base("5-MET length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class WingspanCharacter : CharacterNumericBase
+    {
+        public WingspanCharacter(float min, float max) : base("Wing span", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is WingspanCharacter);
+        }
+    }
+
+    #endregion
+
+    #region *// Options
+    public class GularPouchCharacter : CharacterEnumBase
+    {
+        public enum GularPouchEnum
         {
             Undefined, Absent, Present
         }
         public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
-        public static List<string> ShortPrompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
         public static List<string> ImageSources { get; set; } = new List<string>()
         {
             "", "ic_bat.jpg",  "ic_bat.jpg"
         };
 
-        public TailPresentEnum Key { get; set; }
+        public GularPouchEnum Key { get; set; }
 
-        public TailPresentCharacteristic(TailPresentEnum key)
+        public GularPouchCharacter(GularPouchEnum key)
         {
             Key = key;
         }
 
-        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        public override bool ExistsIn(List<CharacterBase> Characters)
         {
-            foreach (var characteristic in characteristics)
+            foreach (var Character in Characters)
             {
-                if (characteristic is TailPresentCharacteristic)
+                if (Character is GularPouchCharacter)
                 {
-                    if (Key == ((TailPresentCharacteristic)characteristic).Key) return true;
+                    if (Key == ((GularPouchCharacter)Character).Key) return true;
                 }
             }
             return false;
@@ -626,20 +1050,284 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
-        public override string GetShortPrompt()
-        {
-            return ShortPrompts[(int)Key];
-        }
-
-        internal static TailPresentCharacteristic CreateFromPrompt(string prompt)
+        internal static GularPouchCharacter CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
-            var key = (TailPresentEnum)promptIndex;
-            return new TailPresentCharacteristic(key);
+            var key = (GularPouchEnum)promptIndex;
+            return new GularPouchCharacter(key);
         }
     }
 
-    public class TailMembraneStructureCharacteristic : CharacteristicEnumBase
+    public class HiposideridaeFacialFeaturesCharacter : CharacterEnumBase
+    {
+        public enum HiposideridaeFacialFeaturesEnum
+        {
+            Undefined, Rhino_aur, Dory_semoni, Dory_stenotis, Hipp_ater, Hipp_cerv, Hipp_diad, Hipp_inornat
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Rhino_aur", "Dory_semoni", "Dory_stenotis", "Hipp_ater", "Hipp_cerv", "Hipp_diad", "Hipp_inornat" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "rhino_aur_facial.jpg", "dory_semoni_facial.jpg", "dory_stenotis_facial.jpg", "hipp_ater_facial.jpg", "hipp_cerv_facial.jpg", "hipp_diad_facial.jpg", "hipp_inornat_facial.jpg"
+        };
+
+        public HiposideridaeFacialFeaturesEnum Key { get; set; }
+
+        public HiposideridaeFacialFeaturesCharacter(HiposideridaeFacialFeaturesEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is HiposideridaeFacialFeaturesCharacter)
+                {
+                    if (Key == ((HiposideridaeFacialFeaturesCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static HiposideridaeFacialFeaturesCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (HiposideridaeFacialFeaturesEnum)promptIndex;
+            return new HiposideridaeFacialFeaturesCharacter(key);
+        }
+    }
+    public class GularPouchFemaleCharacter : CharacterEnumBase
+    {
+
+        public enum GularPouchFemaleEnum
+        {
+            Undefined, Absent, AbsentOrRudimentary, PresentOrRudimentary
+        }
+
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is absent or rudimentary", "Is present or rudimentary" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "ic_bat.jpg",  "ic_bat.jpg"
+        };
+
+        public GularPouchFemaleEnum Key { get; set; }
+
+        public GularPouchFemaleCharacter(GularPouchFemaleEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is GularPouchFemaleCharacter)
+                {
+                    if (Key == ((GularPouchFemaleCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static GularPouchFemaleCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (GularPouchFemaleEnum)promptIndex;
+            return new GularPouchFemaleCharacter(key);
+        }
+    }
+
+    public class GularPouchMaleCharacter : CharacterEnumBase
+    {
+
+        public enum GularPouchMaleEnum
+        {
+            Undefined, Absent, Present
+        }
+
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "ic_bat.jpg",  "ic_bat.jpg"
+        };
+
+        public GularPouchMaleEnum Key { get; set; }
+
+        public GularPouchMaleCharacter(GularPouchMaleEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is GularPouchMaleCharacter)
+                {
+                    if (Key == ((GularPouchMaleCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static GularPouchMaleCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (GularPouchMaleEnum)promptIndex;
+            return new GularPouchMaleCharacter(key);
+        }
+    }
+    public class MetacarpalWingPouchCharacter : CharacterEnumBase
+    {
+        public enum MetacarpalWingPouchEnum
+        {
+            Undefined, Absent, Present
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "ic_bat.jpg",  "ic_bat.jpg"
+        };
+
+        public MetacarpalWingPouchEnum Key { get; set; }
+
+        public MetacarpalWingPouchCharacter(MetacarpalWingPouchEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is MetacarpalWingPouchCharacter)
+                {
+                    if (Key == ((MetacarpalWingPouchCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static MetacarpalWingPouchCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (MetacarpalWingPouchEnum)promptIndex;
+            return new MetacarpalWingPouchCharacter(key);
+        }
+    }
+    public class BothSexesWithFleshyGenitalProjectionsCharacter : CharacterEnumBase
+    {
+        public enum BothSexesWithFleshyGenitalProjectionsEnum
+        {
+            Undefined, Absent, Present
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "ic_bat.jpg",  "ic_bat.jpg"
+        };
+
+        public BothSexesWithFleshyGenitalProjectionsEnum Key { get; set; }
+
+        public BothSexesWithFleshyGenitalProjectionsCharacter(BothSexesWithFleshyGenitalProjectionsEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is BothSexesWithFleshyGenitalProjectionsCharacter)
+                {
+                    if (Key == ((BothSexesWithFleshyGenitalProjectionsCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static BothSexesWithFleshyGenitalProjectionsCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (BothSexesWithFleshyGenitalProjectionsEnum)promptIndex;
+            return new BothSexesWithFleshyGenitalProjectionsCharacter(key);
+        }
+    } 
+    #endregion
+
+    #endregion
+
+    #region *// Root to Family Key Characters
+    public class TailPresentCharacter : CharacterEnumBase
+    {
+        public enum TailPresentEnum
+        {
+            Undefined, Absent, Present
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Is absent", "Is present" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "ic_bat.jpg",  "ic_bat.jpg"
+        };
+
+        public TailPresentEnum Key { get; set; }
+
+        public TailPresentCharacter(TailPresentEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is TailPresentCharacter)
+                {
+                    if (Key == ((TailPresentCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static TailPresentCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (TailPresentEnum)promptIndex;
+            return new TailPresentCharacter(key);
+        }
+    }
+
+    public class TailMembraneStructureCharacter : CharacterEnumBase
     {
 
         public enum TailMembraneStructureEnum
@@ -650,18 +1338,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         public TailMembraneStructureEnum Key { get; set; }
 
-        public TailMembraneStructureCharacteristic(TailMembraneStructureEnum key)
+        public TailMembraneStructureCharacter(TailMembraneStructureEnum key)
         {
             Key = key;
         }
 
-        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        public override bool ExistsIn(List<CharacterBase> Characters)
         {
-            foreach (var characteristic in characteristics)
+            foreach (var Character in Characters)
             {
-                if (characteristic is TailMembraneStructureCharacteristic)
+                if (Character is TailMembraneStructureCharacter)
                 {
-                    if (Key == ((TailMembraneStructureCharacteristic)characteristic).Key) return true;
+                    if (Key == ((TailMembraneStructureCharacter)Character).Key) return true;
                 }
             }
             return false;
@@ -672,20 +1360,15 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
-        public override string GetShortPrompt()
-        {
-            return Prompts[(int)Key];
-        }
-
-        internal static TailMembraneStructureCharacteristic CreateFromPrompt(string prompt)
+        internal static TailMembraneStructureCharacter CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
             var key = (TailMembraneStructureEnum)promptIndex;
-            return new TailMembraneStructureCharacteristic(key);
+            return new TailMembraneStructureCharacter(key);
         }
     }
 
-    public class SecondFingerClawCharacteristic : CharacteristicEnumBase
+    public class SecondFingerClawCharacter : CharacterEnumBase
     {
 
         public enum SecondFingerClawEnum
@@ -698,18 +1381,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         public SecondFingerClawEnum Key { get; set; }
 
-        public SecondFingerClawCharacteristic(SecondFingerClawEnum key)
+        public SecondFingerClawCharacter(SecondFingerClawEnum key)
         {
             Key = key;
         }
 
-        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        public override bool ExistsIn(List<CharacterBase> Characters)
         {
-            foreach (var characteristic in characteristics)
+            foreach (var Character in Characters)
             {
-                if (characteristic is SecondFingerClawCharacteristic)
+                if (Character is SecondFingerClawCharacter)
                 {
-                    if (Key == ((SecondFingerClawCharacteristic)characteristic).Key) return true;
+                    if (Key == ((SecondFingerClawCharacter)Character).Key) return true;
                 }
             }
             return false;
@@ -720,20 +1403,15 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
-        public override string GetShortPrompt()
-        {
-            return ShortPrompts[(int)Key];
-        }
-
-        internal static SecondFingerClawCharacteristic CreateFromPrompt(string prompt)
+        internal static SecondFingerClawCharacter CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
             var key = (SecondFingerClawEnum)promptIndex;
-            return new SecondFingerClawCharacteristic(key);
+            return new SecondFingerClawCharacter(key);
         }
     }
 
-    public class FaceStructureNoseLeafCharacteristic : CharacteristicEnumBase
+    public class FaceStructureNoseLeafCharacter : CharacterEnumBase
     {
 
         public enum FaceStructureNoseLeafEnum
@@ -758,18 +1436,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         public FaceStructureNoseLeafEnum Key { get; set; }
 
-        public FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafEnum key)
+        public FaceStructureNoseLeafCharacter(FaceStructureNoseLeafEnum key)
         {
             Key = key;
         }
 
-        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        public override bool ExistsIn(List<CharacterBase> Characters)
         {
-            foreach (var characteristic in characteristics)
+            foreach (var Character in Characters)
             {
-                if (characteristic is FaceStructureNoseLeafCharacteristic)
+                if (Character is FaceStructureNoseLeafCharacter)
                 {
-                    if (Key == ((FaceStructureNoseLeafCharacteristic)characteristic).Key) return true;
+                    if (Key == ((FaceStructureNoseLeafCharacter)Character).Key) return true;
                 }
             }
             return false;
@@ -779,20 +1457,15 @@ namespace AusBatProtoOneMobileClient.Models
         {
             return Prompts[(int)Key];
         }
-        public override string GetShortPrompt()
-        {
-            return ShortPrompts[(int)Key];
-        }
-
-        internal static FaceStructureNoseLeafCharacteristic CreateFromPrompt(string prompt)
+        internal static FaceStructureNoseLeafCharacter CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
             var key = (FaceStructureNoseLeafEnum)promptIndex;
-            return new FaceStructureNoseLeafCharacteristic(key);
+            return new FaceStructureNoseLeafCharacter(key);
         }
     }
 
-    public class WingThirdFingerCharacteristic : CharacteristicEnumBase
+    public class WingThirdFingerCharacter : CharacterEnumBase
     {
 
         public enum WingThirdFingerEnum
@@ -813,18 +1486,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         public WingThirdFingerEnum Key { get; set; }
 
-        public WingThirdFingerCharacteristic(WingThirdFingerEnum key)
+        public WingThirdFingerCharacter(WingThirdFingerEnum key)
         {
             Key = key;
         }
 
-        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        public override bool ExistsIn(List<CharacterBase> Characters)
         {
-            foreach (var characteristic in characteristics)
+            foreach (var Character in Characters)
             {
-                if (characteristic is WingThirdFingerCharacteristic)
+                if (Character is WingThirdFingerCharacter)
                 {
-                    if (Key == ((WingThirdFingerCharacteristic)characteristic).Key) return true;
+                    if (Key == ((WingThirdFingerCharacter)Character).Key) return true;
                 }
             }
             return false;
@@ -835,20 +1508,15 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
-        public override string GetShortPrompt()
-        {
-            return ShortPrompts[(int)Key];
-        }
-
-        internal static WingThirdFingerCharacteristic CreateFromPrompt(string prompt)
+        internal static WingThirdFingerCharacter CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
             var key = (WingThirdFingerEnum)promptIndex;
-            return new WingThirdFingerCharacteristic(key);
+            return new WingThirdFingerCharacter(key);
         }
     }
 
-    public class TragusCharacteristic : CharacteristicEnumBase
+    public class TragusCharacter : CharacterEnumBase
     {
 
         public enum TragusEnum
@@ -876,18 +1544,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         public TragusEnum Key { get; set; }
 
-        public TragusCharacteristic(TragusEnum key)
+        public TragusCharacter(TragusEnum key)
         {
             Key = key;
         }
 
-        public override bool ExistsIn(List<CharacteristicBase> characteristics)
+        public override bool ExistsIn(List<CharacterBase> Characters)
         {
-            foreach (var characteristic in characteristics)
+            foreach (var Character in Characters)
             {
-                if (characteristic is TragusCharacteristic)
+                if (Character is TragusCharacter)
                 {
-                    if (Key == ((TragusCharacteristic)characteristic).Key) return true;
+                    if (Key == ((TragusCharacter)Character).Key) return true;
                 }
             }
             return false;
@@ -898,16 +1566,11 @@ namespace AusBatProtoOneMobileClient.Models
             return Prompts[(int)Key];
         }
 
-        public override string GetShortPrompt()
-        {
-            return ShortPrompts[(int)Key];
-        }
-
-        internal static TragusCharacteristic CreateFromPrompt(string prompt)
+        internal static TragusCharacter CreateFromPrompt(string prompt)
         {
             var promptIndex = Prompts.IndexOf(prompt);
             var key = (TragusEnum)promptIndex;
-            return new TragusCharacteristic(key);
+            return new TragusCharacter(key);
         }
     }
     #endregion

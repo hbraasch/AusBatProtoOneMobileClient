@@ -16,7 +16,7 @@ namespace AusBatProtoOneMobileClient.Models
         public string Parent { get; set; }
         public string ImageTag { get; set; }
 
-        public List<CharacteristicBase> Characteristics = new List<CharacteristicBase>();
+        public List<CharacterBase> Characters = new List<CharacterBase>();
 
 
     }

@@ -20,9 +20,9 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var characteristicListView = new ListView { SelectionMode = ListViewSelectionMode.None };
-            characteristicListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacteristicDisplayItems), BindingMode.TwoWay));
-            characteristicListView.ItemTemplate = new characteristicDataTemplateSelector(this);
+            var CharacterListView = new ListView { SelectionMode = ListViewSelectionMode.None };
+            CharacterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
+            CharacterListView.ItemTemplate = new CharacterDataTemplateSelector(this);
 
             var regionButton = new Button
             {
@@ -40,7 +40,7 @@ namespace DocGenOneMobileClient.Views
             };
             filterNowButton.Clicked += (s, e) => { viewModel.OnFilterNowClicked.Execute(null); };
 
-            var layout = new StackLayout { Children = {characteristicListView, regionButton, filterNowButton } };
+            var layout = new StackLayout { Children = {CharacterListView, regionButton, filterNowButton } };
 
             var finalLayout = new AbsoluteLayout
             {
@@ -92,27 +92,27 @@ namespace DocGenOneMobileClient.Views
 
 
 
-        internal class characteristicDataTemplateSelector : DataTemplateSelector
+        internal class CharacterDataTemplateSelector : DataTemplateSelector
         {
-            DataTemplate tailPresentCharacteristicTemplate;
-            DataTemplate tailMembraneStructureCharacteristicTemplate;
-            DataTemplate secondFingerClawCharacteristicTemplate;
-            DataTemplate faceStructureNoseLeafCharacteristicTemplate;
-            DataTemplate wingThirdFingerCharacteristicTemplate;
-            DataTemplate tragusStructureCharacteristicTemplate;
+            DataTemplate tailPresentCharacterTemplate;
+            DataTemplate tailMembraneStructureCharacterTemplate;
+            DataTemplate secondFingerClawCharacterTemplate;
+            DataTemplate faceStructureNoseLeafCharacterTemplate;
+            DataTemplate wingThirdFingerCharacterTemplate;
+            DataTemplate tragusStructureCharacterTemplate;
 
 
-            public characteristicDataTemplateSelector(Page page)
+            public CharacterDataTemplateSelector(Page page)
             {  
-                tailPresentCharacteristicTemplate = new DataTemplate(() => {
+                tailPresentCharacterTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacterDisplayItem.Description), BindingMode.TwoWay));
 
 
                     var valuePicker = new PickerWithImages(page);
-                    valuePicker.SetBinding(PickerWithImages.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(PickerWithImages.ImagesItemSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.ImageSources), BindingMode.OneWay));
-                    valuePicker.SetBinding(PickerWithImages.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacteristicConverter()));
+                    valuePicker.SetBinding(PickerWithImages.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacterDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.ImagesItemSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacterDisplayItem.ImageSources), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailPresentCharacterDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacterConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -124,13 +124,13 @@ namespace DocGenOneMobileClient.Views
 
                     return new ViewCell { View = grid };
                 });
-                tailMembraneStructureCharacteristicTemplate = new DataTemplate(() => {
+                tailMembraneStructureCharacterTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacterDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailMembraneStructureConverter()));
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacterDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TailMembraneStructureCharacterDisplayItem.Value), BindingMode.TwoWay, new TailMembraneStructureConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -142,13 +142,13 @@ namespace DocGenOneMobileClient.Views
 
                     return new ViewCell { View = grid };
                 });
-                secondFingerClawCharacteristicTemplate = new DataTemplate(() => {
+                secondFingerClawCharacterTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacterDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem.Value), BindingMode.TwoWay, new SecondFingerClawConverter()));
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacterDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.SecondFingerClawCharacterDisplayItem.Value), BindingMode.TwoWay, new SecondFingerClawConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -160,13 +160,13 @@ namespace DocGenOneMobileClient.Views
 
                     return new ViewCell { View = grid };
                 });
-                faceStructureNoseLeafCharacteristicTemplate = new DataTemplate(() => {
+                faceStructureNoseLeafCharacterTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacterDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem.Value), BindingMode.TwoWay, new FaceStructureNoseLeafConverter()));
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacterDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.FaceStructureNoseLeafCharacterDisplayItem.Value), BindingMode.TwoWay, new FaceStructureNoseLeafConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -178,13 +178,13 @@ namespace DocGenOneMobileClient.Views
 
                     return new ViewCell { View = grid };
                 });
-                wingThirdFingerCharacteristicTemplate = new DataTemplate(() => {
+                wingThirdFingerCharacterTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacterDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new Picker { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem.Value), BindingMode.TwoWay, new WingThirdFingerConverter()));
+                    valuePicker.SetBinding(Picker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacterDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(Picker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.WingThirdFingerCharacterDisplayItem.Value), BindingMode.TwoWay, new WingThirdFingerConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -196,14 +196,14 @@ namespace DocGenOneMobileClient.Views
 
                     return new ViewCell { View = grid };
                 });
-                tragusStructureCharacteristicTemplate = new DataTemplate(() => {
+                tragusStructureCharacterTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacterDisplayItem.Description), BindingMode.TwoWay));
 
                     var valuePicker = new PickerWithImages(page);
-                    valuePicker.SetBinding(PickerWithImages.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Values), BindingMode.OneWay));
-                    valuePicker.SetBinding(PickerWithImages.ImagesItemSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.ImageSources), BindingMode.OneWay));
-                    valuePicker.SetBinding(PickerWithImages.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacteristicDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacteristicConverter()));
+                    valuePicker.SetBinding(PickerWithImages.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacterDisplayItem.Values), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.ImagesItemSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacterDisplayItem.ImageSources), BindingMode.OneWay));
+                    valuePicker.SetBinding(PickerWithImages.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.TragusCharacterDisplayItem.Value), BindingMode.TwoWay, new TailPresentCharacterConverter()));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -219,29 +219,29 @@ namespace DocGenOneMobileClient.Views
 
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                if (item is FamilyKeyPageViewModel.TailPresentCharacteristicDisplayItem)
+                if (item is FamilyKeyPageViewModel.TailPresentCharacterDisplayItem)
                 {
-                    return tailPresentCharacteristicTemplate;
+                    return tailPresentCharacterTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.TailMembraneStructureCharacteristicDisplayItem)
+                else if (item is FamilyKeyPageViewModel.TailMembraneStructureCharacterDisplayItem)
                 {
-                    return tailMembraneStructureCharacteristicTemplate;
+                    return tailMembraneStructureCharacterTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.SecondFingerClawCharacteristicDisplayItem)
+                else if (item is FamilyKeyPageViewModel.SecondFingerClawCharacterDisplayItem)
                 {
-                    return secondFingerClawCharacteristicTemplate;
+                    return secondFingerClawCharacterTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.FaceStructureNoseLeafCharacteristicDisplayItem)
+                else if (item is FamilyKeyPageViewModel.FaceStructureNoseLeafCharacterDisplayItem)
                 {
-                    return faceStructureNoseLeafCharacteristicTemplate;
+                    return faceStructureNoseLeafCharacterTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.WingThirdFingerCharacteristicDisplayItem)
+                else if (item is FamilyKeyPageViewModel.WingThirdFingerCharacterDisplayItem)
                 {
-                    return wingThirdFingerCharacteristicTemplate;
+                    return wingThirdFingerCharacterTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.TragusCharacteristicDisplayItem)
+                else if (item is FamilyKeyPageViewModel.TragusCharacterDisplayItem)
                 {
-                    return tragusStructureCharacteristicTemplate;
+                    return tragusStructureCharacterTemplate;
                 }
                 else
                 {
@@ -253,14 +253,14 @@ namespace DocGenOneMobileClient.Views
 
     }
 
-    internal class TragusCharacteristicConverter : IValueConverter
+    internal class TragusCharacterConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is TragusCharacteristic)
+            if (value is TragusCharacter)
             {
-                var characteristic = value as TragusCharacteristic;
-                return characteristic.GetPrompt();
+                var Character = value as TragusCharacter;
+                return Character.GetPrompt();
             }
             return 0;
         }
@@ -270,9 +270,9 @@ namespace DocGenOneMobileClient.Views
             if (value is string)
             {
                 var prompt = (string)value;
-                return TragusCharacteristic.CreateFromPrompt(prompt);
+                return TragusCharacter.CreateFromPrompt(prompt);
             }
-            return new TragusCharacteristic(TragusCharacteristic.TragusEnum.Undefined);
+            return new TragusCharacter(TragusCharacter.TragusEnum.Undefined);
         }
     }
 
@@ -280,10 +280,10 @@ namespace DocGenOneMobileClient.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is WingThirdFingerCharacteristic)
+            if (value is WingThirdFingerCharacter)
             {
-                var characteristic = value as WingThirdFingerCharacteristic;
-                return characteristic.GetPrompt();
+                var Character = value as WingThirdFingerCharacter;
+                return Character.GetPrompt();
             }
             return 0;
         }
@@ -293,9 +293,9 @@ namespace DocGenOneMobileClient.Views
             if (value is string)
             {
                 var prompt = (string)value;
-                return WingThirdFingerCharacteristic.CreateFromPrompt(prompt);
+                return WingThirdFingerCharacter.CreateFromPrompt(prompt);
             }
-            return new WingThirdFingerCharacteristic(WingThirdFingerCharacteristic.WingThirdFingerEnum.Undefined);
+            return new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Undefined);
         }
     }
 
@@ -303,10 +303,10 @@ namespace DocGenOneMobileClient.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is FaceStructureNoseLeafCharacteristic)
+            if (value is FaceStructureNoseLeafCharacter)
             {
-                var characteristic = value as FaceStructureNoseLeafCharacteristic;
-                return characteristic.GetPrompt();
+                var Character = value as FaceStructureNoseLeafCharacter;
+                return Character.GetPrompt();
             }
             return 0;
         }
@@ -316,9 +316,9 @@ namespace DocGenOneMobileClient.Views
             if (value is string)
             {
                 var prompt = (string)value;
-                return FaceStructureNoseLeafCharacteristic.CreateFromPrompt(prompt);
+                return FaceStructureNoseLeafCharacter.CreateFromPrompt(prompt);
             }
-            return new FaceStructureNoseLeafCharacteristic(FaceStructureNoseLeafCharacteristic.FaceStructureNoseLeafEnum.Undefined);
+            return new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.Undefined);
         }
     }
 
@@ -326,10 +326,10 @@ namespace DocGenOneMobileClient.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is SecondFingerClawCharacteristic)
+            if (value is SecondFingerClawCharacter)
             {
-                var characteristic = value as SecondFingerClawCharacteristic;
-                return characteristic.GetPrompt();
+                var Character = value as SecondFingerClawCharacter;
+                return Character.GetPrompt();
             }
             return 0;
         }
@@ -339,20 +339,20 @@ namespace DocGenOneMobileClient.Views
             if (value is string)
             {
                 var prompt = (string)value;
-                return SecondFingerClawCharacteristic.CreateFromPrompt(prompt);
+                return SecondFingerClawCharacter.CreateFromPrompt(prompt);
             }
-            return new SecondFingerClawCharacteristic(SecondFingerClawCharacteristic.SecondFingerClawEnum.Undefined);
+            return new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Undefined);
         }
     }
 
-    internal class TailPresentCharacteristicConverter : IValueConverter
+    internal class TailPresentCharacterConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is TailPresentCharacteristic)
+            if (value is TailPresentCharacter)
             {
-                var characteristic = value as TailPresentCharacteristic;
-                return characteristic.GetPrompt();
+                var Character = value as TailPresentCharacter;
+                return Character.GetPrompt();
             }
             return "";
         }
@@ -362,9 +362,9 @@ namespace DocGenOneMobileClient.Views
             if (value is string)
             {
                 var prompt = (string)value;
-                return TailPresentCharacteristic.CreateFromPrompt(prompt);
+                return TailPresentCharacter.CreateFromPrompt(prompt);
             }
-            return new TailPresentCharacteristic(TailPresentCharacteristic.TailPresentEnum.Undefined);
+            return new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Undefined);
         }
     }
 
@@ -372,10 +372,10 @@ namespace DocGenOneMobileClient.Views
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is TailMembraneStructureCharacteristic)
+            if (value is TailMembraneStructureCharacter)
             {
-                var characteristic = value as TailMembraneStructureCharacteristic;
-                return characteristic.GetPrompt();
+                var Character = value as TailMembraneStructureCharacter;
+                return Character.GetPrompt();
             }
             return 0;
         }
@@ -386,9 +386,9 @@ namespace DocGenOneMobileClient.Views
             {
 
                 var prompt = (string) value;
-                return TailMembraneStructureCharacteristic.CreateFromPrompt(prompt);
+                return TailMembraneStructureCharacter.CreateFromPrompt(prompt);
             }
-            return new TailMembraneStructureCharacteristic(TailMembraneStructureCharacteristic.TailMembraneStructureEnum.Undefined);
+            return new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.Undefined);
         }
 
     }

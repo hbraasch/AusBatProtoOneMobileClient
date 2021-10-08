@@ -168,28 +168,7 @@ namespace AusBatProtoOneMobileClient.Data
     }
 
 
-    public class FloatRange
-    {
-        public float Min { get; set; }
-        public float Max { get; set; }
 
-        public static FloatRange GetRandom(float min, float max)
-        {
-            var mean = (max - min) / 2;
-            var newMin = Math.Max(0,NextFloat(min - mean, min + mean));
-            var newMax = NextFloat(max - mean, max + mean);
-            return new FloatRange { Min = newMin, Max = newMax };
-
-            float NextFloat(float minVal, float maxVal)
-            {
-                System.Random random = new System.Random();
-                double val = (random.NextDouble() * (maxVal - minVal) + minVal);
-                return (float) val;
-            }
-        }
-
-
-    }
 
     public class CallDataItem
     {
