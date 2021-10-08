@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
+    <None Remove="Data\EarMargin\lobe-on-lower-margin-and-cnr-mouth.jpg" />
+    <None Remove="Data\EarMargin\lower_ear_margin_without_lobes.jpg" />
     <None Remove="Data\FacialFeatures\dory_semoni_facial.jpg" />
     <None Remove="Data\FacialFeatures\dory_stenotis_facial.jpg" />
     <None Remove="Data\FacialFeatures\hipp_ater_facial.jpg" />
@@ -22,6 +24,10 @@
     <None Remove="Data\FamilyKeyImages\tragus_absent.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_bifurcate.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_entire.jpg" />
+    <None Remove="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" />
+    <None Remove="Data\MuzzleStructure\muzzle_smooth.jpg" />
+    <None Remove="Data\NostrilShape\nostrils_distinct_tubes.jpg" />
+    <None Remove="Data\NostrilShape\nostrils_flat_slight_rim.jpg" />
     <None Remove="Data\SpeciesCallImages\aust_aust_call_image.jpg" />
     <None Remove="Data\SpeciesCallImages\chae_job_call_image.jpg" />
     <None Remove="Data\SpeciesCallImages\chal_dwye_call_image.jpg" />
@@ -548,6 +554,12 @@
     <None Remove="Data\SpeciesDataSets\vespadelus_darlingtoni_dataset.json" />
     <None Remove="Data\SpeciesDataSets\vespadelus_pumilus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\vespadelus_vulturnus_dataset.json" />
+    <None Remove="Data\TailMembrane\tail_membrane_hairy.jpg" />
+    <None Remove="Data\TailMembrane\tail_membrane_no_fur.jpg" />
+    <None Remove="Data\UpperIncisors\1_pair.jpg" />
+    <None Remove="Data\UpperIncisors\2_pairs_equal_size_both_bifurcate.jpg" />
+    <None Remove="Data\UpperIncisors\2_pairs_inequal_size_neither_bifid.jpg" />
+    <None Remove="Data\UpperIncisors\2_pairs_larger_bifid.jpg" />
     <None Remove="Images\Aust_aust_head.png" />
     <None Remove="Images\background.png" />
     <None Remove="Images\GhostTreeview\ic_action.png" />
@@ -683,6 +695,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SharedImage Include="Data\EarMargin\lobe-on-lower-margin-and-cnr-mouth.jpg" />
+    <SharedImage Include="Data\EarMargin\lower_ear_margin_without_lobes.jpg" />
     <SharedImage Include="Data\FacialFeatures\dory_semoni_facial.jpg" />
     <SharedImage Include="Data\FacialFeatures\dory_stenotis_facial.jpg" />
     <SharedImage Include="Data\FacialFeatures\hipp_ater_facial.jpg" />
@@ -693,6 +707,10 @@
     <SharedImage Include="Data\FamilyKeyImages\tragus_absent.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_entire.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" />
+    <SharedImage Include="Data\MuzzleStructure\muzzle_smooth.jpg" />
+    <SharedImage Include="Data\NostrilShape\nostrils_distinct_tubes.jpg" />
+    <SharedImage Include="Data\NostrilShape\nostrils_flat_slight_rim.jpg" />
     <SharedImage Include="Data\SpeciesCallImages\aust_aust_call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\chae_job_call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\chal_dwye_call_image.jpg" BaseSize="150,150" />
@@ -1108,6 +1126,12 @@
     <SharedImage Include="Data\RegionsMap\map310.png" BaseSize="150,150" />
     <SharedImage Include="Data\RegionsMap\map311.png" BaseSize="150,150" />
     <SharedImage Include="Data\RegionsMap\map312.png" BaseSize="150,150" />
+    <SharedImage Include="Data\TailMembrane\tail_membrane_hairy.jpg" />
+    <SharedImage Include="Data\TailMembrane\tail_membrane_no_fur.jpg" />
+    <SharedImage Include="Data\UpperIncisors\1_pair.jpg" />
+    <SharedImage Include="Data\UpperIncisors\2_pairs_equal_size_both_bifurcate.jpg" />
+    <SharedImage Include="Data\UpperIncisors\2_pairs_inequal_size_neither_bifid.jpg" />
+    <SharedImage Include="Data\UpperIncisors\2_pairs_larger_bifid.jpg" />
     <SharedImage Include="Images\background.png" BaseSize="500,500" />
     <SharedImage Include="Images\GhostTreeview\ic_action.png" BaseSize="75,75" />
 	  <SharedImage Include="Images\GhostTreeview\ic_select.png" BaseSize="75,75" />

@@ -564,24 +564,124 @@ namespace AusBatProtoOneMobileClient.Models
                         new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
                         new TragusCharacter(TragusCharacter.TragusEnum.AlmostAbsent) }
                 });
-                dbase.Classifications.Add(new Classification { Id = "Chalinolobus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
-                dbase.Classifications.Add(new Classification { Id = "Dwyeri", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
-                dbase.Classifications.Add(new Classification { Id = "Gouldii", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
-                dbase.Classifications.Add(new Classification { Id = "Morio", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
-                dbase.Classifications.Add(new Classification { Id = "Nigrogriseus", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
-                dbase.Classifications.Add(new Classification { Id = "Picatus", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus" });
+                dbase.Classifications.Add(new Classification { Id = "Chalinolobus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.0f, 48.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsInequalLargerToothBifid),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.Orbicular),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.TwoPair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.SmallLobe),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Dwyeri", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(36.0f, 45.0f),
+                        new ThreeMetCharacter(36.0f, 40.0f),
+                        new ChalinolobusFurPatternAndColourCharacter(ChalinolobusFurPatternAndColourCharacter.ChalinolobusFurPatternAndColourEnum.BlackWithLaterStripesWingStructure),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Gouldii", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(35.0f, 47.0f),
+                        new ThreeMetCharacter(31.0f, 45.0f),
+                        new ChalinolobusFurPatternAndColourCharacter(ChalinolobusFurPatternAndColourCharacter.ChalinolobusFurPatternAndColourEnum.Brown),
+                        }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Morio", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(33.0f, 44.0f),
+                        new ThreeMetCharacter(33.0f, 38.0f),
+                        new ChalinolobusFurPatternAndColourCharacter(ChalinolobusFurPatternAndColourCharacter.ChalinolobusFurPatternAndColourEnum.BrownOrGrey),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Nigrogriseus", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus",
+                    Characters = new List<CharacterBase>
+                    {
+                    new ForeArmCharacter(31.0f, 38.0f),
+                    new ThreeMetCharacter(25.0f, 37.0f),
+                    new ChalinolobusFurPatternAndColourCharacter(ChalinolobusFurPatternAndColourCharacter.ChalinolobusFurPatternAndColourEnum.BlackOrGrey),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Picatus", Type = Classification.ClassificationType.Species, Parent = "Chalinolobus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.0f, 38.0f),
+                        new ThreeMetCharacter(30.0f, 33.0f),
+                        new ChalinolobusFurPatternAndColourCharacter(ChalinolobusFurPatternAndColourCharacter.ChalinolobusFurPatternAndColourEnum.BlackWithLaterStripes),
+                    }
+                });
 
-                dbase.Classifications.Add(new Classification { Id = "Falsistrellus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
+                dbase.Classifications.Add(new Classification { Id = "Falsistrellus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(44.0f, 58.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsInequalNeitherBifid),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.TwoPair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Mackenziei", Type = Classification.ClassificationType.Species, Parent = "Falsistrellus" });
                 dbase.Classifications.Add(new Classification { Id = "Tasmaniensis", Type = Classification.ClassificationType.Species, Parent = "Falsistrellus" });
 
-                dbase.Classifications.Add(new Classification { Id = "Murina", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
+                dbase.Classifications.Add(new Classification { Id = "Murina", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(32.0f, 36.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsEqualNeitherBifid),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.TwoPair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.Hairy),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Extended),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Florium", Type = Classification.ClassificationType.Species, Parent = "Murina" });
 
-                dbase.Classifications.Add(new Classification { Id = "Myotis", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
+                dbase.Classifications.Add(new Classification { Id = "Myotis", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(36.0f, 43.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsEqualBothBifid),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.TwoTriplets),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Macropus", Type = Classification.ClassificationType.Species, Parent = "Myotis" });
 
-                dbase.Classifications.Add(new Classification { Id = "Nyctophilus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
+                dbase.Classifications.Add(new Classification { Id = "Nyctophilus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(30.0f, 50.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.OnePair),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.OnePair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.NotSmooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Arnhemensis", Type = Classification.ClassificationType.Species, Parent = "Nyctophilus" });
                 dbase.Classifications.Add(new Classification { Id = "Bifax", Type = Classification.ClassificationType.Species, Parent = "Nyctophilus" });
                 dbase.Classifications.Add(new Classification { Id = "Corbeni", Type = Classification.ClassificationType.Species, Parent = "Nyctophilus" });
@@ -593,37 +693,251 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Classifications.Add(new Classification { Id = "Sherrini", Type = Classification.ClassificationType.Species, Parent = "Nyctophilus" });
                 dbase.Classifications.Add(new Classification { Id = "Walkeri", Type = Classification.ClassificationType.Species, Parent = "Nyctophilus" });
 
-                dbase.Classifications.Add(new Classification { Id = "Phoniscus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
+                dbase.Classifications.Add(new Classification { Id = "Phoniscus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(34.0f, 41.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.OnePair),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.Linear),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.OnePair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Groove),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.Hairy),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Papuensis", Type = Classification.ClassificationType.Species, Parent = "Phoniscus" });
 
-                dbase.Classifications.Add(new Classification { Id = "Pipistrellus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
-                dbase.Classifications.Add(new Classification { Id = "Adamsi", Type = Classification.ClassificationType.Species, Parent = "Pipistrellus" });
+                dbase.Classifications.Add(new Classification { Id = "Pipistrellus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                    new ForeArmCharacter(27.0f, 33.0f),
+                    new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsInequalLargerToothBifid),
+                    new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsInequalNeitherBifid),
+                    new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                    new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.TwoPair),
+                    new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                    new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                    new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                    new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                    new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Adamsi", Type = Classification.ClassificationType.Species, Parent = "Pipistrellus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.0f, 41.0f),
+                        new OuterCanineWidthCharacter(3.9f, 4.4f),
+                        new FaTibiaRatioCharacter(2.3f, 2.7f),
+                        new TibiaCharacter(12.0f, 18.0f),
+                        new PipistrellusTragusCharacter(PipistrellusTragusCharacter.PipistrellusTragusEnum.BroadestInMiddle),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Murrayi", Type = Classification.ClassificationType.Species, Parent = "Pipistrellus" });
-                dbase.Classifications.Add(new Classification { Id = "Westralis", Type = Classification.ClassificationType.Species, Parent = "Pipistrellus" });
+                dbase.Classifications.Add(new Classification { Id = "Westralis", Type = Classification.ClassificationType.Species, Parent = "Pipistrellus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(27.0f, 35.0f),
+                        new OuterCanineWidthCharacter(3.3f, 3.8f),
+                        new FaTibiaRatioCharacter(2.2f, 2.4f),
+                        new TibiaCharacter(11.0f, 16.0f),
+                        new PipistrellusTragusCharacter(PipistrellusTragusCharacter.PipistrellusTragusEnum.BroadestAtBase),
+                    }
+                });
 
-                dbase.Classifications.Add(new Classification { Id = "Scoteanax", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
+                dbase.Classifications.Add(new Classification { Id = "Scoteanax", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(50.0f, 57.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.OnePair),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.OnePair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
                 dbase.Classifications.Add(new Classification { Id = "Rueppellii", Type = Classification.ClassificationType.Species, Parent = "Scoteanax" });
 
-                dbase.Classifications.Add(new Classification { Id = "Scotorepens", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
-                dbase.Classifications.Add(new Classification { Id = "Balstoni", Type = Classification.ClassificationType.Species, Parent = "Scotorepens" });
-                dbase.Classifications.Add(new Classification { Id = "Greyii", Type = Classification.ClassificationType.Species, Parent = "Scotorepens" });
-                dbase.Classifications.Add(new Classification { Id = "Orion", Type = Classification.ClassificationType.Species, Parent = "Scotorepens" });
-                dbase.Classifications.Add(new Classification { Id = "Sanborni", Type = Classification.ClassificationType.Species, Parent = "Scotorepens" });
-                dbase.Classifications.Add(new Classification { Id = "Sp. ", Type = Classification.ClassificationType.Species, Parent = "Scotorepens" });
+                dbase.Classifications.Add(new Classification { Id = "Scotorepens", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(27.0f, 41.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.OnePair),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.TwoPair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Balstoni", Type = Classification.ClassificationType.Species, Parent = "Scotorepens",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.0f, 41.0f),
+                        new OuterCanineWidthCharacter(4.3f, 5.6f),
+                        new FaTibiaRatioCharacter(2.3f, 2.7f),
+                        new TibiaCharacter(12.0f, 18.0f),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Greyii", Type = Classification.ClassificationType.Species, Parent = "Scotorepens",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(27.0f, 34.5f),
+                        new OuterCanineWidthCharacter(3.9f, 5.1f),
+                        new FaTibiaRatioCharacter(2.2f, 2.4f),
+                        new TibiaCharacter(11.0f, 16.0f),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Orion", Type = Classification.ClassificationType.Species, Parent = "Scotorepens",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(32.0f, 39.0f),
+                        new OuterCanineWidthCharacter(4.9f, 5.3f),
+                        new FaTibiaRatioCharacter(2.5f, 2.7f),
+                        new TibiaCharacter(12.5f, 15.0f),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Sanborni", Type = Classification.ClassificationType.Species, Parent = "Scotorepens",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(27.0f, 37.0f),
+                        new OuterCanineWidthCharacter(3.9f, 5.0f),
+                        new FaTibiaRatioCharacter(2.1f, 2.4f),
+                        new TibiaCharacter(11.1f, 15.8f),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "(Parnaby)", Type = Classification.ClassificationType.Species, Parent = "Scotorepens",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(31.0f, 34.0f),
+                        new OuterCanineWidthCharacter(4.0f, 4.9f),
+                        new FaTibiaRatioCharacter(2.3f, 2.6f),
+                        new TibiaCharacter(12.1f, 14.9f),
+                    }
+                });
 
-                dbase.Classifications.Add(new Classification { Id = "Vespadalus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae" });
-                dbase.Classifications.Add(new Classification { Id = "Caurinus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Douglasorum", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Finlaysoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Regulus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Baverstocki", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Darlingtoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Pumilus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Troughtoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
-                dbase.Classifications.Add(new Classification { Id = "Vulturnus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus" });
+                dbase.Classifications.Add(new Classification { Id = "Vespadalus", Type = Classification.ClassificationType.Genus, Parent = "Vespertilionidae",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(22.0f, 38.0f),
+                        new VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsCharacter.VespertilionidaeUpperIncisorsEnum.TwoPairsInequalLargerToothBifid),
+                        new VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeCharacter.VespertilionidaeTragusShapeEnum.OblongLanceolate),
+                        new VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsCharacter.VespertilionidaeUpperPreMolarsEnum.OnePair),
+                        new VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesCharacter.VespertilionidaeUpperCannesEnum.Smooth),
+                        new VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneCharacter.VespertilionidaeTailMembraneEnum.NoFur),
+                        new VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureCharacter.VespertilionidaeMuzzleStructureEnum.Smooth),
+                        new VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeCharacter.VespertilionidaeNostrilShapeEnum.Flat),
+                        new VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginCharacter.VespertilionidaeLowerEarMarginEnum.NoLobes),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Caurinus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(26.0f, 32.0f),
+                        new ThreeMetCharacter(25.0f, 32.0f),
+                        new TibiaCharacter(10.5f, 12.5f),
+                        new ThreeP1Character(9.5f, 12.0f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.BrownToBlack),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Douglasorum", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(34.0f, 38.0f),
+                        new ThreeMetCharacter(32.0f, 37.0f),
+                        new TibiaCharacter(13.5f, 15.8f),
+                        new ThreeP1Character(9.8f, 12.0f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.3f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.BrownToBlack),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Finlaysoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(29.0f, 38.0f),
+                        new ThreeMetCharacter(29.0f, 37.0f),
+                        new TibiaCharacter(11.0f, 16.5f),
+                        new ThreeP1Character(10.8f, 14.0f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.BrownToBlack),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Regulus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(28.0f, 35.0f),
+                        new ThreeMetCharacter(27.0f, 33.0f),
+                        new TibiaCharacter(11.2f, 14.0f),
+                        new ThreeP1Character(9.5f, 12.5f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.NoneToLightBrown),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Baverstocki", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(26.0f, 32.0f),
+                        new ThreeMetCharacter(26.0f, 32.0f),
+                        new TibiaCharacter(10.5f, 13.2f),
+                        new ThreeP1Character(9.3f, 11.1f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.NoneToLightBrown),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Darlingtoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(32.0f, 38.0f),
+                        new ThreeMetCharacter(30.0f, 36.0f),
+                        new TibiaCharacter(12.1f, 14.5f),
+                        new ThreeP1Character(11.5f, 14.5f),
+                        new ThreeP1TheeMetRatioCharacter(0.4f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.PinkToYellow),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Pumilus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(28.0f, 34.0f),
+                        new ThreeMetCharacter(27.0f, 33.0f),
+                        new TibiaCharacter(11.5f, 14.0f),
+                        new ThreeP1Character(10.2f, 12.5f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.BrownToBlack),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Troughtoni", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(32.0f, 37.0f),
+                        new ThreeMetCharacter(32.0f, 36.0f),
+                        new TibiaCharacter(12.5f, 14.5f),
+                        new ThreeP1Character(11.3f, 13.8f),
+                        new ThreeP1TheeMetRatioCharacter(0.3f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.NoneToBrown),
+                    }
+                });
+                dbase.Classifications.Add(new Classification { Id = "Vulturnus", Type = Classification.ClassificationType.Species, Parent = "Vespadalus",
+                    Characters = new List<CharacterBase>
+                    {
+                        new ForeArmCharacter(23.0f, 33.0f),
+                        new ThreeMetCharacter(24.0f, 32.0f),
+                        new TibiaCharacter(10.5f, 13.0f),
+                        new ThreeP1Character(10.3f, 12.5f),
+                        new ThreeP1TheeMetRatioCharacter(0.4f, 0.4f),
+                        new VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationCharacter.VespadelusFacialSkinPigmentationEnum.NoneToLightBrown),
+                    }
+                });
                 #endregion
 
-                #region *// Bats
+                #region *// Species
                 dbase.Species.Add(LoadSpecies( "Austonomus", "australis")); 
                 dbase.Species.Add(LoadSpecies( "Chaerephon", "jobensis"));
                 dbase.Species.Add(LoadSpecies( "Chalinolobus", "dwyeri"));
@@ -688,7 +1002,7 @@ namespace AusBatProtoOneMobileClient.Models
                 dbase.Species.Add(LoadSpecies( "Scotorepens", "greyii"));
                 dbase.Species.Add(LoadSpecies( "Scotorepens", "orion"));
                 dbase.Species.Add(LoadSpecies( "Scotorepens", "sanborni"));
-                dbase.Species.Add(LoadSpecies( "Scotorepens", "sp."));
+                dbase.Species.Add(LoadSpecies( "Scotorepens", "(Parnaby)"));
                 dbase.Species.Add(LoadSpecies( "Setirostris", "eleryi"));
                 dbase.Species.Add(LoadSpecies( "Syconycteris", "australis"));
                 dbase.Species.Add(LoadSpecies( "Taphozous", "australis"));
@@ -911,6 +1225,26 @@ namespace AusBatProtoOneMobileClient.Models
         }
     }
 
+    public class ThreeP1TheeMetRatioCharacter : CharacterNumericBase
+    {
+        public ThreeP1TheeMetRatioCharacter(float min, float max) : base("3 P1/3-MET ratio", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ThreeP1TheeMetRatioCharacter);
+        }
+    }
+
+    public class ThreeP1Character : CharacterNumericBase
+    {
+        public ThreeP1Character(float min, float max) : base("3 P1", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ThreeP1Character);
+        }
+    }
+
     public class OuterCanineWidthCharacter : CharacterNumericBase
     {
         public OuterCanineWidthCharacter(float min, float max) : base("Outer canine width", min, max) { }
@@ -964,6 +1298,16 @@ namespace AusBatProtoOneMobileClient.Models
     public class TibiaCharacter : CharacterNumericBase
     {
         public TibiaCharacter(float min, float max) : base("Tibia length", min, max) { }
+
+        public override bool ExistsIn(List<CharacterBase> characters)
+        {
+            return characters.Exists(o => o is ForeArmCharacter);
+        }
+    }
+
+    public class FaTibiaRatioCharacter : CharacterNumericBase
+    {
+        public FaTibiaRatioCharacter(float min, float max) : base("Fa/Tibia ratio", min, max) { }
 
         public override bool ExistsIn(List<CharacterBase> characters)
         {
@@ -1058,6 +1402,543 @@ namespace AusBatProtoOneMobileClient.Models
         }
     }
 
+    public class VespadelusFacialSkinPigmentationCharacter : CharacterEnumBase
+    {
+        public enum VespadelusFacialSkinPigmentationEnum
+        {
+            Undefined, NoneToLightBrown, BrownToBlack, PinkToYellow, NoneToBrown
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { 
+            "",
+            "none (pink) to light brown",
+            "brown to black",
+            "pink to yellow",
+            "none (pink) to brown"
+        };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "", "", "", ""
+        };
+
+        public VespadelusFacialSkinPigmentationEnum Key { get; set; }
+
+        public VespadelusFacialSkinPigmentationCharacter(VespadelusFacialSkinPigmentationEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespadelusFacialSkinPigmentationCharacter)
+                {
+                    if (Key == ((VespadelusFacialSkinPigmentationCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespadelusFacialSkinPigmentationCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespadelusFacialSkinPigmentationEnum)promptIndex;
+            return new VespadelusFacialSkinPigmentationCharacter(key);
+        }
+    }
+
+    public class PipistrellusTragusCharacter : CharacterEnumBase
+    {
+        public enum PipistrellusTragusEnum
+        {
+            Undefined, BroadestAtBase, BroadestInMiddle
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Broadest in middle", "Broadest at base" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "",  ""
+        };
+
+        public PipistrellusTragusEnum Key { get; set; }
+
+        public PipistrellusTragusCharacter(PipistrellusTragusEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is PipistrellusTragusCharacter)
+                {
+                    if (Key == ((PipistrellusTragusCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static PipistrellusTragusCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (PipistrellusTragusEnum)promptIndex;
+            return new PipistrellusTragusCharacter(key);
+        }
+    }
+    public class ChalinolobusFurPatternAndColourCharacter : CharacterEnumBase
+    {
+        public enum ChalinolobusFurPatternAndColourEnum
+        {
+            Undefined, 
+            Brown, 
+            BlackWithLaterStripesWingStructure,
+            BrownOrGrey,
+            BlackOrGrey,
+            BlackWithLaterStripes
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", 
+            "Brown body, merging to darker fur over the head",
+            "Black, white lateral stripes on ventral surface along wing juncture",
+            "Brown or grey-brown",
+            "Black to grey, often with light frosting. No white lateral stripes",
+            "Black, white lateral stripes on ventral surface"
+        };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "","","","","",""
+        };
+
+        public ChalinolobusFurPatternAndColourEnum Key { get; set; }
+
+        public ChalinolobusFurPatternAndColourCharacter(ChalinolobusFurPatternAndColourEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is ChalinolobusFurPatternAndColourCharacter)
+                {
+                    if (Key == ((ChalinolobusFurPatternAndColourCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static ChalinolobusFurPatternAndColourCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (ChalinolobusFurPatternAndColourEnum)promptIndex;
+            return new ChalinolobusFurPatternAndColourCharacter(key);
+        }
+    }
+    public class VespertilionidaeUpperCannesCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeUpperCannesEnum
+        {
+            Undefined,
+            Smooth,
+            Groove
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() {
+            "",
+            "Anterior surface smooth",
+            "Anterior surface with longitudinal groove"
+        };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "",
+            "",
+            ""
+        };
+
+        public VespertilionidaeUpperCannesEnum Key { get; set; }
+
+        public VespertilionidaeUpperCannesCharacter(VespertilionidaeUpperCannesEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeUpperCannesCharacter)
+                {
+                    if (Key == ((VespertilionidaeUpperCannesCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeUpperCannesCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeUpperCannesEnum)promptIndex;
+            return new VespertilionidaeUpperCannesCharacter(key);
+        }
+    }
+    public class VespertilionidaeUpperPreMolarsCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeUpperPreMolarsEnum
+        {
+            Undefined,
+            OnePair,
+            TwoPair,
+            TwoTriplets
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() {
+            "",
+            "1 pair",
+            "2 pairs",
+            "2 triplets"
+        };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "",
+            "pre_molars_one_pair.jpg",
+            "upper_pre_molars_two.jpg",
+            ""
+        };
+
+        public VespertilionidaeUpperPreMolarsEnum Key { get; set; }
+
+        public VespertilionidaeUpperPreMolarsCharacter(VespertilionidaeUpperPreMolarsEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeUpperPreMolarsCharacter)
+                {
+                    if (Key == ((VespertilionidaeUpperPreMolarsCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeUpperPreMolarsCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeUpperPreMolarsEnum)promptIndex;
+            return new VespertilionidaeUpperPreMolarsCharacter(key);
+        }
+    }
+    public class VespertilionidaeTragusShapeCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeTragusShapeEnum
+        {
+            Undefined,
+            Orbicular,
+            OblongLanceolate,
+            Linear
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { 
+            "",
+            "orbicular",
+            "oblong lanceolate",
+            "linear"
+        };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "",
+            "tragus_orbicular.jpg",
+            "tragus_oblong_lanceolate.jpg",
+            "tragus_linear.jpg"
+        };
+
+        public VespertilionidaeTragusShapeEnum Key { get; set; }
+
+        public VespertilionidaeTragusShapeCharacter(VespertilionidaeTragusShapeEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeTragusShapeCharacter)
+                {
+                    if (Key == ((VespertilionidaeTragusShapeCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeTragusShapeCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeTragusShapeEnum)promptIndex;
+            return new VespertilionidaeTragusShapeCharacter(key);
+        }
+    }
+    public class VespertilionidaeUpperIncisorsCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeUpperIncisorsEnum
+        {
+            Undefined, 
+            TwoPairsInequalLargerToothBifid,
+            TwoPairsInequalNeitherBifid,
+            TwoPairsEqualNeitherBifid,
+            TwoPairsEqualBothBifid,
+            OnePair
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "",
+            "2 pairs, inequal size, larger tooth bifid",
+            "2 pairs, inequal size, neither bifid",
+            "2 pairs, ± equal size, neither bifid",
+            "2 pairs, ± equal size, both bifid",
+            "1 pair"
+        };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "",
+            "2_pairs_larger_bifid.jpg",
+            "2_pairs_inequal_size_neither_bifid.jpg",
+            "",
+            "2_pairs_equal_size_both_bifurcate.jpg",
+            "1_pair.jpg"
+        };
+
+        public VespertilionidaeUpperIncisorsEnum Key { get; set; }
+
+        public VespertilionidaeUpperIncisorsCharacter(VespertilionidaeUpperIncisorsEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeUpperIncisorsCharacter)
+                {
+                    if (Key == ((VespertilionidaeUpperIncisorsCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeUpperIncisorsCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeUpperIncisorsEnum)promptIndex;
+            return new VespertilionidaeUpperIncisorsCharacter(key);
+        }
+    }
+    public class VespertilionidaeLowerEarMarginCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeLowerEarMarginEnum
+        {
+            Undefined, NoLobes, SmallLobe
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "No lobes or other appendages", "Small lobe on lower margin and lobe at the corner of the mouth"};
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "lower_ear_margin_without_lobes.jpg",  "lobe-on-lower-margin-and-cnr-mouth.jpg"
+        };
+
+        public VespertilionidaeLowerEarMarginEnum Key { get; set; }
+
+        public VespertilionidaeLowerEarMarginCharacter(VespertilionidaeLowerEarMarginEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeLowerEarMarginCharacter)
+                {
+                    if (Key == ((VespertilionidaeLowerEarMarginCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeLowerEarMarginCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeLowerEarMarginEnum)promptIndex;
+            return new VespertilionidaeLowerEarMarginCharacter(key);
+        }
+    }
+    public class VespertilionidaeNostrilShapeCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeNostrilShapeEnum
+        {
+            Undefined, Flat, Extended
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Flat or with slight rim", "Extended into distinct tubes"};
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "nostrils_flat_slight_rim.jpg",  "nostrils_distinct_tubes.jpg"
+        };
+
+        public VespertilionidaeNostrilShapeEnum Key { get; set; }
+
+        public VespertilionidaeNostrilShapeCharacter(VespertilionidaeNostrilShapeEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeNostrilShapeCharacter)
+                {
+                    if (Key == ((VespertilionidaeNostrilShapeCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeNostrilShapeCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeNostrilShapeEnum)promptIndex;
+            return new VespertilionidaeNostrilShapeCharacter(key);
+        }
+    }
+    public class VespertilionidaeTailMembraneCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeTailMembraneEnum
+        {
+            Undefined, NoFur, Hairy
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Upper surface with sparse fur or naked", "Upper surface with obvious fur" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "tail_membrane_no_fur.jpg",  "tail_membrane_hairy.jpg"
+        };
+
+        public VespertilionidaeTailMembraneEnum Key { get; set; }
+
+        public VespertilionidaeTailMembraneCharacter(VespertilionidaeTailMembraneEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeTailMembraneCharacter)
+                {
+                    if (Key == ((VespertilionidaeTailMembraneCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeTailMembraneCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeTailMembraneEnum)promptIndex;
+            return new VespertilionidaeTailMembraneCharacter(key);
+        }
+    }
+    public class VespertilionidaeMuzzleStructureCharacter : CharacterEnumBase
+    {
+        public enum VespertilionidaeMuzzleStructureEnum
+        {
+            Undefined, Smooth, NotSmooth
+        }
+        public static List<string> Prompts { get; set; } = new List<string>() { "", "Smooth, without bare skin folds ( furred ridge may be present)", "Small transverse, projecting leaf immediately above nostrils" };
+        public static List<string> ImageSources { get; set; } = new List<string>()
+        {
+            "", "muzzle_smooth.jpg",  "muzzle_projecting_leaf_above_nostrils.jpg"
+        };
+
+        public VespertilionidaeMuzzleStructureEnum Key { get; set; }
+
+        public VespertilionidaeMuzzleStructureCharacter(VespertilionidaeMuzzleStructureEnum key)
+        {
+            Key = key;
+        }
+
+        public override bool ExistsIn(List<CharacterBase> Characters)
+        {
+            foreach (var Character in Characters)
+            {
+                if (Character is VespertilionidaeMuzzleStructureCharacter)
+                {
+                    if (Key == ((VespertilionidaeMuzzleStructureCharacter)Character).Key) return true;
+                }
+            }
+            return false;
+        }
+
+        public override string GetPrompt()
+        {
+            return Prompts[(int)Key];
+        }
+
+        internal static VespertilionidaeMuzzleStructureCharacter CreateFromPrompt(string prompt)
+        {
+            var promptIndex = Prompts.IndexOf(prompt);
+            var key = (VespertilionidaeMuzzleStructureEnum)promptIndex;
+            return new VespertilionidaeMuzzleStructureCharacter(key);
+        }
+    }
     public class HiposideridaeFacialFeaturesCharacter : CharacterEnumBase
     {
         public enum HiposideridaeFacialFeaturesEnum
@@ -1146,7 +2027,6 @@ namespace AusBatProtoOneMobileClient.Models
             return new GularPouchFemaleCharacter(key);
         }
     }
-
     public class GularPouchMaleCharacter : CharacterEnumBase
     {
 
