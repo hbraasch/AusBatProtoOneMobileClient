@@ -1,0 +1,206 @@
+{
+  "NodeId": "Molossidae",
+  "KeyIds": [
+    "Forearm",
+    "OuterCanineWidth",
+    "TailLength",
+    "Foot",
+    "Tibia",
+    "PenisLength",
+    "ThreeMet",
+    "FiveMet",
+    "GularPouch",
+    "BothSexesWithFleshyGenitalProjections"
+  ],
+  "Pickers": [
+    {
+      "Id": "GularPouch",
+      "OptionIds": [
+        "Present",
+        "Absent"
+      ],
+      "OptionPrompts": [
+        "Present",
+        "Absent"
+      ]
+    },
+    {
+      "Id": "BothSexesWithFleshyGenitalProjections",
+      "OptionIds": [
+        "Absent",
+        "Present"
+      ],
+      "OptionPrompts": [
+        "Absent",
+        "Present"
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Austronomus australis",
+      "Values": [
+        "57-65",
+        "5.8-6.4",
+        "39-53",
+        "10-12.5",
+        "17-24",
+        "2.8-8.0",
+        "54-59",
+        "29-33",
+        "Present",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Chaerophon jobensis",
+      "Values": [
+        "46-52",
+        "5.6-6.2",
+        "32-38",
+        "8.0-10.0",
+        "14-18",
+        "3.0-8.0",
+        "42-52",
+        "27-32",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Micronomus norfolkensis",
+      "Values": [
+        "35-39",
+        "3.7-4.2",
+        "30-40",
+        "5.9-8.1",
+        "11-12.2",
+        "2.0-3.0",
+        "27-29",
+        "30-37.2",
+        "Absent",
+        "Present"
+      ]
+    },
+    {
+      "NodeId": "Setirostris eleryi",
+      "Values": [
+        "31-36",
+        "2.9-3.8",
+        "27-37",
+        "5.0-7.0",
+        "9.0-12.0",
+        "2.8-4.1",
+        "32-35",
+        "22.6-30",
+        "Absent",
+        "Present"
+      ]
+    },
+    {
+      "NodeId": "Ozimops planiceps",
+      "Values": [
+        "32.2-36.2",
+        "4-4.8",
+        "22-33",
+        "4.2-6.6",
+        "9.9-12.0",
+        "7.8-10.0",
+        "33-38",
+        "24-29",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Ozimops halli",
+      "Values": [
+        "31.1-36",
+        "4.4-4.9",
+        "23-28",
+        "4.5-7.0",
+        "10.4-13.0",
+        "4.0-6.0",
+        "33.5-36.6",
+        "25-28",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Ozimops kitcheneri",
+      "Values": [
+        "32-36",
+        "4.2-4.9",
+        "28-36",
+        "4.3-6.9",
+        "10.6-11.8",
+        "4.0-6.0",
+        "34-38",
+        "24.5-27.5",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Ozimops petersi",
+      "Values": [
+        "31-39",
+        "4-4.9",
+        "24-35",
+        "4.1-6.8",
+        "9.3-12.2",
+        "2.0-5.0",
+        "33-41.2",
+        "33-39",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Ozimops ridei",
+      "Values": [
+        "30-35.3",
+        "3.6-4.6",
+        "18-31",
+        "4.0-7.0",
+        "9.0-13.0",
+        "2.6-5.0",
+        "31-38",
+        "22-29",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Ozimops lumsdenae",
+      "Values": [
+        "35.2-40.4",
+        "4.4-5.6",
+        "24-37",
+        "4.6-7.4",
+        "9.3-14.0",
+        "3.5-4.5",
+        "36.6-42.5",
+        "24-30",
+        "Absent",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Ozimops cobourgianus",
+      "Values": [
+        "32-36.1",
+        "3.7-4.4",
+        "28-36",
+        "3.8-6.0",
+        "9.9-13.2",
+        "3.0-5.0",
+        "34-38",
+        "25-28",
+        "Absent",
+        "Absent"
+      ]
+    }
+  ]
+}

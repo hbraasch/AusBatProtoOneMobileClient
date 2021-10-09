@@ -1,0 +1,48 @@
+{
+  "NodeId": "Rhinolophidae",
+  "KeyIds": [
+    "Forearm",
+    "FifthFinger",
+    "ThreeMet",
+    "Ear"
+  ],
+  "Pickers": [],
+  "NodeRows": [
+    {
+      "NodeId": "Rhinolophus megaphyllus (NSW, Vic)",
+      "Values": [
+        "45-53",
+        "60-68",
+        "33-37",
+        "17-22"
+      ]
+    },
+    {
+      "NodeId": "Rhinolophus megaphyllus (Qld)",
+      "Values": [
+        "44-49",
+        "50-55",
+        "33-37",
+        "17-22"
+      ]
+    },
+    {
+      "NodeId": "Rhinolophus robertsi",
+      "Values": [
+        "52-59",
+        "68-74",
+        "38-44",
+        "29-34"
+      ]
+    },
+    {
+      "NodeId": "Rhinolophus 'intermediate'",
+      "Values": [
+        "50-53",
+        "0-0",
+        "37-40",
+        "25-28"
+      ]
+    }
+  ]
+}

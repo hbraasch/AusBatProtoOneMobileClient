@@ -1,0 +1,129 @@
+{
+  "NodeId": "Vespadelus",
+  "KeyIds": [
+    "Forearm",
+    "Threemet",
+    "Tibia",
+    "FacialSkinPigmentation",
+    "3P1",
+    "3P1ThreeMetRatio"
+  ],
+  "Pickers": [
+    {
+      "Id": "FacialSkinPigmentation",
+      "OptionIds": [
+        "NonePinkToLightBrown",
+        "BrownToBlack",
+        "PinkToYellow",
+        "NonePinkToBrown"
+      ],
+      "OptionPrompts": [
+        "None (pink) to light brown",
+        "Brown to black",
+        "Pink to yellow",
+        "None (pink) to brown"
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Vespadelus baverstocki",
+      "Values": [
+        "26-32",
+        "26-32",
+        "10.5-13.2",
+        "NonePinkToLightBrown",
+        "9.3-11.1",
+        "0.340-0.395"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus caurinus",
+      "Values": [
+        "26-32",
+        "25-32",
+        "10.5-12.5",
+        "BrownToBlack",
+        "9.5-12",
+        "0.32-0.42"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus darlingtoni",
+      "Values": [
+        "32-38",
+        "30-36",
+        "12.1-14.5",
+        "NonePinkToLightBrown",
+        "11.5-14.5",
+        "0.36-0.42"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus douglasorum",
+      "Values": [
+        "34-38",
+        "32-37",
+        "13.5-15.8",
+        "PinkToYellow",
+        "9.8-12",
+        "0.29-0.31"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus finlaysoni",
+      "Values": [
+        "29-38",
+        "29-37",
+        "11-16.5",
+        "BrownToBlack",
+        "10.8-14",
+        "0.34-0.41"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus pumilus",
+      "Values": [
+        "28-34",
+        "27-33",
+        "11.5-14",
+        "BrownToBlack",
+        "10.2-12.5",
+        "0.35-0.39"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus regulus",
+      "Values": [
+        "28-35",
+        "27-33",
+        "11.2-14",
+        "NonePinkToLightBrown",
+        "9.5-12.5",
+        "0.34-0.395"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus troughtoni",
+      "Values": [
+        "32-37",
+        "32-36",
+        "12.5-14.5",
+        "NonePinkToBrown",
+        "11.3-13.8",
+        "0.35-0.39"
+      ]
+    },
+    {
+      "NodeId": "Vespadelus vulturnus",
+      "Values": [
+        "23-33",
+        "24-32",
+        "10.5-13",
+        "NonePinkToLightBrown",
+        "10.3-12.5",
+        "0.396-0.420"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "NodeId": "Chalinolobus",
+  "KeyIds": [
+    "ForearmLength",
+    "ThreeMet",
+    "FurPatternAndColour"
+  ],
+  "Pickers": [
+    {
+      "Id": "FurPatternAndColour",
+      "OptionIds": [
+        "BrownMergingToDarkerFurOverHead",
+        "BlackWhiteStripesVentralSurfaceAlongWingJuncture",
+        "BrownOrGreyBrown",
+        "BlackToGrey",
+        "BlackWhiteStripesVentralSurface"
+      ],
+      "OptionPrompts": [
+        "Brown body, merging to darker fur over the head",
+        "Black, white lateral stripes on ventral surface along wing juncture",
+        "Brown or grey-brown",
+        "Black to grey, often with light frosting. No white lateral stripes",
+        "Black, white lateral stripes on ventral surface"
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Chalinolobus gouldii",
+      "Values": [
+        "35-47",
+        "31-45",
+        "BrownMergingToDarkerFurOverHead"
+      ]
+    },
+    {
+      "NodeId": "Chalinolobus dwyeri",
+      "Values": [
+        "36-45",
+        "36-40",
+        "BlackWhiteStripesVentralSurfaceAlongWingJuncture"
+      ]
+    },
+    {
+      "NodeId": "Chalinolobus morio",
+      "Values": [
+        "33-44",
+        "33-38",
+        "BrownOrGreyBrown"
+      ]
+    },
+    {
+      "NodeId": "Chalinolobus nigrogriseus",
+      "Values": [
+        "31-38",
+        "25-37",
+        "BlackToGrey"
+      ]
+    },
+    {
+      "NodeId": "Chalinolobus picatus",
+      "Values": [
+        "31-38",
+        "30-33",
+        "BlackWhiteStripesVentralSurface"
+      ]
+    }
+  ]
+}

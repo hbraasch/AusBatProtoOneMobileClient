@@ -103,7 +103,12 @@ namespace WinTools
         Table table = new Table();
         private void ParseTable_Click(object sender, EventArgs e)
         {
+            LoadTable();
 
+        }
+
+        private void LoadTable()
+        {
             if (tableBox.Text.Length == 0) MessageBox.Show("There is no table to parse");
 
             var lines = tableBox.Text.Split(Environment.NewLine);
@@ -120,7 +125,6 @@ namespace WinTools
                 tableRows.Add(new Row { Columns = tableColumns });
             }
             table.Rows = tableRows;
-
         }
 
         class Table

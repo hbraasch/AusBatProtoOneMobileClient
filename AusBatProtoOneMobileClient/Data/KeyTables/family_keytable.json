@@ -1,0 +1,135 @@
+{
+  "NodeId": "Family",
+  "KeyIds": [
+    "TailMembraneStructure",
+    "FaceAndNoseleaf",
+    "WingThirdFinger"
+  ],
+  "Pickers": [
+    {
+      "Id": "TailMembraneStructure",
+      "OptionIds": [
+        "Absent",
+        "PresentNotAttached",
+        "PresentFullyEnclosed",
+        "PresentProjectingThrough",
+        "PresentProjectingFree"
+      ],
+      "OptionPrompts": [
+        "Absent, membrane nil or narrow skirt along inner leg margins",
+        "Present, not attached to tail membrane",
+        "Present, fully enclosed in membrane",
+        "Present, projecting through upper surface of tail membrane",
+        "Present, projecting free for >8mm past the tail membrane"
+      ]
+    },
+    {
+      "Id": "FaceAndNoseleaf",
+      "OptionIds": [
+        "None",
+        "LargeComplexHorseShoe",
+        "LargeComplexFlattenned",
+        "SmallTransverseLeaf"
+      ],
+      "OptionPrompts": [
+        "None, face simple ",
+        "Large, complex noseleaf with the lower section horseshoe-shaped",
+        "Large, complex noseleaf flattened square ,oval ",
+        "Small transverse leaf above nostrils"
+      ]
+    },
+    {
+      "Id": "WingThirdFinger",
+      "OptionIds": [
+        "Short",
+        "Long"
+      ],
+      "OptionPrompts": [
+        "Terminal phalange < 3x the length of the second last phalange ",
+        "Terminal phalange > 3x the length of the second last phalange "
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Pteropodidae",
+      "Values": [
+        "Absent",
+        "None",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Pteropodidae (Dobsonia)",
+      "Values": [
+        "PresentNotAttached",
+        "None",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Megadermatidae",
+      "Values": [
+        "Absent",
+        "LargeComplexHorseShoe",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Rhinolophidae",
+      "Values": [
+        "PresentFullyEnclosed",
+        "LargeComplexHorseShoe",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Hipposideridae",
+      "Values": [
+        "PresentFullyEnclosed",
+        "LargeComplexFlattenned",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Vespertilionidae",
+      "Values": [
+        "PresentFullyEnclosed",
+        "None",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Vespertilionidae",
+      "Values": [
+        "PresentFullyEnclosed",
+        "SmallTransverseLeaf",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Miniopteridae",
+      "Values": [
+        "PresentFullyEnclosed",
+        "None",
+        "Long"
+      ]
+    },
+    {
+      "NodeId": "Emballonuridae",
+      "Values": [
+        "PresentProjectingThrough",
+        "None",
+        "Short"
+      ]
+    },
+    {
+      "NodeId": "Molossidae",
+      "Values": [
+        "PresentProjectingFree",
+        "None",
+        "Short"
+      ]
+    }
+  ]
+}

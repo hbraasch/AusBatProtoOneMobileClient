@@ -24,6 +24,18 @@
     <None Remove="Data\FamilyKeyImages\tragus_absent.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_bifurcate.jpg" />
     <None Remove="Data\FamilyKeyImages\tragus_entire.jpg" />
+    <None Remove="Data\KeyTables\chalinolobus_keytable.json" />
+    <None Remove="Data\KeyTables\emballonuridae_keytable.json" />
+    <None Remove="Data\KeyTables\family_keytable.json" />
+    <None Remove="Data\KeyTables\hipposideridae_keytable.json" />
+    <None Remove="Data\KeyTables\miniopteridae_keytable.json" />
+    <None Remove="Data\KeyTables\molossidae_keytable.json" />
+    <None Remove="Data\KeyTables\pipistrellus_keytable.json" />
+    <None Remove="Data\KeyTables\pteropodidae_keytable.json" />
+    <None Remove="Data\KeyTables\rhinolophidae_keytable.json" />
+    <None Remove="Data\KeyTables\scotorepens_keytable.json" />
+    <None Remove="Data\KeyTables\vespadelus_keytable.json" />
+    <None Remove="Data\KeyTables\vespertilionid_keytable.json" />
     <None Remove="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" />
     <None Remove="Data\MuzzleStructure\muzzle_smooth.jpg" />
     <None Remove="Data\NostrilShape\nostrils_distinct_tubes.jpg" />
@@ -591,6 +603,18 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Data\About\about.html" />
+    <EmbeddedResource Include="Data\KeyTables\chalinolobus_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\emballonuridae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\family_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\hipposideridae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\miniopteridae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\molossidae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\pipistrellus_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\pteropodidae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\rhinolophidae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\scotorepens_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\vespadelus_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\vespertilionid_keytable.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_troughtoni_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDetails\macro_minimus.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\aust_aust.html" />

@@ -1,0 +1,105 @@
+{
+  "NodeId": " Hipposideridae",
+  "KeyIds": [
+    "Forearm",
+    "FiveMet",
+    "ThreeMet",
+    "Wingspan",
+    "FacialFeatures"
+  ],
+  "Pickers": [
+    {
+      "Id": "FacialFeatures",
+      "OptionIds": [
+        "Rhino_aur",
+        "Dory_semoni",
+        "Dory_stenotis",
+        "Hipp_ater",
+        "Hipp_cerv",
+        "Hipp_diad",
+        "Hipp_inornat"
+      ],
+      "OptionPrompts": [
+        "Rhino_aur",
+        "Dory_semoni",
+        "Dory_stenotis",
+        "Hipp_ater",
+        "Hipp_cerv",
+        "Hipp_diad",
+        "Hipp_inornat"
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Rhinonicteris aurantia",
+      "Values": [
+        "44-51",
+        "27-40",
+        "33-41",
+        "240-310",
+        "Rhino_aur"
+      ]
+    },
+    {
+      "NodeId": "Doryrhina semoni",
+      "Values": [
+        "43-51",
+        "31-36",
+        "31-37",
+        "265-325",
+        "Dory_semoni"
+      ]
+    },
+    {
+      "NodeId": "Doryrhina stenotis",
+      "Values": [
+        "41-46",
+        "30-32",
+        "30-33",
+        "235-280",
+        "Dory_stenotis"
+      ]
+    },
+    {
+      "NodeId": "Hipposideros ater",
+      "Values": [
+        "34-41",
+        "26-32",
+        "25-31",
+        "220-275",
+        "Hipp_ater"
+      ]
+    },
+    {
+      "NodeId": "Hipposideros cervinus",
+      "Values": [
+        "45-48",
+        "29-33",
+        "31-39",
+        "280-300",
+        "Hipp_cerv"
+      ]
+    },
+    {
+      "NodeId": "Hipposideros diadema",
+      "Values": [
+        "77-86",
+        "53-59",
+        "59-66",
+        "470-520",
+        "Hipp_diad"
+      ]
+    },
+    {
+      "NodeId": "Hipposideros inornatus",
+      "Values": [
+        "68-74",
+        "48-51",
+        "53-57",
+        "380-448",
+        "Hipp_inornat"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "NodeId": "Scotorepens",
+  "KeyIds": [
+    "Forearm",
+    "OuterCanineWidth",
+    "FaTibiaRatio",
+    "Tibia"
+  ],
+  "Pickers": [],
+  "NodeRows": [
+    {
+      "NodeId": "Scotorepens balstoni",
+      "Values": [
+        "31-41",
+        "4.3-5.6",
+        "2.28-2.7",
+        "12-18"
+      ]
+    },
+    {
+      "NodeId": "Scotorepens greyi",
+      "Values": [
+        "27-34.5",
+        "3.9-5.1",
+        "2.15-2.43",
+        "11- 16"
+      ]
+    },
+    {
+      "NodeId": "Scotorepens orion",
+      "Values": [
+        "32-39",
+        "4.9-5.3",
+        "2.50-2.65",
+        "12.5-15"
+      ]
+    },
+    {
+      "NodeId": "Scotorepens sanborni",
+      "Values": [
+        "27-37",
+        "3.9-5.0",
+        "2.10-2.40",
+        "11.1-15.8"
+      ]
+    },
+    {
+      "NodeId": "Scotorepens (Parnaby)",
+      "Values": [
+        "31-34",
+        "4.0-4.9",
+        "2.30-2.60",
+        "12.1-14.9"
+      ]
+    }
+  ]
+}

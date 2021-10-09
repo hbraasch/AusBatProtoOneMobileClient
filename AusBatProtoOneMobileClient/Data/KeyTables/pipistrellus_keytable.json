@@ -1,0 +1,45 @@
+{
+  "NodeId": "Pipistrellus",
+  "KeyIds": [
+    "Forearm",
+    "OuterCanineWidth",
+    "Tragus",
+    "FaTibiaRatio",
+    "Tibia"
+  ],
+  "Pickers": [
+    {
+      "Id": "Tragus",
+      "OptionIds": [
+        "BroadestInMiddle",
+        "BroadestAtBase"
+      ],
+      "OptionPrompts": [
+        "Broadest in middle",
+        "Broadest at base"
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Pipistrellus adamsi",
+      "Values": [
+        "31-41",
+        "3.9-4.4",
+        "BroadestInMiddle",
+        "2.28-2.7",
+        "12-18"
+      ]
+    },
+    {
+      "NodeId": "Pipistrellus westralis",
+      "Values": [
+        "27-35",
+        "3.3-3.8",
+        "BroadestAtBase",
+        "2.15-2.43",
+        "11-16"
+      ]
+    }
+  ]
+}

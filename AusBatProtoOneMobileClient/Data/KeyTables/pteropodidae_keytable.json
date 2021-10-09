@@ -1,0 +1,128 @@
+{
+  "NodeId": "Pteropodidae",
+  "KeyIds": [
+    "Forearm",
+    "HeadPelageAndPatterning",
+    "InnerSurfaceOfLeg",
+    "TailPresentAbsent"
+  ],
+  "Pickers": [
+    {
+      "Id": "HeadPelageAndPatterning",
+      "OptionIds": [
+        "BlackOftenGrizzledFadingToBrown",
+        "BrownOrGrizzled",
+        "BlackPaleTanYeRingsBlackStripeForhead",
+        "LightOrDarkGrizzledGrey",
+        "LightToMidTan",
+        "MidGreySkinOftenTingedYellow",
+        "BlackHairsOftenTippedGrey"
+      ],
+      "OptionPrompts": [
+        "Black, often grizzled, fading to brown around the muzzle and occasional light eye rings.",
+        "Brown or grizzled grey",
+        "Black, often with conspicuous pale tan eye rings. Black stripe down forehead.",
+        "Light or dark grizzled grey",
+        "Light to mid tan",
+        "Mid grey, skin often tinged yellow",
+        "Black, hairs often tipped with grey."
+      ]
+    },
+    {
+      "Id": "InnerSurfaceOfLeg",
+      "OptionIds": [
+        "NarrowMembraneNaked",
+        "NoMembraneHairy"
+      ],
+      "OptionPrompts": [
+        "Narrow membrane present, naked",
+        "No membrane, hairy"
+      ]
+    },
+    {
+      "Id": "TailPresentAbsent",
+      "OptionIds": [
+        "Absent",
+        "Present"
+      ],
+      "OptionPrompts": [
+        "Absent",
+        "Present"
+      ]
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Pteropus alecto",
+      "Values": [
+        "153-191",
+        "BlackOftenGrizzledFadingToBrown",
+        "NarrowMembraneNaked",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Pteropus scapulatus",
+      "Values": [
+        "116-140",
+        "BrownOrGrizzled",
+        "NarrowMembraneNaked",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Pteropus conspicillatus",
+      "Values": [
+        "150-183",
+        "BlackPaleTanYeRingsBlackStripeForhead",
+        "NarrowMembraneNaked",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Pteropus poliocephalus",
+      "Values": [
+        "151-177",
+        "LightOrDarkGrizzledGrey",
+        "NarrowMembraneNaked",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Syconycteris australis",
+      "Values": [
+        "38-43",
+        "LightToMidTan",
+        "NoMembraneHairy",
+        "Absent"
+      ]
+    },
+    {
+      "NodeId": "Macroglossus minimus",
+      "Values": [
+        "38-43",
+        "LightToMidTan",
+        "NarrowMembraneNaked",
+        "Present"
+      ]
+    },
+    {
+      "NodeId": "Nyctimene robinsoni",
+      "Values": [
+        "65-69",
+        "MidGreySkinOftenTingedYellow",
+        "NarrowMembraneNaked",
+        "Present"
+      ]
+    },
+    {
+      "NodeId": "Pteropus natalis",
+      "Values": [
+        "110-140",
+        "BlackHairsOftenTippedGrey",
+        "NarrowMembraneNaked",
+        "Absent"
+      ]
+    }
+  ]
+}
