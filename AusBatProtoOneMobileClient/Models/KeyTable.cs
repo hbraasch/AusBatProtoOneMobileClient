@@ -1,4 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using AusBatProtoOneMobileClient.Helpers;
+using Mobile.Helpers;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 
 namespace AusBatProtoOneMobileClient.Models
 {
@@ -15,7 +21,38 @@ namespace AusBatProtoOneMobileClient.Models
 
         public static KeyTable Load(string filename)
         {
+            try
+            {
+                using (Stream stream = FileHelper.GetStreamFromFile($"Data.KeyTables.{filename.ToLower()}_keytable.json"))
+                {
+                    if (stream == null)
+                    {
+                        Debug.WriteLine($"KeyTable for [{filename}] does not exist");
+                        return new KeyTable();
+                    }
 
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string keyTableJson = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(keyTableJson))
+                        {
+                            throw new BusinessException($"No data inside keytable file for [{filename}]");
+                        }
+                        try
+                        {
+                            return JsonConvert.DeserializeObject<KeyTable>(keyTableJson);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            throw new BusinessException($"Problem parsing keytable file for [{filename}]. {ex.Message}");
+                        };
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading keytable file for [{filename}]. {ex.Message}");
+            }
         }
     }
 

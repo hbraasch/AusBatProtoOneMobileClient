@@ -97,16 +97,7 @@ namespace AusBatProtoOneMobileClient.Models
                 #endregion
 
                 #region *// Family/Genus/Species
-                dbase.Classifications.Add(new Classification { Id = "Pteropodidae", Type = Classification.ClassificationType.Family, 
-                    Characters = new List<CharacterBase> {  
-                        new TailPresentCharacter(TailPresentCharacter.TailPresentEnum.Absent), 
-                        new TailMembraneStructureCharacter(TailMembraneStructureCharacter.TailMembraneStructureEnum.Absent),
-                        new SecondFingerClawCharacter(SecondFingerClawCharacter.SecondFingerClawEnum.Present),
-                        new FaceStructureNoseLeafCharacter(FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.None),
-                        new WingThirdFingerCharacter(WingThirdFingerCharacter.WingThirdFingerEnum.Short),
-                        new TragusCharacter(TragusCharacter.TragusEnum.Absent)
-                    },
-                });
+                dbase.Classifications.Add(new Classification { Id = "Pteropodidae", Type = Classification.ClassificationType.Family, Characters = Keys.Current.GenerateCharacters("Pteropodidae")});
                 dbase.Classifications.Add(new Classification { Id = "Macroglossus", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
                 dbase.Classifications.Add(new Classification { Id = "Minimus", Type = Classification.ClassificationType.Species, Parent = "Macroglossus" });
                 dbase.Classifications.Add(new Classification { Id = "Nyctimene", Type = Classification.ClassificationType.Genus, Parent = "Pteropodidae" });
