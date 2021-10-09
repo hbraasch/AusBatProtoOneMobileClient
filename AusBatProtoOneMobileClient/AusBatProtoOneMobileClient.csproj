@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Compile Remove="Helpers\EnumBase.cs" />
+    <Compile Remove="ViewModels\GenusKeyPageViewModel.cs" />
+    <Compile Remove="Views\GenusKeyPage.cs" />
     <Compile Remove="Views\SearchResultsTabPage.cs" />
   </ItemGroup>
 

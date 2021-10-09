@@ -27,27 +27,8 @@ namespace AusBatProtoOneMobileClient.Data
         public List<string> CallImages { get; set; } = new List<string>();
         public List<MapRegion> MapRegions { get; set; } = new List<MapRegion>();
         public string DistributionMapImage { get; set; }
-        public SpeciesCharacteristics Characteristics { get; set; } = new SpeciesCharacteristics();
-        public class SpeciesCharacteristics
-        {
-            public FloatRange ForeArmLength { get; set; } = FloatRange.GetRandom(57, 65);
-            public FloatRange OuterCanineWidth { get; set; } = FloatRange.GetRandom(5.8f, 6.4f);
-            public FloatRange TailLength { get; set; } = FloatRange.GetRandom(39, 52);
-            public FloatRange FootWithClawLength { get; set; } = FloatRange.GetRandom(10, 12.5f);
-            public FloatRange TibiaLength { get; set; } = FloatRange.GetRandom(20, 24);
-            public FloatRange PenisLength { get; set; } = FloatRange.GetRandom(3.0f, 4.0f);
-            public FloatRange HeadToBodyLength { get; set; } = FloatRange.GetRandom(75, 87);
-            public FloatRange Weight { get; set; } = FloatRange.GetRandom(30, 48);
-            public FloatRange ThreeMet { get; set; } = FloatRange.GetRandom(33, 40);
-            public IsCharacteristicPresent IsGularPoachPresent { get; set; } = GetRandomIsPresent();
-            public IsCharacteristicPresent BothSexesHasFleshyGenitalProjections { get; set; } = GetRandomIsPresent();
-        }
 
-        public static IsCharacteristicPresent GetRandomIsPresent()
-        {
-            System.Random random = new System.Random();
-            return (random.NextDouble() > 0.5) ? IsCharacteristicPresent.Is_present : IsCharacteristicPresent.Is_not_present;
-        }
+
 
         internal void LoadDetails()
         {
@@ -165,14 +146,6 @@ namespace AusBatProtoOneMobileClient.Data
             var batFamilyId = dbase.Classifications.FirstOrDefault(o => o.Id == GenusId).Parent;
             return dbase.Classifications.FirstOrDefault(o => o.Id == batFamilyId);
         }
-    }
-
-
-
-
-    public class CallDataItem
-    {
-        public string CallAudioImageFilename { get; set; }
     }
 
     public enum IsCharacteristicPresent
