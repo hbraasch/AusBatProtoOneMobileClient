@@ -1,5 +1,5 @@
 {
-  "GenusId": "Pipistrellus",
+  "GenusId": "pipistrellus",
   "SpeciesId": "westralis",
   "Name": "Northern Pipistrelle",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "pip_west2.jpg",
     "pip_west3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "pip_west.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "pipistrellus_westralis.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 53.252354,
-      "Max": 63.889694
-    },
-    "OuterCanineWidth": {
-      "Min": 5.7303987,
-      "Max": 6.294205
-    },
-    "TailLength": {
-      "Min": 41.327267,
-      "Max": 57.153767
-    },
-    "FootWithClawLength": {
-      "Min": 10.825171,
-      "Max": 12.702869
-    },
-    "TibiaLength": {
-      "Min": 19.082756,
-      "Max": 24.897951
-    },
-    "PenisLength": {
-      "Min": 2.7761643,
-      "Max": 4.3312073
-    },
-    "HeadToBodyLength": {
-      "Min": 74.96536,
-      "Max": 84.39041
-    },
-    "Weight": {
-      "Min": 38.992805,
-      "Max": 55.806995
-    },
-    "ThreeMet": {
-      "Min": 31.947475,
-      "Max": 43.179523
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "pipistrellus_westralis_dist.jpg"
 }

@@ -1,5 +1,5 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "walkeri",
   "Name": "Pygmy Long-eared Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "nyct_walkeri2.jpg",
     "nyct_walkeri3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "nyct_walkeri.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "nyctophilus_walkeri.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 53.099022,
-      "Max": 64.96097
-    },
-    "OuterCanineWidth": {
-      "Min": 5.623497,
-      "Max": 6.2167416
-    },
-    "TailLength": {
-      "Min": 37.89474,
-      "Max": 52.08148
-    },
-    "FootWithClawLength": {
-      "Min": 10.986761,
-      "Max": 11.75946
-    },
-    "TibiaLength": {
-      "Min": 18.406483,
-      "Max": 25.43065
-    },
-    "PenisLength": {
-      "Min": 3.258144,
-      "Max": 4.172154
-    },
-    "HeadToBodyLength": {
-      "Min": 79.56509,
-      "Max": 87.06412
-    },
-    "Weight": {
-      "Min": 35.70659,
-      "Max": 41.970478
-    },
-    "ThreeMet": {
-      "Min": 35.577785,
-      "Max": 38.61351
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "nyctophilus_walkeri_dist.jpg"
 }

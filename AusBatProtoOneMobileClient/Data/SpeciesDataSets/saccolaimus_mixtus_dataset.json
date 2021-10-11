@@ -1,5 +1,5 @@
 {
-  "GenusId": "Saccolaimus",
+  "GenusId": "saccolaimus",
   "SpeciesId": "mixtus",
   "Name": "Cape York Sheath-tailed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "sacc_mixtus2.jpg",
     "sacc_mixtus3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "sacc_mixtus.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "saccolaimus_mixtus.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 59.281353,
-      "Max": 64.004395
-    },
-    "OuterCanineWidth": {
-      "Min": 5.9814897,
-      "Max": 6.338498
-    },
-    "TailLength": {
-      "Min": 43.374485,
-      "Max": 50.173195
-    },
-    "FootWithClawLength": {
-      "Min": 9.446313,
-      "Max": 13.463901
-    },
-    "TibiaLength": {
-      "Min": 21.377157,
-      "Max": 24.908417
-    },
-    "PenisLength": {
-      "Min": 3.4527385,
-      "Max": 3.8856006
-    },
-    "HeadToBodyLength": {
-      "Min": 80.65287,
-      "Max": 85.9093
-    },
-    "Weight": {
-      "Min": 27.988682,
-      "Max": 39.12856
-    },
-    "ThreeMet": {
-      "Min": 30.742111,
-      "Max": 41.92028
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "saccolaimus_mixtus_dist.jpg"
 }

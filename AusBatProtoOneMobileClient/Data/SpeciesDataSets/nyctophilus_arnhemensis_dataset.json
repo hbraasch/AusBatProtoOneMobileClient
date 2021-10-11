@@ -1,5 +1,5 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "arnhemensis",
   "Name": "Northern Long-eared Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "nyct_arnhem2.jpg",
     "nyct_arnhem3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "nyct_arnhem.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "nyctophilus_arnhemensis.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 60.87085,
-      "Max": 64.3241
-    },
-    "OuterCanineWidth": {
-      "Min": 5.8312073,
-      "Max": 6.221728
-    },
-    "TailLength": {
-      "Min": 39.376633,
-      "Max": 46.245205
-    },
-    "FootWithClawLength": {
-      "Min": 9.424623,
-      "Max": 13.044112
-    },
-    "TibiaLength": {
-      "Min": 20.693605,
-      "Max": 24.265343
-    },
-    "PenisLength": {
-      "Min": 3.3486934,
-      "Max": 4.2066274
-    },
-    "HeadToBodyLength": {
-      "Min": 77.85384,
-      "Max": 82.79836
-    },
-    "Weight": {
-      "Min": 34.48318,
-      "Max": 40.142147
-    },
-    "ThreeMet": {
-      "Min": 36.225647,
-      "Max": 43.270798
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "nyctophilus_arnhemensis_dist.jpg"
 }

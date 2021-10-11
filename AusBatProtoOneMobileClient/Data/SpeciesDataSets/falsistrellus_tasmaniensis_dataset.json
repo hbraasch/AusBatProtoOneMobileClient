@@ -1,5 +1,5 @@
 {
-  "GenusId": "Falsistrellus",
+  "GenusId": "falsistrellus",
   "SpeciesId": "tasmaniensis",
   "Name": "Eastern False Pipistrelle",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "falsi_tasman2.jpg",
     "falsi_tasman3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "falsi_tasman.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "falsistrellus_tasmaniensis.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 55.529633,
-      "Max": 64.08766
-    },
-    "OuterCanineWidth": {
-      "Min": 5.568212,
-      "Max": 6.3829412
-    },
-    "TailLength": {
-      "Min": 41.615143,
-      "Max": 47.98604
-    },
-    "FootWithClawLength": {
-      "Min": 8.8295965,
-      "Max": 13.152314
-    },
-    "TibiaLength": {
-      "Min": 20.606525,
-      "Max": 22.8375
-    },
-    "PenisLength": {
-      "Min": 3.4086926,
-      "Max": 4.0695386
-    },
-    "HeadToBodyLength": {
-      "Min": 78.76481,
-      "Max": 81.39664
-    },
-    "Weight": {
-      "Min": 31.995707,
-      "Max": 44.990097
-    },
-    "ThreeMet": {
-      "Min": 33.75568,
-      "Max": 38.242508
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "falsistrellus_tasmaniensis_dist.jpg"
 }

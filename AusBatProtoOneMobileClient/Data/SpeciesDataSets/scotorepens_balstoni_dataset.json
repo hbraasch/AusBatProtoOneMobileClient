@@ -1,5 +1,5 @@
 {
-  "GenusId": "Scotorepens",
+  "GenusId": "scotorepens",
   "SpeciesId": "balstoni",
   "Name": "Inland Broad-nosed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "scot_balst2.jpg",
     "scot_balst3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "scot_balst.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "scotorepens_balstoni.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 53.982224,
-      "Max": 66.717384
-    },
-    "OuterCanineWidth": {
-      "Min": 5.7003736,
-      "Max": 6.103553
-    },
-    "TailLength": {
-      "Min": 34.88171,
-      "Max": 51.21478
-    },
-    "FootWithClawLength": {
-      "Min": 10.328765,
-      "Max": 12.481088
-    },
-    "TibiaLength": {
-      "Min": 20.651964,
-      "Max": 25.660246
-    },
-    "PenisLength": {
-      "Min": 3.122769,
-      "Max": 4.2053037
-    },
-    "HeadToBodyLength": {
-      "Min": 79.44918,
-      "Max": 91.76621
-    },
-    "Weight": {
-      "Min": 27.291967,
-      "Max": 49.655132
-    },
-    "ThreeMet": {
-      "Min": 29.904491,
-      "Max": 42.62718
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "scotorepens_balstoni_dist.jpg"
 }

@@ -1,5 +1,5 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "major tor",
   "Name": "Central Long-eared Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "nyct_major_tor2.jpg",
     "nyct_major_tor3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "nyct_major_tor.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "nyctophilus_major tor.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 59.37287,
-      "Max": 66.9041
-    },
-    "OuterCanineWidth": {
-      "Min": 5.6871533,
-      "Max": 6.4292173
-    },
-    "TailLength": {
-      "Min": 41.113594,
-      "Max": 55.124336
-    },
-    "FootWithClawLength": {
-      "Min": 9.821045,
-      "Max": 12.497062
-    },
-    "TibiaLength": {
-      "Min": 21.683908,
-      "Max": 22.49555
-    },
-    "PenisLength": {
-      "Min": 3.3891804,
-      "Max": 4.322399
-    },
-    "HeadToBodyLength": {
-      "Min": 76.569,
-      "Max": 86.62009
-    },
-    "Weight": {
-      "Min": 35.77171,
-      "Max": 43.982452
-    },
-    "ThreeMet": {
-      "Min": 33.15256,
-      "Max": 39.092754
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "nyctophilus_major tor_dist.jpg"
 }

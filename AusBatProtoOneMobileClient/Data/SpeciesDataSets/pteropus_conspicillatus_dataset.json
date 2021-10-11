@@ -1,5 +1,5 @@
 {
-  "GenusId": "Pteropus",
+  "GenusId": "pteropus",
   "SpeciesId": "conspicillatus",
   "Name": "Spectacled Flying-fox",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "pterop_conspic2.jpg",
     "pterop_conspic3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "pterop_conspic.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "pteropus_conspicillatus.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 55.58575,
-      "Max": 67.39767
-    },
-    "OuterCanineWidth": {
-      "Min": 5.8295107,
-      "Max": 6.427641
-    },
-    "TailLength": {
-      "Min": 39.29491,
-      "Max": 47.853302
-    },
-    "FootWithClawLength": {
-      "Min": 10.062539,
-      "Max": 13.566543
-    },
-    "TibiaLength": {
-      "Min": 20.153824,
-      "Max": 24.301092
-    },
-    "PenisLength": {
-      "Min": 3.0189006,
-      "Max": 4.464047
-    },
-    "HeadToBodyLength": {
-      "Min": 78.69059,
-      "Max": 81.9072
-    },
-    "Weight": {
-      "Min": 24.418667,
-      "Max": 44.42559
-    },
-    "ThreeMet": {
-      "Min": 33.653248,
-      "Max": 40.198162
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "pteropus_conspicillatus_dist.jpg"
 }

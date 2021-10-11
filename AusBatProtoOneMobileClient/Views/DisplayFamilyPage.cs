@@ -14,7 +14,6 @@ namespace DocGenOneMobileClient.Views
         bool isFirstAppearance = true; 
         DisplayFamilyPageViewModel viewModel;
         MenuGenerator menu;
-        ImageButton actionButton;
 
         public DisplayFamilyPage(DisplayFamilyPageViewModel viewModel) : base(viewModel)
         {
@@ -29,12 +28,8 @@ namespace DocGenOneMobileClient.Views
             };
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(DisplayFamilyPageViewModel.DisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(DisplayFamilyPageViewModel.SelectedItem), BindingMode.TwoWay));
-            listView.ItemTapped += (s, e) => {  };
+            listView.ItemTapped += (s, e) => { viewModel.OnSelectMenuPressed.Execute(true); };
             listView.ItemTemplate = new FamilyKeyDataTemplateSelector();
-
-            actionButton = new ImageButton { Source = "ic_select.png", BackgroundColor = Color.Transparent };
-            actionButton.Clicked += (s,e) => { viewModel.OnSelectMenuPressed.Execute(true); };
-            actionButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(DisplayFamilyPageViewModel.IsSelected), BindingMode.TwoWay));
 
             var listViewLayout = new ScrollView
             {

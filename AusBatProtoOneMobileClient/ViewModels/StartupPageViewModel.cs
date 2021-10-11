@@ -1,5 +1,6 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.Models.Touch;
 using DocGenOneMobileClient.Views;
 using Mobile.Helpers;
 using Mobile.Models;
@@ -181,7 +182,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new FamilyKeyPageViewModel();
+                var viewModel = new FamilyKeyPageViewModel(KeyTreeFilter.Current.GetFilterResetNodes(), new List<int>());
                 var page = new FamilyKeyPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }

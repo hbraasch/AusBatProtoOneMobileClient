@@ -28,25 +28,4 @@ namespace WinToolsTwo
         public List<string> OptionPrompts { get; set; } = new List<string>();
     }
 
-    public class Character { 
-        public string Id { get; set; }
-    }
-    public class OptionsCharacter: Character
-    {
-        public class Option
-        {
-            public string Id { get; set; }
-            public string Prompt { get; set; }
-        }
-
-        public List<Option> Options { get; set; }
-        public string Value { get; set; }
-
-    }
-
-    public class NumericCharacter: Character
-    {
-        public string Min { get; set; }
-        public string Max { get; set; }
-    }
 }

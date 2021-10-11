@@ -1,5 +1,5 @@
 {
-  "GenusId": "Ozimops",
+  "GenusId": "ozimops",
   "SpeciesId": "cobourgianus",
   "Name": "Western Little Free-tailed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "ozi_coburg2.jpg",
     "ozi_coburg3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "ozi_coburg.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "ozimops_cobourgianus.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 60.728703,
-      "Max": 64.7922
-    },
-    "OuterCanineWidth": {
-      "Min": 6.064049,
-      "Max": 6.5495267
-    },
-    "TailLength": {
-      "Min": 35.01756,
-      "Max": 52.768307
-    },
-    "FootWithClawLength": {
-      "Min": 9.8361635,
-      "Max": 11.522963
-    },
-    "TibiaLength": {
-      "Min": 20.501276,
-      "Max": 24.898375
-    },
-    "PenisLength": {
-      "Min": 3.1692495,
-      "Max": 4.2876735
-    },
-    "HeadToBodyLength": {
-      "Min": 77.42242,
-      "Max": 82.61267
-    },
-    "Weight": {
-      "Min": 38.481705,
-      "Max": 44.15482
-    },
-    "ThreeMet": {
-      "Min": 35.647686,
-      "Max": 37.393726
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "ozimops_cobourgianus_dist.jpg"
 }

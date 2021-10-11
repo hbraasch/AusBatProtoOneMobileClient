@@ -25,15 +25,18 @@ namespace AusBatProtoOneMobileClient.Data
         public string DataTag { get; set; }
         public List<string> Images { get; set; } = new List<string>();
         public List<string> CallImages { get; set; } = new List<string>();
-        public List<MapRegion> MapRegions { get; set; } = new List<MapRegion>();
-        public string DistributionMapImage { get; set; }
-
-
+        public List<int> RegionIds { get; set; } = new List<int>();
+        public string DistributionMapImage => $"{GenusId}_{SpeciesId}_dist.jpg".ToLower();
 
         internal void LoadDetails()
         {
             try
             {
+                if (DataTag == null)
+                {
+                    Debug.WriteLine($"Cannot load detail file for species[{GenusId} {SpeciesId}]. DataTag value is null");
+                    return;
+                }
                 using (Stream stream = FileHelper.GetStreamFromFile($"Data.SpeciesDetails.{DataTag.ToLower()}.html"))
                 {
                     if (stream == null)
@@ -59,27 +62,37 @@ namespace AusBatProtoOneMobileClient.Data
                 throw new BusinessException($"Problem reading details file for [{DataTag}]. {ex.Message}");
             }
         }
-
         internal async Task LoadImages()
         {
-            var postFixes = new List<string> { "_head.jpg", "2.jpg", "3.jpg" };
-            foreach (var postFix in postFixes)
+            if (DataTag == null)
             {
-                var imageName = $"{DataTag.ToLower()}{postFix}";
-                if (await ImageChecker.DoesImageExist(imageName))
+                Debug.WriteLine($"Cannot set image data species[{GenusId} {SpeciesId}]. DataTag value is null");
+                return;
+            }
+            var toRemoveImages = new List<string>();
+            foreach (var imageName in Images)
+            {
+                if (!await ImageChecker.DoesImageExist(imageName))
                 {
-                    Images.Add(imageName);
+                    toRemoveImages.Add(imageName);
                 }
             }
+            toRemoveImages.ForEach(o => Images.Remove(o));
+
             if (Images.Count == 0)
             {
                 Debug.WriteLine($"No images exist for[{DataTag}]");
                 Images.Add("bat.png");
             }
         }
-
         internal async Task LoadCalls()
         {
+            if (DataTag == null)
+            {
+                Debug.WriteLine($"Cannot set call data for species[{GenusId} {SpeciesId}]. DataTag value is null");
+                return;
+            }
+
             var imageName = $"{DataTag.ToLower()}_call_image.jpg";
             if (await ImageChecker.DoesImageExist(imageName))
             {
@@ -90,11 +103,15 @@ namespace AusBatProtoOneMobileClient.Data
                 Debug.WriteLine($"No call images exist for[{DataTag}]");
             }
         }
-
-        internal void LoadRegions(Dbase dbase)
+        internal void LoadRegions(List<MapRegion> mapRegions)
         {
             try
             {
+                if (DataTag == null)
+                {
+                    Debug.WriteLine($"Cannot load regions file for species[{GenusId} {SpeciesId}]. DataTag value is null");
+                    return;
+                }
                 var regionFilename = $"Data.SpeciesRegions.{DataTag.ToLower()}_regions.json";
                 using (Stream stream = FileHelper.GetStreamFromFile(regionFilename))
                 {
@@ -116,13 +133,13 @@ namespace AusBatProtoOneMobileClient.Data
                             var regionIds = JsonConvert.DeserializeObject<List<int>>(regionsJson);
                             foreach (var regionId in regionIds)
                             {
-                                var mapRegion = dbase.MapRegions.FirstOrDefault(o=>o.Id == regionId);
+                                var mapRegion = mapRegions.FirstOrDefault(o=>o.Id == regionId);
                                 if (mapRegion == null)
                                 {
                                     throw new BusinessException($"Data inside [{DataTag}] regions file refers to non-existing region [{regionId}]");
                                 }
-                                MapRegions.Add(mapRegion);
                             }
+                            RegionIds = regionIds;
                         }
                         catch (Exception ex)
                         {
@@ -136,22 +153,11 @@ namespace AusBatProtoOneMobileClient.Data
                 throw new BusinessException($"Problem reading details file for [{DataTag}]. {ex.Message}");
             }
         }
-
-        public void SetDistributionMapFilename()
-        {
-            DistributionMapImage = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}.jpg";
-        }
         internal Classification GetFamily(Dbase dbase)
         {
             var batFamilyId = dbase.Classifications.FirstOrDefault(o => o.Id == GenusId).Parent;
             return dbase.Classifications.FirstOrDefault(o => o.Id == batFamilyId);
         }
     }
-
-    public enum IsCharacteristicPresent
-    {
-        Is_present, Is_not_present, Do_not_care
-    }
-
 
 }

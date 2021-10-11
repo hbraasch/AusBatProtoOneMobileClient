@@ -1,5 +1,5 @@
 {
-  "GenusId": "Ozimops",
+  "GenusId": "ozimops",
   "SpeciesId": "lumsdenae",
   "Name": "Northern Free-tail Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "ozi_lumsd2.jpg",
     "ozi_lumsd3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "ozi_lumsd.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "ozimops_lumsdenae.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 56.065613,
-      "Max": 67.60505
-    },
-    "OuterCanineWidth": {
-      "Min": 5.9070463,
-      "Max": 6.232649
-    },
-    "TailLength": {
-      "Min": 42.51713,
-      "Max": 53.785976
-    },
-    "FootWithClawLength": {
-      "Min": 8.847436,
-      "Max": 13.000602
-    },
-    "TibiaLength": {
-      "Min": 19.001827,
-      "Max": 23.731413
-    },
-    "PenisLength": {
-      "Min": 3.231338,
-      "Max": 3.9216237
-    },
-    "HeadToBodyLength": {
-      "Min": 70.52117,
-      "Max": 83.29943
-    },
-    "Weight": {
-      "Min": 33.806065,
-      "Max": 39.750683
-    },
-    "ThreeMet": {
-      "Min": 32.611378,
-      "Max": 42.997627
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "ozimops_lumsdenae_dist.jpg"
 }

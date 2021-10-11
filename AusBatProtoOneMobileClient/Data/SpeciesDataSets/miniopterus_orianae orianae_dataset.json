@@ -1,5 +1,5 @@
 {
-  "GenusId": "Miniopterus",
+  "GenusId": "miniopterus",
   "SpeciesId": "orianae orianae",
   "Name": "Northern Bent-winged Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "mini_or_orianae2.jpg",
     "mini_or_orianae3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "mini_or_orianae.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "miniopterus_orianae orianae.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 57.18829,
-      "Max": 67.597084
-    },
-    "OuterCanineWidth": {
-      "Min": 5.9150558,
-      "Max": 6.522287
-    },
-    "TailLength": {
-      "Min": 42.932617,
-      "Max": 53.134308
-    },
-    "FootWithClawLength": {
-      "Min": 10.02477,
-      "Max": 12.585524
-    },
-    "TibiaLength": {
-      "Min": 21.13727,
-      "Max": 22.77469
-    },
-    "PenisLength": {
-      "Min": 2.874636,
-      "Max": 3.9660108
-    },
-    "HeadToBodyLength": {
-      "Min": 69.88072,
-      "Max": 84.80628
-    },
-    "Weight": {
-      "Min": 36.77996,
-      "Max": 54.941578
-    },
-    "ThreeMet": {
-      "Min": 32.92482,
-      "Max": 40.026134
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "miniopterus_orianae orianae_dist.jpg"
 }

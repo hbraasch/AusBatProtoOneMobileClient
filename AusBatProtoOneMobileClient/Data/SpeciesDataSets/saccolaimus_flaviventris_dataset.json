@@ -1,5 +1,5 @@
 {
-  "GenusId": "Saccolaimus",
+  "GenusId": "saccolaimus",
   "SpeciesId": "flaviventris",
   "Name": "Yellow-bellied Sheath-tailed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "sacc_flav2.jpg",
     "sacc_flav3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "sacc_flav.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "saccolaimus_flaviventris.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 59.789986,
-      "Max": 62.494846
-    },
-    "OuterCanineWidth": {
-      "Min": 6.021783,
-      "Max": 6.544036
-    },
-    "TailLength": {
-      "Min": 37.199963,
-      "Max": 48.191757
-    },
-    "FootWithClawLength": {
-      "Min": 9.277556,
-      "Max": 12.200948
-    },
-    "TibiaLength": {
-      "Min": 20.254093,
-      "Max": 24.12189
-    },
-    "PenisLength": {
-      "Min": 3.0560627,
-      "Max": 3.8976943
-    },
-    "HeadToBodyLength": {
-      "Min": 76.65221,
-      "Max": 86.78574
-    },
-    "Weight": {
-      "Min": 28.733816,
-      "Max": 51.262146
-    },
-    "ThreeMet": {
-      "Min": 36.278645,
-      "Max": 42.12674
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "saccolaimus_flaviventris_dist.jpg"
 }

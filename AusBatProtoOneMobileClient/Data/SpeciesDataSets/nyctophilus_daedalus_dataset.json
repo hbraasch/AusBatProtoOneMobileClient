@@ -1,5 +1,5 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "daedalus",
   "Name": "Pallid Long-eared Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "nyct_daed2.jpg",
     "nyct_daed3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "nyct_daed.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "nyctophilus_daedalus.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 53.68489,
-      "Max": 61.786575
-    },
-    "OuterCanineWidth": {
-      "Min": 5.652385,
-      "Max": 6.674732
-    },
-    "TailLength": {
-      "Min": 32.70667,
-      "Max": 53.060352
-    },
-    "FootWithClawLength": {
-      "Min": 9.667052,
-      "Max": 13.296199
-    },
-    "TibiaLength": {
-      "Min": 20.439442,
-      "Max": 25.488338
-    },
-    "PenisLength": {
-      "Min": 3.3409047,
-      "Max": 3.7810078
-    },
-    "HeadToBodyLength": {
-      "Min": 76.134155,
-      "Max": 87.12177
-    },
-    "Weight": {
-      "Min": 34.626686,
-      "Max": 46.14077
-    },
-    "ThreeMet": {
-      "Min": 34.0156,
-      "Max": 40.709564
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "nyctophilus_daedalus_dist.jpg"
 }

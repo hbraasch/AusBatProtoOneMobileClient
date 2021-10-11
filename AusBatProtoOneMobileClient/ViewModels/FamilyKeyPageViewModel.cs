@@ -16,133 +16,50 @@ using Mobile.Helpers;
 using TreeApp.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.Data;
+using static AusBatProtoOneMobileClient.Models.KeyTree;
+using AusBatProtoOneMobileClient.Models.Touch;
 
 namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-        public ObservableCollection<MapRegion> MapRegions { get; set; } = new ObservableCollection<MapRegion>();
+        public List<KeyTreeNode> CurrentKeyTreeNodes = new List<KeyTreeNode>();
+        public List<int> CurrentRegionIds { get; set; } = new List<int>();
         public abstract class CharacterDisplayItemBase
         {
-            public int Id { get; set; }
+            public virtual string Prompt { get; set; }
             public int DisplayOrder { get; set; }
             public Action<CharacterDisplayItemBase> OnChanged { get; set; }
-            public abstract List<Classification> ConductSearch(List<Classification> source);
-        }
-        public class TailPresentCharacterDisplayItem : CharacterDisplayItemBase
-        {
-            public string Description { get; set; } = "Tail present/absent";
 
-            public TailPresentCharacter Value { get; set; }
-            public List<string> Values { get; set; } = TailPresentCharacter.Prompts;
-            public List<string> ImageSources { get; set; } = TailPresentCharacter.ImageSources;
-
-            public override List<Classification> ConductSearch(List<Classification> source)
+            internal List<KeyTreeNode> ConductSearch(List<KeyTreeNode> currentKeyTreeNodes)
             {
-                var result = new List<Classification>();
-                if (Value.Key == TailPresentCharacter.TailPresentEnum.Undefined) return source;
-                foreach (var family in source)
-                {
-                    if (Value.ExistsIn(family.Characters)) result.Add(family);
-                }
-                return result;
+                throw new NotImplementedException();
             }
-
         }
-        public class TailMembraneStructureCharacterDisplayItem : CharacterDisplayItemBase
+        public class PickerDisplayItem : CharacterDisplayItemBase
         {
-            public string Description { get; set; } = "Tail/Membrane structure";
-            public TailMembraneStructureCharacter Value { get; set; }
-            public List<string> Values { get; set; } = TailMembraneStructureCharacter.Prompts;
-
-            public override List<Classification> ConductSearch(List<Classification> source)
-            {
-                var result = new List<Classification>();
-                if (Value.Key == TailMembraneStructureCharacter.TailMembraneStructureEnum.Undefined) return source;
-                foreach (var family in source)
-                {
-                    if (Value.ExistsIn(family.Characters)) result.Add(family);
-                }
-                return result;
-            }
-
+            public string SelectedOptionId { get; set; }
+            public List<string> Options { get; set; }
+            public List<string> ImageSources { get; set; }
+            public PickerCharacter Content { get; set; }
         }
-        public class SecondFingerClawCharacterDisplayItem : CharacterDisplayItemBase
+        public class NumericDisplayItem : CharacterDisplayItemBase
         {
-            public string Description { get; set; } = "Second finger claw";
-            public SecondFingerClawCharacter Value { get; set; }
-            public List<string> Values { get; set; } = SecondFingerClawCharacter.Prompts;
-
-            public override List<Classification> ConductSearch(List<Classification> source)
-            {
-                var result = new List<Classification>();
-                if (Value.Key == SecondFingerClawCharacter.SecondFingerClawEnum.Undefined) return source;
-                foreach (var family in source)
-                {
-                    if (Value.ExistsIn(family.Characters)) result.Add(family);
-                }
-                return result;
-            }
+            public float Value { get; set; }
 
         }
-        public class FaceStructureNoseLeafCharacterDisplayItem : CharacterDisplayItemBase
+        public class MapRegionsDisplayItem : CharacterDisplayItemBase
         {
-            public string Description { get; set; } = "Face structure / NoseLeaf";
-            public FaceStructureNoseLeafCharacter Value { get; set; }
-            public List<string> Values { get; set; } = FaceStructureNoseLeafCharacter.Prompts;
-
-            public override List<Classification> ConductSearch(List<Classification> source)
-            {
-                var result = new List<Classification>();
-                if (Value.Key == FaceStructureNoseLeafCharacter.FaceStructureNoseLeafEnum.Undefined) return source;
-                foreach (var family in source)
-                {
-                    if (Value.ExistsIn(family.Characters)) result.Add(family);
-                }
-                return result;
-            }
-
+            public override string Prompt { get; set; } = "Regions";
+            public List<int> RegionIds { get; set; }
+            public string SelectionAmount { get; set; }
+            public ICommand OnSearch { get; set; }
+            public bool HasEntry() => RegionIds?.Count > 0;
         }
-        public class WingThirdFingerCharacterDisplayItem : CharacterDisplayItemBase
-        {
-            public string Description { get; set; } = "Wing - third finger";
-            public WingThirdFingerCharacter Value { get; set; }
-            public List<string> Values { get; set; } = WingThirdFingerCharacter.Prompts;
 
-            public override List<Classification> ConductSearch(List<Classification> source)
-            {
-                var result = new List<Classification>();
-                if (Value.Key == WingThirdFingerCharacter.WingThirdFingerEnum.Undefined) return source;
-                foreach (var family in source)
-                {
-                    if (Value.ExistsIn(family.Characters)) result.Add(family);
-                }
-                return result;
-            }
-
-        }
-        public class TragusCharacterDisplayItem : CharacterDisplayItemBase
-        {
-            public string Description { get; set; } = "Tragus";
-            public TragusCharacter Value { get; set; }
-            public List<string> Values { get; set; } = TragusCharacter.Prompts;
-            public List<string> ImageSources { get; set; } = TragusCharacter.ImageSources;
-
-            public override List<Classification> ConductSearch(List<Classification> source)
-            {
-                var result = new List<Classification>();
-                if (Value.Key == TragusCharacter.TragusEnum.Undefined) return source;
-                foreach (var family in source)
-                {
-                    if (Value.ExistsIn(family.Characters)) result.Add(family);
-                }
-                return result;
-            }
-
-        }
         public ObservableCollection<CharacterDisplayItemBase> CharacterDisplayItems { get; set; }
 
-
+        public string FilterResult { get; set; }
 
         public ICommand InvalidateMenu { get; set; }
 
@@ -158,8 +75,10 @@ namespace DocGenOneMobileClient.Views
         #endregion
 
 
-        public FamilyKeyPageViewModel()
+        public FamilyKeyPageViewModel(List<KeyTreeNode> currentKeyTreeNodes, List<int> currentRegionIds)
         {
+            CurrentKeyTreeNodes = currentKeyTreeNodes;
+            CurrentRegionIds = currentRegionIds;
             CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
         }
 
@@ -175,7 +94,7 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                CharacterDisplayItems = GenerateCharacterDisplay();
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentKeyTreeNodes);
                 
 
             }
@@ -193,29 +112,43 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public ObservableCollection<CharacterDisplayItemBase> GenerateCharacterDisplay()
+        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(List<KeyTreeNode> keyTreeNodes)
         {
             var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
-            displayItems.Add(new TailPresentCharacterDisplayItem());
-            displayItems.Add(new TailMembraneStructureCharacterDisplayItem());
-            displayItems.Add(new SecondFingerClawCharacterDisplayItem());
-            displayItems.Add(new FaceStructureNoseLeafCharacterDisplayItem());
-            displayItems.Add(new WingThirdFingerCharacterDisplayItem());
-            displayItems.Add(new TragusCharacterDisplayItem());
+            foreach (var keyTreeNode in keyTreeNodes)
+            {
+                foreach (var character in keyTreeNode.Characters)
+                {
+                    if (character is NumericCharacter)
+                    {
+                        displayItems.Add(new NumericDisplayItem { 
+                            Prompt = ((NumericCharacter)character).keyId,
+                            Value = float.MinValue
+                        });
+                    }
+                    else if (character is PickerCharacterValue)
+                    {
+                        var pickerCharacterValue = (PickerCharacterValue)character;
+                        var options = App.dbase.KeyTree.GetPickerOptions(pickerCharacterValue.keyTableNodeId, pickerCharacterValue.keyId).Select(o => o.OptionPrompt);
+                        displayItems.Add(new PickerDisplayItem
+                        {
+                            Prompt = pickerCharacterValue.keyId,
+                            SelectedOptionId = pickerCharacterValue.optionId,
+                            Options = options.ToList()
+                        }); 
+                    }
+                }
+            }
+            displayItems.Add(new MapRegionsDisplayItem
+            {
+                RegionIds = CurrentRegionIds,
+                OnChanged = (displayItem) => { OnSpecifyRegionClicked.Execute(null); }
+            });
 
             displayItems.OrderBy(o=>o.DisplayOrder);
             return displayItems;
         }
 
-        private void OnCharacterChanged(CharacterDisplayItemBase Character)
-        {
-            switch (Character)
-            {
-                default:
-                    break;
-            }
-            throw new NotImplementedException();
-        }
 
         public ICommand OnSubsequentAppearance => new Command(() =>
         {
@@ -244,16 +177,22 @@ namespace DocGenOneMobileClient.Views
             isBackCancelled = true;
         });
 
+        public bool IsHomeEnabled { get; set; }
+        public ICommand OnHomeMenuPressed => new Command(() =>
+        {
+            NavigateBack(NavigateReturnType.GotoRoot);
+        });
 
         public ICommand OnSpecifyRegionClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
             try
             {
-                var viewModel = new SelectBatRegionsPageViewModel() { SelectedMapRegions = MapRegions };
+                var viewModel = new SelectBatRegionsPageViewModel() { SelectedMapRegions = new ObservableCollection<MapRegion>(App.dbase.MapRegions.Where(o=>CurrentRegionIds.Contains(o.Id))) };
                 var page = new SelectBatRegionsPage(viewModel);
                 var returnType = await NavigateToPageAsync(page, viewModel);
                 if (returnType == NavigateReturnType.IsCancelled) return;
-                MapRegions = viewModel.SelectedMapRegions;
+                if (returnType == NavigateReturnType.GotoRoot) { NavigateBack(NavigateReturnType.GotoRoot); return; }
+                CurrentRegionIds = viewModel.SelectedMapRegions.Select(o=>o.Id).ToList();
             }
             catch (Exception ex)
             {
@@ -265,12 +204,12 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public ICommand OnClearFiltersClicked => commandHelper.ProduceDebouncedCommand(async () =>
+        public ICommand OnResetFiltersClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
             try
             {
-                CharacterDisplayItems = GenerateCharacterDisplay();
-                MapRegions.Clear();
+                CharacterDisplayItems = UpdateCharacterDisplay(KeyTreeFilter.Current.GetFilterResetNodes());
+                CurrentRegionIds.Clear();
 
             }
             catch (Exception ex)
@@ -282,17 +221,14 @@ namespace DocGenOneMobileClient.Views
                 ActivityIndicatorStop();
             }
         });
-        public ICommand OnFilterNowClicked => commandHelper.ProduceDebouncedCommand(async () =>
+        public ICommand OnFilterClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
             try
             {
                 ActivityIndicatorStart();
 
-                List<Classification> searchResult = ConductSearch();
-                var viewModel = new DisplayFamilyPageViewModel(searchResult) { IsHomeEnabled = true };
-                var page = new DisplayFamilyPage(viewModel);
-                var resultType = await NavigateToPageAsync(page, viewModel);
-                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                CurrentKeyTreeNodes = ConductSearch(CurrentKeyTreeNodes);
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentKeyTreeNodes);
 
             }
             catch (Exception ex)
@@ -305,57 +241,48 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        private List<Classification> ConductSearch()
+        private List<KeyTreeNode> ConductSearch(List<KeyTreeNode> currentKeyTreeNodes)
         {
 
-            List<Classification> currentFamilyResults = App.dbase.Classifications.Where(o=>o.Type == Classification.ClassificationType.Family).ToList();
-            foreach (var Character in CharacterDisplayItems)
+            foreach (var characterDisplayItem in CharacterDisplayItems)
             {
-                currentFamilyResults = Character.ConductSearch(currentFamilyResults);
-                if (currentFamilyResults.Count == 0) return new List<Classification>();                
+                currentKeyTreeNodes = characterDisplayItem.ConductSearch(currentKeyTreeNodes);
+                if (currentKeyTreeNodes.Count == 0) return new List<KeyTreeNode>();                
             }
-            if (MapRegions.Count > 0)
+            if (CurrentRegionIds.Count > 0)
             {
-                var familiesInRegions = new List<Classification>();
-                // Get all bats in these regions
-                var speciesesInRegions = App.dbase.GetAllSpecies(MapRegions.ToList());
-                foreach (var species in speciesesInRegions)
-                {
-                    #region // Get the species family 
-                    var speciesFamily = species.GetFamily(App.dbase);
-                    #endregion
-                    if (!familiesInRegions.Exists(o=>o.Id == speciesFamily.Id))
-                    {
-                        familiesInRegions.Add(speciesFamily);
-                    }
-                }
-                currentFamilyResults = currentFamilyResults.Intersect(familiesInRegions, new ClassificationComparer()).ToList();
-                if (currentFamilyResults.IsEmpty()) return new List<Classification>();
+                currentKeyTreeNodes = KeyTreeFilter.Current.GetKeyTreeNodesInRegions(currentKeyTreeNodes, CurrentRegionIds);
+                if (currentKeyTreeNodes.IsEmpty()) return new List<KeyTreeNode>();
             }
-            return currentFamilyResults;
+            return currentKeyTreeNodes;
         }
 
-        private ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay()
+        public ICommand OnViewResultsClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
-            return CharacterDisplayItems;
-        }
+            try
+            {
+                ActivityIndicatorStart();
+
+                var viewModel = new FamilyKeyResultPageViewModel(CurrentKeyTreeNodes) { IsHomeEnabled = true };
+                var page = new FamilyKeyResultPage(viewModel);
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot); 
+
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
 
 
     }
 
 
-    internal class ClassificationComparer : IEqualityComparer<Classification>
-    {
-        public bool Equals(Classification x, Classification y)
-        {
-            return x.Id == y.Id ;
-        }
-
-        public int GetHashCode(Classification obj)
-        {
-            return obj.Id.GetHashCode();
-        }
-    }
 }
 
 

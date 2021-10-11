@@ -1,5 +1,5 @@
 {
-  "GenusId": "Vespadalus",
+  "GenusId": "vespadalus",
   "SpeciesId": "finlaysoni",
   "Name": "Finlayson's Cave Bat, Inland Cave Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "vesp_finlay2.jpg",
     "vesp_finlay3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "vesp_finlay.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "vespadalus_finlaysoni.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 56.939335,
-      "Max": 65.65685
-    },
-    "OuterCanineWidth": {
-      "Min": 5.9670033,
-      "Max": 6.1938868
-    },
-    "TailLength": {
-      "Min": 43.86713,
-      "Max": 51.598354
-    },
-    "FootWithClawLength": {
-      "Min": 9.7523575,
-      "Max": 13.606409
-    },
-    "TibiaLength": {
-      "Min": 19.81349,
-      "Max": 24.912022
-    },
-    "PenisLength": {
-      "Min": 3.477226,
-      "Max": 3.6961129
-    },
-    "HeadToBodyLength": {
-      "Min": 70.85879,
-      "Max": 85.036674
-    },
-    "Weight": {
-      "Min": 31.755043,
-      "Max": 53.384148
-    },
-    "ThreeMet": {
-      "Min": 31.621737,
-      "Max": 41.731693
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "vespadalus_finlaysoni_dist.jpg"
 }

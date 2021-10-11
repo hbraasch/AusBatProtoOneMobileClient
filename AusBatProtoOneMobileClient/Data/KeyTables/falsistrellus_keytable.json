@@ -1,0 +1,21 @@
+{
+  "NodeId": "Falsistrellus",
+  "KeyIds": [
+    "Forearm"
+  ],
+  "Pickers": [],
+  "NodeRows": [
+    {
+      "NodeId": "Falsistrellus mackenziei",
+      "Values": [
+        "48-54"
+      ]
+    },
+    {
+      "NodeId": "Falsistrellus tasmaniensis",
+      "Values": [
+        "45-57"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "bifax",
   "Name": "Eastern Long-eared Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "nyct_bifax2.jpg",
     "nyct_bifax3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "nyct_bifax.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "nyctophilus_bifax.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 58.74982,
-      "Max": 66.78083
-    },
-    "OuterCanineWidth": {
-      "Min": 5.8279033,
-      "Max": 6.3734903
-    },
-    "TailLength": {
-      "Min": 39.473,
-      "Max": 50.05233
-    },
-    "FootWithClawLength": {
-      "Min": 10.494889,
-      "Max": 13.494427
-    },
-    "TibiaLength": {
-      "Min": 18.759651,
-      "Max": 23.767029
-    },
-    "PenisLength": {
-      "Min": 2.7766814,
-      "Max": 4.493371
-    },
-    "HeadToBodyLength": {
-      "Min": 69.792595,
-      "Max": 88.74701
-    },
-    "Weight": {
-      "Min": 25.79243,
-      "Max": 49.858032
-    },
-    "ThreeMet": {
-      "Min": 36.141537,
-      "Max": 39.342297
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "nyctophilus_bifax_dist.jpg"
 }

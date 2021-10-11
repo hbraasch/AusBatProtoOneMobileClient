@@ -1,5 +1,5 @@
 {
-  "GenusId": "Pipistrellus",
+  "GenusId": "pipistrellus",
   "SpeciesId": "adamsi",
   "Name": "Forest Pipistrelle",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "pip_adams2.jpg",
     "pip_adams3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "pip_adams.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "pipistrellus_adamsi.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 54.566257,
-      "Max": 62.468765
-    },
-    "OuterCanineWidth": {
-      "Min": 5.649307,
-      "Max": 6.493997
-    },
-    "TailLength": {
-      "Min": 38.929688,
-      "Max": 49.61492
-    },
-    "FootWithClawLength": {
-      "Min": 10.8093815,
-      "Max": 12.03051
-    },
-    "TibiaLength": {
-      "Min": 21.71318,
-      "Max": 22.71025
-    },
-    "PenisLength": {
-      "Min": 3.2452939,
-      "Max": 4.003765
-    },
-    "HeadToBodyLength": {
-      "Min": 73.8447,
-      "Max": 87.93097
-    },
-    "Weight": {
-      "Min": 33.30621,
-      "Max": 54.68822
-    },
-    "ThreeMet": {
-      "Min": 31.891304,
-      "Max": 37.054955
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "pipistrellus_adamsi_dist.jpg"
 }

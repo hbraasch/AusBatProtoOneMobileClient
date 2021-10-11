@@ -1,5 +1,5 @@
 {
-  "GenusId": "Saccolaimus",
+  "GenusId": "saccolaimus",
   "SpeciesId": "saccolaimus",
   "Name": "Bare-rumped Sheath-tailed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "sacc_sacc2.jpg",
     "sacc_sacc3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "sacc_sacc.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "saccolaimus_saccolaimus.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 60.339314,
-      "Max": 65.75099
-    },
-    "OuterCanineWidth": {
-      "Min": 5.927038,
-      "Max": 6.3667502
-    },
-    "TailLength": {
-      "Min": 36.96398,
-      "Max": 57.41405
-    },
-    "FootWithClawLength": {
-      "Min": 11.157354,
-      "Max": 11.975238
-    },
-    "TibiaLength": {
-      "Min": 19.111391,
-      "Max": 24.258448
-    },
-    "PenisLength": {
-      "Min": 2.7701392,
-      "Max": 3.7393832
-    },
-    "HeadToBodyLength": {
-      "Min": 74.76405,
-      "Max": 83.45857
-    },
-    "Weight": {
-      "Min": 29.502495,
-      "Max": 42.58996
-    },
-    "ThreeMet": {
-      "Min": 30.274315,
-      "Max": 37.888687
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "saccolaimus_saccolaimus_dist.jpg"
 }

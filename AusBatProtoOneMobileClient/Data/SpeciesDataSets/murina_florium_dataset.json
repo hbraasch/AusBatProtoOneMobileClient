@@ -1,5 +1,5 @@
 {
-  "GenusId": "Murina",
+  "GenusId": "murina",
   "SpeciesId": "florium",
   "Name": "Flute-nosed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "murin_florium2.jpg",
     "murin_florium3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "murin_florium.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "murina_florium.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 59.216347,
-      "Max": 65.46331
-    },
-    "OuterCanineWidth": {
-      "Min": 6.0860023,
-      "Max": 6.626498
-    },
-    "TailLength": {
-      "Min": 37.808018,
-      "Max": 45.563614
-    },
-    "FootWithClawLength": {
-      "Min": 8.802513,
-      "Max": 12.403978
-    },
-    "TibiaLength": {
-      "Min": 19.511097,
-      "Max": 24.43538
-    },
-    "PenisLength": {
-      "Min": 3.0852902,
-      "Max": 3.779831
-    },
-    "HeadToBodyLength": {
-      "Min": 70.83109,
-      "Max": 81.5846
-    },
-    "Weight": {
-      "Min": 30.575253,
-      "Max": 51.539856
-    },
-    "ThreeMet": {
-      "Min": 33.146225,
-      "Max": 36.733257
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "murina_florium_dist.jpg"
 }

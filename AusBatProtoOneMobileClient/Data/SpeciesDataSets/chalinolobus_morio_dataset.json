@@ -1,5 +1,5 @@
 {
-  "GenusId": "Chalinolobus",
+  "GenusId": "chalinolobus",
   "SpeciesId": "morio",
   "Name": "Chocolate Wattled Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "chal_morio2.jpg",
     "chal_morio3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "chal_morio.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "chalinolobus_morio.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 59.464344,
-      "Max": 63.629707
-    },
-    "OuterCanineWidth": {
-      "Min": 5.6045117,
-      "Max": 6.551986
-    },
-    "TailLength": {
-      "Min": 33.612705,
-      "Max": 52.27866
-    },
-    "FootWithClawLength": {
-      "Min": 9.143892,
-      "Max": 12.659554
-    },
-    "TibiaLength": {
-      "Min": 20.87306,
-      "Max": 23.180933
-    },
-    "PenisLength": {
-      "Min": 3.283193,
-      "Max": 4.11002
-    },
-    "HeadToBodyLength": {
-      "Min": 80.75995,
-      "Max": 92.56585
-    },
-    "Weight": {
-      "Min": 34.580116,
-      "Max": 52.500572
-    },
-    "ThreeMet": {
-      "Min": 33.418667,
-      "Max": 38.11425
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "chalinolobus_morio_dist.jpg"
 }

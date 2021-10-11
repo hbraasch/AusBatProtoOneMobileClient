@@ -43,14 +43,21 @@ namespace WinToolsTwo
             this.buttonParse = new System.Windows.Forms.Button();
             this.textBoxSource = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonGetKeyNode = new System.Windows.Forms.Button();
+            this.buttonCreateTree = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonRenameDistFiles = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -187,13 +194,55 @@ namespace WinToolsTwo
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonGetKeyNode);
+            this.tabPage2.Controls.Add(this.buttonCreateTree);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1548, 608);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "More";
+            this.tabPage2.Text = "Tree";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonGetKeyNode
+            // 
+            this.buttonGetKeyNode.Location = new System.Drawing.Point(84, 80);
+            this.buttonGetKeyNode.Name = "buttonGetKeyNode";
+            this.buttonGetKeyNode.Size = new System.Drawing.Size(234, 29);
+            this.buttonGetKeyNode.TabIndex = 1;
+            this.buttonGetKeyNode.Text = "GetKeyNode";
+            this.buttonGetKeyNode.UseVisualStyleBackColor = true;
+            this.buttonGetKeyNode.Click += new System.EventHandler(this.buttonGetKeyNode_Click);
+            // 
+            // buttonCreateTree
+            // 
+            this.buttonCreateTree.Location = new System.Drawing.Point(84, 32);
+            this.buttonCreateTree.Name = "buttonCreateTree";
+            this.buttonCreateTree.Size = new System.Drawing.Size(94, 29);
+            this.buttonCreateTree.TabIndex = 0;
+            this.buttonCreateTree.Text = "CreateTree";
+            this.buttonCreateTree.UseVisualStyleBackColor = true;
+            this.buttonCreateTree.Click += new System.EventHandler(this.buttonCreateTree_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.buttonRenameDistFiles);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1548, 608);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Rename";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonRenameDistFiles
+            // 
+            this.buttonRenameDistFiles.Location = new System.Drawing.Point(113, 46);
+            this.buttonRenameDistFiles.Name = "buttonRenameDistFiles";
+            this.buttonRenameDistFiles.Size = new System.Drawing.Size(193, 29);
+            this.buttonRenameDistFiles.TabIndex = 0;
+            this.buttonRenameDistFiles.Text = "Rename dist files";
+            this.buttonRenameDistFiles.UseVisualStyleBackColor = true;
+            this.buttonRenameDistFiles.Click += new System.EventHandler(this.buttonRenameDistFiles_Click);
             // 
             // Form1
             // 
@@ -206,6 +255,8 @@ namespace WinToolsTwo
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -226,6 +277,10 @@ namespace WinToolsTwo
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.Button buttonCreateTree;
+        private System.Windows.Forms.Button buttonGetKeyNode;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button buttonRenameDistFiles;
     }
 }
 

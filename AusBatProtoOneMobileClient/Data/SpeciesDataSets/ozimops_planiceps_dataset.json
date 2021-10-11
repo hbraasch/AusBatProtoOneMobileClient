@@ -1,5 +1,5 @@
 {
-  "GenusId": "Ozimops",
+  "GenusId": "ozimops",
   "SpeciesId": "planiceps",
   "Name": "South-eastern Free-tailed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "ozi_planic2.jpg",
     "ozi_planic3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "ozi_planic.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "ozimops_planiceps.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 56.071857,
-      "Max": 66.78025
-    },
-    "OuterCanineWidth": {
-      "Min": 6.068839,
-      "Max": 6.4322624
-    },
-    "TailLength": {
-      "Min": 35.77343,
-      "Max": 49.62943
-    },
-    "FootWithClawLength": {
-      "Min": 8.915756,
-      "Max": 12.538247
-    },
-    "TibiaLength": {
-      "Min": 20.677813,
-      "Max": 25.9068
-    },
-    "PenisLength": {
-      "Min": 3.4511445,
-      "Max": 4.19302
-    },
-    "HeadToBodyLength": {
-      "Min": 72.28612,
-      "Max": 86.27941
-    },
-    "Weight": {
-      "Min": 24.515522,
-      "Max": 56.160065
-    },
-    "ThreeMet": {
-      "Min": 34.756542,
-      "Max": 41.948017
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "ozimops_planiceps_dist.jpg"
 }

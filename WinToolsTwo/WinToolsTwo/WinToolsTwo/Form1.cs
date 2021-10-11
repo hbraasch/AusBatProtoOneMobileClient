@@ -7,15 +7,25 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static WinToolsTwo.Parser;
 
+
 namespace WinToolsTwo
 {
     public partial class Form1 : Form
     {
+
+        [DllImport("msvcrt", CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
+        public static extern int rename(
+                [MarshalAs(UnmanagedType.LPStr)]
+            string oldpath,
+                [MarshalAs(UnmanagedType.LPStr)]
+            string newpath);
+
 
         string pathFullname = @"C:\P\AustBatsOriginal\KeyTables";
         public Form1()
@@ -354,12 +364,38 @@ namespace WinToolsTwo
             public List<(string id, string prompt)> options = new List<(string, string)>();
         }
 
-        private object FormatToAndroidFilename(string text)
+        public string FormatToAndroidFilename(string text)
         {
             var result = text.Replace("-", "_");
             result = result.Replace(" ", "_");
             return result.ToLower();
 
         }
+
+        private void buttonCreateTree_Click(object sender, EventArgs e)
+        {
+            var keyTree = new KeyTree();
+            keyTree.LoadTree();
+        }
+
+        private void buttonGetKeyNode_Click(object sender, EventArgs e)
+        {
+            var keyTree = new KeyTree();
+            keyTree.LoadTree();
+            var node = keyTree.GetKeyNode("");
+        }
+
+        private void buttonRenameDistFiles_Click(object sender, EventArgs e)
+        {
+            var pathName = @"C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Data\SpeciesDistributionMaps";
+            foreach (var fullFilename in Directory.GetFiles(pathName,"*.jpg"))
+            {
+                var name = Path.GetFileNameWithoutExtension(fullFilename);
+                var newFileName = $"{name}_dist.jpg";
+                rename(fullFilename, Path.Combine(pathName, newFileName));
+            }
+        }
+
+
     }
 }

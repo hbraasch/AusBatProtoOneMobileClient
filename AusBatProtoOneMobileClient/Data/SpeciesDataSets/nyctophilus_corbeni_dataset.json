@@ -1,5 +1,5 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "corbeni",
   "Name": "South-eastern Long-eared Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "nyct_corben2.jpg",
     "nyct_corben3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "nyct_corben.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "nyctophilus_corbeni.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 55.21954,
-      "Max": 61.386093
-    },
-    "OuterCanineWidth": {
-      "Min": 5.9822574,
-      "Max": 6.502829
-    },
-    "TailLength": {
-      "Min": 42.68939,
-      "Max": 46.937973
-    },
-    "FootWithClawLength": {
-      "Min": 9.176509,
-      "Max": 13.397194
-    },
-    "TibiaLength": {
-      "Min": 20.167503,
-      "Max": 23.441242
-    },
-    "PenisLength": {
-      "Min": 2.651481,
-      "Max": 4.4004145
-    },
-    "HeadToBodyLength": {
-      "Min": 71.95049,
-      "Max": 88.42445
-    },
-    "Weight": {
-      "Min": 22.978569,
-      "Max": 56.774918
-    },
-    "ThreeMet": {
-      "Min": 33.66675,
-      "Max": 42.25707
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "nyctophilus_corbeni_dist.jpg"
 }

@@ -1,5 +1,5 @@
 {
-  "GenusId": "Micronomus",
+  "GenusId": "micronomus",
   "SpeciesId": "norfolkensis",
   "Name": "East Coast Free-tailed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "micro_norfolk_2.jpg",
     "micro_norfolk_3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "micro_norfolk_.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "micronomus_norfolkensis.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 55.16957,
-      "Max": 61.259666
-    },
-    "OuterCanineWidth": {
-      "Min": 5.657249,
-      "Max": 6.1904283
-    },
-    "TailLength": {
-      "Min": 38.12606,
-      "Max": 49.151543
-    },
-    "FootWithClawLength": {
-      "Min": 11.070916,
-      "Max": 13.04049
-    },
-    "TibiaLength": {
-      "Min": 20.987392,
-      "Max": 24.114157
-    },
-    "PenisLength": {
-      "Min": 2.9744465,
-      "Max": 4.219001
-    },
-    "HeadToBodyLength": {
-      "Min": 80.81242,
-      "Max": 86.942345
-    },
-    "Weight": {
-      "Min": 33.436634,
-      "Max": 52.136024
-    },
-    "ThreeMet": {
-      "Min": 30.831194,
-      "Max": 37.316463
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 0
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "micronomus_norfolkensis_dist.jpg"
 }

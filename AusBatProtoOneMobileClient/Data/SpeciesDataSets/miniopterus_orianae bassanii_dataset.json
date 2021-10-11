@@ -1,5 +1,5 @@
 {
-  "GenusId": "Miniopterus",
+  "GenusId": "miniopterus",
   "SpeciesId": "orianae bassanii",
   "Name": "Southern Bent-winged Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "mini_oc_bassani2.jpg",
     "mini_oc_bassani3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "mini_oc_bassani.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "miniopterus_orianae bassanii.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 58.16644,
-      "Max": 67.19126
-    },
-    "OuterCanineWidth": {
-      "Min": 5.9807415,
-      "Max": 6.4623117
-    },
-    "TailLength": {
-      "Min": 35.77907,
-      "Max": 58.188107
-    },
-    "FootWithClawLength": {
-      "Min": 8.8311825,
-      "Max": 11.534221
-    },
-    "TibiaLength": {
-      "Min": 18.810757,
-      "Max": 23.815924
-    },
-    "PenisLength": {
-      "Min": 2.873081,
-      "Max": 3.717445
-    },
-    "HeadToBodyLength": {
-      "Min": 75.2591,
-      "Max": 89.54484
-    },
-    "Weight": {
-      "Min": 29.131233,
-      "Max": 55.033455
-    },
-    "ThreeMet": {
-      "Min": 34.521378,
-      "Max": 43.11038
-    },
-    "IsGularPoachPresent": 1,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "miniopterus_orianae bassanii_dist.jpg"
 }

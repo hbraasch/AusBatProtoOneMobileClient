@@ -1,5 +1,5 @@
 {
-  "GenusId": "Hipposideros",
+  "GenusId": "hipposideros",
   "SpeciesId": "diadema",
   "Name": "Diadem Leaf-nosed Bat",
   "DetailsHtml": null,
@@ -9,51 +9,7 @@
     "hipp_diadem2.jpg",
     "hipp_diadem3.jpg"
   ],
-  "Calls": [
-    {
-      "CallAudioFilename": "hipp_diadem.wav"
-    }
-  ],
-  "MapRegions": [],
-  "DistributionMapImage": "hipposideros_diadema.jpg",
-  "Characteristics": {
-    "ForeArmLength": {
-      "Min": 58.35947,
-      "Max": 65.39923
-    },
-    "OuterCanineWidth": {
-      "Min": 6.0833225,
-      "Max": 6.2410507
-    },
-    "TailLength": {
-      "Min": 33.455147,
-      "Max": 54.188713
-    },
-    "FootWithClawLength": {
-      "Min": 9.911232,
-      "Max": 13.444445
-    },
-    "TibiaLength": {
-      "Min": 21.695627,
-      "Max": 24.651125
-    },
-    "PenisLength": {
-      "Min": 2.6733565,
-      "Max": 4.238518
-    },
-    "HeadToBodyLength": {
-      "Min": 70.46338,
-      "Max": 84.07529
-    },
-    "Weight": {
-      "Min": 38.8312,
-      "Max": 51.01667
-    },
-    "ThreeMet": {
-      "Min": 29.822386,
-      "Max": 42.22506
-    },
-    "IsGularPoachPresent": 0,
-    "BothSexesHasFleshyGenitalProjections": 1
-  }
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "hipposideros_diadema_dist.jpg"
 }

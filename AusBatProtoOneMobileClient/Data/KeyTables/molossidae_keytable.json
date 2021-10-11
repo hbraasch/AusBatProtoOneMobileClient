@@ -38,7 +38,7 @@
   ],
   "NodeRows": [
     {
-      "NodeId": "Austronomus australis",
+      "NodeId": "Austonomus australis", 
       "Values": [
         "57-65",
         "5.8-6.4",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "NodeId": "Chaerophon jobensis",
+      "NodeId": "Chaerephon jobensis",
       "Values": [
         "46-52",
         "5.6-6.2",
