@@ -18,17 +18,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         public List<NodeRow> NodeRows { get; set; } = new List<NodeRow>();
 
+        private static string filename;
 
-        public static KeyTable Load(string filename)
+        public static KeyTable Load(string parentKeyTableId, string filename)
         {
+            KeyTable.filename = filename;
             try
             {
                 using (Stream stream = FileHelper.GetStreamFromFile($"Data.KeyTables.{filename.ToLower()}_keytable.json"))
                 {
                     if (stream == null)
                     {
-                        Debug.WriteLine($"KeyTable for [{filename}] does not exist");
-                        return new KeyTable();
+                        throw new BusinessException($"KeyTable [{filename}], referenced by keytable[{parentKeyTableId}] does not exist");
                     }
 
                     using (StreamReader reader = new StreamReader(stream))
@@ -54,6 +55,16 @@ namespace AusBatProtoOneMobileClient.Models
                 throw new BusinessException($"Problem reading keytable file for [{filename}]. {ex.Message}");
             }
         }
+
+        internal void PrintData()
+        {
+            Debug.Write($"KeyTable: {KeyTable.filename} references from [{NodeId}] to [");
+            foreach (var nodeRow in NodeRows)
+            {
+                Debug.Write($"{nodeRow.NodeId},");
+            }
+            Debug.WriteLine("]");
+        }
     }
 
     public class NodeRow
@@ -68,6 +79,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         public List<string> OptionIds { get; set; } = new List<string>();
         public List<string> OptionPrompts { get; set; } = new List<string>();
+        public List<string> OptionImages { get; set; } = new List<string>();
     }
 
 }

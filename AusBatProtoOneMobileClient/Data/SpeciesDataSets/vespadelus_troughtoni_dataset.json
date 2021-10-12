@@ -1,11 +1,11 @@
 {
-  "GenusId": "Vespadalus",
-  "SpeciesId": "Vulturnus",
+  "GenusId": "Vespadelus",
+  "SpeciesId": "troughtoni",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_vulturnus_dist.jpg"
+  "DistributionMapImage": "vespadelus_troughtoni_dist.jpg"
 }

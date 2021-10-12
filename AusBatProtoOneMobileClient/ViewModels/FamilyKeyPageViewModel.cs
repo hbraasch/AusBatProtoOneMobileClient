@@ -23,7 +23,7 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-        public List<KeyTreeNode> CurrentKeyTreeNodes = new List<KeyTreeNode>();
+        public List<KeyTreeNodeBase> CurrentKeyTreeNodes = new List<KeyTreeNodeBase>();
         public List<int> CurrentRegionIds { get; set; } = new List<int>();
         public abstract class CharacterDisplayItemBase
         {
@@ -31,7 +31,7 @@ namespace DocGenOneMobileClient.Views
             public int DisplayOrder { get; set; }
             public Action<CharacterDisplayItemBase> OnChanged { get; set; }
 
-            internal List<KeyTreeNode> ConductSearch(List<KeyTreeNode> currentKeyTreeNodes)
+            internal List<KeyTreeNodeBase> ConductSearch(List<KeyTreeNodeBase> currentKeyTreeNodes)
             {
                 throw new NotImplementedException();
             }
@@ -75,7 +75,7 @@ namespace DocGenOneMobileClient.Views
         #endregion
 
 
-        public FamilyKeyPageViewModel(List<KeyTreeNode> currentKeyTreeNodes, List<int> currentRegionIds)
+        public FamilyKeyPageViewModel(List<KeyTreeNodeBase> currentKeyTreeNodes, List<int> currentRegionIds)
         {
             CurrentKeyTreeNodes = currentKeyTreeNodes;
             CurrentRegionIds = currentRegionIds;
@@ -112,7 +112,7 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(List<KeyTreeNode> keyTreeNodes)
+        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(List<KeyTreeNodeBase> keyTreeNodes)
         {
             var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
             foreach (var keyTreeNode in keyTreeNodes)
@@ -241,18 +241,18 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        private List<KeyTreeNode> ConductSearch(List<KeyTreeNode> currentKeyTreeNodes)
+        private List<KeyTreeNodeBase> ConductSearch(List<KeyTreeNodeBase> currentKeyTreeNodes)
         {
 
             foreach (var characterDisplayItem in CharacterDisplayItems)
             {
                 currentKeyTreeNodes = characterDisplayItem.ConductSearch(currentKeyTreeNodes);
-                if (currentKeyTreeNodes.Count == 0) return new List<KeyTreeNode>();                
+                if (currentKeyTreeNodes.Count == 0) return new List<KeyTreeNodeBase>();                
             }
             if (CurrentRegionIds.Count > 0)
             {
                 currentKeyTreeNodes = KeyTreeFilter.Current.GetKeyTreeNodesInRegions(currentKeyTreeNodes, CurrentRegionIds);
-                if (currentKeyTreeNodes.IsEmpty()) return new List<KeyTreeNode>();
+                if (currentKeyTreeNodes.IsEmpty()) return new List<KeyTreeNodeBase>();
             }
             return currentKeyTreeNodes;
         }

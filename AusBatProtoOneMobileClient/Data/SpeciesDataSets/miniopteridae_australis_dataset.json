@@ -1,5 +1,5 @@
 {
-  "GenusId": "miniopterus",
+  "GenusId": "Miniopteridae",
   "SpeciesId": "australis",
   "Name": "Little Bent-winged Bat",
   "DetailsHtml": null,
@@ -11,5 +11,5 @@
   ],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "miniopterus_australis_dist.jpg"
+  "DistributionMapImage": "miniopteridae_australis_dist.jpg"
 }

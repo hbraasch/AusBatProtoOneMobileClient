@@ -23,6 +23,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public IntroductionPageViewModel()
         {
             WebViewSource = new HtmlWebViewSource();
+            WebViewSource.Html = "";
         }
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => {

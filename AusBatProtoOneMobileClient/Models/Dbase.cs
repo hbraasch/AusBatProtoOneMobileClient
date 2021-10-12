@@ -74,6 +74,7 @@ namespace AusBatProtoOneMobileClient.Models
 
                 #region *// Provinces map
                 var hotspotRadius = 0.05f;
+                MapRegions.Clear();
                 MapRegions.Add(new Models.MapRegion { Id = 102, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.79, 0.21), Radius = hotspotRadius } } });
                 MapRegions.Add(new Models.MapRegion { Id = 103, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.81, 0.32), Radius = hotspotRadius } } });
                 MapRegions.Add(new Models.MapRegion { Id = 104, Hotspots = new List<Models.MapRegion.HotSpotItem> { new Models.MapRegion.HotSpotItem { Center = new Point(0.87, 0.42), Radius = hotspotRadius } } });
@@ -97,11 +98,20 @@ namespace AusBatProtoOneMobileClient.Models
                 #endregion
 
                 #region *// Family/Genus/Species
-                Classifications =  LoadClassificationTable();
+
+                #region *// KeyTree
+                KeyTree = new KeyTree();
+                KeyTree.LoadTreeFromKeyTables();
+                KeyTree.EnhanceTree(Species);
+                #endregion
+
+                Classifications.Clear();
+                Classifications =  GenerateClassifications(KeyTree);
                 #endregion
 
 
                 #region *// Species details
+                Species.Clear();
                 foreach (var item in Classifications.Where(o=>o.Type == Classification.ClassificationType.Species))
                 {
                     Species.Add( LoadSpecies(item.Parent, item.Id));
@@ -117,11 +127,7 @@ namespace AusBatProtoOneMobileClient.Models
                 }
 
                 #endregion
-                #region *// KeyTree
-                KeyTree = new KeyTree();
-                KeyTree.LoadTreeFromKeyTables();
-                KeyTree.EnhanceTree( Species);
-                #endregion
+
 
 
 
@@ -149,7 +155,47 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+        private List<Classification> GenerateClassifications(KeyTree keyTree)
+        {
+            List<Classification> classifications = new List<Classification>();
+            var traverser = new KeyTreeTraverser((parent, current, level) =>
+            {
+                if (level == 2)
+                {
+                    // Extract family
+                    classifications.Add(new Classification { Id = current.NodeId, Parent = "", Type = Classification.ClassificationType.Family });
+                }
+                else if (current is LeafKeyTreeNode leafNode)
+                {
+                    // Its a leaf node (extract genus and species)
+                    #region *// Extract genus details by rippling upwards till family node found
+                    if (!(classifications.Exists(o=>o.Type == Classification.ClassificationType.Genus && o.Id == leafNode.GenusId)))
+                    {
 
+                        KeyTreeNodeBase node = current;
+                        KeyTreeNodeBase familyNode = null;
+                        while (node != null)
+                        {
+                            if (node.Parent.NodeId == "Family")
+                            {
+                                familyNode = node;
+                                break;
+                            }
+                            node = node.Parent;
+                        }
+                        if (familyNode == null) throw new BusinessException($"Could not find family node for {leafNode.GenusId}");
+                        classifications.Add(new Classification { Id = leafNode.GenusId, Parent = familyNode.NodeId, Type = Classification.ClassificationType.Genus });
+                    }
+                    #endregion
+                    #region *// Extract species details
+                    classifications.Add(new Classification { Id = leafNode.SpeciesId, Parent = leafNode.GenusId, Type = Classification.ClassificationType.Species }); 
+                    #endregion
+                }
+                return KeyTreeTraverser.ExitAction.Continue;
+            }, RootNode);
+            traverser.Execute();
+            return classifications;
+        }
 
         internal Species FindSpecies(string genusId, string speciesId)
         {
@@ -203,7 +249,7 @@ namespace AusBatProtoOneMobileClient.Models
         }
         internal List<Species> GetAllSpeciesInGenus(Classification genus)
         {
-            return Species.Where(o => o.GenusId == genus.Id).OrderBy(species => $"{species.GenusId} {species.SpeciesId}").ToList();
+            return Species.Where(o => o.GenusId.ToLower() == genus.Id.ToLower()).OrderBy(species => $"{species.GenusId} {species.SpeciesId}").ToList();
         }
 
         public List<Species> GetAllSpecies(List<MapRegion> selectedRegions)
@@ -219,40 +265,6 @@ namespace AusBatProtoOneMobileClient.Models
             return Filter(bats, selectedRegions);
         }
 
-        private static List<Classification> LoadClassificationTable()
-        {
-            try
-            {
-                using (Stream stream = FileHelper.GetStreamFromFile("Data.Classification.classification_table.json"))
-                {
-                    if (stream == null)
-                    {
-                        throw new BusinessException("Classification table does not exist");
-                    }
-
-                    using (StreamReader reader = new StreamReader(stream))
-                    {
-                        string classificationJson = reader.ReadToEnd();
-                        if (string.IsNullOrEmpty(classificationJson))
-                        {
-                            throw new BusinessException($"No data inside classification table file");
-                        }
-                        try
-                        {
-                            return JsonConvert.DeserializeObject<List<Classification>>(classificationJson);
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new BusinessException($"Problem parsing classification table. {ex.Message}");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new BusinessException($"Problem reading classification table file. {ex.Message}");
-            }
-        }
         private string LoadIntroduction()
         {
             try
@@ -303,6 +315,7 @@ namespace AusBatProtoOneMobileClient.Models
                         try
                         {
                             var species = JsonConvert.DeserializeObject<Species>(speciesDatasetJson);
+                            Debug.WriteLine($"Filename: {datasetFilename} Genus: {species.GenusId}, Species: {species.SpeciesId} Name: {species.Name}");
                             return species;
                         }
                         catch (Exception ex)

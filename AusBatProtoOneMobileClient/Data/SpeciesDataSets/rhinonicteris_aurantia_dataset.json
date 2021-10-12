@@ -1,0 +1,15 @@
+{
+  "GenusId": "Rhinonicteris",
+  "SpeciesId": "aurantia",
+  "Name": "Grey-headed Flying-fox",
+  "DetailsHtml": null,
+  "DataTag": "Pterop_polioc",
+  "Images": [
+    "pterop_polioc_head.jpg",
+    "pterop_polioc2.jpg",
+    "pterop_polioc3.jpg"
+  ],
+  "CallImages": [],
+  "RegionIds": [],
+  "DistributionMapImage": "rhinonicteris_aurantia_dist.jpg"
+}

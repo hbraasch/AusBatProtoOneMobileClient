@@ -112,12 +112,13 @@ namespace DocGenOneMobileClient.Views
                 {
                     if (species != null)
                     {
+                        var imageSource = (species.Images.Count > 0) ? species.Images.First() : "";
                         familyGroupDisplayItem.Add(new SpeciesDisplayItem
                         {
-                            SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}",
+                            SpeciesName = $"{species.GenusId.UppercaseFirstChar()} {species.SpeciesId.ToLower()}",
                             FriendlyName = species.Name,
                             Species = species,
-                            ImageSource = species.Images.First()
+                            ImageSource = imageSource
                         }); 
                     }
                 }

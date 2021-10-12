@@ -1,5 +1,5 @@
 {
-  "GenusId": "vespadalus",
+  "GenusId": "Vespadelus",
   "SpeciesId": "finlaysoni",
   "Name": "Finlayson's Cave Bat, Inland Cave Bat",
   "DetailsHtml": null,
@@ -11,5 +11,5 @@
   ],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_finlaysoni_dist.jpg"
+  "DistributionMapImage": "vespadelus_finlaysoni_dist.jpg"
 }

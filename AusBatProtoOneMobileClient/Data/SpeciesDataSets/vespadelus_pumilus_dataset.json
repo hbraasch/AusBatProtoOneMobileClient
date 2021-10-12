@@ -1,11 +1,11 @@
 {
-  "GenusId": "Scotorepens",
-  "SpeciesId": "parnaby",
+  "GenusId": "Vespadelus",
+  "SpeciesId": "Pumilus",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "scotorepens_parnaby_dist.jpg"
+  "DistributionMapImage": "vespadelus_pumilus_dist.jpg"
 }

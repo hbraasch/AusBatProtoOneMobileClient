@@ -1,11 +1,11 @@
 {
-  "GenusId": "Vespadalus",
-  "SpeciesId": "Baverstocki",
+  "GenusId": "Vespadelus",
+  "SpeciesId": "Darlingtoni",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_baverstocki_dist.jpg"
+  "DistributionMapImage": "vespadelus_darlingtoni_dist.jpg"
 }

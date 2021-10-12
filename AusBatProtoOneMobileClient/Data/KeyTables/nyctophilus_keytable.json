@@ -1,0 +1,128 @@
+{
+  "NodeId": "Nyctophilus",
+  "KeyIds": [
+    "Forearm",
+    "ThreeMet",
+    "OuterCanineWidth",
+    "MuzzlePattern"
+  ],
+  "Pickers": [
+    {
+      "Id": "MuzzlePattern",
+      "OptionIds": [
+        "SimpleRaisedBump",
+        "RaisedBumpCentralShallowGroove",
+        "YshapedMuzzleGroove",
+        "RaisedBumpCentralGroove"
+      ],
+      "OptionPrompts": [
+        "Simple raised bump",
+        "Raised bump with central shallow groove",
+        "\"Y\" shaped groove on muzzle",
+        "Raised bump with central groove"
+      ],
+      "OptionImages": []
+    }
+  ],
+  "NodeRows": [
+    {
+      "NodeId": "Nyctophilus bifax",
+      "Values": [
+        "37-47",
+        "36-41",
+        "4.3-5.4",
+        "SimpleRaisedBump"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus corbeni",
+      "Values": [
+        "41-50",
+        "37-44",
+        "5.7-6.5",
+        "SimpleRaisedBump"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus major major",
+      "Values": [
+        "43-50",
+        "37-42",
+        "5.6-6.4",
+        "RaisedBumpCentralShallowGroove"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus major tor",
+      "Values": [
+        "37-46",
+        "34-40",
+        "5.0-5.8",
+        "RaisedBumpCentralShallowGroove"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus geoffroyi",
+      "Values": [
+        "37-41",
+        "27-36",
+        "4.0-4.9",
+        "YshapedMuzzleGroove"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus arnhemensis",
+      "Values": [
+        "33-40",
+        "33-39",
+        "4.0-4.6",
+        "RaisedBumpCentralGroove"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus walkeri",
+      "Values": [
+        "30-36",
+        "29-35",
+        "3.4-3.7",
+        "RaisedBumpCentralGroove"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus daedalus",
+      "Values": [
+        "38-46",
+        "34-43",
+        "4.6-5.6",
+        "SimpleRaisedBump"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus sherrini",
+      "Values": [
+        "43-48",
+        "35-45",
+        "5.0-5.5",
+        "SimpleRaisedBump"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus gouldi",
+      "Values": [
+        "36-48",
+        "36-39",
+        "4.4-5.2",
+        "RaisedBumpCentralGroove"
+      ]
+    },
+    {
+      "NodeId": "Nyctophilus holtorum",
+      "Values": [
+        "38-44",
+        "36-41",
+        "4.3-4.8",
+        "RaisedBumpCentralShallowGroove"
+      ]
+    }
+  ]
+}

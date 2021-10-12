@@ -13,41 +13,82 @@ namespace AusBatProtoOneMobileClient.Models
 {
     public class KeyTree
     {
-        public static KeyTreeNode RootNode { get; set; }
+        public static KeyTreeNodeBase RootNode { get; set; }
 
         public List<PickerCharacter> PickerCharacters = new List<PickerCharacter>();
 
-        public class KeyTreeNode
+        public class KeyTreeNodeBase
         {
             public string NodeId { get; set; }
             public KeyTreeNode Parent { get; set; }
-            public List<KeyTreeNode> Children { get; set; } = new List<KeyTreeNode>();
-
+            public List<KeyTreeNodeBase> Children { get; set; } = new List<KeyTreeNodeBase>();
             public List<CharacterBase> Characters = new List<CharacterBase>();
-
             public List<int> RegionIds = new List<int>();
+        }
+        public class KeyTreeNode : KeyTreeNodeBase { }
 
+        public class LeafKeyTreeNode : KeyTreeNodeBase
+        {
+            public string GenusId { get; set; }
+            public string SpeciesId { get; set; }
+
+            public LeafKeyTreeNode(KeyTreeNode parent, string nodeId)
+            {
+                Parent = parent;
+                NodeId = nodeId;
+                var ids = nodeId.Split(' ');
+                GenusId = ids[0];
+                for (int i = 1; i < ids.Length; i++)
+                {
+                    SpeciesId += ids[i] + " ";
+                }
+                SpeciesId = SpeciesId.Trim();
+            }
         }
 
         public void LoadTreeFromKeyTables()
         {
-            RootNode = LoadTree(null, null, "family");
+            List<KeyTreeNodeBase> treenodes = new List<KeyTreeNodeBase>();
+
+            RootNode = LoadTree(null, null, "Family");
+
+            PrintKeyTree();
 
             KeyTreeNode LoadTree(KeyTreeNode parentTreeNode, KeyTable parentKeyTable, string nodeId)
             {
                 var treeNode = new KeyTreeNode { NodeId = nodeId, Parent = parentTreeNode };
                 treeNode.Characters = GenerateCharacters(parentKeyTable, nodeId);
-                var treeNodeKeyTable = KeyTable.Load(nodeId);
+                var treeNodeKeyTable = KeyTable.Load(parentKeyTable?.NodeId??"Family", nodeId);
+                treeNodeKeyTable.PrintData();
                 if (treeNodeKeyTable == null) return treeNode;
                 var subNodeIds = treeNodeKeyTable.NodeRows.Select(o => o.NodeId);
                 foreach (var subNodeId in subNodeIds)
                 {
-                    var childNode = LoadTree(treeNode, treeNodeKeyTable, subNodeId);
-                    treeNode.Children.Add(childNode);
+                    KeyTreeNodeBase childNode;
+                    if (IsLeafNode(subNodeId))
+                    {
+                        childNode = new LeafKeyTreeNode(treeNode, subNodeId);
+                    }
+                    else
+                    {
+                        childNode = LoadTree(treeNode, treeNodeKeyTable, subNodeId);
+                    }
+                    if (!treenodes.Exists(o => o.NodeId == childNode.NodeId))
+                    {
+                        treeNode.Children.Add(childNode);
+                        treenodes.Add(childNode);
+                    }
                 }
                 return treeNode;
             }
+
+            bool IsLeafNode(string subNodeId)
+            {
+                // Leaf node consists of <Genus><Space><SpeciesName>..<SpeciesName> 
+                return (subNodeId.Split(' ').Length > 1);
+            }
         }
+
 
         public class CharacterBase { }
 
@@ -156,12 +197,11 @@ namespace AusBatProtoOneMobileClient.Models
 
         #region *// Helpers
 
-        public KeyTreeNode GetKeyNode(string nodeId)
+        public KeyTreeNodeBase GetKeyNode(string nodeId)
         {
-            KeyTreeNode node = null;
+            KeyTreeNodeBase node = null;
             var traverser = new KeyTreeTraverser((parent, current, level) =>
             {
-                Debug.WriteLine($"Parent: {parent?.NodeId} Current: {current.NodeId} Level: {level}");
                 if (current.NodeId == nodeId)
                 {
                     node = current;
@@ -174,6 +214,26 @@ namespace AusBatProtoOneMobileClient.Models
             return node;
         }
 
+        public void PrintKeyTree()
+        {
+            var traverser = new KeyTreeTraverser((parent, current, level) =>
+            {
+                Debug.WriteLine($"{Indent(level)}Parent = {parent?.NodeId} Current = {current.NodeId} Level: {level}");
+                return KeyTreeTraverser.ExitAction.Continue;
+            }, RootNode);
+            traverser.Execute();
+
+            string Indent(int totalLength)
+            {
+                string result = string.Empty;
+                for (int i = 0; i < totalLength * 5; i++)
+                {
+                    result += " ";
+                }
+                return result;
+            }
+        }
+
         public List<PickerCharacter.Option> GetPickerOptions(string keyTableNodeId, string keyId)
         {
             var picker = PickerCharacters.FirstOrDefault(o => o.keyTableNodeId == keyTableNodeId && o.keyId == keyId);
@@ -182,10 +242,10 @@ namespace AusBatProtoOneMobileClient.Models
         }
         public class KeyTreeTraverser
         {
-            KeyTreeNode startNode;
-            Func<KeyTreeNode, KeyTreeNode, int, ExitAction> processNode;
+            KeyTreeNodeBase startNode;
+            Func<KeyTreeNodeBase, KeyTreeNodeBase, int, ExitAction> processNode;
             public enum ExitAction { ExitImmediately, Continue };
-            public KeyTreeTraverser(Func<KeyTreeNode, KeyTreeNode, int, ExitAction> processNode, KeyTreeNode startNode = null)
+            public KeyTreeTraverser(Func<KeyTreeNodeBase, KeyTreeNodeBase, int, ExitAction> processNode, KeyTreeNodeBase startNode = null)
             {
                 if (startNode == null) { this.startNode = KeyTree.RootNode; } else { this.startNode = startNode; }
                 this.startNode = startNode;
@@ -197,7 +257,7 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 RecursiveExecute(startNode);
 
-                bool RecursiveExecute(KeyTreeNode node)
+                bool RecursiveExecute(KeyTreeNodeBase node)
                 {
                     level++;
                     if (processNode.Invoke(node.Parent, node, level) == ExitAction.ExitImmediately) return true;

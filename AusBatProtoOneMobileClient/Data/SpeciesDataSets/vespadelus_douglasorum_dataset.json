@@ -1,5 +1,5 @@
 {
-  "GenusId": "vespadalus",
+  "GenusId": "Vespadelus",
   "SpeciesId": "douglasorum",
   "Name": "Yellow-lipped Cave Bat",
   "DetailsHtml": null,
@@ -11,5 +11,5 @@
   ],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_douglasorum_dist.jpg"
+  "DistributionMapImage": "vespadelus_douglasorum_dist.jpg"
 }

@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Classification\**" />
+    <EmbeddedResource Remove="Data\Classification\**" />
+    <None Remove="Data\Classification\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Helpers\EnumBase.cs" />
     <Compile Remove="Models\CharacterBase.cs" />
     <Compile Remove="Models\Keys.cs" />
@@ -18,7 +24,6 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
-    <None Remove="Data\Classification\classification_table.json" />
     <None Remove="Data\EarMargin\lobe-on-lower-margin-and-cnr-mouth.jpg" />
     <None Remove="Data\EarMargin\lower_ear_margin_without_lobes.jpg" />
     <None Remove="Data\FacialFeatures\dory_semoni_facial.jpg" />
@@ -41,12 +46,15 @@
     <None Remove="Data\KeyTables\molossidae_keytable.json" />
     <None Remove="Data\KeyTables\murina_keytable.json" />
     <None Remove="Data\KeyTables\myotis_keytable.json" />
+    <None Remove="Data\KeyTables\nyctophilus_keytable.json" />
+    <None Remove="Data\KeyTables\phoniscus_keytable.json" />
     <None Remove="Data\KeyTables\pipistrellus_keytable.json" />
     <None Remove="Data\KeyTables\pteropodidae_keytable.json" />
     <None Remove="Data\KeyTables\rhinolophidae_keytable.json" />
+    <None Remove="Data\KeyTables\scoteanax_keytable.json" />
     <None Remove="Data\KeyTables\scotorepens_keytable.json" />
     <None Remove="Data\KeyTables\vespadelus_keytable.json" />
-    <None Remove="Data\KeyTables\vespertilionid_keytable.json" />
+    <None Remove="Data\KeyTables\vespertilionidae_keytable.json" />
     <None Remove="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" />
     <None Remove="Data\MuzzleStructure\muzzle_smooth.jpg" />
     <None Remove="Data\NostrilShape\nostrils_distinct_tubes.jpg" />
@@ -135,7 +143,7 @@
     <None Remove="Data\SpeciesDataSets\chalinolobus_morio_dataset.json" />
     <None Remove="Data\SpeciesDataSets\chalinolobus_nigrogriseus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\chalinolobus_picatus_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\dobsonia_gigas_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\dobsonia_magna_dataset.json" />
     <None Remove="Data\SpeciesDataSets\doryrhina_semoni_dataset.json" />
     <None Remove="Data\SpeciesDataSets\doryrhina_stenotis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\falsistrellus_mackenziei_dataset.json" />
@@ -147,10 +155,10 @@
     <None Remove="Data\SpeciesDataSets\macroderma_magna_dataset.json" />
     <None Remove="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopterus_australis_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopterus_orianae bassanii_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopterus_orianae oceanensis_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopterus_orianae orianae_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopteridae_australis_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopteridae_orianae bassanii_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopteridae_orianae oceanensis_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopteridae_orianae orianae_dataset.json" />
     <None Remove="Data\SpeciesDataSets\murina_florium_dataset.json" />
     <None Remove="Data\SpeciesDataSets\myotis_macropus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctimene_robinsoni_dataset.json" />
@@ -201,15 +209,15 @@
     <None Remove="Data\SpeciesDataSets\taphozous_hilli_dataset.json" />
     <None Remove="Data\SpeciesDataSets\taphozous_kapalgensis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\taphozous_troughtoni_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_baverstocki_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_caurinus_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_darlingtoni_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_douglasorum_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_finlaysoni_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_pumilus_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_regulus_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_troughtoni_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\vespadalus_vulturnus_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_baverstocki_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_caurinus_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_darlingtoni_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_douglasorum_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_finlaysoni_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_pumilus_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_regulus_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_troughtoni_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\vespadelus_vulturnus_dataset.json" />
     <None Remove="Data\SpeciesDetails\aust_aust.html" />
     <None Remove="Data\SpeciesDetails\macro_minimus.html" />
     <None Remove="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg" />
@@ -614,7 +622,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Data\About\about.html" />
-    <EmbeddedResource Include="Data\Classification\classification_table.json" />
     <EmbeddedResource Include="Data\KeyTables\chalinolobus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\emballonuridae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\falsistrellus_keytable.json" />
@@ -625,14 +632,17 @@
     <EmbeddedResource Include="Data\KeyTables\molossidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\megadermatidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\myotis_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\nyctophilus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\phoniscus_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\pteropodidae_dobsonia_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\murina_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\pipistrellus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\pteropodidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\rhinolophidae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\scoteanax_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\scotorepens_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\vespadelus_keytable.json" />
-    <EmbeddedResource Include="Data\KeyTables\vespertilionid_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\vespertilionidae_keytable.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\austonomus_australis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\chaerephon_jobensis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\chalinolobus_dwyeri_dataset.json" />
@@ -640,7 +650,8 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\chalinolobus_morio_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\chalinolobus_nigrogriseus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\chalinolobus_picatus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\dobsonia_gigas_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\dobsonia_magna_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_gigas_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\falsistrellus_mackenziei_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\falsistrellus_tasmaniensis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_ater_dataset.json" />
@@ -652,10 +663,10 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_magna_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_australis_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_orianae bassanii_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_orianae oceanensis_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_orianae orianae_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_australis_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_orianae bassanii_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_orianae oceanensis_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_orianae orianae_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\murina_florium_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\myotis_macropus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctimene_robinsoni_dataset.json" />
@@ -667,6 +678,7 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_gouldi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_major major_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_major tor_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_holtorum_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_sherrini_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_walkeri_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\ozimops_cobourgianus_dataset.json" />
@@ -685,6 +697,7 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_conspicillatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_natalis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_poliocephalus_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinonicteris_aurantia_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_scapulatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
@@ -698,6 +711,7 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_greyii_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_orion_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_sanborni_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_sp_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_parnaby_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\setirostris_eleryi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\syconycteris_australis_dataset.json" />
@@ -706,15 +720,15 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\taphozous_hilli_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\taphozous_kapalgensis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\taphozous_troughtoni_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_baverstocki_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_caurinus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_darlingtoni_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_douglasorum_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_finlaysoni_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_pumilus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_regulus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_troughtoni_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\vespadalus_vulturnus_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_baverstocki_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_caurinus_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_darlingtoni_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_douglasorum_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_finlaysoni_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_pumilus_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_regulus_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_troughtoni_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_vulturnus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDetails\macro_minimus.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\aust_aust.html" />
     <EmbeddedResource Include="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg" />

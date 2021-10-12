@@ -1,5 +1,5 @@
 {
-  "GenusId": "vespadalus",
+  "GenusId": "Vespadelus",
   "SpeciesId": "caurinus",
   "Name": "Northern Cave Bat",
   "DetailsHtml": null,
@@ -11,5 +11,5 @@
   ],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_caurinus_dist.jpg"
+  "DistributionMapImage": "vespadelus_caurinus_dist.jpg"
 }

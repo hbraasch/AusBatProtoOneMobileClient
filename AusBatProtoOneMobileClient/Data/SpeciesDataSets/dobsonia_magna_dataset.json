@@ -1,11 +1,11 @@
 {
   "GenusId": "Dobsonia",
-  "SpeciesId": "Gigas",
-  "Name": "Undefined",
+  "SpeciesId": "magna",
+  "Name": "Bare-backed Fruit Bat",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "dobsonia_gigas_dist.jpg"
+  "DistributionMapImage": "dobsonia_magna_dist.jpg"
 }

@@ -18,7 +18,7 @@
       ]
     },
     {
-      "NodeId": "Scotorepens greyi",
+      "NodeId": "Scotorepens greyii",
       "Values": [
         "27-34.5",
         "3.9-5.1",
@@ -45,12 +45,21 @@
       ]
     },
     {
-      "NodeId": "Scotorepens (Parnaby)",
+      "NodeId": "Scotorepens parnaby",
       "Values": [
         "31-34",
         "4.0-4.9",
         "2.30-2.60",
         "12.1-14.9"
+      ]
+    },
+    {
+      "NodeId": "Scotorepens sp",
+      "Values": [
+        "0-0",
+        "0-0",
+        "0-0",
+        "0-0"
       ]
     }
   ]

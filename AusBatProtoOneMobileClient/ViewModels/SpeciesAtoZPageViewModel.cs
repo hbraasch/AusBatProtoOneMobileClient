@@ -113,11 +113,12 @@ namespace DocGenOneMobileClient.Views
                     familyGroupDisplayItem = new GroupedSpeciesDisplayItem { Alphabet = alphabet.ToUpper() };
                     SpeciesGroupDisplayItems.Add(familyGroupDisplayItem);
                 }
+                var imageSource = (species.Images.Count > 0) ? species.Images.First() : "";
                 familyGroupDisplayItem.Add(new SpeciesDisplayItem
                 {
                     SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}",
                     FriendlyName = species.Name,
-                    ImageSource = species.Images.First(),
+                    ImageSource = imageSource,
                     Species = species
                 });                
             }

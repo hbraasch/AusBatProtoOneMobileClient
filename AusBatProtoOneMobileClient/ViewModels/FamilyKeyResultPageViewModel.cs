@@ -22,9 +22,9 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyResultPageViewModel : ViewModelBase
     {
-        List<KeyTreeNode> selectedKeyTreeNodes = null;
+        List<KeyTreeNodeBase> selectedKeyTreeNodes = null;
         public class DisplayItemBase {
-            public KeyTreeNode Content { get; set; }
+            public KeyTreeNodeBase Content { get; set; }
         }
         public class NodeDisplayItem : DisplayItemBase
         {
@@ -71,7 +71,7 @@ namespace DocGenOneMobileClient.Views
         #endregion
 
 
-        public FamilyKeyResultPageViewModel(List<KeyTreeNode> selectedKeyTreeNodes)
+        public FamilyKeyResultPageViewModel(List<KeyTreeNodeBase> selectedKeyTreeNodes)
         {
             this.selectedKeyTreeNodes = selectedKeyTreeNodes;
             DisplayItems = new ObservableCollection<DisplayItemBase>();

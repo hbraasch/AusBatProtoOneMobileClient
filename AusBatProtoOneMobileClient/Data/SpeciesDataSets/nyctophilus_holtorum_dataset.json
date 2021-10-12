@@ -1,11 +1,11 @@
 {
-  "GenusId": "Vespadalus",
-  "SpeciesId": "Pumilus",
+  "GenusId": "Nyctophilus",
+  "SpeciesId": "holtorum",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_pumilus_dist.jpg"
+  "DistributionMapImage": "nyctophilus_holtorum_dist.jpg"
 }

@@ -1,11 +1,11 @@
 {
-  "GenusId": "Vespadalus",
-  "SpeciesId": "Troughtoni",
+  "GenusId": "Vespadelus",
+  "SpeciesId": "Baverstocki",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_troughtoni_dist.jpg"
+  "DistributionMapImage": "vespadelus_baverstocki_dist.jpg"
 }

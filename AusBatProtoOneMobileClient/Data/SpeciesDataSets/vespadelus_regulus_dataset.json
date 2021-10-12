@@ -1,5 +1,5 @@
 {
-  "GenusId": "vespadalus",
+  "GenusId": "Vespadelus",
   "SpeciesId": "regulus",
   "Name": "Southern Forest Bat",
   "DetailsHtml": null,
@@ -11,5 +11,5 @@
   ],
   "CallImages": [],
   "RegionIds": [],
-  "DistributionMapImage": "vespadalus_regulus_dist.jpg"
+  "DistributionMapImage": "vespadelus_regulus_dist.jpg"
 }

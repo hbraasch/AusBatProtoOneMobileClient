@@ -3,6 +3,7 @@ using AusBatProtoOneMobileClient.ViewModels;
 using AusBatProtoOneMobileClient.Views.Components;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -12,12 +13,13 @@ namespace AusBatProtoOneMobileClient
     {
         AboutPageViewModel viewModel;
         MenuGenerator menu;
+        WebView webView;
         public AboutPage(AboutPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var webView = new TransparentWebView();
+            webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() : new WebView();
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(AboutPageViewModel.WebViewSource), BindingMode.OneWay));
 
             var mainLayout = new StackLayout { Children = { webView }, Margin = 5 };

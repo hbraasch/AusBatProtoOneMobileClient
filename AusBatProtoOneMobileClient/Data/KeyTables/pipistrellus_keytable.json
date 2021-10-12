@@ -40,6 +40,16 @@
         "2.15-2.43",
         "11-16"
       ]
+    },
+    {
+      "NodeId": "Pipistrellus murrayi",
+      "Values": [
+        "0-0",
+        "0-0",
+        "BroadestAtBase",
+        "0-0",
+        "0-0"
+      ]
     }
   ]
 }

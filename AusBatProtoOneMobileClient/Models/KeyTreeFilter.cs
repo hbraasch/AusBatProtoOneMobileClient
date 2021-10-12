@@ -10,16 +10,26 @@ namespace AusBatProtoOneMobileClient.Models.Touch
     {
         private static KeyTreeFilter instance;
 
-        public static KeyTreeFilter Current => (instance == null) ? new KeyTreeFilter(): instance;
+        public static KeyTreeFilter Current 
+        {
+            get 
+            {
+                if (instance == null)
+                {
+                    instance = new KeyTreeFilter();
+                }
+                return instance;
+            }        
+        }
 
-        internal List<KeyTree.KeyTreeNode> GetFilterResetNodes()
+        internal List<KeyTree.KeyTreeNodeBase> GetFilterResetNodes()
         {
             return KeyTree.RootNode.Children.Select(o => o).ToList();
         }
 
-        internal List<KeyTreeNode> GetKeyTreeNodesInRegions(List<KeyTreeNode> currentKeyTreeNodes, List<int> regionIds)
+        internal List<KeyTreeNodeBase> GetKeyTreeNodesInRegions(List<KeyTreeNodeBase> currentKeyTreeNodes, List<int> regionIds)
         {
-            var result = new List<KeyTreeNode>();
+            var result = new List<KeyTreeNodeBase>();
             foreach (var currentKeyTreeNode in currentKeyTreeNodes)
             {
                 var intersect = currentKeyTreeNode.RegionIds.Intersect(regionIds);
