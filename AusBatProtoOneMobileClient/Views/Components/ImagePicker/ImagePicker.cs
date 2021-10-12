@@ -11,17 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.ViewModels.ClassificationPageViewModel;
-using static AusBatProtoOneMobileClient.Views.Components.PickerWithImagesDisplayOptions;
+using static AusBatProtoOneMobileClient.Views.Components.ImagePickerDisplayOptions;
 
 namespace AusBatProtoOneMobileClient.Views.Components
 {
-    public class PickerWithImages : Label
+    public class ImagePicker : Label
     {
 
 
 
         #region *// ItemsSourceProperty
-        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(List<string>), typeof(PickerWithImages),new List<string>());
+        public static readonly BindableProperty ItemsSourceProperty = BindableProperty.Create(nameof(ItemsSource), typeof(List<string>), typeof(ImagePicker),new List<string>());
 
         public List<string> ItemsSource
         {
@@ -33,17 +33,17 @@ namespace AusBatProtoOneMobileClient.Views.Components
         #endregion
 
         #region *// ImageItemsSourceProperty
-        public static readonly BindableProperty ImagesItemSourceProperty = BindableProperty.Create(nameof(ImagesItemSource), typeof(List<string>), typeof(PickerWithImages), new List<string>());
+        public static readonly BindableProperty ImageItemsSourceProperty = BindableProperty.Create(nameof(ImageItemsSource), typeof(List<string>), typeof(ImagePicker), new List<string>());
 
-        public List<string> ImagesItemSource
+        public List<string> ImageItemsSource
         {
-            get { return (List<string>)GetValue(ImagesItemSourceProperty); }
-            set { SetValue(ImagesItemSourceProperty, value); }
+            get { return (List<string>)GetValue(ImageItemsSourceProperty); }
+            set { SetValue(ImageItemsSourceProperty, value); }
         }
         #endregion
 
         #region *// SelectedItemProperty
-        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(string), typeof(PickerWithImages), "");
+        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create(nameof(SelectedItem), typeof(string), typeof(ImagePicker), "");
 
         public string SelectedItem
         {
@@ -54,7 +54,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
         Page parentPage;
 
-        public PickerWithImages(Page parentPage)
+        public ImagePicker(Page parentPage)
         {
             this.parentPage = parentPage;
             BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5);
@@ -69,13 +69,14 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 for (int i = 0; i < ItemsSource.Count; i++)
                 {
                     if (ItemsSource[i] == "") continue;
+                    var imageSource = (ImageItemsSource.Count == 0) ? "": ImageItemsSource[i];
                     displayItems.Add(new PickerWithImagesDisplayData
                     {
                         Description = ItemsSource[i],
-                        ImageSource = ImagesItemSource[i]
+                        ImageSource = imageSource
                     });
                 }
-                var page = new PickerWithImagesDisplayOptions()
+                var page = new ImagePickerDisplayOptions()
                 {
                     DisplayItems = new ObservableCollection<PickerWithImagesDisplayData>(displayItems),
                     SelectedDisplayItem = null

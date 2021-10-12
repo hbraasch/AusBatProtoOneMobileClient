@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-
 [assembly: Dependency(typeof(ImageCheckerDroid))]
 namespace AusBatProtoOneMobileClient.Droid
 {

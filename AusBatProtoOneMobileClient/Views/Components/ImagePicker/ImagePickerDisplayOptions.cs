@@ -9,11 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.ViewModels.ClassificationPageViewModel;
-using static AusBatProtoOneMobileClient.Views.Components.PickerWithImages;
+using static AusBatProtoOneMobileClient.Views.Components.ImagePicker;
 
 namespace AusBatProtoOneMobileClient.Views.Components
 {
-    public class PickerWithImagesDisplayOptions : ContentPage
+    public class ImagePickerDisplayOptions : ContentPage
     {
         public class PickerWithImagesDisplayData
         {
@@ -24,7 +24,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
         public ObservableCollection<PickerWithImagesDisplayData> DisplayItems { get; set; } = new ObservableCollection<PickerWithImagesDisplayData>();
         public PickerWithImagesDisplayData SelectedDisplayItem { get; set; }
 
-        public PickerWithImagesDisplayOptions()
+        public ImagePickerDisplayOptions()
         {
             BindingContext = this;
             var listView = new ListView

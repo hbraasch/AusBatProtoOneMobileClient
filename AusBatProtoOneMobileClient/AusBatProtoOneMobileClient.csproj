@@ -24,7 +24,7 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
-    <None Remove="Data\EarMargin\lobe-on-lower-margin-and-cnr-mouth.jpg" />
+    <None Remove="Data\EarMargin\lobe_on_lower_margin_and_cnr_mouth.jpg" />
     <None Remove="Data\EarMargin\lower_ear_margin_without_lobes.jpg" />
     <None Remove="Data\FacialFeatures\dory_semoni_facial.jpg" />
     <None Remove="Data\FacialFeatures\dory_stenotis_facial.jpg" />
@@ -468,7 +468,7 @@
     <None Remove="Data\SpeciesImages\Rhino_robert_head.jpg" />
     <None Remove="Data\SpeciesImages\Rhino_sp1.jpg" />
     <None Remove="Data\SpeciesImages\Rhino_sp2.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_spHead.jpg" />
+    <None Remove="Data\SpeciesImages\rhino_sp_head.jpg" />
     <None Remove="Data\SpeciesImages\Sacc_flav1.jpg" />
     <None Remove="Data\SpeciesImages\Sacc_flav2.jpg" />
     <None Remove="Data\SpeciesImages\Sacc_flav_head.jpg" />
@@ -587,10 +587,10 @@
     <None Remove="Data\RegionsMap\map312.png" />
     <None Remove="Data\TailMembrane\tail_membrane_hairy.jpg" />
     <None Remove="Data\TailMembrane\tail_membrane_no_fur.jpg" />
-    <None Remove="Data\UpperIncisors\1_pair.jpg" />
-    <None Remove="Data\UpperIncisors\2_pairs_equal_size_both_bifurcate.jpg" />
-    <None Remove="Data\UpperIncisors\2_pairs_inequal_size_neither_bifid.jpg" />
-    <None Remove="Data\UpperIncisors\2_pairs_larger_bifid.jpg" />
+    <None Remove="Data\UpperIncisors\one_pair.jpg" />
+    <None Remove="Data\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" />
+    <None Remove="Data\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" />
+    <None Remove="Data\UpperIncisors\two_pairs_larger_bifid.jpg" />
     <None Remove="Images\Aust_aust_head.png" />
     <None Remove="Images\background.png" />
     <None Remove="Images\GhostTreeview\ic_action.png" />
@@ -828,22 +828,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SharedImage Include="Data\EarMargin\lobe-on-lower-margin-and-cnr-mouth.jpg" />
-    <SharedImage Include="Data\EarMargin\lower_ear_margin_without_lobes.jpg" />
-    <SharedImage Include="Data\FacialFeatures\dory_semoni_facial.jpg" />
-    <SharedImage Include="Data\FacialFeatures\dory_stenotis_facial.jpg" />
-    <SharedImage Include="Data\FacialFeatures\hipp_ater_facial.jpg" />
-    <SharedImage Include="Data\FacialFeatures\hipp_diad_facial.jpg" />
-    <SharedImage Include="Data\FacialFeatures\hipp_inornat_facial.jpg" />
-    <SharedImage Include="Data\FacialFeatures\hip_cerv_facial.jpg" />
-    <SharedImage Include="Data\FacialFeatures\rhino_aur_facial.jpg" />
+    <SharedImage Include="Data\EarMargin\lobe_on_lower_margin_and_cnr_mouth.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\EarMargin\lower_ear_margin_without_lobes.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FacialFeatures\dory_semoni_facial.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FacialFeatures\dory_stenotis_facial.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FacialFeatures\hipp_ater_facial.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FacialFeatures\hipp_diad_facial.jpg" BaseSize="150,150" />  
+    <SharedImage Include="Data\FacialFeatures\hipp_inornat_facial.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FacialFeatures\hip_cerv_facial.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\FacialFeatures\rhino_aur_facial.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_absent.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\FamilyKeyImages\tragus_entire.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" />
-    <SharedImage Include="Data\MuzzleStructure\muzzle_smooth.jpg" />
-    <SharedImage Include="Data\NostrilShape\nostrils_distinct_tubes.jpg" />
-    <SharedImage Include="Data\NostrilShape\nostrils_flat_slight_rim.jpg" />
+    <SharedImage Include="Data\MuzzleStructure\muzzle_smooth.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\NostrilShape\nostrils_distinct_tubes.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\NostrilShape\nostrils_flat_slight_rim.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\aust_aust_call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\chae_job_call_image.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesCallImages\chal_dwye_call_image.jpg" BaseSize="150,150" />
@@ -1091,7 +1091,7 @@
     <SharedImage Include="Data\SpeciesImages\rhino_robert_head.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\rhino_sp1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\rhino_sp2.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\rhino_spHead.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesImages\rhino_sp_head.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\sacc_flav1.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\sacc_flav2.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\sacc_flav_head.jpg" BaseSize="150,150" />
@@ -1182,15 +1182,15 @@
     <SharedImage Include="Data\RegionsMap\map310.png" BaseSize="150,150" />
     <SharedImage Include="Data\RegionsMap\map311.png" BaseSize="150,150" />
     <SharedImage Include="Data\RegionsMap\map312.png" BaseSize="150,150" />
-    <SharedImage Include="Data\TailMembrane\tail_membrane_hairy.jpg" />
-    <SharedImage Include="Data\TailMembrane\tail_membrane_no_fur.jpg" />
-    <SharedImage Include="Data\UpperIncisors\1_pair.jpg" />
-    <SharedImage Include="Data\UpperIncisors\2_pairs_equal_size_both_bifurcate.jpg" />
-    <SharedImage Include="Data\UpperIncisors\2_pairs_inequal_size_neither_bifid.jpg" />
-    <SharedImage Include="Data\UpperIncisors\2_pairs_larger_bifid.jpg" />
+    <SharedImage Include="Data\TailMembrane\tail_membrane_hairy.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\TailMembrane\tail_membrane_no_fur.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\UpperIncisors\one_pair.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\UpperIncisors\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
     <SharedImage Include="Images\background.png" BaseSize="500,500" />
     <SharedImage Include="Images\GhostTreeview\ic_action.png" BaseSize="75,75" />
-	  <SharedImage Include="Images\GhostTreeview\ic_select.png" BaseSize="75,75" />
+	<SharedImage Include="Images\GhostTreeview\ic_select.png" BaseSize="75,75" />
     <SharedImage Include="Images\GhostTreeview\ic_close.png" BaseSize="50,50" />
     <SharedImage Include="Images\GhostTreeview\ic_close_bar2.png" BaseSize="50,50" />
     <SharedImage Include="Images\GhostTreeview\ic_empty.png" BaseSize="50,50" />

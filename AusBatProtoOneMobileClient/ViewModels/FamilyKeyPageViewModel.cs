@@ -39,9 +39,9 @@ namespace DocGenOneMobileClient.Views
         public class PickerDisplayItem : CharacterDisplayItemBase
         {
             public string SelectedOptionId { get; set; }
-            public List<string> Options { get; set; }
-            public List<string> ImageSources { get; set; }
-            public PickerCharacter Content { get; set; }
+            public List<string> Options { get; set; } = new List<string>();
+            public List<string> ImageSources { get; set; } = new List<string>();
+            public PickerCharacterPrompt Content { get; set; }
         }
         public class NumericDisplayItem : CharacterDisplayItemBase
         {
@@ -51,7 +51,7 @@ namespace DocGenOneMobileClient.Views
         public class MapRegionsDisplayItem : CharacterDisplayItemBase
         {
             public override string Prompt { get; set; } = "Regions";
-            public List<int> RegionIds { get; set; }
+            public List<int> RegionIds { get; set; } = new List<int>();
             public string SelectionAmount { get; set; }
             public ICommand OnSearch { get; set; }
             public bool HasEntry() => RegionIds?.Count > 0;
@@ -74,6 +74,10 @@ namespace DocGenOneMobileClient.Views
 
         #endregion
 
+        public FamilyKeyPageViewModel()
+        {
+
+        }
 
         public FamilyKeyPageViewModel(List<KeyTreeNodeBase> currentKeyTreeNodes, List<int> currentRegionIds)
         {
@@ -95,7 +99,7 @@ namespace DocGenOneMobileClient.Views
                 });
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentKeyTreeNodes);
-                
+                FilterResult = UpdateFilterResults();                
 
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -112,29 +116,32 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
+        private string UpdateFilterResults()
+        {
+            return "(0) results";
+        }
+
         public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(List<KeyTreeNodeBase> keyTreeNodes)
         {
             var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
             foreach (var keyTreeNode in keyTreeNodes)
             {
-                foreach (var character in keyTreeNode.Characters)
+                foreach (var character in keyTreeNode.PromptCharactersForNextLevel)
                 {
-                    if (character is NumericCharacter)
+                    if (character is NumericCharacterPrompt ncp)
                     {
                         displayItems.Add(new NumericDisplayItem { 
-                            Prompt = ((NumericCharacter)character).keyId,
+                            Prompt = ncp.Prompt,
                             Value = float.MinValue
                         });
                     }
-                    else if (character is PickerCharacterValue)
-                    {
-                        var pickerCharacterValue = (PickerCharacterValue)character;
-                        var options = App.dbase.KeyTree.GetPickerOptions(pickerCharacterValue.keyTableNodeId, pickerCharacterValue.keyId).Select(o => o.OptionPrompt);
+                    else if (character is PickerCharacterPrompt pcp)
+                    {                    
                         displayItems.Add(new PickerDisplayItem
                         {
-                            Prompt = pickerCharacterValue.keyId,
-                            SelectedOptionId = pickerCharacterValue.optionId,
-                            Options = options.ToList()
+                            Prompt = pcp.Prompt,
+                            SelectedOptionId = "",
+                            Options = pcp.Options.Select(o=>o.OptionPrompt).ToList()
                         }); 
                     }
                 }
