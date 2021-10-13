@@ -36,11 +36,12 @@ namespace AusBatProtoOneMobileClient.Models
 
             public List<int> RegionIds = new List<int>();
 
-            internal List<KeyTreeNodeBase> GetTriggeredNodesUsingRegions(List<int> regionIds)
+            internal List<KeyTreeNodeBase> GetTriggeredNodesUsingRegions(List<KeyTreeNodeBase> currentTriggeredNodes, List<int> regionIds)
             {
                 List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
                 foreach (var childNode in Children)
                 {
+                    if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
                     var sharedRegionIds = RegionIds.Intersect(regionIds).ToList();
                     if (!sharedRegionIds.IsEmpty())
                     {
@@ -50,7 +51,7 @@ namespace AusBatProtoOneMobileClient.Models
                 return triggeredNodes;
             }
 
-            internal List<KeyTreeNodeBase> GetTriggeredNodesUsingEntries(CharacterPromptBase characterEntry)
+            internal List<KeyTreeNodeBase> GetTriggeredNodesUsingEntries(List<KeyTreeNodeBase> currentTriggeredNodes, CharacterPromptBase characterEntry)
             {
                 List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
                 // Test one level down
@@ -58,6 +59,7 @@ namespace AusBatProtoOneMobileClient.Models
                 {
                     foreach (var childNode in Children)
                     {
+                        if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
                         var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is PickerCharacterTrigger).Select(o=>o as PickerCharacterTrigger).ToList() ;
                         var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == pcp.KeyId);
                         if (evaluateCharacter.OptionId == pcp.EntryOptionId)
@@ -71,6 +73,7 @@ namespace AusBatProtoOneMobileClient.Models
                     var ncp = characterEntry as NumericCharacterPrompt;
                     foreach (var childNode in Children)
                     {
+                        if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
                         var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is NumericCharacterTrigger).Select(o => o as NumericCharacterTrigger).ToList();
                         var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == ncp.KeyId);
                         if (evaluateCharacter.MinValue <= ncp.Entry && ncp.Entry <= evaluateCharacter.MaxValue)
@@ -82,19 +85,6 @@ namespace AusBatProtoOneMobileClient.Models
                 }
                 return triggeredNodes;
             }
-        }
-
-        internal static KeyTreeNodeBase Clone(KeyTreeNodeBase node)
-        {
-            var json = JsonConvert.SerializeObject(node);
-            if (node is LeafKeyTreeNode)
-            {
-                return JsonConvert.DeserializeObject<LeafKeyTreeNode>(json);
-            }
-            else
-            {
-                return JsonConvert.DeserializeObject<KeyTreeNode>(json);
-            }          
         }
 
         public class KeyTreeNode : KeyTreeNodeBase { }
@@ -183,6 +173,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         private static bool IsAllNodesPickerOptionsTheSame(string keyId, List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes)
         {
+            if (currentTriggeredKeyTreeNodes.Count == 0) return false;
             string previousOptionId = "";
             foreach (var currentTriggeredKeyTreeNode in currentTriggeredKeyTreeNodes)
             {
@@ -199,6 +190,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         private static bool IsAllNodesCharacterRangeTheSame(string keyId, List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes)
         {
+            if (currentTriggeredKeyTreeNodes.Count == 0) return false;
             (float, float) previousRange = (0, 0);
             foreach (var currentTriggeredKeyTreeNode in currentTriggeredKeyTreeNodes)
             {
@@ -290,6 +282,8 @@ namespace AusBatProtoOneMobileClient.Models
             }
             return (minValue, maxValue);
         }
+
+
 
         public class CharacterTriggerBase { public string KeyId; }
         public class CharacterPromptBase {
@@ -397,11 +391,21 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
-        public static List<KeyTreeNodeBase> AddRangeUnique(List<KeyTreeNodeBase> allTriggeredKeyTreeNodes, List<KeyTreeNodeBase> triggeredKeyTreeNodes)
+        public static List<KeyTreeNodeBase> AddNodesRangeUnique(List<KeyTreeNodeBase> allTriggeredKeyTreeNodes, List<KeyTreeNodeBase> triggeredKeyTreeNodes)
         {
             allTriggeredKeyTreeNodes.AddRange(triggeredKeyTreeNodes);
             allTriggeredKeyTreeNodes = allTriggeredKeyTreeNodes.Distinct(new TreeNodeComparer()).ToList();
             return allTriggeredKeyTreeNodes;
+        }
+
+        internal static List<CharacterPromptBase> AddCharacterUnique(List<CharacterPromptBase> currentList, CharacterPromptBase newItem)
+        {
+            if (currentList.Exists(o=>o.KeyId == newItem.KeyId))
+            {
+                return currentList;
+            }
+            currentList.Add(newItem);
+            return currentList;
         }
 
         internal void EnhanceTree(List<Species> specieses)

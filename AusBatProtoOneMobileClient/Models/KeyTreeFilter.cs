@@ -24,7 +24,7 @@ namespace AusBatProtoOneMobileClient.Models.Touch
 
         internal KeyTree.KeyTreeNodeBase GetFilterResetNode()
         {
-            return KeyTree.Clone(App.dbase.KeyTree.RootNode);
+            return App.dbase.KeyTree.RootNode;
         }
 
         internal List<KeyTreeNodeBase> GetKeyTreeNodesInRegions(List<KeyTreeNodeBase> currentKeyTreeNodes, List<int> regionIds)
