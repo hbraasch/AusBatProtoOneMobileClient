@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TreeApp.Helpers;
+using static AusBatProtoOneMobileClient.Models.KeyTree;
 using static AusBatProtoOneMobileClient.Models.KeyTree.PickerCharacterPrompt;
 
 namespace AusBatProtoOneMobileClient.Models
@@ -61,7 +62,6 @@ namespace AusBatProtoOneMobileClient.Models
                         if (evaluateCharacter.OptionId == pcp.EntryOptionId)
                         {
                             triggeredNodes.Add(childNode);
-
                         }
                     }
                 }
@@ -82,6 +82,12 @@ namespace AusBatProtoOneMobileClient.Models
                 return triggeredNodes;
             }
         }
+
+        internal static KeyTreeNodeBase Clone(KeyTreeNodeBase rootNode)
+        {
+            throw new NotImplementedException();
+        }
+
         public class KeyTreeNode : KeyTreeNodeBase { }
 
         public class LeafKeyTreeNode : KeyTreeNodeBase
@@ -181,13 +187,13 @@ namespace AusBatProtoOneMobileClient.Models
                 if (picker != null)
                 {
                     // RowItem is a picker
-                    characters.Add(new PickerCharacterTrigger { OptionId = nodeRow.Values[rowColumnIndex] });
+                    characters.Add(new PickerCharacterTrigger { KeyId = keyId, OptionId = nodeRow.Values[rowColumnIndex] });
                 }
                 else
                 {
                     // RowItem is a numeric
                     (float minValue, float maxValue) values = ExtractValues(nodeRow.Values[rowColumnIndex]);
-                    characters.Add(new NumericCharacterTrigger { MinValue = values.minValue, MaxValue = values.maxValue });
+                    characters.Add(new NumericCharacterTrigger { KeyId = keyId, MinValue = values.minValue, MaxValue = values.maxValue });
                 }
             }
             return characters;
@@ -325,6 +331,13 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+        public static List<KeyTreeNodeBase> AddRangeUnique(List<KeyTreeNodeBase> allTriggeredKeyTreeNodes, List<KeyTreeNodeBase> triggeredKeyTreeNodes)
+        {
+            allTriggeredKeyTreeNodes.AddRange(triggeredKeyTreeNodes);
+            allTriggeredKeyTreeNodes = allTriggeredKeyTreeNodes.Distinct(new TreeNodeComparer()).ToList();
+            return allTriggeredKeyTreeNodes;
+        }
+
         internal void EnhanceTree(List<Species> specieses)
         {
             #region *// Enter leave node data
@@ -340,7 +353,9 @@ namespace AusBatProtoOneMobileClient.Models
                 var nodeParent = node.Parent;
                 while (nodeParent != null)
                 {
-                    nodeParent.RegionIds.AddRangeUnique<int>(node.RegionIds);
+                    nodeParent.RegionIds.AddRange(node.RegionIds);
+                    var distinctList = nodeParent.RegionIds.Distinct(new IntComparer());
+                    nodeParent.RegionIds = distinctList.ToList();
                     nodeParent = nodeParent.Parent;
                 }
                 #endregion 
@@ -350,6 +365,32 @@ namespace AusBatProtoOneMobileClient.Models
 
 
         }
+
+        private class IntComparer : IEqualityComparer<int>
+        {
+            public bool Equals(int x, int y)
+            {
+                return x == y;
+            }
+
+            public int GetHashCode(int obj)
+            {
+                return obj;
+            }
+        }
         #endregion
+    }
+
+    internal class TreeNodeComparer : IEqualityComparer<KeyTreeNodeBase>
+    {
+        public bool Equals(KeyTreeNodeBase x, KeyTreeNodeBase y)
+        {
+            return x.NodeId == y.NodeId;
+        }
+
+        public int GetHashCode(KeyTreeNodeBase obj)
+        {
+            return obj.NodeId.GetHashCode() + obj.GetHashCode();
+        }
     }
 }

@@ -23,7 +23,14 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-        public List<KeyTreeNodeBase> CurrentKeyTreeNodes = new List<KeyTreeNodeBase>();
+        public KeyTreeNodeBase CurrentPromptKeyTreeNodes;
+        public List<KeyTreeNodeBase> CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
+
+        public List<CharacterPromptBase> UsedPromptCharacters = new List<CharacterPromptBase>();
+        public List<CharacterPromptBase> BestPromptCharacters = new List<CharacterPromptBase>();
+        public List<CharacterPromptBase> RemovedPromptCharacters = new List<CharacterPromptBase>();
+
+
         public List<int> CurrentRegionIds { get; set; } = new List<int>();
         public abstract class CharacterDisplayItemBase
         {
@@ -92,9 +99,10 @@ namespace DocGenOneMobileClient.Views
 
         }
 
-        public FamilyKeyPageViewModel(List<KeyTreeNodeBase> currentKeyTreeNodes, List<int> currentRegionIds)
+        public FamilyKeyPageViewModel(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> currentRegionIds)
         {
-            CurrentKeyTreeNodes = currentKeyTreeNodes;
+            CurrentPromptKeyTreeNodes = KeyTree.Clone(currentPromptKeyTreeNode);
+            CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
             CurrentRegionIds = currentRegionIds;
             CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
         }
@@ -110,8 +118,8 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                CharacterDisplayItems = UpdateCharacterDisplay(CurrentKeyTreeNodes);
-                FilterResult = UpdateFilterResults();
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNodes);
+                FilterResult = $"(0) results";
 
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -130,13 +138,13 @@ namespace DocGenOneMobileClient.Views
 
         private string UpdateFilterResults()
         {
-            return "(0) results";
+            return $"({CurrentTriggeredKeyTreeNodes.Count}) results";
         }
 
-        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(List<KeyTreeNodeBase> keyTreeNodes)
+        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(KeyTreeNodeBase promptKeyTreeNode)
         {
             var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
-            foreach (var keyTreeNode in keyTreeNodes)
+            foreach (var keyTreeNode in promptKeyTreeNode)
             {
                 foreach (var character in keyTreeNode.PromptCharactersForNextLevel)
                 {
@@ -172,9 +180,6 @@ namespace DocGenOneMobileClient.Views
             displayItems.OrderBy(o => o.DisplayOrder);
             return displayItems;
         }
-
-
-
 
         public ICommand OnSubsequentAppearance => new Command(() =>
         {
@@ -234,8 +239,10 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                CharacterDisplayItems = UpdateCharacterDisplay(KeyTreeFilter.Current.GetFilterResetNodes());
+                CurrentPromptKeyTreeNodes = KeyTreeFilter.Current.GetFilterResetNode();
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNodes);
                 CurrentRegionIds.Clear();
+                FilterResult = $"(0) results";
 
             }
             catch (Exception ex)
@@ -253,8 +260,9 @@ namespace DocGenOneMobileClient.Views
             {
                 ActivityIndicatorStart();
 
-                CurrentKeyTreeNodes = ConductSearch(CurrentKeyTreeNodes);
-                CharacterDisplayItems = UpdateCharacterDisplay(CurrentKeyTreeNodes);
+                ConductSearch();
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNodes);
+                FilterResult = UpdateFilterResults();
 
             }
             catch (Exception ex)
@@ -267,11 +275,13 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        private List<KeyTreeNodeBase> ConductSearch(List<KeyTreeNodeBase> sourceKeyTreeNodes)
+        private void ConductSearch()
         {
+            var sourceKeyTreeNodes = CurrentPromptKeyTreeNodes;
             List<KeyTreeNodeBase> allTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
 
             var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
+            if (activeCharacterDisplayItem == null) return;
 
             if (activeCharacterDisplayItem is PickerDisplayItem pdi)
             {
@@ -280,7 +290,7 @@ namespace DocGenOneMobileClient.Views
                     var selectedOptionId = pdi.OptionIds[pdi.Options.IndexOf(pdi.SelectedOption)];
                     (activeCharacterDisplayItem.Content as PickerCharacterPrompt).EntryOptionId = selectedOptionId;
                     List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetEntryTriggeredNodes(activeCharacterDisplayItem.Content);
-                    allTriggeredKeyTreeNodes.AddRangeUnique<KeyTreeNodeBase>(triggeredKeyTreeNodes);
+                    allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
                 }
             }
             else if (activeCharacterDisplayItem is NumericDisplayItem ndi)
@@ -289,7 +299,7 @@ namespace DocGenOneMobileClient.Views
                 {
                     (activeCharacterDisplayItem.Content as NumericCharacterPrompt).Entry = float.Parse(ndi.Value);
                     List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetEntryTriggeredNodes(activeCharacterDisplayItem.Content);
-                    allTriggeredKeyTreeNodes.AddRangeUnique<KeyTreeNodeBase>(triggeredKeyTreeNodes);
+                    allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
                 }
             }
             else if (activeCharacterDisplayItem is MapRegionsDisplayItem mrdi)
@@ -297,13 +307,15 @@ namespace DocGenOneMobileClient.Views
                 foreach (var sourceKeyTreeNode in sourceKeyTreeNodes)
                 {
                     List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetRegionTriggeredNodes(mrdi.RegionIds);
-                    allTriggeredKeyTreeNodes.AddRangeUnique<KeyTreeNodeBase>(triggeredKeyTreeNodes);
+                    allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
                 }
             }
             else throw new ApplicationException("Unknown displayItem encountered");
 
-            return allTriggeredKeyTreeNodes;
+            CurrentTriggeredKeyTreeNodes =  allTriggeredKeyTreeNodes;
         }
+
+
 
         public ICommand OnViewResultsClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
@@ -311,7 +323,7 @@ namespace DocGenOneMobileClient.Views
             {
                 ActivityIndicatorStart();
 
-                var viewModel = new FamilyKeyResultPageViewModel(CurrentKeyTreeNodes) { IsHomeEnabled = true };
+                var viewModel = new FamilyKeyResultPageViewModel(CurrentPromptKeyTreeNodes) { IsHomeEnabled = true };
                 var page = new FamilyKeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot); 

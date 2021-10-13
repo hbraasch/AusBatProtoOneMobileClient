@@ -182,7 +182,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new FamilyKeyPageViewModel(KeyTreeFilter.Current.GetFilterResetNodes(), new List<int>());
+                var viewModel = new FamilyKeyPageViewModel(KeyTreeFilter.Current.GetFilterResetNode(), new List<int>());
                 var page = new FamilyKeyPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }

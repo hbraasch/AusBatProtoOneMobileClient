@@ -98,7 +98,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 await page.WaitUntilExecutionStops();
                 SelectedItem = page.SelectedDisplayItem?.Description ?? "";
                 Text = SelectedItem;
-                OnChanged?.Execute(null);
+                if (!string.IsNullOrEmpty(Text))  OnChanged?.Execute(null);
             };
             GestureRecognizers.Add(tapRecognizer);
         }

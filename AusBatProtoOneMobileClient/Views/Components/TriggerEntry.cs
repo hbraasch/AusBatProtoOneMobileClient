@@ -35,10 +35,10 @@ namespace AusBatProtoOneMobileClient.Views.Components
             // Reactive extension to debounce search term as keyed in
             typingSubject = new Subject<string>();
             typingEventSequence = typingSubject.Throttle(TimeSpan.FromSeconds(1))
-                .Subscribe((obj) =>
+                .Subscribe((text) =>
                 Device.BeginInvokeOnMainThread(() =>
                     {
-                        OnChanged?.Execute(null);
+                        if (!string.IsNullOrEmpty(text)) OnChanged?.Execute(null);
                     }));
         }
         #endregion
