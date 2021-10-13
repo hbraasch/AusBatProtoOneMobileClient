@@ -23,12 +23,13 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-        public KeyTreeNodeBase CurrentPromptKeyTreeNodes;
+        public KeyTreeNodeBase CurrentPromptKeyTreeNode;
         public List<KeyTreeNodeBase> CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
 
         public List<CharacterPromptBase> UsedPromptCharacters = new List<CharacterPromptBase>();
         public List<CharacterPromptBase> BestPromptCharacters = new List<CharacterPromptBase>();
         public List<CharacterPromptBase> RemovedPromptCharacters = new List<CharacterPromptBase>();
+        public bool IsMapRegionsDisplayItemVisible = true;
 
 
         public List<int> CurrentRegionIds { get; set; } = new List<int>();
@@ -101,7 +102,7 @@ namespace DocGenOneMobileClient.Views
 
         public FamilyKeyPageViewModel(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> currentRegionIds)
         {
-            CurrentPromptKeyTreeNodes = KeyTree.Clone(currentPromptKeyTreeNode);
+            CurrentPromptKeyTreeNode = KeyTree.Clone(currentPromptKeyTreeNode);
             CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
             CurrentRegionIds = currentRegionIds;
             CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
@@ -118,7 +119,7 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNodes);
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
                 FilterResult = $"(0) results";
 
             }
@@ -141,41 +142,59 @@ namespace DocGenOneMobileClient.Views
             return $"({CurrentTriggeredKeyTreeNodes.Count}) results";
         }
 
-        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(KeyTreeNodeBase promptKeyTreeNode)
+        public ObservableCollection<CharacterDisplayItemBase> UpdateCharacterDisplay(KeyTreeNodeBase currentPromptKeyTreeNode)
         {
             var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
-            foreach (var keyTreeNode in promptKeyTreeNode)
+
+            #region *// Determine which keys needs to be displayed
+            List<CharacterPromptBase> AllPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel;
+            var inEffectivePromptCharacters = KeyTree.GetIneffectivePromptCharacters(CurrentPromptKeyTreeNode, CurrentTriggeredKeyTreeNodes, UsedPromptCharacters);
+            RemovedPromptCharacters.Clear();
+            RemovedPromptCharacters.AddRange(UsedPromptCharacters);
+            RemovedPromptCharacters.AddRange(inEffectivePromptCharacters);
+            foreach (var allPromptCharacter in AllPromptCharacters)
             {
-                foreach (var character in keyTreeNode.PromptCharactersForNextLevel)
+                if (!RemovedPromptCharacters.Exists(o => o.KeyId == allPromptCharacter.KeyId))
                 {
-                    if (character is NumericCharacterPrompt ncp)
-                    {
-                        displayItems.Add(new NumericDisplayItem {
-                            Prompt = ncp.Prompt,
-                            Value = "",
-                            OnChanged = OnFilterClicked,
-                            Content = character
-                        });
-                    }
-                    else if (character is PickerCharacterPrompt pcp)
-                    {
-                        displayItems.Add(new PickerDisplayItem
-                        {
-                            Prompt = pcp.Prompt,
-                            SelectedOption = "",
-                            Options = pcp.Options.Select(o => o.OptionPrompt).ToList(),
-                            OptionIds = pcp.Options.Select(o => o.OptionId).ToList(),
-                            OnChanged = OnFilterClicked,
-                            Content = character
-                        });
-                    }
+                    BestPromptCharacters.Add(allPromptCharacter);
                 }
             }
-            displayItems.Add(new MapRegionsDisplayItem
+            #endregion
+
+
+            foreach (var character in BestPromptCharacters)
             {
-                RegionIds = CurrentRegionIds,
-                OnChanged = OnSpecifyRegionClicked
-            });
+                if (character is NumericCharacterPrompt ncp)
+                {
+                    displayItems.Add(new NumericDisplayItem
+                    {
+                        Prompt = ncp.Prompt,
+                        Value = "",
+                        OnChanged = OnFilterClicked,
+                        Content = character
+                    });
+                }
+                else if (character is PickerCharacterPrompt pcp)
+                {
+                    displayItems.Add(new PickerDisplayItem
+                    {
+                        Prompt = pcp.Prompt,
+                        SelectedOption = "",
+                        Options = pcp.Options.Select(o => o.OptionPrompt).ToList(),
+                        OptionIds = pcp.Options.Select(o => o.OptionId).ToList(),
+                        OnChanged = OnFilterClicked,
+                        Content = character
+                    });
+                }
+            }
+            if (IsMapRegionsDisplayItemVisible)
+            {
+                displayItems.Add(new MapRegionsDisplayItem
+                {
+                    RegionIds = CurrentRegionIds,
+                    OnChanged = OnSpecifyRegionClicked
+                }); 
+            }
 
             displayItems.OrderBy(o => o.DisplayOrder);
             return displayItems;
@@ -239,8 +258,8 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                CurrentPromptKeyTreeNodes = KeyTreeFilter.Current.GetFilterResetNode();
-                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNodes);
+                CurrentPromptKeyTreeNode = KeyTreeFilter.Current.GetFilterResetNode();
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
                 CurrentRegionIds.Clear();
                 FilterResult = $"(0) results";
 
@@ -261,7 +280,7 @@ namespace DocGenOneMobileClient.Views
                 ActivityIndicatorStart();
 
                 ConductSearch();
-                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNodes);
+                CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
                 FilterResult = UpdateFilterResults();
 
             }
@@ -277,7 +296,7 @@ namespace DocGenOneMobileClient.Views
 
         private void ConductSearch()
         {
-            var sourceKeyTreeNodes = CurrentPromptKeyTreeNodes;
+            var sourceKeyTreeNode = CurrentPromptKeyTreeNode;
             List<KeyTreeNodeBase> allTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
 
             var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
@@ -285,30 +304,33 @@ namespace DocGenOneMobileClient.Views
 
             if (activeCharacterDisplayItem is PickerDisplayItem pdi)
             {
-                foreach (var sourceKeyTreeNode in sourceKeyTreeNodes)
+                var selectedOptionId = pdi.OptionIds[pdi.Options.IndexOf(pdi.SelectedOption)];
+                (activeCharacterDisplayItem.Content as PickerCharacterPrompt).EntryOptionId = selectedOptionId;
+                List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetTriggeredNodesUsingEntries(activeCharacterDisplayItem.Content);
+                if (!triggeredKeyTreeNodes.IsEmpty())
                 {
-                    var selectedOptionId = pdi.OptionIds[pdi.Options.IndexOf(pdi.SelectedOption)];
-                    (activeCharacterDisplayItem.Content as PickerCharacterPrompt).EntryOptionId = selectedOptionId;
-                    List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetEntryTriggeredNodes(activeCharacterDisplayItem.Content);
-                    allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
+                    UsedPromptCharacters.Add(activeCharacterDisplayItem.Content);
                 }
+                allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
             }
             else if (activeCharacterDisplayItem is NumericDisplayItem ndi)
             {
-                foreach (var sourceKeyTreeNode in sourceKeyTreeNodes)
+                (activeCharacterDisplayItem.Content as NumericCharacterPrompt).Entry = float.Parse(ndi.Value);
+                List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetTriggeredNodesUsingEntries(activeCharacterDisplayItem.Content);
+                if (!triggeredKeyTreeNodes.IsEmpty())
                 {
-                    (activeCharacterDisplayItem.Content as NumericCharacterPrompt).Entry = float.Parse(ndi.Value);
-                    List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetEntryTriggeredNodes(activeCharacterDisplayItem.Content);
-                    allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
+                    UsedPromptCharacters.Add(activeCharacterDisplayItem.Content);
                 }
+                allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
             }
             else if (activeCharacterDisplayItem is MapRegionsDisplayItem mrdi)
             {
-                foreach (var sourceKeyTreeNode in sourceKeyTreeNodes)
+                List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetTriggeredNodesUsingRegions(mrdi.RegionIds);
+                if (!triggeredKeyTreeNodes.IsEmpty())
                 {
-                    List<KeyTreeNodeBase> triggeredKeyTreeNodes = sourceKeyTreeNode.GetRegionTriggeredNodes(mrdi.RegionIds);
-                    allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
+                    IsMapRegionsDisplayItemVisible = false; ;
                 }
+                allTriggeredKeyTreeNodes = KeyTree.AddRangeUnique(allTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
             }
             else throw new ApplicationException("Unknown displayItem encountered");
 
@@ -323,7 +345,7 @@ namespace DocGenOneMobileClient.Views
             {
                 ActivityIndicatorStart();
 
-                var viewModel = new FamilyKeyResultPageViewModel(CurrentPromptKeyTreeNodes) { IsHomeEnabled = true };
+                var viewModel = new FamilyKeyResultPageViewModel(CurrentTriggeredKeyTreeNodes) { IsHomeEnabled = true };
                 var page = new FamilyKeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot); 

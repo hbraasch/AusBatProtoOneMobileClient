@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,7 +36,7 @@ namespace AusBatProtoOneMobileClient.Models
 
             public List<int> RegionIds = new List<int>();
 
-            internal List<KeyTreeNodeBase> GetRegionTriggeredNodes(List<int> regionIds)
+            internal List<KeyTreeNodeBase> GetTriggeredNodesUsingRegions(List<int> regionIds)
             {
                 List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
                 foreach (var childNode in Children)
@@ -49,7 +50,7 @@ namespace AusBatProtoOneMobileClient.Models
                 return triggeredNodes;
             }
 
-            internal List<KeyTreeNodeBase> GetEntryTriggeredNodes(CharacterPromptBase characterEntry)
+            internal List<KeyTreeNodeBase> GetTriggeredNodesUsingEntries(CharacterPromptBase characterEntry)
             {
                 List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
                 // Test one level down
@@ -83,9 +84,17 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
-        internal static KeyTreeNodeBase Clone(KeyTreeNodeBase rootNode)
+        internal static KeyTreeNodeBase Clone(KeyTreeNodeBase node)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(node);
+            if (node is LeafKeyTreeNode)
+            {
+                return JsonConvert.DeserializeObject<LeafKeyTreeNode>(json);
+            }
+            else
+            {
+                return JsonConvert.DeserializeObject<KeyTreeNode>(json);
+            }          
         }
 
         public class KeyTreeNode : KeyTreeNodeBase { }
@@ -146,6 +155,63 @@ namespace AusBatProtoOneMobileClient.Models
                 // Leaf node consists of <Genus><Space><SpeciesName>..<SpeciesName> 
                 return (subNodeId.Split(' ').Length > 1);
             }
+        }
+
+        internal static List<CharacterPromptBase> GetIneffectivePromptCharacters(KeyTreeNodeBase currentPromptKeyTreeNode, List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes, List<CharacterPromptBase> usedPromptCharacters)
+        {
+            var ineffectivePromptCharacters = new List<CharacterPromptBase>();
+            foreach (var promptCharacterForNextLevel in currentPromptKeyTreeNode.PromptCharactersForNextLevel)
+            {
+                if (promptCharacterForNextLevel is NumericCharacterPrompt)
+                {
+                    if (IsAllNodesCharacterRangeTheSame(promptCharacterForNextLevel.KeyId, currentTriggeredKeyTreeNodes))
+                    {
+                        ineffectivePromptCharacters.Add(promptCharacterForNextLevel);
+                    }
+                }
+                else if (promptCharacterForNextLevel is PickerCharacterPrompt)
+                {
+                    if (IsAllNodesPickerOptionsTheSame(promptCharacterForNextLevel.KeyId, currentTriggeredKeyTreeNodes))
+                    {
+                        ineffectivePromptCharacters.Add(promptCharacterForNextLevel);
+                    }
+                }
+                else throw new ApplicationException("Undefined character type");
+            }
+            return ineffectivePromptCharacters;
+        }
+
+        private static bool IsAllNodesPickerOptionsTheSame(string keyId, List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes)
+        {
+            string previousOptionId = "";
+            foreach (var currentTriggeredKeyTreeNode in currentTriggeredKeyTreeNodes)
+            {
+                var character = currentTriggeredKeyTreeNode.TriggerCharactersForSelf.FirstOrDefault(o => o.KeyId == keyId) as PickerCharacterTrigger;
+                if (previousOptionId == "")
+                {
+                    previousOptionId = character.OptionId;
+                    continue;
+                }
+                if (character.OptionId != previousOptionId) return false;
+            }
+            return true;
+        }
+
+        private static bool IsAllNodesCharacterRangeTheSame(string keyId, List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes)
+        {
+            (float, float) previousRange = (0, 0);
+            foreach (var currentTriggeredKeyTreeNode in currentTriggeredKeyTreeNodes)
+            {
+                var character = currentTriggeredKeyTreeNode.TriggerCharactersForSelf.FirstOrDefault(o => o.KeyId == keyId) as NumericCharacterTrigger;
+                if (previousRange == (0,0))
+                {
+                    previousRange = (character.MinValue, character.MaxValue);
+                    continue;
+                }
+                (float, float) nextRange = (character.MinValue, character.MaxValue);
+                if (nextRange != previousRange) return false;
+            }
+            return true;
         }
 
         private List<CharacterPromptBase> GeneratePromptCharacters(KeyTable keyTable)
