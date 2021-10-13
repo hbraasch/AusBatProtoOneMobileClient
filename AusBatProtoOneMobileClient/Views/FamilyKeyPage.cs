@@ -23,32 +23,32 @@ namespace DocGenOneMobileClient.Views
             var characterListView = new ListView { SelectionMode = ListViewSelectionMode.None };
             characterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
             characterListView.ItemTemplate = new TemplateSelector(this);
-            characterListView.ItemSelected += (s,e) =>
-            {
-                viewModel.OnFilterClicked.Execute(null);
-            };
 
-            var resultLabel = new Label { FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)) };
-            resultLabel.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterResult), BindingMode.TwoWay));
+
+            var resultLabel = new Label {TextColor = Color.White, FontSize = Device.GetNamedSize(NamedSize.Default, typeof(Label)) };
+            resultLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterResult), BindingMode.TwoWay));
 
             var viewResultsButton = new Button
             {
                 Text = "View results",
                 Style = Styles.RoundedButtonStyle,
-                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                
             };
             viewResultsButton.Clicked += (s, e) => { viewModel.OnViewResultsClicked.Execute(null); };
 
-            var grid = new Grid();
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            var resultGrid = new Grid() { HorizontalOptions = LayoutOptions.FillAndExpand };
+            resultGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            resultGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            resultGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
 
-            grid.Children.Add(resultLabel, 0, 0);
-            grid.Children.Add(viewResultsButton, 1, 0);
+            resultGrid.Children.Add(resultLabel, 0, 0);
+            resultGrid.Children.Add(viewResultsButton, 0, 1);
 
+            var resultFrame = new Frame { CornerRadius = 5, BorderColor = Constants.APP_COLOUR, Content = resultGrid, BackgroundColor = Color.Transparent, HorizontalOptions = LayoutOptions.FillAndExpand };
 
-            var layout = new StackLayout { Children = {characterListView, grid } };
+            var layout = new StackLayout { Children = {characterListView, resultFrame } , HorizontalOptions = LayoutOptions.FillAndExpand };
 
             var finalLayout = new AbsoluteLayout
             {
@@ -67,7 +67,7 @@ namespace DocGenOneMobileClient.Views
             Content = finalLayout;
             var menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
-                .AddMenuItem("reset", "Reset", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); });
+                .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); });
 
 
             menu.GenerateToolbarItemsForPage(this);
@@ -114,19 +114,19 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Prompt), BindingMode.TwoWay));
 
-                    var valueEntry = new Entry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
+                    var valueEntry = new TriggerEntry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
 
                     valueEntry.Behaviors.Add(new Xamarin.CommunityToolkit.Behaviors.NumericValidationBehavior() { MinimumValue = 0 });
-                    valueEntry.SetBinding(Entry.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Value), BindingMode.TwoWay));
+                    valueEntry.SetBinding(TriggerEntry.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Value), BindingMode.TwoWay));
+                    valueEntry.SetBinding(TriggerEntry.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.OnChanged), BindingMode.TwoWay));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 2);
-                    grid.Children.Add(valueEntry, 2, 0);
+                    Grid.SetColumnSpan(descriptionLabel, 1);
+                    grid.Children.Add(valueEntry, 1, 0);
 
 
                     return new ViewCell { View = grid };
@@ -137,15 +137,15 @@ namespace DocGenOneMobileClient.Views
 
                     var valuePicker = new ImagePicker(page) { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
                     valuePicker.SetBinding(ImagePicker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Options), BindingMode.OneWay));
-                    valuePicker.SetBinding(ImagePicker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.SelectedOptionId), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.SelectedOption), BindingMode.TwoWay));
                     valuePicker.SetBinding(ImagePicker.ImageItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSources), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.OnChanged), BindingMode.TwoWay));
 
                     var grid = new Grid();
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    Grid.SetColumnSpan(descriptionLabel, 1);
                     grid.Children.Add(valuePicker, 1, 0);
 
                     return new ViewCell { View = grid };
@@ -166,13 +166,11 @@ namespace DocGenOneMobileClient.Views
                     selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));
 
                     var grid = new Grid();
-                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.Children.Add(descriptionLabel, 0, 0);
-                    grid.Children.Add(selectionAmountLabel, 1, 0);
-                    grid.Children.Add(selectButton, 2, 0);
+                    grid.Children.Add(selectButton, 1, 0);
 
                     return new ViewCell { View = grid };
 

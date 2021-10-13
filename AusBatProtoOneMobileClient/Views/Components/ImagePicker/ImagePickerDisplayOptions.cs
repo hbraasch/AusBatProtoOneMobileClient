@@ -46,19 +46,13 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 BorderColor = Constants.APP_COLOUR,
                 BackgroundColor = Color.Transparent,
                 CornerRadius = 10,
-                Content = listView
-            };
-
-            var layout = new StackLayout
-            {
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center,
-                Children = { frame }
+                Content = listView,
+                VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
             Title = "Select";
             BackgroundColor = Color.Black;
-            Content = layout;
+            Content = frame;
         }
 
 

@@ -3,7 +3,8 @@
   "KeyIds": [
     "TailMembraneStructure",
     "FaceAndNoseleaf",
-    "WingThirdFinger"
+    "WingThirdFinger",
+    "TragusAntiTragus"
   ],
   "Pickers": [
     {
@@ -48,6 +49,19 @@
         "Terminal phalange < 3x the length of the second last phalange ",
         "Terminal phalange > 3x the length of the second last phalange "
       ]
+    },
+    {
+      "Id": "TragusAntiTragus",
+      "OptionIds": [
+        "Absent",
+        "PresentDeeplyBifurcate",
+        "PresentEntire"
+      ],
+      "OptionPrompts": [
+        "Absent",
+        "Present, deeply bifurcate",
+        "Present, entire (no deep divisions)"
+      ]
     }
   ],
   "NodeRows": [
@@ -56,7 +70,8 @@
       "Values": [
         "Absent",
         "None",
-        "Short"
+        "Short",
+        "Absent"
       ]
     },
     {
@@ -64,7 +79,8 @@
       "Values": [
         "PresentNotAttached",
         "None",
-        "Short"
+        "Short",
+        "Absent"
       ]
     },
     {
@@ -72,7 +88,8 @@
       "Values": [
         "Absent",
         "LargeComplexHorseShoe",
-        "Short"
+        "Short",
+        "PresentDeeplyBifurcate"
       ]
     },
     {
@@ -80,7 +97,8 @@
       "Values": [
         "PresentFullyEnclosed",
         "LargeComplexHorseShoe",
-        "Short"
+        "Short",
+        "PresentEntire"
       ]
     },
     {
@@ -88,7 +106,8 @@
       "Values": [
         "PresentFullyEnclosed",
         "LargeComplexFlattenned",
-        "Short"
+        "Short",
+        "Absent"
       ]
     },
     {
@@ -96,7 +115,8 @@
       "Values": [
         "PresentFullyEnclosed",
         "None",
-        "Short"
+        "Short",
+        "PresentEntire"
       ]
     },
     {
@@ -104,7 +124,8 @@
       "Values": [
         "PresentFullyEnclosed",
         "SmallTransverseLeaf",
-        "Short"
+        "Short",
+        "PresentEntire"
       ]
     },
     {
@@ -112,7 +133,8 @@
       "Values": [
         "PresentFullyEnclosed",
         "None",
-        "Long"
+        "Long",
+        "PresentEntire"
       ]
     },
     {
@@ -120,7 +142,8 @@
       "Values": [
         "PresentProjectingThrough",
         "None",
-        "Short"
+        "Short",
+        "PresentEntire"
       ]
     },
     {
@@ -128,7 +151,8 @@
       "Values": [
         "PresentProjectingFree",
         "None",
-        "Short"
+        "Short",
+        "PresentEntire"
       ]
     }
   ]

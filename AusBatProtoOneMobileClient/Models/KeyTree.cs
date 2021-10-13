@@ -20,14 +20,67 @@ namespace AusBatProtoOneMobileClient.Models
 
         public class KeyTreeNodeBase
         {
+            // Node(A) => Node(B)
+
             public string NodeId { get; set; }
             public KeyTreeNode Parent { get; set; }
             public List<KeyTreeNodeBase> Children { get; set; } = new List<KeyTreeNodeBase>();
 
-            public List<CharacterPromptBase> PromptCharactersForNextLevel = new List<CharacterPromptBase>();
-            public List<CharacterTriggerBase> TriggerCharactersForSelf = new List<CharacterTriggerBase>();
-            
+            #region *// Prompt => Trigger relation
+            public List<CharacterPromptBase> PromptCharactersForNextLevel = new List<CharacterPromptBase>();    // In Node(A)
+
+            public List<CharacterTriggerBase> TriggerCharactersForSelf = new List<CharacterTriggerBase>();  // In Node(B)
+            #endregion
+
             public List<int> RegionIds = new List<int>();
+
+            internal List<KeyTreeNodeBase> GetRegionTriggeredNodes(List<int> regionIds)
+            {
+                List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
+                foreach (var childNode in Children)
+                {
+                    var sharedRegionIds = RegionIds.Intersect(regionIds).ToList();
+                    if (!sharedRegionIds.IsEmpty())
+                    {
+                        triggeredNodes.Add(childNode);
+                    }
+                }
+                return triggeredNodes;
+            }
+
+            internal List<KeyTreeNodeBase> GetEntryTriggeredNodes(CharacterPromptBase characterEntry)
+            {
+                List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
+                // Test one level down
+                if (characterEntry is PickerCharacterPrompt pcp)
+                {
+                    foreach (var childNode in Children)
+                    {
+                        var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is PickerCharacterTrigger).Select(o=>o as PickerCharacterTrigger).ToList() ;
+                        var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == pcp.KeyId);
+                        if (evaluateCharacter.OptionId == pcp.EntryOptionId)
+                        {
+                            triggeredNodes.Add(childNode);
+
+                        }
+                    }
+                }
+                else
+                {
+                    var ncp = characterEntry as NumericCharacterPrompt;
+                    foreach (var childNode in Children)
+                    {
+                        var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is NumericCharacterTrigger).Select(o => o as NumericCharacterTrigger).ToList();
+                        var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == ncp.KeyId);
+                        if (evaluateCharacter.MinValue <= ncp.Entry && ncp.Entry <= evaluateCharacter.MaxValue)
+                        {
+                            triggeredNodes.Add(childNode);
+
+                        }
+                    }
+                }
+                return triggeredNodes;
+            }
         }
         public class KeyTreeNode : KeyTreeNodeBase { }
 
@@ -100,7 +153,8 @@ namespace AusBatProtoOneMobileClient.Models
                 {
                     // RowItem is a picker
                     var newPickerCharacterPrompt = new PickerCharacterPrompt
-                    {                      
+                    {     
+                        KeyId = keyId,
                         Prompt = keyId,
                         Options = GenerateOptions(picker.OptionIds, picker.OptionPrompts)
                     };
@@ -109,7 +163,7 @@ namespace AusBatProtoOneMobileClient.Models
                 else
                 {
                     // RowItem is a numeric
-                    characters.Add(new NumericCharacterPrompt { Prompt = keyId });
+                    characters.Add(new NumericCharacterPrompt { KeyId = keyId, Prompt = keyId });
                 }
             }
             return characters;
@@ -165,8 +219,9 @@ namespace AusBatProtoOneMobileClient.Models
             return (minValue, maxValue);
         }
 
-        public class CharacterTriggerBase { }
-        public class CharacterPromptBase { 
+        public class CharacterTriggerBase { public string KeyId; }
+        public class CharacterPromptBase {
+            public string KeyId;
             public string Prompt { get; set; }
         }
 
@@ -176,6 +231,7 @@ namespace AusBatProtoOneMobileClient.Models
         public class PickerCharacterPrompt: CharacterPromptBase
         {
             public List<Option> Options = new List<Option>();
+            public string EntryOptionId;
 
             public class Option
             {
@@ -191,7 +247,7 @@ namespace AusBatProtoOneMobileClient.Models
         }
         public class NumericCharacterPrompt : CharacterPromptBase
         {
-
+            public float Entry;
         }
         public class NumericCharacterTrigger : CharacterTriggerBase
         {

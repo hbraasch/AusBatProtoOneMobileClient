@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.ViewModels.ClassificationPageViewModel;
 using static AusBatProtoOneMobileClient.Views.Components.ImagePickerDisplayOptions;
@@ -52,6 +53,18 @@ namespace AusBatProtoOneMobileClient.Views.Components
         }
         #endregion
 
+        #region *// OnChangedProperty
+        public static readonly BindableProperty OnChangedProperty = BindableProperty.Create(nameof(OnChanged), typeof(ICommand), typeof(ImagePicker), null);
+
+        public ICommand OnChanged
+        {
+            get { return (ICommand)GetValue(OnChangedProperty); }
+            set { SetValue(OnChangedProperty, value); }
+        }
+        #endregion
+
+        
+
         Page parentPage;
 
         public ImagePicker(Page parentPage)
@@ -85,6 +98,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 await page.WaitUntilExecutionStops();
                 SelectedItem = page.SelectedDisplayItem?.Description ?? "";
                 Text = SelectedItem;
+                OnChanged?.Execute(null);
             };
             GestureRecognizers.Add(tapRecognizer);
         }
