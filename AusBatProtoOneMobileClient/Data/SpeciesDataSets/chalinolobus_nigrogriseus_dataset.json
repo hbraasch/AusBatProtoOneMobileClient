@@ -9,7 +9,19 @@
     "chal_nigro2.jpg",
     "chal_nigro3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "chal_nigro_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    304,
+    303,
+    201,
+    102,
+    103,
+    104,
+    105
+  ],
   "DistributionMapImage": "chalinolobus_nigrogriseus_dist.jpg"
 }

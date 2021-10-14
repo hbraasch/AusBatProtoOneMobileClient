@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
+﻿using AusBatProtoOneMobileClient.Data;
+using AusBatProtoOneMobileClient.Models;
+using Mobile.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TreeApp.Helpers;
 using static WinToolsTwo.Parser;
 
 
@@ -228,7 +229,7 @@ namespace WinToolsTwo
 
                 var sourceTable = Parser.LoadTable(textBoxSource);
 
-                var tableDefinition = new KeyTableDefinition();
+                var tableDefinition = new KeyTable();
 
                 #region *// Extract data from textboxes
                 var numericLines = textBoxNumerics.Text.Split("\r\n");
@@ -279,7 +280,7 @@ namespace WinToolsTwo
 
 
                 #region *// Fill keytable with data
-                var keyTableDefinition = new KeyTableDefinition();
+                var keyTableDefinition = new KeyTable();
                 keyTableDefinition.KeyIds = new string[numericDatas.Count + pickerDatas.Count].ToList();
                 foreach (var numericDataItem in numericDatas)
                 {
@@ -375,13 +376,13 @@ namespace WinToolsTwo
         private void buttonCreateTree_Click(object sender, EventArgs e)
         {
             var keyTree = new KeyTree();
-            keyTree.LoadTree();
+            keyTree.LoadTreeFromKeyTables();
         }
 
         private void buttonGetKeyNode_Click(object sender, EventArgs e)
         {
             var keyTree = new KeyTree();
-            keyTree.LoadTree();
+            keyTree.LoadTreeFromKeyTables();
             var node = keyTree.GetKeyNode("");
         }
 
@@ -396,6 +397,159 @@ namespace WinToolsTwo
             }
         }
 
+        List<RegionData> speciesDatas;
+        private void buttonParseForRegions_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var table = Parser.LoadTable(textBoxRegionsSource);
 
+                #region *// Get Species data
+                speciesDatas = new List<RegionData>();
+                for (int i = 1; i < table.RowAmount(); i++)
+                {
+                    var value = table.Get(i, 0);
+                    var ids = value.Split(' ');
+                    var genusId = ids[0];
+                    var speciesId = "";
+                    for (int j = 1; j < ids.Length; j++)
+                    {
+                        speciesId += ids[j] + " ";
+                    }
+                    speciesId = speciesId.Trim();
+                    var regionsValue = table.Get(i, table.ColumnAmount() - 1);
+                    List<int> regions = new List<int>();
+                    if (regionsValue != "")
+                    {
+                        regions = regionsValue.Split(',').ToList().Select(o => int.Parse(o)).ToList();
+                    }
+                    speciesDatas.Add(new RegionData { GenusId = genusId, SpeciesId = speciesId, Regions = regions});
+                }
+                #endregion
+
+
+
+                #region *// Fill species listbox
+                var listText = "";
+                foreach (var speciesData in speciesDatas)
+                {
+                    listText += $"{speciesData.GenusId} {speciesData.SpeciesId}" + Environment.NewLine;
+                }
+                textBoxSpecies.Text = listText;
+                #endregion
+
+                #region *// Fill species regions
+                listText = "";
+                foreach (var speciesData in speciesDatas)
+                {
+                    var regionString = "";
+                    foreach (var region in speciesData.Regions)
+                    {
+                        regionString += region.ToString() + ",";
+                    }
+                    listText += regionString + Environment.NewLine;
+                }
+                textBoxRegions.Text = listText;
+                #endregion
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+        }
+
+        public class RegionData
+        {
+            public string GenusId;
+            public string SpeciesId;
+            public List<int> Regions;
+        }
+
+        private void buttonGenerateDatasetsWithRegions_Click(object sender, EventArgs e)
+        {
+            var sourceDatasetsPathFullname = @"C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Data\SpeciesDataSets";
+
+
+            try
+            {
+                if (speciesDatas.IsEmpty()) return;
+
+                foreach (var speciesData in speciesDatas)
+                {
+                    var speciesDataset = LoadSpecies(speciesData.GenusId, speciesData.SpeciesId);
+                    speciesDataset.SpeciesId = speciesDataset.SpeciesId.ToLower();
+                    speciesDataset.RegionIds = speciesData.Regions;
+                    if (speciesDataset.DataTag != null) speciesDataset.CallImages = new List<string> { $"{speciesDataset.DataTag.ToLower()}_call_image.jpg" };
+                    SaveSpeciesDataSetToFile(speciesDataset);
+                    SaveSpeciesDetailsToFile(speciesDataset);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            Species LoadSpecies(string genusId, string speciesId)
+            {
+                var name = $"{genusId.ToLower()}_{speciesId}_dataset.json".FormatToAndroidFilename();
+                var fullFilename = Path.Combine(sourceDatasetsPathFullname, name);
+                if (!File.Exists(fullFilename))
+                {
+                    throw new ApplicationException($"Species file {fullFilename} does not exist");
+
+                }
+                string speciesDatasetJson = File.ReadAllText(fullFilename);
+                if (string.IsNullOrEmpty(speciesDatasetJson))
+                {
+                    throw new ApplicationException($"No data inside dataset file [{fullFilename}]");
+                }
+                try
+                {
+                    var species = JsonConvert.DeserializeObject<Species>(speciesDatasetJson);
+                    Debug.WriteLine($"Filename: {fullFilename} Genus: {species.GenusId}, Species: {species.SpeciesId} Name: {species.Name}");
+                    return species;
+                }
+                catch (Exception ex)
+                {
+                    throw new BusinessException($"JSON paring error in [{fullFilename}] file. {ex.Message}");
+                }
+            }
+        }
+
+
+        private void SaveSpeciesDataSetToFile(Species speciesDataset)
+        {
+            var destDatasetsPathFullname = @"C:\P\AustBatsOriginal\DataSets";
+            if (!Directory.Exists(destDatasetsPathFullname))
+            {
+                Directory.CreateDirectory(destDatasetsPathFullname);
+            }
+            var fullFilename = Path.Combine(destDatasetsPathFullname, $"{speciesDataset.GenusId.ToLower()}_{speciesDataset.SpeciesId.ToLower()}_dataset.json");
+            var json = JsonConvert.SerializeObject(speciesDataset, Formatting.Indented);
+            File.WriteAllText(fullFilename, json);
+        }
+
+
+
+        private void SaveSpeciesDetailsToFile(Species speciesDataset)
+        {
+            var speciesName = $"{speciesDataset.GenusId.UppercaseFirstChar()}_{speciesDataset.SpeciesId}";
+            var details = "<body style='background-color: transparent;'>" +
+                "<p><strong>" + speciesName  + @"</strong><br />" + speciesDataset.Name + "<br />(Gray, 1838)</p>" +
+                "<p><br /><strong>Other Names</strong>... etc</p>" +
+                "</body>";
+            var destDatasetsPathFullname = @"C:\P\AustBatsOriginal\Details";
+            if (!Directory.Exists(destDatasetsPathFullname))
+            {
+                Directory.CreateDirectory(destDatasetsPathFullname);
+            }
+            var fullFilename = Path.Combine(destDatasetsPathFullname, $"{speciesDataset.GenusId.ToLower()}_{speciesDataset.SpeciesId.ToLower()}_details.html");
+            File.WriteAllText(fullFilename, details);
+        }
     }
 }

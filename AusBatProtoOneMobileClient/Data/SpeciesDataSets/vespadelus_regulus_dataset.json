@@ -9,7 +9,20 @@
     "vesp_regulus2.jpg",
     "vesp_regulus3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "vesp_regulus_call_image.jpg"
+  ],
+  "RegionIds": [
+    105,
+    106,
+    107,
+    203,
+    312,
+    311,
+    310,
+    309,
+    308,
+    108
+  ],
   "DistributionMapImage": "vespadelus_regulus_dist.jpg"
 }

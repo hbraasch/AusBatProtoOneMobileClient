@@ -6,6 +6,14 @@
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    303,
+    301,
+    302,
+    307
+  ],
   "DistributionMapImage": "macroderma_gigas_dist.jpg"
 }

@@ -9,7 +9,9 @@
     "aaaaaaaaaaaaaaaaaaaaa2.jpg",
     "aaaaaaaaaaaaaaaaaaaaa3.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [
+    "aaaaaaaaaaaaaaaaaaaaa_call_image.jpg"
+  ],
   "RegionIds": [],
-  "DistributionMapImage": "hipposideros_stenotis_dist.jpg"
+  "DistributionMapImage": "doryrhina_stenotis_dist.jpg"
 }

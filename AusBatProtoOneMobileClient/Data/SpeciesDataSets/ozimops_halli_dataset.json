@@ -9,7 +9,11 @@
     "ozie_halli2.jpg",
     "ozie_halli3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozie_halli_call_image.jpg"
+  ],
+  "RegionIds": [
+    201
+  ],
   "DistributionMapImage": "ozimops_halli_dist.jpg"
 }

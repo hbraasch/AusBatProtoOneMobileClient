@@ -9,7 +9,26 @@
     "pterop_scap2.jpg",
     "pterop_scap3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "pterop_scap_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    304,
+    301,
+    303,
+    304,
+    201,
+    202,
+    102,
+    103,
+    105,
+    106,
+    107,
+    203
+  ],
   "DistributionMapImage": "pteropus_scapulatus_dist.jpg"
 }

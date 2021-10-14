@@ -9,7 +9,27 @@
     "sacc_flav2.jpg",
     "sacc_flav3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "sacc_flav_call_image.jpg"
+  ],
+  "RegionIds": [
+    307,
+    308,
+    306,
+    305,
+    304,
+    301,
+    303,
+    202,
+    312,
+    203,
+    107,
+    106,
+    105,
+    104,
+    103,
+    201,
+    102
+  ],
   "DistributionMapImage": "saccolaimus_flaviventris_dist.jpg"
 }

@@ -9,7 +9,14 @@
     "nyct_corben2.jpg",
     "nyct_corben3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_corben_call_image.jpg"
+  ],
+  "RegionIds": [
+    202,
+    203,
+    105,
+    104
+  ],
   "DistributionMapImage": "nyctophilus_corbeni_dist.jpg"
 }

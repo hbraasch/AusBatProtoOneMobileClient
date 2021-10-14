@@ -9,7 +9,27 @@
     "aust_aust2.jpg",
     "aust_aust3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "aust_aust_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    309,
+    307,
+    306,
+    310,
+    305,
+    304,
+    311,
+    312,
+    203,
+    107,
+    106,
+    105,
+    104,
+    103,
+    202,
+    108
+  ],
   "DistributionMapImage": "austonomus_australis_dist.jpg"
 }

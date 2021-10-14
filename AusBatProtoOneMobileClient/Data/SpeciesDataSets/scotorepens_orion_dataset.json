@@ -9,7 +9,14 @@
     "scot_orion2.jpg",
     "scot_orion3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "scot_orion_call_image.jpg"
+  ],
+  "RegionIds": [
+    103,
+    105,
+    106,
+    107
+  ],
   "DistributionMapImage": "scotorepens_orion_dist.jpg"
 }

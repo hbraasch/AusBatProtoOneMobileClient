@@ -9,7 +9,13 @@
     "taph_aust2.jpg",
     "taph_aust3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "taph_aust_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104
+  ],
   "DistributionMapImage": "taphozous_australis_dist.jpg"
 }

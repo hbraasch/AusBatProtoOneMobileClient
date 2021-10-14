@@ -9,7 +9,9 @@
     "hipp_cerv2.jpg",
     "hipp_cerv3.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [
+    "hipp_cerv_call_image.jpg"
+  ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_cervinus_dist.jpg"
 }

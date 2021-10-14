@@ -9,7 +9,12 @@
     "nyct_major2.jpg",
     "nyct_major3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_major_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    309
+  ],
   "DistributionMapImage": "nyctophilus_major major_dist.jpg"
 }

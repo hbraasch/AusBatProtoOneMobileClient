@@ -9,7 +9,12 @@
     "pterop_conspic2.jpg",
     "pterop_conspic3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "pterop_conspic_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103
+  ],
   "DistributionMapImage": "pteropus_conspicillatus_dist.jpg"
 }

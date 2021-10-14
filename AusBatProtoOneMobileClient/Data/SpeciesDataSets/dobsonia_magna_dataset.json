@@ -6,6 +6,8 @@
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    102
+  ],
   "DistributionMapImage": "dobsonia_magna_dist.jpg"
 }

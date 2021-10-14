@@ -9,7 +9,16 @@
     "nyct_arnhem2.jpg",
     "nyct_arnhem3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_arnhem_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    301,
+    303
+  ],
   "DistributionMapImage": "nyctophilus_arnhemensis_dist.jpg"
 }

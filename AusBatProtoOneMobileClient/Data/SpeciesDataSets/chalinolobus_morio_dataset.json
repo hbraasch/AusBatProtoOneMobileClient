@@ -9,7 +9,24 @@
     "chal_morio2.jpg",
     "chal_morio3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "chal_morio_call_image.jpg"
+  ],
+  "RegionIds": [
+    307,
+    305,
+    202,
+    103,
+    104,
+    105,
+    106,
+    107,
+    203,
+    312,
+    311,
+    310,
+    309,
+    308
+  ],
   "DistributionMapImage": "chalinolobus_morio_dist.jpg"
 }

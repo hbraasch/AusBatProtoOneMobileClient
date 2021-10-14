@@ -192,7 +192,7 @@ namespace DocGenOneMobileClient.Views
         });
 
 
-        public ICommand OnSelectMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        public ICommand OnSelectPressed => commandHelper.ProduceDebouncedCommand(async () =>
         {
 
             try

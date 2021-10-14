@@ -1,11 +1,17 @@
 {
   "GenusId": "Vespadelus",
-  "SpeciesId": "Pumilus",
+  "SpeciesId": "pumilus",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105,
+    106
+  ],
   "DistributionMapImage": "vespadelus_pumilus_dist.jpg"
 }

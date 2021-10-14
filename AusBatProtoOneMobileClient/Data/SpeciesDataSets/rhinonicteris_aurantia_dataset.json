@@ -9,7 +9,9 @@
     "pterop_polioc2.jpg",
     "pterop_polioc3.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [
+    "pterop_polioc_call_image.jpg"
+  ],
   "RegionIds": [],
   "DistributionMapImage": "rhinonicteris_aurantia_dist.jpg"
 }

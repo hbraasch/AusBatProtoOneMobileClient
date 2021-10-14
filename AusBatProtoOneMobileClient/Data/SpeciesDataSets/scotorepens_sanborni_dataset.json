@@ -9,7 +9,16 @@
     "scot_sanborn2.jpg",
     "scot_sanborn3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "scot_sanborn_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    201,
+    102,
+    103,
+    104
+  ],
   "DistributionMapImage": "scotorepens_sanborni_dist.jpg"
 }

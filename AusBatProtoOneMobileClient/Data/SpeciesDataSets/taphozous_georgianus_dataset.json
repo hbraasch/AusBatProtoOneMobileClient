@@ -9,7 +9,15 @@
     "taph_georg2.jpg",
     "taph_georg3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "taph_georg_call_image.jpg"
+  ],
+  "RegionIds": [
+    307,
+    302,
+    301,
+    304,
+    303
+  ],
   "DistributionMapImage": "taphozous_georgianus_dist.jpg"
 }

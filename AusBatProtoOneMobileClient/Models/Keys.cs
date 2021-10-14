@@ -26,16 +26,16 @@ namespace AusBatProtoOneMobileClient.Models
 
         private void LoadAllKeyTables()
         {
-            KeyTables = GetKeyTables("Family");
+            KeyTables = GetKeyTables("", "Family");
 
-            List<KeyTable> GetKeyTables(string nodeId)
+            List<KeyTable> GetKeyTables(string parent, string nodeId)
             {
                 var keyTables = new List<KeyTable>();
-                var keyTable = KeyTable.Load(nodeId);
+                var keyTable = KeyTable.Load(parent, nodeId);
                 var subNodeIds = keyTable.NodeRows.Select(o => o.NodeId);
                 foreach (var subNodeId in subNodeIds)
                 {
-                    keyTables.AddRange(GetKeyTables(subNodeId));
+                    keyTables.AddRange(GetKeyTables(nodeId, subNodeId));
                 }
                 keyTables.AddRange(keyTables);
                 return keyTables;

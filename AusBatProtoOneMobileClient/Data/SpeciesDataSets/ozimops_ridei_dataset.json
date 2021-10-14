@@ -9,7 +9,19 @@
     "ozie_ridei2.jpg",
     "ozie_ridei3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozie_ridei_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    203,
+    312,
+    210
+  ],
   "DistributionMapImage": "ozimops_ridei_dist.jpg"
 }

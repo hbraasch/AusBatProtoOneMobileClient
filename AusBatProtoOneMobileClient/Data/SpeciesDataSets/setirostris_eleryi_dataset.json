@@ -9,7 +9,13 @@
     "seti_eleryi2.jpg",
     "seti_eleryi3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "seti_eleryi_call_image.jpg"
+  ],
+  "RegionIds": [
+    305,
+    202,
+    104
+  ],
   "DistributionMapImage": "setirostris_eleryi_dist.jpg"
 }

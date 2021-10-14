@@ -9,7 +9,16 @@
     "ozi_planic2.jpg",
     "ozi_planic3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozi_planic_call_image.jpg"
+  ],
+  "RegionIds": [
+    202,
+    106,
+    107,
+    203,
+    312,
+    311
+  ],
   "DistributionMapImage": "ozimops_planiceps_dist.jpg"
 }

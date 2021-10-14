@@ -9,7 +9,23 @@
     "ozi_lumsd2.jpg",
     "ozi_lumsd3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozi_lumsd_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    304,
+    301,
+    303,
+    201,
+    102,
+    103,
+    104,
+    202,
+    105
+  ],
   "DistributionMapImage": "ozimops_lumsdenae_dist.jpg"
 }

@@ -9,7 +9,14 @@
     "nyct_robin2.jpg",
     "nyct_robin3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_robin_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105
+  ],
   "DistributionMapImage": "nyctimene_robinsoni_dist.jpg"
 }

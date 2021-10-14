@@ -9,7 +9,14 @@
     "nyct_bifax2.jpg",
     "nyct_bifax3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_bifax_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105
+  ],
   "DistributionMapImage": "nyctophilus_bifax_dist.jpg"
 }

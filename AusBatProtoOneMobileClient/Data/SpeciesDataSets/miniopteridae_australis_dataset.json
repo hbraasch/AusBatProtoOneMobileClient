@@ -9,7 +9,14 @@
     "mini_aust_2.jpg",
     "mini_aust_3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "mini_aust__call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105
+  ],
   "DistributionMapImage": "miniopteridae_australis_dist.jpg"
 }

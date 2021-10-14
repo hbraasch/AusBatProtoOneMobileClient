@@ -9,7 +9,14 @@
     "vesp_caur2.jpg",
     "vesp_caur3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "vesp_caur_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    303,
+    304
+  ],
   "DistributionMapImage": "vespadelus_caurinus_dist.jpg"
 }

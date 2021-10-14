@@ -9,7 +9,15 @@
     "pterop_polioc2.jpg",
     "pterop_polioc3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "pterop_polioc_call_image.jpg"
+  ],
+  "RegionIds": [
+    105,
+    106,
+    107,
+    203,
+    312
+  ],
   "DistributionMapImage": "pteropus_poliocephalus_dist.jpg"
 }

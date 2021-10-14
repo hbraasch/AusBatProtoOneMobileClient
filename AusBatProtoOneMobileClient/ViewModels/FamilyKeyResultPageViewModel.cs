@@ -118,7 +118,7 @@ namespace DocGenOneMobileClient.Views
                 {
                     var species = App.dbase.FindSpecies(lktn.GenusId, lktn.SpeciesId);
                     displayItems.Add(new LeafNodeDisplayItem { 
-                        SpeciesName = $"{species.GenusId.UppercaseFirstChar()} {species.SpeciesId}",
+                        SpeciesName = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId}",
                         CommonName = species.Name,
                         ImageSource = species.Images[0],
                         Content = selectedKeyTreeNode

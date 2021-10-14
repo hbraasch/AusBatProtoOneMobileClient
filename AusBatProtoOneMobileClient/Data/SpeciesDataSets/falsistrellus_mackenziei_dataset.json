@@ -9,7 +9,12 @@
     "falsi_mack_2.jpg",
     "falsi_mack_3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "falsi_mack_call_image.jpg"
+  ],
+  "RegionIds": [
+    309,
+    308
+  ],
   "DistributionMapImage": "falsistrellus_mackenziei_dist.jpg"
 }

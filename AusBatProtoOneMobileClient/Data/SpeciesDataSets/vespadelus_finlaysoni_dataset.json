@@ -9,7 +9,19 @@
     "vesp_finlay2.jpg",
     "vesp_finlay3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "vesp_finlay_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    304,
+    305,
+    301,
+    303,
+    201,
+    202
+  ],
   "DistributionMapImage": "vespadelus_finlaysoni_dist.jpg"
 }

@@ -9,7 +9,17 @@
     "nyct_gould2.jpg",
     "nyct_gould3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_gould_call_image.jpg"
+  ],
+  "RegionIds": [
+    103,
+    104,
+    105,
+    202,
+    106,
+    107,
+    203
+  ],
   "DistributionMapImage": "nyctophilus_gouldi_dist.jpg"
 }

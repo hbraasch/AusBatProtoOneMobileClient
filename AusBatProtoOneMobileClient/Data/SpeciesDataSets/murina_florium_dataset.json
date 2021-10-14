@@ -9,7 +9,12 @@
     "murin_florium2.jpg",
     "murin_florium3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "murin_florium_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103
+  ],
   "DistributionMapImage": "murina_florium_dist.jpg"
 }

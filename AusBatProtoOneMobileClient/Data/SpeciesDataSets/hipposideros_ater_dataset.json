@@ -9,7 +9,9 @@
     "hipp_ater2.jpg",
     "hipp_ater3.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [
+    "hipp_ater_call_image.jpg"
+  ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_ater_dist.jpg"
 }

@@ -9,7 +9,11 @@
     "pterop_natalis2.jpg",
     "pterop_natalis3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "pterop_natalis_call_image.jpg"
+  ],
+  "RegionIds": [
+    400
+  ],
   "DistributionMapImage": "pteropus_natalis_dist.jpg"
 }

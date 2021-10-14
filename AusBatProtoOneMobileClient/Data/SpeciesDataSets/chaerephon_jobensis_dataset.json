@@ -9,7 +9,22 @@
     "chae_job2.jpg",
     "chae_job3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "chae_job_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    304,
+    301,
+    303,
+    201,
+    102,
+    104,
+    104,
+    202
+  ],
   "DistributionMapImage": "chaerephon_jobensis_dist.jpg"
 }

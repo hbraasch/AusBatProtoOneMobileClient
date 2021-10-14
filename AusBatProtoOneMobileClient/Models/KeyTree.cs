@@ -1,16 +1,11 @@
 ﻿using AusBatProtoOneMobileClient.Data;
-using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TreeApp.Helpers;
 using static AusBatProtoOneMobileClient.Models.KeyTree;
-using static AusBatProtoOneMobileClient.Models.KeyTree.PickerCharacterPrompt;
 
 namespace AusBatProtoOneMobileClient.Models
 {
@@ -111,19 +106,21 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+        int level = 0;
         public void LoadTreeFromKeyTables()
         {
-            RootNode = LoadTree(null, null, "Family");
+            RootNode = LoadTree(null, null, "Family", level);
             KeyTreeTraverser.rootNode = RootNode;
 
             PrintKeyTree();
 
-            KeyTreeNode LoadTree(KeyTreeNode parentTreeNode, KeyTable parentKeyTable, string nodeId)
+            KeyTreeNode LoadTree(KeyTreeNode parentTreeNode, KeyTable parentKeyTable, string nodeId, int level)
             {
+                level++;
                 var treeNode = new KeyTreeNode { NodeId = nodeId, Parent = parentTreeNode };
                 var treeNodeKeyTable = KeyTable.Load(parentKeyTable?.NodeId??"Family", nodeId);
                 treeNode.PromptCharactersForNextLevel = GeneratePromptCharacters(treeNodeKeyTable);
-                treeNodeKeyTable.PrintData();
+                treeNodeKeyTable.PrintData(level);
                 if (treeNodeKeyTable == null) return treeNode;
                 var subNodeIds = treeNodeKeyTable.NodeRows.Select(o => o.NodeId);
                 foreach (var subNodeId in subNodeIds)
@@ -135,7 +132,7 @@ namespace AusBatProtoOneMobileClient.Models
                     }
                     else
                     {
-                        childNode = LoadTree(treeNode, treeNodeKeyTable, subNodeId);
+                        childNode = LoadTree(treeNode, treeNodeKeyTable, subNodeId, level);
                     }
                     childNode.TriggerCharactersForSelf = GenerateTriggerCharacters(treeNodeKeyTable, childNode.NodeId);
                     treeNode.Children.Add(childNode);
@@ -416,7 +413,7 @@ namespace AusBatProtoOneMobileClient.Models
             #region *// Enter leave node data
             foreach (var species in specieses)
             {
-                var nodeId = $"{species.GenusId.UppercaseFirstChar()} {species.SpeciesId.ToLower()}";
+                var nodeId = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId.ToLower()}";
                 var node = GetKeyNode(nodeId);
                 if (node == null) throw new BusinessException($"Could not find species [{nodeId}] in key tree");
 

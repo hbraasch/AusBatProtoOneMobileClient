@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Compile Include="..\..\..\..\XamarinMobileClientShared\BusinessException.cs" Link="BusinessException.cs" />
+    <Compile Include="..\..\..\AusBatProtoOneMobileClient\Models\CharacterBase.cs" Link="CharacterBase.cs" />
+    <Compile Include="..\..\..\AusBatProtoOneMobileClient\Models\Keys.cs" Link="Keys.cs" />
   </ItemGroup>
 
   <ItemGroup>

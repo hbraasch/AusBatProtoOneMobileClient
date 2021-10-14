@@ -17,25 +17,30 @@ namespace AusBatProtoOneMobileClient
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
-#if false
-            var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
-            var map = new Map();
-            map.WidthRequest = mainDisplayInfo.Width;
-            map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.SelectedMapItems), BindingMode.TwoWay));
-#else
+
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
             var image = new CachedImage
             {
                 Aspect = Aspect.AspectFit,
+                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
             image.WidthRequest = mainDisplayInfo.Width;
             image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.DistributionMapImage), BindingMode.OneWay));
-#endif
+
             Title = "Distribution";
             BackgroundColor = Color.Black;
 
-            Content = image;
+            var centeredLayout = new AbsoluteLayout
+            {
+                Children = { image },
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+            };
+            AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
+
+            Content = centeredLayout;
         }
 
         bool isFirstAppearance = true;

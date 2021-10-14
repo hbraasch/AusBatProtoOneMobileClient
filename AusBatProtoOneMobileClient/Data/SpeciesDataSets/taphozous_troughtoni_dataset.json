@@ -9,7 +9,14 @@
     "taph_trought2.jpg",
     "taph_trought3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "taph_trought_call_image.jpg"
+  ],
+  "RegionIds": [
+    103,
+    202,
+    104,
+    105
+  ],
   "DistributionMapImage": "taphozous_troughtoni_dist.jpg"
 }

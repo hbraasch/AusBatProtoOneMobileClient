@@ -9,7 +9,30 @@
     "chal_gould2.jpg",
     "chal_gould3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "chal_gould_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    309,
+    307,
+    306,
+    310,
+    302,
+    311,
+    305,
+    304,
+    301,
+    303,
+    312,
+    202,
+    203,
+    108,
+    107,
+    106,
+    105,
+    104,
+    103
+  ],
   "DistributionMapImage": "chalinolobus_gouldii_dist.jpg"
 }

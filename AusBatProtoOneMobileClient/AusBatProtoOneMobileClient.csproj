@@ -156,9 +156,10 @@
     <None Remove="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\miniopteridae_australis_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopteridae_orianae bassanii_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopteridae_orianae oceanensis_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\miniopteridae_orianae orianae_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopterus_australis_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopterus_orianae bassanii_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopterus_orianae oceanensis_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\miniopterus_orianae orianae_dataset.json" />
     <None Remove="Data\SpeciesDataSets\murina_florium_dataset.json" />
     <None Remove="Data\SpeciesDataSets\myotis_macropus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctimene_robinsoni_dataset.json" />
@@ -189,10 +190,10 @@
     <None Remove="Data\SpeciesDataSets\pteropus_natalis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pteropus_poliocephalus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pteropus_scapulatus_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\rhinolophus_intermediate_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\rhinolophus_sp_intermediate_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_flaviventris_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_mixtus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_saccolaimus_dataset.json" />
@@ -218,8 +219,87 @@
     <None Remove="Data\SpeciesDataSets\vespadelus_regulus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\vespadelus_troughtoni_dataset.json" />
     <None Remove="Data\SpeciesDataSets\vespadelus_vulturnus_dataset.json" />
-    <None Remove="Data\SpeciesDetails\aust_aust.html" />
-    <None Remove="Data\SpeciesDetails\macro_minimus.html" />
+    <None Remove="Data\SpeciesDetails\austonomus_australis_details.html" />
+    <None Remove="Data\SpeciesDetails\chaerephon_jobensis_details.html" />
+    <None Remove="Data\SpeciesDetails\chalinolobus_dwyeri_details.html" />
+    <None Remove="Data\SpeciesDetails\chalinolobus_gouldii_details.html" />
+    <None Remove="Data\SpeciesDetails\chalinolobus_morio_details.html" />
+    <None Remove="Data\SpeciesDetails\chalinolobus_nigrogriseus_details.html" />
+    <None Remove="Data\SpeciesDetails\chalinolobus_picatus_details.html" />
+    <None Remove="Data\SpeciesDetails\dobsonia_magna_details.html" />
+    <None Remove="Data\SpeciesDetails\doryrhina_semoni_details.html" />
+    <None Remove="Data\SpeciesDetails\doryrhina_stenotis_details.html" />
+    <None Remove="Data\SpeciesDetails\falsistrellus_mackenziei_details.html" />
+    <None Remove="Data\SpeciesDetails\falsistrellus_tasmaniensis_details.html" />
+    <None Remove="Data\SpeciesDetails\hipposideros_ater_details.html" />
+    <None Remove="Data\SpeciesDetails\hipposideros_cervinus_details.html" />
+    <None Remove="Data\SpeciesDetails\hipposideros_diadema_details.html" />
+    <None Remove="Data\SpeciesDetails\hipposideros_inornatus_details.html" />
+    <None Remove="Data\SpeciesDetails\macroderma_gigas_details.html" />
+    <None Remove="Data\SpeciesDetails\macroglossus_minimus_details.html" />
+    <None Remove="Data\SpeciesDetails\micronomus_norfolkensis_details.html" />
+    <None Remove="Data\SpeciesDetails\miniopteridae_australis_details.html" />
+    <None Remove="Data\SpeciesDetails\miniopterus_orianae bassanii_details.html" />
+    <None Remove="Data\SpeciesDetails\miniopterus_Orianae oceanensis_details.html" />
+    <None Remove="Data\SpeciesDetails\miniopterus_orianae orianae_details.html" />
+    <None Remove="Data\SpeciesDetails\murina_florium_details.html" />
+    <None Remove="Data\SpeciesDetails\myotis_macropus_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctimene_robinsoni_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_arnhemensis_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_bifax_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_corbeni_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_daedalus_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_geoffroyi_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_gouldi_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_holtorum_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_major major_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_major tor_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_sherrini_details.html" />
+    <None Remove="Data\SpeciesDetails\nyctophilus_walkeri_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_cobourgianus_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_halli_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_kitcheneri_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_lumsdenae_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_petersi_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_planiceps_details.html" />
+    <None Remove="Data\SpeciesDetails\ozimops_ridei_details.html" />
+    <None Remove="Data\SpeciesDetails\phoniscus_papuensis_details.html" />
+    <None Remove="Data\SpeciesDetails\pipistrellus_adamsi_details.html" />
+    <None Remove="Data\SpeciesDetails\pipistrellus_westralis_details.html" />
+    <None Remove="Data\SpeciesDetails\pteropus_alecto_details.html" />
+    <None Remove="Data\SpeciesDetails\pteropus_conspicillatus_details.html" />
+    <None Remove="Data\SpeciesDetails\pteropus_natalis_details.html" />
+    <None Remove="Data\SpeciesDetails\pteropus_poliocephalus_details.html" />
+    <None Remove="Data\SpeciesDetails\pteropus_scapulatus_details.html" />
+    <None Remove="Data\SpeciesDetails\rhinolophus_intermediate_details.html" />
+    <None Remove="Data\SpeciesDetails\rhinolophus_megaphyllus_nsw_vic_details.html" />
+    <None Remove="Data\SpeciesDetails\rhinolophus_megaphyllus_qld_details.html" />
+    <None Remove="Data\SpeciesDetails\rhinolophus_robertsi_details.html" />
+    <None Remove="Data\SpeciesDetails\rhinonicteris_aurantia_details.html" />
+    <None Remove="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
+    <None Remove="Data\SpeciesDetails\saccolaimus_mixtus_details.html" />
+    <None Remove="Data\SpeciesDetails\saccolaimus_saccolaimus_details.html" />
+    <None Remove="Data\SpeciesDetails\scotorepens_balstoni_details.html" />
+    <None Remove="Data\SpeciesDetails\scotorepens_greyii_details.html" />
+    <None Remove="Data\SpeciesDetails\scotorepens_orion_details.html" />
+    <None Remove="Data\SpeciesDetails\scotorepens_parnaby_details.html" />
+    <None Remove="Data\SpeciesDetails\scotorepens_sanborni_details.html" />
+    <None Remove="Data\SpeciesDetails\setirostris_eleryi_details.html" />
+    <None Remove="Data\SpeciesDetails\syconycteris_australis_details.html" />
+    <None Remove="Data\SpeciesDetails\taphozous_australis_details.html" />
+    <None Remove="Data\SpeciesDetails\taphozous_georgianus_details.html" />
+    <None Remove="Data\SpeciesDetails\taphozous_hilli_details.html" />
+    <None Remove="Data\SpeciesDetails\taphozous_kapalgensis_details.html" />
+    <None Remove="Data\SpeciesDetails\taphozous_troughtoni_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_baverstocki_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_caurinus_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_darlingtoni_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_douglasorum_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_finlaysoni_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_pumilus_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_regulus_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_troughtoni_details.html" />
+    <None Remove="Data\SpeciesDetails\vespadelus_vulturnus_details.html" />
     <None Remove="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg" />
     <None Remove="Data\SpeciesDistributionMaps\chaerephon_jobensis_dist.jpg" />
     <None Remove="Data\SpeciesDistributionMaps\chalinolobus_dwyeri_dist.jpg" />
@@ -664,9 +744,10 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_australis_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_orianae bassanii_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_orianae oceanensis_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\miniopteridae_orianae orianae_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_australis_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_orianae bassanii_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_orianae oceanensis_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_orianae orianae_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\murina_florium_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\myotis_macropus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctimene_robinsoni_dataset.json" />
@@ -702,7 +783,7 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_sp_intermediate_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_intermediate_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_flaviventris_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_mixtus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_saccolaimus_dataset.json" />
@@ -729,85 +810,88 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_regulus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_troughtoni_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\vespadelus_vulturnus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDetails\macro_minimus.html" />
-    <EmbeddedResource Include="Data\SpeciesDetails\aust_aust.html" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\chaerephon_jobensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\chalinolobus_dwyeri_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\chalinolobus_gouldii_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\chalinolobus_morio_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\chalinolobus_nigrogriseus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\chalinolobus_picatus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\dobsonia_moluccensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\falsistrellus_mackenziei_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\falsistrellus_tasmaniensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\hipposideros_ater_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\hipposideros_cervinus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\hipposideros_diadema_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\hipposideros_inornatus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\hipposideros_semoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\hipposideros_stenotis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\macroderma_gigas_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\macroglossus_minimus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\micronomus_norfolkensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\miniopterus_australis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\miniopterus_orianae_bassanii_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\miniopterus_orianae_oceanensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\miniopterus_orianae_orianae_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\murina_florium_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\myotis_macropus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctimene_robinsoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_arnhemensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_bifax_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_corbeni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_daedalus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_geoffroyi_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_gouldi_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_major_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_sherrini_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\nyctophilus_walkeri_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_cobourgianus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_halli_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_kitcheneri_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_lumsdenae_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_petersi_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_planiceps_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\ozimops_ridei_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\phoniscus_papuensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\pipistrellus_adamsi_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\pipistrellus_westralis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\pteropus_alecto_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\pteropus_conspicillatus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\pteropus_poliocephalus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\pteropus_scapulatus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\rhinolophus_megaphyllus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\rhinolophus_robertsi_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_pilbera_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\saccolaimus_flaviventris_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\saccolaimus_mixtus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\saccolaimus_saccolaimus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\scoteanax_rueppellii_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\scotorepens_balstoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\scotorepens_greyii_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\scotorepens_orion_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\scotorepens_sanborni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\setirostris_eleryi_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\syconycteris_australis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\taphozous_australis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\taphozous_georgianus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\taphozous_hilli_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\taphozous_kapalgensis_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\taphozous_troughtoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_baverstocki_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_caurinus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_darlingtoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_douglasorum_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_finlaysoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_pumilus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_regulus_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_troughtoni_dist.jpg" />
-    <EmbeddedResource Include="Data\SpeciesDistributionMaps\vespadelus_vulturnus_dist.jpg" />
+    <EmbeddedResource Include="Data\SpeciesDetails\austonomus_australis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\chaerephon_jobensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\chalinolobus_dwyeri_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\chalinolobus_gouldii_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\chalinolobus_morio_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\chalinolobus_nigrogriseus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\chalinolobus_picatus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\dobsonia_magna_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\doryrhina_semoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\doryrhina_stenotis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\falsistrellus_mackenziei_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\falsistrellus_tasmaniensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\hipposideros_ater_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\hipposideros_cervinus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\hipposideros_diadema_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\hipposideros_inornatus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\macroderma_gigas_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\macroglossus_minimus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\micronomus_norfolkensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\miniopteridae_australis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\miniopterus_orianae bassanii_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\miniopterus_Orianae oceanensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\miniopterus_orianae orianae_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\murina_florium_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\myotis_macropus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctimene_robinsoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_arnhemensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_bifax_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_corbeni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_daedalus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_geoffroyi_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_gouldi_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_holtorum_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_major major_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_major tor_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_sherrini_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\nyctophilus_walkeri_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_cobourgianus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_halli_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_kitcheneri_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_lumsdenae_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_petersi_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_planiceps_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\ozimops_ridei_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\phoniscus_papuensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pipistrellus_adamsi_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pipistrellus_westralis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pteropus_alecto_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pteropus_conspicillatus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pteropus_natalis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pteropus_poliocephalus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pteropus_scapulatus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_intermediate_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_megaphyllus_nsw_vic_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_megaphyllus_qld_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_robertsi_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\rhinonicteris_aurantia_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_mixtus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_saccolaimus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_balstoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_greyii_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_orion_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_parnaby_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_sanborni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\setirostris_eleryi_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\syconycteris_australis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\taphozous_australis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\taphozous_georgianus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\taphozous_hilli_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\taphozous_kapalgensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\taphozous_troughtoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_baverstocki_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_caurinus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_darlingtoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_douglasorum_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_finlaysoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_pumilus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_regulus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_troughtoni_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_vulturnus_details.html" />
+    
     <EmbeddedResource Include="Data\SpeciesRegions\pterop_alect_regions.json" />
     <EmbeddedResource Include="Data\SpeciesRegions\macro_minimus_regions.json" />
     <EmbeddedResource Include="Data\SpeciesRegions\aust_aust_regions.json" />
@@ -1203,5 +1287,82 @@
     <SharedImage Include="Images\ic_sounds.png" BaseSize="25,25" />
     <SharedImage Include="Images\ic_details.png" BaseSize="25,25" />
     <SharedImage Include="Images\ic_regions.png" BaseSize="25,25" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\chaerephon_jobensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_dwyeri_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_gouldii_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_morio_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_nigrogriseus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_picatus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\dobsonia_moluccensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\falsistrellus_mackenziei_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\falsistrellus_tasmaniensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_ater_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_cervinus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_diadema_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_inornatus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_semoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_stenotis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\macroderma_gigas_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\macroglossus_minimus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\micronomus_norfolkensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_australis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_orianae_bassanii_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_orianae_oceanensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_orianae_orianae_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\murina_florium_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\myotis_macropus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctimene_robinsoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_arnhemensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_bifax_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_corbeni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_daedalus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_geoffroyi_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_gouldi_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_major_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_sherrini_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_walkeri_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_cobourgianus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_halli_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_kitcheneri_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_lumsdenae_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_petersi_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_planiceps_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_ridei_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\phoniscus_papuensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\pipistrellus_adamsi_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\pipistrellus_westralis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_alecto_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_conspicillatus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_poliocephalus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_scapulatus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\rhinolophus_megaphyllus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\rhinolophus_robertsi_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_pilbera_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\saccolaimus_flaviventris_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\saccolaimus_mixtus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\saccolaimus_saccolaimus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\scoteanax_rueppellii_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_balstoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_greyii_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_orion_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_sanborni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\setirostris_eleryi_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\syconycteris_australis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_australis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_georgianus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_hilli_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_kapalgensis_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_troughtoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_baverstocki_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_caurinus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_darlingtoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_douglasorum_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_finlaysoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_pumilus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_regulus_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_troughtoni_dist.jpg"  BaseSize="150,150" />
+	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_vulturnus_dist.jpg"  BaseSize="150,150" />	  
   </ItemGroup>
 </Project>

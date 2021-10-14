@@ -9,7 +9,14 @@
     "chal_dwye2.jpg",
     "chal_dwye3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "chal_dwye_call_image.jpg"
+  ],
+  "RegionIds": [
+    104,
+    105,
+    106,
+    202
+  ],
   "DistributionMapImage": "chalinolobus_dwyeri_dist.jpg"
 }

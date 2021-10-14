@@ -9,7 +9,16 @@
     "ozi_coburg2.jpg",
     "ozi_coburg3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozi_coburg_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    301,
+    303
+  ],
   "DistributionMapImage": "ozimops_cobourgianus_dist.jpg"
 }

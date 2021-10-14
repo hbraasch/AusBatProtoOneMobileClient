@@ -1,11 +1,17 @@
 {
   "GenusId": "Vespadelus",
-  "SpeciesId": "Darlingtoni",
+  "SpeciesId": "darlingtoni",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    105,
+    106,
+    107,
+    203,
+    108
+  ],
   "DistributionMapImage": "vespadelus_darlingtoni_dist.jpg"
 }

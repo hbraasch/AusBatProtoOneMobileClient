@@ -115,7 +115,7 @@ namespace DocGenOneMobileClient.Views
                         var imageSource = (species.Images.Count > 0) ? species.Images.First() : "";
                         familyGroupDisplayItem.Add(new SpeciesDisplayItem
                         {
-                            SpeciesName = $"{species.GenusId.UppercaseFirstChar()} {species.SpeciesId.ToLower()}",
+                            SpeciesName = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId.ToLower()}",
                             FriendlyName = species.Name,
                             Species = species,
                             ImageSource = imageSource
@@ -157,7 +157,7 @@ namespace DocGenOneMobileClient.Views
         });
 
 
-        public ICommand OnSelectMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        public ICommand OnSelectPressed => commandHelper.ProduceDebouncedCommand(async () =>
         {
 
             try

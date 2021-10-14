@@ -9,7 +9,11 @@
     "nyctophilus-sherrini2.jpg",
     "nyctophilus-sherrini3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyctophilus-sherrini_call_image.jpg"
+  ],
+  "RegionIds": [
+    108
+  ],
   "DistributionMapImage": "nyctophilus_sherrini_dist.jpg"
 }

@@ -9,7 +9,15 @@
     "macro_minimus2.jpg",
     "macro_minimus3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "macro_minimus_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    303,
+    201,
+    102
+  ],
   "DistributionMapImage": "macroglossus_minimus_dist.jpg"
 }

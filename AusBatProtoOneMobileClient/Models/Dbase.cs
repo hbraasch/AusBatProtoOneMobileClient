@@ -104,25 +104,24 @@ namespace AusBatProtoOneMobileClient.Models
                 #region *// KeyTree
                 dbase.KeyTree = new KeyTree();
                 dbase.KeyTree.LoadTreeFromKeyTables();
-                dbase.KeyTree.EnhanceTree(Species);
                 #endregion
 
                 dbase.Classifications.Clear();
-                dbase.Classifications =  GenerateClassifications(KeyTree);
+                dbase.Classifications =  GenerateClassifications(dbase.KeyTree);
                 #endregion
 
 
                 #region *// Species details
                 dbase.Species.Clear();
-                foreach (var item in Classifications.Where(o=>o.Type == Classification.ClassificationType.Species))
+                foreach (var item in dbase.Classifications.Where(o=>o.Type == Classification.ClassificationType.Species))
                 {
-                    dbase.Species.Add( LoadSpecies(item.Parent, item.Id));
+                    dbase.Species.Add(LoadSpecies(item.Parent, item.Id));
                 }
+                dbase.KeyTree.EnhanceTree(dbase.Species);
 
 
-                foreach (var species in  Species)
+                foreach (var species in  dbase.Species)
                 {
-                    species.LoadRegions(MapRegions);
                     species.LoadDetails();
                     await species.LoadImages();
                     await species.LoadCalls();
@@ -164,8 +163,11 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 if (level == 2)
                 {
-                    // Extract family
-                    classifications.Add(new Classification { Id = current.NodeId, Parent = "", Type = Classification.ClassificationType.Family });
+                    if (!classifications.Exists(o => o.Id == current.NodeId && o.Parent == ""))
+                    {
+                        // Extract family
+                        classifications.Add(new Classification { Id = current.NodeId, Parent = "", Type = Classification.ClassificationType.Family });
+                    }           
                 }
                 else if (current is LeafKeyTreeNode leafNode)
                 {
@@ -186,12 +188,19 @@ namespace AusBatProtoOneMobileClient.Models
                             node = node.Parent;
                         }
                         if (familyNode == null) throw new BusinessException($"Could not find family node for {leafNode.GenusId}");
-                        classifications.Add(new Classification { Id = leafNode.GenusId, Parent = familyNode.NodeId, Type = Classification.ClassificationType.Genus });
+                        if (!classifications.Exists(o => o.Id == leafNode.GenusId && o.Parent == familyNode.NodeId))
+                        {
+                            classifications.Add(new Classification { Id = leafNode.GenusId, Parent = familyNode.NodeId, Type = Classification.ClassificationType.Genus }); 
+                        }
                     }
                     #endregion
-                    #region *// Extract species details
-                    classifications.Add(new Classification { Id = leafNode.SpeciesId, Parent = leafNode.GenusId, Type = Classification.ClassificationType.Species }); 
+                    #region *// Extract species details and only add one if copies
+                    if (!classifications.Exists(o=>o.Id == leafNode.SpeciesId && o.Parent == leafNode.GenusId))
+                    {
+                        classifications.Add(new Classification { Id = leafNode.SpeciesId, Parent = leafNode.GenusId, Type = Classification.ClassificationType.Species });
+                    }
                     #endregion
+
                 }
                 return KeyTreeTraverser.ExitAction.Continue;
             });

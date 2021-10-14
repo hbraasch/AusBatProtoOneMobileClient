@@ -9,7 +9,9 @@
     "hipp_diadem2.jpg",
     "hipp_diadem3.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [
+    "hipp_diadem_call_image.jpg"
+  ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_diadema_dist.jpg"
 }

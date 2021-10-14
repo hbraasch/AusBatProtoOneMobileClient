@@ -9,7 +9,21 @@
     "myot_mac2.jpg",
     "myot_mac3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "myot_mac_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    303,
+    201,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    203
+  ],
   "DistributionMapImage": "myotis_macropus_dist.jpg"
 }

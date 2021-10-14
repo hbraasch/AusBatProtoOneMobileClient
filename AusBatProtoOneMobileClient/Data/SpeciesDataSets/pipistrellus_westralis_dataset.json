@@ -9,7 +9,24 @@
     "pip_west2.jpg",
     "pip_west3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "pip_west_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    304,
+    301,
+    303,
+    201,
+    103,
+    104,
+    202,
+    105,
+    203,
+    312
+  ],
   "DistributionMapImage": "pipistrellus_westralis_dist.jpg"
 }

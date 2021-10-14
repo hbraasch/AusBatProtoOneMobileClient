@@ -9,7 +9,14 @@
     "sycon_aust2.jpg",
     "sycon_aust3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "sycon_aust_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105
+  ],
   "DistributionMapImage": "syconycteris_australis_dist.jpg"
 }

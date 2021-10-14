@@ -9,7 +9,13 @@
     "ozi_kitchen2.jpg",
     "ozi_kitchen3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozi_kitchen_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    309,
+    310
+  ],
   "DistributionMapImage": "ozimops_kitcheneri_dist.jpg"
 }

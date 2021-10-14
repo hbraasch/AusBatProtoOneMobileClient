@@ -9,7 +9,13 @@
     "rhino_mega2.jpg",
     "rhino_mega3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
-  "DistributionMapImage": "rhinolophus_megaphyllus_dist.jpg"
+  "CallImages": [
+    "rhino_mega_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104
+  ],
+  "DistributionMapImage": "rhinolophus_megaphyllus_qld_dist.jpg"
 }

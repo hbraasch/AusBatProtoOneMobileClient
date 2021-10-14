@@ -9,7 +9,23 @@
     "pterop_alect2.jpg",
     "pterop_alect3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "pterop_alect_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    301,
+    303,
+    304,
+    201,
+    102,
+    103,
+    104,
+    105,
+    106
+  ],
   "DistributionMapImage": "pteropus_alecto_dist.jpg"
 }

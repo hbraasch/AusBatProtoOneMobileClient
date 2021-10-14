@@ -9,7 +9,15 @@
     "taph_hilli_2.jpg",
     "taph_hilli_3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "taph_hilli__call_image.jpg"
+  ],
+  "RegionIds": [
+    307,
+    309,
+    306,
+    305,
+    304
+  ],
   "DistributionMapImage": "taphozous_hilli_dist.jpg"
 }

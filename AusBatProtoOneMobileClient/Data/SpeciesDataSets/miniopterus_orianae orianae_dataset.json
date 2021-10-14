@@ -1,5 +1,5 @@
 {
-  "GenusId": "Miniopteridae",
+  "GenusId": "miniopterus",
   "SpeciesId": "orianae orianae",
   "Name": "Northern Bent-winged Bat",
   "DetailsHtml": null,
@@ -9,7 +9,14 @@
     "mini_or_orianae2.jpg",
     "mini_or_orianae3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
-  "DistributionMapImage": "miniopteridae_orianae orianae_dist.jpg"
+  "CallImages": [
+    "mini_or_orianae_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    303,
+    304
+  ],
+  "DistributionMapImage": "miniopterus_orianae orianae_dist.jpg"
 }

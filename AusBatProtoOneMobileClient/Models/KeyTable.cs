@@ -56,14 +56,26 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
-        internal void PrintData()
+        internal void PrintData(int level)
         {
-            Debug.Write($"KeyTable: {KeyTable.filename} references from [{NodeId}] to [");
+            var debugString = "";
+            debugString = $"{Indent(level)}KeyTable [{NodeId}] references node(s) [";
             foreach (var nodeRow in NodeRows)
             {
-                Debug.Write($"{nodeRow.NodeId},");
+                debugString += $"{nodeRow.NodeId},";
             }
-            Debug.WriteLine("]");
+            debugString += "]";
+            Debug.WriteLine(debugString);
+
+            string Indent(int totalLength)
+            {
+                string result = string.Empty;
+                for (int i = 0; i < totalLength * 5; i++)
+                {
+                    result += " ";
+                }
+                return result;
+            }
         }
     }
 

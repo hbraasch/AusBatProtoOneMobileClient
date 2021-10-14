@@ -9,7 +9,16 @@
     "phoni_pap2.jpg",
     "phoni_pap3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "phoni_pap_call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105,
+    106,
+    107
+  ],
   "DistributionMapImage": "phoniscus_papuensis_dist.jpg"
 }

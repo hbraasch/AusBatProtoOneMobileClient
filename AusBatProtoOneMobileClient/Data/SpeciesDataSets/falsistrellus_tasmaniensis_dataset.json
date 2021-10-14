@@ -9,7 +9,15 @@
     "falsi_tasman2.jpg",
     "falsi_tasman3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "falsi_tasman_call_image.jpg"
+  ],
+  "RegionIds": [
+    105,
+    106,
+    107,
+    203,
+    108
+  ],
   "DistributionMapImage": "falsistrellus_tasmaniensis_dist.jpg"
 }

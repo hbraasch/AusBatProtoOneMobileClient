@@ -13,7 +13,6 @@ namespace DocGenOneMobileClient.Views
         bool isFirstAppearance = true; 
         SpeciesByFamilyPageViewModel viewModel;
         MenuGenerator menu;
-        ImageButton actionButton;
 
         public SpeciesByFamilyPage(SpeciesByFamilyPageViewModel viewModel) : base(viewModel)
         {
@@ -30,13 +29,9 @@ namespace DocGenOneMobileClient.Views
             };
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SpeciesByFamilyPageViewModel.FamilyGroupDisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SpeciesByFamilyPageViewModel.SelectedItem), BindingMode.TwoWay));
-            listView.ItemTapped += (s, e) => {  };
+            listView.ItemTapped += (s, e) => { viewModel.OnSelectPressed.Execute(true); };
             listView.ItemTemplate = new DataTemplate(typeof(ListViewDataTemplate));
             listView.GroupHeaderTemplate = new DataTemplate(typeof(ListViewGroupTemplate));
-
-            actionButton = new ImageButton { Source = "ic_select.png", BackgroundColor = Color.Transparent };
-            actionButton.Clicked += (s,e) => { viewModel.OnSelectMenuPressed.Execute(true); };
-            actionButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(SpeciesByFamilyPageViewModel.IsSelected), BindingMode.TwoWay));
 
             var listViewLayout = new ScrollView
             {
@@ -46,15 +41,13 @@ namespace DocGenOneMobileClient.Views
 
             var finalLayout = new AbsoluteLayout
             {
-                Children = { listViewLayout, actionButton, activityIndicator },
+                Children = { listViewLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(listViewLayout, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(listViewLayout, new Rectangle(0, 0, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(actionButton, AbsoluteLayoutFlags.PositionProportional);
-            AbsoluteLayout.SetLayoutBounds(actionButton, new Rectangle(0.95, .95, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 

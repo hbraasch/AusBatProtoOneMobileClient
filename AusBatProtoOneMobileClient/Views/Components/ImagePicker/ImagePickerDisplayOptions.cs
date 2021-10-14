@@ -53,6 +53,10 @@ namespace AusBatProtoOneMobileClient.Views.Components
             Title = "Select";
             BackgroundColor = Color.Black;
             Content = frame;
+
+            ToolbarItems.Add(new ToolbarItem { Text = "Back", Order = ToolbarItemOrder.Primary, Command = new Command(async () => {
+                await Navigation.PopAsync();
+            }) });
         }
 
 

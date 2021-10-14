@@ -9,7 +9,11 @@
     "vesp_douglas2.jpg",
     "vesp_douglas3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "vesp_douglas_call_image.jpg"
+  ],
+  "RegionIds": [
+    302
+  ],
   "DistributionMapImage": "vespadelus_douglasorum_dist.jpg"
 }

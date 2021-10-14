@@ -9,7 +9,14 @@
     "nyct_major_tor2.jpg",
     "nyct_major_tor3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_major_tor_call_image.jpg"
+  ],
+  "RegionIds": [
+    309,
+    310,
+    311,
+    306
+  ],
   "DistributionMapImage": "nyctophilus_major tor_dist.jpg"
 }

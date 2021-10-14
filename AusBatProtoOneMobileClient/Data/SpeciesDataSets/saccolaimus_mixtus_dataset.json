@@ -9,7 +9,12 @@
     "sacc_mixtus2.jpg",
     "sacc_mixtus3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "sacc_mixtus_call_image.jpg"
+  ],
+  "RegionIds": [
+    201,
+    102
+  ],
   "DistributionMapImage": "saccolaimus_mixtus_dist.jpg"
 }

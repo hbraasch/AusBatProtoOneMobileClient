@@ -9,7 +9,33 @@
     "nyct_geoff2.jpg",
     "nyct_geoff3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_geoff_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    309,
+    306,
+    302,
+    310,
+    311,
+    305,
+    304,
+    301,
+    303,
+    201,
+    102,
+    103,
+    202,
+    104,
+    105,
+    106,
+    107,
+    203,
+    312,
+    311,
+    108
+  ],
   "DistributionMapImage": "nyctophilus_geoffroyi_dist.jpg"
 }

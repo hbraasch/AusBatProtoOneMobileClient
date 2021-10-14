@@ -21,7 +21,7 @@ namespace DocGenOneMobileClient.Views
 {
     public class DisplayFilteredSpeciesPageViewModel : ViewModelBase
     {
-        List<Species> specieses;
+        List<Species> FilteredSpecieses;
         public class DisplayItemBase { }
 
 
@@ -62,7 +62,7 @@ namespace DocGenOneMobileClient.Views
 
         public DisplayFilteredSpeciesPageViewModel(List<Species> specieses)
         {
-            this.specieses = specieses;
+            this.FilteredSpecieses = specieses;
             DisplayItems = new ObservableCollection<DisplayItemBase>();
         }
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -100,10 +100,11 @@ namespace DocGenOneMobileClient.Views
 
             DisplayItems = new ObservableCollection<DisplayItemBase>();
 
-            foreach (var species in specieses)
+            foreach (var species in FilteredSpecieses)
             {
+                var imageSource = (species.Images.Count > 0) ? species.Images[0] : "ic_bat.jpg";
                 DisplayItems.Add(new SpeciesDisplayItem { 
-                    SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}", ImageSource = species.Images[0] ?? "", 
+                    SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}", ImageSource = imageSource, 
                     SpeciesFriendlyName = species.Name,
                     Species = species 
                 });

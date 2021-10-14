@@ -9,7 +9,13 @@
     "nyct_walkeri2.jpg",
     "nyct_walkeri3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "nyct_walkeri_call_image.jpg"
+  ],
+  "RegionIds": [
+    302,
+    301,
+    303
+  ],
   "DistributionMapImage": "nyctophilus_walkeri_dist.jpg"
 }

@@ -9,7 +9,15 @@
     "chal_pic2.jpg",
     "chal_pic3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "chal_pic_call_image.jpg"
+  ],
+  "RegionIds": [
+    104,
+    105,
+    202,
+    312,
+    203
+  ],
   "DistributionMapImage": "chalinolobus_picatus_dist.jpg"
 }

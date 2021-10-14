@@ -1,0 +1,18 @@
+{
+  "GenusId": "miniopterus",
+  "SpeciesId": "Orianae oceanensis",
+  "Name": "Undefined",
+  "DetailsHtml": null,
+  "DataTag": null,
+  "Images": [],
+  "CallImages": [],
+  "RegionIds": [
+    102,
+    103,
+    104,
+    105,
+    106,
+    107
+  ],
+  "DistributionMapImage": "miniopterus_orianae oceanensis_dist.jpg"
+}

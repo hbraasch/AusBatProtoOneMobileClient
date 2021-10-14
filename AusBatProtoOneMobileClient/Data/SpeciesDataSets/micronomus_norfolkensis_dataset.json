@@ -9,7 +9,12 @@
     "micro_norfolk_2.jpg",
     "micro_norfolk_3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "micro_norfolk__call_image.jpg"
+  ],
+  "RegionIds": [
+    105,
+    106
+  ],
   "DistributionMapImage": "micronomus_norfolkensis_dist.jpg"
 }

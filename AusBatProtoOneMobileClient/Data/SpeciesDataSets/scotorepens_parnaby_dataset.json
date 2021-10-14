@@ -6,6 +6,8 @@
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    105
+  ],
   "DistributionMapImage": "scotorepens_parnaby_dist.jpg"
 }

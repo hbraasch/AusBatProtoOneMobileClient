@@ -1,11 +1,18 @@
 {
   "GenusId": "Vespadelus",
-  "SpeciesId": "Baverstocki",
+  "SpeciesId": "baverstocki",
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    309,
+    305,
+    306,
+    311,
+    312,
+    202
+  ],
   "DistributionMapImage": "vespadelus_baverstocki_dist.jpg"
 }

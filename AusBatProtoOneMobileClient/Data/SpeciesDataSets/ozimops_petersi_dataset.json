@@ -9,7 +9,17 @@
     "ozi_peters2.jpg",
     "ozi_peters3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "ozi_peters_call_image.jpg"
+  ],
+  "RegionIds": [
+    306,
+    305,
+    304,
+    311,
+    312,
+    203,
+    202
+  ],
   "DistributionMapImage": "ozimops_petersi_dist.jpg"
 }

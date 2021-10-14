@@ -9,7 +9,24 @@
     "scot_greyi2.jpg",
     "scot_greyi3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "scot_greyi_call_image.jpg"
+  ],
+  "RegionIds": [
+    308,
+    307,
+    306,
+    302,
+    304,
+    301,
+    303,
+    201,
+    103,
+    104,
+    202,
+    105,
+    203,
+    312
+  ],
   "DistributionMapImage": "scotorepens_greyii_dist.jpg"
 }

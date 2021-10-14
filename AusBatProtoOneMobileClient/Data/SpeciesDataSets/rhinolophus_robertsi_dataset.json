@@ -9,7 +9,12 @@
     "rhino_robert_2.jpg",
     "rhino_robert_3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "rhino_robert__call_image.jpg"
+  ],
+  "RegionIds": [
+    102,
+    103
+  ],
   "DistributionMapImage": "rhinolophus_robertsi_dist.jpg"
 }

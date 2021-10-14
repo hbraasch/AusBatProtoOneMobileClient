@@ -9,7 +9,11 @@
     "taph_kapalg2.jpg",
     "taph_kapalg3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
+  "CallImages": [
+    "taph_kapalg_call_image.jpg"
+  ],
+  "RegionIds": [
+    301
+  ],
   "DistributionMapImage": "taphozous_kapalgensis_dist.jpg"
 }

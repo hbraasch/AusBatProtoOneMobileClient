@@ -1,6 +1,6 @@
 {
   "GenusId": "rhinolophus",
-  "SpeciesId": "sp_intermediate",
+  "SpeciesId": "intermediate",
   "Name": "Lesser Large-eared Horseshoe-bat",
   "DetailsHtml": null,
   "DataTag": "Rhino_sp",
@@ -9,7 +9,11 @@
     "rhino_sp2.jpg",
     "rhino_sp3.jpg"
   ],
-  "CallImages": [],
-  "RegionIds": [],
-  "DistributionMapImage": "rhinolophus_sp 'intermediate'_dist.jpg"
+  "CallImages": [
+    "rhino_sp_call_image.jpg"
+  ],
+  "RegionIds": [
+    102
+  ],
+  "DistributionMapImage": "rhinolophus_intermediate_dist.jpg"
 }

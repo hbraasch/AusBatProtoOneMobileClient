@@ -6,6 +6,9 @@
   "DataTag": null,
   "Images": [],
   "CallImages": [],
-  "RegionIds": [],
+  "RegionIds": [
+    308,
+    309
+  ],
   "DistributionMapImage": "nyctophilus_holtorum_dist.jpg"
 }
