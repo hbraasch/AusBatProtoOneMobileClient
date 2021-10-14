@@ -46,11 +46,11 @@ namespace DocGenOneMobileClient.Views
 
         public ObservableCollection<DisplayItemBase> DisplayItems { get; set; }
 
-        public DisplayItemBase SelectedItem { get; set; }
+        public DisplayItemBase SelectedDisplayItem { get; set; }
 
         public void OnSelectedItemChanged()
         {
-            IsSelected = SelectedItem != null;
+            IsSelected = SelectedDisplayItem != null;
             InvalidateMenu.Execute(null);
         }
 
@@ -114,11 +114,11 @@ namespace DocGenOneMobileClient.Views
             if (selectedKeyTreeNodes.Count == 0) { displayItems.Add(new NoticeDisplayItem { }); return displayItems; }
             foreach (var selectedKeyTreeNode in selectedKeyTreeNodes)
             {
-                if (selectedKeyTreeNode.Children.Count == 0)
+                if (selectedKeyTreeNode is LeafKeyTreeNode lktn)
                 {
-                    var species = App.dbase.FindSpecies(selectedKeyTreeNode.Parent.NodeId, selectedKeyTreeNode.NodeId);
+                    var species = App.dbase.FindSpecies(lktn.GenusId, lktn.SpeciesId);
                     displayItems.Add(new LeafNodeDisplayItem { 
-                        SpeciesName = selectedKeyTreeNode.NodeId,
+                        SpeciesName = $"{species.GenusId.UppercaseFirstChar()} {species.SpeciesId}",
                         CommonName = species.Name,
                         ImageSource = species.Images[0],
                         Content = selectedKeyTreeNode
@@ -178,16 +178,16 @@ namespace DocGenOneMobileClient.Views
 
             try
             {
-                if (SelectedItem == null) return;
+                if (SelectedDisplayItem == null) return;
 
-                if (SelectedItem is NodeDisplayItem )
+                if (SelectedDisplayItem is NodeDisplayItem )
                 {
                     NavigateBack(NavigateReturnType.IsAccepted);
                 }
-                else if (SelectedItem is LeafNodeDisplayItem)
+                else if (SelectedDisplayItem is LeafNodeDisplayItem lndi)
                 {
-                    var selectedKeyTreeNode = SelectedItem.Content;
-                    var species = App.dbase.FindSpecies(selectedKeyTreeNode.Parent.NodeId, selectedKeyTreeNode.NodeId);
+                    var leafKeyNode = SelectedDisplayItem.Content as LeafKeyTreeNode;
+                    var species = App.dbase.FindSpecies(leafKeyNode.GenusId, leafKeyNode.SpeciesId);
                     var viewModel = new DisplayBatTabbedPageViewModel(species) { IsHomeEnabled = true };
                     var page = new DisplayBatTabbedPage(viewModel);
                     var resultType = await NavigateToPageAsync(page, viewModel);

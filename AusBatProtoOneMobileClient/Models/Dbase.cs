@@ -201,7 +201,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         internal Species FindSpecies(string genusId, string speciesId)
         {
-            return Species.FirstOrDefault(o => o.GenusId == genusId && o.SpeciesId == speciesId);
+            return Species.FirstOrDefault(o => o.GenusId == genusId.ToLower() && o.SpeciesId == speciesId.ToLower());
         }
 
         public static List<Species> Filter(List<Species> specieses, List<MapRegion> selectedRegions)

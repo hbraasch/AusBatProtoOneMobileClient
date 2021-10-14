@@ -55,25 +55,26 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
                 // Test one level down
-                if (characterEntry is PickerCharacterPrompt pcp)
+
+                foreach (var childNode in Children)
                 {
-                    foreach (var childNode in Children)
+                    #region *// Only filter on already triggered nodes, if there are triggerred nodes 
+                    if (currentTriggeredNodes.Count > 0)
                     {
                         if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
-                        var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is PickerCharacterTrigger).Select(o=>o as PickerCharacterTrigger).ToList() ;
+                    }
+                    #endregion
+                    if (characterEntry is PickerCharacterPrompt pcp)
+                    {
+                        var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is PickerCharacterTrigger).Select(o => o as PickerCharacterTrigger).ToList();
                         var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == pcp.KeyId);
                         if (evaluateCharacter.OptionId == pcp.EntryOptionId)
                         {
                             triggeredNodes.Add(childNode);
                         }
                     }
-                }
-                else
-                {
-                    var ncp = characterEntry as NumericCharacterPrompt;
-                    foreach (var childNode in Children)
+                    else if (characterEntry is NumericCharacterPrompt ncp)
                     {
-                        if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
                         var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is NumericCharacterTrigger).Select(o => o as NumericCharacterTrigger).ToList();
                         var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == ncp.KeyId);
                         if (evaluateCharacter.MinValue <= ncp.Entry && ncp.Entry <= evaluateCharacter.MaxValue)
@@ -82,7 +83,9 @@ namespace AusBatProtoOneMobileClient.Models
 
                         }
                     }
+                    else throw new ApplicationException("Unidentified character encountered");
                 }
+
                 return triggeredNodes;
             }
         }

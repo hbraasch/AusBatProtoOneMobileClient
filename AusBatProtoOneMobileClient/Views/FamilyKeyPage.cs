@@ -20,7 +20,10 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var characterListView = new ListView { SelectionMode = ListViewSelectionMode.None };
+            var characterListView = new ListView { 
+                SelectionMode = ListViewSelectionMode.None,
+                SeparatorColor = Constants.APP_COLOUR
+            };
             characterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
             characterListView.ItemTemplate = new TemplateSelector(this);
 
@@ -63,6 +66,8 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
             Title = "Filter";
+            SetBinding(Page.TitleProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
+
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
             var menu = new MenuGenerator().Configure()

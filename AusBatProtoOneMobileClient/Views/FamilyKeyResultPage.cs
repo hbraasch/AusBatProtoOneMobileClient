@@ -22,8 +22,13 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var keyTreeNodesListView = new ListView { SelectionMode = ListViewSelectionMode.None };
+            var keyTreeNodesListView = new ListView
+            {
+                SelectionMode = ListViewSelectionMode.Single,
+                SeparatorColor = Constants.APP_COLOUR
+            };
             keyTreeNodesListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyResultPageViewModel.DisplayItems), BindingMode.TwoWay));
+            keyTreeNodesListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(FamilyKeyResultPageViewModel.SelectedDisplayItem), BindingMode.TwoWay));
             keyTreeNodesListView.ItemTemplate = new TemplateSelector();
             keyTreeNodesListView.ItemTapped += (s, e) => {
                 viewModel.OnSelectPressed.Execute(null);

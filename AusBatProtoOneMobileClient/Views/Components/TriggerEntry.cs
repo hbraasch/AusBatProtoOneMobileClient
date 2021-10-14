@@ -29,7 +29,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
         public TriggerEntry()
         {
             this.TextChanged += (s, e) => {
-                typingSubject.OnNext(null);
+                typingSubject.OnNext(Text);
             };
 
             // Reactive extension to debounce search term as keyed in
