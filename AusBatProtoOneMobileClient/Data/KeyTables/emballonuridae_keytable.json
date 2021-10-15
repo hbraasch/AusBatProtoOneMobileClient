@@ -12,6 +12,8 @@
     "Ear",
     "SnoutToVent"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
   "Pickers": [
     {
       "Id": "GularPouchFemale",

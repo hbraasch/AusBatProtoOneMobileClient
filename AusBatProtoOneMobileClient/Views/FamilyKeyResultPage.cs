@@ -87,7 +87,7 @@ namespace DocGenOneMobileClient.Views
         internal class TemplateSelector : DataTemplateSelector
         {
             DataTemplate leafNodeDisplayItem;
-            DataTemplate nodeDisplayItem;
+            DataTemplate generalNodeDisplayItem;
             DataTemplate noticeDisplayItem;
 
             public TemplateSelector()
@@ -126,11 +126,14 @@ namespace DocGenOneMobileClient.Views
                     return new ViewCell { View = grid };
                 });
 
-                nodeDisplayItem = new DataTemplate(() => {
-                    var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                generalNodeDisplayItem = new DataTemplate(() => {
+                    var descriptionLabel = new Label { 
+                        VerticalTextAlignment = TextAlignment.Center, 
+                        TextColor = Color.White 
+                    };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.NodeDisplayItem.Name), BindingMode.TwoWay));
 
-                    var grid = new Grid();
+                    var grid = new Grid { Margin = 5 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
@@ -145,7 +148,7 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.NoticeDisplayItem.Description), BindingMode.TwoWay));
 
-                    var grid = new Grid();
+                    var grid = new Grid { Margin = 5 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
@@ -165,7 +168,7 @@ namespace DocGenOneMobileClient.Views
                 }
                 else if (item is FamilyKeyResultPageViewModel.NodeDisplayItem)
                 {
-                    return nodeDisplayItem;
+                    return generalNodeDisplayItem;
                 }
                 else if (item is FamilyKeyResultPageViewModel.NoticeDisplayItem)
                 {

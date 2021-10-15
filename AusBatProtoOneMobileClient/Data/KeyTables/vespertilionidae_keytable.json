@@ -11,6 +11,19 @@
     "LowerEarMargin",
     "ForearmLength"
   ],
+  "KeyPrompts": [
+    "Upper incisors",
+    "Tragus shape",
+    "Upper pre-molars",
+    "Upper cannes",
+    "Tail membrane",
+    "Muzzle structure",
+    "Nostril shape",
+    "Lower ear margin",
+    "Forearm length"
+  ],
+  "KeyImages": [],
+  "KeyDisplayOrders": [ 2, 3, 9, 8, 5, 1, 6, 7, 4 ],
   "Pickers": [
     {
       "Id": "UpperIncisors",

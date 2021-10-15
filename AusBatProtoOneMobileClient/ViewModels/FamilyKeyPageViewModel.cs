@@ -37,6 +37,8 @@ namespace DocGenOneMobileClient.Views
         {
             public virtual string Prompt { get; set; }
             public int DisplayOrder { get; set; }
+
+            public string ImageSource { get; set; }
             public ICommand OnChanged { get; set; }
             public CharacterPromptBase Content;
 
@@ -62,6 +64,8 @@ namespace DocGenOneMobileClient.Views
         public class NumericDisplayItem : CharacterDisplayItemBase
         {
             public string Value { get; set; }
+
+            public bool IsImageVisible { get; set; }
 
             public override bool HasEntry()
             {
@@ -166,13 +170,15 @@ namespace DocGenOneMobileClient.Views
             #endregion
 
 
-            foreach (var character in BestPromptCharacters)
+            #region *// Create display items
+            foreach (var character in BestPromptCharacters.OrderBy(o=>o.DisplayOrder))
             {
                 if (character is NumericCharacterPrompt ncp)
                 {
                     displayItems.Add(new NumericDisplayItem
                     {
                         Prompt = ncp.Prompt,
+                        ImageSource = ncp.ImageSource,
                         Value = "",
                         OnChanged = OnFilterClicked,
                         Content = character
@@ -183,12 +189,14 @@ namespace DocGenOneMobileClient.Views
                     displayItems.Add(new PickerDisplayItem
                     {
                         Prompt = pcp.Prompt,
+                        ImageSource = pcp.ImageSource,
                         SelectedOption = "",
                         Options = pcp.Options.Select(o => o.OptionPrompt).ToList(),
                         OptionIds = pcp.Options.Select(o => o.OptionId).ToList(),
+                        ImageSources = pcp.Options.Select(o => o.OptionImageSource).ToList(),
                         OnChanged = OnFilterClicked,
                         Content = character
-                    });
+                    }); ; // ; // ;
                 }
             }
 
@@ -200,7 +208,8 @@ namespace DocGenOneMobileClient.Views
                     RegionIds = CurrentRegionIds,
                     OnChanged = OnSpecifyRegionClicked
                 });
-            }
+            } 
+            #endregion
 
             displayItems.OrderBy(o => o.DisplayOrder);
             return displayItems;
@@ -358,7 +367,14 @@ namespace DocGenOneMobileClient.Views
                 var page = new FamilyKeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
-                if (resultType == NavigateReturnType.IsCancelled) return;
+                if (resultType == NavigateReturnType.IsCancelled)
+                {
+                    if (viewModel.IsFiterReset)
+                    {
+                        ResetFilter(KeyTreeFilter.Current.GetFilterResetNode());
+                        return;
+                    }
+                };
 
                 #region *// User requested to go one level down
                 var rootKeyTreeNode = viewModel.SelectedDisplayItem.Content as KeyTreeNodeBase;

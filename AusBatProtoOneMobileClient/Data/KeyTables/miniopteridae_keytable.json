@@ -11,6 +11,8 @@
     "LowerEarMargin",
     "ForearmLength"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
   "Pickers": [
     {
       "Id": "UpperIncisors",

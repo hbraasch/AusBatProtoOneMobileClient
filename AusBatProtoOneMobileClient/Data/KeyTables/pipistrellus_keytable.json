@@ -7,6 +7,9 @@
     "FaTibiaRatio",
     "Tibia"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
+  "KeyDisplayOrders": [ 3, 2, 1, 1, 4 ],
   "Pickers": [
     {
       "Id": "Tragus",

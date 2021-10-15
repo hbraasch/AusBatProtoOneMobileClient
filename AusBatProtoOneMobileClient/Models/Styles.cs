@@ -30,5 +30,15 @@ namespace AusBatProtoOneMobileClient.Models
                 new Setter { Property = Button.CornerRadiusProperty,   Value = 5 }
             }
         };
+
+        public static Style RegionSelectButtonStyle = new Style(typeof(Button))
+        {
+            Setters = {
+                new Setter { Property = Button.FontSizeProperty,   Value = Device.GetNamedSize(NamedSize.Micro, typeof(Button)) },
+                new Setter { Property = Button.BorderWidthProperty,   Value = 3 },
+                new Setter { Property = Button.BorderColorProperty,   Value = Constants.APP_COLOUR},
+                new Setter { Property = Button.CornerRadiusProperty,   Value = 5 }
+            }
+        };
     }
 }

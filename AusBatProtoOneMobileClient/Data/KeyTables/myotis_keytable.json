@@ -1,6 +1,8 @@
 {
   "NodeId": "Myotis",
   "KeyIds": [],
+  "KeyPrompts": [],
+  "KeyImages": [],
   "Pickers": [],
   "NodeRows": [
     {

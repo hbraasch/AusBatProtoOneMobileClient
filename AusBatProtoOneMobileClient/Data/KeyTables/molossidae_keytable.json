@@ -12,6 +12,9 @@
     "GularPouch",
     "BothSexesWithFleshyGenitalProjections"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
+  "KeyDisplayOrders": [ 3, 4, 0, 9, 8, 5, 1, 2, 7, 6 ],
   "Pickers": [
     {
       "Id": "GularPouch",
@@ -38,7 +41,7 @@
   ],
   "NodeRows": [
     {
-      "NodeId": "Austonomus australis", 
+      "NodeId": "Austonomus australis",
       "Values": [
         "57-65",
         "5.8-6.4",

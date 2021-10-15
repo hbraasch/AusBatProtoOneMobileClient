@@ -11,8 +11,10 @@ namespace AusBatProtoOneMobileClient.Models
     public class KeyTable
     {
         public string NodeId { get; set; }
-
         public List<string> KeyIds { get; set; } = new List<string>();
+        public List<string> KeyPrompts { get; set; } = new List<string>();
+        public List<string> KeyImages { get; set; } = new List<string>();
+        public List<int> KeyDisplayOrders { get; set; } = new List<int>();
 
         public List<Picker> Pickers { get; set; } = new List<Picker>();
 
@@ -25,6 +27,7 @@ namespace AusBatProtoOneMobileClient.Models
             KeyTable.filename = filename;
             try
             {
+                #region *// Read from source JSON
                 using (Stream stream = FileHelper.GetStreamFromFile($"Data.KeyTables.{filename.ToLower()}_keytable.json"))
                 {
                     if (stream == null)
@@ -49,6 +52,11 @@ namespace AusBatProtoOneMobileClient.Models
                         };
                     }
                 }
+                #endregion
+
+                #region *// Complete the GUID data so all items are uniquely identifiable
+
+                #endregion
             }
             catch (Exception ex)
             {
@@ -82,13 +90,13 @@ namespace AusBatProtoOneMobileClient.Models
     public class NodeRow
     {
         public string NodeId { get; set; }
+        public Guid NodeGuid { get; set; }
         public List<string> Values { get; set; } = new List<string>();
     }
 
     public class Picker
     {
         public string Id { get; set; }
-
         public List<string> OptionIds { get; set; } = new List<string>();
         public List<string> OptionPrompts { get; set; } = new List<string>();
         public List<string> OptionImages { get; set; } = new List<string>();

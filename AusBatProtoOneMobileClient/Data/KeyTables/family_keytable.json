@@ -6,6 +6,14 @@
     "WingThirdFinger",
     "TragusAntiTragus"
   ],
+  "KeyPrompts": [
+    "Tail membrane structure",
+    "Face and noseleaf",
+    "Wing third finger",
+    "Tragus/AntiTragus"
+  ],
+  "KeyImages": [ "", "", "", "" ],
+  "KeyDisplayOrders": [],
   "Pickers": [
     {
       "Id": "TailMembraneStructure",
@@ -22,6 +30,13 @@
         "Present, fully enclosed in membrane",
         "Present, projecting through upper surface of tail membrane",
         "Present, projecting free for >8mm past the tail membrane"
+      ],
+      "OptionImages": [
+        "",
+        "tail_present_not_attached.jpg",
+        "tail_fully_enclosed.jpg",
+        "tail_present_projecting_through_upper_surface.jpg",
+        "tail_present_projecting_free_greater_8mm.jpg"
       ]
     },
     {
@@ -33,10 +48,16 @@
         "SmallTransverseLeaf"
       ],
       "OptionPrompts": [
-        "None, face simple ",
+        "None, face simple",
         "Large, complex noseleaf with the lower section horseshoe-shaped",
-        "Large, complex noseleaf flattened square ,oval ",
+        "Large, complex noseleaf flattened square, oval",
         "Small transverse leaf above nostrils"
+      ],
+      "OptionImages": [
+        "none_face_simple.jpg",
+        "face_complex_horseshoe.jpg",
+        "face_w_flattened_square_noseleaf.jpg",
+        "nose_small_transverse_leaf.jpg"
       ]
     },
     {
@@ -46,8 +67,12 @@
         "Long"
       ],
       "OptionPrompts": [
-        "Terminal phalange < 3x the length of the second last phalange ",
-        "Terminal phalange > 3x the length of the second last phalange "
+        "Terminal phalange < 3x the length of the second last phalange",
+        "Terminal phalange > 3x the length of the second last phalange"
+      ],
+      "OptionImages": [
+        "wing_third_finger_short.jpg",
+        "wing_third_finger_long.jpg"
       ]
     },
     {
@@ -61,6 +86,11 @@
         "Absent",
         "Present, deeply bifurcate",
         "Present, entire (no deep divisions)"
+      ],
+      "OptionImages": [
+        "tragus_absent.jpg",
+        "tragus_bifurcate.jpg",
+        "tragus_entire.jpg"
       ]
     }
   ],

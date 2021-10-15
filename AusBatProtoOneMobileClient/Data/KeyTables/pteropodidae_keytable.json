@@ -6,6 +6,14 @@
     "InnerSurfaceOfLeg",
     "TailPresentAbsent"
   ],
+  "KeyPrompts": [
+    "Forearm",
+    "Head pelage and patterning",
+    "Inner surface of leg",
+    "Tail present/absent"
+  ],
+  "KeyImages": [],
+  "KeyDisplayOrders": [ 1, 2, 4, 3 ],
   "Pickers": [
     {
       "Id": "HeadPelageAndPatterning",

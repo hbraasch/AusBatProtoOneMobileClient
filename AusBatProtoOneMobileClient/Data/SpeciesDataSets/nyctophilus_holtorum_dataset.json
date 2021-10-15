@@ -4,7 +4,9 @@
   "Name": "Undefined",
   "DetailsHtml": null,
   "DataTag": null,
-  "Images": [],
+  "Images": [
+    "nyctophilus_holtorum_nose.jpg"
+  ],
   "CallImages": [],
   "RegionIds": [
     308,

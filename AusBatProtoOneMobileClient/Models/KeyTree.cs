@@ -20,6 +20,7 @@ namespace AusBatProtoOneMobileClient.Models
             // Node(A) => Node(B)
 
             public string NodeId { get; set; }
+            public Guid NodeGuid { get; set; }
             public KeyTreeNode Parent { get; set; }
             public List<KeyTreeNodeBase> Children { get; set; } = new List<KeyTreeNodeBase>();
 
@@ -92,10 +93,11 @@ namespace AusBatProtoOneMobileClient.Models
             public string GenusId { get; set; }
             public string SpeciesId { get; set; }
 
-            public LeafKeyTreeNode(KeyTreeNode parent, string nodeId)
+            public LeafKeyTreeNode(KeyTreeNode parent, string nodeId, Guid nodeGuid)
             {
                 Parent = parent;
                 NodeId = nodeId;
+                NodeGuid = nodeGuid;
                 var ids = nodeId.Split(' ');
                 GenusId = ids[0];
                 for (int i = 1; i < ids.Length; i++)
@@ -106,37 +108,48 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+
         int level = 0;
         public void LoadTreeFromKeyTables()
         {
-            RootNode = LoadTree(null, null, "Family", level);
+            RootNode = LoadTree(null, null, "Family", Guid.NewGuid(), level);
             KeyTreeTraverser.rootNode = RootNode;
 
             PrintKeyTree();
 
-            KeyTreeNode LoadTree(KeyTreeNode parentTreeNode, KeyTable parentKeyTable, string nodeId, int level)
+            KeyTreeNode LoadTree(KeyTreeNode parentTreeNode, KeyTable parentKeyTable, string nodeId, Guid nodeGuid, int level)
             {
                 level++;
-                var treeNode = new KeyTreeNode { NodeId = nodeId, Parent = parentTreeNode };
+                var treeNode = new KeyTreeNode { NodeId = nodeId, NodeGuid = nodeGuid, Parent = parentTreeNode };
                 var treeNodeKeyTable = KeyTable.Load(parentKeyTable?.NodeId??"Family", nodeId);
-                treeNode.PromptCharactersForNextLevel = GeneratePromptCharacters(treeNodeKeyTable);
                 treeNodeKeyTable.PrintData(level);
                 if (treeNodeKeyTable == null) return treeNode;
-                var subNodeIds = treeNodeKeyTable.NodeRows.Select(o => o.NodeId);
-                foreach (var subNodeId in subNodeIds)
+                var subNodeIds = treeNodeKeyTable.NodeRows.Select(o => o.NodeId).ToList();
+                for(int rowIndex = 0; rowIndex < subNodeIds.Count; rowIndex++)
                 {
                     KeyTreeNodeBase childNode;
+                    var subNodeId = subNodeIds[rowIndex];
+
                     if (IsLeafNode(subNodeId))
                     {
-                        childNode = new LeafKeyTreeNode(treeNode, subNodeId);
+                        childNode = new LeafKeyTreeNode(treeNode, subNodeId, Guid.NewGuid());
                     }
                     else
                     {
-                        childNode = LoadTree(treeNode, treeNodeKeyTable, subNodeId, level);
+                        childNode = LoadTree(treeNode, treeNodeKeyTable, subNodeId, Guid.NewGuid(), level);
                     }
-                    childNode.TriggerCharactersForSelf = GenerateTriggerCharacters(treeNodeKeyTable, childNode.NodeId);
+                    
                     treeNode.Children.Add(childNode);
+                    treeNodeKeyTable.NodeRows[rowIndex].NodeGuid = childNode.NodeGuid; // Mark each one uniquely because there can be duplicates (OR operation)
                 }
+
+                #region *// Extract characters
+                treeNode.PromptCharactersForNextLevel = GeneratePromptCharacters(treeNodeKeyTable);
+                foreach (var childNode in treeNode.Children)
+                {
+                    childNode.TriggerCharactersForSelf = GenerateTriggerCharacters(treeNodeKeyTable, childNode.NodeId, childNode.NodeGuid);
+                } 
+                #endregion
                 return treeNode;
             }
 
@@ -208,36 +221,57 @@ namespace AusBatProtoOneMobileClient.Models
 
         private List<CharacterPromptBase> GeneratePromptCharacters(KeyTable keyTable)
         {
-            List<CharacterPromptBase> characters = new List<CharacterPromptBase>();
-            foreach (var keyId in keyTable.KeyIds)
+            try
             {
-                var keyIdsIndex = keyTable.KeyIds.IndexOf(keyId);
-                var picker = keyTable.Pickers.FirstOrDefault(o => o.Id == keyId);
-                if (picker != null)
+                List<CharacterPromptBase> characters = new List<CharacterPromptBase>();
+                foreach (var keyId in keyTable.KeyIds)
                 {
-                    // RowItem is a picker
-                    var newPickerCharacterPrompt = new PickerCharacterPrompt
-                    {     
-                        KeyId = keyId,
-                        Prompt = keyId,
-                        Options = GenerateOptions(picker.OptionIds, picker.OptionPrompts)
-                    };
-                    characters.Add(newPickerCharacterPrompt);                   
+                    var keyIdsIndex = keyTable.KeyIds.IndexOf(keyId);
+                    var picker = keyTable.Pickers.FirstOrDefault(o => o.Id == keyId);
+                    if (picker != null)
+                    {
+                        // RowItem is a picker
+                        var prompt = (keyTable.KeyPrompts.Count == 0) ? keyId : keyTable.KeyPrompts[keyIdsIndex];
+                        var imageSource = (keyTable.KeyImages.Count == 0) ? keyId : keyTable.KeyImages[keyIdsIndex];
+                        var displayOrder = (keyTable.KeyDisplayOrders.Count == 0) ? 0 : keyTable.KeyDisplayOrders[keyIdsIndex];
+                        var newPickerCharacterPrompt = new PickerCharacterPrompt
+                        {
+                            KeyId = keyId,
+                            Prompt = prompt,
+                            ImageSource = imageSource,
+                            DisplayOrder = displayOrder,
+                            Options = GenerateOptions(picker.OptionIds, picker.OptionPrompts, picker.OptionImages)
+                        };
+                        characters.Add(newPickerCharacterPrompt);
+                    }
+                    else
+                    {
+                        // RowItem is a numeric
+                        var prompt = (keyTable.KeyPrompts.Count == 0) ? keyId : keyTable.KeyPrompts[keyIdsIndex];
+                        var imageSource = (keyTable.KeyImages.Count == 0) ? keyId : keyTable.KeyImages[keyIdsIndex];
+                        var displayOrder = (keyTable.KeyDisplayOrders.Count == 0) ? 0 : keyTable.KeyDisplayOrders[keyIdsIndex];
+                        characters.Add(new NumericCharacterPrompt
+                        {
+                            KeyId = keyId,
+                            Prompt = prompt,
+                            ImageSource = imageSource,
+                            DisplayOrder = displayOrder
+                        });
+                    }
                 }
-                else
-                {
-                    // RowItem is a numeric
-                    characters.Add(new NumericCharacterPrompt { KeyId = keyId, Prompt = keyId });
-                }
+                return characters;
             }
-            return characters;
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem generating characters for keytable [{keyTable.NodeId}]. {ex.Message}");
+            }
         }
 
-        private List<CharacterTriggerBase> GenerateTriggerCharacters(KeyTable keyTable, string nodeId)
+        private List<CharacterTriggerBase> GenerateTriggerCharacters(KeyTable keyTable, string nodeId, Guid nodeGuid)
         {
             List<CharacterTriggerBase> characters = new List<CharacterTriggerBase>();
             if (keyTable == null) return characters;
-            var nodeRow = keyTable.NodeRows.FirstOrDefault(o => o.NodeId == nodeId);
+            var nodeRow = keyTable.NodeRows.FirstOrDefault(o => o.NodeGuid == nodeGuid);
             foreach (var keyId in keyTable.KeyIds)
             {
                 var rowColumnIndex = keyTable.KeyIds.IndexOf(keyId);
@@ -257,12 +291,13 @@ namespace AusBatProtoOneMobileClient.Models
             return characters;
         }
 
-        private List<PickerCharacterPrompt.Option> GenerateOptions(List<string> optionIds, List<string> optionPrompts)
+        private List<PickerCharacterPrompt.Option> GenerateOptions(List<string> optionIds, List<string> optionPrompts, List<string> optionImages)
         {
             var result = new List<PickerCharacterPrompt.Option>();
             for (int i = 0; i < optionIds.Count; i++)
             {
-                result.Add(new PickerCharacterPrompt.Option { OptionId = optionIds[i], OptionPrompt = optionPrompts[i] });
+                var image = (optionImages.Count > 0) ? optionImages[i] : "";
+                result.Add(new PickerCharacterPrompt.Option { OptionId = optionIds[i], OptionPrompt = optionPrompts[i], OptionImageSource = image});
             }
             return result;
         }
@@ -285,14 +320,17 @@ namespace AusBatProtoOneMobileClient.Models
 
 
 
-        public class CharacterTriggerBase { public string KeyId; }
+
         public class CharacterPromptBase {
             public string KeyId;
             public string Prompt { get; set; }
+            public string ImageSource { get; set; }
+            public int DisplayOrder { get; set; }
         }
-
-
-
+        public class CharacterTriggerBase
+        {
+            public string KeyId;
+        }
 
         public class PickerCharacterPrompt: CharacterPromptBase
         {
@@ -303,6 +341,7 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 public string OptionId { get; set; }
                 public string OptionPrompt { get; set; }
+                public string OptionImageSource { get; set; }
             }
 
         }

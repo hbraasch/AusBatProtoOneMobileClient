@@ -214,7 +214,7 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 IsFiterReset = true;
-                NavigateBack(NavigateReturnType.IsAccepted);
+                NavigateBack(NavigateReturnType.IsCancelled);
             }
             catch (Exception ex)
             {

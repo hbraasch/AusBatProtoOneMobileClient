@@ -5,6 +5,8 @@
     "ThreeMet",
     "FurPatternAndColour"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
   "Pickers": [
     {
       "Id": "FurPatternAndColour",

@@ -6,6 +6,8 @@
     "OuterCanineWidth",
     "MuzzlePattern"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
   "Pickers": [
     {
       "Id": "MuzzlePattern",

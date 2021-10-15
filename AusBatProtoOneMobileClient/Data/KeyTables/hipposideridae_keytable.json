@@ -7,6 +7,8 @@
     "Wingspan",
     "FacialFeatures"
   ],
+  "KeyPrompts": [],
+  "KeyImages": [],
   "Pickers": [
     {
       "Id": "FacialFeatures",
@@ -20,13 +22,22 @@
         "Hipp_inornat"
       ],
       "OptionPrompts": [
-        "Rhino_aur",
-        "Dory_semoni",
-        "Dory_stenotis",
-        "Hipp_ater",
-        "Hipp_cerv",
-        "Hipp_diad",
-        "Hipp_inornat"
+        "Rhinonicteris aurantia",
+        "Doryrhina semoni",
+        "Doryrhina stenotis",
+        "Hipposideros ater",
+        "Hipposideros cervinus",
+        "Hipposideros diadema",
+        "Hipposideros inornatus"
+      ],
+      "OptionImages": [
+        "rhino_aur_facial.jpg",
+        "dory_semoni_facial.jpg",
+        "dory_stenotis_facial.jpg",
+        "hipp_ater_facial.jpg",
+        "hip_cerv_facial.jpg",
+        "hipp_diad_facial.jpg",
+        "hipp_inornat_facial.jpg"
       ]
     }
   ],

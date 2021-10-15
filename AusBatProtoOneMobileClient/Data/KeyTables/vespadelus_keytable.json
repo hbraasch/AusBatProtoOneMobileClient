@@ -8,6 +8,23 @@
     "3P1",
     "3P1ThreeMetRatio"
   ],
+  "KeyPrompts": [
+    "Forearm",
+    "3-MET",
+    "Tibia",
+    "Facial skin pigmentation",
+    "3 P1",
+    "3 P1/3-MET (ratio)"
+  ],
+  "KeyImages": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "three_met_3p1.jpg"
+  ],
+  "KeyDisplayOrders": [ 2, 3, 5, 1, 6, 4],
   "Pickers": [
     {
       "Id": "FacialSkinPigmentation",
