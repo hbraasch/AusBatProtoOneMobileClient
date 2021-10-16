@@ -117,10 +117,11 @@ namespace DocGenOneMobileClient.Views
                 if (selectedKeyTreeNode is LeafKeyTreeNode lktn)
                 {
                     var species = App.dbase.FindSpecies(lktn.GenusId, lktn.SpeciesId);
+                    var imageSource = (species.Images.Count == 0) ? "bat.png": species.Images[0];
                     displayItems.Add(new LeafNodeDisplayItem { 
                         SpeciesName = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId}",
                         CommonName = species.Name,
-                        ImageSource = species.Images[0],
+                        ImageSource = imageSource,
                         Content = selectedKeyTreeNode
                     });
                 }

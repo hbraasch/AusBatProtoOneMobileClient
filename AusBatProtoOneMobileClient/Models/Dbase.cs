@@ -108,6 +108,8 @@ namespace AusBatProtoOneMobileClient.Models
 
                 dbase.Classifications.Clear();
                 dbase.Classifications =  GenerateClassifications(dbase.KeyTree);
+                PrintClassifications(dbase.Classifications);
+
                 #endregion
 
 
@@ -156,24 +158,40 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+        private void PrintClassifications(List<Classification> classifications)
+        {
+            foreach (var classification in classifications)
+            {
+                Debug.WriteLine($"{classification.Type.ToString()} {classification.Parent} {classification.Id}");
+            }
+        }
+
+
         private List<Classification> GenerateClassifications(KeyTree keyTree)
         {
             List<Classification> classifications = new List<Classification>();
-            var traverser = new KeyTreeTraverser((parent, current, level) =>
+            foreach (var childKeyTreeNode in keyTree.RootNode.Children)
             {
-                if (level == 2)
+                GenerateClassificationsRecursive(keyTree.RootNode, childKeyTreeNode);
+            }
+
+            void GenerateClassificationsRecursive(KeyTreeNodeBase parent, KeyTreeNodeBase current)
+            {
+                if (parent.NodeId == "Family" && !(current is LeafKeyTreeNode))
                 {
+                    Debug.WriteLine($"IsFamily: {current.NodeId}");
+                    // Extract family
                     if (!classifications.Exists(o => o.Id == current.NodeId && o.Parent == ""))
                     {
-                        // Extract family
                         classifications.Add(new Classification { Id = current.NodeId, Parent = "", Type = Classification.ClassificationType.Family });
-                    }           
+                    }
                 }
                 else if (current is LeafKeyTreeNode leafNode)
                 {
+                    Debug.WriteLine($"Leaf: {current.NodeId}");
                     // Its a leaf node (extract genus and species)
                     #region *// Extract genus details by rippling upwards till family node found
-                    if (!(classifications.Exists(o=>o.Type == Classification.ClassificationType.Genus && o.Id == leafNode.GenusId)))
+                    if (!(classifications.Exists(o => o.Type == Classification.ClassificationType.Genus && o.Id == leafNode.GenusId)))
                     {
 
                         KeyTreeNodeBase node = current;
@@ -190,27 +208,28 @@ namespace AusBatProtoOneMobileClient.Models
                         if (familyNode == null) throw new BusinessException($"Could not find family node for {leafNode.GenusId}");
                         if (!classifications.Exists(o => o.Id == leafNode.GenusId && o.Parent == familyNode.NodeId))
                         {
-                            classifications.Add(new Classification { Id = leafNode.GenusId, Parent = familyNode.NodeId, Type = Classification.ClassificationType.Genus }); 
+                            classifications.Add(new Classification { Id = leafNode.GenusId, Parent = familyNode.NodeId, Type = Classification.ClassificationType.Genus });
                         }
                     }
                     #endregion
                     #region *// Extract species details and only add one if copies
-                    if (!classifications.Exists(o=>o.Id == leafNode.SpeciesId && o.Parent == leafNode.GenusId))
+                    if (!classifications.Exists(o => o.Id == leafNode.SpeciesId && o.Parent == leafNode.GenusId))
                     {
                         classifications.Add(new Classification { Id = leafNode.SpeciesId, Parent = leafNode.GenusId, Type = Classification.ClassificationType.Species });
                     }
                     #endregion
-
                 }
-                return KeyTreeTraverser.ExitAction.Continue;
-            });
-            traverser.Execute();
+                foreach (var childKeyTreeNode in current.Children)
+                {
+                    GenerateClassificationsRecursive(current, childKeyTreeNode);
+                }
+            }
             return classifications;
         }
 
         internal Species FindSpecies(string genusId, string speciesId)
         {
-            return Species.FirstOrDefault(o => o.GenusId == genusId.ToLower() && o.SpeciesId == speciesId.ToLower());
+            return Species.FirstOrDefault(o => o.GenusId.ToLower() == genusId.ToLower() && o.SpeciesId == speciesId.ToLower());
         }
 
         public static List<Species> Filter(List<Species> specieses, List<MapRegion> selectedRegions)

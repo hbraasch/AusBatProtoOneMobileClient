@@ -118,14 +118,15 @@ namespace DocGenOneMobileClient.Views
             {
                 numericDisplayDataTemplate = new DataTemplate(() => {
 
-                    var image = new CachedImage
+                    var image = new CachedImageWithTap
                     {
                         Aspect = Aspect.AspectFit,
                         HorizontalOptions = LayoutOptions.End
                     };
                     image.Transformations.Add(new RoundedTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay));
-                    image.SetBinding(CachedImage.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
+                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImageWithTap.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
+                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.OnImageClicked), BindingMode.TwoWay));
 
                     var descriptionLabel = new Label { HorizontalOptions = LayoutOptions.StartAndExpand, VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Prompt), BindingMode.TwoWay));
@@ -150,14 +151,15 @@ namespace DocGenOneMobileClient.Views
                 });
                 pickerDisplayDataTemplate = new DataTemplate(() => {
 
-                    var image = new CachedImage
+                    var image = new CachedImageWithTap
                     {
                         Aspect = Aspect.AspectFit,
                         HorizontalOptions = LayoutOptions.End
                     };
-                    image.Transformations.Add(new CircleTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay));
-                    image.SetBinding(CachedImage.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
+                    image.Transformations.Add(new RoundedTransformation());
+                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImageWithTap.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
+                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.OnImageClicked), BindingMode.TwoWay));
 
                     var descriptionLabel = new Label { HorizontalOptions = LayoutOptions.StartAndExpand, VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));

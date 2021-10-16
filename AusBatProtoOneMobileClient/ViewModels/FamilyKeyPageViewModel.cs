@@ -37,16 +37,10 @@ namespace DocGenOneMobileClient.Views
         {
             public virtual string Prompt { get; set; }
             public int DisplayOrder { get; set; }
-
             public string ImageSource { get; set; }
+            public Action<ImageSource> OnImageClicked { get; set; }
             public ICommand OnChanged { get; set; }
             public CharacterPromptBase Content;
-
-            public List<KeyTreeNodeBase> ConductSearch(List<KeyTreeNodeBase> currentKeyTreeNodes)
-            {
-                throw new NotImplementedException();
-            }
-
             public abstract bool HasEntry();
         }
         public class PickerDisplayItem : CharacterDisplayItemBase
@@ -181,6 +175,7 @@ namespace DocGenOneMobileClient.Views
                         ImageSource = ncp.ImageSource,
                         Value = "",
                         OnChanged = OnFilterClicked,
+                        OnImageClicked = OnImageClicked,
                         Content = character
                     });
                 }
@@ -195,8 +190,9 @@ namespace DocGenOneMobileClient.Views
                         OptionIds = pcp.Options.Select(o => o.OptionId).ToList(),
                         ImageSources = pcp.Options.Select(o => o.OptionImageSource).ToList(),
                         OnChanged = OnFilterClicked,
+                        OnImageClicked = OnImageClicked,
                         Content = character
-                    }); ; // ; // ;
+                    }); 
                 }
             }
 
@@ -363,7 +359,25 @@ namespace DocGenOneMobileClient.Views
             {
                 ActivityIndicatorStart();
 
-                var viewModel = new FamilyKeyResultPageViewModel(CurrentTriggeredKeyTreeNodes) { IsHomeEnabled = true };
+
+                #region *// Replace genus nodes with only single species to species node 
+                var simplifiedTreeNodes = new List<KeyTreeNodeBase>();
+                foreach (var triggeredKeyTreenode in CurrentTriggeredKeyTreeNodes)
+                {
+                    var simplifiedTreeNode = triggeredKeyTreenode;
+                    if (triggeredKeyTreenode is KeyTreeNode ktn)
+                    {
+                        if (ktn.Children.Count == 1 && ktn.Children[0] is LeafKeyTreeNode)
+                        {
+                            simplifiedTreeNode = ktn.Children[0];
+                        }
+                    }
+                    simplifiedTreeNodes.Add(simplifiedTreeNode);
+                }
+                #endregion
+
+
+                var viewModel = new FamilyKeyResultPageViewModel(simplifiedTreeNodes) { IsHomeEnabled = true };
                 var page = new FamilyKeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
@@ -374,6 +388,7 @@ namespace DocGenOneMobileClient.Views
                         ResetFilter(KeyTreeFilter.Current.GetFilterResetNode());
                         return;
                     }
+                    return;
                 };
 
                 #region *// User requested to go one level down
@@ -391,6 +406,27 @@ namespace DocGenOneMobileClient.Views
                 ActivityIndicatorStop();
             }
         });
+
+        public Action<ImageSource> OnImageClicked => async (imageSource) =>
+        {
+            try
+            {
+                ActivityIndicatorStart();
+
+                var viewModel = new DisplayImagePageViewModel(imageSource);
+                var page = new DisplayImagePage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        };
 
 
     }

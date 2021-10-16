@@ -11,6 +11,7 @@ namespace AusBatProtoOneMobileClient.Models
 {
     public class KeyTree
     {
+        public const string DONT_CARE = "DontCare";
         public KeyTreeNodeBase RootNode { get; set; }
 
         public List<PickerCharacterPrompt> PickerCharacters = new List<PickerCharacterPrompt>();
@@ -64,7 +65,7 @@ namespace AusBatProtoOneMobileClient.Models
                     {
                         var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is PickerCharacterTrigger).Select(o => o as PickerCharacterTrigger).ToList();
                         var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == pcp.KeyId);
-                        if (evaluateCharacter.OptionId == pcp.EntryOptionId)
+                        if (evaluateCharacter.OptionId == pcp.EntryOptionId || evaluateCharacter.OptionId == DONT_CARE)
                         {
                             triggeredNodes.Add(childNode);
                         }
@@ -279,7 +280,8 @@ namespace AusBatProtoOneMobileClient.Models
                 if (picker != null)
                 {
                     // RowItem is a picker
-                    characters.Add(new PickerCharacterTrigger { KeyId = keyId, OptionId = nodeRow.Values[rowColumnIndex] });
+                    string optionId = (nodeRow.Values[rowColumnIndex] == "") ? DONT_CARE : nodeRow.Values[rowColumnIndex];
+                    characters.Add(new PickerCharacterTrigger { KeyId = keyId, OptionId = optionId });
                 }
                 else
                 {
@@ -304,6 +306,11 @@ namespace AusBatProtoOneMobileClient.Models
 
         private (float minValue, float maxValue) ExtractValues(string value)
         {
+            if (value == "")
+            {
+                // Don't care value
+                return (float.MinValue, float.MaxValue);
+            }
             var numbers = value.Split('-');
             float minValue;
             float maxValue;

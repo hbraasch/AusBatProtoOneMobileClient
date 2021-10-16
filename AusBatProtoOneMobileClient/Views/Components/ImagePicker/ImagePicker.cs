@@ -1,17 +1,7 @@
-﻿using AusBatProtoOneMobileClient.Models;
-using FFImageLoading.Forms;
-using FFImageLoading.Transformations;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using static AusBatProtoOneMobileClient.ViewModels.ClassificationPageViewModel;
 using static AusBatProtoOneMobileClient.Views.Components.ImagePickerDisplayOptions;
 
 namespace AusBatProtoOneMobileClient.Views.Components
@@ -78,7 +68,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
             Text = SelectedItem;
             var tapRecognizer = new TapGestureRecognizer();
             tapRecognizer.Tapped += async (s, e) => {
-                var displayItems = new List<PickerWithImagesDisplayData>();
+                var displayItems = new ObservableCollection<PickerWithImagesDisplayData>();
                 for (int i = 0; i < ItemsSource.Count; i++)
                 {
                     if (ItemsSource[i] == "") continue;
@@ -89,11 +79,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                         ImageSource = imageSource
                     });
                 }
-                var page = new ImagePickerDisplayOptions()
-                {
-                    DisplayItems = new ObservableCollection<PickerWithImagesDisplayData>(displayItems),
-                    SelectedDisplayItem = null
-                };
+                var page = new ImagePickerDisplayOptions(displayItems);
                 await parentPage.Navigation.PushAsync(page);
                 await page.WaitUntilExecutionStops();
                 SelectedItem = page.SelectedDisplayItem?.Description ?? "";
