@@ -38,7 +38,12 @@ namespace AusBatProtoOneMobileClient.Models
                 List<KeyTreeNodeBase> triggeredNodes = new List<KeyTreeNodeBase>();
                 foreach (var childNode in Children)
                 {
-                    if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
+                    #region *// Only filter on already triggered nodes, if there are triggerred nodes 
+                    if (currentTriggeredNodes.Count > 0)
+                    {
+                        if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
+                    }
+                    #endregion
                     var sharedRegionIds = RegionIds.Intersect(regionIds).ToList();
                     if (!sharedRegionIds.IsEmpty())
                     {
@@ -405,7 +410,27 @@ namespace AusBatProtoOneMobileClient.Models
                 return result;
             }
         }
+        public void PrintKeyTreeRegions()
+        {
+            var traverser = new KeyTreeTraverser((parent, current, level) =>
+            {
+                var regionIdsString = "";
+                current.RegionIds.ForEach(o => regionIdsString += o.ToString() + ",");
+                Debug.WriteLine($"{Indent(level)}Parent = {parent?.NodeId} Current = {current.NodeId} Regions = {regionIdsString}");
+                return KeyTreeTraverser.ExitAction.Continue;
+            });
+            traverser.Execute();
 
+            string Indent(int totalLength)
+            {
+                string result = string.Empty;
+                for (int i = 0; i < totalLength * 5; i++)
+                {
+                    result += " ";
+                }
+                return result;
+            }
+        }
         public class KeyTreeTraverser
         {
             public static KeyTreeNodeBase rootNode;
@@ -456,12 +481,18 @@ namespace AusBatProtoOneMobileClient.Models
 
         internal void EnhanceTree(List<Species> specieses)
         {
-            #region *// Enter leave node data
-            foreach (var species in specieses)
+            var allLeafNodes = new List<KeyTreeNodeBase>();
+            foreach (var child in RootNode.Children)
             {
-                var nodeId = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId.ToLower()}";
-                var node = GetKeyNode(nodeId);
-                if (node == null) throw new BusinessException($"Could not find species [{nodeId}] in key tree");
+                GetLeafNodesRecursive(child);
+            }
+
+
+            #region *// Enter leave node data
+            foreach (var node in allLeafNodes)
+            {
+                var species = specieses.FirstOrDefault(o=>$"{o.GenusId.ToLower()} {o.SpeciesId.ToLower()}" == node.NodeId.ToLower());
+                if (species == null) throw new BusinessException($"Could not find species [{node.NodeId}] in species list");
 
                 #region *// RegionIds
                 node.RegionIds = species.RegionIds;
@@ -479,7 +510,14 @@ namespace AusBatProtoOneMobileClient.Models
             }
             #endregion
 
-
+            void GetLeafNodesRecursive(KeyTreeNodeBase current)
+            {
+                if (current is LeafKeyTreeNode) allLeafNodes.Add(current);
+                foreach (var child in current.Children)
+                {
+                    GetLeafNodesRecursive(child);
+                }
+            }
         }
 
         private class IntComparer : IEqualityComparer<int>

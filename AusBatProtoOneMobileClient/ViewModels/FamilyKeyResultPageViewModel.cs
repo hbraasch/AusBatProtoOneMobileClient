@@ -48,13 +48,6 @@ namespace DocGenOneMobileClient.Views
 
         public DisplayItemBase SelectedDisplayItem { get; set; }
 
-        public void OnSelectedItemChanged()
-        {
-            IsSelected = SelectedDisplayItem != null;
-            InvalidateMenu.Execute(null);
-        }
-
-
         public bool IsDirty { get; set; }
 
         public ICommand InvalidateMenu { get; set; }

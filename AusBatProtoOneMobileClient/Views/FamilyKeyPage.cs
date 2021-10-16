@@ -191,7 +191,7 @@ namespace DocGenOneMobileClient.Views
                         Style = Styles.RegionSelectButtonStyle,
                         BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
                     };
-                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.OnSearch), BindingMode.TwoWay));
+                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.OnSelectRegionClicked), BindingMode.TwoWay));
 
                     var selectionAmountLabel = new Label { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center };
                     selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));

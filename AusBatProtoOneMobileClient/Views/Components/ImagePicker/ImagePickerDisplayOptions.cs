@@ -77,8 +77,9 @@ namespace AusBatProtoOneMobileClient.Views.Components
             AbsoluteLayout.SetLayoutFlags(displayImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(displayImage, new Rectangle(0, 0, 1, 1));
 
-            Title = "Select";
+            Title = "Options";
             BackgroundColor = Color.Black;
+            NavigationPage.SetHasBackButton(this, false);
             Content = overlayLayout;
 
             ToolbarItems.Add(new ToolbarItem { Text = "Back", Order = ToolbarItemOrder.Primary, 

@@ -120,6 +120,7 @@ namespace AusBatProtoOneMobileClient.Models
                     dbase.Species.Add(LoadSpecies(item.Parent, item.Id));
                 }
                 dbase.KeyTree.EnhanceTree(dbase.Species);
+                dbase.KeyTree.PrintKeyTreeRegions();
 
 
                 foreach (var species in  dbase.Species)

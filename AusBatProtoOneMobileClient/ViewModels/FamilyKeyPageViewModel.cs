@@ -71,7 +71,7 @@ namespace DocGenOneMobileClient.Views
             public override string Prompt { get; set; } = "Regions";
             public List<int> RegionIds { get; set; } = new List<int>();
             public string SelectionAmount { get; set; }
-            public ICommand OnSearch { get; set; }
+            public ICommand OnSelectRegionClicked { get; set; }
             public override bool HasEntry() => RegionIds?.Count > 0;
 
         }
@@ -202,7 +202,8 @@ namespace DocGenOneMobileClient.Views
                 displayItems.Add(new MapRegionsDisplayItem
                 {
                     RegionIds = CurrentRegionIds,
-                    OnChanged = OnSpecifyRegionClicked
+                    OnChanged = OnFilterClicked,
+                    OnSelectRegionClicked = OnSpecifyRegionClicked
                 });
             } 
             #endregion
@@ -253,7 +254,12 @@ namespace DocGenOneMobileClient.Views
                 var returnType = await NavigateToPageAsync(page, viewModel);
                 if (returnType == NavigateReturnType.IsCancelled) return;
                 if (returnType == NavigateReturnType.GotoRoot) { NavigateBack(NavigateReturnType.GotoRoot); return; }
-                CurrentRegionIds = viewModel.SelectedMapRegions.Select(o=>o.Id).ToList();
+
+                #region *// Return result
+                var regionDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o is MapRegionsDisplayItem) as MapRegionsDisplayItem;
+                #endregion
+                regionDisplayItem.RegionIds =  CurrentRegionIds = viewModel.SelectedMapRegions.Select(o=>o.Id).ToList();
+                OnFilterClicked.Execute(null);
             }
             catch (Exception ex)
             {
