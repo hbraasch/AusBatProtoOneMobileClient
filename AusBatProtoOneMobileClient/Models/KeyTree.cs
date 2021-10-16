@@ -44,7 +44,7 @@ namespace AusBatProtoOneMobileClient.Models
                         if (!currentTriggeredNodes.Exists(o => o.NodeId == childNode.NodeId)) continue; // Only test on nodes already triggerred
                     }
                     #endregion
-                    var sharedRegionIds = RegionIds.Intersect(regionIds).ToList();
+                    var sharedRegionIds = childNode.RegionIds.Intersect(regionIds).ToList();
                     if (!sharedRegionIds.IsEmpty())
                     {
                         triggeredNodes.Add(childNode);
@@ -544,7 +544,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         public int GetHashCode(KeyTreeNodeBase obj)
         {
-            return obj.NodeId.GetHashCode() + obj.GetHashCode();
+            return obj.NodeId.GetHashCode();
         }
     }
 }

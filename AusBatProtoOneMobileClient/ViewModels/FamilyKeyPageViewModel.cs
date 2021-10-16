@@ -354,7 +354,7 @@ namespace DocGenOneMobileClient.Views
             }
             else throw new ApplicationException("Unknown displayItem encountered");
 
-            currentTriggeredKeyTreeNodes =  allTriggeredKeyTreeNodes;
+            currentTriggeredKeyTreeNodes =  allTriggeredKeyTreeNodes.Distinct(new TreeNodeComparer()).ToList();
         }
 
 
@@ -434,7 +434,18 @@ namespace DocGenOneMobileClient.Views
             }
         };
 
+        private class CompareTreeNode : IEqualityComparer<KeyTreeNodeBase>
+        {
+            public bool Equals(KeyTreeNodeBase x, KeyTreeNodeBase y)
+            {
+                throw new NotImplementedException();
+            }
 
+            public int GetHashCode(KeyTreeNodeBase obj)
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 
 
