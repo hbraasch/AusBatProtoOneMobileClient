@@ -1,42 +1,42 @@
-﻿using AusBatProtoOneMobileClient.Models;
+﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.ViewModels;
 using FFImageLoading.Forms;
-using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using System;
+using System.Globalization;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using static AusBatProtoOneMobileClient.ViewModels.DisplayBatTabbedPageViewModel;
+
 
 namespace AusBatProtoOneMobileClient
 {
-    public class DisplayBatImageTabPage : ContentPageBase
+    public class DisplaySpeciesCallTabPage : ContentPageBase
     {
-        DisplayBatTabbedPageViewModel viewModel;
-        public DisplayBatImageTabPage(DisplayBatTabbedPageViewModel viewModel) : base(viewModel)
+        DisplaySpeciesTabbedPageViewModel viewModel;
+        public DisplaySpeciesCallTabPage(DisplaySpeciesTabbedPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var carouselView = new CarouselView { 
+            var carouselView = new CarouselView
+            {
                 EmptyView = "Nothing to display",
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
-            carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.ImageDataItems), BindingMode.TwoWay, source: viewModel));
+            carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.CallDisplayItems), BindingMode.TwoWay, source: viewModel));
+            carouselView.SetBinding(CarouselView.TabIndexProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.SelectedCallDisplayItem), BindingMode.TwoWay, source: viewModel));
             carouselView.ItemTemplate = new DataTemplate(() =>
             {
-
                 var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-
-                var image = new CachedImage
+                CachedImage image = new CachedImage
                 {
                     Aspect = Aspect.AspectFit,
                 };
                 image.WidthRequest = mainDisplayInfo.Width;
-                image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
-
-                return image; 
+                image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.CallDataItem.ImageSource), BindingMode.OneWay));
+                return image;
             });
 
             var indicatorView = new IndicatorView
@@ -49,9 +49,11 @@ namespace AusBatProtoOneMobileClient
             };
             carouselView.IndicatorView = indicatorView;
 
+            
+
             var mainLayout = new StackLayout { Children = { carouselView, indicatorView } };
 
-            Title = "Images";
+            Title = "Calls";
             BackgroundColor = Color.Black;
 
             var centeredLayout = new AbsoluteLayout
@@ -59,6 +61,7 @@ namespace AusBatProtoOneMobileClient
                 Children = { mainLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(mainLayout, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(mainLayout, new Rectangle(0, 0, 1, 1));
@@ -77,12 +80,39 @@ namespace AusBatProtoOneMobileClient
             if (isFirstAppearance)
             {
                 isFirstAppearance = false;
-                // viewModel.OnDisplayBatImageFirstAppearance.Execute(null);
+                viewModel.OnFirstAppearance.Execute(null);
             }
             else
             {
-                // viewModel.OnDisplayBatImageSubsequentAppearance.Execute(null);
+                viewModel.OnSubsequentAppearance.Execute(null);
             }
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            viewModel.OnBackButtonPressed.Execute(null);
+            return viewModel.isBackCancelled;
+        }
+    }
+
+    internal class IsPlayingToImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var isPlaying = (bool)value;
+            if (!isPlaying)
+            {
+                return "ic_audio_playback_play.png";
+            }
+            else
+            {
+                return "ic_audio_playback_stop.png";
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

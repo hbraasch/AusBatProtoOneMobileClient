@@ -847,6 +847,7 @@
     <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
@@ -1019,7 +1020,7 @@
     <SharedImage Include="Data\SpeciesImages\General\austonomus_australis2.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\General\austonomus_australis3.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\General\austonomus_australis_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\General\bat.png" BaseSize="100,100"/>
+    <SharedImage Include="Data\SpeciesImages\General\bat.png" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\General\chaerephon_jobensis1.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\General\chaerephon_jobensis2.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\General\chaerephon_jobensis_head.jpg" BaseSize="100,100" />

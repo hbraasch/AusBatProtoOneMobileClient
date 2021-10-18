@@ -163,8 +163,8 @@ namespace DocGenOneMobileClient.Views
                 if (SelectedItem == null) return;
                 var sighting = SelectedItem.Content;
                 var species = App.dbase.Species.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
-                var viewModel = new DisplayBatTabbedPageViewModel(species) { IsHomeEnabled = IsHomeEnabled };
-                var page = new DisplayBatTabbedPage(viewModel);
+                var viewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = IsHomeEnabled };
+                var page = new DisplaySpeciesTabbedPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
             }

@@ -77,10 +77,12 @@ namespace DocGenOneMobileClient.Views
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
                 .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); });
 
+            menu.SetVisibilityFactors(viewModel, "IsResetFilterEnabled")
+                .ToShowMenuItem("reset", true);
 
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(FamilyKeyPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
-
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(FamilyKeyPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
+            viewModel.InvalidateMenuCommand = new Command(() => { menu.Invalidate(); });
 
         }
 

@@ -6,28 +6,28 @@ using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
 
 namespace AusBatProtoOneMobileClient
 {
-    public class DisplayBatTabbedPage : Xamarin.Forms.TabbedPage
+    public class DisplaySpeciesTabbedPage : Xamarin.Forms.TabbedPage
     {
-        DisplayBatTabbedPageViewModel viewModel;
+        DisplaySpeciesTabbedPageViewModel viewModel;
         MenuGenerator menu;
 
-        DisplayBatImageTabPage displayBatImagesTabPage;
-        DisplayBatDetailsTabPage displayBatDetailsTabPage;
-        DisplayBatDistributionTabPage displayBatRegionsTabPage;
-        DisplayBatCallTabPage displayBatCallTabPage;
-        public DisplayBatTabbedPage(DisplayBatTabbedPageViewModel viewModel)
+        DisplaySpeciesImageTabPage displayBatImagesTabPage;
+        DisplaySpeciesDetailsTabPage displayBatDetailsTabPage;
+        DisplaySpeciesDistributionTabPage displayBatRegionsTabPage;
+        DisplaySpeciesCallTabPage displayBatCallTabPage;
+        public DisplaySpeciesTabbedPage(DisplaySpeciesTabbedPageViewModel viewModel)
         {
             this.viewModel = viewModel;
 
 
             Title = viewModel.Species.Name;
-            displayBatImagesTabPage = new DisplayBatImageTabPage(viewModel);
+            displayBatImagesTabPage = new DisplaySpeciesImageTabPage(viewModel);
             displayBatImagesTabPage.IconImageSource = "ic_photos.png";
-            displayBatDetailsTabPage = new DisplayBatDetailsTabPage(viewModel);
+            displayBatDetailsTabPage = new DisplaySpeciesDetailsTabPage(viewModel);
             displayBatDetailsTabPage.IconImageSource = "ic_details.png";
-            displayBatRegionsTabPage = new DisplayBatDistributionTabPage(viewModel);
+            displayBatRegionsTabPage = new DisplaySpeciesDistributionTabPage(viewModel);
             displayBatRegionsTabPage.IconImageSource = "ic_regions.png";
-            displayBatCallTabPage = new DisplayBatCallTabPage(viewModel);
+            displayBatCallTabPage = new DisplaySpeciesCallTabPage(viewModel);
             displayBatCallTabPage.IconImageSource = "ic_sounds.png";
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
@@ -45,14 +45,16 @@ namespace AusBatProtoOneMobileClient
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("home", "Home", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
-                .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png")
-                .AddMenuItem("addSighting", "Add sighting", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnAddSightingMenuPressed.Execute(null); }, iconPath: "ic_back.png");
+                .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
+                .AddMenuItem("resetFilter", "Reset", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetMenuPressed.Execute(null); })
+                .AddMenuItem("addSighting", "Add sighting", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnAddSightingMenuPressed.Execute(null); });
 
-            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled")
-                .ToShowMenuItem("home", true);
+            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled", "IsResetFilterEnabled")
+                .ToShowMenuItem("home", true, null )
+                .ToShowMenuItem("resetFilter", null, true);
 
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Xamarin.Forms.Binding(nameof(DisplayBatTabbedPageViewModel.InvalidateMenuCommand), Xamarin.Forms.BindingMode.OneWayToSource, source: viewModel));          
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Xamarin.Forms.Binding(nameof(DisplaySpeciesTabbedPageViewModel.InvalidateMenuCommand), Xamarin.Forms.BindingMode.OneWayToSource, source: viewModel));          
 
         }
 

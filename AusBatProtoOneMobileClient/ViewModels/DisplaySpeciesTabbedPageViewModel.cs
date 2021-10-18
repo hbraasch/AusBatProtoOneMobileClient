@@ -21,9 +21,10 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.ViewModels
 {
-    public class DisplayBatTabbedPageViewModel : ViewModelBase
+    public class DisplaySpeciesTabbedPageViewModel : ViewModelBase
     {
         public Species Species;
+
         CommandHelper commandHelper = new CommandHelper();
 
         public class ImageDataItem
@@ -50,7 +51,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsLoggedIn { get; set; } = false;
         #endregion
-        public DisplayBatTabbedPageViewModel(Species species)
+        public DisplaySpeciesTabbedPageViewModel(Species species)
         {
             this.Species = species;
 
@@ -88,6 +89,12 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnHomeMenuPressed => new Command(() =>
         {
             NavigateBack(NavigateReturnType.GotoRoot);
+        });
+
+        public bool IsResetFilterEnabled { get; set; }
+        public ICommand OnResetMenuPressed => new Command(() =>
+        {
+            NavigateBack(NavigateReturnType.GotoFilterReset);
         });
 
         public bool isBackCancelled = false;
@@ -211,5 +218,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         });
 
 
+
+        
     }
 }

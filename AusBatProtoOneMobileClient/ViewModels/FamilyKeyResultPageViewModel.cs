@@ -182,10 +182,11 @@ namespace DocGenOneMobileClient.Views
                 {
                     var leafKeyNode = SelectedDisplayItem.Content as LeafKeyTreeNode;
                     var species = App.dbase.FindSpecies(leafKeyNode.GenusId, leafKeyNode.SpeciesId);
-                    var viewModel = new DisplayBatTabbedPageViewModel(species) { IsHomeEnabled = true };
-                    var page = new DisplayBatTabbedPage(viewModel);
+                    var viewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = true };
+                    var page = new DisplaySpeciesTabbedPage(viewModel);
                     var resultType = await NavigateToPageAsync(page, viewModel);
                     if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                    if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
                 }
             }
             catch (Exception ex) when (ex is BusinessException exb)

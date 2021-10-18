@@ -9,11 +9,11 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient
 {
-    public class DisplayBatDistributionTabPage : ContentPageBase
+    public class DisplaySpeciesDistributionTabPage : ContentPageBase
     {
-        DisplayBatTabbedPageViewModel viewModel;
+        DisplaySpeciesTabbedPageViewModel viewModel;
 
-        public DisplayBatDistributionTabPage(DisplayBatTabbedPageViewModel viewModel) : base(viewModel)
+        public DisplaySpeciesDistributionTabPage(DisplaySpeciesTabbedPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
@@ -26,7 +26,7 @@ namespace AusBatProtoOneMobileClient
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
             image.WidthRequest = mainDisplayInfo.Width;
-            image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.DistributionMapImage), BindingMode.OneWay));
+            image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.DistributionMapImage), BindingMode.OneWay));
 
             Title = "Distribution";
             BackgroundColor = Color.Black;

@@ -8,17 +8,17 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient
 {
-    public class DisplayBatDetailsTabPage : ContentPageBase
+    public class DisplaySpeciesDetailsTabPage : ContentPageBase
     {
-        DisplayBatTabbedPageViewModel viewModel;
+        DisplaySpeciesTabbedPageViewModel viewModel;
         TransparentWebView webView;
-        public DisplayBatDetailsTabPage(DisplayBatTabbedPageViewModel viewModel) : base(viewModel)
+        public DisplaySpeciesDetailsTabPage(DisplaySpeciesTabbedPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
             webView = new TransparentWebView() { Margin = 5 };          
-            webView.SetBinding(WebView.SourceProperty, new Binding(nameof(DisplayBatTabbedPageViewModel.DetailsHtmlSource), BindingMode.OneWay));
+            webView.SetBinding(WebView.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.DetailsHtmlSource), BindingMode.OneWay));
 
 
             Title = "Details";
