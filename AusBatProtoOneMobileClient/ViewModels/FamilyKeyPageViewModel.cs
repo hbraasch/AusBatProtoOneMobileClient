@@ -90,7 +90,7 @@ namespace DocGenOneMobileClient.Views
 
         #region *// Menu related 
 
-        public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0;
+        public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0 || CurrentPromptKeyTreeNode.NodeId != App.dbase.KeyTree.RootNode.NodeId;
 
         #endregion
 
