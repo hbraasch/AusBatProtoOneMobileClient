@@ -107,19 +107,19 @@
     {
       "NodeId": "Pteropodidae_dobsonia",
       "Values": [
-        "",
-        "",
-        "",
-        ""
+        "PresentNotAttached",
+        "None",
+        "Short",
+        "Absent"
       ]
     },
     {
       "NodeId": "Megadermatidae",
       "Values": [
-        "",
-        "",
-        "",
-        ""
+        "Absent",
+        "LargeComplexHorseShoe",
+        "Short",
+        "PresentDeeplyBifurcate"
       ]
     },
     {

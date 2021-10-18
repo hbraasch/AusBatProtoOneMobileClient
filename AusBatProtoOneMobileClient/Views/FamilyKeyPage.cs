@@ -138,7 +138,7 @@ namespace DocGenOneMobileClient.Views
                     valueEntry.SetBinding(TriggerEntry.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Value), BindingMode.TwoWay));
                     valueEntry.SetBinding(TriggerEntry.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.OnChanged), BindingMode.TwoWay));
 
-                    var grid = new Grid { Margin = 5 };
+                    var grid = new Grid { Margin = 2 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
@@ -173,7 +173,7 @@ namespace DocGenOneMobileClient.Views
                     valuePicker.SetBinding(ImagePicker.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.OnChanged), BindingMode.TwoWay));
                     valuePicker.SetBinding(ImagePicker.PromptProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));
 
-                    var grid = new Grid { Margin = 5 };
+                    var grid = new Grid { Margin = 2 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
@@ -197,7 +197,7 @@ namespace DocGenOneMobileClient.Views
                     var selectionAmountLabel = new Label { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center };
                     selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));
 
-                    var grid = new Grid { Margin = 5 };
+                    var grid = new Grid { Margin = 2 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });

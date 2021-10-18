@@ -46,7 +46,7 @@
       ]
     },
     {
-      "NodeId": "Nyctophilus major major",
+      "NodeId": "Nyctophilus major_major",
       "Values": [
         "43-50",
         "37-42",
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "NodeId": "Nyctophilus major tor",
+      "NodeId": "Nyctophilus major_tor",
       "Values": [
         "37-46",
         "34-40",
