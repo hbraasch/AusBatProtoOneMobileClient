@@ -106,62 +106,22 @@ namespace DocGenOneMobileClient.Views
             GroupedSpeciesDisplayItem familyGroupDisplayItem = null;
             foreach (var species in specieses)
             {
-                var alphabet = species.GenusId.Substring(0, 1);
+                var alphabet = species.GenusId.Substring(0, 1).ToUpper();
                 if (!SpeciesGroupDisplayItems.ToList().Exists(o => o.Alphabet == alphabet))
                 {
                     familyGroupDisplayItem = new GroupedSpeciesDisplayItem { Alphabet = alphabet.ToUpper() };
                     SpeciesGroupDisplayItems.Add(familyGroupDisplayItem);
                 }
-                var imageSource = (species.Images.Count > 0) ? species.Images.First() : "";
+                var imageSource = (species.Images.Count > 0) ? species.Images.First() : "bat.png";
                 familyGroupDisplayItem.Add(new SpeciesDisplayItem
                 {
-                    SpeciesName = $"{species.GenusId} {species.SpeciesId.ToLower()}",
+                    SpeciesName = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId.ToLower()}",
                     FriendlyName = species.Name,
                     ImageSource = imageSource,
                     Species = species
                 });                
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
-
-
 
         public ICommand OnSubsequentAppearance => new Command(() =>
         {
@@ -197,9 +157,11 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 if (SelectedItem == null) return;
-                var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Species);
+                var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Species) { IsHomeEnabled = true };
                 var page = new DisplayBatTabbedPage(viewModel);
-                await NavigateToPageAsync(page, viewModel);
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+
 
             }
             catch (Exception ex) when (ex is BusinessException exb)

@@ -2,15 +2,14 @@
   "GenusId": "ozimops",
   "SpeciesId": "cobourgianus",
   "Name": "Western Little Free-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Ozi_coburg",
+  "DetailsHtml": "ozimops_cobourgianus_details.html",
   "Images": [
-    "ozi_coburg_head.jpg",
-    "ozi_coburg2.jpg",
-    "ozi_coburg3.jpg"
+    "ozimops_cobourgianus_head.jpg",
+    "ozimops_cobourgianus2.jpg",
+    "ozimops_cobourgianus3.jpg"
   ],
   "CallImages": [
-    "ozi_coburg_call_image.jpg"
+    "ozimops_cobourgianus_call_image.jpg"
   ],
   "RegionIds": [
     308,

@@ -2,15 +2,14 @@
   "GenusId": "pteropus",
   "SpeciesId": "scapulatus",
   "Name": "Little Red Flying-fox",
-  "DetailsHtml": null,
-  "DataTag": "Pterop_scap",
+  "DetailsHtml": "pteropus_scapulatus_details.html",
   "Images": [
-    "pterop_scap_head.jpg",
-    "pterop_scap2.jpg",
-    "pterop_scap3.jpg"
+    "pteropus_scapulatus_head.jpg",
+    "pteropus_scapulatus1.jpg",
+    "pteropus_scapulatus2.jpg"
   ],
   "CallImages": [
-    "pterop_scap_call_image.jpg"
+    "pteropus_scapulatus_call_image.jpg"
   ],
   "RegionIds": [
     308,

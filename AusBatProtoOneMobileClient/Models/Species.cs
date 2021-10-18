@@ -22,7 +22,6 @@ namespace AusBatProtoOneMobileClient.Data
         public string SpeciesId { get; set; }
         public string Name { get; set; }
         public string DetailsHtml { get; set; }
-        public string DataTag { get; set; }
         public List<string> Images { get; set; } = new List<string>();
         public List<string> CallImages { get; set; } = new List<string>();
         public List<int> RegionIds { get; set; } = new List<int>();
@@ -30,6 +29,7 @@ namespace AusBatProtoOneMobileClient.Data
 
         internal void LoadDetails()
         {
+            var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             var filename = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_details.html".ToAndroidFilenameFormat();
             try
             {
@@ -37,7 +37,7 @@ namespace AusBatProtoOneMobileClient.Data
                 {
                     if (stream == null)
                     {
-                        Debug.WriteLine($"Details file for [{filename}] does not exist");
+                        Debug.WriteLine($"Details file for [{speciesName}] does not exist");
                         DetailsHtml = @"<p style=""color: white"">No details defined</p>";
                         return;
                     }
@@ -47,7 +47,7 @@ namespace AusBatProtoOneMobileClient.Data
                         string detailsHtml = reader.ReadToEnd();
                         if (string.IsNullOrEmpty(detailsHtml))
                         {
-                            throw new BusinessException($"No data inside details file for [{filename}]");
+                            throw new BusinessException($"No data inside details file for [{speciesName}]");
                         }
                         DetailsHtml = detailsHtml;
                     }
@@ -55,16 +55,12 @@ namespace AusBatProtoOneMobileClient.Data
             }
             catch (Exception ex)
             {
-                throw new BusinessException($"Problem reading details file for [{DataTag}]. {ex.Message}");
+                throw new BusinessException($"Problem reading details file for [speciesName]. {ex.Message}");
             }
         }
         internal async Task LoadImages()
         {
-            if (DataTag == null)
-            {
-                Debug.WriteLine($"Cannot set image data species[{GenusId} {SpeciesId}]. DataTag value is null");
-                return;
-            }
+            var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             var toRemoveImages = new List<string>();
             foreach (var imageName in Images)
             {
@@ -77,27 +73,24 @@ namespace AusBatProtoOneMobileClient.Data
 
             if (Images.Count == 0)
             {
-                Debug.WriteLine($"No images exist for[{DataTag}]");
+                Debug.WriteLine($"No images exist for[speciesName]");
                 Images.Add("bat.png");
             }
         }
         internal async Task LoadCalls()
         {
-            CallImages.Clear();
-            if (DataTag == null)
-            {
-                Debug.WriteLine($"Cannot set call data for species[{GenusId} {SpeciesId}]. DataTag value is null");
-                return;
-            }
+            var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
+            var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat();
 
-            var imageName = $"{DataTag.ToLower()}_call_image.jpg";
+            CallImages.Clear();
+
             if (await ImageChecker.DoesImageExist(imageName))
             {
                 CallImages.Add(imageName);
             }
             else
             {
-                Debug.WriteLine($"No call images exist for[{DataTag}]");
+                Debug.WriteLine($"No call images exist for[{speciesName}]");
             }
         }
 

@@ -2,15 +2,14 @@
   "GenusId": "ozimops",
   "SpeciesId": "petersi",
   "Name": "Inland Free-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Ozi_peters",
+  "DetailsHtml": "ozimops_petersi_details.html",
   "Images": [
-    "ozi_peters_head.jpg",
-    "ozi_peters2.jpg",
-    "ozi_peters3.jpg"
+    "ozimops_petersi_head.jpg",
+    "ozimops_petersi1.jpg",
+    "ozimops_petersi2.jpg"
   ],
   "CallImages": [
-    "ozi_peters_call_image.jpg"
+    "ozimops_petersi_call_image.jpg"
   ],
   "RegionIds": [
     306,

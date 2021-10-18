@@ -2,15 +2,14 @@
   "GenusId": "Vespadelus",
   "SpeciesId": "douglasorum",
   "Name": "Yellow-lipped Cave Bat",
-  "DetailsHtml": null,
-  "DataTag": "Vesp_douglas",
+  "DetailsHtml": "vespadelus_douglasorum_details.html",
   "Images": [
-    "vesp_douglas_head.jpg",
-    "vesp_douglas2.jpg",
-    "vesp_douglas3.jpg"
+    "vespadelus_douglasorum_head.jpg",
+    "vespadelus_douglasorum1.jpg",
+    "vespadelus_douglasorum2.jpg"
   ],
   "CallImages": [
-    "vesp_douglas_call_image.jpg"
+    "vespadelus_douglasorum_call_image.jpg"
   ],
   "RegionIds": [
     302

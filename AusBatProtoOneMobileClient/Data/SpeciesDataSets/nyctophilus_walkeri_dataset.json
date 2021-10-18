@@ -2,16 +2,13 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "walkeri",
   "Name": "Pygmy Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_walkeri",
+  "DetailsHtml": "nyctophilus_walkeri_details.html",
   "Images": [
-    "nyct_walkeri_head.jpg",
-    "nyct_walkeri2.jpg",
-    "nyct_walkeri3.jpg",
-    "nyctophilus_walkeri_nose.jpg"
+    "nyctophilus_walkeri_head.jpg",
+    "nyctophilus_walkeri3.jpg"
   ],
   "CallImages": [
-    "nyct_walkeri_call_image.jpg"
+    "nyctophilus_walkeri_call_image.jpg"
   ],
   "RegionIds": [
     302,

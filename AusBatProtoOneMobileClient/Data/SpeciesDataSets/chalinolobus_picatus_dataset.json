@@ -2,15 +2,14 @@
   "GenusId": "chalinolobus",
   "SpeciesId": "picatus",
   "Name": "Little Pied Bat",
-  "DetailsHtml": null,
-  "DataTag": "Chal_pic",
+  "DetailsHtml": "chalinolobus_picatus_details.html",
   "Images": [
-    "chal_pic_head.jpg",
-    "chal_pic2.jpg",
-    "chal_pic3.jpg"
+    "chalinolobus_picatus_head.jpg",
+    "chalinolobus_picatus1.jpg",
+    "chalinolobus_picatus2.jpg"
   ],
   "CallImages": [
-    "chal_pic_call_image.jpg"
+    "chalinolobus_picatus_call_image.jpg"
   ],
   "RegionIds": [
     104,

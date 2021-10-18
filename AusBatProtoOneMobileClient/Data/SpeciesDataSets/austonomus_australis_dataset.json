@@ -2,15 +2,14 @@
   "GenusId": "austonomus",
   "SpeciesId": "australis",
   "Name": "White-striped Freetail Bat",
-  "DetailsHtml": null,
-  "DataTag": "Aust_aust",
+  "DetailsHtml": "austonomus_australis_details.html",
   "Images": [
-    "aust_aust_head.jpg",
-    "aust_aust2.jpg",
-    "aust_aust3.jpg"
+    "austonomus_australis_head.jpg",
+    "austonomus_australis2.jpg",
+    "austonomus_australis3.jpg"
   ],
   "CallImages": [
-    "aust_aust_call_image.jpg"
+    "austonomus_australis_call_image.jpg"
   ],
   "RegionIds": [
     308,

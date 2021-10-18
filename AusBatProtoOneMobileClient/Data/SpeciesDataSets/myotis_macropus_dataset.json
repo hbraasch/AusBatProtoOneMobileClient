@@ -2,15 +2,13 @@
   "GenusId": "myotis",
   "SpeciesId": "macropus",
   "Name": "Large-footed Myotis",
-  "DetailsHtml": null,
-  "DataTag": "Myot_mac",
+  "DetailsHtml": "myotis_macropus_details.html",
   "Images": [
-    "myot_mac_head.jpg",
-    "myot_mac2.jpg",
-    "myot_mac3.jpg"
+    "myotis_macropus_head.jpg",
+    "myotis_macropus2.jpg"
   ],
   "CallImages": [
-    "myot_mac_call_image.jpg"
+    "myotis_macropus_call_image.jpg"
   ],
   "RegionIds": [
     302,

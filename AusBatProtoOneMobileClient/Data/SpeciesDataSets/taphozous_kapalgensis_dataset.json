@@ -2,15 +2,12 @@
   "GenusId": "taphozous",
   "SpeciesId": "kapalgensis",
   "Name": "Arnhem Sheath-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Taph_kapalg",
+  "DetailsHtml": "taphozous_kapalgensis_details.html",
   "Images": [
-    "taph_kapalg_head.jpg",
-    "taph_kapalg2.jpg",
-    "taph_kapalg3.jpg"
+    "taphozous_kapalgensis1.jpg"
   ],
   "CallImages": [
-    "taph_kapalg_call_image.jpg"
+    "taphozous_kapalgensis_call_image.jpg"
   ],
   "RegionIds": [
     301

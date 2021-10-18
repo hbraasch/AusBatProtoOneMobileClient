@@ -2,8 +2,7 @@
   "GenusId": "miniopterus",
   "SpeciesId": "Orianae oceanensis",
   "Name": "Undefined",
-  "DetailsHtml": null,
-  "DataTag": null,
+  "DetailsHtml": "miniopterus_orianae_oceanensis_details.html",
   "Images": [],
   "CallImages": [],
   "RegionIds": [

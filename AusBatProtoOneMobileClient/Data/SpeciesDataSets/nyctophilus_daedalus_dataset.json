@@ -2,16 +2,14 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "daedalus",
   "Name": "Pallid Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_daed",
+  "DetailsHtml": "nyctophilus_daedalus_details.html",
   "Images": [
-    "nyct_daed_head.jpg",
-    "nyct_daed2.jpg",
-    "nyct_daed3.jpg",
-    "nyctophilus_daedalus_nose.jpg"
+    "nyctophilus_daedalus_head.jpg",
+    "nyctophilus_daedalus2.jpg",
+    "nyctophilus_daedalus3.jpg"
   ],
   "CallImages": [
-    "nyct_daed_call_image.jpg"
+    "nyctophilus_daedalus_call_image.jpg"
   ],
   "RegionIds": [
     307,

@@ -2,16 +2,14 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "corbeni",
   "Name": "South-eastern Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_corben",
+  "DetailsHtml": "nyctophilus_corbeni_details.html",
   "Images": [
-    "nyct_corben_head.jpg",
-    "nyct_corben2.jpg",
-    "nyct_corben3.jpg",
-    "nyctophilus_corbeni_nose.jpg"
+    "nyctophilus_corbeni_head.jpg",
+    "nyctophilus_corbeni1.jpg",
+    "nyctophilus_corbeni2.jpg"
   ],
   "CallImages": [
-    "nyct_corben_call_image.jpg"
+    "nyctophilus_corbeni_call_image.jpg"
   ],
   "RegionIds": [
     202,

@@ -2,16 +2,14 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "gouldi",
   "Name": "Gould's Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_gould",
+  "DetailsHtml": "nyctophilus_gouldi_details.html",
   "Images": [
-    "nyct_gould_head.jpg",
-    "nyct_gould2.jpg",
-    "nyct_gould3.jpg",
-    "nyctophilus_gouldii_nose.jpg"
+    "nyctophilus_gouldi_head.jpg",
+    "nyctophilus_gouldi1.jpg",
+    "nyctophilus_gouldi2.jpg"
   ],
   "CallImages": [
-    "nyct_gould_call_image.jpg"
+    "nyctophilus_gouldi_call_image.jpg"
   ],
   "RegionIds": [
     103,

@@ -2,16 +2,10 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "sherrini",
   "Name": "Tasmanian Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyctophilus-sherrini",
-  "Images": [
-    "nyctophilus-sherrini_head.jpg",
-    "nyctophilus-sherrini2.jpg",
-    "nyctophilus-sherrini3.jpg",
-    "nyctophilus_sherrini_nose.jpg"
-  ],
+  "DetailsHtml": "nyctophilus_sherrini_details.html",
+  "Images": [],
   "CallImages": [
-    "nyctophilus-sherrini_call_image.jpg"
+    "nyctophilus_sherrini_call_image.jpg"
   ],
   "RegionIds": [
     108

@@ -2,15 +2,14 @@
   "GenusId": "rhinolophus",
   "SpeciesId": "megaphyllus_qld",
   "Name": "Eastern Horseshoe-bat",
-  "DetailsHtml": null,
-  "DataTag": "Rhino_mega",
+  "DetailsHtml": "rhinolophus_megaphyllus_qld_details.html",
   "Images": [
-    "rhino_mega_head.jpg",
-    "rhino_mega2.jpg",
-    "rhino_mega3.jpg"
+    "rhinolophus_megaphyllus_qld_head.jpg",
+    "rhinolophus_megaphyllus_qld1.jpg",
+    "rhinolophus_megaphyllus_qld3.jpg"
   ],
   "CallImages": [
-    "rhino_mega_call_image.jpg"
+    "rhinolophus_megaphyllus_qld_call_image.jpg"
   ],
   "RegionIds": [
     102,

@@ -25,7 +25,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
         public ObservableCollection<PickerWithImagesDisplayData> DisplayItems { get; set; } = new ObservableCollection<PickerWithImagesDisplayData>();
         public PickerWithImagesDisplayData SelectedDisplayItem { get; set; }
 
-        public ImagePickerDisplayOptions(ObservableCollection<PickerWithImagesDisplayData> data)
+        public ImagePickerDisplayOptions(ObservableCollection<PickerWithImagesDisplayData> data, string prompt)
         {
             BindingContext = this;
 
@@ -77,7 +77,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
             AbsoluteLayout.SetLayoutFlags(displayImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(displayImage, new Rectangle(0, 0, 1, 1));
 
-            Title = "Options";
+            Title = prompt;
             BackgroundColor = Color.Black;
             NavigationPage.SetHasBackButton(this, false);
             Content = overlayLayout;

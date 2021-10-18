@@ -2,14 +2,13 @@
   "GenusId": "scoteanax",
   "SpeciesId": "rueppellii",
   "Name": "Greater Broad-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Scot_ruepp",
+  "DetailsHtml": "scoteanax_rueppellii_details.html",
   "Images": [
-    "scot_ruepp_head.jpg",
-    "scot_ruepp2.jpg",
-    "scot_ruepp3.jpg"
+    "scoteanax_rueppellii1.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [
+    "scoteanax_rueppellii_call_image.jpg"
+  ],
   "RegionIds": [],
   "DistributionMapImage": "scoteanax_rueppellii_dist.jpg"
 }

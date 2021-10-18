@@ -2,15 +2,14 @@
   "GenusId": "pipistrellus",
   "SpeciesId": "westralis",
   "Name": "Northern Pipistrelle",
-  "DetailsHtml": null,
-  "DataTag": "Pip_west",
+  "DetailsHtml": "pipistrellus_westralis_details.html",
   "Images": [
-    "pip_west_head.jpg",
-    "pip_west2.jpg",
-    "pip_west3.jpg"
+    "pipistrellus_westralis_head.jpg",
+    "pipistrellus_westralis1.jpg",
+    "pipistrellus_westralis2.jpg"
   ],
   "CallImages": [
-    "pip_west_call_image.jpg"
+    "pipistrellus_westralis_call_image.jpg"
   ],
   "RegionIds": [
     308,

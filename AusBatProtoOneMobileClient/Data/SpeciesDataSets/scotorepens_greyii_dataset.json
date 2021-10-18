@@ -2,15 +2,14 @@
   "GenusId": "scotorepens",
   "SpeciesId": "greyii",
   "Name": "Little Broad-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Scot_greyi",
+  "DetailsHtml": "scotorepens_greyii_details.html",
   "Images": [
-    "scot_greyi_head.jpg",
-    "scot_greyi2.jpg",
-    "scot_greyi3.jpg"
+    "scotorepens_greyii_head.jpg",
+    "scotorepens_greyii1.jpg",
+    "scotorepens_greyii2.jpg"
   ],
   "CallImages": [
-    "scot_greyi_call_image.jpg"
+    "scotorepens_greyii_call_image.jpg"
   ],
   "RegionIds": [
     308,

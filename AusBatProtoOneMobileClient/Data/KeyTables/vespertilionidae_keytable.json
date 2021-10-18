@@ -31,7 +31,7 @@
         "TwoPairsLargerToothBifid",
         "TwoPairsInequalNeitherBifid",
         "TwoPairsEqualNeitherBifid",
-        "TwoPairsEqialBothBifid",
+        "TwoPairsEqualBothBifid",
         "OnePair"
       ],
       "OptionPrompts": [
@@ -40,6 +40,13 @@
         "2 pairs, ± equal size, neither bifid",
         "2 pairs, ± equal size, both bifid",
         "1 pair"
+      ],
+      "OptionImages": [
+        "two_pairs_larger_bifid.jpg",
+        "two_pairs_inequal_size_neither_bifid.jpg",
+        "",
+        "two_pairs_equal_size_both_bifurcate.jpg",
+        "one_pair.jpg"
       ]
     },
     {
@@ -53,6 +60,11 @@
         "Orbicular",
         "Oblong lanceolate",
         "Linear"
+      ],
+      "OptionImages": [
+        "tragus_orbicular.jpg",
+        "tragus_oblong_lanceolate.jpg",
+        "tragus_linear.jpg"
       ]
     },
     {
@@ -66,6 +78,11 @@
         "2 pairs",
         "2 triplets",
         "1 pair"
+      ],
+      "OptionImages": [
+        "upper_pre_molars_two.jpg",
+        "",
+        "upper_pre_molars_one_pair.jpg"
       ]
     },
     {
@@ -88,6 +105,10 @@
       "OptionPrompts": [
         "Upper surface with sparse fur or naked",
         "Upper surface with obvious fur"
+      ],
+      "OptionImages": [
+        "tail_membrane_no_fur.jpg",
+        "tail_membrane_hairy.jpg"
       ]
     },
     {
@@ -99,6 +120,10 @@
       "OptionPrompts": [
         "Smooth, without bare skin folds (furred ridge may be present)",
         "Small transverse, projecting leaf immediately above nostrils"
+      ],
+      "OptionImages": [
+        "muzzle_smooth.jpg",
+        "muzzle_projecting_leaf_above_nostrils.jpg"
       ]
     },
     {
@@ -110,6 +135,10 @@
       "OptionPrompts": [
         "Flat or with slight rim",
         "Extended into distinct tubes"
+      ],
+      "OptionImages": [
+        "nostrils_flat_slight_rim.jpg",
+        "nostrils_distinct_tubes.jpg"
       ]
     },
     {
@@ -121,6 +150,10 @@
       "OptionPrompts": [
         "Small lobe on lower margin and lobe at the corner of the mouth",
         "No lobes or other appendages"
+      ],
+      "OptionImages": [
+        "lobe_small_on_lower_margin_and_cnr_mouth.jpg",
+        "lower_ear_margin_without_lobes.jpg"
       ]
     }
   ],
@@ -170,7 +203,7 @@
     {
       "NodeId": "Myotis",
       "Values": [
-        "TwoPairsEqialBothBifid",
+        "TwoPairsEqualBothBifid",
         "OblongLanceolate",
         "TwoTriplets",
         "Smooth",

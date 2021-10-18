@@ -2,15 +2,14 @@
   "GenusId": "falsistrellus",
   "SpeciesId": "tasmaniensis",
   "Name": "Eastern False Pipistrelle",
-  "DetailsHtml": null,
-  "DataTag": "Falsi_tasman",
+  "DetailsHtml": "falsistrellus_tasmaniensis_details.html",
   "Images": [
-    "falsi_tasman_head.jpg",
-    "falsi_tasman2.jpg",
-    "falsi_tasman3.jpg"
+    "falsistrellus_tasmaniensis_head.jpg",
+    "falsistrellus_tasmaniensis1.jpg",
+    "falsistrellus_tasmaniensis2.jpg"
   ],
   "CallImages": [
-    "falsi_tasman_call_image.jpg"
+    "falsistrellus_tasmaniensis_call_image.jpg"
   ],
   "RegionIds": [
     105,

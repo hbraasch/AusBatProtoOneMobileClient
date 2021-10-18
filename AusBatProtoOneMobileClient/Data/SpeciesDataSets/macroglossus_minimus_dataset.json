@@ -2,15 +2,14 @@
   "GenusId": "macroglossus",
   "SpeciesId": "minimus",
   "Name": "Northern Blossom Bat",
-  "DetailsHtml": null,
-  "DataTag": "Macro_minimus",
+  "DetailsHtml": "macroglossus_minimus_details.html",
   "Images": [
-    "macro_minimus_head.jpg",
-    "macro_minimus2.jpg",
-    "macro_minimus3.jpg"
+    "macroglossus_minimus_head.jpg",
+    "macroglossus_minimus1.jpg",
+    "macroglossus_minimus2.jpg"
   ],
   "CallImages": [
-    "macro_minimus_call_image.jpg"
+    "macroglossus_minimus_call_image.jpg"
   ],
   "RegionIds": [
     302,

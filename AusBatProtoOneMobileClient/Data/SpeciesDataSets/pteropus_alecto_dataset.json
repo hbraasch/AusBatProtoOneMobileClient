@@ -2,15 +2,14 @@
   "GenusId": "pteropus",
   "SpeciesId": "alecto",
   "Name": "Black Flying-fox",
-  "DetailsHtml": null,
-  "DataTag": "Pterop_alect",
+  "DetailsHtml": "pteropus_alecto_details.html",
   "Images": [
-    "pterop_alect_head.jpg",
-    "pterop_alect2.jpg",
-    "pterop_alect3.jpg"
+    "pteropus_alecto_head.jpg",
+    "pteropus_alecto2.jpg",
+    "pteropus_alecto3.jpg"
   ],
   "CallImages": [
-    "pterop_alect_call_image.jpg"
+    "pteropus_alecto_call_image.jpg"
   ],
   "RegionIds": [
     308,

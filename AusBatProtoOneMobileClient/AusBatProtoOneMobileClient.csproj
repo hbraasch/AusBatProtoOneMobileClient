@@ -6,17 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Classification\**" />
-    <EmbeddedResource Remove="Data\Classification\**" />
-    <None Remove="Data\Classification\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Helpers\EnumBase.cs" />
     <Compile Remove="Models\CharacterBase.cs" />
     <Compile Remove="Models\Keys.cs" />
+    <Compile Remove="ViewModels\ClassificationPageViewModel.cs" />
     <Compile Remove="ViewModels\DisplayFamilyPageViewModel.cs" />
     <Compile Remove="ViewModels\GenusKeyPageViewModel.cs" />
+    <Compile Remove="Views\ClassificationPage.cs" />
     <Compile Remove="Views\DisplayFamilyPage.cs" />
     <Compile Remove="Views\GenusKeyPage.cs" />
     <Compile Remove="Views\SearchResultsTabPage.cs" />
@@ -24,35 +20,14 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
-    <None Remove="Data\EarMargin\lobe_on_lower_margin_and_cnr_mouth.jpg" />
-    <None Remove="Data\EarMargin\lower_ear_margin_without_lobes.jpg" />
-    <None Remove="Data\FacialFeatures\dory_semoni_facial.jpg" />
-    <None Remove="Data\FacialFeatures\dory_stenotis_facial.jpg" />
-    <None Remove="Data\FacialFeatures\hipp_ater_facial.jpg" />
-    <None Remove="Data\FacialFeatures\hipp_diad_facial.jpg" />
-    <None Remove="Data\FacialFeatures\hipp_inornat_facial.jpg" />
-    <None Remove="Data\FacialFeatures\hip_cerv_facial.jpg" />
-    <None Remove="Data\FacialFeatures\rhino_aur_facial.jpg" />
-    <None Remove="Data\FamilyKeyImages\face_complex_horseshoe.jpg" />
-    <None Remove="Data\FamilyKeyImages\face_w_flattened_square_noseleaf.jpg" />
-    <None Remove="Data\FamilyKeyImages\none_face_simple.jpg" />
-    <None Remove="Data\FamilyKeyImages\nose_small_transverse_leaf.jpg" />
-    <None Remove="Data\FamilyKeyImages\tail_fully_enclosed.jpg" />
-    <None Remove="Data\FamilyKeyImages\tail_present_not_attached.jpg" />
-    <None Remove="Data\FamilyKeyImages\tail_present_projecting_free_greater_8mm.jpg" />
-    <None Remove="Data\FamilyKeyImages\tail_present_projecting_through_upper_surface.jpg" />
-    <None Remove="Data\FamilyKeyImages\tragus_absent.jpg" />
-    <None Remove="Data\FamilyKeyImages\tragus_bifurcate.jpg" />
-    <None Remove="Data\FamilyKeyImages\tragus_entire.jpg" />
-    <None Remove="Data\FamilyKeyImages\wing_third_finger_long.jpg" />
-    <None Remove="Data\FamilyKeyImages\wing_third_finger_short.jpg" />
-    <None Remove="Data\GeneralKeyImages\three_met_3p1.jpg" />
+    <None Remove="Data\Introduction\introduction.html" />
     <None Remove="Data\KeyTables\chalinolobus_keytable.json" />
     <None Remove="Data\KeyTables\emballonuridae_keytable.json" />
     <None Remove="Data\KeyTables\falsistrellus_keytable.json" />
     <None Remove="Data\KeyTables\family_keytable.json" />
     <None Remove="Data\KeyTables\hipposideridae_keytable.json" />
     <None Remove="Data\KeyTables\macroderma_keytable.json" />
+    <None Remove="Data\KeyTables\megadermatidae_keytable.json" />
     <None Remove="Data\KeyTables\miniopteridae_keytable.json" />
     <None Remove="Data\KeyTables\molossidae_keytable.json" />
     <None Remove="Data\KeyTables\murina_keytable.json" />
@@ -60,93 +35,13 @@
     <None Remove="Data\KeyTables\nyctophilus_keytable.json" />
     <None Remove="Data\KeyTables\phoniscus_keytable.json" />
     <None Remove="Data\KeyTables\pipistrellus_keytable.json" />
+    <None Remove="Data\KeyTables\pteropodidae_dobsonia_keytable.json" />
     <None Remove="Data\KeyTables\pteropodidae_keytable.json" />
     <None Remove="Data\KeyTables\rhinolophidae_keytable.json" />
     <None Remove="Data\KeyTables\scoteanax_keytable.json" />
     <None Remove="Data\KeyTables\scotorepens_keytable.json" />
     <None Remove="Data\KeyTables\vespadelus_keytable.json" />
     <None Remove="Data\KeyTables\vespertilionidae_keytable.json" />
-    <None Remove="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" />
-    <None Remove="Data\MuzzleStructure\muzzle_smooth.jpg" />
-    <None Remove="Data\NostrilShape\nostrils_distinct_tubes.jpg" />
-    <None Remove="Data\NostrilShape\nostrils_flat_slight_rim.jpg" />
-    <None Remove="Data\SpeciesCallImages\aust_aust_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\chae_job_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\chal_dwye_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\chal_gould_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\chal_morio_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\chal_nigro_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\chal_pic_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\dob_mag_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\falsi_mack__call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\falsi_tasman_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\hipp_ater_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\hipp_cerv_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\hipp_diadem_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\hipp_inorn_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\macro_gigas_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\macro_minimus_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\micro_norfolk__call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\mini_aust__call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\mini_oc_bassani_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\mini_or_ocean_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\mini_or_orianae_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\murin_florium_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\myot_mac_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyctophilus-sherrini_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_arnhem_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_bifax_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_corben_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_daed_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_geoff_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_gould_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_major_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_major_tor_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_robin_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\nyct_walkeri_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozie_halli_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozie_ridei_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozi_coburg_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozi_kitchen_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozi_lumsd_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozi_peters_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\ozi_planic_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\phoni_pap_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pip_adams_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pip_west_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pterop_alect_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pterop_conspic_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pterop_natalis_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pterop_polioc_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\pterop_scap_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\rhinon_aurant_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\rhino_mega_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\rhino_robert__call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\rhino_sp_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\sacc_flav_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\sacc_mixtus_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\sacc_sacc_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\scot_balst_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\scot_greyi_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\scot_orion_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\scot_ruepp_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\scot_sanborn_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\seti_eleryi_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\sycon_aust_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\taph_aust_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\taph_georg_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\taph_hilli__call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\taph_kapalg_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\taph_trought_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_baver__call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_caur_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_darling_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_douglas_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_finlay_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_pumilus_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_regulus_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_trought_call_image.jpg" />
-    <None Remove="Data\SpeciesCallImages\vesp_vult__call_image.jpg" />
     <None Remove="Data\SpeciesDataSets\austonomus_australis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\chaerephon_jobensis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\chalinolobus_dwyeri_dataset.json" />
@@ -163,6 +58,7 @@
     <None Remove="Data\SpeciesDataSets\hipposideros_cervinus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\hipposideros_diadema_dataset.json" />
     <None Remove="Data\SpeciesDataSets\hipposideros_inornatus_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\macroderma_gigas_dataset.json" />
     <None Remove="Data\SpeciesDataSets\macroderma_magna_dataset.json" />
     <None Remove="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
@@ -180,6 +76,7 @@
     <None Remove="Data\SpeciesDataSets\nyctophilus_daedalus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctophilus_geoffroyi_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctophilus_gouldi_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\nyctophilus_holtorum_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctophilus_major major_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctophilus_major tor_dataset.json" />
     <None Remove="Data\SpeciesDataSets\nyctophilus_sherrini_dataset.json" />
@@ -205,6 +102,7 @@
     <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\rhinonicteris_aurantia_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_flaviventris_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_mixtus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_saccolaimus_dataset.json" />
@@ -214,6 +112,7 @@
     <None Remove="Data\SpeciesDataSets\scotorepens_orion_dataset.json" />
     <None Remove="Data\SpeciesDataSets\scotorepens_parnaby_dataset.json" />
     <None Remove="Data\SpeciesDataSets\scotorepens_sanborni_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\scotorepens_sp_dataset.json" />
     <None Remove="Data\SpeciesDataSets\setirostris_eleryi_dataset.json" />
     <None Remove="Data\SpeciesDataSets\syconycteris_australis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\taphozous_australis_dataset.json" />
@@ -311,406 +210,7 @@
     <None Remove="Data\SpeciesDetails\vespadelus_regulus_details.html" />
     <None Remove="Data\SpeciesDetails\vespadelus_troughtoni_details.html" />
     <None Remove="Data\SpeciesDetails\vespadelus_vulturnus_details.html" />
-    <None Remove="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\chaerephon_jobensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\chalinolobus_dwyeri_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\chalinolobus_gouldii_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\chalinolobus_morio_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\chalinolobus_nigrogriseus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\chalinolobus_picatus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\dobsonia_moluccensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\falsistrellus_mackenziei_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\falsistrellus_tasmaniensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\hipposideros_ater_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\hipposideros_cervinus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\hipposideros_diadema_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\hipposideros_inornatus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\hipposideros_semoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\hipposideros_stenotis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\macroderma_gigas_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\macroglossus_minimus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\micronomus_norfolkensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\miniopterus_australis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\miniopterus_orianae_bassanii_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\miniopterus_orianae_oceanensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\miniopterus_orianae_orianae_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\murina_florium_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\myotis_macropus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctimene_robinsoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_arnhemensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_bifax_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_corbeni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_daedalus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_geoffroyi_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_gouldi_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_major_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_sherrini_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\nyctophilus_walkeri_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_cobourgianus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_halli_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_kitcheneri_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_lumsdenae_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_petersi_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_planiceps_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\ozimops_ridei_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\phoniscus_papuensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\pipistrellus_adamsi_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\pipistrellus_westralis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\pteropus_alecto_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\pteropus_conspicillatus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\pteropus_poliocephalus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\pteropus_scapulatus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\rhinolophus_megaphyllus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\rhinolophus_robertsi_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_pilbera_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\saccolaimus_flaviventris_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\saccolaimus_mixtus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\saccolaimus_saccolaimus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\scoteanax_rueppellii_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\scotorepens_balstoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\scotorepens_greyii_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\scotorepens_orion_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\scotorepens_sanborni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\setirostris_eleryi_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\syconycteris_australis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\taphozous_australis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\taphozous_georgianus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\taphozous_hilli_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\taphozous_kapalgensis_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\taphozous_troughtoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_baverstocki_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_caurinus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_darlingtoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_douglasorum_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_finlaysoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_pumilus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_regulus_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_troughtoni_dist.jpg" />
-    <None Remove="Data\SpeciesDistributionMaps\vespadelus_vulturnus_dist.jpg" />
-    <None Remove="Data\SpeciesImages\Aust_aust2.jpg" />
-    <None Remove="Data\SpeciesImages\aust_aust2.png" />
-    <None Remove="Data\SpeciesImages\Aust_aust3.jpg" />
-    <None Remove="Data\SpeciesImages\Aust_aust_head.jpg" />
-    <None Remove="Data\SpeciesImages\bat.png" />
-    <None Remove="Data\SpeciesImages\Chae_job1.jpg" />
-    <None Remove="Data\SpeciesImages\Chae_job2.jpg" />
-    <None Remove="Data\SpeciesImages\Chae_job_Head.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_dwye1.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_dwye2.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_dwye_head.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_gould.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_gould2.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_gould_head.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_morio1.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_morio2.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_morio_head.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_nigro1.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_nigro2.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_nigro_head.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_pic1.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_pic2.jpg" />
-    <None Remove="Data\SpeciesImages\Chal_pic_head.jpg" />
-    <None Remove="Data\SpeciesImages\cob_mag1.jpg" />
-    <None Remove="Data\SpeciesImages\cob_mag2.jpg" />
-    <None Remove="Data\SpeciesImages\cob_mag_head.jpg" />
-    <None Remove="Data\SpeciesImages\Dobs_Family_Pic.jpg" />
-    <None Remove="Data\SpeciesImages\Dory_semon1.jpg" />
-    <None Remove="Data\SpeciesImages\Dory_semon3.jpg" />
-    <None Remove="Data\SpeciesImages\Dory_semon_head.jpg" />
-    <None Remove="Data\SpeciesImages\Dory_stenot1.jpg" />
-    <None Remove="Data\SpeciesImages\Dory_stenot_head.jpg" />
-    <None Remove="Data\SpeciesImages\Embal_family.jpg" />
-    <None Remove="Data\SpeciesImages\Falsi_mack1.jpg" />
-    <None Remove="Data\SpeciesImages\Falsi_mack2.jpg" />
-    <None Remove="Data\SpeciesImages\Falsi_mack_head.jpg" />
-    <None Remove="Data\SpeciesImages\Falsi_tasman1.jpg" />
-    <None Remove="Data\SpeciesImages\Falsi_tasman2.jpg" />
-    <None Remove="Data\SpeciesImages\Falsi_tasman_head.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\dory_semoni_facial.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\dory_stenotis_facial.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\hipp_ater_facial.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\hipp_diad_facial.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\hipp_inornat_facial.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\hip_cerv_facial.jpg" />
-    <None Remove="Data\SpeciesImages\HipposideridsFacials\rhino_aur_facial.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_ater2.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_ater3.jpg" />
-    <None Remove="Data\SpeciesImages\hipp_ater_head.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_cerv3.jpg" />
-    <None Remove="Data\SpeciesImages\hipp_cerv_head.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_diadem1.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_diadem2.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_diadem_head.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_family.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_inorn1.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_inorn2.jpg" />
-    <None Remove="Data\SpeciesImages\Hipp_inorn_head.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_family_pic.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_family_pic1.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_gigas1.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_gigas2.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_gigas_head.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_minimus1.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_minimus2.jpg" />
-    <None Remove="Data\SpeciesImages\Macro_minimus_head.jpg" />
-    <None Remove="Data\SpeciesImages\Micro_norfolk1.jpg" />
-    <None Remove="Data\SpeciesImages\Micro_norfolk_head.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_aust1.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_aust2.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_aust_head.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_oc_bassani1.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_oc_bassani2.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_oc_bassani_head.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_or_ocean1.jpg" />
-    <None Remove="Data\SpeciesImages\mini_or_ocean2.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_or_ocean_head.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_or_orianae1.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_or_orianae2.jpg" />
-    <None Remove="Data\SpeciesImages\Mini_or_orianae_head.jpg" />
-    <None Remove="Data\SpeciesImages\Murin_florium1.jpg" />
-    <None Remove="Data\SpeciesImages\Murin_florium2.jpg" />
-    <None Remove="Data\SpeciesImages\Murin_florium_head.jpg" />
-    <None Remove="Data\SpeciesImages\myct_arnhem_head.jpg" />
-    <None Remove="Data\SpeciesImages\Myotis_mac1.jpg" />
-    <None Remove="Data\SpeciesImages\Myot_mac2.jpg" />
-    <None Remove="Data\SpeciesImages\Myot_mac_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyctophilus-sherrini.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_arnhemensis_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_bifax_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_corbeni_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_daedalus_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_geoffroyi_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_gouldii_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_holtorum_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_tor_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_sherrini_nose.jpg" />
-    <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_walkeri_nose.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_arnhem1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_arnhem2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_bifax3.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_bifax4.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_bifax_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_corben1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_corben2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_corben_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_daed2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_daed3.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_daed_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_geoff1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_geoff2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_geoff_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_gould1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_gould2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_gould_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_holt.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_holt2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_major1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_major2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_major_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_major_tor1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_major_tor2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_major_tor_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_robin1.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_robin2.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_robin_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_sherrim_head.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_walkeri3.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_walkeri4.jpg" />
-    <None Remove="Data\SpeciesImages\Nyct_walkeri_head.jpg" />
-    <None Remove="Data\SpeciesImages\Ozie_halli2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozie_kitchen1.jpg" />
-    <None Remove="Data\SpeciesImages\Ozie_kitchen2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozie_planic2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozie_ridei1.jpg" />
-    <None Remove="Data\SpeciesImages\Ozie_ridei2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_coburg2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_coburg3.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_coburghead.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_coburg_head.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_kitchen_head.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_lumsd1.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_lumsd2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_lumsd_head.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_peters1.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_peters2.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_peters_head.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_planic1.jpg" />
-    <None Remove="Data\SpeciesImages\Ozi_planic_head.jpg" />
-    <None Remove="Data\SpeciesImages\perop_alect1.jpg" />
-    <None Remove="Data\SpeciesImages\phino_inter_head.jpg" />
-    <None Remove="Data\SpeciesImages\Phoni_pap1.jpg" />
-    <None Remove="Data\SpeciesImages\Phoni_pap2.jpg" />
-    <None Remove="Data\SpeciesImages\Phoni_pap_head.jpg" />
-    <None Remove="Data\SpeciesImages\Pip_adams1.jpg" />
-    <None Remove="Data\SpeciesImages\Pip_adams2.jpg" />
-    <None Remove="Data\SpeciesImages\Pip_adams_head.jpg" />
-    <None Remove="Data\SpeciesImages\Pip_west1.jpg" />
-    <None Remove="Data\SpeciesImages\Pip_west2.jpg" />
-    <None Remove="Data\SpeciesImages\Pip_west_head.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_alect2.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_alect3.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_alect_head.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_conspic1.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_conspic_head.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_natalis1.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_natalis2.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_natalis_head.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_polioc1.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_polioc2.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_polioc3.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_scap1.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_scap2.jpg" />
-    <None Remove="Data\SpeciesImages\Pterop_scap_head.jpg" />
-    <None Remove="Data\SpeciesImages\Rhinon_aurant1.jpg" />
-    <None Remove="Data\SpeciesImages\Rhinon_aurant2.jpg" />
-    <None Remove="Data\SpeciesImages\Rhinon_aurant3.jpg" />
-    <None Remove="Data\SpeciesImages\Rhinon_aurant_head.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_intermed1.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_intermed2.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_mega1.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_mega3.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_mega_head.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_robert1.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_robert2.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_robert_head.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_sp1.jpg" />
-    <None Remove="Data\SpeciesImages\Rhino_sp2.jpg" />
-    <None Remove="Data\SpeciesImages\rhino_sp_head.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_flav1.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_flav2.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_flav_head.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_mixtus1.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_sacc2.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_sacc3.jpg" />
-    <None Remove="Data\SpeciesImages\Sacc_sacc_head.jpg" />
-    <None Remove="Data\SpeciesImages\Scoto_parnaby2.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_balst1.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_balst2.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_balst_head.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_greyi1.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_greyi2.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_greyi_head.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_orion1.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_parnaby1.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_parnaby_head.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_ruepp1.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_sanborn1.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_sanborn2.jpg" />
-    <None Remove="Data\SpeciesImages\Scot_sanborn_head.jpg" />
-    <None Remove="Data\SpeciesImages\Seti_eleryi1.jpg" />
-    <None Remove="Data\SpeciesImages\Seti_eleryi2.jpg" />
-    <None Remove="Data\SpeciesImages\Seti_eleryi_head.jpg" />
-    <None Remove="Data\SpeciesImages\Sycon_aust1.jpg" />
-    <None Remove="Data\SpeciesImages\Sycon_aust2.jpg" />
-    <None Remove="Data\SpeciesImages\Sycon_aust_head.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_aust1.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_aust2.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_aust_head.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_georg1.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_georg2.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_georg_head.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_hilli1.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_hilli2.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_hilli_head.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_kapalg1.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_trought1.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_trought2.jpg" />
-    <None Remove="Data\SpeciesImages\Taph_trought_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_baver1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_baver2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_baver_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_caur1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_caur2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_caur_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_darling1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_darling2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_darling_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_douglas1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_douglas2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_douglas_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_family.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_finlay1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_finlay2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_finlay_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_pumilus1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_pumilus2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_pumilus_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_regulus1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_regulus2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_regulus_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_trought2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_trought_head.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_vult1.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_vult2.jpg" />
-    <None Remove="Data\SpeciesImages\Vesp_vult_head.jpg" />
-    <None Remove="Data\SpeciesRegions\aust_aust_regions.json" />
-    <None Remove="Data\SpeciesRegions\macro_minimus_regions.json" />
-    <None Remove="Data\SpeciesRegions\pterop_alect_regions.json" />
-    <None Remove="Data\Introduction\Introduction.html" />
-    <None Remove="Data\RegionsMap\map.jpg" />
-    <None Remove="Data\RegionsMap\map000.jpg" />
-    <None Remove="Data\RegionsMap\map000.png" />
-    <None Remove="Data\RegionsMap\map102.jpg" />
-    <None Remove="Data\RegionsMap\map102.png" />
-    <None Remove="Data\RegionsMap\map103.jpg" />
-    <None Remove="Data\RegionsMap\map103.png" />
-    <None Remove="Data\RegionsMap\map104.jpg" />
-    <None Remove="Data\RegionsMap\map104.png" />
-    <None Remove="Data\RegionsMap\map105.jpg" />
-    <None Remove="Data\RegionsMap\map105.png" />
-    <None Remove="Data\RegionsMap\map106.jpg" />
-    <None Remove="Data\RegionsMap\map106.png" />
-    <None Remove="Data\RegionsMap\map107.jpg" />
-    <None Remove="Data\RegionsMap\map107.png" />
-    <None Remove="Data\RegionsMap\map108.jpg" />
-    <None Remove="Data\RegionsMap\map108.png" />
-    <None Remove="Data\RegionsMap\map201.jpg" />
-    <None Remove="Data\RegionsMap\map201.png" />
-    <None Remove="Data\RegionsMap\map202.jpg" />
-    <None Remove="Data\RegionsMap\map202.png" />
-    <None Remove="Data\RegionsMap\map203.jpg" />
-    <None Remove="Data\RegionsMap\map203.png" />
-    <None Remove="Data\RegionsMap\map301.jpg" />
-    <None Remove="Data\RegionsMap\map301.png" />
-    <None Remove="Data\RegionsMap\map302.jpg" />
-    <None Remove="Data\RegionsMap\map302.png" />
-    <None Remove="Data\RegionsMap\map303.jpg" />
-    <None Remove="Data\RegionsMap\map303.png" />
-    <None Remove="Data\RegionsMap\map304.jpg" />
-    <None Remove="Data\RegionsMap\map304.png" />
-    <None Remove="Data\RegionsMap\map306.jpg" />
-    <None Remove="Data\RegionsMap\map306.png" />
-    <None Remove="Data\RegionsMap\map307.jpg" />
-    <None Remove="Data\RegionsMap\map307.png" />
-    <None Remove="Data\RegionsMap\map308.jpg" />
-    <None Remove="Data\RegionsMap\map308.png" />
-    <None Remove="Data\RegionsMap\map309.jpg" />
-    <None Remove="Data\RegionsMap\map309.png" />
-    <None Remove="Data\RegionsMap\map310.jpg" />
-    <None Remove="Data\RegionsMap\map310.png" />
-    <None Remove="Data\RegionsMap\map311.jpg" />
-    <None Remove="Data\RegionsMap\map311.png" />
-    <None Remove="Data\RegionsMap\map312.jpg" />
-    <None Remove="Data\RegionsMap\map312.png" />
-    <None Remove="Data\TailMembrane\tail_membrane_hairy.jpg" />
-    <None Remove="Data\TailMembrane\tail_membrane_no_fur.jpg" />
-    <None Remove="Data\UpperIncisors\one_pair.jpg" />
-    <None Remove="Data\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" />
-    <None Remove="Data\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" />
-    <None Remove="Data\UpperIncisors\two_pairs_larger_bifid.jpg" />
-    <None Remove="Images\Aust_aust_head.png" />
     <None Remove="Images\background.png" />
-    <None Remove="Images\GhostTreeview\ic_action.png" />
-    <None Remove="Images\GhostTreeview\ic_close.png" />
-    <None Remove="Images\GhostTreeview\ic_close_bar2.png" />
-    <None Remove="Images\GhostTreeview\ic_empty.png" />
-    <None Remove="Images\GhostTreeview\ic_open.png" />
-    <None Remove="Images\GhostTreeview\ic_open_bar.png" />
-    <None Remove="Images\GhostTreeview\ic_select.png" />
-    <None Remove="Images\ic_audio_playback_play.png" />
-    <None Remove="Images\ic_audio_playback_stop.png" />
     <None Remove="Images\ic_details.png" />
     <None Remove="Images\ic_photos.png" />
     <None Remove="Images\ic_regions.png" />
@@ -731,21 +231,22 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Data\About\about.html" />
+    <EmbeddedResource Include="Data\Introduction\introduction.html" />
     <EmbeddedResource Include="Data\KeyTables\chalinolobus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\emballonuridae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\falsistrellus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\family_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\hipposideridae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\macroderma_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\megadermatidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\miniopteridae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\molossidae_keytable.json" />
-    <EmbeddedResource Include="Data\KeyTables\megadermatidae_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\murina_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\myotis_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\nyctophilus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\phoniscus_keytable.json" />
-    <EmbeddedResource Include="Data\KeyTables\pteropodidae_dobsonia_keytable.json" />
-    <EmbeddedResource Include="Data\KeyTables\murina_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\pipistrellus_keytable.json" />
+    <EmbeddedResource Include="Data\KeyTables\pteropodidae_dobsonia_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\pteropodidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\rhinolophidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\scoteanax_keytable.json" />
@@ -760,15 +261,15 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\chalinolobus_nigrogriseus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\chalinolobus_picatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\dobsonia_magna_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_gigas_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\doryrhina_semoni_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\doryrhina_stenotis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\falsistrellus_mackenziei_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\falsistrellus_tasmaniensis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_ater_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_cervinus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_diadema_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_inornatus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\doryrhina_semoni_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\doryrhina_stenotis_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_gigas_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_magna_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
@@ -786,9 +287,9 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_daedalus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_geoffroyi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_gouldi_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_holtorum_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_major major_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_major tor_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_holtorum_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_sherrini_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\nyctophilus_walkeri_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\ozimops_cobourgianus_dataset.json" />
@@ -807,12 +308,12 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_conspicillatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_natalis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_poliocephalus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinonicteris_aurantia_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_scapulatus_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_intermediate_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinonicteris_aurantia_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_flaviventris_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_mixtus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_saccolaimus_dataset.json" />
@@ -820,9 +321,9 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_balstoni_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_greyii_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_orion_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_parnaby_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_sanborni_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_sp_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_parnaby_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\setirostris_eleryi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\syconycteris_australis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\taphozous_australis_dataset.json" />
@@ -920,11 +421,6 @@
     <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_regulus_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_troughtoni_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_vulturnus_details.html" />
-    
-    <EmbeddedResource Include="Data\SpeciesRegions\pterop_alect_regions.json" />
-    <EmbeddedResource Include="Data\SpeciesRegions\macro_minimus_regions.json" />
-    <EmbeddedResource Include="Data\SpeciesRegions\aust_aust_regions.json" />
-    <EmbeddedResource Include="Data\Introduction\introduction.html" />
   </ItemGroup>
 
   <ItemGroup>
@@ -942,485 +438,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SharedImage Include="Data\EarMargin\lobe_on_lower_margin_and_cnr_mouth.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\EarMargin\lower_ear_margin_without_lobes.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FacialFeatures\dory_semoni_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FacialFeatures\dory_stenotis_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FacialFeatures\hipp_ater_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FacialFeatures\hipp_diad_facial.jpg" BaseSize="100,100" />  
-    <SharedImage Include="Data\FacialFeatures\hipp_inornat_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FacialFeatures\hip_cerv_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FacialFeatures\rhino_aur_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\face_complex_horseshoe.jpg"  BaseSize="100,100"/>
-    <SharedImage Include="Data\FamilyKeyImages\face_w_flattened_square_noseleaf.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\none_face_simple.jpg"  BaseSize="100,100"/>
-    <SharedImage Include="Data\FamilyKeyImages\nose_small_transverse_leaf.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tail_fully_enclosed.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tail_present_not_attached.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tail_present_projecting_free_greater_8mm.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tail_present_projecting_through_upper_surface.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tragus_absent.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\tragus_entire.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\wing_third_finger_long.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\FamilyKeyImages\wing_third_finger_short.jpg"  BaseSize="100,100"/>
-    <SharedImage Include="Data\GeneralKeyImages\three_met_3p1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\MuzzleStructure\muzzle_smooth.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\NostrilShape\nostrils_distinct_tubes.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\NostrilShape\nostrils_flat_slight_rim.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\aust_aust_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\chae_job_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\chal_dwye_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\chal_gould_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\chal_morio_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\chal_nigro_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\chal_pic_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\dob_mag_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\falsi_mack__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\falsi_tasman_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\hipp_ater_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\hipp_cerv_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\hipp_diadem_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\hipp_inorn_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\macro_gigas_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\macro_minimus_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\micro_norfolk__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\mini_aust__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\mini_oc_bassani_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\mini_or_ocean_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\mini_or_orianae_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\murin_florium_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\myot_mac_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyctophilus-sherrini_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_arnhem_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_bifax_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_corben_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_daed_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_geoff_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_gould_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_major_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_major_tor_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_robin_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\nyct_walkeri_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozie_halli_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozie_ridei_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozi_coburg_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozi_kitchen_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozi_lumsd_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozi_peters_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\ozi_planic_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\phoni_pap_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pip_adams_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pip_west_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pterop_alect_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pterop_conspic_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pterop_natalis_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pterop_polioc_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\pterop_scap_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\rhinon_aurant_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\rhino_mega_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\rhino_robert__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\rhino_sp_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\sacc_flav_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\sacc_mixtus_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\sacc_sacc_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\scot_balst_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\scot_greyi_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\scot_orion_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\scot_ruepp_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\scot_sanborn_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\seti_eleryi_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\sycon_aust_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\taph_aust_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\taph_georg_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\taph_hilli__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\taph_kapalg_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\taph_trought_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_baver__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_caur_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_darling_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_douglas_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_finlay_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_pumilus_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_regulus_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_trought_call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesCallImages\vesp_vult__call_image.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\aust_aust2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\aust_aust3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\aust_aust_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\bat.png" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chae_job1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chae_job2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chae_job_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_dwye1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_dwye2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_dwye_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_gould.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_gould2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_gould_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_morio1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_morio2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_morio_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_nigro1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_nigro2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_nigro_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_pic1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_pic2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\chal_pic_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\dobs_Family_Pic.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\cob_mag1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\cob_mag2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\cob_mag_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\dory_semon1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\dory_semon3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\dory_semon_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\dory_stenot1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\dory_stenot_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\embal_family.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\falsi_mack1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\falsi_mack2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\falsi_mack_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\falsi_tasman1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\falsi_tasman2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\falsi_tasman_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\dory_semoni_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\dory_stenotis_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_ater_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_diad_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_inornat_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hip_cerv_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\rhino_aur_facial.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_ater_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_ater2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_ater3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_cerv_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_cerv3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_diadem1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_diadem2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_diadem_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_family.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_inorn1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_inorn2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\hipp_inorn_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_family_pic.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_family_pic1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_gigas1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_gigas2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_gigas_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_minimus1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_minimus2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\macro_minimus_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\micro_norfolk1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\micro_norfolk_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_aust1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_aust2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_aust_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_oc_bassani1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_oc_bassani2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_oc_bassani_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_or_ocean1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_or_ocean2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_or_ocean_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_or_orianae1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_or_orianae2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\mini_or_orianae_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\murin_florium1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\murin_florium2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\murin_florium_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\myotis_mac1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\myot_mac2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\myot_mac_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyctophilus-sherrini.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_arnhemensis_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_bifax_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_corbeni_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_daedalus_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_geoffroyi_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_gouldii_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_holtorum_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_tor_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_sherrini_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_walkeri_nose.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_arnhem1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_arnhem2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\myct_arnhem_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_bifax3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_bifax4.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_bifax_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_corben1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_corben2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_corben_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_daed2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_daed3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_daed_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_geoff1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_geoff2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_geoff_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_gould1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_gould2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_gould_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_holt.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_holt2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_major1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_major2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_major_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_major_tor1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_major_tor2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_major_tor_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_robin1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_robin2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_robin_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_sherrim_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_walkeri3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_walkeri4.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\nyct_walkeri_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozie_halli2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozie_kitchen1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozie_kitchen2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozie_planic2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozie_ridei1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozie_ridei2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_coburg2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_coburg3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_coburghead.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_coburg_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_kitchen_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_lumsd1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_lumsd2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_lumsd_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_peters1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_peters2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_peters_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_planic1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\ozi_planic_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\phoni_pap1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\phoni_pap2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\phoni_pap_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pip_adams1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pip_adams2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pip_adams_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pip_west1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pip_west2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pip_west_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\perop_alect1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_alect2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_alect3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_alect_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_conspic1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_conspic_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_natalis1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_natalis2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_natalis_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_polioc1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_polioc2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_polioc3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_scap1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_scap2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\pterop_scap_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhinon_aurant1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhinon_aurant2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhinon_aurant3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhinon_aurant_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_intermed1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_intermed2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\phino_inter_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_mega1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_mega3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_mega_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_robert1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_robert2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_robert_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_sp1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_sp2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\rhino_sp_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_flav1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_flav2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_flav_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_mixtus1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_sacc2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_sacc3.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sacc_sacc_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scoto_parnaby2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_balst1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_balst2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_balst_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_greyi1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_greyi2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_greyi_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_orion1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_parnaby1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_parnaby_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_ruepp1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_sanborn1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_sanborn2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\scot_sanborn_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\seti_eleryi1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\seti_eleryi2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\seti_eleryi_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sycon_aust1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sycon_aust2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\sycon_aust_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_aust1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_aust2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_aust_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_georg1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_georg2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_georg_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_hilli1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_hilli2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_hilli_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_kapalg1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_trought1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_trought2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\taph_trought_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_baver1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_baver2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_baver_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_caur1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_caur2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_caur_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_darling1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_darling2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_darling_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_douglas1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_douglas2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_douglas_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_family.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_finlay1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_finlay2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_finlay_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_pumilus1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_pumilus2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_pumilus_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_regulus1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_regulus2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_regulus_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_trought2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_trought_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_vult1.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_vult2.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\vesp_vult_head.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map000.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map102.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map103.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map104.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map105.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map106.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map107.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map108.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map201.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map202.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map203.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map301.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map302.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map303.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map304.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map306.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map307.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map308.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map309.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map310.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map311.png" BaseSize="100,100" />
-    <SharedImage Include="Data\RegionsMap\map312.png" BaseSize="100,100" />
-    <SharedImage Include="Data\TailMembrane\tail_membrane_hairy.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\TailMembrane\tail_membrane_no_fur.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\UpperIncisors\one_pair.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="100,100" />
-    <SharedImage Include="Data\UpperIncisors\two_pairs_larger_bifid.jpg" BaseSize="100,100" />
-    <SharedImage Include="Images\background.png" BaseSize="500,500" />
-    <SharedImage Include="Images\GhostTreeview\ic_action.png" BaseSize="75,75" />
-	<SharedImage Include="Images\GhostTreeview\ic_select.png" BaseSize="75,75" />
-    <SharedImage Include="Images\GhostTreeview\ic_close.png" BaseSize="50,50" />
-    <SharedImage Include="Images\GhostTreeview\ic_close_bar2.png" BaseSize="50,50" />
-    <SharedImage Include="Images\GhostTreeview\ic_empty.png" BaseSize="50,50" />
-    <SharedImage Include="Images\GhostTreeview\ic_open.png" BaseSize="50,50" />
-    <SharedImage Include="Images\GhostTreeview\ic_open_bar.png" BaseSize="50,50" />
-    <SharedImage Include="Images\ic_audio_playback_play.png" BaseSize="50,50" />
-    <SharedImage Include="Images\ic_audio_playback_stop.png" BaseSize="50,50" />
-    <SharedImage Include="Images\ic_photos.png" BaseSize="25,25" />
-    <SharedImage Include="Images\ic_sounds.png" BaseSize="25,25" />
-    <SharedImage Include="Images\ic_details.png" BaseSize="25,25" />
-    <SharedImage Include="Images\ic_regions.png" BaseSize="25,25" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\austonomus_australis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\chaerephon_jobensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_dwyeri_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_gouldii_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_morio_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_nigrogriseus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\chalinolobus_picatus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\dobsonia_moluccensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\falsistrellus_mackenziei_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\falsistrellus_tasmaniensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_ater_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_cervinus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_diadema_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_inornatus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_semoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\hipposideros_stenotis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\macroderma_gigas_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\macroglossus_minimus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\micronomus_norfolkensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_australis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_orianae_bassanii_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_orianae_oceanensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\miniopterus_orianae_orianae_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\murina_florium_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\myotis_macropus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctimene_robinsoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_arnhemensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_bifax_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_corbeni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_daedalus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_geoffroyi_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_gouldi_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_major_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_sherrini_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\nyctophilus_walkeri_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_cobourgianus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_halli_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_kitcheneri_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_lumsdenae_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_petersi_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_planiceps_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\ozimops_ridei_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\phoniscus_papuensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\pipistrellus_adamsi_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\pipistrellus_westralis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_alecto_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_conspicillatus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_poliocephalus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\pteropus_scapulatus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\rhinolophus_megaphyllus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\rhinolophus_robertsi_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\rhinonicteris_aurantia_pilbera_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\saccolaimus_flaviventris_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\saccolaimus_mixtus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\saccolaimus_saccolaimus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\scoteanax_rueppellii_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_balstoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_greyii_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_orion_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\scotorepens_sanborni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\setirostris_eleryi_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\syconycteris_australis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_australis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_georgianus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_hilli_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_kapalgensis_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\taphozous_troughtoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_baverstocki_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_caurinus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_darlingtoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_douglasorum_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_finlaysoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_pumilus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_regulus_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_troughtoni_dist.jpg" BaseSize="100,100" />
-	<SharedImage Include="Data\SpeciesDistributionMaps\vespadelus_vulturnus_dist.jpg" BaseSize="100,100" />	  
+    <SharedImage Include="Images\background.png" BaseSize="100,100" />
+    <SharedImage Include="Images\ic_details.png" />
+    <SharedImage Include="Images\ic_photos.png" />
+    <SharedImage Include="Images\ic_regions.png" />
+    <SharedImage Include="Images\ic_sounds.png" />
   </ItemGroup>
 </Project>

@@ -2,15 +2,14 @@
   "GenusId": "scotorepens",
   "SpeciesId": "balstoni",
   "Name": "Inland Broad-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Scot_balst",
+  "DetailsHtml": "scotorepens_balstoni_details.html",
   "Images": [
-    "scot_balst_head.jpg",
-    "scot_balst2.jpg",
-    "scot_balst3.jpg"
+    "scotorepens_balstoni_head.jpg",
+    "scotorepens_balstoni1.jpg",
+    "scotorepens_balstoni2.jpg"
   ],
   "CallImages": [
-    "scot_balst_call_image.jpg"
+    "scotorepens_balstoni_call_image.jpg"
   ],
   "RegionIds": [
     308,

@@ -2,15 +2,12 @@
   "GenusId": "scotorepens",
   "SpeciesId": "orion",
   "Name": "Eastern Broad-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Scot_orion",
+  "DetailsHtml": "scotorepens_orion_details.html",
   "Images": [
-    "scot_orion_head.jpg",
-    "scot_orion2.jpg",
-    "scot_orion3.jpg"
+    "scotorepens_orion1.jpg"
   ],
   "CallImages": [
-    "scot_orion_call_image.jpg"
+    "scotorepens_orion_call_image.jpg"
   ],
   "RegionIds": [
     103,

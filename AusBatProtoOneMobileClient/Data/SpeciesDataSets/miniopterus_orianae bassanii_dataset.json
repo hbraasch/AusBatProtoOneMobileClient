@@ -2,15 +2,14 @@
   "GenusId": "miniopterus",
   "SpeciesId": "orianae bassanii",
   "Name": "Southern Bent-winged Bat",
-  "DetailsHtml": null,
-  "DataTag": "Mini_oc_bassani",
+  "DetailsHtml": "miniopterus_orianae bassanii_details.html",
   "Images": [
-    "mini_oc_bassani_head.jpg",
-    "mini_oc_bassani2.jpg",
-    "mini_oc_bassani3.jpg"
+    "miniopterus_orianae bassanii_head.jpg",
+    "miniopterus_orianae bassanii1.jpg",
+    "miniopterus_orianae bassanii2.jpg"
   ],
   "CallImages": [
-    "mini_oc_bassani_call_image.jpg"
+    "miniopterus_orianae bassanii_call_image.jpg"
   ],
   "RegionIds": [
     203

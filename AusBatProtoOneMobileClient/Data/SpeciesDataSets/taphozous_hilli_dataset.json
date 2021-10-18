@@ -2,15 +2,10 @@
   "GenusId": "taphozous",
   "SpeciesId": "hilli",
   "Name": "Hill's Sheath-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Taph_hilli_",
-  "Images": [
-    "taph_hilli__head.jpg",
-    "taph_hilli_2.jpg",
-    "taph_hilli_3.jpg"
-  ],
+  "DetailsHtml": "taphozous_hilli_details.html",
+  "Images": [],
   "CallImages": [
-    "taph_hilli__call_image.jpg"
+    "taphozous_hilli_call_image.jpg"
   ],
   "RegionIds": [
     307,

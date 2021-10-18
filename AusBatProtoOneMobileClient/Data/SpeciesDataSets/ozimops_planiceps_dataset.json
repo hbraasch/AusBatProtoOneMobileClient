@@ -2,15 +2,13 @@
   "GenusId": "ozimops",
   "SpeciesId": "planiceps",
   "Name": "South-eastern Free-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Ozi_planic",
+  "DetailsHtml": "ozimops_planiceps_details.html",
   "Images": [
-    "ozi_planic_head.jpg",
-    "ozi_planic2.jpg",
-    "ozi_planic3.jpg"
+    "ozimops_planiceps_head.jpg",
+    "ozimops_planiceps1.jpg"
   ],
   "CallImages": [
-    "ozi_planic_call_image.jpg"
+    "ozimops_planiceps_call_image.jpg"
   ],
   "RegionIds": [
     202,

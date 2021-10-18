@@ -2,13 +2,8 @@
   "GenusId": "Scotorepens",
   "SpeciesId": "sp",
   "Name": "Central-eastern Broad-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Scot_sp",
-  "Images": [
-    "scot_sp_head.jpg",
-    "scot_sp2.jpg",
-    "scot_sp3.jpg"
-  ],
+  "DetailsHtml": "scotorepens_sp_details.html",
+  "Images": [],
   "CallImages": [],
   "RegionIds": [],
   "DistributionMapImage": "scotorepens_sp_dist.jpg"

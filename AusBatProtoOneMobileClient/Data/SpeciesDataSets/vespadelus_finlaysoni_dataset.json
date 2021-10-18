@@ -2,15 +2,14 @@
   "GenusId": "Vespadelus",
   "SpeciesId": "finlaysoni",
   "Name": "Finlayson's Cave Bat, Inland Cave Bat",
-  "DetailsHtml": null,
-  "DataTag": "Vesp_finlay",
+  "DetailsHtml": "vespadelus_finlaysoni_details.html",
   "Images": [
-    "vesp_finlay_head.jpg",
-    "vesp_finlay2.jpg",
-    "vesp_finlay3.jpg"
+    "vespadelus_finlaysoni_head.jpg",
+    "vespadelus_finlaysoni1.jpg",
+    "vespadelus_finlaysoni2.jpg"
   ],
   "CallImages": [
-    "vesp_finlay_call_image.jpg"
+    "vespadelus_finlaysoni_call_image.jpg"
   ],
   "RegionIds": [
     308,

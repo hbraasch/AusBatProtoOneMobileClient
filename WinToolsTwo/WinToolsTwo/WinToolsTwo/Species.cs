@@ -19,7 +19,7 @@ namespace AusBatProtoOneMobileClient.Data
         public List<string> Images { get; set; } = new List<string>();
         public List<string> CallImages { get; set; } = new List<string>();
         public List<int> RegionIds { get; set; } = new List<int>();
-        public string DistributionMapImage => $"{GenusId}_{SpeciesId}_dist.jpg".ToLower();
+        public string DistributionMapImage { get; set; }
 
 #if false
         internal void LoadDetails()

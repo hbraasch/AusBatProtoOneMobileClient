@@ -53,7 +53,15 @@ namespace AusBatProtoOneMobileClient.Views.Components
         }
         #endregion
 
-        
+        #region *// PromptProperty
+        public static readonly BindableProperty PromptProperty = BindableProperty.Create(nameof(Prompt), typeof(string), typeof(ImagePicker), "Options");
+
+        public string Prompt
+        {
+            get {return (string)GetValue(PromptProperty);}
+            set {SetValue(PromptProperty, value);}
+        }
+        #endregion
 
         Page parentPage;
 
@@ -79,7 +87,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                         ImageSource = imageSource
                     });
                 }
-                var page = new ImagePickerDisplayOptions(displayItems);
+                var page = new ImagePickerDisplayOptions(displayItems, Prompt);
                 await parentPage.Navigation.PushAsync(page);
                 await page.WaitUntilExecutionStops();
                 SelectedItem = page.SelectedDisplayItem?.Description ?? "";

@@ -2,15 +2,14 @@
   "GenusId": "saccolaimus",
   "SpeciesId": "saccolaimus",
   "Name": "Bare-rumped Sheath-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Sacc_sacc",
+  "DetailsHtml": "saccolaimus_saccolaimus_details.html",
   "Images": [
-    "sacc_sacc_head.jpg",
-    "sacc_sacc2.jpg",
-    "sacc_sacc3.jpg"
+    "saccolaimus_saccolaimus_head.jpg",
+    "saccolaimus_saccolaimus2.jpg",
+    "saccolaimus_saccolaimus3.jpg"
   ],
   "CallImages": [
-    "sacc_sacc_call_image.jpg"
+    "saccolaimus_saccolaimus_call_image.jpg"
   ],
   "RegionIds": [
     301,

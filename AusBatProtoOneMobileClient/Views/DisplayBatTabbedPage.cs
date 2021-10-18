@@ -13,7 +13,7 @@ namespace AusBatProtoOneMobileClient
 
         DisplayBatImageTabPage displayBatImagesTabPage;
         DisplayBatDetailsTabPage displayBatDetailsTabPage;
-        DisplayBatRegionsTabPage displayBatRegionsTabPage;
+        DisplayBatDistributionTabPage displayBatRegionsTabPage;
         DisplayBatCallTabPage displayBatCallTabPage;
         public DisplayBatTabbedPage(DisplayBatTabbedPageViewModel viewModel)
         {
@@ -25,7 +25,7 @@ namespace AusBatProtoOneMobileClient
             displayBatImagesTabPage.IconImageSource = "ic_photos.png";
             displayBatDetailsTabPage = new DisplayBatDetailsTabPage(viewModel);
             displayBatDetailsTabPage.IconImageSource = "ic_details.png";
-            displayBatRegionsTabPage = new DisplayBatRegionsTabPage(viewModel);
+            displayBatRegionsTabPage = new DisplayBatDistributionTabPage(viewModel);
             displayBatRegionsTabPage.IconImageSource = "ic_regions.png";
             displayBatCallTabPage = new DisplayBatCallTabPage(viewModel);
             displayBatCallTabPage.IconImageSource = "ic_sounds.png";

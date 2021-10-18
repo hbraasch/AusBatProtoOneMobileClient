@@ -2,15 +2,14 @@
   "GenusId": "Vespadelus",
   "SpeciesId": "caurinus",
   "Name": "Northern Cave Bat",
-  "DetailsHtml": null,
-  "DataTag": "Vesp_caur",
+  "DetailsHtml": "vespadelus_caurinus_details.html",
   "Images": [
-    "vesp_caur_head.jpg",
-    "vesp_caur2.jpg",
-    "vesp_caur3.jpg"
+    "vespadelus_caurinus_head.jpg",
+    "vespadelus_caurinus1.jpg",
+    "vespadelus_caurinus2.jpg"
   ],
   "CallImages": [
-    "vesp_caur_call_image.jpg"
+    "vespadelus_caurinus_call_image.jpg"
   ],
   "RegionIds": [
     302,

@@ -105,10 +105,11 @@ namespace DocGenOneMobileClient.Views
             {
                 var species = App.dbase.Species.FirstOrDefault(o => o.GenusId == sighting.GenusId && o.SpeciesId == sighting.SpeciesId);
                 if (species == null) continue;
+                var imageSource = (species.Images.Count > 0) ? species.Images.First() : "bat.png";
                 DisplayItems.Add(new DisplayItem { 
-                    SpeciesName = $"{sighting.GenusId} {sighting.SpeciesId.ToLower()}",
+                    SpeciesName = $"{sighting.GenusId.ToUpperFirstChar()} {sighting.SpeciesId.ToLower()}",
                     SpeciesFriendlyName = species.Name,
-                    ImageSource = species.Images[0] ?? "", 
+                    ImageSource = imageSource, 
                     Location = $"Lat: {sighting.Lat:N2} Lon: {sighting.Lon:N2}",
                     RegionId = $"Region: {sighting.MapRegionId}",
                     Timestamp = sighting.TimeStamp.ToString("g"),

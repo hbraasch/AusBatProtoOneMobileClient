@@ -334,7 +334,7 @@ namespace DocGenOneMobileClient.Views
                 var selectedOptionId = pdi.OptionIds[pdi.Options.IndexOf(pdi.SelectedOption)];
                 var activeCharacter = activeCharacterDisplayItem.Content as PickerCharacterPrompt;
                 activeCharacter.EntryOptionId = selectedOptionId;
-                List<KeyTreeNodeBase> triggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingEntries(currentTriggeredKeyTreeNodes, activeCharacter);
+                    List<KeyTreeNodeBase> triggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingEntries(currentTriggeredKeyTreeNodes, activeCharacter);
                 usedPromptCharacters = KeyTree.AddCharacterUnique(usedPromptCharacters, activeCharacterDisplayItem.Content);
                 allTriggeredKeyTreeNodes = KeyTree.AddNodesRangeUnique(currentTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
             }

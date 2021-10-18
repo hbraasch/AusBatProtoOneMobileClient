@@ -2,16 +2,13 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "arnhemensis",
   "Name": "Northern Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_arnhem",
+  "DetailsHtml": "nyctophilus_arnhemensis_details.html",
   "Images": [
-    "nyct_arnhem_head.jpg",
-    "nyct_arnhem2.jpg",
-    "nyct_arnhem3.jpg",
-    "nyctophilus_arnhemensis_nose.jpg"
+    "nyctophilus_arnhemensis1.jpg",
+    "nyctophilus_arnhemensis2.jpg"
   ],
   "CallImages": [
-    "nyct_arnhem_call_image.jpg"
+    "nyctophilus_arnhemensis_call_image.jpg"
   ],
   "RegionIds": [
     308,

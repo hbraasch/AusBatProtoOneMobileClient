@@ -2,16 +2,14 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "major tor",
   "Name": "Central Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_major_tor",
+  "DetailsHtml": "nyctophilus_major tor_details.html",
   "Images": [
-    "nyct_major_tor_head.jpg",
-    "nyct_major_tor2.jpg",
-    "nyct_major_tor3.jpg",
-    "nyctophilus_major_tor_nose.jpg"
+    "nyctophilus_major tor_head.jpg",
+    "nyctophilus_major tor1.jpg",
+    "nyctophilus_major tor2.jpg"
   ],
   "CallImages": [
-    "nyct_major_tor_call_image.jpg"
+    "nyctophilus_major tor_call_image.jpg"
   ],
   "RegionIds": [
     309,

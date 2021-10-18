@@ -2,15 +2,14 @@
   "GenusId": "hipposideros",
   "SpeciesId": "ater",
   "Name": "Dusky Leaf-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Hipp_ater",
+  "DetailsHtml": "hipposideros_ater_details.html",
   "Images": [
-    "hipp_ater_head.jpg",
-    "hipp_ater2.jpg",
-    "hipp_ater3.jpg"
+    "hipposideros_ater_head.jpg",
+    "hipposideros_ater2.jpg",
+    "hipposideros_ater3.jpg"
   ],
   "CallImages": [
-    "hipp_ater_call_image.jpg"
+    "hipposideros_ater_call_image.jpg"
   ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_ater_dist.jpg"

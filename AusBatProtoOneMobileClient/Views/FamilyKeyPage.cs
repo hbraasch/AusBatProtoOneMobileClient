@@ -171,6 +171,7 @@ namespace DocGenOneMobileClient.Views
                     valuePicker.SetBinding(ImagePicker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.SelectedOption), BindingMode.TwoWay));
                     valuePicker.SetBinding(ImagePicker.ImageItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSources), BindingMode.TwoWay));
                     valuePicker.SetBinding(ImagePicker.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.OnChanged), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.PromptProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));
 
                     var grid = new Grid { Margin = 5 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });

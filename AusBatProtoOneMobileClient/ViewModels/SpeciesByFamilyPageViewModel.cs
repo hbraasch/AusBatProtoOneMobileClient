@@ -165,7 +165,8 @@ namespace DocGenOneMobileClient.Views
                 if (SelectedItem == null) return;
                 var viewModel = new DisplayBatTabbedPageViewModel(SelectedItem.Species);
                 var page = new DisplayBatTabbedPage(viewModel);
-                await NavigateToPageAsync(page, viewModel);
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
 
             }
             catch (Exception ex) when (ex is BusinessException exb)

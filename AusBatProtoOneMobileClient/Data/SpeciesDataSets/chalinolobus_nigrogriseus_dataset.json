@@ -2,15 +2,14 @@
   "GenusId": "chalinolobus",
   "SpeciesId": "nigrogriseus",
   "Name": "Hoary Wattled Bat",
-  "DetailsHtml": null,
-  "DataTag": "Chal_nigro",
+  "DetailsHtml": "chalinolobus_nigrogriseus_details.html",
   "Images": [
-    "chal_nigro_head.jpg",
-    "chal_nigro2.jpg",
-    "chal_nigro3.jpg"
+    "chalinolobus_nigrogriseus_head.jpg",
+    "chalinolobus_nigrogriseus1.jpg",
+    "chalinolobus_nigrogriseus2.jpg"
   ],
   "CallImages": [
-    "chal_nigro_call_image.jpg"
+    "chalinolobus_nigrogriseus_call_image.jpg"
   ],
   "RegionIds": [
     302,

@@ -2,15 +2,14 @@
   "GenusId": "murina",
   "SpeciesId": "florium",
   "Name": "Flute-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Murin_florium",
+  "DetailsHtml": "murina_florium_details.html",
   "Images": [
-    "murin_florium_head.jpg",
-    "murin_florium2.jpg",
-    "murin_florium3.jpg"
+    "murina_florium_head.jpg",
+    "murina_florium1.jpg",
+    "murina_florium2.jpg"
   ],
   "CallImages": [
-    "murin_florium_call_image.jpg"
+    "murina_florium_call_image.jpg"
   ],
   "RegionIds": [
     102,

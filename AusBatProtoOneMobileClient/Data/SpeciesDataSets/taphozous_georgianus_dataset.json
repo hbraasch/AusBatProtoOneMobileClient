@@ -2,15 +2,14 @@
   "GenusId": "taphozous",
   "SpeciesId": "georgianus",
   "Name": "Common Sheath-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Taph_georg",
+  "DetailsHtml": "taphozous_georgianus_details.html",
   "Images": [
-    "taph_georg_head.jpg",
-    "taph_georg2.jpg",
-    "taph_georg3.jpg"
+    "taphozous_georgianus_head.jpg",
+    "taphozous_georgianus1.jpg",
+    "taphozous_georgianus2.jpg"
   ],
   "CallImages": [
-    "taph_georg_call_image.jpg"
+    "taphozous_georgianus_call_image.jpg"
   ],
   "RegionIds": [
     307,

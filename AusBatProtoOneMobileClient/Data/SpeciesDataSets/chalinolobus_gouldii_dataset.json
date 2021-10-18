@@ -2,15 +2,13 @@
   "GenusId": "chalinolobus",
   "SpeciesId": "gouldii",
   "Name": "Gould's Wattled Bat",
-  "DetailsHtml": null,
-  "DataTag": "Chal_gould",
+  "DetailsHtml": "chalinolobus_gouldii_details.html",
   "Images": [
-    "chal_gould_head.jpg",
-    "chal_gould2.jpg",
-    "chal_gould3.jpg"
+    "chalinolobus_gouldii_head.jpg",
+    "chalinolobus_gouldii2.jpg"
   ],
   "CallImages": [
-    "chal_gould_call_image.jpg"
+    "chalinolobus_gouldii_call_image.jpg"
   ],
   "RegionIds": [
     308,

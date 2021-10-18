@@ -2,15 +2,14 @@
   "GenusId": "setirostris",
   "SpeciesId": "eleryi",
   "Name": "Bristle-faced Free-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Seti_eleryi",
+  "DetailsHtml": "setirostris_eleryi_details.html",
   "Images": [
-    "seti_eleryi_head.jpg",
-    "seti_eleryi2.jpg",
-    "seti_eleryi3.jpg"
+    "setirostris_eleryi_head.jpg",
+    "setirostris_eleryi1.jpg",
+    "setirostris_eleryi2.jpg"
   ],
   "CallImages": [
-    "seti_eleryi_call_image.jpg"
+    "setirostris_eleryi_call_image.jpg"
   ],
   "RegionIds": [
     305,

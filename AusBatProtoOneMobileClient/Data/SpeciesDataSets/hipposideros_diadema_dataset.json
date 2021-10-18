@@ -2,15 +2,14 @@
   "GenusId": "hipposideros",
   "SpeciesId": "diadema",
   "Name": "Diadem Leaf-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Hipp_diadem",
+  "DetailsHtml": "hipposideros_diadema_details.html",
   "Images": [
-    "hipp_diadem_head.jpg",
-    "hipp_diadem2.jpg",
-    "hipp_diadem3.jpg"
+    "hipposideros_diadema_head.jpg",
+    "hipposideros_diadema1.jpg",
+    "hipposideros_diadema2.jpg"
   ],
   "CallImages": [
-    "hipp_diadem_call_image.jpg"
+    "hipposideros_diadema_call_image.jpg"
   ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_diadema_dist.jpg"

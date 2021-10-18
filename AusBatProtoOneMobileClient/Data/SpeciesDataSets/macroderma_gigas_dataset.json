@@ -4,7 +4,7 @@
   "Name": "Ghost Bat",
   "DetailsHtml": null,
   "DataTag": null,
-  "Images": [],
+  "Images": [ "macro_family_pic.jpg", "macro_family_pic1.jpg" ],
   "CallImages": [],
   "RegionIds": [
     102,

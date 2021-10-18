@@ -2,15 +2,14 @@
   "GenusId": "syconycteris",
   "SpeciesId": "australis",
   "Name": "Eastern Blossom Bat",
-  "DetailsHtml": null,
-  "DataTag": "Sycon_aust",
+  "DetailsHtml": "syconycteris_australis_details.html",
   "Images": [
-    "sycon_aust_head.jpg",
-    "sycon_aust2.jpg",
-    "sycon_aust3.jpg"
+    "syconycteris_australis_head.jpg",
+    "syconycteris_australis1.jpg",
+    "syconycteris_australis2.jpg"
   ],
   "CallImages": [
-    "sycon_aust_call_image.jpg"
+    "syconycteris_australis_call_image.jpg"
   ],
   "RegionIds": [
     102,

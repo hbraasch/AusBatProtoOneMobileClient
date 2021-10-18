@@ -11,7 +11,7 @@ namespace AusBatProtoOneMobileClient.Models
 {
     public class KeyTree
     {
-        public const string DONT_CARE = "DontCare";
+        public const string NO_KEY = "NoKey";
         public KeyTreeNodeBase RootNode { get; set; }
 
         public List<PickerCharacterPrompt> PickerCharacters = new List<PickerCharacterPrompt>();
@@ -70,7 +70,8 @@ namespace AusBatProtoOneMobileClient.Models
                     {
                         var evaluateCharacters = childNode.TriggerCharactersForSelf.Where(o => o is PickerCharacterTrigger).Select(o => o as PickerCharacterTrigger).ToList();
                         var evaluateCharacter = evaluateCharacters.FirstOrDefault(o => o.KeyId == pcp.KeyId);
-                        if (evaluateCharacter.OptionId == pcp.EntryOptionId || evaluateCharacter.OptionId == DONT_CARE)
+                        if (evaluateCharacter.OptionId == NO_KEY) continue;
+                        if (evaluateCharacter.OptionId == pcp.EntryOptionId)
                         {
                             triggeredNodes.Add(childNode);
                         }
@@ -285,7 +286,7 @@ namespace AusBatProtoOneMobileClient.Models
                 if (picker != null)
                 {
                     // RowItem is a picker
-                    string optionId = (nodeRow.Values[rowColumnIndex] == "") ? DONT_CARE : nodeRow.Values[rowColumnIndex];
+                    string optionId = (nodeRow.Values[rowColumnIndex] == "") ? NO_KEY : nodeRow.Values[rowColumnIndex];
                     characters.Add(new PickerCharacterTrigger { KeyId = keyId, OptionId = optionId });
                 }
                 else
@@ -313,8 +314,8 @@ namespace AusBatProtoOneMobileClient.Models
         {
             if (value == "")
             {
-                // Don't care value
-                return (float.MinValue, float.MaxValue);
+                // No key value
+                return (float.MinValue, float.MinValue); // return (float.MinValue, float.MaxValue);
             }
             var numbers = value.Split('-');
             float minValue;

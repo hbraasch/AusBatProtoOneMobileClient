@@ -2,16 +2,9 @@
   "GenusId": "Doryrhina",
   "SpeciesId": "stenotis",
   "Name": "Northern Leaf-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "AAAAAAAAAAAAAAAAAAAAA",
-  "Images": [
-    "aaaaaaaaaaaaaaaaaaaaa_head.jpg",
-    "aaaaaaaaaaaaaaaaaaaaa2.jpg",
-    "aaaaaaaaaaaaaaaaaaaaa3.jpg"
-  ],
-  "CallImages": [
-    "aaaaaaaaaaaaaaaaaaaaa_call_image.jpg"
-  ],
+  "DetailsHtml": "doryrhina_stenotis_details.html",
+  "Images": [],
+  "CallImages": [],
   "RegionIds": [],
   "DistributionMapImage": "doryrhina_stenotis_dist.jpg"
 }

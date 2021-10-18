@@ -2,15 +2,10 @@
   "GenusId": "micronomus",
   "SpeciesId": "norfolkensis",
   "Name": "East Coast Free-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Micro_norfolk_",
-  "Images": [
-    "micro_norfolk__head.jpg",
-    "micro_norfolk_2.jpg",
-    "micro_norfolk_3.jpg"
-  ],
+  "DetailsHtml": "micronomus_norfolkensis_details.html",
+  "Images": [],
   "CallImages": [
-    "micro_norfolk__call_image.jpg"
+    "micronomus_norfolkensis_call_image.jpg"
   ],
   "RegionIds": [
     105,

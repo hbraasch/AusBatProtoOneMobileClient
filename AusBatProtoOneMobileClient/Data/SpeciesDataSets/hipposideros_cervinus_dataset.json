@@ -2,15 +2,13 @@
   "GenusId": "hipposideros",
   "SpeciesId": "cervinus",
   "Name": "Fawn Leaf-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Hipp_cerv",
+  "DetailsHtml": "hipposideros_cervinus_details.html",
   "Images": [
-    "hipp_cerv_head.jpg",
-    "hipp_cerv2.jpg",
-    "hipp_cerv3.jpg"
+    "hipposideros_cervinus_head.jpg",
+    "hipposideros_cervinus3.jpg"
   ],
   "CallImages": [
-    "hipp_cerv_call_image.jpg"
+    "hipposideros_cervinus_call_image.jpg"
   ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_cervinus_dist.jpg"

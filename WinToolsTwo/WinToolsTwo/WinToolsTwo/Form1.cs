@@ -551,5 +551,131 @@ namespace WinToolsTwo
             var fullFilename = Path.Combine(destDatasetsPathFullname, $"{speciesDataset.GenusId.ToLower()}_{speciesDataset.SpeciesId.ToLower()}_details.html");
             File.WriteAllText(fullFilename, details);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var speciesDatasetsPathFullname = @"C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Data\SpeciesDataSets";
+            var speciesImagesPathFullname = @"C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Data\SpeciesImages";
+            var destSpeciesImagesPathFullname = @"C:\P\AustBatsOriginal\SpeciesImages";
+            var destSpeciesDatasetsImagesPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+
+            if (!Directory.Exists(destSpeciesImagesPathFullname))
+            {
+                Directory.CreateDirectory(destSpeciesImagesPathFullname);
+            }
+
+            foreach (var fullFilename in Directory.GetFiles(speciesDatasetsPathFullname, "*dataset.json"))
+            {
+                var posts = new List<string> { "_head.jpg", "1.jpg", "2.jpg", "3.jpg" };
+                var json = File.ReadAllText(fullFilename);
+                var dataset = JsonConvert.DeserializeObject<Species>(json);
+                var dataTag = dataset.DataTag;
+                if (dataTag == null) continue;
+
+                dataset.Images.Clear();
+                foreach (var post in posts)
+                {
+                    var oldImageName = $"{dataTag}{post}".ToLower();
+                    var newFilename = $"{dataset.GenusId.ToLower()}_{dataset.SpeciesId.ToLower()}{post}";
+
+                    var oldImageFullFilename = Path.Combine(speciesImagesPathFullname, oldImageName);
+                    if (File.Exists(oldImageFullFilename))
+                    {
+                        var newImageFullFilename = Path.Combine(destSpeciesImagesPathFullname, newFilename);
+                        File.Copy(oldImageFullFilename, newImageFullFilename, true);
+                        dataset.Images.Add(newFilename);
+                    }
+
+                }
+
+                json = JsonConvert.SerializeObject(dataset, Formatting.Indented);
+                var fileName = Path.GetFileName(fullFilename);
+                var destDatasetFullFilename = Path.Combine(destSpeciesDatasetsImagesPathFullname, fileName);
+                File.WriteAllText(destDatasetFullFilename, json);
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var speciesDatasetsPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+            var speciesCallImagesPathFullname = @"C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Data\SpeciesCallImages";
+            var destSpeciesCallImagesPathFullname = @"C:\P\AustBatsOriginal\CallImages";
+            var destSpeciesDatasetsImagesPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+
+            if (!Directory.Exists(destSpeciesCallImagesPathFullname))
+            {
+                Directory.CreateDirectory(destSpeciesCallImagesPathFullname);
+            }
+
+            foreach (var fullFilename in Directory.GetFiles(speciesDatasetsPathFullname, "*dataset.json"))
+            {
+                var json = File.ReadAllText(fullFilename);
+                var dataset = JsonConvert.DeserializeObject<Species>(json);
+                var dataTag = dataset.DataTag;
+                dataset.CallImages.Clear();
+                if (dataTag == null) continue;
+
+                var oldImageName = $"{dataTag}_call_image.jpg".ToLower();
+                var newFilename = $"{dataset.GenusId.ToLower()}_{dataset.SpeciesId.ToLower()}_call_image.jpg";
+
+                var oldImageFullFilename = Path.Combine(speciesCallImagesPathFullname, oldImageName);
+                if (File.Exists(oldImageFullFilename))
+                {
+                    var newImageFullFilename = Path.Combine(destSpeciesCallImagesPathFullname, newFilename);
+                    File.Copy(oldImageFullFilename, newImageFullFilename, true);
+                    dataset.CallImages.Add(newFilename);
+                }
+
+                json = JsonConvert.SerializeObject(dataset, Formatting.Indented);
+                var fileName = Path.GetFileName(fullFilename);
+                var destDatasetFullFilename = Path.Combine(destSpeciesDatasetsImagesPathFullname, fileName);
+                File.WriteAllText(destDatasetFullFilename, json);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var speciesDatasetsPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+
+            var destSpeciesDatasetsImagesPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+
+            foreach (var fullFilename in Directory.GetFiles(speciesDatasetsPathFullname, "*dataset.json"))
+            {
+                var json = File.ReadAllText(fullFilename);
+                var dataset = JsonConvert.DeserializeObject<Species>(json);
+                var dataTag = dataset.DataTag;
+
+                if (dataTag == null) continue;
+
+                var newFilename = $"{dataset.GenusId.ToLower()}_{dataset.SpeciesId.ToLower()}_details.html";
+                dataset.DetailsHtml = newFilename;
+
+                json = JsonConvert.SerializeObject(dataset, Formatting.Indented);
+                var fileName = Path.GetFileName(fullFilename);
+                var destDatasetFullFilename = Path.Combine(destSpeciesDatasetsImagesPathFullname, fileName);
+                File.WriteAllText(destDatasetFullFilename, json);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var speciesDatasetsPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+            var destSpeciesDatasetsImagesPathFullname = @"C:\P\AustBatsOriginal\Datasets";
+
+            foreach (var fullFilename in Directory.GetFiles(speciesDatasetsPathFullname, "*dataset.json"))
+            {
+                var json = File.ReadAllText(fullFilename);
+                var dataset = JsonConvert.DeserializeObject<AusBatProtoOneMobileClient.DataNew.Species>(json);
+
+                var newFilename = $"{dataset.GenusId.ToLower()}_{dataset.SpeciesId.ToLower()}_details.html";
+                dataset.DetailsHtml = newFilename;
+
+                json = JsonConvert.SerializeObject(dataset, Formatting.Indented);
+                var fileName = Path.GetFileName(fullFilename);
+                var destDatasetFullFilename = Path.Combine(destSpeciesDatasetsImagesPathFullname, fileName);
+                File.WriteAllText(destDatasetFullFilename, json);
+            }
+        }
     }
 }

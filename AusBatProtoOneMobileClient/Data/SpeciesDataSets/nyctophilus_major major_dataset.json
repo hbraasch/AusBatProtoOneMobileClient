@@ -2,16 +2,14 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "major major",
   "Name": "Western Long-eared Bat",
-  "DetailsHtml": null,
-  "DataTag": "Nyct_major",
+  "DetailsHtml": "nyctophilus_major major_details.html",
   "Images": [
-    "nyct_major_head.jpg",
-    "nyct_major2.jpg",
-    "nyct_major3.jpg",
-    "nyctophilus_major_nose.jpg"
+    "nyctophilus_major major_head.jpg",
+    "nyctophilus_major major1.jpg",
+    "nyctophilus_major major2.jpg"
   ],
   "CallImages": [
-    "nyct_major_call_image.jpg"
+    "nyctophilus_major major_call_image.jpg"
   ],
   "RegionIds": [
     308,

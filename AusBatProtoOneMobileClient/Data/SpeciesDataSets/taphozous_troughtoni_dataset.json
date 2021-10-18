@@ -2,15 +2,14 @@
   "GenusId": "taphozous",
   "SpeciesId": "troughtoni",
   "Name": "Troughton's Sheath-tailed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Taph_trought",
+  "DetailsHtml": "taphozous_troughtoni_details.html",
   "Images": [
-    "taph_trought_head.jpg",
-    "taph_trought2.jpg",
-    "taph_trought3.jpg"
+    "taphozous_troughtoni_head.jpg",
+    "taphozous_troughtoni1.jpg",
+    "taphozous_troughtoni2.jpg"
   ],
   "CallImages": [
-    "taph_trought_call_image.jpg"
+    "taphozous_troughtoni_call_image.jpg"
   ],
   "RegionIds": [
     103,

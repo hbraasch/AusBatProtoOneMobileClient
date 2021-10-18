@@ -2,15 +2,14 @@
   "GenusId": "Vespadelus",
   "SpeciesId": "regulus",
   "Name": "Southern Forest Bat",
-  "DetailsHtml": null,
-  "DataTag": "Vesp_regulus",
+  "DetailsHtml": "vespadelus_regulus_details.html",
   "Images": [
-    "vesp_regulus_head.jpg",
-    "vesp_regulus2.jpg",
-    "vesp_regulus3.jpg"
+    "vespadelus_regulus_head.jpg",
+    "vespadelus_regulus1.jpg",
+    "vespadelus_regulus2.jpg"
   ],
   "CallImages": [
-    "vesp_regulus_call_image.jpg"
+    "vespadelus_regulus_call_image.jpg"
   ],
   "RegionIds": [
     105,

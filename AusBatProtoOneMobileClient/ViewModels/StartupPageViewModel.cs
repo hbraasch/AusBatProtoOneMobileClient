@@ -217,7 +217,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
                 var currentResults = Dbase.Filter(App.dbase.Species, selectedRegions.ToList());
                 var viewModel = new DisplayFilteredSpeciesPageViewModel(currentResults) { IsHomeEnabled = false };
-                var page = new DisplayFilteredSpeciesPage(viewModel);
+                var page = new SpeciesByAreaPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
 
             }

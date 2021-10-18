@@ -2,15 +2,14 @@
   "GenusId": "pipistrellus",
   "SpeciesId": "adamsi",
   "Name": "Forest Pipistrelle",
-  "DetailsHtml": null,
-  "DataTag": "Pip_adams",
+  "DetailsHtml": "pipistrellus_adamsi_details.html",
   "Images": [
-    "pip_adams_head.jpg",
-    "pip_adams2.jpg",
-    "pip_adams3.jpg"
+    "pipistrellus_adamsi_head.jpg",
+    "pipistrellus_adamsi1.jpg",
+    "pipistrellus_adamsi2.jpg"
   ],
   "CallImages": [
-    "pip_adams_call_image.jpg"
+    "pipistrellus_adamsi_call_image.jpg"
   ],
   "RegionIds": [
     308,

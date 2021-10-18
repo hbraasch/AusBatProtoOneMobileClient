@@ -2,15 +2,10 @@
   "GenusId": "Miniopteridae",
   "SpeciesId": "australis",
   "Name": "Little Bent-winged Bat",
-  "DetailsHtml": null,
-  "DataTag": "Mini_aust_",
-  "Images": [
-    "mini_aust__head.jpg",
-    "mini_aust_2.jpg",
-    "mini_aust_3.jpg"
-  ],
+  "DetailsHtml": "miniopteridae_australis_details.html",
+  "Images": [],
   "CallImages": [
-    "mini_aust__call_image.jpg"
+    "miniopteridae_australis_call_image.jpg"
   ],
   "RegionIds": [
     102,

@@ -2,15 +2,14 @@
   "GenusId": "hipposideros",
   "SpeciesId": "inornatus",
   "Name": "Arnhem Leaf-nosed Bat",
-  "DetailsHtml": null,
-  "DataTag": "Hipp_inorn",
+  "DetailsHtml": "hipposideros_inornatus_details.html",
   "Images": [
-    "hipp_inorn_head.jpg",
-    "hipp_inorn2.jpg",
-    "hipp_inorn3.jpg"
+    "hipposideros_inornatus_head.jpg",
+    "hipposideros_inornatus1.jpg",
+    "hipposideros_inornatus2.jpg"
   ],
   "CallImages": [
-    "hipp_inorn_call_image.jpg"
+    "hipposideros_inornatus_call_image.jpg"
   ],
   "RegionIds": [],
   "DistributionMapImage": "hipposideros_inornatus_dist.jpg"
