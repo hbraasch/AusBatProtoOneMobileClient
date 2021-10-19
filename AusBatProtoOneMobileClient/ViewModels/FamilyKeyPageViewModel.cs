@@ -23,6 +23,15 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
+        const string FILTER_TITLE = "Filter";
+        const string NO_RESULTS_YET = "(0) results";
+
+        private enum FilterState
+        {
+            StartFromScratch, StartNextLevel, HasMatches, NoMoreMatches, 
+        }
+        private FilterState State = FilterState.StartFromScratch;
+
         public KeyTreeNodeBase CurrentPromptKeyTreeNode;
         public List<KeyTreeNodeBase> CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
 
@@ -105,7 +114,8 @@ namespace DocGenOneMobileClient.Views
             CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
             CurrentRegionIds = currentRegionIds;
             CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
-            Title = "Filter";
+            Title = FILTER_TITLE;
+            State = FilterState.StartFromScratch;
         }
 
         public ICommand OnFirstAppearance => new Command(async () =>
@@ -120,7 +130,7 @@ namespace DocGenOneMobileClient.Views
                 });
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-                FilterResult = $"(0) results";
+                FilterResult = NO_RESULTS_YET;
 
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -146,26 +156,54 @@ namespace DocGenOneMobileClient.Views
         {
             var displayItems = new ObservableCollection<CharacterDisplayItemBase>();
 
-            #region *// Determine which keys needs to be displayed
-            List<CharacterPromptBase> AllPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel;
-            var inEffectivePromptCharacters = KeyTree.GetIneffectivePromptCharacters(CurrentPromptKeyTreeNode, CurrentTriggeredKeyTreeNodes, UsedPromptCharacters);
-            RemovedPromptCharacters.Clear();
-            RemovedPromptCharacters.AddRange(UsedPromptCharacters);
-            RemovedPromptCharacters.AddRange(inEffectivePromptCharacters);
-
-            BestPromptCharacters.Clear();
-            foreach (var allPromptCharacter in AllPromptCharacters)
+            switch (State)
             {
-                if (!RemovedPromptCharacters.Exists(o => o.KeyId == allPromptCharacter.KeyId))
-                {
-                    BestPromptCharacters.Add(allPromptCharacter);
-                }
+                case FilterState.StartFromScratch:
+                    BestPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel.ToList();
+                    HasRegionFilterBeenUsed = false;
+                    break;
+                case FilterState.StartNextLevel:
+                    #region *// Filter on region if regions selected
+                    if (CurrentRegionIds.Count > 0)
+                    {
+                        ConductRegionSearch(currentPromptKeyTreeNode, CurrentRegionIds, ref CurrentTriggeredKeyTreeNodes);
+                        HasRegionFilterBeenUsed = true;
+                    }
+                    #endregion
+                    BestPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel.ToList();
+                    break;
+                case FilterState.HasMatches:
+                    #region *// Determine which keys needs to be displayed
+                    List<CharacterPromptBase> AllPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel.ToList();
+                    var inEffectivePromptCharacters = KeyTree.GetIneffectivePromptCharacters(CurrentPromptKeyTreeNode, CurrentTriggeredKeyTreeNodes, UsedPromptCharacters);
+                    RemovedPromptCharacters.Clear();
+                    RemovedPromptCharacters.AddRange(UsedPromptCharacters);
+                    RemovedPromptCharacters.AddRange(inEffectivePromptCharacters);
+
+                    BestPromptCharacters.Clear();
+                    foreach (var allPromptCharacter in AllPromptCharacters)
+                    {
+                        if (!RemovedPromptCharacters.Exists(o => o.KeyId == allPromptCharacter.KeyId))
+                        {
+                            BestPromptCharacters.Add(allPromptCharacter);
+                        }
+                    }
+                    #endregion
+                    break;
+                case FilterState.NoMoreMatches:
+                    BestPromptCharacters.Clear();
+                    HasRegionFilterBeenUsed = true;
+                    break;
+                default:
+                    break;
             }
-            #endregion
+
+
 
 
             #region *// Create display items
-            foreach (var character in BestPromptCharacters.OrderBy(o=>o.DisplayOrder))
+
+            foreach (var character in BestPromptCharacters.OrderBy(o => o.DisplayOrder))
             {
                 if (character is NumericCharacterPrompt ncp)
                 {
@@ -192,9 +230,9 @@ namespace DocGenOneMobileClient.Views
                         OnChanged = OnFilterClicked,
                         OnImageClicked = OnImageClicked,
                         Content = character
-                    }); 
+                    });
                 }
-            }
+            } 
 
 
             if (!HasRegionFilterBeenUsed && CurrentTriggeredKeyTreeNodes.Count != 1)
@@ -209,8 +247,13 @@ namespace DocGenOneMobileClient.Views
             #endregion
 
             displayItems.OrderBy(o => o.DisplayOrder);
+
+            FilterResult = UpdateFilterResults();
+
             return displayItems;
         }
+
+
 
         public ICommand OnSubsequentAppearance => new Command(() =>
         {
@@ -275,7 +318,7 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                ResetFilter(KeyTreeFilter.Current.GetFilterResetNode());
+                ResetFilter(FilterState.StartFromScratch, KeyTreeFilter.Current.GetFilterResetNode());
 
             }
             catch (Exception ex)
@@ -288,17 +331,21 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        private void ResetFilter(KeyTreeNodeBase rootNode )
+        private void ResetFilter(FilterState state, KeyTreeNodeBase rootNode )
         {
+            State = state;
             CurrentPromptKeyTreeNode = rootNode;
             UsedPromptCharacters.Clear();
             CurrentTriggeredKeyTreeNodes.Clear();
+            if (state == FilterState.StartFromScratch)
+            {
+                CurrentRegionIds.Clear();
+                HasRegionFilterBeenUsed = false;
+                FilterResult = NO_RESULTS_YET;
+            }
 
             CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-            CurrentRegionIds.Clear();
-            HasRegionFilterBeenUsed = false;
-            FilterResult = $"(0) results";
-            Title = "Filter";
+            Title = FILTER_TITLE;
             InvalidateMenuCommand.Execute(null);
         }
         public ICommand OnFilterClicked => commandHelper.ProduceDebouncedCommand(async () =>
@@ -310,8 +357,6 @@ namespace DocGenOneMobileClient.Views
                 var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
                 ConductSearch(CurrentPromptKeyTreeNode, activeCharacterDisplayItem, ref CurrentTriggeredKeyTreeNodes, ref UsedPromptCharacters, ref HasRegionFilterBeenUsed);
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-                FilterResult = UpdateFilterResults();
-
             }
             catch (Exception ex)
             {
@@ -350,10 +395,36 @@ namespace DocGenOneMobileClient.Views
                 hasRegionFilterBeenUsed = true;
             }
             else throw new ApplicationException("Unknown displayItem encountered");
+
+            currentTriggeredKeyTreeNodes = currentTriggeredKeyTreeNodes.Distinct(new TreeNodeComparer()).ToList();
+
+            if (currentTriggeredKeyTreeNodes.Count > 0)
+                State = FilterState.HasMatches;
+            else
+                State = FilterState.NoMoreMatches;
+
             InvalidateMenuCommand.Execute(null);
         }
 
+        private void ConductRegionSearch(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> regionIds, ref List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes)
+        {
+            if (regionIds.Count == 0)
+            {
+                currentTriggeredKeyTreeNodes = currentPromptKeyTreeNode.Children;
+            }
+            else
+            {
+                currentTriggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingRegions(currentTriggeredKeyTreeNodes, regionIds);
+            }
+            currentTriggeredKeyTreeNodes = currentTriggeredKeyTreeNodes.Distinct(new TreeNodeComparer()).ToList();
 
+            if (currentTriggeredKeyTreeNodes.Count > 0)
+                State = FilterState.HasMatches;
+            else
+                State = FilterState.NoMoreMatches;
+
+            InvalidateMenuCommand.Execute(null);
+        }
 
         public ICommand OnViewResultsClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
@@ -384,23 +455,24 @@ namespace DocGenOneMobileClient.Views
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
                 if (resultType == NavigateReturnType.GotoFilterReset) {
-                    ResetFilter(KeyTreeFilter.Current.GetFilterResetNode());
+                    ResetFilter(FilterState.StartFromScratch, KeyTreeFilter.Current.GetFilterResetNode());
                     return;
                 };
                 if (resultType == NavigateReturnType.IsCancelled)
                 {
                     if (viewModel.IsFiterReset)
                     {
-                        ResetFilter(KeyTreeFilter.Current.GetFilterResetNode());
+                        ResetFilter(FilterState.StartFromScratch, KeyTreeFilter.Current.GetFilterResetNode());
                         return;
                     }
                     return;
                 };
 
                 #region *// User requested to go one level down
+                State = FilterState.StartNextLevel;
                 var rootKeyTreeNode = viewModel.SelectedDisplayItem.Content as KeyTreeNodeBase;
-                ResetFilter(rootKeyTreeNode);
-                Title = $"Filter: {rootKeyTreeNode.NodeId}";
+                ResetFilter(FilterState.StartNextLevel, rootKeyTreeNode);
+                Title = $"{FILTER_TITLE}: {rootKeyTreeNode.NodeId}";
                 #endregion
             }
             catch (Exception ex)

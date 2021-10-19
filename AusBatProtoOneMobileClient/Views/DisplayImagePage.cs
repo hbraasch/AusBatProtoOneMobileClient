@@ -22,7 +22,6 @@ namespace AusBatProtoOneMobileClient
                 Aspect = Aspect.AspectFit,
                 ErrorPlaceholder = "bat.png"
             };
-            image.Transformations.Add(new CircleTransformation());
             image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayImagePageViewModel.ImageSource), BindingMode.OneWay));
 
             Title = "Image display";
@@ -40,6 +39,7 @@ namespace AusBatProtoOneMobileClient
 
 
             Content = centeredLayout;
+            BackgroundColor = Color.Black;
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });

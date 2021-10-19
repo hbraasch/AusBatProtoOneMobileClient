@@ -19,6 +19,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
             get { return (ICommand)GetValue(OnChangedProperty); }
             set { SetValue(OnChangedProperty, value); }
         }
+        #endregion
 
         // Reactive extensions
         #region *// Used to debounce the search text. Only start search action after a 1 second delay of no input
@@ -38,10 +39,11 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 .Subscribe((text) =>
                 Device.BeginInvokeOnMainThread(() =>
                     {
+                        this.Unfocus();
                         if (!string.IsNullOrEmpty(text)) OnChanged?.Execute(null);
                     }));
         }
-        #endregion
+
 
 
     }

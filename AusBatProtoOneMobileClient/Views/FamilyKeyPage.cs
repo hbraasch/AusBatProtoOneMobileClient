@@ -22,11 +22,12 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var characterListView = new ListView { 
+            var characterListView = new ListView(ListViewCachingStrategy.RetainElement) { 
                 SelectionMode = ListViewSelectionMode.None,
                 SeparatorColor = Constants.APP_COLOUR,
-                HasUnevenRows = false
+                HasUnevenRows = false,
             };
+
             characterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
             characterListView.ItemTemplate = new TemplateSelector(this);
 
@@ -136,7 +137,7 @@ namespace DocGenOneMobileClient.Views
                     var descripionLayout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, image } };
 
                     var valueEntry = new TriggerEntry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
-                    valueEntry.Behaviors.Add(new Xamarin.CommunityToolkit.Behaviors.NumericValidationBehavior() { MinimumValue = 0 });
+                    // valueEntry.Behaviors.Add(new Xamarin.CommunityToolkit.Behaviors.NumericValidationBehavior() { MinimumValue = 0 });
                     valueEntry.SetBinding(TriggerEntry.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Value), BindingMode.TwoWay));
                     valueEntry.SetBinding(TriggerEntry.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.OnChanged), BindingMode.TwoWay));
 
