@@ -1268,7 +1268,7 @@
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" BaseSize="150,150" />
-    <SharedImage Include="Images\background.png" BaseSize="500,500" />
+    <SharedImage Include="Images\background.png" BaseSize="1000,1000" />
     <SharedImage Include="Images\ic_hamburger.png" BaseSize="50,50" />
     <SharedImage Include="Images\photos.png" BaseSize="50,50" />
     <SharedImage Include="Images\sounds.png" BaseSize="50,50" />

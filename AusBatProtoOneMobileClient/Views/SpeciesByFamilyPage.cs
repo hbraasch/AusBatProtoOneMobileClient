@@ -59,7 +59,6 @@ namespace DocGenOneMobileClient.Views
             Title = "Species by Family";
 
             Content = finalLayout;
-            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });

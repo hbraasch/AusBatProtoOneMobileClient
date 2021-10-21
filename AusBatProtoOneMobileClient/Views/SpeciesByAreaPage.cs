@@ -61,7 +61,6 @@ namespace DocGenOneMobileClient.Views
             Title = "Filter results";
 
             Content = finalLayout;
-            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("home", "Home", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })

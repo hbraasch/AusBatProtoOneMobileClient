@@ -55,28 +55,29 @@ namespace AusBatProtoOneMobileClient.ViewModels
         {
             this.Species = species;
 
+            ImageDataItems = new ObservableCollection<ImageDataItem>(); 
+            DetailsHtmlSource = new HtmlWebViewSource();
+            CallDisplayItems = new ObservableCollection<CallDataItem>();
+        }
+
+        public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => {
             var imageDataItems = new ObservableCollection<ImageDataItem>();
-            foreach (var imageSource in species.Images)
+            foreach (var imageSource in Species.Images)
             {
                 imageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
             }
             ImageDataItems = imageDataItems;
 
-            DetailsHtmlSource = new HtmlWebViewSource();
-            DetailsHtmlSource.Html = species.DetailsHtml;
+            DetailsHtmlSource.Html = Species.DetailsHtml;
 
-            DistributionMapImage = species.DistributionMapImage;
+            DistributionMapImage = Species.DistributionMapImage;
 
             var callDisplayItems = new ObservableCollection<CallDataItem>();
-            foreach (var callImage in species.CallImages)
+            foreach (var callImage in Species.CallImages)
             {
-                callDisplayItems.Add(new CallDataItem { ImageSource = callImage }); 
+                callDisplayItems.Add(new CallDataItem { ImageSource = callImage });
             }
             CallDisplayItems = callDisplayItems;
-        }
-
-        public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => { 
-        
         });
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });

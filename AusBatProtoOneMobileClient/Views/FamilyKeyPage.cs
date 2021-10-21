@@ -77,7 +77,6 @@ namespace DocGenOneMobileClient.Views
             Title = "Filter";
             SetBinding(Page.TitleProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
 
-            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
             var menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
