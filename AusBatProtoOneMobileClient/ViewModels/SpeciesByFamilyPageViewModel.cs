@@ -80,7 +80,7 @@ namespace DocGenOneMobileClient.Views
                     ActivityIndicatorStop();
                 });
 
-                UpdateDisplay();
+                FamilyGroupDisplayItems = UpdateDisplay();
 
 
             }
@@ -98,10 +98,10 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public void UpdateDisplay()
+        public ObservableCollection<GroupedSpeciesDisplayItem> UpdateDisplay()
         {
 
-            FamilyGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            var list = new ObservableCollection<GroupedSpeciesDisplayItem>();
 
             foreach (var family in App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Family))
             {
@@ -122,28 +122,14 @@ namespace DocGenOneMobileClient.Views
                         }); 
                     }
                 }
-                FamilyGroupDisplayItems.Add(familyGroupDisplayItem);
+                list.Add(familyGroupDisplayItem);
             }
-            Debug.WriteLine($"Data count: {FamilyGroupDisplayItems.Count}"); 
-
+            Debug.WriteLine($"Data count: {list.Count}");
+            return list;
         }
 
 
-        public ICommand OnSubsequentAppearance => new Command(() =>
-        {
-            try
-            {
-                ActivityIndicatorStart();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.CompleteMessage());
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
+        public ICommand OnSubsequentAppearance => new Command(async () => { try { await ActivityIndicatorStart(); } catch (Exception ex) { Debug.WriteLine(ex.CompleteMessage()); } finally { ActivityIndicatorStop(); } });
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {

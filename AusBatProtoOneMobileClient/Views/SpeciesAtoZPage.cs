@@ -1,9 +1,12 @@
-﻿using AusBatProtoOneMobileClient.Models;
+﻿using AusBatProtoOneMobileClient.Helpers;
+using AusBatProtoOneMobileClient.Models;
 using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using static DocGenOneMobileClient.Views.SpeciesAtoZPageViewModel;
 
 namespace DocGenOneMobileClient.Views
@@ -19,7 +22,7 @@ namespace DocGenOneMobileClient.Views
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var listView = new ListView {
+            var listView = new ListView() {
                 SelectionMode = ListViewSelectionMode.Single,
                 HasUnevenRows = true,
                 IsGroupingEnabled = true,
@@ -40,22 +43,24 @@ namespace DocGenOneMobileClient.Views
                 Orientation = ScrollOrientation.Vertical
             };
 
+            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
+
             var finalLayout = new AbsoluteLayout
             {
-                Children = { listViewLayout, activityIndicator },
+                Children = { backgroundImage, listViewLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = 5
+                Margin = 5,
             };
+            AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(listViewLayout, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(listViewLayout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Species by Family";
-
+            Title = "Species";
             Content = finalLayout;
-            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
@@ -107,12 +112,15 @@ namespace DocGenOneMobileClient.Views
 
             public ListViewGroupTemplate()
             {
-
-                var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.APP_COLOUR, FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))};
+                var speciesNameLabel = new Label { 
+                    VerticalTextAlignment = TextAlignment.Center, 
+                    TextColor = Constants.APP_COLOUR, 
+                    Margin = 5
+                };
                 speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SpeciesAtoZPageViewModel.GroupedSpeciesDisplayItem.Alphabet), BindingMode.TwoWay));
 
-
-                View = new StackLayout { Orientation = StackOrientation.Vertical, Children = { speciesNameLabel }, Margin = 5 };
+                var color = (DeviceInfo.Platform != DevicePlatform.iOS) ? Color.Transparent : Color.Black;
+                View = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { speciesNameLabel }, BackgroundColor = color};
 
             }
 

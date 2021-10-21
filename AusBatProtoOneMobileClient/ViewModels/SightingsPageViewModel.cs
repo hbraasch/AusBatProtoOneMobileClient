@@ -119,11 +119,11 @@ namespace DocGenOneMobileClient.Views
         }
 
 
-        public ICommand OnSubsequentAppearance => new Command(() =>
+        public ICommand OnSubsequentAppearance => new Command(async () =>
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
             }
             catch (Exception ex)
             {
@@ -211,7 +211,7 @@ namespace DocGenOneMobileClient.Views
 
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
                 var result = await Application.Current.MainPage.DisplayPromptAsync("Mail", "Enter email address", "Send", "Cancel", keyboard: Keyboard.Email );
                 if (result == null) return;

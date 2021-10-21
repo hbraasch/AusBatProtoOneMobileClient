@@ -1,5 +1,6 @@
 ﻿using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.iOS;
+using System.Threading.Tasks;
 using UIKit;
 using Xamarin.Forms;
 
@@ -12,6 +13,11 @@ namespace AusBatProtoOneMobileClient.iOS
         {
             var x = UIImage.FromBundle(image);
             return x != null;
+        }
+
+        Task<bool> IImageChecker.DoesImageExist(string image)
+        {
+            return Task.FromResult(DoesImageExist(image));
         }
     }
 }

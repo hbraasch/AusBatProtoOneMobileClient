@@ -243,8 +243,10 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnInitPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart("Initializing...");
+                await CommandHelper.DoEvents();
                 await App.dbase.Init();
+                await Application.Current.MainPage.DisplayAlert("Notice", "Init completed", "Ok");
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {

@@ -133,11 +133,11 @@ namespace DocGenOneMobileClient.Views
         }
 
 
-        public ICommand OnSubsequentAppearance => new Command(() =>
+        public ICommand OnSubsequentAppearance => new Command(async () =>
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
             }
             catch (Exception ex)
             {

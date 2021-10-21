@@ -1,5 +1,6 @@
 ﻿using AusBatProtoOneMobileClient.ViewModels;
 using Mobile.Helpers;
+using Xamarin.Essentials;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
@@ -22,13 +23,26 @@ namespace AusBatProtoOneMobileClient
 
             Title = viewModel.Species.Name;
             displayBatImagesTabPage = new DisplaySpeciesImageTabPage(viewModel);
-            displayBatImagesTabPage.IconImageSource = "ic_photos.png";
             displayBatDetailsTabPage = new DisplaySpeciesDetailsTabPage(viewModel);
-            displayBatDetailsTabPage.IconImageSource = "ic_details.png";
             displayBatRegionsTabPage = new DisplaySpeciesDistributionTabPage(viewModel);
-            displayBatRegionsTabPage.IconImageSource = "ic_regions.png";
             displayBatCallTabPage = new DisplaySpeciesCallTabPage(viewModel);
-            displayBatCallTabPage.IconImageSource = "ic_sounds.png";
+
+            #region *// Provide icons. IOS does not accept Resizetizer icons. IOS needs them in Resources folder set as [Bundled Resource]
+            if (DeviceInfo.Platform != DevicePlatform.iOS)
+            {
+                displayBatRegionsTabPage.IconImageSource = "world.png";
+                displayBatDetailsTabPage.IconImageSource = "text.png";
+                displayBatImagesTabPage.IconImageSource = "photos.png";
+                displayBatCallTabPage.IconImageSource = "sounds.png";
+            }
+            else
+            {
+                displayBatRegionsTabPage.IconImageSource = "world_ios.png";
+                displayBatDetailsTabPage.IconImageSource = "text_ios.png";
+                displayBatImagesTabPage.IconImageSource = "photos_ios.png";
+                displayBatCallTabPage.IconImageSource = "sounds_ios.png";
+            } 
+            #endregion
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
             Children.Add(displayBatRegionsTabPage);

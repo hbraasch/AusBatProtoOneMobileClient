@@ -26,7 +26,8 @@ namespace DocGenOneMobileClient.Views
             {
                 SelectionMode = ListViewSelectionMode.Single,
                 SeparatorColor = Constants.APP_COLOUR,
-                HasUnevenRows = true
+                HasUnevenRows = true,
+                BackgroundColor = Color.Transparent
             };
             keyTreeNodesListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyResultPageViewModel.DisplayItems), BindingMode.TwoWay));
             keyTreeNodesListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(FamilyKeyResultPageViewModel.SelectedDisplayItem), BindingMode.TwoWay));
@@ -35,13 +36,17 @@ namespace DocGenOneMobileClient.Views
                 viewModel.OnSelectPressed.Execute(null);
             };
 
+            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
+
             var finalLayout = new AbsoluteLayout
             {
-                Children = { keyTreeNodesListView, activityIndicator },
+                Children = { backgroundImage, keyTreeNodesListView, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
+            AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(keyTreeNodesListView, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(keyTreeNodesListView, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);

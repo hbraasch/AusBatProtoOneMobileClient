@@ -1,4 +1,5 @@
 ﻿using AusBatProtoOneMobileClient.Models;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,16 +7,19 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using TouchTracking;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Views.Components
 {
-    public class Map : Grid
+    public class Map : Grid 
     {
         float aspect = (float)( 378.0/ 398.0);
+        float screenFraction = 0.5f;
 
         public static readonly BindableProperty SelectedItemsProperty = BindableProperty.Create("SelectedItems", typeof(ObservableCollection<MapRegion>), typeof(Map), new ObservableCollection<MapRegion>(), propertyChanged: OnSelectedChanged);
 
+        [SuppressPropertyChangedWarnings]
         private static void OnSelectedChanged(BindableObject bindable, object oldValue, object newValue)
         {
             var context = bindable as Map;
@@ -36,12 +40,15 @@ namespace AusBatProtoOneMobileClient.Views.Components
             set { SetValue(IsSelectableProperty, value); }
         }
 
+
         public Map()
         {
+
+
             absoluteLayout = new AbsoluteLayout();
             frame = new Frame();
             frame.Content = absoluteLayout;
-            frame.BorderColor = Color.Black;
+            frame.BorderColor = Color.Red;
             frame.Padding = 0;
             frame.Margin = 0;
             frame.CornerRadius = 0;
@@ -70,12 +77,12 @@ namespace AusBatProtoOneMobileClient.Views.Components
         {
 
             var layeredImages = new List<string>();
-            layeredImages.Add("Map000.png");
+            layeredImages.Add("map000.png");
             if (items != null)
             {
                 foreach (var item in items)
                 {
-                    layeredImages.Add($"Map{item.Id:000}.png");
+                    layeredImages.Add($"map{item.Id:000}.png");
                 }
             }
 
@@ -96,10 +103,12 @@ namespace AusBatProtoOneMobileClient.Views.Components
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
-            WidthRequest = 400;
+            WidthRequest = Math.Min(App.screenWidth, App.screenHeight) * screenFraction;
             HeightRequest = WidthRequest * aspect;
-            frame.WidthRequest = 400;
-            frame.HeightRequest = WidthRequest * aspect;
+            frame.WidthRequest = WidthRequest;
+            frame.HeightRequest = HeightRequest;
+            absoluteLayout.WidthRequest = WidthRequest;
+            absoluteLayout.HeightRequest = HeightRequest;
         }
 
         private void OnTouchEffectAction(object sender, TouchActionEventArgs args)

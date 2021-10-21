@@ -91,7 +91,6 @@ namespace AusBatProtoOneMobileClient
             grid.Children.Add(speciesAtozButton, 0, 2);
             grid.Children.Add(speciesByFamilyButton, 0, 3);
             grid.Children.Add(areaListingButton, 0, 4);
-            //grid.Children.Add(characterKeysButton, 0, 5);
             grid.Children.Add(aboutButton, 0, 5);
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
@@ -119,7 +118,8 @@ namespace AusBatProtoOneMobileClient
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("sightings", "Sightings", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnSightingsPressed.Execute(null); })
-                .AddMenuItem("dev", "Development", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
+                .AddMenuItem("dev", "Development", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnSightingsPressed.Execute(null); })
+                .AddSubMenuItem("dev", "init", "Init", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(StartupPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));

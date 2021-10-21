@@ -96,21 +96,7 @@ namespace DocGenOneMobileClient.Views
         }
 
 
-        public ICommand OnSubsequentAppearance => new Command(() =>
-        {
-            try
-            {
-                ActivityIndicatorStart();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.CompleteMessage());
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
+        public ICommand OnSubsequentAppearance => new Command(async () => { try { await ActivityIndicatorStart(); } catch (Exception ex) { Debug.WriteLine(ex.CompleteMessage()); } finally { ActivityIndicatorStop(); } });
 
         public ICommand OnBackMenuPressed => new Command(() =>
         {
@@ -129,7 +115,7 @@ namespace DocGenOneMobileClient.Views
             try
             {
 
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
 
                 DisplayItems = UpdateDisplay();
@@ -152,7 +138,7 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 if (SelectedItem == null) return;
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
 
                 UpdateDisplay();
@@ -201,7 +187,7 @@ namespace DocGenOneMobileClient.Views
 
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
 
             }

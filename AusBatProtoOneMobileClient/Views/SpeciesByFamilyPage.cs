@@ -3,6 +3,7 @@ using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using static DocGenOneMobileClient.Views.SpeciesByFamilyPageViewModel;
 
@@ -39,13 +40,17 @@ namespace DocGenOneMobileClient.Views
                 Orientation = ScrollOrientation.Vertical
             };
 
+            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
+
             var finalLayout = new AbsoluteLayout
             {
-                Children = { listViewLayout, activityIndicator },
+                Children = { backgroundImage, listViewLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
+            AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(listViewLayout, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(listViewLayout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
@@ -107,10 +112,15 @@ namespace DocGenOneMobileClient.Views
             public ListViewGroupTemplate()
             {
 
-                var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.APP_COLOUR, FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label))};
+                var speciesNameLabel = new Label { 
+                    VerticalTextAlignment = TextAlignment.Center, 
+                    TextColor = Constants.APP_COLOUR,
+                    Margin = 5
+                };
                 speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GroupedSpeciesDisplayItem.FamilyName), BindingMode.TwoWay));
 
-                View = new StackLayout { Orientation = StackOrientation.Vertical, Children = { speciesNameLabel }, Margin = 5 };
+                var color = (DeviceInfo.Platform != DevicePlatform.iOS) ? Color.Transparent : Color.Black;
+                View = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { speciesNameLabel }, BackgroundColor = color };
 
             }
 

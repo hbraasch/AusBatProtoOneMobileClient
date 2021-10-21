@@ -255,11 +255,11 @@ namespace DocGenOneMobileClient.Views
 
 
 
-        public ICommand OnSubsequentAppearance => new Command(() =>
+        public ICommand OnSubsequentAppearance => new Command(async () =>
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
             }
             catch (Exception ex)
             {
@@ -352,7 +352,7 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
                 var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
                 ConductSearch(CurrentPromptKeyTreeNode, activeCharacterDisplayItem, ref CurrentTriggeredKeyTreeNodes, ref UsedPromptCharacters, ref HasRegionFilterBeenUsed);
@@ -430,7 +430,7 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
 
                 #region *// Replace genus nodes with only single species to species node 
@@ -489,7 +489,7 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
 
                 var viewModel = new DisplayImagePageViewModel(imageSource);
                 var page = new DisplayImagePage(viewModel);

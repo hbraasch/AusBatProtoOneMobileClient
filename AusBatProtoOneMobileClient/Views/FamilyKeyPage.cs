@@ -26,6 +26,7 @@ namespace DocGenOneMobileClient.Views
                 SelectionMode = ListViewSelectionMode.None,
                 SeparatorColor = Constants.APP_COLOUR,
                 HasUnevenRows = false,
+                BackgroundColor = Color.Transparent
             };
 
             characterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
@@ -57,13 +58,17 @@ namespace DocGenOneMobileClient.Views
 
             var layout = new StackLayout { Children = {characterListView, resultFrame } , HorizontalOptions = LayoutOptions.FillAndExpand };
 
+            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
+
             var finalLayout = new AbsoluteLayout
             {
-                Children = { layout, activityIndicator },
+                Children = { backgroundImage, layout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
+            AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(layout, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(layout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);

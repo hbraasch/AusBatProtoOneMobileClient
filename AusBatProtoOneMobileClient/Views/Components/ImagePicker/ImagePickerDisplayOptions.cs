@@ -67,7 +67,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
             var overlayLayout = new AbsoluteLayout
             {
-                Children = { listViewFrame, displayImage },
+                Children = { displayImage, listViewFrame },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
@@ -113,24 +113,23 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
         internal class TemplateSelector : DataTemplateSelector
         {
-            DataTemplate numericDisplayDataTemplate;
+            DataTemplate displayDataTemplate;
 
             public TemplateSelector(ImagePickerDisplayOptions contentPage)
             {
-                numericDisplayDataTemplate = new DataTemplate(() => {
+                displayDataTemplate = new DataTemplate(() => {
 
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(PickerWithImagesDisplayData.Description), BindingMode.TwoWay));
 
                     var heightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 4;
-                    var image = new CachedImageWithTap
+                    var image = new ImageButtonWithTap
                     {
                         Aspect = Aspect.AspectFit,
-                        ErrorPlaceholder = "bat.png",
                         HeightRequest = heightRequest
                     };
-                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(PickerWithImagesDisplayData.ImageSource), BindingMode.OneWay));
-                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(PickerWithImagesDisplayData.OnImageTapped), BindingMode.TwoWay));
+                    image.SetBinding(ImageButtonWithTap.SourceProperty, new Binding(nameof(PickerWithImagesDisplayData.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(ImageButtonWithTap.OnTappedProperty, new Binding(nameof(PickerWithImagesDisplayData.OnImageTapped), BindingMode.TwoWay));
 
                     var grid = new Grid() { Margin = 5, BackgroundColor = Color.Transparent };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
@@ -146,7 +145,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
             }
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                return numericDisplayDataTemplate;
+                return displayDataTemplate;
             }
 
         }

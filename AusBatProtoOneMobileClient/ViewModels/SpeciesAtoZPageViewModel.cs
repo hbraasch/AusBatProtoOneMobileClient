@@ -74,12 +74,12 @@ namespace DocGenOneMobileClient.Views
 
                 cts = new CancellationTokenSource();
 
-                ActivityIndicatorStart(() => {
+                ActivityIndicatorStart("Please wait...",() => {
                     cts.Cancel();
                     ActivityIndicatorStop();
                 });
 
-                UpdateDisplay();
+                SpeciesGroupDisplayItems = UpdateDisplay();
 
 
             }
@@ -97,20 +97,20 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public void UpdateDisplay()
+        public ObservableCollection<GroupedSpeciesDisplayItem> UpdateDisplay()
         {
 
-            SpeciesGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            var list = new ObservableCollection<GroupedSpeciesDisplayItem>();
 
             var specieses = App.dbase.Species.OrderBy(species=>$"{species.GenusId} {species.SpeciesId}");
             GroupedSpeciesDisplayItem familyGroupDisplayItem = null;
             foreach (var species in specieses)
             {
                 var alphabet = species.GenusId.Substring(0, 1).ToUpper();
-                if (!SpeciesGroupDisplayItems.ToList().Exists(o => o.Alphabet == alphabet))
+                if (!list.ToList().Exists(o => o.Alphabet == alphabet))
                 {
                     familyGroupDisplayItem = new GroupedSpeciesDisplayItem { Alphabet = alphabet.ToUpper() };
-                    SpeciesGroupDisplayItems.Add(familyGroupDisplayItem);
+                    list.Add(familyGroupDisplayItem);
                 }
                 var imageSource = (species.Images.Count > 0) ? species.Images.First() : "bat.png";
                 familyGroupDisplayItem.Add(new SpeciesDisplayItem
@@ -121,13 +121,14 @@ namespace DocGenOneMobileClient.Views
                     Species = species
                 });                
             }
+            return list;
         }
 
-        public ICommand OnSubsequentAppearance => new Command(() =>
+        public ICommand OnSubsequentAppearance => new Command(async () =>
         {
             try
             {
-                ActivityIndicatorStart();
+                await ActivityIndicatorStart();
             }
             catch (Exception ex)
             {
