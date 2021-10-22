@@ -1,271 +1,33 @@
 {
   "NodeId": "Miniopteridae",
   "KeyIds": [
-    "UpperIncisors",
-    "TragusShape",
-    "UpperPreMolars",
-    "UpperCannes",
-    "TailMembrane",
-    "MuzzleStructure",
-    "NostrilShape",
-    "LowerEarMargin",
-    "ForearmLength"
+    "Forearm"
   ],
-  "KeyPrompts": [],
-  "KeyImages": [],
-  "Pickers": [
-    {
-      "Id": "UpperIncisors",
-      "OptionIds": [
-        "TwoPairsLargerToothBifid",
-        "TwoPairsInequalNeitherBifid",
-        "TwoPairsEqualNeitherBifid",
-        "TwoPairsEqialBothBifid",
-        "OnePair"
-      ],
-      "OptionPrompts": [
-        "2 pairs, inequal size, larger tooth bifid",
-        "2 pairs, inequal size, neither bifid",
-        "2 pairs, ± equal size, neither bifid",
-        "2 pairs, ± equal size, both bifid",
-        "1 pair"
-      ]
-    },
-    {
-      "Id": "TragusShape",
-      "OptionIds": [
-        "Orbicular",
-        "OblongLanceolate",
-        "Linear"
-      ],
-      "OptionPrompts": [
-        "Orbicular",
-        "Oblong lanceolate",
-        "Linear"
-      ]
-    },
-    {
-      "Id": "UpperPreMolars",
-      "OptionIds": [
-        "TwoPairs",
-        "TwoTriplets",
-        "OnePair"
-      ],
-      "OptionPrompts": [
-        "2 pairs",
-        "2 triplets",
-        "1 pair"
-      ]
-    },
-    {
-      "Id": "UpperCannes",
-      "OptionIds": [
-        "Smooth",
-        "LongitudinalGroove"
-      ],
-      "OptionPrompts": [
-        "Anterior surface smooth",
-        "Anterior surface with longitudinal groove"
-      ]
-    },
-    {
-      "Id": "TailMembrane",
-      "OptionIds": [
-        "SparseOrNaked",
-        "ObviousFur"
-      ],
-      "OptionPrompts": [
-        "Upper surface with sparse fur or naked",
-        "Upper surface with obvious fur"
-      ]
-    },
-    {
-      "Id": "MuzzleStructure",
-      "OptionIds": [
-        "Smooth",
-        "SmallTransverse"
-      ],
-      "OptionPrompts": [
-        "Smooth, without bare skin folds (furred ridge may be present)",
-        "Small transverse, projecting leaf immediately above nostrils"
-      ]
-    },
-    {
-      "Id": "NostrilShape",
-      "OptionIds": [
-        "Flat",
-        "Extended"
-      ],
-      "OptionPrompts": [
-        "Flat or with slight rim",
-        "Extended into distinct tubes"
-      ]
-    },
-    {
-      "Id": "LowerEarMargin",
-      "OptionIds": [
-        "SmallLobe",
-        "NoLobes"
-      ],
-      "OptionPrompts": [
-        "Small lobe on lower margin and lobe at the corner of the mouth",
-        "No lobes or other appendages"
-      ]
-    }
-  ],
+  "Pickers": [],
+  "FilterHint": "Please use the distribution filter to identify these species",
   "NodeRows": [
     {
-      "NodeId": "Chalinolobus",
+      "NodeId": "Miniopterus australis",
       "Values": [
-        "TwoPairsLargerToothBifid",
-        "Orbicular",
-        "TwoPairs",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "SmallLobe",
-        "31-48"
+        "37-41"
       ]
     },
     {
-      "NodeId": "Falsistrellus",
+      "NodeId": "Miniopterus orianae_bassanii",
       "Values": [
-        "TwoPairsInequalNeitherBifid",
-        "OblongLanceolate",
-        "TwoPairs",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "44-58"
+        "45-50"
       ]
     },
     {
-      "NodeId": "Murina",
+      "NodeId": "Miniopterus orianae_oceanensis",
       "Values": [
-        "TwoPairsEqualNeitherBifid",
-        "OblongLanceolate",
-        "TwoPairs",
-        "Smooth",
-        "ObviousFur",
-        "Smooth",
-        "Extended",
-        "NoLobes",
-        "32-36"
+        "45-50"
       ]
     },
     {
-      "NodeId": "Myotis",
+      "NodeId": "Miniopterus orianae_orianae",
       "Values": [
-        "TwoPairsEqialBothBifid",
-        "OblongLanceolate",
-        "TwoTriplets",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "36-43"
-      ]
-    },
-    {
-      "NodeId": "Nyctophilus",
-      "Values": [
-        "OnePair",
-        "OblongLanceolate",
-        "OnePair",
-        "Smooth",
-        "SparseOrNaked",
-        "SmallTransverse",
-        "Flat",
-        "NoLobes",
-        "30-50"
-      ]
-    },
-    {
-      "NodeId": "Phoniscus",
-      "Values": [
-        "OnePair",
-        "Linear",
-        "OnePair",
-        "LongitudinalGroove",
-        "ObviousFur",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "34-41"
-      ]
-    },
-    {
-      "NodeId": "Pipistrellus",
-      "Values": [
-        "TwoPairsLargerToothBifid",
-        "OblongLanceolate",
-        "TwoPairs",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "27-33"
-      ]
-    },
-    {
-      "NodeId": "Pipistrellus",
-      "Values": [
-        "TwoPairsInequalNeitherBifid",
-        "OblongLanceolate",
-        "TwoPairs",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "27-33"
-      ]
-    },
-    {
-      "NodeId": "Scoteanax",
-      "Values": [
-        "OnePair",
-        "OblongLanceolate",
-        "OnePair",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "50-57"
-      ]
-    },
-    {
-      "NodeId": "Scotorepens",
-      "Values": [
-        "OnePair",
-        "OblongLanceolate",
-        "TwoPairs",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "27-41"
-      ]
-    },
-    {
-      "NodeId": "Vespadelus",
-      "Values": [
-        "TwoPairsLargerToothBifid",
-        "OblongLanceolate",
-        "OnePair",
-        "Smooth",
-        "SparseOrNaked",
-        "Smooth",
-        "Flat",
-        "NoLobes",
-        "22-38"
+        "42-50"
       ]
     }
   ]

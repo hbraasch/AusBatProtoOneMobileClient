@@ -122,6 +122,8 @@ namespace AusBatProtoOneMobileClient.Models
                 {
                     dbase.Species.Add(LoadSpecies(item.Parent, item.Id));
                 }
+                PrintSpecies(dbase.Species);
+
                 dbase.KeyTree.EnhanceTree(dbase.Species);
                 dbase.KeyTree.PrintKeyTreeRegions();
 
@@ -164,10 +166,22 @@ namespace AusBatProtoOneMobileClient.Models
 
         private void PrintClassifications(List<Classification> classifications)
         {
+            Debug.WriteLine("Start of classifications");
             foreach (var classification in classifications)
             {
                 Debug.WriteLine($"{classification.Type.ToString()} {classification.Parent} {classification.Id}");
             }
+            Debug.WriteLine("End of classifications");
+        }
+
+        private void PrintSpecies(List<Species> speciesses)
+        {
+            Debug.WriteLine("Start of Species list");
+            foreach (var species in speciesses)
+            {
+                Debug.WriteLine($"{species.GenusId} {species.SpeciesId}");
+            }
+            Debug.WriteLine("End of Species list");
         }
 
 

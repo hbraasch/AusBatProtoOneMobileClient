@@ -98,7 +98,7 @@ namespace AusBatProtoOneMobileClient
             var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
 
             Title = Constants.APP_NAME;
-            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
+            BackgroundColor = Color.Black;
 
             var centeredLayout = new AbsoluteLayout
             {

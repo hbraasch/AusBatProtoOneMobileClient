@@ -17,7 +17,7 @@ namespace AusBatProtoOneMobileClient.Models
         public List<int> KeyDisplayOrders { get; set; } = new List<int>();
 
         public List<Picker> Pickers { get; set; } = new List<Picker>();
-
+        public string FilterHint { get; set; }
         public List<NodeRow> NodeRows { get; set; } = new List<NodeRow>();
 
         private static string filename;

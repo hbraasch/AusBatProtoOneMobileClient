@@ -126,7 +126,8 @@ namespace AusBatProtoOneMobileClient.Views.Components
                     var image = new ImageButtonWithTap
                     {
                         Aspect = Aspect.AspectFit,
-                        HeightRequest = heightRequest
+                        HeightRequest = heightRequest,
+                        BackgroundColor = Color.Transparent
                     };
                     image.SetBinding(ImageButtonWithTap.SourceProperty, new Binding(nameof(PickerWithImagesDisplayData.ImageSource), BindingMode.OneWay));
                     image.SetBinding(ImageButtonWithTap.OnTappedProperty, new Binding(nameof(PickerWithImagesDisplayData.OnImageTapped), BindingMode.TwoWay));

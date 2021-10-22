@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using Xamarin.Forms;
+using static DocGenOneMobileClient.Views.FamilyKeyPage.TemplateSelector;
 
 namespace DocGenOneMobileClient.Views
 {
@@ -21,6 +22,10 @@ namespace DocGenOneMobileClient.Views
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
+
+            var filterHintLabel = new Label { TextColor = Color.White };
+            filterHintLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterHint), BindingMode.TwoWay));
+            filterHintLabel.SetBinding(Label.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterHint), BindingMode.OneWay, new IsStringEmptyConverter() ));
 
             var characterListView = new ListView(ListViewCachingStrategy.RetainElement) { 
                 SelectionMode = ListViewSelectionMode.None,
@@ -56,7 +61,7 @@ namespace DocGenOneMobileClient.Views
 
             var resultFrame = new Frame { CornerRadius = 5, BorderColor = Constants.APP_COLOUR, Content = resultGrid, BackgroundColor = Color.Transparent, HorizontalOptions = LayoutOptions.FillAndExpand };
 
-            var layout = new StackLayout { Children = {characterListView, resultFrame } , HorizontalOptions = LayoutOptions.FillAndExpand };
+            var layout = new StackLayout { Children = {filterHintLabel, characterListView, resultFrame } , HorizontalOptions = LayoutOptions.FillAndExpand };
 
             var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
 
@@ -65,7 +70,6 @@ namespace DocGenOneMobileClient.Views
                 Children = { backgroundImage, layout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
@@ -76,7 +80,7 @@ namespace DocGenOneMobileClient.Views
 
             Title = "Filter";
             SetBinding(Page.TitleProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
-
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
             var menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
@@ -235,7 +239,7 @@ namespace DocGenOneMobileClient.Views
                 }
             }
 
-            private class IsStringEmptyConverter : IValueConverter
+            public class IsStringEmptyConverter : IValueConverter
             {
                 public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
                 {

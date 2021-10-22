@@ -86,7 +86,7 @@ namespace DocGenOneMobileClient.Views
         }
 
         public ObservableCollection<CharacterDisplayItemBase> CharacterDisplayItems { get; set; }
-
+        public string FilterHint { get; set; }
         public string FilterResult { get; set; }
         public string Title { get; set; }
 
@@ -131,6 +131,7 @@ namespace DocGenOneMobileClient.Views
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
                 FilterResult = NO_RESULTS_YET;
+                FilterHint = CurrentPromptKeyTreeNode.FilterHint;
 
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -345,7 +346,9 @@ namespace DocGenOneMobileClient.Views
             }
 
             CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
+            FilterHint = CurrentPromptKeyTreeNode.FilterHint;
             Title = FILTER_TITLE;
+
             InvalidateMenuCommand.Execute(null);
         }
         public ICommand OnFilterClicked => commandHelper.ProduceDebouncedCommand(async () =>

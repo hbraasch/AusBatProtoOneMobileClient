@@ -12,9 +12,10 @@ using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Views.Components
 {
-    public class Map : Grid
+    public class Map : Grid 
     {
-        float aspect = (float)( 7678.0/ 818.0);
+        float aspect = (float)( 378.0/ 398.0);
+        float screenFraction = 0.5f;
 
         public static readonly BindableProperty SelectedItemsProperty = BindableProperty.Create("SelectedItems", typeof(ObservableCollection<MapRegion>), typeof(Map), new ObservableCollection<MapRegion>(), propertyChanged: OnSelectedChanged);
 
@@ -39,32 +40,42 @@ namespace AusBatProtoOneMobileClient.Views.Components
             set { SetValue(IsSelectableProperty, value); }
         }
 
-        TouchEffect touchEffect;
+
         public Map()
         {
-            var width = Math.Min(App.screenWidth, App.screenHeight);
-            var height = width * aspect;
 
-            RowDefinitions.Add(new RowDefinition { Height = new GridLength(height, GridUnitType.Absolute) });
-            ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(width, GridUnitType.Absolute) });
 
-            BackgroundColor = Color.LightBlue;
+            absoluteLayout = new AbsoluteLayout();
+            frame = new Frame();
+            frame.Content = absoluteLayout;
+            frame.BorderColor = Color.Red;
+            frame.Padding = 0;
+            frame.Margin = 0;
+            frame.CornerRadius = 0;
+            frame.BackgroundColor = Color.Transparent;
+            frame.HorizontalOptions = LayoutOptions.Center;
+            frame.VerticalOptions = LayoutOptions.Center;
 
+
+            TouchEffect touchEffect = new TouchEffect();
+            touchEffect.TouchAction += OnTouchEffectAction;
+            Effects.Add(touchEffect);
+
+            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             HorizontalOptions = LayoutOptions.Center;
             VerticalOptions = LayoutOptions.Center;
 
-            touchEffect = new TouchEffect();
-            touchEffect.TouchAction += OnTouchEffectAction;
-
-            Effects.Add(touchEffect);
+            Children.Add(frame, 0, 0);
 
             MakeItemsVisible(SelectedItems);
         }
 
-        Image image;
+        AbsoluteLayout absoluteLayout;
+        Frame frame;
         private void MakeItemsVisible(ObservableCollection<MapRegion> items)
         {
-            
+
             var layeredImages = new List<string>();
             layeredImages.Add("map000.png");
             if (items != null)
@@ -75,23 +86,29 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 }
             }
 
-            Children.Clear();
+            absoluteLayout.Children.Clear();
             foreach (var layeredImage in layeredImages)
             {
                 var image = new Image { Source = layeredImage, 
                     Aspect = Aspect.AspectFit ,
-                    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                    WidthRequest = Math.Min(App.screenWidth, App.screenHeight),
-                    HeightRequest = WidthRequest * aspect,
                 };
-                Children.Add(image,0,0);
+                absoluteLayout.Children.Add(image);
+                AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
+                AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
             }
+            
+
         }
 
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
-
+            WidthRequest = Math.Min(App.screenWidth, App.screenHeight) * screenFraction;
+            HeightRequest = WidthRequest * aspect;
+            frame.WidthRequest = WidthRequest;
+            frame.HeightRequest = HeightRequest;
+            absoluteLayout.WidthRequest = WidthRequest;
+            absoluteLayout.HeightRequest = HeightRequest;
         }
 
         private void OnTouchEffectAction(object sender, TouchActionEventArgs args)
@@ -99,17 +116,17 @@ namespace AusBatProtoOneMobileClient.Views.Components
             switch (args.Type)
             {
                 case TouchActionType.Pressed:
-#if true
-                    Debug.WriteLine($"Width: {Bounds.Width} Height: {Bounds.Height}");
+#if false
+                    Debug.WriteLine($"Width: {frame.Bounds.Width} Height: {frame.Bounds.Height}");
                     Debug.WriteLine($"Left: {args.Location.X} Top: {args.Location.Y}");
-                    Debug.WriteLine($"Left%: {args.Location.X / Bounds.Width:N2} Top%: {args.Location.Y / Bounds.Height:N2}"); 
+                    Debug.WriteLine($"Left%: {args.Location.X / frame.Bounds.Width:N2} Top%: {args.Location.Y / frame.Bounds.Height:N2}"); 
 #endif
                     foreach (var mapRegion in App.dbase.MapRegions)
                     {
                         foreach (var hotspot in mapRegion.Hotspots)
                         {
-                            var left = args.Location.X / Bounds.Width;
-                            var top = args.Location.Y / Bounds.Height;
+                            var left = args.Location.X / frame.Bounds.Width;
+                            var top = args.Location.Y / frame.Bounds.Height;
                             if (IsInside(hotspot.Center, hotspot.Radius, left, top))
                             {
                                 Debug.WriteLine($"Region: {mapRegion.Id} pressed");

@@ -49,7 +49,6 @@ namespace DocGenOneMobileClient.Views
                 Children = { backgroundImage, listViewLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
@@ -61,6 +60,7 @@ namespace DocGenOneMobileClient.Views
             Title = "Filter results";
 
             Content = finalLayout;
+            BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("home", "Home", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })

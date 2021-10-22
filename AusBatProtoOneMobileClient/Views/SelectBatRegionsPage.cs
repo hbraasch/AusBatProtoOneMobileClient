@@ -17,11 +17,15 @@ namespace AusBatProtoOneMobileClient
             BindingContext = viewModel;
             var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
             var map = new Map { IsSelectable = true };
-            map.WidthRequest = mainDisplayInfo.Width;
             map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(SelectBatRegionsPageViewModel.SelectedMapRegions), BindingMode.TwoWay));
 
             Title = "Regions";
             BackgroundColor = Color.Black;
+
+            var layout = new AbsoluteLayout();
+            layout.Children.Add(map);
+            AbsoluteLayout.SetLayoutFlags(map, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(map, new Rectangle(0.5, 0.5, 1, 1));
 
             Content = map;
 

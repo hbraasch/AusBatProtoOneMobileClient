@@ -23,6 +23,7 @@ namespace AusBatProtoOneMobileClient.Models
             public string NodeId { get; set; }
             public Guid NodeGuid { get; set; }
             public KeyTreeNode Parent { get; set; }
+            public string FilterHint { get; set; }
             public List<KeyTreeNodeBase> Children { get; set; } = new List<KeyTreeNodeBase>();
 
             #region *// Prompt => Trigger relation
@@ -131,7 +132,7 @@ namespace AusBatProtoOneMobileClient.Models
                 level++;
                 var treeNode = new KeyTreeNode { NodeId = nodeId, NodeGuid = nodeGuid, Parent = parentTreeNode };
                 var treeNodeKeyTable = KeyTable.Load(parentKeyTable?.NodeId??"Family", nodeId);
-                treeNodeKeyTable.PrintData(level);
+                // treeNodeKeyTable.PrintData(level);
                 if (treeNodeKeyTable == null) return treeNode;
                 var subNodeIds = treeNodeKeyTable.NodeRows.Select(o => o.NodeId).ToList();
                 for(int rowIndex = 0; rowIndex < subNodeIds.Count; rowIndex++)
@@ -157,8 +158,9 @@ namespace AusBatProtoOneMobileClient.Models
                 foreach (var childNode in treeNode.Children)
                 {
                     childNode.TriggerCharactersForSelf = GenerateTriggerCharacters(treeNodeKeyTable, childNode.NodeId, childNode.NodeGuid);
-                } 
+                }
                 #endregion
+                treeNode.FilterHint = (treeNodeKeyTable.FilterHint.IsEmpty()) ? "": treeNodeKeyTable.FilterHint;
                 return treeNode;
             }
 
@@ -396,12 +398,14 @@ namespace AusBatProtoOneMobileClient.Models
 
         public void PrintKeyTree()
         {
+            Debug.WriteLine("Start of KeyTree");
             var traverser = new KeyTreeTraverser((parent, current, level) =>
             {
                 Debug.WriteLine($"{Indent(level)}Parent = {parent?.NodeId} Current = {current.NodeId} Level: {level}");
                 return KeyTreeTraverser.ExitAction.Continue;
             });
             traverser.Execute();
+            Debug.WriteLine("End of KeyTree");
 
             string Indent(int totalLength)
             {
@@ -412,9 +416,11 @@ namespace AusBatProtoOneMobileClient.Models
                 }
                 return result;
             }
+
         }
         public void PrintKeyTreeRegions()
         {
+            Debug.WriteLine("Start of KeyTree Regions");
             var traverser = new KeyTreeTraverser((parent, current, level) =>
             {
                 var regionIdsString = "";
@@ -423,6 +429,7 @@ namespace AusBatProtoOneMobileClient.Models
                 return KeyTreeTraverser.ExitAction.Continue;
             });
             traverser.Execute();
+            Debug.WriteLine("End of KeyTree Regions");
 
             string Indent(int totalLength)
             {

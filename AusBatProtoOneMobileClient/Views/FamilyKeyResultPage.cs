@@ -43,7 +43,6 @@ namespace DocGenOneMobileClient.Views
                 Children = { backgroundImage, keyTreeNodesListView, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
