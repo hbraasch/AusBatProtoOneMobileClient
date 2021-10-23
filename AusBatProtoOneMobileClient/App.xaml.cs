@@ -2,6 +2,7 @@
 using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
 using Mobile.Models;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using Xamarin.Essentials;
@@ -15,6 +16,7 @@ namespace AusBatProtoOneMobileClient
         public static Dbase dbase;
         public static double screenWidth;
         public static double screenHeight;
+        public static Action<bool> OnFlipHandler;
         public App()
         {
             InitializeComponent();
@@ -39,6 +41,7 @@ namespace AusBatProtoOneMobileClient
         void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
         {
             UpdateScreenSizeInfo(e.DisplayInfo);
+            OnFlipHandler?.Invoke(e.DisplayInfo.Orientation == DisplayOrientation.Portrait);
         }
 
         void UpdateScreenSizeInfo(DisplayInfo displayInfo)
