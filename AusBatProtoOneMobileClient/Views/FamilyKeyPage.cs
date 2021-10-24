@@ -78,7 +78,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Filter";
+            Title = "Filter:";
             SetBinding(Page.TitleProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;

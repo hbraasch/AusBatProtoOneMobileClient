@@ -23,7 +23,7 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-        const string FILTER_TITLE = "Filter";
+        const string FILTER_TITLE = "Filter:";
         const string NO_RESULTS_YET = "(0) results";
 
         private enum FilterState

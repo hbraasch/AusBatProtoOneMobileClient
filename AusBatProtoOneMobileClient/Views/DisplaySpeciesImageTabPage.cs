@@ -29,12 +29,13 @@ namespace AusBatProtoOneMobileClient
 
                 var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
-                var image = new CachedImage
+                var image = new Image
                 {
-                    Aspect = Aspect.AspectFit,
+                    Aspect = Aspect.AspectFit,                   
                 };
+
                 image.WidthRequest = mainDisplayInfo.Width;
-                image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
+                image.SetBinding(Image.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
 
                 return image; 
             });
@@ -42,7 +43,7 @@ namespace AusBatProtoOneMobileClient
             var indicatorView = new IndicatorView
             {
                 IndicatorColor = Color.LightGray,
-                SelectedIndicatorColor = Color.DarkGray,
+                SelectedIndicatorColor = Constants.APP_COLOUR,
                 HorizontalOptions = LayoutOptions.Center,
                 IndicatorsShape = IndicatorShape.Square,
                 IndicatorSize = 18
@@ -77,11 +78,11 @@ namespace AusBatProtoOneMobileClient
             if (isFirstAppearance)
             {
                 isFirstAppearance = false;
-                // viewModel.OnDisplayBatImageFirstAppearance.Execute(null);
+                viewModel.OnFirstAppearance.Execute(null);
             }
             else
             {
-                // viewModel.OnDisplayBatImageSubsequentAppearance.Execute(null);
+                viewModel.OnSubsequentAppearance.Execute(null);
             }
         }
     }

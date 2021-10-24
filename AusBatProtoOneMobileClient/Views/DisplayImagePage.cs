@@ -24,7 +24,7 @@ namespace AusBatProtoOneMobileClient
             };
             image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayImagePageViewModel.ImageSource), BindingMode.OneWay));
 
-            Title = "Image display";
+            Title = "Image display:";
             var centeredLayout = new AbsoluteLayout
             {
                 Children = { image, activityIndicator },

@@ -22,6 +22,8 @@ namespace AusBatProtoOneMobileClient.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            ObjCRuntime.Class.ThrowOnInitFailure = false;
+
             global::Xamarin.Forms.Forms.Init();
             CachedImageRenderer.Init();
             LoadApplication(new App());

@@ -57,7 +57,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Filter results";
+            Title = "Filter results:";
 
             Content = finalLayout;
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;

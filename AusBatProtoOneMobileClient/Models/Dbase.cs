@@ -133,7 +133,8 @@ namespace AusBatProtoOneMobileClient.Models
                 {
                     species.LoadDetails();
                     await species.LoadImages();
-                    await species.LoadCalls();
+                    species.LoadCalls();
+                    species.LoadDistributionMaps();
                 }
 
                 #endregion

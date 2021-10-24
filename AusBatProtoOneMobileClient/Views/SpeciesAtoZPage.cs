@@ -58,7 +58,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Species";
+            Title = "Species:";
             Content = finalLayout;
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 

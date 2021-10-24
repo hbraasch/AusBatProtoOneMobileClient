@@ -51,7 +51,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Select to filter";
+            Title = "Select to filter:";
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
             var menu = new MenuGenerator().Configure()

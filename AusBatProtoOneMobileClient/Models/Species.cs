@@ -64,33 +64,58 @@ namespace AusBatProtoOneMobileClient.Data
             var toRemoveImages = new List<string>();
             foreach (var imageName in Images)
             {
-                if (!await ImageChecker.DoesImageExist(imageName))
+                if (imageName.Contains("head"))
                 {
-                    toRemoveImages.Add(imageName);
+                    // Check is [SharedImage] exists
+                    if (!await ImageChecker.DoesImageExist(imageName))
+                    {
+                        Debug.WriteLine($"SharedImage [{imageName}] for species [{speciesName}] is missing");
+                        toRemoveImages.Add(imageName);
+                        continue;
+                    }
                 }
+                #region *// Check if hires image exists
+                if (!File.Exists(HiresImages.GetFullFilename(imageName)))
+                {
+                    Debug.WriteLine($"Hires image [{imageName}] for species [{speciesName}] is missing");
+                    toRemoveImages.Add(imageName);
+                    continue;
+                } 
+                #endregion
             }
             toRemoveImages.ForEach(o => Images.Remove(o));
 
             if (Images.Count == 0)
             {
-                Debug.WriteLine($"No images exist for[speciesName]");
+                Debug.WriteLine($"Missing images exist for species [{speciesName}]");
                 Images.Add("bat.png");
             }
         }
-        internal async Task LoadCalls()
+        internal void LoadCalls()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat();
 
             CallImages.Clear();
 
-            if (await ImageChecker.DoesImageExist(imageName))
+            if (File.Exists(HiresImages.GetFullFilename(imageName)))
             {
                 CallImages.Add(imageName);
             }
             else
             {
                 Debug.WriteLine($"No call images exist for[{speciesName}]");
+            }
+        }
+
+        internal void LoadDistributionMaps()
+        {
+            var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
+            var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_dist.jpg".ToAndroidFilenameFormat();
+
+            if (!File.Exists(HiresImages.GetFullFilename(DistributionMapImage)))
+            {
+                Debug.WriteLine($"No distribution map exist for[{speciesName}]");
             }
         }
 

@@ -22,7 +22,7 @@ namespace AusBatProtoOneMobileClient
             map = new Map { IsSelectable = true };
             map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(SelectBatRegionsPageViewModel.SelectedMapRegions), BindingMode.TwoWay));
 
-            Title = "Regions";
+            Title = "Regions:";
             BackgroundColor = Color.Black;
 
             var displayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;

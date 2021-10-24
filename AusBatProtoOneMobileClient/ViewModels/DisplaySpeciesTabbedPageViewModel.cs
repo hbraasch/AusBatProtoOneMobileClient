@@ -2,6 +2,7 @@
 using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using DocGenOneMobileClient.Views;
+using FFImageLoading.Forms;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using Plugin.SimpleAudioPlayer;
@@ -65,10 +66,20 @@ namespace AusBatProtoOneMobileClient.ViewModels
             var stopWatch = new Stopwatch();
             stopWatch.Start();
             var imageDataItems = new ObservableCollection<ImageDataItem>();
-            foreach (var imageSource in Species.Images)
+            foreach (var imageSourceName in Species.Images)
             {
-                imageDataItems.Add(new ImageDataItem { ImageSource = ImageSource.FromFile(HiresImages.GetFullFilename(imageSource)) });
+                var fullFilename = HiresImages.GetFullFilename(imageSourceName);
+                if (File.Exists(fullFilename))
+                {
+                    var imageSource = ImageSource.FromFile(HiresImages.GetFullFilename(imageSourceName));
+                    imageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
+                }
+                else
+                {
+                    imageDataItems.Add(new ImageDataItem { ImageSource = "bat.png" });
+                }
             }
+
             ImageDataItems = imageDataItems;
 
             DetailsHtmlSource.Html = Species.DetailsHtml;
