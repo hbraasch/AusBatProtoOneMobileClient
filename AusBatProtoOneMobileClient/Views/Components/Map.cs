@@ -42,26 +42,25 @@ namespace AusBatProtoOneMobileClient.Views.Components
         TouchEffect touchEffect;
         AbsoluteLayout absoluteLayout;
         BoxView touchView;
-        double width;
+
         public Map()
         {
-            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-            width = mainDisplayInfo.Width;
+            var displayInfo = DeviceDisplay.MainDisplayInfo;
 
             BackgroundColor = Color.Transparent;
 
-            HorizontalOptions = LayoutOptions.Center;
-            VerticalOptions = LayoutOptions.Center;
+            HorizontalOptions = LayoutOptions.CenterAndExpand;
+            VerticalOptions = LayoutOptions.CenterAndExpand;
 
-
+            var size = Math.Min(displayInfo.Width, displayInfo.Height);
+            HeightRequest = size;
+            WidthRequest = size;
 
             touchEffect = new TouchEffect();
             touchEffect.TouchAction += OnTouchEffectAction;
 
             touchView = new BoxView { 
-                BackgroundColor = Color.Transparent,
-                WidthRequest = width,
-                HeightRequest = width * ImageAspect
+                BackgroundColor = Color.Transparent, // Color.Blue.MultiplyAlpha(0.5),
             };
             absoluteLayout = new AbsoluteLayout { };
             touchView.Effects.Add(touchEffect);
@@ -89,9 +88,6 @@ namespace AusBatProtoOneMobileClient.Views.Components
             {
                 var image = new Image { Source = layeredImage,
                     Aspect = Aspect.AspectFit,
-                    WidthRequest = width,
-                    HeightRequest = width * ImageAspect
-
                 };
                 absoluteLayout.Children.Add(image);
                 AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
@@ -105,6 +101,24 @@ namespace AusBatProtoOneMobileClient.Views.Components
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
+        }
+
+        public (double widthRatio, double heightRatio) GetMapSizeRequestRatios(DisplayInfo displayInfo)
+        {
+            double width;
+            double height;
+
+            if (displayInfo.Orientation == Xamarin.Essentials.DisplayOrientation.Portrait)
+            {
+                width = 1.0f;
+                height = displayInfo.Width / displayInfo.Height;
+            }
+            else
+            {
+                height = 1.0;
+                width = displayInfo.Height / displayInfo.Width;
+            }
+            return (width, height);
         }
 
         private void OnTouchEffectAction(object sender, TouchActionEventArgs args)

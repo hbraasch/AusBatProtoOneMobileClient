@@ -72,11 +72,12 @@ namespace Mobile.Shared
         {
             VerticalOptions = LayoutOptions.Center;
             HorizontalOptions = LayoutOptions.Fill;
-            BackgroundColor = BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5);
+            BackgroundColor = BackgroundColor = Color.Gray;
             BorderColor = Constants.APP_COLOUR;
             HasShadow = false;
+            CornerRadius = 5;
 
-            prompt = new Label() { IsVisible = false, HorizontalOptions = LayoutOptions.Center, TextColor = Color.Black };
+            prompt = new Label() { IsVisible = false, HorizontalOptions = LayoutOptions.Center, TextColor = Color.White };
 
             activityIndicator = new ActivityIndicator
             {

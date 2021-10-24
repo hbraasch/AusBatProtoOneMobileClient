@@ -27,6 +27,7 @@ namespace AusBatProtoOneMobileClient
             displayBatRegionsTabPage = new DisplaySpeciesDistributionTabPage(viewModel);
             displayBatCallTabPage = new DisplaySpeciesCallTabPage(viewModel);
 
+#if false
             #region *// Provide icons. IOS does not accept Resizetizer icons. IOS needs them in Resources folder set as [Bundled Resource]
             if (DeviceInfo.Platform != DevicePlatform.iOS)
             {
@@ -41,8 +42,9 @@ namespace AusBatProtoOneMobileClient
                 displayBatDetailsTabPage.IconImageSource = "text_ios.png";
                 displayBatImagesTabPage.IconImageSource = "photos_ios.png";
                 displayBatCallTabPage.IconImageSource = "sounds_ios.png";
-            } 
-            #endregion
+            }
+            #endregion  
+#endif
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
             Children.Add(displayBatRegionsTabPage);

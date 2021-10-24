@@ -70,6 +70,8 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 var dbase = new Dbase();
 
+                await HiresImages.Extract();
+
                 dbase.IntroductionHtml = LoadIntroduction();
                 dbase.AboutHtml = LoadAbout();
                 Debug.WriteLine(JsonConvert.SerializeObject(new List<int> { 101, 102 }).ToString());
@@ -115,7 +117,6 @@ namespace AusBatProtoOneMobileClient.Models
 
                 #endregion
 
-
                 #region *// Species details
                 dbase.Species.Clear();
                 foreach (var item in dbase.Classifications.Where(o=>o.Type == Classification.ClassificationType.Species))
@@ -136,8 +137,6 @@ namespace AusBatProtoOneMobileClient.Models
                 }
 
                 #endregion
-
-
 
 
 #if false

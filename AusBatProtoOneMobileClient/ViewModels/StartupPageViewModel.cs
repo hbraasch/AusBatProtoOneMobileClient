@@ -33,7 +33,37 @@ namespace AusBatProtoOneMobileClient.ViewModels
         {
         }
 
-        public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => { });
+        public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(async () => {
+
+            try
+            {
+                var cts = new CancellationTokenSource();
+                ActivityIndicatorStart("Starting ...", () =>
+                {
+                    cts.Cancel();
+                    ActivityIndicatorStop();
+                });
+
+                // Do work here
+
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
 

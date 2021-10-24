@@ -29,20 +29,20 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public class ImageDataItem
         {
-            public string ImageSource { get; set; }
+            public ImageSource ImageSource { get; set; }
         }
 
         public ObservableCollection<ImageDataItem> ImageDataItems { get; set; }
         public ObservableCollection<MapRegion> SelectedMapItems { get; set; }
 
-        public string DistributionMapImage { get; set; }
+        public ImageSource DistributionMapImage { get; set; }
 
 
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
 
         public class CallDataItem
         {
-            public string ImageSource { get; set; }
+            public ImageSource ImageSource { get; set; }
         }
         public ObservableCollection<CallDataItem> CallDisplayItems { get; set; }
         public CallDataItem SelectedCallDisplayItem { get; set; }
@@ -61,23 +61,27 @@ namespace AusBatProtoOneMobileClient.ViewModels
         }
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => {
+
+            var stopWatch = new Stopwatch();
+            stopWatch.Start();
             var imageDataItems = new ObservableCollection<ImageDataItem>();
             foreach (var imageSource in Species.Images)
             {
-                imageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
+                imageDataItems.Add(new ImageDataItem { ImageSource = ImageSource.FromFile(HiresImages.GetFullFilename(imageSource)) });
             }
             ImageDataItems = imageDataItems;
 
             DetailsHtmlSource.Html = Species.DetailsHtml;
 
-            DistributionMapImage = Species.DistributionMapImage;
+            DistributionMapImage = ImageSource.FromFile(HiresImages.GetFullFilename(Species.DistributionMapImage));
 
             var callDisplayItems = new ObservableCollection<CallDataItem>();
             foreach (var callImage in Species.CallImages)
             {
-                callDisplayItems.Add(new CallDataItem { ImageSource = callImage });
+                callDisplayItems.Add(new CallDataItem { ImageSource = ImageSource.FromFile(HiresImages.GetFullFilename(callImage)) });
             }
             CallDisplayItems = callDisplayItems;
+            Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });

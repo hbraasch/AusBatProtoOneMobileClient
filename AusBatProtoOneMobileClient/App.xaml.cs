@@ -14,9 +14,7 @@ namespace AusBatProtoOneMobileClient
     {
 
         public static Dbase dbase;
-        public static double screenWidth;
-        public static double screenHeight;
-        public static Action<bool> OnFlipHandler;
+
         public App()
         {
             InitializeComponent();
@@ -27,27 +25,10 @@ namespace AusBatProtoOneMobileClient
 #endif
             dbase = Dbase.Load();
 
-            DeviceDisplay.MainDisplayInfoChanged += OnMainDisplayInfoChanged;
-
-            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
-            UpdateScreenSizeInfo(mainDisplayInfo);
-
             var viewModel = new StartupPageViewModel();
             MainPage = new NavigationPage(new StartupPage(viewModel)) { BarBackgroundColor = Color.Black, BarTextColor = Color.White };
 
 
-        }
-
-        void OnMainDisplayInfoChanged(object sender, DisplayInfoChangedEventArgs e)
-        {
-            UpdateScreenSizeInfo(e.DisplayInfo);
-            OnFlipHandler?.Invoke(e.DisplayInfo.Orientation == DisplayOrientation.Portrait);
-        }
-
-        void UpdateScreenSizeInfo(DisplayInfo displayInfo)
-        {
-            screenWidth = displayInfo.Width;
-            screenHeight = displayInfo.Height;
         }
 
         protected override void OnStart()

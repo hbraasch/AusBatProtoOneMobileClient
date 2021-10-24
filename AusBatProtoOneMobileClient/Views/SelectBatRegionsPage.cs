@@ -18,30 +18,22 @@ namespace AusBatProtoOneMobileClient
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
-            var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+
             map = new Map { IsSelectable = true };
             map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(SelectBatRegionsPageViewModel.SelectedMapRegions), BindingMode.TwoWay));
 
             Title = "Regions";
             BackgroundColor = Color.Black;
 
-            double width;
-            double height;
-            if (mainDisplayInfo.Orientation == Xamarin.Essentials.DisplayOrientation.Portrait)
-            {
-                width = 1.0f;
-                height = mainDisplayInfo .Width/ mainDisplayInfo.Height;
-            }
-            else
-            {
-                height = 1.0;
-                width = mainDisplayInfo.Height / mainDisplayInfo.Width;
-            }
+            var displayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
+            var density = displayInfo.Density;
+            var width = Math.Min(displayInfo.Width, displayInfo.Height);
+            var size = width / density;
 
             layout = new AbsoluteLayout();
             layout.Children.Add(map);
-            AbsoluteLayout.SetLayoutFlags(map, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(map, new Rectangle(0.5, 0.5, width, height));
+            AbsoluteLayout.SetLayoutFlags(map, AbsoluteLayoutFlags.PositionProportional);
+            AbsoluteLayout.SetLayoutBounds(map, new Rectangle(0.5, 0.5, size, size));
 
             Content = layout;
 
@@ -51,29 +43,9 @@ namespace AusBatProtoOneMobileClient
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Xamarin.Forms.Binding(nameof(DisplaySpeciesTabbedPageViewModel.InvalidateMenuCommand), Xamarin.Forms.BindingMode.OneWayToSource, source: viewModel));
 
-            App.OnFlipHandler += OnFlipHandler;
         }
 
-        private void OnFlipHandler(bool isPortrait)
-        {
-            double width;
-            double height;
-            var mainDisplayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
-            if (mainDisplayInfo.Height < mainDisplayInfo.Width)
-            {
-                width = 1.0f;
-                height = mainDisplayInfo.Width / mainDisplayInfo.Height;
-                map.WidthRequest = mainDisplayInfo.Width;
-            }
-            else
-            {
-                height = 1.0;
-                width = mainDisplayInfo.Height / mainDisplayInfo.Width;
-                map.HeightRequest = mainDisplayInfo.Height;
-            }
 
-            AbsoluteLayout.SetLayoutBounds(map, new Rectangle(0.5, 0.5, width, height));
-        }
 
         bool isFirstAppearance = true;
         protected override void OnAppearing()
