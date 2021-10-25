@@ -677,5 +677,12 @@ namespace WinToolsTwo
                 File.WriteAllText(destDatasetFullFilename, json);
             }
         }
+
+        private void buttonGenerateJsonFile_Click(object sender, EventArgs e)
+        {
+            var version = new DbaseVersion("0.0.0");
+            var json = JsonConvert.SerializeObject(version);
+            File.WriteAllText(@"c:\temp\version.json", json);
+        }
     }
 }

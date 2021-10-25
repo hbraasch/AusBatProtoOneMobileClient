@@ -14,21 +14,19 @@ namespace Mobile.Models
 
         }
 
-        public static double FontSize { get { return Preferences.Get("FontSize", Device.GetNamedSize(NamedSize.Small,typeof(Label))); } set { Preferences.Set("FontSize", (double) value); } }
-
-        
-
-        internal static List<int> LoadPersistedListItems(string key)
-        {
-            var persistedExpansionItemsJson = Preferences.Get(key, "");
-            if (string.IsNullOrEmpty(persistedExpansionItemsJson)) return new List<int>();
-            return JsonConvert.DeserializeObject<List<int>>(persistedExpansionItemsJson);
-        }
-
-        internal static void SavePersistedListItems(string key, List<int> values)
-        {
-            var persistedExpansionItemsJson = JsonConvert.SerializeObject(values);
-            Preferences.Set(key, persistedExpansionItemsJson);
+        public static DbaseVersion CurrentDataVersion 
+        { 
+            get 
+            {
+                var versionJson = Preferences.Get("DataVersion", "");
+                if (versionJson == "") return DbaseVersion.MinValue;
+                return JsonConvert.DeserializeObject<DbaseVersion>(versionJson);
+            } 
+            set 
+            {
+                var versionJson = JsonConvert.SerializeObject(value);
+                Preferences.Set("DataVersion", versionJson); 
+            } 
         }
     }
 }

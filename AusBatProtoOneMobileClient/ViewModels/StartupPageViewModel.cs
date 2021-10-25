@@ -45,7 +45,19 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 });
 
                 // Do work here
-
+                var codeDataVersion = App.dbase.LoadVersion();
+                var currentDataVersion = Settings.CurrentDataVersion;
+                if (currentDataVersion < codeDataVersion)
+                {
+                    SetActivityIndicatorPrompt("Initializing data...");
+                    await App.dbase.Init();
+                    Settings.CurrentDataVersion = codeDataVersion;
+                    Debug.WriteLine("Data has been initialized");
+                }
+                else
+                {
+                    Debug.WriteLine("Using current data. No need for data initialization");
+                }
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {

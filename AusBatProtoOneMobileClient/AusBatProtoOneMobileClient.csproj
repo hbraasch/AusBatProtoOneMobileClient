@@ -553,23 +553,13 @@
     <None Remove="Data\SpeciesImages\VespertilionidImages\two_pairs_larger_bifid.jpg" />
     <None Remove="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" />
     <None Remove="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" />
+    <None Remove="Data\Versioning\data_version.json" />
     <None Remove="Images\background.png" BaseSize="50,50" />
     <None Remove="Images\ic_hamburger.png" />
     <None Remove="Images\photos.png" />
     <None Remove="Images\sounds.png" />
     <None Remove="Images\text.png" />
     <None Remove="Images\world.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="..\..\XamarinMobileClientShared\BusinessException.cs" Link="Helpers\BusinessException.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\CommandHelper.cs" Link="Helpers\CommandHelper.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\ContentPageBase.cs" Link="Helpers\ContentPageBase.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\Extensions.cs" Link="Helpers\Extensions.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\GhostTreeview.cs" Link="Helpers\GhostTreeview.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\GhostTreeview\IndentLabel.cs" Link="Helpers\IndentLabel.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\MenuGenerator.cs" Link="Helpers\MenuGenerator.cs" />
-    <Compile Include="..\..\XamarinMobileClientShared\ViewModelBase.cs" Link="Helpers\ViewModelBase.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -764,6 +754,7 @@
     <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_troughtoni_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_vulturnus_details.html" />
     <EmbeddedResource Include="Data\SpeciesImages\Hires\hires_images.zip" />
+    <EmbeddedResource Include="Data\Versioning\data_version.json" />
   </ItemGroup>
 
   <ItemGroup>

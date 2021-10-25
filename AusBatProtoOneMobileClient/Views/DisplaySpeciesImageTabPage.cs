@@ -21,7 +21,7 @@ namespace AusBatProtoOneMobileClient
             var carouselView = new CarouselView { 
                 EmptyView = "Nothing to display",
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                VerticalOptions = LayoutOptions.CenterAndExpand,
             };
             carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.ImageDataItems), BindingMode.TwoWay, source: viewModel));
             carouselView.ItemTemplate = new DataTemplate(() =>
@@ -50,7 +50,7 @@ namespace AusBatProtoOneMobileClient
             };
             carouselView.IndicatorView = indicatorView;
 
-            var mainLayout = new StackLayout { Children = { carouselView, indicatorView } };
+            var mainLayout = new StackLayout { Children = { carouselView, indicatorView }, Margin = 5 };
 
             Title = "Images";
             BackgroundColor = Color.Black;

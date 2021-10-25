@@ -21,13 +21,10 @@ namespace AusBatProtoOneMobileClient
 
             webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() : new WebView();
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(IntroductionPageViewModel.WebViewSource), BindingMode.OneWay));
-            webView.Margin = 5;
+            webView.Margin = 10; 
 
             Title = "Introduction:";
             BackgroundColor = Color.Black;
-
-            Content = webView;
-
 
             Content = webView;
 
