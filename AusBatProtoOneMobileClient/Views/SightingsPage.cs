@@ -100,17 +100,14 @@ namespace DocGenOneMobileClient.Views
             {
 
                 sightingTemplate = new DataTemplate(() => {
-                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White, FontAttributes =  FontAttributes.Italic };
                     speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SightingsPageViewModel.DisplayItem.SpeciesName), BindingMode.TwoWay));
 
-                    var speciesFriendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    var speciesFriendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
                     speciesFriendlyNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SightingsPageViewModel.DisplayItem.SpeciesFriendlyName), BindingMode.TwoWay));
 
                     var latLonLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     latLonLabel.SetBinding(Label.TextProperty, new Binding(nameof(SightingsPageViewModel.DisplayItem.Location), BindingMode.TwoWay));
-
-                    var regionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    regionLabel.SetBinding(Label.TextProperty, new Binding(nameof(SightingsPageViewModel.DisplayItem.RegionId), BindingMode.TwoWay));
 
                     var timestampLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     timestampLabel.SetBinding(Label.TextProperty, new Binding(nameof(SightingsPageViewModel.DisplayItem.Timestamp), BindingMode.TwoWay));
@@ -136,12 +133,12 @@ namespace DocGenOneMobileClient.Views
                     grid.Children.Add(speciesFriendlyNameLabel, 0, 1);
                     grid.Children.Add(timestampLabel, 0, 2);
                     grid.Children.Add(latLonLabel, 0, 3);
-                    grid.Children.Add(regionLabel, 1, 3);
                     grid.Children.Add(image, 2, 0);
 
                     Grid.SetColumnSpan(speciesNameLabel, 2);
                     Grid.SetColumnSpan(speciesFriendlyNameLabel, 2);
                     Grid.SetColumnSpan(timestampLabel, 2);
+                    Grid.SetColumnSpan(latLonLabel, 2);
                     Grid.SetRowSpan(image, 4);
 
                     return new ViewCell { View = grid };

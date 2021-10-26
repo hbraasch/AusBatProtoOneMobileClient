@@ -168,20 +168,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Notice", "Unable to read location. Sighting to be saves without location data", "Ok");
                 }
 
-                #region *// Get region
-                var viewModel = new SelectBatRegionsPageViewModel() {  };
-                var page = new SelectBatRegionsPage(viewModel);
-                var returnType = await NavigateToPageAsync(page, viewModel);
-                if (returnType == NavigateReturnType.IsCancelled) return;
-                var mapRegions = viewModel.SelectedMapRegions;
-                if (mapRegions.Count == 0)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Notice", "You must select a region", "Ok");
-                    return;
-                }
-                #endregion
-
-
                 #region *// Create sighting
                 App.dbase.Sightings.Add(new Sighting
                 {
@@ -189,8 +175,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     Lon = location?.Longitude?? 0,
                     TimeStamp = DateTimeOffset.Now,
                     GenusId = Species.GenusId,
-                    SpeciesId = Species.SpeciesId,
-                    MapRegionId = mapRegions[0].Id
+                    SpeciesId = Species.SpeciesId
                 });
                 Dbase.Save(App.dbase);
                 #endregion
@@ -198,7 +183,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 #region *// Display sighting
                 var sightingsPageViewModel = new SightingsPageViewModel() { IsHomeEnabled = IsHomeEnabled };
                 var sightingsPage = new SightingsPage(sightingsPageViewModel);
-                returnType = await NavigateToPageAsync(sightingsPage, sightingsPageViewModel);
+                var returnType = await NavigateToPageAsync(sightingsPage, sightingsPageViewModel);
                 if (returnType == NavigateReturnType.IsCancelled) return;
                 if (returnType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
                 #endregion

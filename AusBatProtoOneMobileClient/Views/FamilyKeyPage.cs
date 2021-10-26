@@ -43,7 +43,7 @@ namespace DocGenOneMobileClient.Views
 
             var viewResultsButton = new Button
             {
-                Text = "View results",
+                Text = "View Taxa",
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -88,10 +88,12 @@ namespace DocGenOneMobileClient.Views
 
             var menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
-                .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); });
+                .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); })
+                .AddMenuItem("undo", "Undo", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnUndoFilterActionClicked.Execute(null); });
 
-            menu.SetVisibilityFactors(viewModel, "IsResetFilterEnabled")
-                .ToShowMenuItem("reset", true);
+            menu.SetVisibilityFactors(viewModel, "IsResetFilterEnabled", "CanUndo")
+                .ToShowMenuItem("reset", true, null)
+                .ToShowMenuItem("undo", null, true);
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(FamilyKeyPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));

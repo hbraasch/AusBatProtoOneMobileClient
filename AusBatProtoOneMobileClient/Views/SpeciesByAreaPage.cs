@@ -103,10 +103,10 @@ namespace DocGenOneMobileClient.Views
             {
 
                 speciesTemplate = new DataTemplate(() => {
-                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White, FontAttributes = FontAttributes.Italic };
                     speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.SpeciesName), BindingMode.TwoWay));
 
-                    var speciesFriendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    var speciesFriendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
                     speciesFriendlyNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.FriendlyName), BindingMode.TwoWay));
 
 
@@ -120,7 +120,7 @@ namespace DocGenOneMobileClient.Views
                     image.Transformations.Add(new CircleTransformation());
                     image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
-                    var grid = new Grid() { Margin = 5 };
+                    var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5)};
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
@@ -157,7 +157,7 @@ namespace DocGenOneMobileClient.Views
             public ListViewGroupTemplate()
             {
 
-                var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.APP_COLOUR, Margin = 5 };
+                var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.APP_COLOUR, FontAttributes = FontAttributes.Bold };
                 speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.GroupedSpeciesDisplayItem.Alphabet), BindingMode.TwoWay));
 
 

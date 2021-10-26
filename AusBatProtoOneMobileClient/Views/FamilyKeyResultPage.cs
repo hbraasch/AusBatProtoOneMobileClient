@@ -99,10 +99,10 @@ namespace DocGenOneMobileClient.Views
             public TemplateSelector()
             {
                 leafNodeDisplayItem = new DataTemplate(() => {
-                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White, FontAttributes = FontAttributes.Italic };
                     speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.LeafNodeDisplayItem.SpeciesName), BindingMode.TwoWay));
 
-                    var commonNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                    var commonNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
                     commonNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.LeafNodeDisplayItem.CommonName), BindingMode.TwoWay));
 
 
@@ -116,7 +116,7 @@ namespace DocGenOneMobileClient.Views
                     image.Transformations.Add(new CircleTransformation());
                     image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(FamilyKeyResultPageViewModel.LeafNodeDisplayItem.ImageSource), BindingMode.OneWay));
 
-                    var grid = new Grid() { Margin = 5 };
+                    var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5) };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
@@ -139,7 +139,7 @@ namespace DocGenOneMobileClient.Views
                     };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.NodeDisplayItem.Name), BindingMode.TwoWay));
 
-                    var grid = new Grid { Margin = 5 };
+                    var grid = new Grid { Margin = new Thickness(10, 5, 5, 5) };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
@@ -154,7 +154,7 @@ namespace DocGenOneMobileClient.Views
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
                     descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.NoticeDisplayItem.Description), BindingMode.TwoWay));
 
-                    var grid = new Grid { Margin = 5 };
+                    var grid = new Grid { Margin = new Thickness(10, 5, 5, 5) };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                     grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });

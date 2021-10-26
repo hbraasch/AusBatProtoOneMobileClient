@@ -78,10 +78,10 @@ namespace DocGenOneMobileClient.Views
             public ListViewDataTemplate()
             {
 
-                var speciesNameLabel = new Label {  VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                var speciesNameLabel = new Label {  VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White , FontAttributes = FontAttributes.Italic};
                 speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SpeciesDisplayItem.SpeciesName), BindingMode.TwoWay));
 
-                var friendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
+                var friendlyNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
                 friendlyNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SpeciesDisplayItem.FriendlyName), BindingMode.TwoWay));
 
                 var image = new CachedImage
@@ -91,7 +91,7 @@ namespace DocGenOneMobileClient.Views
                 image.Transformations.Add(new CircleTransformation());
                 image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
-                var grid = new Grid() { Margin = 5 };
+                var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5) };
                 grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
@@ -115,7 +115,7 @@ namespace DocGenOneMobileClient.Views
                 var speciesNameLabel = new Label { 
                     VerticalTextAlignment = TextAlignment.Center, 
                     TextColor = Constants.APP_COLOUR, 
-                    Margin = 5
+                    FontAttributes = FontAttributes.Bold
                 };
                 speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(SpeciesAtoZPageViewModel.GroupedSpeciesDisplayItem.Alphabet), BindingMode.TwoWay));
 

@@ -31,7 +31,6 @@ namespace DocGenOneMobileClient.Views
             public string SpeciesName { get; set; }
             public string SpeciesFriendlyName { get; set; }
             public string Location { get; set; }
-            public string RegionId { get; set; }
             public string Timestamp { get; set; }
             public string ImageSource { get; set; }
             public Sighting Content { set; get; }
@@ -111,7 +110,6 @@ namespace DocGenOneMobileClient.Views
                     SpeciesFriendlyName = species.Name,
                     ImageSource = imageSource, 
                     Location = $"Lat: {sighting.Lat:N2} Lon: {sighting.Lon:N2}",
-                    RegionId = $"Region: {sighting.MapRegionId}",
                     Timestamp = sighting.TimeStamp.ToString("g"),
                     Content = sighting
                 });

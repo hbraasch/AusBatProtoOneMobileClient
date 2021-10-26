@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AusBatProtoOneMobileClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
@@ -35,7 +36,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
             // Reactive extension to debounce search term as keyed in
             typingSubject = new Subject<string>();
-            typingEventSequence = typingSubject.Throttle(TimeSpan.FromSeconds(1))
+            typingEventSequence = typingSubject.Throttle(TimeSpan.FromSeconds(Constants.NUMERIC_ENTRY_TRIGGER_DELAY_IN_SEC))
                 .Subscribe((text) =>
                 Device.BeginInvokeOnMainThread(() =>
                     {

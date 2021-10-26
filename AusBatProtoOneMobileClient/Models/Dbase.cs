@@ -446,7 +446,6 @@ namespace AusBatProtoOneMobileClient.Models
     {
         public double Lat { get; set; }
         public double Lon { get; set; }
-        public int MapRegionId { get; set; }
         public string GenusId { get; set; }
         public string SpeciesId { get; set; }
         public DateTimeOffset TimeStamp { get; set; }

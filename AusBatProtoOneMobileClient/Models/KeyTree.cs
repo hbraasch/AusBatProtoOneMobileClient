@@ -243,7 +243,7 @@ namespace AusBatProtoOneMobileClient.Models
                     {
                         // RowItem is a picker
                         var prompt = (keyTable.KeyPrompts.Count == 0) ? keyId : keyTable.KeyPrompts[keyIdsIndex];
-                        var imageSource = (keyTable.KeyImages.Count == 0) ? keyId : keyTable.KeyImages[keyIdsIndex];
+                        var imageSource = (keyTable.KeyImages.Count == 0) ? "" : keyTable.KeyImages[keyIdsIndex];
                         var displayOrder = (keyTable.KeyDisplayOrders.Count == 0) ? 0 : keyTable.KeyDisplayOrders[keyIdsIndex];
                         var newPickerCharacterPrompt = new PickerCharacterPrompt
                         {
@@ -259,7 +259,7 @@ namespace AusBatProtoOneMobileClient.Models
                     {
                         // RowItem is a numeric
                         var prompt = (keyTable.KeyPrompts.Count == 0) ? keyId : keyTable.KeyPrompts[keyIdsIndex];
-                        var imageSource = (keyTable.KeyImages.Count == 0) ? keyId : keyTable.KeyImages[keyIdsIndex];
+                        var imageSource = (keyTable.KeyImages.Count == 0) ? "" : keyTable.KeyImages[keyIdsIndex];
                         var displayOrder = (keyTable.KeyDisplayOrders.Count == 0) ? 0 : keyTable.KeyDisplayOrders[keyIdsIndex];
                         characters.Add(new NumericCharacterPrompt
                         {
