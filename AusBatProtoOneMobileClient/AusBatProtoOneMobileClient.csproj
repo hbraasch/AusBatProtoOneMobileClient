@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
+    <None Remove="Data\IconImage\aus_bats_icon.jpg" />
     <None Remove="Data\Introduction\introduction.html" />
     <None Remove="Data\KeyTables\chalinolobus_keytable.json" />
     <None Remove="Data\KeyTables\emballonuridae_keytable.json" />
@@ -175,6 +176,7 @@
     <None Remove="Data\SpeciesDetails\ozimops_ridei_details.html" />
     <None Remove="Data\SpeciesDetails\phoniscus_papuensis_details.html" />
     <None Remove="Data\SpeciesDetails\pipistrellus_adamsi_details.html" />
+    <None Remove="Data\SpeciesDetails\pipistrellus_murrayi_details.html" />
     <None Remove="Data\SpeciesDetails\pipistrellus_westralis_details.html" />
     <None Remove="Data\SpeciesDetails\pteropus_alecto_details.html" />
     <None Remove="Data\SpeciesDetails\pteropus_conspicillatus_details.html" />
@@ -189,11 +191,13 @@
     <None Remove="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
     <None Remove="Data\SpeciesDetails\saccolaimus_mixtus_details.html" />
     <None Remove="Data\SpeciesDetails\saccolaimus_saccolaimus_details.html" />
+    <None Remove="Data\SpeciesDetails\scoteanax_rueppellii_details.html" />
     <None Remove="Data\SpeciesDetails\scotorepens_balstoni_details.html" />
     <None Remove="Data\SpeciesDetails\scotorepens_greyii_details.html" />
     <None Remove="Data\SpeciesDetails\scotorepens_orion_details.html" />
     <None Remove="Data\SpeciesDetails\scotorepens_parnaby_details.html" />
     <None Remove="Data\SpeciesDetails\scotorepens_sanborni_details.html" />
+    <None Remove="Data\SpeciesDetails\scotorepens_sp_details.html" />
     <None Remove="Data\SpeciesDetails\setirostris_eleryi_details.html" />
     <None Remove="Data\SpeciesDetails\syconycteris_australis_details.html" />
     <None Remove="Data\SpeciesDetails\taphozous_australis_details.html" />
@@ -717,6 +721,8 @@
     <EmbeddedResource Include="Data\SpeciesDetails\ozimops_planiceps_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\ozimops_ridei_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\phoniscus_papuensis_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scoteanax_rueppellii_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\pipistrellus_murrayi_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\pipistrellus_adamsi_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\pipistrellus_westralis_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\pteropus_alecto_details.html" />
@@ -732,6 +738,7 @@
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_mixtus_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_saccolaimus_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_sp_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_balstoni_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_greyii_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_orion_details.html" />
@@ -774,6 +781,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <SharedImage Include="Data\IconImage\aus_bats_icon.jpg" />
     <SharedImage Include="Data\SpeciesImages\FacialFeatures\dory_semoni_facial.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\FacialFeatures\dory_stenotis_facial.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_ater_facial.jpg" BaseSize="50,50" />

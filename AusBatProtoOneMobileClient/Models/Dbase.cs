@@ -371,6 +371,7 @@ namespace AusBatProtoOneMobileClient.Models
 
         private Species LoadSpecies(string genusId, string speciesId)
         {
+            Debug.WriteLine("Start loading species data");
             var datasetFilename = $"{genusId.ToLower()}_{speciesId.ToLower()}_dataset.json";
             try
             {                
@@ -404,6 +405,10 @@ namespace AusBatProtoOneMobileClient.Models
             catch (Exception ex)
             {
                 throw new BusinessException($"Problem reading dataset file [{datasetFilename}]. {ex.Message}");
+            }
+            finally
+            {
+                Debug.WriteLine("End loading species data");
             }
         }
 

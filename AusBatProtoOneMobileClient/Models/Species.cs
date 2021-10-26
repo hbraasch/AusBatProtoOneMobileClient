@@ -30,6 +30,7 @@ namespace AusBatProtoOneMobileClient.Data
         internal void LoadDetails()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
+            Debug.WriteLine($"Start loading species [{speciesName}] details json file");
             var filename = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_details.html".ToAndroidFilenameFormat();
             try
             {
@@ -37,7 +38,7 @@ namespace AusBatProtoOneMobileClient.Data
                 {
                     if (stream == null)
                     {
-                        Debug.WriteLine($"Details file for [{speciesName}] does not exist");
+                        Debug.WriteLine($"Missing details file for [{speciesName}]");
                         DetailsHtml = @"<p style=""color: white"">No details defined</p>";
                         return;
                     }
@@ -57,10 +58,15 @@ namespace AusBatProtoOneMobileClient.Data
             {
                 throw new BusinessException($"Problem reading details file for [speciesName]. {ex.Message}");
             }
+            finally
+            {
+                Debug.WriteLine($"End loading species [{speciesName}] details json file");
+            }
         }
         internal async Task LoadImages()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
+            Debug.WriteLine($"Start loading species [{speciesName}] general images");
             var toRemoveImages = new List<string>();
             foreach (var imageName in Images)
             {
@@ -69,7 +75,7 @@ namespace AusBatProtoOneMobileClient.Data
                     // Check is [SharedImage] exists
                     if (!await ImageChecker.DoesImageExist(imageName))
                     {
-                        Debug.WriteLine($"SharedImage [{imageName}] for species [{speciesName}] is missing");
+                        Debug.WriteLine($"Missing SharedImage [{imageName}] for species [{speciesName}]");
                         toRemoveImages.Add(imageName);
                         continue;
                     }
@@ -77,7 +83,7 @@ namespace AusBatProtoOneMobileClient.Data
                 #region *// Check if hires image exists
                 if (!File.Exists(HiresImages.GetFullFilename(imageName)))
                 {
-                    Debug.WriteLine($"Hires image [{imageName}] for species [{speciesName}] is missing");
+                    Debug.WriteLine($"Missing hires image [{imageName}] for species [{speciesName}]");
                     toRemoveImages.Add(imageName);
                     continue;
                 } 
@@ -87,13 +93,15 @@ namespace AusBatProtoOneMobileClient.Data
 
             if (Images.Count == 0)
             {
-                Debug.WriteLine($"Missing images exist for species [{speciesName}]");
+                Debug.WriteLine($"Missing images for species [{speciesName}]");
                 Images.Add("bat.png");
             }
+            Debug.WriteLine($"End loading species [{speciesName}] general images");
         }
         internal void LoadCalls()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
+            Debug.WriteLine($"Start loading species [{speciesName}] call images");
             var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat();
 
             CallImages.Clear();
@@ -104,19 +112,22 @@ namespace AusBatProtoOneMobileClient.Data
             }
             else
             {
-                Debug.WriteLine($"No call images exist for[{speciesName}]");
+                Debug.WriteLine($"Missing call images exist for[{speciesName}]");
             }
+            Debug.WriteLine($"End loading species [{speciesName}] call images");
         }
 
         internal void LoadDistributionMaps()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
+            Debug.WriteLine($"Start loading species [{speciesName}] distribution map image");
             var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_dist.jpg".ToAndroidFilenameFormat();
 
             if (!File.Exists(HiresImages.GetFullFilename(DistributionMapImage)))
             {
-                Debug.WriteLine($"No distribution map exist for[{speciesName}]");
+                Debug.WriteLine($"Missing distribution map for[{speciesName}]");
             }
+            Debug.WriteLine($"End loading species [{speciesName}] distribution map image");
         }
 
         internal Classification GetFamily(Dbase dbase)
