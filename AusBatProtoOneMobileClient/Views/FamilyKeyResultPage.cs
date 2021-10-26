@@ -43,6 +43,7 @@ namespace DocGenOneMobileClient.Views
                 Children = { backgroundImage, keyTreeNodesListView, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
@@ -51,9 +52,10 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Select to filter:";
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Select to filter:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
+
             var menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
                 .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); });

@@ -23,7 +23,7 @@ namespace AusBatProtoOneMobileClient
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(IntroductionPageViewModel.WebViewSource), BindingMode.OneWay));
             webView.Margin = 10; 
 
-            Title = "Introduction:";
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Introduction:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             BackgroundColor = Color.Black;
 
             Content = webView;

@@ -58,7 +58,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Species:";
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Species:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             Content = finalLayout;
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
 

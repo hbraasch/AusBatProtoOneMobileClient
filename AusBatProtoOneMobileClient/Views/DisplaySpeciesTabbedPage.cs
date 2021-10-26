@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient.ViewModels;
 using Mobile.Helpers;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 using Xamarin.Forms.PlatformConfiguration.WindowsSpecific;
@@ -20,8 +21,6 @@ namespace AusBatProtoOneMobileClient
         {
             this.viewModel = viewModel;
 
-
-            Title = $"{viewModel.Species.Name}:";
             displayBatImagesTabPage = new DisplaySpeciesImageTabPage(viewModel);
             displayBatDetailsTabPage = new DisplaySpeciesDetailsTabPage(viewModel);
             displayBatRegionsTabPage = new DisplaySpeciesDistributionTabPage(viewModel);
@@ -54,6 +53,7 @@ namespace AusBatProtoOneMobileClient
             }
 
             // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = $"{viewModel.Species.Name}:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             BarBackgroundColor = Xamarin.Forms.Color.Black;
             BarTextColor = Xamarin.Forms.Color.White;
             

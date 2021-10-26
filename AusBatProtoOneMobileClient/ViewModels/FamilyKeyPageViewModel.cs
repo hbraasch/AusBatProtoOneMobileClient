@@ -23,7 +23,7 @@ namespace DocGenOneMobileClient.Views
 {
     public class FamilyKeyPageViewModel : ViewModelBase
     {
-        const string FILTER_TITLE = "Filter:";
+        const string FILTER_TITLE = "Filter";
         const string NO_RESULTS_YET = "(0) results";
 
         private enum FilterState
@@ -114,7 +114,7 @@ namespace DocGenOneMobileClient.Views
             CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
             CurrentRegionIds = currentRegionIds;
             CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
-            Title = FILTER_TITLE;
+            Title = $"{FILTER_TITLE}:";
             State = FilterState.StartFromScratch;
         }
 
@@ -347,7 +347,7 @@ namespace DocGenOneMobileClient.Views
 
             CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
             FilterHint = CurrentPromptKeyTreeNode.FilterHint;
-            Title = FILTER_TITLE;
+            Title = $"{FILTER_TITLE}:";
 
             InvalidateMenuCommand.Execute(null);
         }
@@ -475,7 +475,7 @@ namespace DocGenOneMobileClient.Views
                 State = FilterState.StartNextLevel;
                 var rootKeyTreeNode = viewModel.SelectedDisplayItem.Content as KeyTreeNodeBase;
                 ResetFilter(FilterState.StartNextLevel, rootKeyTreeNode);
-                Title = $"{FILTER_TITLE}: {rootKeyTreeNode.NodeId}";
+                Title = $"{FILTER_TITLE} {rootKeyTreeNode.NodeId}:";
                 #endregion
             }
             catch (Exception ex)

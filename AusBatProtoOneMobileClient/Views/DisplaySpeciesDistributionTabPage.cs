@@ -28,9 +28,6 @@ namespace AusBatProtoOneMobileClient
             image.WidthRequest = mainDisplayInfo.Width;
             image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.DistributionMapImage), BindingMode.OneWay));
 
-            Title = "Distribution";
-            BackgroundColor = Color.Black;
-
             var centeredLayout = new AbsoluteLayout
             {
                 Children = { image },
@@ -40,6 +37,8 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
 
+            NavigationPage.SetTitleView(this, new Label { Text = "Distribution:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            BackgroundColor = Color.Black;
             Content = centeredLayout;
         }
 

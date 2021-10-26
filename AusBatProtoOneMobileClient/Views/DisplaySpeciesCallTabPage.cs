@@ -49,11 +49,9 @@ namespace AusBatProtoOneMobileClient
             };
             carouselView.IndicatorView = indicatorView;
 
-            
-
             var mainLayout = new StackLayout { Children = { carouselView, indicatorView } };
 
-            Title = "Calls";
+            NavigationPage.SetTitleView(this, new Label { Text = "Calls:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             BackgroundColor = Color.Black;
 
             var centeredLayout = new AbsoluteLayout

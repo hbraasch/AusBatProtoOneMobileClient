@@ -70,6 +70,7 @@ namespace DocGenOneMobileClient.Views
                 Children = { backgroundImage, layout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                Margin = 5
             };
             AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
@@ -78,10 +79,13 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            Title = "Filter:";
-            SetBinding(Page.TitleProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
+            var titleLabel = new Xamarin.Forms.Label { Text = "Filter:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White };
+            titleLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
+            NavigationPage.SetTitleView(this, titleLabel);
+
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
+
             var menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
                 .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); });

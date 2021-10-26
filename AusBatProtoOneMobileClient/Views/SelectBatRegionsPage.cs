@@ -22,9 +22,6 @@ namespace AusBatProtoOneMobileClient
             map = new Map { IsSelectable = true };
             map.SetBinding(Map.SelectedItemsProperty, new Binding(nameof(SelectBatRegionsPageViewModel.SelectedMapRegions), BindingMode.TwoWay));
 
-            Title = "Regions:";
-            BackgroundColor = Color.Black;
-
             var displayInfo = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo;
             var density = displayInfo.Density;
             var width = Math.Min(displayInfo.Width, displayInfo.Height);
@@ -35,6 +32,8 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(map, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(map, new Rectangle(0.5, 0.5, size, size));
 
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Regions:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            BackgroundColor = Color.Black;
             Content = layout;
 
             var menu = new MenuGenerator().Configure()

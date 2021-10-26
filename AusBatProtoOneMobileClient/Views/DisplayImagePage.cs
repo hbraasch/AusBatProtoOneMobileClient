@@ -24,7 +24,6 @@ namespace AusBatProtoOneMobileClient
             };
             image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayImagePageViewModel.ImageSource), BindingMode.OneWay));
 
-            Title = "Image display:";
             var centeredLayout = new AbsoluteLayout
             {
                 Children = { image, activityIndicator },
@@ -37,7 +36,7 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-
+            NavigationPage.SetTitleView(this, new Label { Text = "Image display:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             Content = centeredLayout;
             BackgroundColor = Color.Black;
 

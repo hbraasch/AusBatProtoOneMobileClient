@@ -17,7 +17,6 @@ namespace AusBatProtoOneMobileClient
 
             var mainLayout = new StackLayout { Children = { } };
 
-            Title = "Template";
             var centeredLayout = new AbsoluteLayout
             {
                 Children = { mainLayout, activityIndicator },
@@ -30,7 +29,7 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Template:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
             Content = centeredLayout;
 
             menu = new MenuGenerator().Configure()
