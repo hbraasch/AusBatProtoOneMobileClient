@@ -129,7 +129,6 @@ namespace DocGenOneMobileClient.Views
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
                 FilterResult = NO_RESULTS_YET;
-                FilterHint = CurrentPromptKeyTreeNode.FilterHint;
 
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -199,9 +198,6 @@ namespace DocGenOneMobileClient.Views
                     break;
             }
 
-
-
-
             #region *// Create display items
 
             foreach (var character in BestPromptCharacters.OrderBy(o => o.DisplayOrder))
@@ -250,6 +246,8 @@ namespace DocGenOneMobileClient.Views
             displayItems.OrderBy(o => o.DisplayOrder);
 
             FilterResult = UpdateFilterResults();
+
+            FilterHint = (HasRegionFilterBeenUsed) ? "": CurrentPromptKeyTreeNode.FilterHint;
 
             return displayItems;
         }
@@ -344,7 +342,6 @@ namespace DocGenOneMobileClient.Views
                 HasRegionFilterBeenUsed = snapshot.BeforeHasRegionFilterBeenUsed;
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-                FilterHint = CurrentPromptKeyTreeNode.FilterHint;
 
                 InvalidateMenuCommand.Execute(null);
             }
@@ -375,7 +372,7 @@ namespace DocGenOneMobileClient.Views
             SnapShots.Clear();
 
             CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-            FilterHint = CurrentPromptKeyTreeNode.FilterHint;
+
             Title = $"{FILTER_TITLE}:";
 
             InvalidateMenuCommand.Execute(null);
@@ -424,8 +421,7 @@ namespace DocGenOneMobileClient.Views
             }
             else if (activeCharacterDisplayItem is MapRegionsDisplayItem mrdi)
             {
-                List<KeyTreeNodeBase> triggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingRegions(currentTriggeredKeyTreeNodes, mrdi.RegionIds);
-                currentTriggeredKeyTreeNodes = KeyTree.AddNodesRangeUnique(currentTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
+                currentTriggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingRegions(currentTriggeredKeyTreeNodes, mrdi.RegionIds);
                 hasRegionFilterBeenUsed = true;
             }
             else throw new ApplicationException("Unknown displayItem encountered");

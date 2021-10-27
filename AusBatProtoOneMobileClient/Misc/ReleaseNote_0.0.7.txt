@@ -4,3 +4,4 @@ Upped image resolution in picker files
 Rename result button and status in Family Key Filter  => Taxa
 Sightings => Removed provinces
 Family Key Filter. Add undo 
+Launch icon added

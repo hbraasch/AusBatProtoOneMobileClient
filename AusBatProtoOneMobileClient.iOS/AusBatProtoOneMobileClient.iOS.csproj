@@ -287,13 +287,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\87.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screenII.png" />
+    <BundleResource Include="Resources\splash_screen_v1.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screenII%403x.png" />
+    <BundleResource Include="Resources\splash_screen_v1%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screenII%402x.png" />
+    <BundleResource Include="Resources\splash_screen_v1%403x.png" />
   </ItemGroup>
-  <ItemGroup />
 </Project>
