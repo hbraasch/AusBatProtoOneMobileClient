@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>AusBatProtoOneMobileClient</string>
+	<string>AusBat</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.treeapps.ausbat</string>
 	<key>CFBundleVersion</key>
@@ -33,7 +33,7 @@
 	<key>CFBundleName</key>
 	<string>AusBatProtoOneMobileClient</string>
 	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is needed to location stamp sightings</string>
 	<key>CFBundleShortVersionString</key>

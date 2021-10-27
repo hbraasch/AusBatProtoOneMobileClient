@@ -1,0 +1,6 @@
+﻿Format species name in listviews
+Fixed decimal entries in keys
+Upped image resolution in picker files
+Rename result button and status in Family Key Filter  => Taxa
+Sightings => Removed provinces
+Family Key Filter. Add undo 

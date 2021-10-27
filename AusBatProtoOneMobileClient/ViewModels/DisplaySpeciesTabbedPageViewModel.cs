@@ -165,7 +165,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 var location = await Geolocation.GetLocationAsync(request, cts.Token);
                 if (location == null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Notice", "Unable to read location. Sighting to be saves without location data", "Ok");
+                    var isAccepted = await Application.Current.MainPage.DisplayAlert("Notice", "Unable to read location. Sighting to be saved without location data", "Ok", "Cancel");
+                    if (!isAccepted) return;
                 }
 
                 #region *// Create sighting

@@ -6,8 +6,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
-using static DocGenOneMobileClient.Views.TemplateListPage;
-using static DocGenOneMobileClient.Views.TemplateListPage.ListViewDataTemplate;
 using System.Threading.Tasks;
 using AusBatProtoOneMobileClient;
 using AusBatProtoOneMobileClient.ViewModels;
@@ -15,10 +13,9 @@ using Mobile.ViewModels;
 using Mobile.Helpers;
 using TreeApp.Helpers;
 using AusBatProtoOneMobileClient.Models;
-using AusBatProtoOneMobileClient.Data;
 using static AusBatProtoOneMobileClient.Models.KeyTree;
 using AusBatProtoOneMobileClient.Models.Touch;
-using static DocGenOneMobileClient.Views.FamilyKeyPageViewModel.FilterSnapShot;
+using static DocGenOneMobileClient.Views.FamilyKeyPageViewModel.FilterSnapShots;
 
 namespace DocGenOneMobileClient.Views
 {
@@ -40,7 +37,7 @@ namespace DocGenOneMobileClient.Views
         public List<CharacterPromptBase> BestPromptCharacters = new List<CharacterPromptBase>();
         public List<CharacterPromptBase> RemovedPromptCharacters = new List<CharacterPromptBase>();
         public bool HasRegionFilterBeenUsed = false;
-        private FilterSnapShot SnapShot { get; set; } = null;
+        private FilterSnapShots SnapShots { get; set; } = new FilterSnapShots();
 
         public List<int> CurrentRegionIds { get; set; } = new List<int>();
         public abstract class CharacterDisplayItemBase
@@ -101,7 +98,7 @@ namespace DocGenOneMobileClient.Views
         #region *// Menu related 
 
         public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0 || CurrentPromptKeyTreeNode.NodeId != App.dbase.KeyTree.RootNode.NodeId;
-        public bool CanUndo => SnapShot != null;
+        public bool CanUndo => SnapShots.Count  > 0;
         #endregion
 
         public FamilyKeyPageViewModel()
@@ -163,8 +160,10 @@ namespace DocGenOneMobileClient.Views
                 case FilterState.StartFromScratch:
                     BestPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel.ToList();
                     HasRegionFilterBeenUsed = false;
+                    SnapShots.Clear();
                     break;
                 case FilterState.StartNextLevel:
+                    SnapShots.Clear();
                     #region *// Filter on region if regions selected
                     if (CurrentRegionIds.Count > 0)
                     {
@@ -337,18 +336,17 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                State = SnapShot.BeforeFilterState;
-                CurrentPromptKeyTreeNode = SnapShot.BeforePromptKeyTreeNode;
-                UsedPromptCharacters = SnapShot.BeforeUsedPromptCharacters;
-                CurrentTriggeredKeyTreeNodes = SnapShot.BeforeTriggeredKeyTreeNodes;
-                HasRegionFilterBeenUsed = SnapShot.BeforeHasRegionFilterBeenUsed;
+                var snapshot = SnapShots.Pop();
+                State = snapshot.BeforeFilterState;
+                CurrentPromptKeyTreeNode = snapshot.BeforePromptKeyTreeNode;
+                UsedPromptCharacters = snapshot.BeforeUsedPromptCharacters;
+                CurrentTriggeredKeyTreeNodes = snapshot.BeforeTriggeredKeyTreeNodes;
+                HasRegionFilterBeenUsed = snapshot.BeforeHasRegionFilterBeenUsed;
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
                 FilterHint = CurrentPromptKeyTreeNode.FilterHint;
 
                 InvalidateMenuCommand.Execute(null);
-                SnapShot = null;
-
             }
             catch (Exception ex)
             {
@@ -374,6 +372,7 @@ namespace DocGenOneMobileClient.Views
                 HasRegionFilterBeenUsed = false;
                 FilterResult = NO_RESULTS_YET;
             }
+            SnapShots.Clear();
 
             CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
             FilterHint = CurrentPromptKeyTreeNode.FilterHint;
@@ -388,8 +387,9 @@ namespace DocGenOneMobileClient.Views
                 await ActivityIndicatorStart();
 
                 var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
-                SnapShot = new FilterSnapShot { BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode, BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(), BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(), BeforeHasRegionFilterBeenUsed = HasRegionFilterBeenUsed, BeforeFilterState = State };
-                SnapShot.AppliedFilterAction = ConductSearch(CurrentPromptKeyTreeNode, activeCharacterDisplayItem, ref CurrentTriggeredKeyTreeNodes, ref UsedPromptCharacters, ref HasRegionFilterBeenUsed);
+                var snapShot = new FilterSnapShot { BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode, BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(), BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(), BeforeHasRegionFilterBeenUsed = HasRegionFilterBeenUsed, BeforeFilterState = State };
+                ConductSearch(CurrentPromptKeyTreeNode, activeCharacterDisplayItem, ref CurrentTriggeredKeyTreeNodes, ref UsedPromptCharacters, ref HasRegionFilterBeenUsed);
+                SnapShots.Push(snapShot);
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
             }
             catch (Exception ex)
@@ -402,10 +402,9 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        private FilterAction ConductSearch(KeyTreeNodeBase currentPromptKeyTreeNode, CharacterDisplayItemBase activeCharacterDisplayItem, ref List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes, ref List<CharacterPromptBase>usedPromptCharacters, ref bool hasRegionFilterBeenUsed)
+        private void ConductSearch(KeyTreeNodeBase currentPromptKeyTreeNode, CharacterDisplayItemBase activeCharacterDisplayItem, ref List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes, ref List<CharacterPromptBase>usedPromptCharacters, ref bool hasRegionFilterBeenUsed)
         {
-            var filterAction = FilterAction.NoFilter;
-            if (activeCharacterDisplayItem == null) return filterAction;
+            if (activeCharacterDisplayItem == null) return;
 
             if (activeCharacterDisplayItem is PickerDisplayItem pdi)
             {
@@ -414,7 +413,7 @@ namespace DocGenOneMobileClient.Views
                 activeCharacter.EntryOptionId = selectedOptionId;
                 currentTriggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingEntries(currentTriggeredKeyTreeNodes, activeCharacter);
                 usedPromptCharacters = KeyTree.AddCharacterUnique(usedPromptCharacters, activeCharacterDisplayItem.Content);
-                filterAction = FilterAction.FilteredOnCharacter;
+
             }
             else if (activeCharacterDisplayItem is NumericDisplayItem ndi)
             {
@@ -422,14 +421,12 @@ namespace DocGenOneMobileClient.Views
                 activeCharacter.Entry = float.Parse(ndi.Value);
                 currentTriggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingEntries(currentTriggeredKeyTreeNodes, activeCharacter);
                 usedPromptCharacters = KeyTree.AddCharacterUnique(usedPromptCharacters, activeCharacterDisplayItem.Content);
-                filterAction = FilterAction.FilteredOnCharacter;
             }
             else if (activeCharacterDisplayItem is MapRegionsDisplayItem mrdi)
             {
                 List<KeyTreeNodeBase> triggeredKeyTreeNodes = currentPromptKeyTreeNode.GetTriggeredNodesUsingRegions(currentTriggeredKeyTreeNodes, mrdi.RegionIds);
                 currentTriggeredKeyTreeNodes = KeyTree.AddNodesRangeUnique(currentTriggeredKeyTreeNodes, triggeredKeyTreeNodes);
                 hasRegionFilterBeenUsed = true;
-                filterAction = FilterAction.FilteredOnRegion;
             }
             else throw new ApplicationException("Unknown displayItem encountered");
 
@@ -441,7 +438,6 @@ namespace DocGenOneMobileClient.Views
                 State = FilterState.NoMoreMatches;
 
             InvalidateMenuCommand.Execute(null);
-            return filterAction;
         }
 
         private void ConductRegionSearch(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> regionIds, ref List<KeyTreeNodeBase> currentTriggeredKeyTreeNodes)
@@ -557,18 +553,38 @@ namespace DocGenOneMobileClient.Views
             }
         }
 
-        public class FilterSnapShot
+        public class FilterSnapShots: List<FilterSnapShot>
         {
-            public KeyTreeNodeBase BeforePromptKeyTreeNode;
-            public bool BeforeHasRegionFilterBeenUsed;
-            public List<KeyTreeNodeBase> BeforeTriggeredKeyTreeNodes;
-            public List<CharacterPromptBase> BeforeUsedPromptCharacters;
-            public FilterState BeforeFilterState;
-            public FilterAction AppliedFilterAction;
 
-            public enum FilterAction
+            public class FilterSnapShot
             {
-                NoFilter, FilteredOnCharacter, FilteredOnRegion
+                public KeyTreeNodeBase BeforePromptKeyTreeNode;
+                public bool BeforeHasRegionFilterBeenUsed;
+                public List<KeyTreeNodeBase> BeforeTriggeredKeyTreeNodes;
+                public List<CharacterPromptBase> BeforeUsedPromptCharacters;
+                public FilterState BeforeFilterState;
+                public FilterAction AppliedFilterAction;
+
+                public enum FilterAction
+                {
+                    NoFilter, FilteredOnCharacter, FilteredOnRegion
+                }
+            }
+
+            public void Push(FilterSnapShot snapshot)
+            {
+                Add(snapshot);
+            }
+
+            public FilterSnapShot Pop()
+            {
+                if (Count > 0)
+                {
+                    var snapShot = this.Last();
+                    this.Remove(snapShot);
+                    return snapShot;
+                }
+                return null;
             }
         }
     }
