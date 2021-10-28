@@ -11,7 +11,7 @@ using Android.Content;
 namespace AusBatProtoOneMobileClient.Droid
 {
 
-    [Activity(Theme = "@style/AusBatTheme.Splash", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/AusBatTheme.Splash", MainLauncher = true, NoHistory = true, Icon = "@mipmap/ic_launcher_icon")]
     public class SplashActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
 

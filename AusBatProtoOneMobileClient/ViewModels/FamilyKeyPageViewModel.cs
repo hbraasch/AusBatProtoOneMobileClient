@@ -232,7 +232,7 @@ namespace DocGenOneMobileClient.Views
             } 
 
 
-            if (!HasRegionFilterBeenUsed && CurrentTriggeredKeyTreeNodes.Count != 1)
+            if (!HasRegionFilterBeenUsed)
             {
                 displayItems.Add(new MapRegionsDisplayItem
                 {
@@ -340,6 +340,7 @@ namespace DocGenOneMobileClient.Views
                 UsedPromptCharacters = snapshot.BeforeUsedPromptCharacters;
                 CurrentTriggeredKeyTreeNodes = snapshot.BeforeTriggeredKeyTreeNodes;
                 HasRegionFilterBeenUsed = snapshot.BeforeHasRegionFilterBeenUsed;
+                CurrentRegionIds = snapshot.BeforeRegionIds;
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
 
@@ -384,7 +385,14 @@ namespace DocGenOneMobileClient.Views
                 await ActivityIndicatorStart();
 
                 var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
-                var snapShot = new FilterSnapShot { BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode, BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(), BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(), BeforeHasRegionFilterBeenUsed = HasRegionFilterBeenUsed, BeforeFilterState = State };
+                var snapShot = new FilterSnapShot {
+                    BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode,
+                    BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(),
+                    BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(),
+                    BeforeHasRegionFilterBeenUsed = HasRegionFilterBeenUsed,
+                    BeforeFilterState = State,
+                    BeforeRegionIds = CurrentRegionIds
+                };
                 ConductSearch(CurrentPromptKeyTreeNode, activeCharacterDisplayItem, ref CurrentTriggeredKeyTreeNodes, ref UsedPromptCharacters, ref HasRegionFilterBeenUsed);
                 SnapShots.Push(snapShot);
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
@@ -556,15 +564,10 @@ namespace DocGenOneMobileClient.Views
             {
                 public KeyTreeNodeBase BeforePromptKeyTreeNode;
                 public bool BeforeHasRegionFilterBeenUsed;
+                public List<int> BeforeRegionIds;
                 public List<KeyTreeNodeBase> BeforeTriggeredKeyTreeNodes;
                 public List<CharacterPromptBase> BeforeUsedPromptCharacters;
                 public FilterState BeforeFilterState;
-                public FilterAction AppliedFilterAction;
-
-                public enum FilterAction
-                {
-                    NoFilter, FilteredOnCharacter, FilteredOnRegion
-                }
             }
 
             public void Push(FilterSnapShot snapshot)

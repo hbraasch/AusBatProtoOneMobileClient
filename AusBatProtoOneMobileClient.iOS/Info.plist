@@ -32,11 +32,9 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>AusBatProtoOneMobileClient</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is needed to location stamp sightings</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.0.6</string>
+	<string>0.0.7</string>
 </dict>
 </plist>

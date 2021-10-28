@@ -1,7 +1,8 @@
-﻿Format species name in listviews
+﻿Formatted species name in listviews
 Fixed decimal entries in keys
 Upped image resolution in picker files
-Rename result button and status in Family Key Filter  => Taxa
+Renamed result button and status in Family Key Filter  => Taxa
 Sightings => Removed provinces
-Family Key Filter. Add undo 
-Launch icon added
+Family Key Filter. Added undo 
+Launch icon added (Android - Yes, IOS = No)
+Splash screens added

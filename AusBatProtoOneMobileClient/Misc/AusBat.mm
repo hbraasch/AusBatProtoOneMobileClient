@@ -3,7 +3,7 @@
 <node TEXT="AusBat" FOLDED="false" ID="ID_696401721" CREATED="1610381621824" MODIFIED="1635135547442" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties fit_to_viewport="false" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm" show_note_icons="true" show_icon_for_attributes="true"/>
+    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -68,7 +68,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="7" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="8" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Distribution" POSITION="right" ID="ID_1316568271" CREATED="1635135549330" MODIFIED="1635293773024">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
@@ -87,9 +87,8 @@
       ...
     </p>
   </body>
-</html>
-</richcontent>
-<node TEXT="IOS" ID="ID_1409679174" CREATED="1635135585761" MODIFIED="1635147276916"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+</html></richcontent>
+<node TEXT="IOS" ID="ID_1409679174" CREATED="1635135585761" MODIFIED="1635318071987"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -99,11 +98,10 @@
       Create IPA file https://docs.microsoft.com/en-us/xamarin/ios/deploy-test/app-distribution/ipa-support?tabs=windows
     </p>
     <p>
-      Set target device [Remote Device] when building
+      Set target device [Remote Device] when building. Build [Release]
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT="Android" ID="ID_566895906" CREATED="1635135591881" MODIFIED="1635135690433"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
@@ -115,8 +113,13 @@
       Get signed APK file from BIN in VS
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
+</node>
+<node TEXT="App Center" ID="ID_44342366" CREATED="1635320227952" MODIFIED="1635320237974">
+<node TEXT="IOS" ID="ID_1459675838" CREATED="1635320237977" MODIFIED="1635320248231">
+<node TEXT="Must get UDID for each tester and add to Provisioning Profile" ID="ID_772292838" CREATED="1635320248232" MODIFIED="1635320281311"/>
+<node TEXT="Set Group as public (then no login)" ID="ID_184695448" CREATED="1635320281998" MODIFIED="1635320321090"/>
+</node>
 </node>
 </node>
 <node TEXT="Upgrading MacBook" POSITION="left" ID="ID_1260274461" CREATED="1635209452459" MODIFIED="1635210278693">
@@ -134,8 +137,7 @@
       https://www.youtube.com/watch?v=znlhI6f7x1Q
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
 </node>
 <node TEXT="IconsAndSplashScreens" POSITION="right" ID="ID_235657070" CREATED="1635293620672" MODIFIED="1635293878744">
 <edge COLOR="#00ffff"/>
@@ -147,6 +149,27 @@
   <body>
     <p>
       https://stackoverflow.com/questions/37945767/how-to-change-application-icon-in-xamarin-forms
+    </p>
+  </body>
+</html></richcontent>
+</node>
+</node>
+<node TEXT="Logins" POSITION="left" ID="ID_1486314238" CREATED="1635378022577" MODIFIED="1635378042440">
+<edge COLOR="#007c00"/>
+<node TEXT="AppCenter" ID="ID_1456900931" CREATED="1635378043910" MODIFIED="1635378329028"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Login using <b>Google</b>:
+    </p>
+    <p>
+      treeapps.develop@gmail.com
+    </p>
+    <p>
+      Treeappsdevelop@256
     </p>
   </body>
 </html>
