@@ -17,7 +17,7 @@ namespace AusBatProtoOneMobileClient
         DisplaySpeciesImageTabPage displayBatImagesTabPage;
         DisplaySpeciesDetailsTabPage displayBatDetailsTabPage;
         DisplaySpeciesDistributionTabPage displayBatRegionsTabPage;
-        DisplaySpeciesCallTabPage displayBatCallTabPage;
+        DisplaySpeciesCallTabPage displayBatCallTabPage; 
         public DisplaySpeciesTabbedPage(DisplaySpeciesTabbedPageViewModel viewModel)
         {
             this.viewModel = viewModel;
