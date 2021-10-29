@@ -26,7 +26,8 @@ namespace DocGenOneMobileClient.Views
                 IsGroupingEnabled = true,
                 GroupDisplayBinding = new Binding (nameof(GroupedSpeciesDisplayItem.FamilyName)),
                 BackgroundColor = Color.Transparent,
-                SeparatorColor = Constants.APP_COLOUR
+                SeparatorColor = Constants.APP_COLOUR,
+                Margin = 5
             };
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SpeciesByFamilyPageViewModel.FamilyGroupDisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SpeciesByFamilyPageViewModel.SelectedItem), BindingMode.TwoWay));
@@ -55,7 +56,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Species by Family:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Species by Family", Style = Styles.TitleLabelStyle });
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
 
@@ -88,7 +89,7 @@ namespace DocGenOneMobileClient.Views
                 image.Transformations.Add(new CircleTransformation());
                 image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
-                var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5) };
+                var grid = new Grid() { Margin = new Thickness(15, 5, 5, 5) };
                 grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
@@ -109,17 +110,15 @@ namespace DocGenOneMobileClient.Views
 
             public ListViewGroupTemplate()
             {
-
+                var color = (DeviceInfo.Platform != DevicePlatform.iOS) ? Color.Transparent : Color.Black;
                 var speciesNameLabel = new Label { 
                     VerticalTextAlignment = TextAlignment.Center, 
                     TextColor = Constants.APP_COLOUR,
-                    FontAttributes = FontAttributes.Bold
+                    FontAttributes = FontAttributes.Bold,
+                    BackgroundColor = color
                 };
                 speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GroupedSpeciesDisplayItem.FamilyName), BindingMode.TwoWay));
-
-                var color = (DeviceInfo.Platform != DevicePlatform.iOS) ? Color.Transparent : Color.Black;
-                View = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { speciesNameLabel }, BackgroundColor = color };
-
+                View = speciesNameLabel;
             }
 
         }

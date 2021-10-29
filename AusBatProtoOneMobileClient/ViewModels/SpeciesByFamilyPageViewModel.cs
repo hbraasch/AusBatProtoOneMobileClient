@@ -32,6 +32,7 @@ namespace DocGenOneMobileClient.Views
         {
             public string FamilyName { get; set; }
             public string ImageSource { get; set; }
+
         }
 
         public ObservableCollection<GroupedSpeciesDisplayItem> FamilyGroupDisplayItems { get; set; }

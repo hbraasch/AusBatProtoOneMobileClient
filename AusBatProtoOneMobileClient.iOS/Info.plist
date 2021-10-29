@@ -36,5 +36,7 @@
 	<string>Location is needed to location stamp sightings</string>
 	<key>CFBundleShortVersionString</key>
 	<string>0.0.7</string>
+	<key>XSAppIconAssets</key>
+	<string>Media.xcassets/AppIcon.appiconset</string>
 </dict>
 </plist>

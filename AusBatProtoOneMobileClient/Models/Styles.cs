@@ -41,5 +41,16 @@ namespace AusBatProtoOneMobileClient.Models
                 new Setter { Property = Button.CornerRadiusProperty,   Value = 5 }
             }
         };
+
+        public static Style TitleLabelStyle = new Style(typeof(Label))
+        {
+            Setters = {
+                new Setter { Property = Label.FontSizeProperty,   Value = Device.GetNamedSize(NamedSize.Large, typeof(Label)) },
+                new Setter { Property = Label.VerticalTextAlignmentProperty,   Value = TextAlignment.Center },
+                new Setter { Property = Label.HorizontalOptionsProperty,   Value = LayoutOptions.Start},
+                new Setter { Property = Label.TextColorProperty,   Value = Constants.APP_COLOUR },
+                new Setter { Property = Label.LineBreakModeProperty,   Value = LineBreakMode.TailTruncation }
+            }
+        };
     }
 }

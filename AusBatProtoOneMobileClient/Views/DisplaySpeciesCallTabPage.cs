@@ -1,4 +1,5 @@
 ﻿using AusBatProtoOneMobileClient.Data;
+using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
 using FFImageLoading.Forms;
 using Mobile.Helpers;
@@ -51,7 +52,7 @@ namespace AusBatProtoOneMobileClient
 
             var mainLayout = new StackLayout { Children = { carouselView, indicatorView } };
 
-            NavigationPage.SetTitleView(this, new Label { Text = "Calls:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Label { Text = "Calls", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.Black;
 
             var centeredLayout = new AbsoluteLayout

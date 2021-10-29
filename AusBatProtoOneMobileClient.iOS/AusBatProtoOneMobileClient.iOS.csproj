@@ -161,70 +161,58 @@
     <BundleResource Include="Resources\world_ios%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v1.png" />
+    <BundleResource Include="Resources\splash_screen_v3.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v1%402x.png" />
+    <BundleResource Include="Resources\splash_screen_v3%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v1%403x.png" />
+    <BundleResource Include="Resources\splash_screen_v3%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\1024.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\120.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-20x20@1x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\1201.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-20x20@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\152.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-20x20@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\167.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-29x29@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\180.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-29x29@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\20.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-40x40@1x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\29.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-40x40@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\40.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-40x40@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\401.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-60x60@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\402.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-60x60@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\58.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-76x76@1x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\581.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\60.png">
+    <ImageAsset Include="Media.xcassets\AppIcon.appiconset\ItunesArtwork@2x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\801.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Media.xcassets\AppIcons.appiconset\Contents.json">
+    <ImageAsset Include="Media.xcassets\AppIconsEmpty.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using AusBatProtoOneMobileClient.ViewModels;
+﻿using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.ViewModels;
 using AusBatProtoOneMobileClient.Views.Components;
 using FFImageLoading.Forms;
 using Mobile.Helpers;
@@ -37,7 +38,7 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
 
-            NavigationPage.SetTitleView(this, new Label { Text = "Distribution:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Label { Text = "Distribution", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.Black;
             Content = centeredLayout;
         }

@@ -20,7 +20,7 @@ namespace AusBatProtoOneMobileClient
             webView = new TransparentWebView() { Margin = 5 };          
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.DetailsHtmlSource), BindingMode.OneWay));
 
-            NavigationPage.SetTitleView(this, new Label { Text = "Details:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Label { Text = "Details", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.White;
 
             Content = webView;

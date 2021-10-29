@@ -1,4 +1,5 @@
-﻿using AusBatProtoOneMobileClient.ViewModels;
+﻿using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.ViewModels;
 using Mobile.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -53,7 +54,7 @@ namespace AusBatProtoOneMobileClient
             }
 
             // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
-            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = $"{viewModel.Species.Name}:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = $"{viewModel.Species.Name}", Style = Styles.TitleLabelStyle });
             BarBackgroundColor = Xamarin.Forms.Color.Black;
             BarTextColor = Xamarin.Forms.Color.White;
             

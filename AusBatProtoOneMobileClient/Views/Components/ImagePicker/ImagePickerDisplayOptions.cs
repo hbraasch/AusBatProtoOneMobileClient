@@ -78,7 +78,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
             AbsoluteLayout.SetLayoutBounds(displayImage, new Rectangle(0, 0, 1, 1));
 
             BackgroundColor = Color.Black;
-            NavigationPage.SetTitleView(this, new Label { Text = $"{prompt}:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Label { Text = $"{prompt}", Style = Styles.TitleLabelStyle });
             NavigationPage.SetHasBackButton(this, false);
             Content = overlayLayout;
 

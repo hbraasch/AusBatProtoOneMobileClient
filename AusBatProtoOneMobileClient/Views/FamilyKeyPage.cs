@@ -79,7 +79,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            var titleLabel = new Xamarin.Forms.Label { Text = "Filter:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White };
+            var titleLabel = new Xamarin.Forms.Label { Text = "Filter", Style = Styles.TitleLabelStyle };
             titleLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
             NavigationPage.SetTitleView(this, titleLabel);
 

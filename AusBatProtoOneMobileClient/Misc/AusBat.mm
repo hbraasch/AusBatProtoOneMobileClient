@@ -68,7 +68,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="8" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="9" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Distribution" POSITION="right" ID="ID_1316568271" CREATED="1635135549330" MODIFIED="1635293773024">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
@@ -115,8 +115,8 @@
   </body>
 </html></richcontent>
 </node>
-<node TEXT="App Center" ID="ID_44342366" CREATED="1635320227952" MODIFIED="1635320237974">
-<node TEXT="IOS" ID="ID_1459675838" CREATED="1635320237977" MODIFIED="1635320248231">
+<node TEXT="App Center" FOLDED="true" ID="ID_44342366" CREATED="1635320227952" MODIFIED="1635463626530">
+<node TEXT="IOS" ID="ID_1459675838" CREATED="1635320237977" MODIFIED="1635463626529" VSHIFT_QUANTITY="-0.75 pt">
 <node TEXT="Must get UDID for each tester and add to Provisioning Profile" ID="ID_772292838" CREATED="1635320248232" MODIFIED="1635320281311"/>
 <node TEXT="Set Group as public (then no login)" ID="ID_184695448" CREATED="1635320281998" MODIFIED="1635320321090"/>
 </node>
@@ -141,7 +141,7 @@
 </node>
 <node TEXT="IconsAndSplashScreens" POSITION="right" ID="ID_235657070" CREATED="1635293620672" MODIFIED="1635293878744">
 <edge COLOR="#00ffff"/>
-<node TEXT="Icons" ID="ID_1751316084" CREATED="1635293644880" MODIFIED="1635293662785"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="Icons" FOLDED="true" ID="ID_1751316084" CREATED="1635293644880" MODIFIED="1635293662785"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -152,6 +152,22 @@
     </p>
   </body>
 </html></richcontent>
+<node TEXT="IOS" ID="ID_915341172" CREATED="1635463456103" MODIFIED="1635463460055">
+<node TEXT="Images in Assets Catalog, start with it empty and just add the ones the Build complains are missing. Do not add anything more" ID="ID_229386797" CREATED="1635463460057" MODIFIED="1635463532450"/>
+<node TEXT="Android" ID="ID_348784011" CREATED="1635463539903" MODIFIED="1635463545096">
+<node TEXT="Image is referenced am MainActivity.cs. Ensure its also referenced in Startup Activity" ID="ID_1705418337" CREATED="1635463545099" MODIFIED="1635463618176"/>
+</node>
+</node>
+</node>
+<node TEXT="Splash" ID="ID_1968826518" CREATED="1635463223217" MODIFIED="1635463230969">
+<node TEXT="Android" ID="ID_882336192" CREATED="1635463230972" MODIFIED="1635463239025">
+<node TEXT="Place image in Resources/drawable folder" ID="ID_1353674177" CREATED="1635463239028" MODIFIED="1635463273745"/>
+<node TEXT="There is a Startup application and set of xml and style docs to create splash" ID="ID_25335279" CREATED="1635463275296" MODIFIED="1635463319208"/>
+</node>
+<node TEXT="IOS" FOLDED="true" ID="ID_1362629066" CREATED="1635463323767" MODIFIED="1635463334927">
+<node TEXT="Hack - edit storyboard file, put x1,x2 and x3 images in Resources folder" ID="ID_715381447" CREATED="1635463334929" MODIFIED="1635463444584"/>
+<node TEXT="Important - Rename file with each change, otherwise it used cached version" ID="ID_1089092165" CREATED="1635469003855" MODIFIED="1635469028904"/>
+</node>
 </node>
 </node>
 <node TEXT="Logins" POSITION="left" ID="ID_1486314238" CREATED="1635378022577" MODIFIED="1635378042440">
@@ -172,8 +188,88 @@
       Treeappsdevelop@256
     </p>
   </body>
-</html>
-</richcontent>
+</html></richcontent>
+</node>
+</node>
+<node TEXT="Documentation" POSITION="right" ID="ID_1645926589" CREATED="1635455067530" MODIFIED="1635455073733">
+<edge COLOR="#7c007c"/>
+<node TEXT="File naming convension" ID="ID_1461854879" CREATED="1635455074247" MODIFIED="1635455167003"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">Species name is taken from the EXCEL table: &nbsp;<!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1025" type="#_x0000_t75"
+ alt="" style='width:212.6pt;height:67.9pt'>
+ <v:imagedata src="file:///C:/Users/Heinrich/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg"
+  o:href="cid:image002.jpg@01D7CC25.C8ECFE30"/>
+</v:shape><![endif]-->
+      &nbsp;<img width="283" height="91" src="AusBat_files/image-322269678091160930.jpg" v="#DEFAULT" shapes="Picture_x0020_1" style="height: .943in; width: 2.943in"/>&nbsp;&nbsp;e.g. [Austonomus australis]<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0"><o p="#DEFAULT">
+      &nbsp;</o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">Then convert it to all lowercase, spaces replaced with underscores, and a prefix added to distinguish data types. For the details file it becomes &nbsp;&nbsp;[austonomus_australis_details.html]<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0"><o p="#DEFAULT">
+      &nbsp;</o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">For species we have the following types<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">Datasets [_dataset.html] e.g. austonomus_australis_dataset.json<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">Details [_details.json] e.g. austonomus_australis_details.html<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">Hires images:<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call images [_call_image] e.g. austonomus_australis_call_image.jpg<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distribution maps [_dist] e.g. austonomus_australis_dist.jpg<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Face image [_head] e.g. austonomus_australis_head.jpg<o p="#DEFAULT"></o></font></span>
+    </p>
+    <p class="MsoPlainText">
+      <span lang="EN-AU" style="color: #00B0F0"><font color="#00B0F0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other images (just add number after name e.g. austonomus_australis1.jpg<o p="#DEFAULT"></o>&nbsp;</font></span>
+    </p>
+    <p class="MsoPlainText">
+      
+    </p>
+    <p class="MsoPlainText">
+      
+    </p>
+  </body>
+</html></richcontent>
 </node>
 </node>
 </node>

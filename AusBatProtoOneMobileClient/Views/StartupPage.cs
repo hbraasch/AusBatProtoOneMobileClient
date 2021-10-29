@@ -98,7 +98,7 @@ namespace AusBatProtoOneMobileClient
             var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
 
             BackgroundColor = Color.Black;
-            NavigationPage.SetTitleView(this, new Label { Text = Constants.APP_NAME, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Label { Text = Constants.APP_NAME, Style = Styles.TitleLabelStyle });
 
             var centeredLayout = new AbsoluteLayout
             {

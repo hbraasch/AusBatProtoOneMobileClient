@@ -1,4 +1,5 @@
-﻿using AusBatProtoOneMobileClient.ViewModels;
+﻿using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.ViewModels;
 using AusBatProtoOneMobileClient.Views.Components;
 using Mobile.Helpers;
 using Mobile.ViewModels;
@@ -32,7 +33,7 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(map, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(map, new Rectangle(0.5, 0.5, size, size));
 
-            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Regions:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Regions", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.Black;
             Content = layout;
 

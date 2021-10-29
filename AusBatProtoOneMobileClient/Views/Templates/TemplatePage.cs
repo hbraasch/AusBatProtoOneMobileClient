@@ -1,4 +1,5 @@
-﻿using AusBatProtoOneMobileClient.ViewModels;
+﻿using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.ViewModels;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using Xamarin.Forms;
@@ -29,7 +30,7 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Template:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, TextColor = Color.White });
+            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Template", Style = Styles.TitleLabelStyle });
             Content = centeredLayout;
 
             menu = new MenuGenerator().Configure()
