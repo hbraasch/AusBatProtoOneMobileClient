@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace AusBatProtoOneMobileClient.Models
@@ -17,6 +18,8 @@ namespace AusBatProtoOneMobileClient.Models
 
         public const string HIRES_IMAGES_FOLDER_NAME = "HiresImages";
         public const string HIRES_IMAGES_ZIP_FILE_NAME = "hires_images.zip";
+
+        public static float HTML_FONT_SIZE_PERCENTAGE = (DeviceInfo.Platform == DevicePlatform.Android) ? 150.0f: 300.0f;
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
+using NAudio.Wave;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -683,6 +684,37 @@ namespace WinToolsTwo
             var version = new DbaseVersion("0.0.0");
             var json = JsonConvert.SerializeObject(version);
             File.WriteAllText(@"c:\temp\version.json", json);
+        }
+
+        private void buttonLoadAudio_Click(object sender, EventArgs e)
+        {
+            var bytes = default(byte[]);
+            var af = new AudioFileReader(@"c:\temp\bat.mp3");
+            using (var stream = new StreamReader(af,true))
+            {
+
+                using (var memstream = new MemoryStream())
+                {
+                    var buff = new byte[512];
+                    var bytesRead = default(int);
+                    while ((bytesRead = stream.BaseStream.Read(buff, 0, buff.Length)) > 0)
+                        memstream.Write(buff, 0, bytesRead);
+                    bytes = memstream.ToArray();
+                }
+            }
+
+            float max = 0;
+            var buffer = new WaveBuffer(bytes);
+            // interpret as 32 bit floating point audio
+            for (int index = 0; index < bytes.Length / 4; index++)
+            {
+                var sample = buffer.FloatBuffer[index];
+
+                // absolute value 
+                if (sample < 0) sample = -sample;
+                // is this the max value?
+                if (sample > max) max = sample;
+            }
         }
     }
 }

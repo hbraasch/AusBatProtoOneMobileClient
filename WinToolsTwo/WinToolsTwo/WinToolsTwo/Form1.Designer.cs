@@ -46,6 +46,7 @@ namespace WinToolsTwo
             this.buttonGetKeyNode = new System.Windows.Forms.Button();
             this.buttonCreateTree = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonGenerateJsonFile = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -63,12 +64,14 @@ namespace WinToolsTwo
             this.textBoxSpecies = new System.Windows.Forms.TextBox();
             this.buttonParseForRegions = new System.Windows.Forms.Button();
             this.textBoxRegionsSource = new System.Windows.Forms.TextBox();
-            this.buttonGenerateJsonFile = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.buttonLoadAudio = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,6 +80,7 @@ namespace WinToolsTwo
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -258,6 +262,16 @@ namespace WinToolsTwo
             this.tabPage3.Text = "Rename";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // buttonGenerateJsonFile
+            // 
+            this.buttonGenerateJsonFile.Location = new System.Drawing.Point(99, 378);
+            this.buttonGenerateJsonFile.Name = "buttonGenerateJsonFile";
+            this.buttonGenerateJsonFile.Size = new System.Drawing.Size(169, 25);
+            this.buttonGenerateJsonFile.TabIndex = 5;
+            this.buttonGenerateJsonFile.Text = "Generate json file";
+            this.buttonGenerateJsonFile.UseVisualStyleBackColor = true;
+            this.buttonGenerateJsonFile.Click += new System.EventHandler(this.buttonGenerateJsonFile_Click);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(99, 204);
@@ -432,15 +446,25 @@ namespace WinToolsTwo
             this.textBoxRegionsSource.TabIndex = 12;
             this.textBoxRegionsSource.WordWrap = false;
             // 
-            // buttonGenerateJsonFile
+            // tabPage5
             // 
-            this.buttonGenerateJsonFile.Location = new System.Drawing.Point(99, 378);
-            this.buttonGenerateJsonFile.Name = "buttonGenerateJsonFile";
-            this.buttonGenerateJsonFile.Size = new System.Drawing.Size(169, 25);
-            this.buttonGenerateJsonFile.TabIndex = 5;
-            this.buttonGenerateJsonFile.Text = "Generate json file";
-            this.buttonGenerateJsonFile.UseVisualStyleBackColor = true;
-            this.buttonGenerateJsonFile.Click += new System.EventHandler(this.buttonGenerateJsonFile_Click);
+            this.tabPage5.Controls.Add(this.buttonLoadAudio);
+            this.tabPage5.Location = new System.Drawing.Point(4, 26);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1354, 515);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Audio";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // buttonLoadAudio
+            // 
+            this.buttonLoadAudio.Location = new System.Drawing.Point(99, 53);
+            this.buttonLoadAudio.Name = "buttonLoadAudio";
+            this.buttonLoadAudio.Size = new System.Drawing.Size(83, 25);
+            this.buttonLoadAudio.TabIndex = 0;
+            this.buttonLoadAudio.Text = "LoadAudio";
+            this.buttonLoadAudio.UseVisualStyleBackColor = true;
+            this.buttonLoadAudio.Click += new System.EventHandler(this.buttonLoadAudio_Click);
             // 
             // Form1
             // 
@@ -457,6 +481,7 @@ namespace WinToolsTwo
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -498,6 +523,8 @@ namespace WinToolsTwo
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button buttonGenerateJsonFile;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button buttonLoadAudio;
     }
 }
 

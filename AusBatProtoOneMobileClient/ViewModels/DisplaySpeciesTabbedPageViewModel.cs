@@ -40,6 +40,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
 
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
+        public float HtmlFontSizePercentage { get; set; }
 
         public class CallDataItem
         {
@@ -59,6 +60,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             ImageDataItems = new ObservableCollection<ImageDataItem>(); 
             DetailsHtmlSource = new HtmlWebViewSource();
             CallDisplayItems = new ObservableCollection<CallDataItem>();
+            HtmlFontSizePercentage = Constants.HTML_FONT_SIZE_PERCENTAGE;
         }
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => {
@@ -92,6 +94,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 callDisplayItems.Add(new CallDataItem { ImageSource = ImageSource.FromFile(HiresImages.GetFullFilename(callImage)) });
             }
             CallDisplayItems = callDisplayItems;
+
             Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
 
@@ -151,7 +154,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        
         public ICommand OnAddSightingMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {

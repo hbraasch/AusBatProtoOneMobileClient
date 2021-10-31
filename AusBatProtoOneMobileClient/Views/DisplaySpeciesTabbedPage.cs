@@ -57,7 +57,7 @@ namespace AusBatProtoOneMobileClient
             NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = $"{viewModel.Species.Name}", Style = Styles.TitleLabelStyle });
             BarBackgroundColor = Xamarin.Forms.Color.Black;
             BarTextColor = Xamarin.Forms.Color.White;
-            
+
             //On<Windows>().SetHeaderIconsEnabled(true);
 
             menu = new MenuGenerator().Configure()

@@ -18,6 +18,7 @@ namespace AusBatProtoOneMobileClient.Droid
 {
     public class TransparentWebViewDroid : WebViewRenderer
     {
+        const int defaultFontSize = 10;
         public TransparentWebViewDroid(Context context) : base(context)
         {
         }
@@ -27,7 +28,10 @@ namespace AusBatProtoOneMobileClient.Droid
             base.OnElementChanged(e);
 
             // Setting the background as transparent
-            this.Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            var fontSizePercentage = ((TransparentWebView)e.NewElement).FontSizePercentage;
+            var percentage = (fontSizePercentage == 0) ? 100.0f: fontSizePercentage;
+            Control.Settings.DefaultFontSize = (int)(defaultFontSize * (percentage) /100);
         }
     }
 }
