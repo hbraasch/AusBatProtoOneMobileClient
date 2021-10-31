@@ -1,5 +1,4 @@
-﻿IOS launch icon added
-Splash screen updated
-Title bar coloured and TailTruncation
+﻿Splash screen updated
+Title bar coloured and TailTruncated
 Some formatting tweaks
 Modified to not display call tab if no calls

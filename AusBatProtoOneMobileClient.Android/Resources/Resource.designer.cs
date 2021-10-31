@@ -17017,110 +17017,113 @@ namespace AusBatProtoOneMobileClient.Droid
 			// aapt resource value: 0x7F070104
 			public const int splash_screen_v1 = 2131165444;
 			
-			// aapt resource value: 0x7F070106
-			public const int syconycteris_australis_head = 2131165446;
-			
 			// aapt resource value: 0x7F070105
-			public const int sycon_aust = 2131165445;
+			public const int splash_screen_v3 = 2131165445;
 			
 			// aapt resource value: 0x7F070107
-			public const int tail_fully_enclosed = 2131165447;
+			public const int syconycteris_australis_head = 2131165447;
+			
+			// aapt resource value: 0x7F070106
+			public const int sycon_aust = 2131165446;
 			
 			// aapt resource value: 0x7F070108
-			public const int tail_membrane_hairy = 2131165448;
+			public const int tail_fully_enclosed = 2131165448;
 			
 			// aapt resource value: 0x7F070109
-			public const int tail_membrane_no_fur = 2131165449;
+			public const int tail_membrane_hairy = 2131165449;
 			
 			// aapt resource value: 0x7F07010A
-			public const int tail_present_not_attached = 2131165450;
+			public const int tail_membrane_no_fur = 2131165450;
 			
 			// aapt resource value: 0x7F07010B
-			public const int tail_present_projecting_free_greater_8mm = 2131165451;
+			public const int tail_present_not_attached = 2131165451;
 			
 			// aapt resource value: 0x7F07010C
-			public const int tail_present_projecting_through_upper_surface = 2131165452;
+			public const int tail_present_projecting_free_greater_8mm = 2131165452;
 			
 			// aapt resource value: 0x7F07010D
-			public const int taphozous_australis_head = 2131165453;
+			public const int tail_present_projecting_through_upper_surface = 2131165453;
 			
 			// aapt resource value: 0x7F07010E
-			public const int taphozous_georgianus_head = 2131165454;
+			public const int taphozous_australis_head = 2131165454;
 			
 			// aapt resource value: 0x7F07010F
-			public const int taphozous_troughtoni_head = 2131165455;
+			public const int taphozous_georgianus_head = 2131165455;
 			
 			// aapt resource value: 0x7F070110
-			public const int test_custom_background = 2131165456;
+			public const int taphozous_troughtoni_head = 2131165456;
 			
 			// aapt resource value: 0x7F070111
-			public const int text = 2131165457;
+			public const int test_custom_background = 2131165457;
 			
 			// aapt resource value: 0x7F070112
-			public const int three_met_3p1 = 2131165458;
+			public const int text = 2131165458;
 			
 			// aapt resource value: 0x7F070113
-			public const int tooltip_frame_dark = 2131165459;
+			public const int three_met_3p1 = 2131165459;
 			
 			// aapt resource value: 0x7F070114
-			public const int tooltip_frame_light = 2131165460;
+			public const int tooltip_frame_dark = 2131165460;
 			
 			// aapt resource value: 0x7F070115
-			public const int tragus_absent = 2131165461;
+			public const int tooltip_frame_light = 2131165461;
 			
 			// aapt resource value: 0x7F070116
-			public const int tragus_bifurcate = 2131165462;
+			public const int tragus_absent = 2131165462;
 			
 			// aapt resource value: 0x7F070117
-			public const int tragus_entire = 2131165463;
+			public const int tragus_bifurcate = 2131165463;
 			
 			// aapt resource value: 0x7F070118
-			public const int tragus_linear = 2131165464;
+			public const int tragus_entire = 2131165464;
 			
 			// aapt resource value: 0x7F070119
-			public const int tragus_oblong_lanceolate = 2131165465;
+			public const int tragus_linear = 2131165465;
 			
 			// aapt resource value: 0x7F07011A
-			public const int tragus_orbicular = 2131165466;
+			public const int tragus_oblong_lanceolate = 2131165466;
 			
 			// aapt resource value: 0x7F07011B
-			public const int two_pairs_equal_size_both_bifurcate = 2131165467;
+			public const int tragus_orbicular = 2131165467;
 			
 			// aapt resource value: 0x7F07011C
-			public const int two_pairs_inequal_size_neither_bifid = 2131165468;
+			public const int two_pairs_equal_size_both_bifurcate = 2131165468;
 			
 			// aapt resource value: 0x7F07011D
-			public const int two_pairs_larger_bifid = 2131165469;
+			public const int two_pairs_inequal_size_neither_bifid = 2131165469;
 			
 			// aapt resource value: 0x7F07011E
-			public const int upper_pre_molars_one_pair = 2131165470;
+			public const int two_pairs_larger_bifid = 2131165470;
 			
 			// aapt resource value: 0x7F07011F
-			public const int upper_pre_molars_two = 2131165471;
+			public const int upper_pre_molars_one_pair = 2131165471;
 			
 			// aapt resource value: 0x7F070120
-			public const int vespadelus_caurinus_head = 2131165472;
+			public const int upper_pre_molars_two = 2131165472;
 			
 			// aapt resource value: 0x7F070121
-			public const int vespadelus_douglasorum_head = 2131165473;
+			public const int vespadelus_caurinus_head = 2131165473;
 			
 			// aapt resource value: 0x7F070122
-			public const int vespadelus_finlaysoni_head = 2131165474;
+			public const int vespadelus_douglasorum_head = 2131165474;
 			
 			// aapt resource value: 0x7F070123
-			public const int vespadelus_regulus_head = 2131165475;
+			public const int vespadelus_finlaysoni_head = 2131165475;
 			
 			// aapt resource value: 0x7F070124
-			public const int wing_third_finger_long = 2131165476;
+			public const int vespadelus_regulus_head = 2131165476;
 			
 			// aapt resource value: 0x7F070125
-			public const int wing_third_finger_short = 2131165477;
+			public const int wing_third_finger_long = 2131165477;
 			
 			// aapt resource value: 0x7F070126
-			public const int world = 2131165478;
+			public const int wing_third_finger_short = 2131165478;
 			
 			// aapt resource value: 0x7F070127
-			public const int xamarin_logo = 2131165479;
+			public const int world = 2131165479;
+			
+			// aapt resource value: 0x7F070128
+			public const int xamarin_logo = 2131165480;
 			
 			static Drawable()
 			{
