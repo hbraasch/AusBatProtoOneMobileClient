@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
+using MP3Sharp;
 using NAudio.Wave;
 using Newtonsoft.Json;
 using System;
@@ -10,9 +11,12 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using TreeApp.Helpers;
+using static WinToolsTwo.Form1;
 using static WinToolsTwo.Parser;
 
 
@@ -686,11 +690,21 @@ namespace WinToolsTwo
             File.WriteAllText(@"c:\temp\version.json", json);
         }
 
+        Channel chan0;
+        SoundPlayer simpleSound;
         private void buttonLoadAudio_Click(object sender, EventArgs e)
         {
             var bytes = default(byte[]);
-            var af = new AudioFileReader(@"c:\temp\bat.mp3");
-            using (var stream = new StreamReader(af,true))
+            var mp3FullFilename = @"c:\temp\bat.mp3"; 
+            var wavFullFilename = @"c:\temp\bat.wav";
+            var af = new AudioFileReader(mp3FullFilename);
+            Mp3ToWav(mp3FullFilename, wavFullFilename);
+            simpleSound = new SoundPlayer(wavFullFilename);
+
+  
+            const int DISPLAY_POINTS_PER_SEC = 10;
+
+            using (var stream = new StreamReader(af))
             {
 
                 using (var memstream = new MemoryStream())
@@ -703,18 +717,554 @@ namespace WinToolsTwo
                 }
             }
 
-            float max = 0;
+            chan0 = new Channel(af.WaveFormat.SampleRate);
+            var chan1 = new Channel(af.WaveFormat.SampleRate);
             var buffer = new WaveBuffer(bytes);
             // interpret as 32 bit floating point audio
             for (int index = 0; index < bytes.Length / 4; index++)
             {
                 var sample = buffer.FloatBuffer[index];
+                if (index % 2 == 0)
+                {
+                    chan0.Samples.Add(sample);
+                }
+                else
+                {
+                    chan1.Samples.Add(sample);
+                }               
+            }
 
-                // absolute value 
-                if (sample < 0) sample = -sample;
-                // is this the max value?
-                if (sample > max) max = sample;
+
+            // chan0.Samples.ForEach(o => Debug.WriteLine($"{o}"));
+
+            chan0.CalculateDb(DISPLAY_POINTS_PER_SEC);
+            chan1.CalculateDb(DISPLAY_POINTS_PER_SEC);
+
+            chan0.StartPlayback((decibels, isPlaying) => {
+                if (!isPlaying) return;
+                progressBar.Invoke((MethodInvoker)delegate {
+                    // Running on the UI thread
+                    progressBar.Value = (int)(100 * (decibels - chan0.minDb) / (chan0.maxDb - chan0.minDb));
+                });
+                
+            });
+            simpleSound.Play();
+        }
+
+        public static void Mp3ToWav(string mp3File, string outputFile)
+        {
+            using (Mp3FileReader reader = new Mp3FileReader(mp3File))
+            {
+                using (WaveStream pcmStream = WaveFormatConversionStream.CreatePcmStream(reader))
+                {
+                    WaveFileWriter.CreateWaveFile(outputFile, pcmStream);
+                }
             }
         }
+
+        public class Channel
+        {
+
+            private int sampleRate;
+
+            public List<float> Samples = new List<float>();
+            public List<double> dBs = new List<double>();
+            public double maxDb = double.MinValue;
+            public double minDb = double.MaxValue;
+
+            public Channel(int sampleRate)
+            {
+                this.sampleRate = sampleRate;
+            }
+
+            internal void CalculateDb(int pointsPerSec)
+            {
+                var samplesPerSecond = sampleRate;
+                int samplesPerChunk  = samplesPerSecond/ pointsPerSec;
+                var chunks = Samples.Chunks(samplesPerChunk);
+                maxDb = double.MinValue;
+                minDb = double.MaxValue;
+                foreach (var chunk in chunks)
+                {
+                    double sum = 0;
+                    foreach (var sample in chunk)
+                    {
+                        sum += (sample * sample);
+                    }
+                    double rms = Math.Sqrt(sum / chunk.Count());
+                    rms = Math.Max(10e-3, rms);
+                    var decibel = 92.8 + 20 * Math.Log10(rms);
+                    dBs.Add(decibel);
+                    if (decibel > maxDb) maxDb = decibel;
+                    if (decibel < minDb) minDb = decibel;
+                }
+            }
+
+            bool isPlaying = false;
+            internal void StartPlayback(Action<double, bool> updateDisplay)
+            {
+                Task.Factory.StartNew(async () => {
+                    Stopwatch stopWatch = new Stopwatch();
+                    var newPlayTime = 100;
+                    stopWatch.Start();
+                    isPlaying = true;
+                    foreach (var db in dBs)
+                    {
+                        while (stopWatch.ElapsedMilliseconds < newPlayTime) { await Task.Delay(1); }
+                        newPlayTime += 100;
+                        if (!isPlaying) break;
+                        updateDisplay?.Invoke(db, isPlaying); 
+                    }
+                    isPlaying = false;
+                    updateDisplay?.Invoke(0, isPlaying);
+                });
+            }
+
+            internal void StopPlayback()
+            {
+                isPlaying = false;
+            }
+        }
+
+        private void buttonStopAudio_Click(object sender, EventArgs e)
+        {
+            chan0.StopPlayback();
+            simpleSound.Stop();
+        }
+
+        static bool ReadWav(string filename, out float[] L, out float[] R)
+        {
+            L = R = null;
+
+            try
+            {
+                using (FileStream fs = File.Open(filename, FileMode.Open))
+                {
+                    BinaryReader reader = new BinaryReader(fs);
+
+                    // chunk 0
+                    int chunkID = reader.ReadInt32();
+                    int fileSize = reader.ReadInt32();
+                    int riffType = reader.ReadInt32();
+
+
+                    // chunk 1
+                    int fmtID = reader.ReadInt32();
+                    int fmtSize = reader.ReadInt32(); // bytes for this chunk (expect 16 or 18)
+
+                    // 16 bytes coming...
+                    int fmtCode = reader.ReadInt16();
+                    int channels = reader.ReadInt16();
+                    int sampleRate = reader.ReadInt32();
+                    int byteRate = reader.ReadInt32();
+                    int fmtBlockAlign = reader.ReadInt16();
+                    int bitDepth = reader.ReadInt16();
+
+                    if (fmtSize == 18)
+                    {
+                        // Read any extra values
+                        int fmtExtraSize = reader.ReadInt16();
+                        reader.ReadBytes(fmtExtraSize);
+                    }
+
+                    // chunk 2
+                    int dataID = reader.ReadInt32();
+                    int bytes = reader.ReadInt32();
+
+                    // DATA!
+                    byte[] byteArray = reader.ReadBytes(bytes);
+
+                    int bytesForSamp = bitDepth / 8;
+                    int nValues = bytes / bytesForSamp;
+
+
+                    float[] asFloat = null;
+                    switch (bitDepth)
+                    {
+                        case 64:
+                            double[]
+                                asDouble = new double[nValues];
+                            Buffer.BlockCopy(byteArray, 0, asDouble, 0, bytes);
+                            asFloat = Array.ConvertAll(asDouble, e => (float)e);
+                            break;
+                        case 32:
+                            asFloat = new float[nValues];
+                            Buffer.BlockCopy(byteArray, 0, asFloat, 0, bytes);
+                            break;
+                        case 16:
+                            Int16[]
+                                asInt16 = new Int16[nValues];
+                            Buffer.BlockCopy(byteArray, 0, asInt16, 0, bytes);
+                            asFloat = Array.ConvertAll(asInt16, e => e / (float)(Int16.MaxValue + 1));
+                            break;
+                        default:
+                            return false;
+                    }
+
+                    switch (channels)
+                    {
+                        case 1:
+                            L = asFloat;
+                            R = null;
+                            return true;
+                        case 2:
+                            // de-interleave
+                            int nSamps = nValues / 2;
+                            L = new float[nSamps];
+                            R = new float[nSamps];
+                            for (int s = 0, v = 0; s < nSamps; s++)
+                            {
+                                L[s] = asFloat[v++];
+                                R[s] = asFloat[v++];
+                            }
+                            return true;
+                        default:
+                            return false;
+                    }
+                }
+            }
+            catch
+            {
+                Debug.WriteLine("...Failed to load: " + filename);
+                return false;
+            }
+
+        }
+
+        private void buttonLoadAudioTwo_Click(object sender, EventArgs e)
+        {
+            var mp3FullFilename = @"c:\temp\bat.mp3";
+            var wavFullFilename = @"c:\temp\bat.wav";
+            var af = new AudioFileReader(mp3FullFilename);
+            Mp3ToWav(mp3FullFilename, wavFullFilename);
+            simpleSound = new SoundPlayer(wavFullFilename);
+
+
+        }
+
+        private void buttonGenerateVuFile_Click(object sender, EventArgs e)
+        {
+            var mp3FullFilename = @"c:\temp\bat.mp3";
+            var wavFullFilename = @"c:\temp\bat.wav";
+            Mp3ToWav(mp3FullFilename, wavFullFilename);
+            GenerateVuFileMp3(mp3FullFilename);
+        }
+
+
+        public void GenerateVuFileMp3(string mp3FullFilename)
+        {
+            const int DB_POINTS_PER_SEC = 10;
+
+            var pathName = Path.GetDirectoryName(mp3FullFilename);
+            var filenameWithoutExt = Path.GetFileNameWithoutExtension(mp3FullFilename);
+            var vuFullFilename = Path.Combine(pathName, $"{filenameWithoutExt}.vu");
+
+            MP3Stream mp3Stream = new MP3Stream(@"c:\temp\bat.mp3");
+
+            #region *// Read into byte array
+            var bytes = default(byte[]);
+            using (var stream = new StreamReader(mp3Stream))
+            {
+
+                using (var memstream = new MemoryStream())
+                {
+                    var buff = new byte[512];
+                    var bytesRead = default(int);
+                    while ((bytesRead = stream.BaseStream.Read(buff, 0, buff.Length)) > 0)
+                        memstream.Write(buff, 0, bytesRead);
+                    bytes = memstream.ToArray();
+                }
+            }
+            #endregion
+
+            #region *// Extract channel 0
+            var chan0 = new Channel(mp3Stream.Frequency);
+            MemoryStream memStream = new MemoryStream(bytes);
+            using (BinaryReader reader = new BinaryReader(memStream))
+            {
+                for (int i = 0; i < bytes.Length / 4; i++)
+                {
+                    var sampleLeft = (float)reader.ReadInt16();
+                    var sampleRight = (float)reader.ReadInt16();
+                    chan0.Samples.Add((sampleLeft + sampleRight)/2);
+                }
+            }
+            #endregion
+
+            #region *// Calculate decibel
+            chan0.CalculateDb(DB_POINTS_PER_SEC);
+            #endregion
+
+            #region *// Write VU binary file
+            using (BinaryWriter writer = new BinaryWriter(File.Open(vuFullFilename, FileMode.Create)))
+            {
+                writer.Write((uint)chan0.dBs.Count);
+                foreach (var decibel in chan0.dBs)
+                {
+                    writer.Write((Single)decibel);
+                }
+            }
+            #endregion
+        }
+
+
+#if false   // Used NAudio
+        public void GenerateVuFile(string wavFullFilename)
+        {
+            const int DB_POINTS_PER_SEC = 10;
+
+            var pathName = Path.GetDirectoryName(wavFullFilename);
+            var filenameWithoutExt = Path.GetFileNameWithoutExtension(wavFullFilename);
+            var vuFullFilename = Path.Combine(pathName, $"{filenameWithoutExt}.vu");
+
+            var af = new AudioFileReader(wavFullFilename);
+
+            #region *// Read into byte array
+            var bytes = default(byte[]);
+            using (var stream = new StreamReader(af))
+            {
+
+                using (var memstream = new MemoryStream())
+                {
+                    var buff = new byte[512];
+                    var bytesRead = default(int);
+                    while ((bytesRead = stream.BaseStream.Read(buff, 0, buff.Length)) > 0)
+                        memstream.Write(buff, 0, bytesRead);
+                    bytes = memstream.ToArray();
+                }
+            }
+            #endregion
+
+            #region *// Extract channel 0
+            var chan0 = new Channel(af.WaveFormat.SampleRate);
+            var buffer = new WaveBuffer(bytes);
+            // interpret as 32 bit floating point audio
+            for (int index = 0; index < bytes.Length / 4; index++)
+            {
+                var sample = buffer.FloatBuffer[index];
+                if (index % 2 == 0)
+                {
+                    chan0.Samples.Add(sample);
+                }
+            }
+            #endregion
+
+            #region *// Calculate decibel
+            chan0.CalculateDb(DB_POINTS_PER_SEC);
+            #endregion
+
+            #region *// Write VU binary file
+            using (BinaryWriter writer = new BinaryWriter(File.Open(vuFullFilename, FileMode.Create)))
+            {
+                writer.Write((uint)chan0.dBs.Count);
+                foreach (var decibel in chan0.dBs)
+                {
+                    writer.Write((Single)decibel);
+                }
+            }
+            #endregion
+        } 
+#endif
+
+        private void buttonPlayVuFile_Click(object sender, EventArgs e)
+        {
+            var vuFile = new VuFile(@"c:\temp\bat.vu");
+            vuFile.Load();
+            vuFile.StartPlayback((decibels, isPlaying) => {
+                if (!isPlaying) return;
+                progressBar.Invoke((MethodInvoker)delegate {
+                    // Running on the UI thread
+                    progressBar.Value = (int)(100 * (decibels - vuFile.minDb) / (vuFile.maxDb - vuFile.minDb));
+                });
+
+            });
+            simpleSound = new SoundPlayer(@"c:\temp\bat.wav");
+            simpleSound.Play();
+        }
+
+        private async void buttonLoadAndPlayMp3File_Click(object sender, EventArgs e)
+        {
+            var mp3FullFilename = @"c:\temp\bat.mp3";
+            var vuData = new VuData(mp3FullFilename);
+            vuData.StartPlayback((decibels, isPlaying) => {
+                if (!isPlaying) return;
+                progressBar.Invoke((MethodInvoker)delegate {
+                    // Running on the UI thread
+                    progressBar.Value = (int)(100 * (decibels - vuData.channel.minDb) / (vuData.channel.maxDb - vuData.channel.minDb));
+                });
+
+            });
+            simpleSound = new SoundPlayer(@"c:\temp\bat.wav");
+            await Task.Delay(200);
+            simpleSound.Play();
+        }
+    }
+}
+
+
+public class VuData
+{
+    public string mp3FullFilename { get; set; }
+    public Channel channel;
+
+    public VuData(string mp3FullFilename)
+    {
+        this.mp3FullFilename = mp3FullFilename;
+        channel = Load();
+    }
+
+    private Channel Load()
+    {
+        const int DB_POINTS_PER_SEC = 10;
+
+        MP3Stream mp3Stream = new MP3Stream(mp3FullFilename);
+
+        #region *// Read into byte array
+        var bytes = default(byte[]);
+        using (var stream = new StreamReader(mp3Stream))
+        {
+
+            using (var memstream = new MemoryStream())
+            {
+                var buff = new byte[512];
+                var bytesRead = default(int);
+                while ((bytesRead = stream.BaseStream.Read(buff, 0, buff.Length)) > 0)
+                    memstream.Write(buff, 0, bytesRead);
+                bytes = memstream.ToArray();
+            }
+        }
+        #endregion
+
+        #region *// Extract channel 0
+        var channel = new Channel(mp3Stream.Frequency);
+        MemoryStream memStream = new MemoryStream(bytes);
+        using (BinaryReader reader = new BinaryReader(memStream))
+        {
+            for (int i = 0; i < bytes.Length / 4; i++)
+            {
+                var sampleLeft = (float)reader.ReadInt16();
+                var sampleRight = (float)reader.ReadInt16();
+                channel.Samples.Add(sampleLeft);
+            }
+        }
+        #endregion
+
+        #region *// Calculate decibel
+        channel.CalculateDb(DB_POINTS_PER_SEC);
+        #endregion
+
+        return channel;
+    }
+
+    bool isPlaying = false;
+
+
+
+    public void StartPlayback(Action<double, bool> updateDisplay)
+    {
+        if (channel == null) throw new ApplicationException($"File [{mp3FullFilename}] has not been loaded yet");
+        Task.Factory.StartNew(async () => {
+            Stopwatch stopWatch = new Stopwatch();
+            var newPlayTime = 100;
+            stopWatch.Start();
+            isPlaying = true;
+            foreach (var db in channel.dBs)
+            {
+                while (stopWatch.ElapsedMilliseconds < newPlayTime) { await Task.Delay(1); }
+                newPlayTime += 100;
+                if (!isPlaying) break;
+                updateDisplay?.Invoke(db, isPlaying);
+            }
+            isPlaying = false;
+            updateDisplay?.Invoke(0, isPlaying);
+        });
+    }
+
+    internal void StopPlayback()
+    {
+        isPlaying = false;
+    }
+}
+
+public class VuFile
+{
+    public string fullFilename { get; set; }
+    public List<float> dBs = new List<float>();
+    public double maxDb = double.MinValue;
+    public double minDb = double.MaxValue;
+
+    public void Load()
+    {
+        using (BinaryReader reader = new BinaryReader(File.Open(fullFilename, FileMode.Open)))
+        {
+            if (string.IsNullOrEmpty(fullFilename)) throw new ApplicationException("No filename defined");
+            if (!File.Exists(fullFilename)) throw new ApplicationException($"File [{fullFilename}] does nor exist");
+            int count = reader.ReadInt32();
+            for (int i = 0; i < count; i++)
+            {
+                var decibel = (float)reader.ReadSingle();
+                dBs.Add(decibel);
+                if (decibel > maxDb) maxDb = decibel;
+                if (decibel < minDb) minDb = decibel;
+            }
+        }
+    }
+
+    bool isPlaying = false;
+
+    public VuFile(string fullFilename)
+    {
+        this.fullFilename = fullFilename;
+    }
+
+    public void StartPlayback(Action<double, bool> updateDisplay)
+    {
+        if (dBs.Count == 0) throw new ApplicationException($"File [{fullFilename}] has not been loaded yet");
+        Task.Factory.StartNew(async () => {
+            Stopwatch stopWatch = new Stopwatch();
+            var newPlayTime = 100;
+            stopWatch.Start();
+            isPlaying = true;
+            foreach (var db in dBs)
+            {
+                while (stopWatch.ElapsedMilliseconds < newPlayTime) { await Task.Delay(1); }
+                newPlayTime += 100;
+                if (!isPlaying) break;
+                updateDisplay?.Invoke(db, isPlaying);
+            }
+            isPlaying = false;
+            updateDisplay?.Invoke(0, isPlaying);
+        });
+    }
+
+    internal void StopPlayback()
+    {
+        isPlaying = false;
+    }
+}
+
+public static class Extentions
+{
+    public static IEnumerable<IEnumerable<T>> Chunks<T>(this IEnumerable<T> enumerable,
+                                                    int chunkSize)
+    {
+        if (chunkSize < 1) throw new ArgumentException("ChunkSize must be positive");
+
+        using (var e = enumerable.GetEnumerator())
+            while (e.MoveNext())
+            {
+                var remaining = chunkSize;    // elements remaining in the current chunk
+                var innerMoveNext = new Func<bool>(() => --remaining > 0 && e.MoveNext());
+
+                yield return e.GetChunk(innerMoveNext);
+                while (innerMoveNext()) {/* discard elements skipped by inner iterator */}
+            }
+    }
+
+    private static IEnumerable<T> GetChunk<T>(this IEnumerator<T> e,
+                                              Func<bool> innerMoveNext)
+    {
+        do yield return e.Current;
+        while (innerMoveNext());
     }
 }

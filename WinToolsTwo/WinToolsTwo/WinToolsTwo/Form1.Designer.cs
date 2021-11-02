@@ -65,7 +65,14 @@ namespace WinToolsTwo
             this.buttonParseForRegions = new System.Windows.Forms.Button();
             this.textBoxRegionsSource = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.buttonPlayVuFile = new System.Windows.Forms.Button();
+            this.buttonGenerateVuFile = new System.Windows.Forms.Button();
+            this.buttonStopAudioTwo = new System.Windows.Forms.Button();
+            this.buttonLoadAudioTwo = new System.Windows.Forms.Button();
+            this.buttonStopAudio = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.buttonLoadAudio = new System.Windows.Forms.Button();
+            this.buttonLoadAndPlayMp3File = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -448,6 +455,13 @@ namespace WinToolsTwo
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.buttonLoadAndPlayMp3File);
+            this.tabPage5.Controls.Add(this.buttonPlayVuFile);
+            this.tabPage5.Controls.Add(this.buttonGenerateVuFile);
+            this.tabPage5.Controls.Add(this.buttonStopAudioTwo);
+            this.tabPage5.Controls.Add(this.buttonLoadAudioTwo);
+            this.tabPage5.Controls.Add(this.buttonStopAudio);
+            this.tabPage5.Controls.Add(this.progressBar);
             this.tabPage5.Controls.Add(this.buttonLoadAudio);
             this.tabPage5.Location = new System.Drawing.Point(4, 26);
             this.tabPage5.Name = "tabPage5";
@@ -455,6 +469,62 @@ namespace WinToolsTwo
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Audio";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // buttonPlayVuFile
+            // 
+            this.buttonPlayVuFile.Location = new System.Drawing.Point(239, 120);
+            this.buttonPlayVuFile.Name = "buttonPlayVuFile";
+            this.buttonPlayVuFile.Size = new System.Drawing.Size(118, 25);
+            this.buttonPlayVuFile.TabIndex = 6;
+            this.buttonPlayVuFile.Text = "PlayVuFile";
+            this.buttonPlayVuFile.UseVisualStyleBackColor = true;
+            this.buttonPlayVuFile.Click += new System.EventHandler(this.buttonPlayVuFile_Click);
+            // 
+            // buttonGenerateVuFile
+            // 
+            this.buttonGenerateVuFile.Location = new System.Drawing.Point(239, 53);
+            this.buttonGenerateVuFile.Name = "buttonGenerateVuFile";
+            this.buttonGenerateVuFile.Size = new System.Drawing.Size(118, 25);
+            this.buttonGenerateVuFile.TabIndex = 5;
+            this.buttonGenerateVuFile.Text = "GenerateVuFile";
+            this.buttonGenerateVuFile.UseVisualStyleBackColor = true;
+            this.buttonGenerateVuFile.Click += new System.EventHandler(this.buttonGenerateVuFile_Click);
+            // 
+            // buttonStopAudioTwo
+            // 
+            this.buttonStopAudioTwo.Location = new System.Drawing.Point(868, 53);
+            this.buttonStopAudioTwo.Name = "buttonStopAudioTwo";
+            this.buttonStopAudioTwo.Size = new System.Drawing.Size(83, 25);
+            this.buttonStopAudioTwo.TabIndex = 4;
+            this.buttonStopAudioTwo.Text = "StopAudio";
+            this.buttonStopAudioTwo.UseVisualStyleBackColor = true;
+            // 
+            // buttonLoadAudioTwo
+            // 
+            this.buttonLoadAudioTwo.Location = new System.Drawing.Point(758, 53);
+            this.buttonLoadAudioTwo.Name = "buttonLoadAudioTwo";
+            this.buttonLoadAudioTwo.Size = new System.Drawing.Size(83, 25);
+            this.buttonLoadAudioTwo.TabIndex = 3;
+            this.buttonLoadAudioTwo.Text = "LoadAudio";
+            this.buttonLoadAudioTwo.UseVisualStyleBackColor = true;
+            this.buttonLoadAudioTwo.Click += new System.EventHandler(this.buttonLoadAudioTwo_Click);
+            // 
+            // buttonStopAudio
+            // 
+            this.buttonStopAudio.Location = new System.Drawing.Point(99, 120);
+            this.buttonStopAudio.Name = "buttonStopAudio";
+            this.buttonStopAudio.Size = new System.Drawing.Size(83, 25);
+            this.buttonStopAudio.TabIndex = 2;
+            this.buttonStopAudio.Text = "StopAudio";
+            this.buttonStopAudio.UseVisualStyleBackColor = true;
+            this.buttonStopAudio.Click += new System.EventHandler(this.buttonStopAudio_Click);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(99, 160);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(481, 25);
+            this.progressBar.TabIndex = 1;
             // 
             // buttonLoadAudio
             // 
@@ -465,6 +535,16 @@ namespace WinToolsTwo
             this.buttonLoadAudio.Text = "LoadAudio";
             this.buttonLoadAudio.UseVisualStyleBackColor = true;
             this.buttonLoadAudio.Click += new System.EventHandler(this.buttonLoadAudio_Click);
+            // 
+            // buttonLoadAndPlayMp3File
+            // 
+            this.buttonLoadAndPlayMp3File.Location = new System.Drawing.Point(436, 53);
+            this.buttonLoadAndPlayMp3File.Name = "buttonLoadAndPlayMp3File";
+            this.buttonLoadAndPlayMp3File.Size = new System.Drawing.Size(118, 25);
+            this.buttonLoadAndPlayMp3File.TabIndex = 7;
+            this.buttonLoadAndPlayMp3File.Text = "LoadAndPlayMp3File";
+            this.buttonLoadAndPlayMp3File.UseVisualStyleBackColor = true;
+            this.buttonLoadAndPlayMp3File.Click += new System.EventHandler(this.buttonLoadAndPlayMp3File_Click);
             // 
             // Form1
             // 
@@ -525,6 +605,13 @@ namespace WinToolsTwo
         private System.Windows.Forms.Button buttonGenerateJsonFile;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Button buttonLoadAudio;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button buttonStopAudio;
+        private System.Windows.Forms.Button buttonStopAudioTwo;
+        private System.Windows.Forms.Button buttonLoadAudioTwo;
+        private System.Windows.Forms.Button buttonGenerateVuFile;
+        private System.Windows.Forms.Button buttonPlayVuFile;
+        private System.Windows.Forms.Button buttonLoadAndPlayMp3File;
     }
 }
 

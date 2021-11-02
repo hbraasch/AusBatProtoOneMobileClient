@@ -23,7 +23,7 @@ namespace AusBatProtoOneMobileClient.Data
         public string Name { get; set; }
         public string DetailsHtml { get; set; }
         public List<string> Images { get; set; } = new List<string>();
-        public List<string> CallImages { get; set; } = new List<string>();
+        public List<CallData> CallDatas { get; set; } = new List<CallData>();
         public List<int> RegionIds { get; set; } = new List<int>();
         public string DistributionMapImage => $"{GenusId}_{SpeciesId}_dist.jpg".ToLower();
 
@@ -81,7 +81,7 @@ namespace AusBatProtoOneMobileClient.Data
                     }
                 }
                 #region *// Check if hires image exists
-                if (!File.Exists(HiresImages.GetFullFilename(imageName)))
+                if (!File.Exists(ZippedFiles.GetFullFilename(imageName)))
                 {
                     Debug.WriteLine($"Missing hires image [{imageName}] for species [{speciesName}]");
                     toRemoveImages.Add(imageName);
@@ -100,21 +100,33 @@ namespace AusBatProtoOneMobileClient.Data
         }
         internal void LoadCalls()
         {
+            // Currently only supports one image or one audio per species
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
-            Debug.WriteLine($"Start loading species [{speciesName}] call images");
+            Debug.WriteLine($"Start loading species [{speciesName}] call data");
             var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat();
+            var audioName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_audio.mp3".ToAndroidFilenameFormat();
 
-            CallImages.Clear();
+            CallDatas.Clear();
 
-            if (File.Exists(HiresImages.GetFullFilename(imageName)))
+            if (File.Exists(ZippedFiles.GetFullFilename(imageName)))
             {
-                CallImages.Add(imageName);
+                CallDatas.Add(new CallData { ImageName = imageName });
+            }
+            else if (File.Exists(ZippedFiles.GetFullFilename(audioName)))
+            {
+                CallDatas.Add(new CallData { AudioName = audioName });
             }
             else
             {
-                Debug.WriteLine($"Missing call images exist for[{speciesName}]");
+                Debug.WriteLine($"Missing call data for[{speciesName}]");
             }
-            Debug.WriteLine($"End loading species [{speciesName}] call images");
+            Debug.WriteLine($"End loading species [{speciesName}] call data");
+        }
+
+        public class CallData
+        {
+            public string ImageName { get; set; }
+            public string AudioName { get; set; }
         }
 
         internal void LoadDistributionMaps()
@@ -123,7 +135,7 @@ namespace AusBatProtoOneMobileClient.Data
             Debug.WriteLine($"Start loading species [{speciesName}] distribution map image");
             var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_dist.jpg".ToAndroidFilenameFormat();
 
-            if (!File.Exists(HiresImages.GetFullFilename(DistributionMapImage)))
+            if (!File.Exists(ZippedFiles.GetFullFilename(DistributionMapImage)))
             {
                 Debug.WriteLine($"Missing distribution map for[{speciesName}]");
             }

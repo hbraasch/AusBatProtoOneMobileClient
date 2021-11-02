@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient.Data;
 using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
+using AusBatProtoOneMobileClient.Views.Components;
 using FFImageLoading.Forms;
 using Mobile.Helpers;
 using Mobile.ViewModels;
@@ -28,6 +29,7 @@ namespace AusBatProtoOneMobileClient
             };
             carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.CallDisplayItems), BindingMode.TwoWay, source: viewModel));
             carouselView.SetBinding(CarouselView.TabIndexProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.SelectedCallDisplayItem), BindingMode.TwoWay, source: viewModel));
+            carouselView.SetBinding(CarouselView.IsVisibleProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallImage), BindingMode.TwoWay, source: viewModel));
             carouselView.ItemTemplate = new DataTemplate(() =>
             {
                 var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
@@ -43,14 +45,32 @@ namespace AusBatProtoOneMobileClient
             var indicatorView = new IndicatorView
             {
                 IndicatorColor = Color.LightGray,
-                SelectedIndicatorColor = Color.DarkGray,
                 HorizontalOptions = LayoutOptions.Center,
                 IndicatorsShape = IndicatorShape.Square,
                 IndicatorSize = 18
             };
             carouselView.IndicatorView = indicatorView;
 
-            var mainLayout = new StackLayout { Children = { carouselView, indicatorView } };
+            var vuMeter = new VuMeterView { HorizontalOptions = LayoutOptions.CenterAndExpand, WidthRequest = 500, Margin = 5 };
+            vuMeter.SetBinding(VuMeterView.ValueProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.VuDecibelValue), source: viewModel));
+            vuMeter.SetBinding(VuMeterView.IsIsDisplayingProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallAudio), source: viewModel));
+
+            var startStopPlaybackButton = new ImageButton() { BackgroundColor = Color.Transparent };
+            startStopPlaybackButton.Clicked += (s, e) => { viewModel.OnStartStopPlaybackPressed.Execute(null); };
+            startStopPlaybackButton.SetBinding(ImageButton.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.IsPlaying), BindingMode.OneWay, new IsPlayingToImageConverter()));
+            startStopPlaybackButton.SetBinding(ImageButton.IsVisibleProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallAudio), BindingMode.OneWay));
+
+            var audioPlayGrid = new Grid() { HorizontalOptions = LayoutOptions.FillAndExpand, Padding = 5 };
+            audioPlayGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            audioPlayGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            audioPlayGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            audioPlayGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            audioPlayGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            audioPlayGrid.Children.Add(vuMeter, 0, 0);
+            audioPlayGrid.Children.Add(startStopPlaybackButton, 1, 1);
+            Grid.SetColumnSpan(vuMeter, 3);
+
+            var mainLayout = new StackLayout { Children = { carouselView, indicatorView, audioPlayGrid } };
 
             NavigationPage.SetTitleView(this, new Label { Text = "Calls", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.Black;
@@ -101,11 +121,11 @@ namespace AusBatProtoOneMobileClient
             var isPlaying = (bool)value;
             if (!isPlaying)
             {
-                return "ic_audio_playback_play.png";
+                return "audio_playback_play.png";
             }
             else
             {
-                return "ic_audio_playback_stop.png";
+                return "audio_playback_stop.png";
             }
         }
 

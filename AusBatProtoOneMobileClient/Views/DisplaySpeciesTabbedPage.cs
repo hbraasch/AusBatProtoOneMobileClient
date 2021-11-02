@@ -48,7 +48,7 @@ namespace AusBatProtoOneMobileClient
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
             Children.Add(displayBatRegionsTabPage);
-            if (viewModel.Species.CallImages.Count != 0)
+            if (viewModel.Species.CallDatas.Count != 0)
             {
                 Children.Add(displayBatCallTabPage); 
             }

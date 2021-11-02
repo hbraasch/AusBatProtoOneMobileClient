@@ -558,6 +558,8 @@
     <None Remove="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" />
     <None Remove="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" />
     <None Remove="Data\Versioning\data_version.json" />
+    <None Remove="Images\audio_playback_play.png" />
+    <None Remove="Images\audio_playback_stop.png" />
     <None Remove="Images\background.png" BaseSize="50,50" />
     <None Remove="Images\ic_hamburger.png" />
     <None Remove="Images\photos.png" />
@@ -765,6 +767,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MP3Sharp" Version="1.0.5" />
+    <PackageReference Include="NAudio" Version="2.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
     <PackageReference Include="Resizetizer.NT" Version="0.2.0">
@@ -943,6 +947,8 @@
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" BaseSize="150,150" />
+    <SharedImage Include="Images\audio_playback_play.png" />
+    <SharedImage Include="Images\audio_playback_stop.png" />
     <SharedImage Include="Images\background.png" BaseSize="1000,1000" />
     <SharedImage Include="Images\ic_hamburger.png" BaseSize="50,50" />
     <SharedImage Include="Images\photos.png" BaseSize="25,25" />

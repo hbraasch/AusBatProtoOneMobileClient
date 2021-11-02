@@ -70,7 +70,7 @@ namespace AusBatProtoOneMobileClient.Models
             {
                 var dbase = new Dbase();
 
-                await HiresImages.Extract();
+                await ZippedFiles.Extract();
 
                 dbase.IntroductionHtml = LoadIntroduction();
                 dbase.AboutHtml = LoadAbout();
