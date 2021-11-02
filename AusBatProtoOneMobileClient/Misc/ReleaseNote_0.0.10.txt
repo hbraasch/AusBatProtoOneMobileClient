@@ -1,1 +1,3 @@
-﻿HTML font size implemented
+﻿HTML views overall font size % change setting implemented
+Call audio with VU meter implemented (with dummy audio for dobsonia_magna and macroderma_gigas)
+

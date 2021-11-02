@@ -152,6 +152,11 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public bool IsHomeEnabled { get; set; }
         public ICommand OnHomeMenuPressed => new Command(() =>
         {
+            if (IsPlaying)
+            {
+                player.Stop();
+                vuPlayer.Stop();
+            }
             NavigateBack(NavigateReturnType.GotoRoot);
         });
 
@@ -210,6 +215,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 }
                 else
                 {
+                    await ActivityIndicatorStart();
                     var audioFilename = CallDisplayItems[0].AudioSourceFilename;
                     var audioFullFilename = ZippedFiles.GetFullFilename(audioFilename);
                     if (!File.Exists(audioFullFilename))
@@ -230,16 +236,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     player.Play();
                     IsPlaying = true;
 
-                    void Mp3ToWav(string mp3File, string outputFile)
-                    {
-                        using (Mp3FileReader reader = new Mp3FileReader(mp3File))
-                        {
-                            using (WaveStream pcmStream = WaveFormatConversionStream.CreatePcmStream(reader))
-                            {
-                                WaveFileWriter.CreateWaveFile(outputFile, pcmStream);
-                            }
-                        }
-                    }
                 }
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)

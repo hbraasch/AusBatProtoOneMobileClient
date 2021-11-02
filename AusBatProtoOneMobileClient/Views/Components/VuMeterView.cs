@@ -59,7 +59,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
 
         void ClearProgressBar()
         {
-            progressBar.ProgressColor = Color.DarkGray;
+            progressBar.ProgressColor = Color.DarkGray.MultiplyAlpha(0.3);
             progressBar.Progress = 1;
         }
 
