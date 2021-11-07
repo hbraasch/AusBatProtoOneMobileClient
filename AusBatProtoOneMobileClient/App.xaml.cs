@@ -27,7 +27,7 @@ namespace AusBatProtoOneMobileClient
             dbase = Dbase.Load();
 
             var viewModel = new StartupPageViewModel();
-            MainPage = new NavigationPage(new StartupPage(viewModel)) { BarBackgroundColor = Color.Black, BarTextColor = Color.White, };
+            MainPage = new NavigationPage(new StartupPage(viewModel)) { BarBackgroundColor = Color.Black, BarTextColor = Color.White, BackgroundColor = Color.Black};
 
 
         }

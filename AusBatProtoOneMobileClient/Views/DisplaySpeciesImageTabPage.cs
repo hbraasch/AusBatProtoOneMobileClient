@@ -1,5 +1,6 @@
 ﻿using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
+using AusBatProtoOneMobileClient.Views.Components;
 using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
@@ -29,13 +30,14 @@ namespace AusBatProtoOneMobileClient
 
                 var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
-                var image = new Image
+                var image = new CachedImageWithTap
                 {
                     Aspect = Aspect.AspectFit,                   
                 };
 
                 image.WidthRequest = mainDisplayInfo.Width;
-                image.SetBinding(Image.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
+                image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
+                image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(ImageDataItem.OnImageTapped), BindingMode.TwoWay));
 
                 return image; 
             });

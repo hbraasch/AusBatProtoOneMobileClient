@@ -4,6 +4,7 @@ using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using PinchGesture;
 using Xamarin.Forms;
 
 
@@ -18,26 +19,30 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var image = new CachedImage
+            var image = new Image
             {
                 Aspect = Aspect.AspectFit,
-                ErrorPlaceholder = "bat.png"
             };
-            image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayImagePageViewModel.ImageSource), BindingMode.OneWay));
+            image.SetBinding(Image.SourceProperty, new Binding(nameof(DisplayImagePageViewModel.ImageSource), BindingMode.OneWay));
+
+            var zoomLayout = new PinchToZoomContainer
+            {
+                Content = image
+            };
 
             var centeredLayout = new AbsoluteLayout
             {
-                Children = { image, activityIndicator },
+                Children = { zoomLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Margin = 5
             };
-            AbsoluteLayout.SetLayoutFlags(image, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(image, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(zoomLayout, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(zoomLayout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            NavigationPage.SetTitleView(this, new Label { Text = "Image display", Style = Styles.TitleLabelStyle });
+            NavigationPage.SetTitleView(this, new Label { Text = "Zoom display", Style = Styles.TitleLabelStyle });
             Content = centeredLayout;
             BackgroundColor = Color.Black;
 

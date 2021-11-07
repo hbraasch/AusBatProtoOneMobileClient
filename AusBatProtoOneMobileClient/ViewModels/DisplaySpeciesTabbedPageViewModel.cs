@@ -1,18 +1,13 @@
 ﻿using AusBatProtoOneMobileClient.Data;
-using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using DocGenOneMobileClient.Views;
-using FFImageLoading.Forms;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,8 +15,6 @@ using TreeApp.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.Helpers.VuHelper;
-using NAudio;
-using NAudio.Wave;
 
 namespace AusBatProtoOneMobileClient.ViewModels
 {
@@ -34,6 +27,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public class ImageDataItem
         {
             public ImageSource ImageSource { get; set; }
+            public Action<ImageSource> OnImageTapped { get; set; }
         }
 
         public ObservableCollection<ImageDataItem> ImageDataItems { get; set; }
@@ -97,7 +91,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 if (File.Exists(fullFilename))
                 {
                     var imageSource = ImageSource.FromFile(ZippedFiles.GetFullFilename(imageSourceName));
-                    imageDataItems.Add(new ImageDataItem { ImageSource = imageSource });
+                    imageDataItems.Add(new ImageDataItem { ImageSource = imageSource, OnImageTapped = OnImageTapped });
                 }
                 else
                 {
@@ -136,6 +130,13 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
+
+        public Action<ImageSource> OnImageTapped => async (imageSource) =>
+        {
+            var viewModel = new DisplayImagePageViewModel(imageSource);
+            var page = new DisplayImagePage(viewModel);
+            await NavigateToPageAsync(page, viewModel);
+        };
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
 

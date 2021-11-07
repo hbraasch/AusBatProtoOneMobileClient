@@ -19,7 +19,7 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() : new WebView();
+            webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() { FontSizePercentage = 300.0f } : new WebView();
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(AboutPageViewModel.WebViewSource), BindingMode.OneWay));
             webView.Margin = 5;
 
