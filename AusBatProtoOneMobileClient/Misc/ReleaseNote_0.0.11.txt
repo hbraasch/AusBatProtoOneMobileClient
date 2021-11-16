@@ -1,0 +1,3 @@
+﻿Added zoom and pan to bat image (click on image, then pinch to zoom )
+Tried to fix disappearing image in picker (was unable to replicate on my devices)
+

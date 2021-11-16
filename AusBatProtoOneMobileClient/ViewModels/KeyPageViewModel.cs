@@ -15,11 +15,11 @@ using TreeApp.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using static AusBatProtoOneMobileClient.Models.KeyTree;
 using AusBatProtoOneMobileClient.Models.Touch;
-using static DocGenOneMobileClient.Views.FamilyKeyPageViewModel.FilterSnapShots;
+using static DocGenOneMobileClient.Views.KeyPageViewModel.FilterSnapShots;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class FamilyKeyPageViewModel : ViewModelBase
+    public class KeyPageViewModel : ViewModelBase
     {
         const string FILTER_TITLE = "Filter";
         const string NO_RESULTS_YET = "(0) taxa";
@@ -30,6 +30,7 @@ namespace DocGenOneMobileClient.Views
         }
         private FilterState State = FilterState.StartFromScratch;
 
+        public KeyTreeNodeBase RootKeyTreeNode;
         public KeyTreeNodeBase CurrentPromptKeyTreeNode;
         public List<KeyTreeNodeBase> CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
 
@@ -97,17 +98,18 @@ namespace DocGenOneMobileClient.Views
 
         #region *// Menu related 
 
-        public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0 || CurrentPromptKeyTreeNode.NodeId != App.dbase.KeyTree.RootNode.NodeId;
+        public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0 || CurrentPromptKeyTreeNode.NodeId != RootKeyTreeNode.NodeId;
         public bool CanUndo => SnapShots.Count  > 0;
         #endregion
 
-        public FamilyKeyPageViewModel()
+        public KeyPageViewModel()
         {
 
         }
 
-        public FamilyKeyPageViewModel(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> currentRegionIds)
+        public KeyPageViewModel(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> currentRegionIds)
         {
+            RootKeyTreeNode = currentPromptKeyTreeNode;
             CurrentPromptKeyTreeNode = currentPromptKeyTreeNode;
             CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
             CurrentRegionIds = currentRegionIds;
@@ -317,7 +319,7 @@ namespace DocGenOneMobileClient.Views
         {
             try
             {
-                ResetFilter(FilterState.StartFromScratch, KeyTreeFilter.Current.GetFilterResetNode());
+                ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
 
             }
             catch (Exception ex)
@@ -488,19 +490,19 @@ namespace DocGenOneMobileClient.Views
                 #endregion
 
 
-                var viewModel = new FamilyKeyResultPageViewModel(simplifiedTreeNodes) { IsHomeEnabled = true };
-                var page = new FamilyKeyResultPage(viewModel);
+                var viewModel = new KeyResultPageViewModel(simplifiedTreeNodes) { IsHomeEnabled = true };
+                var page = new KeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
                 if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
                 if (resultType == NavigateReturnType.GotoFilterReset) {
-                    ResetFilter(FilterState.StartFromScratch, KeyTreeFilter.Current.GetFilterResetNode());
+                    ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                     return;
                 };
                 if (resultType == NavigateReturnType.IsCancelled)
                 {
                     if (viewModel.IsFiterReset)
                     {
-                        ResetFilter(FilterState.StartFromScratch, KeyTreeFilter.Current.GetFilterResetNode());
+                        ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                         return;
                     }
                     return;

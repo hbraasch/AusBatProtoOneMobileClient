@@ -20,7 +20,7 @@ using static AusBatProtoOneMobileClient.Models.KeyTree;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class FamilyKeyResultPageViewModel : ViewModelBase
+    public class GeneraPageViewModel : ViewModelBase
     {
         List<KeyTreeNodeBase> selectedKeyTreeNodes = null;
         public class DisplayItemBase {
@@ -64,7 +64,7 @@ namespace DocGenOneMobileClient.Views
         #endregion
 
 
-        public FamilyKeyResultPageViewModel(List<KeyTreeNodeBase> selectedKeyTreeNodes)
+        public GeneraPageViewModel(List<KeyTreeNodeBase> selectedKeyTreeNodes)
         {
             this.selectedKeyTreeNodes = selectedKeyTreeNodes;
             DisplayItems = new ObservableCollection<DisplayItemBase>();
@@ -174,19 +174,35 @@ namespace DocGenOneMobileClient.Views
             {
                 if (SelectedDisplayItem == null) return;
 
-                if (SelectedDisplayItem is NodeDisplayItem )
+                var rootKeyTreeNode = SelectedDisplayItem.Content as KeyTreeNodeBase;
+
+                if (rootKeyTreeNode.Children.Count == 1 && rootKeyTreeNode.Children[0] is LeafKeyTreeNode lktn)
                 {
-                    NavigateBack(NavigateReturnType.IsAccepted);
+                    var species = App.dbase.FindSpecies(lktn.GenusId, lktn.SpeciesId);
+                    var speciesViewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = true };
+                    var speciesPage = new DisplaySpeciesTabbedPage(speciesViewModel);
+                    var speciesResultType = await NavigateToPageAsync(speciesPage, speciesViewModel);
+                    if (speciesResultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                    if (speciesResultType == NavigateReturnType.GotoFilterReset) return;
+                    return;
                 }
-                else if (SelectedDisplayItem is LeafNodeDisplayItem lndi)
+
+                var viewModel = new KeyPageViewModel(rootKeyTreeNode, new List<int>());
+                var page = new KeyPage(viewModel);
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                switch (resultType)
                 {
-                    var leafKeyNode = SelectedDisplayItem.Content as LeafKeyTreeNode;
-                    var species = App.dbase.FindSpecies(leafKeyNode.GenusId, leafKeyNode.SpeciesId);
-                    var viewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = true };
-                    var page = new DisplaySpeciesTabbedPage(viewModel);
-                    var resultType = await NavigateToPageAsync(page, viewModel);
-                    if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
-                    if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
+                    case NavigateReturnType.IsCancelled:
+                        break;
+                    case NavigateReturnType.IsAccepted:
+                        break;
+                    case NavigateReturnType.GotoRoot:
+                        NavigateBack(NavigateReturnType.GotoRoot);
+                        break;
+                    case NavigateReturnType.GotoFilterReset:
+                        break;
+                    default:
+                        break;
                 }
             }
             catch (Exception ex) when (ex is BusinessException exb)

@@ -63,10 +63,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>Apple Development: Heinrich Braasch (WU37FRXRDT)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>true</BuildIpa>
     <IpaPackageName>AusBat</IpaPackageName>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ImageCheckerIOS.cs" />
@@ -160,15 +161,6 @@
     <BundleResource Include="Resources\world_ios%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v3%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v3%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Media.xcassets\AppIcon.appiconset\1024.png">
       <Visible>false</Visible>
@@ -227,5 +219,14 @@
     <ImageAsset Include="Media.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen_v4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen_v4%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen_v4%403x.png" />
   </ItemGroup>
 </Project>

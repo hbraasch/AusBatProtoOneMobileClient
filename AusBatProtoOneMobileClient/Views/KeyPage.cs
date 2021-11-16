@@ -11,21 +11,21 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using Xamarin.Forms;
-using static DocGenOneMobileClient.Views.FamilyKeyPage.TemplateSelector;
+using static DocGenOneMobileClient.Views.KeyPage.TemplateSelector;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class FamilyKeyPage : ContentPageBase
+    public class KeyPage : ContentPageBase
     {
-        FamilyKeyPageViewModel viewModel;
-        public FamilyKeyPage(FamilyKeyPageViewModel viewModel) : base(viewModel)
+        KeyPageViewModel viewModel;
+        public KeyPage(KeyPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
             var filterHintLabel = new Label { TextColor = Color.White };
-            filterHintLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterHint), BindingMode.TwoWay));
-            filterHintLabel.SetBinding(Label.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterHint), BindingMode.OneWay, new IsStringEmptyConverter() ));
+            filterHintLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.FilterHint), BindingMode.TwoWay));
+            filterHintLabel.SetBinding(Label.IsVisibleProperty, new Binding(nameof(KeyPageViewModel.FilterHint), BindingMode.OneWay, new IsStringEmptyConverter() ));
 
             var characterListView = new ListView(ListViewCachingStrategy.RetainElement) { 
                 SelectionMode = ListViewSelectionMode.None,
@@ -34,12 +34,12 @@ namespace DocGenOneMobileClient.Views
                 BackgroundColor = Color.Transparent
             };
 
-            characterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
+            characterListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(KeyPageViewModel.CharacterDisplayItems), BindingMode.TwoWay));
             characterListView.ItemTemplate = new TemplateSelector(this);
 
 
             var resultLabel = new Label {TextColor = Color.White, FontSize = Device.GetNamedSize(NamedSize.Default, typeof(Label)) };
-            resultLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.FilterResult), BindingMode.TwoWay));
+            resultLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.FilterResult), BindingMode.TwoWay));
 
             var viewResultsButton = new Button
             {
@@ -80,7 +80,7 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
             var titleLabel = new Xamarin.Forms.Label { Text = "Filter", Style = Styles.TitleLabelStyle };
-            titleLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.Title), BindingMode.TwoWay));
+            titleLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.Title), BindingMode.TwoWay));
             NavigationPage.SetTitleView(this, titleLabel);
 
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
@@ -96,7 +96,7 @@ namespace DocGenOneMobileClient.Views
                 .ToShowMenuItem("undo", null, true);
 
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(FamilyKeyPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(KeyPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
             viewModel.InvalidateMenuCommand = new Command(() => { menu.Invalidate(); });
 
         }
@@ -141,19 +141,19 @@ namespace DocGenOneMobileClient.Views
                         HorizontalOptions = LayoutOptions.End
                     };
                     image.Transformations.Add(new RoundedTransformation());
-                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay));
-                    image.SetBinding(CachedImageWithTap.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
-                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.OnImageClicked), BindingMode.TwoWay));
+                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(KeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImageWithTap.IsVisibleProperty, new Binding(nameof(KeyPageViewModel.NumericDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
+                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(KeyPageViewModel.NumericDisplayItem.OnImageClicked), BindingMode.TwoWay));
 
                     var descriptionLabel = new Label { HorizontalOptions = LayoutOptions.StartAndExpand, VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Prompt), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.NumericDisplayItem.Prompt), BindingMode.TwoWay));
 
                     var descripionLayout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, image } };
 
                     var valueEntry = new TriggerEntry { BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5), Keyboard = Keyboard.Numeric };
                     // valueEntry.Behaviors.Add(new Xamarin.CommunityToolkit.Behaviors.NumericValidationBehavior() { MinimumValue = 0 });
-                    valueEntry.SetBinding(TriggerEntry.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.Value), BindingMode.TwoWay));
-                    valueEntry.SetBinding(TriggerEntry.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.NumericDisplayItem.OnChanged), BindingMode.TwoWay));
+                    valueEntry.SetBinding(TriggerEntry.TextProperty, new Binding(nameof(KeyPageViewModel.NumericDisplayItem.Value), BindingMode.TwoWay));
+                    valueEntry.SetBinding(TriggerEntry.OnChangedProperty, new Binding(nameof(KeyPageViewModel.NumericDisplayItem.OnChanged), BindingMode.TwoWay));
 
                     var grid = new Grid { Margin = 2 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -174,21 +174,21 @@ namespace DocGenOneMobileClient.Views
                         HorizontalOptions = LayoutOptions.End
                     };
                     image.Transformations.Add(new RoundedTransformation());
-                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay));
-                    image.SetBinding(CachedImageWithTap.IsVisibleProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
-                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.OnImageClicked), BindingMode.TwoWay));
+                    image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImageWithTap.IsVisibleProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.ImageSource), BindingMode.OneWay, new IsStringEmptyConverter()));
+                    image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.OnImageClicked), BindingMode.TwoWay));
 
                     var descriptionLabel = new Label { HorizontalOptions = LayoutOptions.StartAndExpand, VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));
 
                     var descripionLayout = new StackLayout { Orientation = StackOrientation.Horizontal, Children = { descriptionLabel, image  } };
 
                     var valuePicker = new ImagePicker(page) { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.FillAndExpand, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5) };
-                    valuePicker.SetBinding(ImagePicker.ItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Options), BindingMode.OneWay));
-                    valuePicker.SetBinding(ImagePicker.SelectedItemProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.SelectedOption), BindingMode.TwoWay));
-                    valuePicker.SetBinding(ImagePicker.ImageItemsSourceProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.ImageSources), BindingMode.TwoWay));
-                    valuePicker.SetBinding(ImagePicker.OnChangedProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.OnChanged), BindingMode.TwoWay));
-                    valuePicker.SetBinding(ImagePicker.PromptProperty, new Binding(nameof(FamilyKeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.ItemsSourceProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.Options), BindingMode.OneWay));
+                    valuePicker.SetBinding(ImagePicker.SelectedItemProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.SelectedOption), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.ImageItemsSourceProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.ImageSources), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.OnChangedProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.OnChanged), BindingMode.TwoWay));
+                    valuePicker.SetBinding(ImagePicker.PromptProperty, new Binding(nameof(KeyPageViewModel.PickerDisplayItem.Prompt), BindingMode.TwoWay));
 
                     var grid = new Grid { Margin = 2 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -201,7 +201,7 @@ namespace DocGenOneMobileClient.Views
                 });
                 mapRegionsDataTemplate = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.Prompt), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.MapRegionsDisplayItem.Prompt), BindingMode.TwoWay));
 
                     var selectButton = new Button
                     {
@@ -209,10 +209,10 @@ namespace DocGenOneMobileClient.Views
                         Style = Styles.RegionSelectButtonStyle,
                         BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
                     };
-                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.OnSelectRegionClicked), BindingMode.TwoWay));
+                    selectButton.SetBinding(Button.CommandProperty, new Binding(nameof(KeyPageViewModel.MapRegionsDisplayItem.OnSelectRegionClicked), BindingMode.TwoWay));
 
                     var selectionAmountLabel = new Label { TextColor = Color.White, VerticalTextAlignment = TextAlignment.Center };
-                    selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));
+                    selectionAmountLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyPageViewModel.MapRegionsDisplayItem.SelectionAmount), BindingMode.TwoWay));
 
                     var grid = new Grid { Margin = 2 };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
@@ -227,15 +227,15 @@ namespace DocGenOneMobileClient.Views
             }
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                if (item is FamilyKeyPageViewModel.NumericDisplayItem)
+                if (item is KeyPageViewModel.NumericDisplayItem)
                 {
                     return numericDisplayDataTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.PickerDisplayItem)
+                else if (item is KeyPageViewModel.PickerDisplayItem)
                 {
                     return pickerDisplayDataTemplate;
                 }
-                else if (item is FamilyKeyPageViewModel.MapRegionsDisplayItem)
+                else if (item is KeyPageViewModel.MapRegionsDisplayItem)
                 {
                     return mapRegionsDataTemplate;
                 }

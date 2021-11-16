@@ -26,11 +26,19 @@ namespace AusBatProtoOneMobileClient
 
             var familyKeyButton = new Button
             {
-                Text = "Family Key",
+                Text = "Key to Families",
                 Style = Styles.RoundedButtonStyle,
                 BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
             };
             familyKeyButton.Clicked += (s, e) => { viewModel.OnFamilyKeyButtonClicked.Execute(null); };
+
+            var generaKeyButton = new Button
+            {
+                Text = "Keys to Genera and Species",
+                Style = Styles.RoundedButtonStyle,
+                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
+            };
+            generaKeyButton.Clicked += (s, e) => { viewModel.OnGeneraKeyButtonClicked.Execute(null); };
 
             var speciesAtozButton = new Button
             {
@@ -77,6 +85,7 @@ namespace AusBatProtoOneMobileClient
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                 },
                 ColumnDefinitions = 
                 { 
@@ -88,10 +97,11 @@ namespace AusBatProtoOneMobileClient
             };
             grid.Children.Add(introButton, 0, 0);
             grid.Children.Add(familyKeyButton, 0, 1);
-            grid.Children.Add(speciesAtozButton, 0, 2);
-            grid.Children.Add(speciesByFamilyButton, 0, 3);
-            grid.Children.Add(areaListingButton, 0, 4);
-            grid.Children.Add(aboutButton, 0, 5);
+            grid.Children.Add(generaKeyButton, 0, 2);
+            grid.Children.Add(speciesAtozButton, 0, 3);
+            grid.Children.Add(speciesByFamilyButton, 0, 4);
+            grid.Children.Add(areaListingButton, 0, 5);
+            grid.Children.Add(aboutButton, 0, 6);
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
 

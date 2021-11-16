@@ -224,8 +224,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand OnFamilyKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new FamilyKeyPageViewModel(KeyTreeFilter.Current.GetFilterResetNode(), new List<int>());
-                var page = new FamilyKeyPage(viewModel);
+                var viewModel = new KeyPageViewModel(KeyTreeFilter.Current.GetFilterResetNode(), new List<int>());
+                var page = new KeyPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
@@ -246,6 +246,31 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
+        public ICommand OnGeneraKeyButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new GeneraPageViewModel(KeyTreeFilter.Current.GetGeneraNodes());
+                var page = new GeneraPage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        
         public ICommand OnAreaListingsClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {

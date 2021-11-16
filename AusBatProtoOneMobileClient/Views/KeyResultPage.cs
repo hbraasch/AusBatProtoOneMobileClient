@@ -14,10 +14,10 @@ using Xamarin.Forms;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class FamilyKeyResultPage : ContentPageBase
+    public class KeyResultPage : ContentPageBase
     {
-        FamilyKeyResultPageViewModel viewModel;
-        public FamilyKeyResultPage(FamilyKeyResultPageViewModel viewModel) : base(viewModel)
+        KeyResultPageViewModel viewModel;
+        public KeyResultPage(KeyResultPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
@@ -29,8 +29,8 @@ namespace DocGenOneMobileClient.Views
                 HasUnevenRows = true,
                 BackgroundColor = Color.Transparent
             };
-            keyTreeNodesListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(FamilyKeyResultPageViewModel.DisplayItems), BindingMode.TwoWay));
-            keyTreeNodesListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(FamilyKeyResultPageViewModel.SelectedDisplayItem), BindingMode.TwoWay));
+            keyTreeNodesListView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(KeyResultPageViewModel.DisplayItems), BindingMode.TwoWay));
+            keyTreeNodesListView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(KeyResultPageViewModel.SelectedDisplayItem), BindingMode.TwoWay));
             keyTreeNodesListView.ItemTemplate = new TemplateSelector();
             keyTreeNodesListView.ItemTapped += (s, e) => {
                 viewModel.OnSelectPressed.Execute(null);
@@ -62,7 +62,7 @@ namespace DocGenOneMobileClient.Views
 
 
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(FamilyKeyResultPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
+            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(KeyResultPageViewModel.InvalidateMenu), BindingMode.OneWayToSource, source: viewModel));
 
         }
 
@@ -100,10 +100,10 @@ namespace DocGenOneMobileClient.Views
             {
                 leafNodeDisplayItem = new DataTemplate(() => {
                     var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White, FontAttributes = FontAttributes.Italic };
-                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.LeafNodeDisplayItem.SpeciesName), BindingMode.TwoWay));
+                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.SpeciesName), BindingMode.TwoWay));
 
                     var commonNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
-                    commonNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.LeafNodeDisplayItem.CommonName), BindingMode.TwoWay));
+                    commonNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.CommonName), BindingMode.TwoWay));
 
 
                     var heightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 2;
@@ -114,7 +114,7 @@ namespace DocGenOneMobileClient.Views
                         ErrorPlaceholder = "bat.png"
                     };
                     image.Transformations.Add(new CircleTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(FamilyKeyResultPageViewModel.LeafNodeDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.ImageSource), BindingMode.OneWay));
 
                     var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5) };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
@@ -137,7 +137,7 @@ namespace DocGenOneMobileClient.Views
                         VerticalTextAlignment = TextAlignment.Center, 
                         TextColor = Color.White 
                     };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.NodeDisplayItem.Name), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.NodeDisplayItem.Name), BindingMode.TwoWay));
 
                     var grid = new Grid { Margin = new Thickness(10, 5, 5, 5) };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -152,7 +152,7 @@ namespace DocGenOneMobileClient.Views
 
                 noticeDisplayItem = new DataTemplate(() => {
                     var descriptionLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White };
-                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(FamilyKeyResultPageViewModel.NoticeDisplayItem.Description), BindingMode.TwoWay));
+                    descriptionLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.NoticeDisplayItem.Description), BindingMode.TwoWay));
 
                     var grid = new Grid { Margin = new Thickness(10, 5, 5, 5) };
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
@@ -168,15 +168,15 @@ namespace DocGenOneMobileClient.Views
 
             protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
             {
-                if (item is FamilyKeyResultPageViewModel.LeafNodeDisplayItem)
+                if (item is KeyResultPageViewModel.LeafNodeDisplayItem)
                 {
                     return leafNodeDisplayItem;
                 }
-                else if (item is FamilyKeyResultPageViewModel.NodeDisplayItem)
+                else if (item is KeyResultPageViewModel.NodeDisplayItem)
                 {
                     return generalNodeDisplayItem;
                 }
-                else if (item is FamilyKeyResultPageViewModel.NoticeDisplayItem)
+                else if (item is KeyResultPageViewModel.NoticeDisplayItem)
                 {
                     return noticeDisplayItem;
                 }

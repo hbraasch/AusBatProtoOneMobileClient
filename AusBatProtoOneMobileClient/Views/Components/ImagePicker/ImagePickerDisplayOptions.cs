@@ -13,7 +13,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
 {
     public class ImagePickerDisplayOptions : ContentPage
     {
-        CachedImage displayImage;
+        Image displayImage;
         Frame listViewFrame;
         public class PickerWithImagesDisplayData
         {
@@ -58,10 +58,9 @@ namespace AusBatProtoOneMobileClient.Views.Components
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
 
-            displayImage = new CachedImage
+            displayImage = new Image
             {
-                Aspect = Aspect.AspectFit,
-                ErrorPlaceholder = "bat.png"
+                Aspect = Aspect.AspectFit
             };
             displayImage.IsVisible = false;
 
@@ -90,6 +89,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
                         ExecutionStops(); 
                     }
                     else {
+                        DisplayItems = data;
                         listViewFrame.IsVisible = true;
                         displayImage.IsVisible = false;
                     }

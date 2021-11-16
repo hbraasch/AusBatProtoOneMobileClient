@@ -42,7 +42,7 @@ namespace AusBatProtoOneMobileClient
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            NavigationPage.SetTitleView(this, new Label { Text = "Zoom display", Style = Styles.TitleLabelStyle });
+            NavigationPage.SetTitleView(this, new Label { Text = "Zoom/Pan image", Style = Styles.TitleLabelStyle });
             Content = centeredLayout;
             BackgroundColor = Color.Black;
 

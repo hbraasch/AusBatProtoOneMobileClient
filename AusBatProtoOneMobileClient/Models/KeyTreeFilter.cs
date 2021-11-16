@@ -43,5 +43,10 @@ namespace AusBatProtoOneMobileClient.Models.Touch
         {
             throw new NotImplementedException();
         }
+
+        internal List<KeyTreeNodeBase> GetGeneraNodes()
+        {
+            return GetFilterResetNode().Children.Distinct(new TreeNodeComparer()).ToList();
+        }
     }
 }

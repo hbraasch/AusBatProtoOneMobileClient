@@ -545,7 +545,7 @@ namespace AusBatProtoOneMobileClient.Models
         #endregion
     }
 
-    internal class TreeNodeComparer : IEqualityComparer<KeyTreeNodeBase>
+    public class TreeNodeComparer : IEqualityComparer<KeyTreeNodeBase>
     {
         public bool Equals(KeyTreeNodeBase x, KeyTreeNodeBase y)
         {
@@ -557,4 +557,6 @@ namespace AusBatProtoOneMobileClient.Models
             return obj.NodeId.GetHashCode();
         }
     }
+
+
 }

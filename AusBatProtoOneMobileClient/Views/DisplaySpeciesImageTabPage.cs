@@ -30,14 +30,14 @@ namespace AusBatProtoOneMobileClient
 
                 var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
 
-                var image = new CachedImageWithTap
+                var image = new ImageWithTap
                 {
                     Aspect = Aspect.AspectFit,                   
                 };
 
                 image.WidthRequest = mainDisplayInfo.Width;
-                image.SetBinding(CachedImageWithTap.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
-                image.SetBinding(CachedImageWithTap.OnTappedProperty, new Binding(nameof(ImageDataItem.OnImageTapped), BindingMode.TwoWay));
+                image.SetBinding(ImageWithTap.SourceProperty, new Binding(nameof(ImageDataItem.ImageSource), BindingMode.OneWay));
+                image.SetBinding(ImageWithTap.OnTappedProperty, new Binding(nameof(ImageDataItem.OnImageTapped), BindingMode.TwoWay));
 
                 return image; 
             });

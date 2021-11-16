@@ -16,7 +16,6 @@ namespace PinchGesture
 		double x, y;
 		double startX, startY;
 		double width, height;
-		double initStartX, initStartY;
 
 		public PinchToZoomContainer ()
 		{
