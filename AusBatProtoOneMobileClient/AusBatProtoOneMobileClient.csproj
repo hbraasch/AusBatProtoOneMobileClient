@@ -37,7 +37,6 @@
     <None Remove="Data\KeyTables\nyctophilus_keytable.json" />
     <None Remove="Data\KeyTables\phoniscus_keytable.json" />
     <None Remove="Data\KeyTables\pipistrellus_keytable.json" />
-    <None Remove="Data\KeyTables\pteropodidae_dobsonia_keytable.json" />
     <None Remove="Data\KeyTables\pteropodidae_keytable.json" />
     <None Remove="Data\KeyTables\rhinolophidae_keytable.json" />
     <None Remove="Data\KeyTables\scoteanax_keytable.json" />
@@ -100,8 +99,7 @@
     <None Remove="Data\SpeciesDataSets\pteropus_poliocephalus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pteropus_scapulatus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_intermediate_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
+    <None Remove="Data\SpeciesDataSets\rhinolophus_megaphyllus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
     <None Remove="Data\SpeciesDataSets\rhinonicteris_aurantia_dataset.json" />
     <None Remove="Data\SpeciesDataSets\saccolaimus_flaviventris_dataset.json" />
@@ -184,8 +182,7 @@
     <None Remove="Data\SpeciesDetails\pteropus_poliocephalus_details.html" />
     <None Remove="Data\SpeciesDetails\pteropus_scapulatus_details.html" />
     <None Remove="Data\SpeciesDetails\rhinolophus_intermediate_details.html" />
-    <None Remove="Data\SpeciesDetails\rhinolophus_megaphyllus_nsw_vic_details.html" />
-    <None Remove="Data\SpeciesDetails\rhinolophus_megaphyllus_qld_details.html" />
+    <None Remove="Data\SpeciesDetails\rhinolophus_megaphyllus_details.html" />
     <None Remove="Data\SpeciesDetails\rhinolophus_robertsi_details.html" />
     <None Remove="Data\SpeciesDetails\rhinonicteris_aurantia_details.html" />
     <None Remove="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
@@ -217,10 +214,9 @@
     <None Remove="Data\SpeciesImages\austonomus_australis2.jpg" />
     <None Remove="Data\SpeciesImages\austonomus_australis3.jpg" />
     <None Remove="Data\SpeciesImages\austonomus_australis_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\3Ua32600" />
     <None Remove="Data\SpeciesImages\Hires\CallImages\nyctophilus_major major_call_image.jpg" />
     <None Remove="Data\SpeciesImages\Hires\CallImages\nyctophilus_major tor_call_image.jpg" />
-    <None Remove="Data\SpeciesImages\Hires\CallImages\nyctophilus_sherrini_call_image.jpg" />
-    <None Remove="Data\SpeciesImages\Hires\CallImages\ozimops_cobourgianus_call_image.jpg" />
     <None Remove="Data\SpeciesImages\chaerephon_jobensis1.jpg" />
     <None Remove="Data\SpeciesImages\chaerephon_jobensis2.jpg" />
     <None Remove="Data\SpeciesImages\chaerephon_jobensis_head.jpg" />
@@ -388,15 +384,21 @@
     <None Remove="Data\SpeciesImages\Hires\Species\chalinolobus_morio_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\chalinolobus_nigrogriseus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\chalinolobus_picatus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\dobsonia_magna_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\doryrhina_semoni_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\doryrhina_stenotis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\falsistrellus_mackenziei_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\falsistrellus_tasmaniensis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\hipposideros_ater_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\hipposideros_cervinus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\hipposideros_diadema_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\hipposideros_inornatus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\macroderma_gigas_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\macroglossus_minimus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\micronomus_norfolkensis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\miniopterus_australis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\miniopterus_orianae_bassanii_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\miniopterus_orianae_oceanensis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\miniopterus_orianae_orianae_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\murina_florium_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\myotis_macropus_head.jpg" />
@@ -406,8 +408,10 @@
     <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_daedalus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_geoffroyi_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_gouldi_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_holtorum_face.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_major_major_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_major_tor_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_sherrini_face.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\nyctophilus_walkeri_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\ozimops_cobourgianus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\ozimops_kitcheneri_head.jpg" />
@@ -422,22 +426,29 @@
     <None Remove="Data\SpeciesImages\Hires\Species\pteropus_natalis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\pteropus_scapulatus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_intermediate_head.jpg" />
-    <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_nsw_vic_head.jpg" />
-    <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_qld_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_robertsi_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\saccolaimus_flaviventris_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\saccolaimus_saccolaimus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\scotorepens_balstoni_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\scotorepens_greyii_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\scotorepens_parnaby_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\scotorepens_sanborni_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\setirostris_eleryi_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\syconycteris_australis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\taphozous_australis_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\taphozous_georgianus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\taphozous_hilli_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\taphozous_troughtoni_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_baverstocki_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_caurinus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_darlingtoni_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_douglasorum_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_finlaysoni_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_pumilus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_regulus_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_troughtoni_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\vespadelus_vulturnus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\syconycteris_australis1.jpg" />
     <None Remove="Data\SpeciesImages\Hires\syconycteris_australis2.jpg" />
     <None Remove="Data\SpeciesImages\Hires\syconycteris_australis_head.jpg" />
@@ -585,7 +596,6 @@
     <EmbeddedResource Include="Data\KeyTables\nyctophilus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\phoniscus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\pipistrellus_keytable.json" />
-    <EmbeddedResource Include="Data\KeyTables\pteropodidae_dobsonia_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\pteropodidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\rhinolophidae_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\scoteanax_keytable.json" />
@@ -648,8 +658,7 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_poliocephalus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_scapulatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_intermediate_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_nsw_vic_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_qld_dataset.json" />
+    <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_megaphyllus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinolophus_robertsi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\rhinonicteris_aurantia_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\saccolaimus_flaviventris_dataset.json" />
@@ -733,8 +742,7 @@
     <EmbeddedResource Include="Data\SpeciesDetails\pteropus_poliocephalus_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\pteropus_scapulatus_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_intermediate_details.html" />
-    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_megaphyllus_nsw_vic_details.html" />
-    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_megaphyllus_qld_details.html" />
+    <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_megaphyllus_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\rhinolophus_robertsi_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\rhinonicteris_aurantia_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
@@ -820,15 +828,21 @@
     <SharedImage Include="Data\SpeciesImages\Hires\Species\chalinolobus_morio_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\chalinolobus_nigrogriseus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\chalinolobus_picatus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\dobsonia_magna_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\doryrhina_semoni_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\doryrhina_stenotis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\falsistrellus_mackenziei_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\falsistrellus_tasmaniensis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\hipposideros_ater_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\hipposideros_cervinus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\hipposideros_diadema_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\hipposideros_inornatus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\macroderma_gigas_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\macroglossus_minimus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\micronomus_norfolkensis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\miniopterus_australis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\miniopterus_orianae_bassanii_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\miniopterus_orianae_oceanensis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\miniopterus_orianae_orianae_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\murina_florium_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\myotis_macropus_head.jpg" BaseSize="50,50" />
@@ -838,8 +852,10 @@
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_daedalus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_geoffroyi_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_gouldi_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_holtorum_face.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_major_major_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_major_tor_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_sherrini_face.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_walkeri_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_cobourgianus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_kitcheneri_head.jpg" BaseSize="50,50" />
@@ -854,22 +870,29 @@
     <SharedImage Include="Data\SpeciesImages\Hires\Species\pteropus_natalis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\pteropus_scapulatus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\rhinolophus_intermediate_head.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_nsw_vic_head.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_qld_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\rhinolophus_robertsi_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\saccolaimus_flaviventris_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\saccolaimus_saccolaimus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_balstoni_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_greyii_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_parnaby_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_sanborni_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\setirostris_eleryi_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\syconycteris_australis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\taphozous_australis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\taphozous_georgianus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\taphozous_hilli_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\taphozous_troughtoni_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_baverstocki_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_caurinus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_darlingtoni_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_douglasorum_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_finlaysoni_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_pumilus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_regulus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_troughtoni_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_vulturnus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\MuzzleStructure\muzzle_smooth.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\NostrilShape\nostrils_distinct_tubes.jpg" BaseSize="150,150" />
@@ -946,8 +969,8 @@
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" BaseSize="150,150" />
-    <SharedImage Include="Images\audio_playback_play.png" />
-    <SharedImage Include="Images\audio_playback_stop.png" />
+    <SharedImage Include="Images\audio_playback_play.png" BaseSize="50,50" />
+    <SharedImage Include="Images\audio_playback_stop.png" BaseSize="50,50" />
     <SharedImage Include="Images\background.png" BaseSize="1000,1000" />
     <SharedImage Include="Images\ic_hamburger.png" BaseSize="50,50" />
     <SharedImage Include="Images\photos.png" BaseSize="25,25" />
@@ -999,8 +1022,7 @@
     <None Update="Data\SpeciesImages\Hires\CallImages\pteropus_poliocephalus_call_image.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\CallImages\pteropus_scapulatus_call_image.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\CallImages\rhinolophus_intermediate_call_image.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\CallImages\rhinolophus_megaphyllus_nsw_vic_call_image.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\CallImages\rhinolophus_megaphyllus_qld_call_image.jpg" BaseSize="50,50" />
+    <None Update="Data\SpeciesImages\Hires\CallImages\rhinolophus_megaphyllus_call_image.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\CallImages\rhinolophus_robertsi_call_image.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\CallImages\rhinonicteris_aurantia_call_image.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\CallImages\saccolaimus_flaviventris_call_image.jpg" BaseSize="50,50" />
@@ -1131,7 +1153,6 @@
     <None Update="Data\SpeciesImages\Hires\Species\miniopterus_orianae_bassanii1.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\miniopterus_orianae_bassanii2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\miniopterus_orianae_orianae1.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\Species\miniopterus_orianae_orianae2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\murina_florium1.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\murina_florium2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\myotis_macropus2.jpg" BaseSize="50,50" />
@@ -1176,15 +1197,13 @@
     <None Update="Data\SpeciesImages\Hires\Species\pteropus_natalis2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\pteropus_poliocephalus1.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\pteropus_poliocephalus2.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\Species\pteropus_poliocephalus3.jpg" BaseSize="50,50" />
+    <None Update="Data\SpeciesImages\Hires\Species\pteropus_poliocephalus_head.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\pteropus_scapulatus1.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\pteropus_scapulatus2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_intermediate1.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_intermediate2.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_nsw_vic1.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_nsw_vic3.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_qld1.jpg" BaseSize="50,50" />
-    <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_qld3.jpg" BaseSize="50,50" />
+    <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus1.jpg" BaseSize="50,50" />
+    <None Update="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\rhinonicteris_aurantia1.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\rhinonicteris_aurantia2.jpg" BaseSize="50,50" />
     <None Update="Data\SpeciesImages\Hires\Species\rhinonicteris_aurantia3.jpg" BaseSize="50,50" />

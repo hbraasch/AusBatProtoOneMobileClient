@@ -3,8 +3,8 @@
   "SpeciesId": "troughtoni",
   "Name": "Undefined",
   "DetailsHtml": null,
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "vespadelus_troughtoni_head.jpg", "vespadelus_troughtoni.jpg" ],
+  "CallImages": [ "vespadelus_troughtoni1.jpg" ],
   "RegionIds": [
     102,
     103,

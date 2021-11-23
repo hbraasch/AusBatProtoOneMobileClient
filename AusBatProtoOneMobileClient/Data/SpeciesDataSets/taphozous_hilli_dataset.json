@@ -3,7 +3,7 @@
   "SpeciesId": "hilli",
   "Name": "Hill's Sheath-tailed Bat",
   "DetailsHtml": "taphozous_hilli_details.html",
-  "Images": [],
+  "Images": [ "taphozous_hilli_head.jpg", "taphozous_hilli.jpg", "taphozous_hilli1.jpg" ],
   "CallImages": [
     "taphozous_hilli_call_image.jpg"
   ],

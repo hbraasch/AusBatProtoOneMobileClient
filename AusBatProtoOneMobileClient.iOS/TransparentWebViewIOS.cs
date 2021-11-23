@@ -17,6 +17,7 @@ namespace AusBatProtoOneMobileClient.iOS
     {
         float defaultFontSizePercent = 100;
         static float fontSizePercent = 0;
+        TransparentWebView data;
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
@@ -24,16 +25,25 @@ namespace AusBatProtoOneMobileClient.iOS
             // Setting the background as transparent
             this.Opaque = false;
             this.BackgroundColor = Color.Transparent.ToUIColor();
-            this.NavigationDelegate = new NavigationDelegat();
-            fontSizePercent = (e.NewElement == null) ? defaultFontSizePercent : ((TransparentWebView)e.NewElement).FontSizePercentage;
+
+            data = ((TransparentWebView)e.NewElement);
+            fontSizePercent = (data == null) ? defaultFontSizePercent : data.FontSizePercentage;
+
+            this.NavigationDelegate = new NavigationDelegat(data);
         }
 
         // https://social.msdn.microsoft.com/Forums/en-US/208a721c-67cd-46a2-a83a-d1e7e7d3aa7b/xamarin-forms-how-to-increase-the-fontsize-of-content-in-webview?forum=xamarinforms
         public class NavigationDelegat : WKNavigationDelegate
         {
+            TransparentWebView data;
+            public NavigationDelegat(TransparentWebView data)
+            {
+                this.data = data;
+            }
+
             public override void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
             {
-                string fontSize = (fontSizePercent == 0)? $"100%": $"{fontSizePercent}%"; 
+                string fontSize = (fontSizePercent == 0)? $"100%": $"{data.FontSizePercentage}%"; 
                 string stringsss = String.Format(@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '{0}'", fontSize);
                 WKJavascriptEvaluationResult handler = (NSObject result, NSError err) => {
                     if (err != null)

@@ -3,8 +3,8 @@
   "SpeciesId": "darlingtoni",
   "Name": "Undefined",
   "DetailsHtml": null,
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "vespadelus_darlingtoni_head.jpg", "vespadelus_darlingtoni.jpg", "vespadelus_darlingtoni1.jpg" ],
+  "CallImages": [ "vespadelus_darlingtoni_call_image.jpg", "vespadelus_darlingtoni_call_image2.jpg" ],
   "RegionIds": [
     105,
     106,

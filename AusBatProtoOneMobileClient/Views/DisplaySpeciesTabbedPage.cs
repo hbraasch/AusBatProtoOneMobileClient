@@ -48,7 +48,7 @@ namespace AusBatProtoOneMobileClient
             Children.Add(displayBatImagesTabPage);
             Children.Add(displayBatDetailsTabPage);
             Children.Add(displayBatRegionsTabPage);
-            if (viewModel.Species.CallDatas.Count != 0)
+            if (viewModel.Species.CallImages.Count != 0 || viewModel.Species.CallAudios.Count != 0)
             {
                 Children.Add(displayBatCallTabPage); 
             }
@@ -64,6 +64,9 @@ namespace AusBatProtoOneMobileClient
                 .AddMenuItem("home", "Home", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
                 .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
                 .AddMenuItem("resetFilter", "Reset", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetMenuPressed.Execute(null); })
+                .AddMenuItem("scaleText", "Scale text", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { 
+                    viewModel.OnScaleTextMenuPressed.Execute(displayBatDetailsTabPage.webView);
+                })
                 .AddMenuItem("addSighting", "Add sighting", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnAddSightingMenuPressed.Execute(null); });
 
             menu.SetVisibilityFactors(viewModel, "IsHomeEnabled", "IsResetFilterEnabled")

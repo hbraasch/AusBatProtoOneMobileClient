@@ -3,7 +3,7 @@
   "SpeciesId": "australis",
   "Name": "Little Bent-winged Bat",
   "DetailsHtml": "miniopterus_australis_details.html",
-  "Images": [],
+  "Images": [ "miniopterus_australis_head.jpg", "miniopterus_australis1.jpg", "miniopterus_australis2.jpg" ],
   "CallImages": [
     "miniopterus_australis_call_image.jpg"
   ],

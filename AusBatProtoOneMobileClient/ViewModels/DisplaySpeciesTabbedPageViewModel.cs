@@ -1,13 +1,17 @@
 ﻿using AusBatProtoOneMobileClient.Data;
+using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
+using AusBatProtoOneMobileClient.Views.Components;
 using DocGenOneMobileClient.Views;
 using Mobile.Helpers;
+using Mobile.Models;
 using Mobile.ViewModels;
 using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -68,7 +72,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             ImageDataItems = new ObservableCollection<ImageDataItem>(); 
             DetailsHtmlSource = new HtmlWebViewSource();
             CallDisplayItems = new ObservableCollection<CallDataItem>();
-            HtmlFontSizePercentage = Constants.HTML_FONT_SIZE_PERCENTAGE;
+            HtmlFontSizePercentage = Settings.HtmlFontSizePercentage;
 
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.PlaybackEnded += (s, e) => { 
@@ -106,22 +110,26 @@ namespace AusBatProtoOneMobileClient.ViewModels
             DistributionMapImage = ImageSource.FromFile(ZippedFiles.GetFullFilename(Species.DistributionMapImage));
 
             var callDisplayItems = new ObservableCollection<CallDataItem>();
-            foreach (var callData in Species.CallDatas)
+            if (!Species.CallImages.IsEmpty())
             {
-                if (!callData.ImageName.IsEmpty())
+                // There is a call image
+                callDisplayItems.Add(new CallDataItem { ImageSource = ImageSource.FromFile(ZippedFiles.GetFullFilename(Species.CallImages.First())) });
+                HasCallImage = true;
+                HasCallAudio = false;
+            }
+            else
+            {
+                // No call image, but there could be call audio
+                if (!Species.CallAudios.IsEmpty())
                 {
-                    callDisplayItems.Add(new CallDataItem { ImageSource = ImageSource.FromFile(ZippedFiles.GetFullFilename(callData.ImageName))});
-                    HasCallImage = true;
-                    HasCallAudio = false;
-                }
-                else if (!callData.AudioName.IsEmpty())
-                {
-                    callDisplayItems.Add(new CallDataItem { AudioSourceFilename = callData.AudioName });
+                    // There is some audio
+                    callDisplayItems.Add(new CallDataItem { AudioSourceFilename = Species.CallAudios.First() });
                     HasCallAudio = true;
                     HasCallImage = false;
                 }
                 else
                 {
+                    // No call data
                     HasCallImage = false;
                     HasCallAudio = false;
                 }
@@ -256,6 +264,50 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
+
+
+        public ICommand OnScaleTextMenuPressed => commandHelper.ProduceDebouncedCommand<TransparentWebView>(async (webView) => {
+            try
+            {
+                var cts = new CancellationTokenSource();
+                ActivityIndicatorStart("Starting ...", () =>
+                {
+                    cts.Cancel();
+                    ActivityIndicatorStop();
+                });
+
+                // Do work here
+
+                var value = await Application.Current.MainPage.DisplayPromptAsync("Font size", "Enter percentage", "OK", "Cancel", initialValue: Settings.HtmlFontSizePercentage.ToString("N0"), keyboard: Keyboard.Numeric);
+                if (value == "Cancel") return;
+                var isValid = float.TryParse(value, out float percentage);
+                if (!isValid) throw new BusinessException("Value entered is not a valid number");
+                percentage = Math.Max(10, percentage);
+                percentage = Math.Min(percentage, 500);
+                Settings.HtmlFontSizePercentage = percentage;
+                HtmlFontSizePercentage = percentage;
+                DetailsHtmlSource.Html = "";
+                DetailsHtmlSource.Html = Species.DetailsHtml;
+                webView.Reload();
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        
         public ICommand OnAddSightingMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {

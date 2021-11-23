@@ -4,9 +4,10 @@
   "Name": "Undefined",
   "DetailsHtml": null,
   "Images": [
-    "nyctophilus_holtorum_nose.jpg"
+    "nyctophilus_holtorum_face.jpg",
+    "nyctophilus_holtorum.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [ "nyctophilus_holtorum_call_image.jpg" ],
   "RegionIds": [
     308,
     309

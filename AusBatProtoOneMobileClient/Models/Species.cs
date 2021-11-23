@@ -23,7 +23,8 @@ namespace AusBatProtoOneMobileClient.Data
         public string Name { get; set; }
         public string DetailsHtml { get; set; }
         public List<string> Images { get; set; } = new List<string>();
-        public List<CallData> CallDatas { get; set; } = new List<CallData>();
+        public List<string> CallImages { get; set; } = new List<string>();
+        public List<string> CallAudios { get; set; } = new List<string>();
         public List<int> RegionIds { get; set; } = new List<int>();
         public string DistributionMapImage => $"{GenusId}_{SpeciesId}_dist.jpg".ToLower();
 
@@ -72,10 +73,10 @@ namespace AusBatProtoOneMobileClient.Data
             {
                 if (imageName.Contains("head"))
                 {
-                    // Check is [SharedImage] exists
+                    // Check if [Resizetizer SharedImage] exists
                     if (!await ImageChecker.DoesImageExist(imageName))
                     {
-                        Debug.WriteLine($"Missing SharedImage [{imageName}] for species [{speciesName}]");
+                        Debug.WriteLine($"Missing Resizetizer SharedImage [{imageName}] for species [{speciesName}]");
                         toRemoveImages.Add(imageName);
                         continue;
                     }
@@ -103,22 +104,21 @@ namespace AusBatProtoOneMobileClient.Data
             // Currently only supports one image or one audio per species
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             Debug.WriteLine($"Start loading species [{speciesName}] call data");
-            var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat();
+            var imageName = (CallImages.Count != 0) ? CallImages.First(): $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat(); // One image for now
             var audioName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_audio.mp3".ToAndroidFilenameFormat();
 
-            CallDatas.Clear();
+            CallAudios.Clear();
 
-            if (File.Exists(ZippedFiles.GetFullFilename(imageName)))
+            if (!File.Exists(ZippedFiles.GetFullFilename(imageName)))
             {
-                CallDatas.Add(new CallData { ImageName = imageName });
-            }
-            else if (File.Exists(ZippedFiles.GetFullFilename(audioName)))
-            {
-                CallDatas.Add(new CallData { AudioName = audioName });
-            }
-            else
-            {
-                Debug.WriteLine($"Missing call data for[{speciesName}]");
+                if (!File.Exists(ZippedFiles.GetFullFilename(audioName)))
+                {
+                    Debug.WriteLine($"Missing call image or audio for[{speciesName}]");
+                }
+                else
+                {                    
+                    CallAudios.Add(audioName);
+                }
             }
             Debug.WriteLine($"End loading species [{speciesName}] call data");
         }
@@ -133,7 +133,6 @@ namespace AusBatProtoOneMobileClient.Data
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             Debug.WriteLine($"Start loading species [{speciesName}] distribution map image");
-            var imageName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_dist.jpg".ToAndroidFilenameFormat();
 
             if (!File.Exists(ZippedFiles.GetFullFilename(DistributionMapImage)))
             {

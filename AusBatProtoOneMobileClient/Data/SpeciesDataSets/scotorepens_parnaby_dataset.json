@@ -3,8 +3,8 @@
   "SpeciesId": "parnaby",
   "Name": "Undefined",
   "DetailsHtml": null,
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "scotorepens_parnaby_head.jpg", "scotorepens_parnaby.jpg", "scotorepens_parnaby1.jpg" ],
+  "CallImages": [ "scotorepens_parnaby_call_image.jpg" ],
   "RegionIds": [
     105
   ],

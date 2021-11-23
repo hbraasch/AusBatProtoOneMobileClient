@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using FFImageLoading.Forms.Platform;
 using Foundation;
 using UIKit;
@@ -26,9 +29,14 @@ namespace AusBatProtoOneMobileClient.iOS
 
             global::Xamarin.Forms.Forms.Init();
             CachedImageRenderer.Init();
+
+            Thread.Sleep(4000);
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
+
+
     }
 }

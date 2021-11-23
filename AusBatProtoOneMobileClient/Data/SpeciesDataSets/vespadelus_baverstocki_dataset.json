@@ -3,8 +3,8 @@
   "SpeciesId": "baverstocki",
   "Name": "Undefined",
   "DetailsHtml": null,
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "vespadelus_baverstocki_head.jpg", "vespadelus_baverstocki.jpg", "vespadelus_baverstocki1.jpg" ],
+  "CallImages": [ "vespadelus_baverstocki_call_image.jpg" ],
   "RegionIds": [
     309,
     305,

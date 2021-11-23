@@ -9,6 +9,6 @@
   "CallImages": [
     "scoteanax_rueppellii_call_image.jpg"
   ],
-  "RegionIds": [],
+  "RegionIds": [103, 104, 105,106],
   "DistributionMapImage": "scoteanax_rueppellii_dist.jpg"
 }

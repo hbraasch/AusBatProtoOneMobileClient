@@ -3,8 +3,8 @@
   "SpeciesId": "vulturnus",
   "Name": "Undefined",
   "DetailsHtml": null,
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "vespadelus_vulturnus_head.jpg", "vespadelus_vulturnus.jpg", "vespadelus_vulturnus1.jpg" ],
+  "CallImages": [ "vespadelus-vulturnus_call_image.jpg", "vespadelus-vulturnus_call_image1.jpg" ],
   "RegionIds": [
     305,
     202,

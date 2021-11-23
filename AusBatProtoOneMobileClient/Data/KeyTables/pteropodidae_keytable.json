@@ -24,7 +24,8 @@
         "LightOrDarkGrizzledGrey",
         "LightToMidTan",
         "MidGreySkinOftenTingedYellow",
-        "BlackHairsOftenTippedGrey"
+        "BlackHairsOftenTippedGrey",
+        "Grey"
       ],
       "OptionPrompts": [
         "Black, often grizzled, fading to brown around the muzzle and occasional light eye rings.",
@@ -33,7 +34,8 @@
         "Light or dark grizzled grey",
         "Light to mid tan",
         "Mid grey, skin often tinged yellow",
-        "Black, hairs often tipped with grey."
+        "Black, hairs often tipped with grey",
+        "Grey"
       ],
       "OptionImages": [
         "ptero_alec.jpg",
@@ -42,7 +44,8 @@
         "ptero_polio.jpg",
         "sycon_aust.jpg",
         "macro_mini.jpg",
-        "ptero_natal.jpg"
+        "ptero_natal.jpg",
+        ""
       ]
     },
     {
@@ -139,6 +142,15 @@
         "BlackHairsOftenTippedGrey",
         "NarrowMembraneNaked",
         "Absent"
+      ]
+    },
+    {
+      "NodeId": "Dobsonia magna",
+      "Values": [
+        "138-155",
+        "Grey",
+        "NarrowMembraneNaked",
+        "Present"
       ]
     }
   ]

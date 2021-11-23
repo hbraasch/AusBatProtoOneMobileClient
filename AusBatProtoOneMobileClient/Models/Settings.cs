@@ -28,5 +28,17 @@ namespace Mobile.Models
                 Preferences.Set("DataVersion", versionJson); 
             } 
         }
+
+        public static float HtmlFontSizePercentage
+        {
+            get
+            {
+                return Preferences.Get("HtmlFontSizePercentage", 100.0f);
+            }
+            set
+            {
+                Preferences.Set("HtmlFontSizePercentage", value); ;
+            }
+        }
     }
 }

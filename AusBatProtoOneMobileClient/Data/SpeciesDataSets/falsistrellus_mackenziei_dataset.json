@@ -8,7 +8,7 @@
     "falsistrellus_mackenziei1.jpg",
     "falsistrellus_mackenziei2.jpg"
   ],
-  "CallImages": [],
+  "CallImages": [ "falsistrellus_mackenzei_call_image.jpg", "falsistrellus_mackenzei_call_image1.jpg" ],
   "RegionIds": [
     309,
     308

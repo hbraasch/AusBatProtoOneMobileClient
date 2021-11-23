@@ -16,19 +16,10 @@
   "Pickers": [],
   "NodeRows": [
     {
-      "NodeId": "Rhinolophus megaphyllus_nsw_vic",
+      "NodeId": "Rhinolophus megaphyllus",
       "Values": [
-        "45-53",
-        "60-68",
-        "33-37",
-        "17-22"
-      ]
-    },
-    {
-      "NodeId": "Rhinolophus megaphyllus_qld",
-      "Values": [
-        "44-49",
-        "50-55",
+        "44-53",
+        "50-68",
         "33-37",
         "17-22"
       ]

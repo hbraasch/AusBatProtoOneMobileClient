@@ -3,7 +3,7 @@
   "SpeciesId": "robertsi",
   "Name": "Greater Large-eared Horseshoe-bat",
   "DetailsHtml": "rhinolophus_robertsi_details.html",
-  "Images": [],
+  "Images": [ "rhinolophus_robertsi_head.jpg", "rhinolophus_robertsi1.jpg", "rhinolophus_robertsi2.jpg" ],
   "CallImages": [
     "rhinolophus_robertsi_call_image.jpg"
   ],

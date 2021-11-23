@@ -28,7 +28,8 @@ namespace AusBatProtoOneMobileClient.Models
                 new Setter { Property = Button.BorderWidthProperty,   Value = 3 },
                 new Setter { Property = Button.BorderColorProperty,   Value = Constants.APP_COLOUR},
                 new Setter { Property = Button.CornerRadiusProperty,   Value = 5 },
-                new Setter { Property = Button.MarginProperty,   Value = 5 }
+                new Setter { Property = Button.MarginProperty,   Value = 5 },
+                new Setter { Property = Button.PaddingProperty,   Value = 10 }
             }
         };
 

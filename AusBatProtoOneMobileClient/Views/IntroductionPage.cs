@@ -1,7 +1,9 @@
-﻿using AusBatProtoOneMobileClient.Models;
+﻿using AusBatProtoOneMobileClient.Helpers;
+using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
 using AusBatProtoOneMobileClient.Views.Components;
 using Mobile.Helpers;
+using Mobile.Models;
 using Mobile.ViewModels;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -19,7 +21,7 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() { FontSizePercentage = 300.0f } : new WebView();
+            webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() { FontSizePercentage = Settings.HtmlFontSizePercentage } : new WebView();
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(IntroductionPageViewModel.WebViewSource), BindingMode.OneWay));
             webView.Margin = 10; 
 

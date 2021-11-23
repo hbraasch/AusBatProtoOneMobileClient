@@ -4,8 +4,8 @@
   "Name": "Ghost Bat",
   "DetailsHtml": null,
   "DataTag": null,
-  "Images": [ "macro_family_pic.jpg", "macro_family_pic1.jpg" ],
-  "CallImages": [],
+  "Images": [ "macroderma_gigas_head.jpg", "macroderma_gigas.jpg", "macroderma_gigas1.jpg" ],
+  "CallImages": [ "macroderma_gigas_call_image.jpg" ],
   "RegionIds": [
     102,
     103,

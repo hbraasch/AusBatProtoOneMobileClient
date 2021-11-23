@@ -11,7 +11,7 @@ namespace AusBatProtoOneMobileClient
     public class DisplaySpeciesDetailsTabPage : ContentPageBase
     {
         DisplaySpeciesTabbedPageViewModel viewModel;
-        TransparentWebView webView;
+        public TransparentWebView webView;
         public DisplaySpeciesDetailsTabPage(DisplaySpeciesTabbedPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;

@@ -3,8 +3,8 @@
   "SpeciesId": "orianae_oceanensis",
   "Name": "Undefined",
   "DetailsHtml": "miniopterus_orianae_oceanensis_details.html",
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "miniopterus_orianae_oceanensis_head.jpg", "miniopterus_orianae_oceanensis.jpg", "miniopterus_orianae_oceanensis1.jpg" ],
+  "CallImages": [ "miniopterus_orianae_oceanensis_call_image.jpg" ],
   "RegionIds": [
     102,
     103,

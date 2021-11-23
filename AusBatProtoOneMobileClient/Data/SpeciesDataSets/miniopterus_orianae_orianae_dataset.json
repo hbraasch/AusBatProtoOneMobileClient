@@ -5,11 +5,12 @@
   "DetailsHtml": "miniopterus_orianae_orianae_details.html",
   "Images": [
     "miniopterus_orianae_orianae_head.jpg",
-    "miniopterus_orianae_orianae1.jpg",
-    "miniopterus_orianae_orianae2.jpg"
+    "miniopterus_orianae_orianae.jpg",
+    "miniopterus_orianae_orianae1.jpg"
   ],
   "CallImages": [
-    "miniopterus_orianae_orianae_call_image.jpg"
+    "miniopterus_orianae_orianae_call_image.jpg",
+    "miniopterus_orianae_orianae_call_image1.jpg"
   ],
   "RegionIds": [
     302,

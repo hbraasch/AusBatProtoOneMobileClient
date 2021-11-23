@@ -3,8 +3,8 @@
   "SpeciesId": "semoni",
   "Name": "Semon's Leaf-nosed Bat",
   "DetailsHtml": "doryrhina_semoni_details.html",
-  "Images": [],
-  "CallImages": [],
+  "Images": [ "doryrhina_semoni_head.jpg", "doryrhina_semoni1.jpg", "doryrhina_semonii2.jpg" ],
+  "CallImages": [ "doryrhina_semoni_call_image.jpg", "doryrhina_semoni_call_image2.jpg" ],
   "RegionIds": [],
   "DistributionMapImage": "doryrhina_semoni_dist.jpg"
 }

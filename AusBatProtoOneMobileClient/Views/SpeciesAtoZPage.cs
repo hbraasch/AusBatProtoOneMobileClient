@@ -26,7 +26,6 @@ namespace DocGenOneMobileClient.Views
                 SelectionMode = ListViewSelectionMode.Single,
                 HasUnevenRows = true,
                 IsGroupingEnabled = true,
-                GroupDisplayBinding = new Binding (nameof(GroupedSpeciesDisplayItem.Alphabet)),
                 BackgroundColor = Color.Transparent,
                 SeparatorColor = Constants.APP_COLOUR,
                 Margin = 5

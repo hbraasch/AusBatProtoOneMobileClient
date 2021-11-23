@@ -19,7 +19,9 @@ namespace AusBatProtoOneMobileClient.Models
         public const string HIRES_IMAGES_FOLDER_NAME = "HiresImages";
         public const string HIRES_IMAGES_ZIP_FILE_NAME = "hires_images.zip";
 
-        public static float HTML_FONT_SIZE_PERCENTAGE = (DeviceInfo.Platform == DevicePlatform.Android) ? 150.0f: 300.0f;
+        public static float MEDIUM_FONT_HEIGHT_MM = (DeviceInfo.Platform == DevicePlatform.Android) ? 3.0f : 3.0f; // Measured on reference device
+        public static float HTML_FONT_REFERENCE_HEIGHT_MM = (DeviceInfo.Platform == DevicePlatform.Android) ? 1.4f : 1.0f; // Reference HTML text measured at 100% on reference device
+
 
     }
 }
