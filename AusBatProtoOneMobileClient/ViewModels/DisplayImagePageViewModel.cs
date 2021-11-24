@@ -40,67 +40,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
             isBackCancelled = true;
         });
 
-        public ICommand OnDisplayImageMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
-            try
-            {
-                var cts = new CancellationTokenSource();
-                ActivityIndicatorStart("Starting ...", () =>
-                {
-                    cts.Cancel();
-                    ActivityIndicatorStop();
-                });
 
-                // Do work here
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user");
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
-
-
-
-
-        public ICommand OnTestMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
-            try
-            {
-                await DisplayAlert("Alert", "Next page", "Ok");
-                var cts = new CancellationTokenSource();
-                ActivityIndicatorStart("Starting ...", () =>
-                {
-                    cts.Cancel();
-                    ActivityIndicatorStop();
-                    Debug.WriteLine("Cancel pressed");
-                });
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user"); 
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
     }
 }

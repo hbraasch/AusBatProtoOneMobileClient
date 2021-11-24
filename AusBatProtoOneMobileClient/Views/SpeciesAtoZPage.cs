@@ -4,6 +4,7 @@ using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
@@ -32,7 +33,9 @@ namespace DocGenOneMobileClient.Views
             };
             listView.SetBinding(ListView.ItemsSourceProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SpeciesGroupDisplayItems), BindingMode.TwoWay));
             listView.SetBinding(ListView.SelectedItemProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SelectedItem), BindingMode.TwoWay));
-            listView.ItemTapped += (s, e) => { viewModel.OnSelectPressed.Execute(true); };
+            listView.ItemTapped += (sender, e) => {
+                viewModel.OnSelectPressed.Execute(true); 
+            };
             listView.ItemTemplate = new DataTemplate(typeof(ListViewDataTemplate));
             listView.GroupHeaderTemplate = new DataTemplate(typeof(ListViewGroupTemplate));
 
@@ -71,6 +74,17 @@ namespace DocGenOneMobileClient.Views
             
         }
 
+        ViewCell _selectedCell = null;
+        private void SetCellColor(ViewCell cell)
+        {
+            if (_selectedCell != null)
+            {
+                _selectedCell.View.BackgroundColor = Color.Transparent;
+            }
+
+            cell.View.BackgroundColor = Color.Teal;
+            _selectedCell = cell;
+        }
 
         public class ListViewDataTemplate: ViewCell
         {

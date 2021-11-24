@@ -1,0 +1,2 @@
+﻿Html font scaling added
+Splash screen edited

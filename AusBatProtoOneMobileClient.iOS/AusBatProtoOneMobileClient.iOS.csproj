@@ -28,6 +28,8 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>Apple Development: Heinrich Braasch (WU37FRXRDT)</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -221,12 +223,12 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v4.png" />
+    <BundleResource Include="Resources\splash_screen_v5.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v4%402x.png" />
+    <BundleResource Include="Resources\splash_screen_v5%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v4%403x.png" />
+    <BundleResource Include="Resources\splash_screen_v5%403x.png" />
   </ItemGroup>
 </Project>

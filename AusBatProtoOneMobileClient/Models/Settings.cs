@@ -33,7 +33,7 @@ namespace Mobile.Models
         {
             get
             {
-                return Preferences.Get("HtmlFontSizePercentage", 100.0f);
+                return Preferences.Get("HtmlFontSizePercentage", (DeviceInfo.Platform == DevicePlatform.Android) ? 100.0f : 300.0f);
             }
             set
             {

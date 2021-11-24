@@ -13,6 +13,9 @@ using Xamarin.Forms.Platform.iOS;
 [assembly: ExportRenderer(typeof(TransparentWebView), typeof(TransparentWebViewIOS))]
 namespace AusBatProtoOneMobileClient.iOS
 {
+
+    // https://social.msdn.microsoft.com/Forums/en-US/208a721c-67cd-46a2-a83a-d1e7e7d3aa7b/xamarin-forms-how-to-increase-the-fontsize-of-content-in-webview?forum=xamarinforms
+    // https://www.c-sharpcorner.com/article/xamarin-forms-enable-default-zooming-in-webview/
     public class TransparentWebViewIOS : WkWebViewRenderer
     {
         float defaultFontSizePercent = 100;
@@ -27,12 +30,9 @@ namespace AusBatProtoOneMobileClient.iOS
             this.BackgroundColor = Color.Transparent.ToUIColor();
 
             data = ((TransparentWebView)e.NewElement);
-            fontSizePercent = (data == null) ? defaultFontSizePercent : data.FontSizePercentage;
-
-            this.NavigationDelegate = new NavigationDelegat(data);
+            if (data != null) this.NavigationDelegate = new NavigationDelegat(data);
         }
-
-        // https://social.msdn.microsoft.com/Forums/en-US/208a721c-67cd-46a2-a83a-d1e7e7d3aa7b/xamarin-forms-how-to-increase-the-fontsize-of-content-in-webview?forum=xamarinforms
+       
         public class NavigationDelegat : WKNavigationDelegate
         {
             TransparentWebView data;
@@ -43,8 +43,8 @@ namespace AusBatProtoOneMobileClient.iOS
 
             public override void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
             {
-                string fontSize = (fontSizePercent == 0)? $"100%": $"{data.FontSizePercentage}%"; 
-                string stringsss = String.Format(@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '{0}'", fontSize);
+                string fontSize = (data.FontSizePercentage == 0)? $"100%": $"{data.FontSizePercentage}%"; 
+                string jscript = String.Format(@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '{0}'", fontSize);
                 WKJavascriptEvaluationResult handler = (NSObject result, NSError err) => {
                     if (err != null)
                     {
@@ -55,7 +55,7 @@ namespace AusBatProtoOneMobileClient.iOS
                         System.Console.WriteLine(result);
                     }
                 };
-                webView.EvaluateJavaScript(stringsss, handler);
+                webView.EvaluateJavaScript(jscript, handler);
 
             }
         }

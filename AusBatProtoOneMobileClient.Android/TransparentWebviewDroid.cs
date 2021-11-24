@@ -16,6 +16,8 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(TransparentWebView), typeof(TransparentWebViewDroid))]
 namespace AusBatProtoOneMobileClient.Droid
 {
+    // https://social.msdn.microsoft.com/Forums/en-US/208a721c-67cd-46a2-a83a-d1e7e7d3aa7b/xamarin-forms-how-to-increase-the-fontsize-of-content-in-webview?forum=xamarinforms
+    // https://www.c-sharpcorner.com/article/xamarin-forms-enable-default-zooming-in-webview/
     public class TransparentWebViewDroid : WebViewRenderer
     {
         const int defaultFontSize = 10;
@@ -30,6 +32,9 @@ namespace AusBatProtoOneMobileClient.Droid
 
             // Setting the background as transparent
             Control.SetBackgroundColor(Android.Graphics.Color.Transparent);
+            Control.Settings.AllowUniversalAccessFromFileURLs = true;
+            Control.Settings.SetSupportZoom(true);
+            Control.Settings.BuiltInZoomControls = true;
 
             data = ((TransparentWebView)e.NewElement);
             var fontSizePercentage = data.FontSizePercentage;

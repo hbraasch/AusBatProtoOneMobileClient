@@ -57,6 +57,7 @@ namespace AusBatProtoOneMobileClient
             NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = $"{viewModel.Species.Name}", Style = Styles.TitleLabelStyle });
             BarBackgroundColor = Xamarin.Forms.Color.Black;
             BarTextColor = Xamarin.Forms.Color.White;
+            CurrentPageChanged += (s, e) => { viewModel.IsDetailsDisplay = CurrentPage is DisplaySpeciesDetailsTabPage; menu.Invalidate(); };
 
             //On<Windows>().SetHeaderIconsEnabled(true);
 
@@ -69,9 +70,10 @@ namespace AusBatProtoOneMobileClient
                 })
                 .AddMenuItem("addSighting", "Add sighting", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnAddSightingMenuPressed.Execute(null); });
 
-            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled", "IsResetFilterEnabled")
-                .ToShowMenuItem("home", true, null )
-                .ToShowMenuItem("resetFilter", null, true);
+            menu.SetVisibilityFactors(viewModel, "IsHomeEnabled", "IsResetFilterEnabled", "IsDetailsDisplay")
+                .ToShowMenuItem("home", true, null, null )
+                .ToShowMenuItem("resetFilter", null, true, null)
+                .ToShowMenuItem("scaleText", null, null, true);
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Xamarin.Forms.Binding(nameof(DisplaySpeciesTabbedPageViewModel.InvalidateMenuCommand), Xamarin.Forms.BindingMode.OneWayToSource, source: viewModel));          

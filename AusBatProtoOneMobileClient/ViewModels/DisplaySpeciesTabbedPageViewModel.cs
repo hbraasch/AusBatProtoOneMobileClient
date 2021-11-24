@@ -3,11 +3,13 @@ using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.Views.Components;
 using DocGenOneMobileClient.Views;
+using HtmlAgilityPack;
 using Mobile.Helpers;
 using Mobile.Models;
 using Mobile.ViewModels;
 using Plugin.SimpleAudioPlayer;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
@@ -43,6 +45,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
         public float HtmlFontSizePercentage { get; set; }
 
+        public HtmlTable MeasurementsTable;
+
         public class CallDataItem
         {
             public ImageSource ImageSource { get; set; }
@@ -64,6 +68,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         #region *// Menu related
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsLoggedIn { get; set; } = false;
+        public bool IsDetailsDisplay { get; set; }
         #endregion
         public DisplaySpeciesTabbedPageViewModel(Species species)
         {
@@ -105,7 +110,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             ImageDataItems = imageDataItems;
 
-            DetailsHtmlSource.Html = Species.DetailsHtml;
+            DetailsHtmlSource.Html = ConvertHtml(Species.DetailsHtml, out MeasurementsTable);
 
             DistributionMapImage = ImageSource.FromFile(ZippedFiles.GetFullFilename(Species.DistributionMapImage));
 
@@ -138,6 +143,61 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
+
+        public class HtmlTable
+        {
+            public class Row
+            {
+                public List<Col> Columns = new List<Col>();
+ 
+            }
+
+            public class Col
+            {
+                public string Value;
+            }
+
+            public List<Row> Rows = new List<Row>();
+
+        }
+        private string ConvertHtml(string detailsHtml, out HtmlTable htmlTable)
+        {
+            // https://stackoverflow.com/questions/35413763/xamarin-parsing-html
+
+            HtmlDocument document = new HtmlDocument();
+            htmlTable = new HtmlTable();
+            //your html stream
+            document.LoadHtml(detailsHtml);
+            var container = document.DocumentNode.Descendants("table").FirstOrDefault();
+            if (container != null)
+            {
+                document.DocumentNode.RemoveChild(container);
+                foreach (var row in container.Descendants("tr"))
+                {
+                    var htmlRow = new HtmlTable.Row();
+                    foreach (var col in row.Descendants("th"))
+                    {
+                        htmlRow.Columns.Add(new HtmlTable.Col { Value = col.InnerText });
+                    }
+                    foreach (var col in row.Descendants("td"))
+                    {
+                        htmlRow.Columns.Add(new HtmlTable.Col { Value = col.InnerText });
+                    }
+                    htmlTable.Rows.Add(htmlRow);
+                }
+            }
+
+            foreach (var item in document.DocumentNode.Descendants("p"))
+            {
+                if (item.InnerText.Contains("Measurement"))
+                {
+                    item.InnerHtml = "<a href='url'>Measurement</a>";
+                }
+            }
+            var stringWriter = new StringWriter();
+            document.Save(stringWriter);
+            return stringWriter.ToString();
+        }
 
         public Action<ImageSource> OnImageTapped => async (imageSource) =>
         {
@@ -265,10 +325,35 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-
+        public ICommand OnDisplayTableClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new DisplayMeasurementsPageViewModel(MeasurementsTable);
+                var page = new DisplayMeasurementsPage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        
         public ICommand OnScaleTextMenuPressed => commandHelper.ProduceDebouncedCommand<TransparentWebView>(async (webView) => {
             try
             {
+
                 var cts = new CancellationTokenSource();
                 ActivityIndicatorStart("Starting ...", () =>
                 {
@@ -278,17 +363,19 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
                 // Do work here
 
-                var value = await Application.Current.MainPage.DisplayPromptAsync("Font size", "Enter percentage", "OK", "Cancel", initialValue: Settings.HtmlFontSizePercentage.ToString("N0"), keyboard: Keyboard.Numeric);
-                if (value == "Cancel") return;
+                var value = await Application.Current.MainPage.DisplayPromptAsync("Font size", "Enter percentage", "OK", "Cancel", initialValue: Settings.HtmlFontSizePercentage.ToString("N0"), keyboard: Keyboard.Text);
+                if (value == null) return;
                 var isValid = float.TryParse(value, out float percentage);
                 if (!isValid) throw new BusinessException("Value entered is not a valid number");
                 percentage = Math.Max(10, percentage);
-                percentage = Math.Min(percentage, 500);
+                percentage = Math.Min(percentage, 1000);
                 Settings.HtmlFontSizePercentage = percentage;
                 HtmlFontSizePercentage = percentage;
                 DetailsHtmlSource.Html = "";
                 DetailsHtmlSource.Html = Species.DetailsHtml;
-                webView.Reload();
+                if (DeviceInfo.Platform == DevicePlatform.Android) webView.Reload(); 
+
+
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {
