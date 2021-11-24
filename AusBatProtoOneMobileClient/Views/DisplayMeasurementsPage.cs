@@ -19,8 +19,6 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-
-
             NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Measurements", Style = Styles.TitleLabelStyle });
             Content = GenerateLayout();
 
@@ -33,6 +31,10 @@ namespace AusBatProtoOneMobileClient
             
         }
 
+        /// <summary>
+        /// If layout is portrait, split table into two and display them seperately
+        /// </summary>
+        /// <returns></returns>
         private View GenerateLayout()
         {
             List<Grid> grids = new List<Grid>();
@@ -58,51 +60,52 @@ namespace AusBatProtoOneMobileClient
                 mainLayout.Children.Add(grid);
             }
             return mainLayout;
-        }
 
-        private Grid GenerateGrid(HtmlTable table)
-        {
-            var grid = new Grid() { Margin = 5, Padding = 0, RowSpacing = 0, ColumnSpacing = 0 };
-            table.Rows.ForEach((row) => {
-                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-            });
-
-            table.Rows[0].Columns.ForEach((col) => {
-                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
-            });
-
-            int left = 0, top = 0;
-            foreach (var row in table.Rows)
+            // Helper
+            Grid GenerateGrid(HtmlTable table)
             {
-                foreach (var col in row.Columns)
+                var grid = new Grid() { Margin = 5, Padding = 0, RowSpacing = 0, ColumnSpacing = 0 };
+                table.Rows.ForEach((row) => {
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+                });
+
+                table.Rows[0].Columns.ForEach((col) => {
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
+                });
+
+                int left = 0, top = 0;
+                foreach (var row in table.Rows)
                 {
-                    if (left == 0 && top == 0) { left++; continue; };
-
-                    Color backgroundColor = Color.White;
-                    Color borderColor = Color.Black;
-                    LayoutOptions horizontalLayoutOptions = LayoutOptions.Center;
-                    if (left == 0)
+                    foreach (var col in row.Columns)
                     {
-                        backgroundColor = Color.LightGray;
-                        borderColor = Color.LightGray;
-                        horizontalLayoutOptions = LayoutOptions.Start;
-                    }
-                    if (top == 0)
-                    {
-                        backgroundColor = Color.Gray;
-                        borderColor = Color.Gray;
-                    }
+                        if (left == 0 && top == 0) { left++; continue; };
 
-                    var label = new Label { Text = col.Value, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), HorizontalOptions = horizontalLayoutOptions, VerticalOptions = LayoutOptions.Center, Margin = 1 };
-                    var frame = new Frame { BorderColor = borderColor, Margin = 0, Padding = 0, Content = label, CornerRadius = 0, BackgroundColor = backgroundColor };
+                        Color backgroundColor = Color.White;
+                        Color borderColor = Color.Black;
+                        LayoutOptions horizontalLayoutOptions = LayoutOptions.Center;
+                        if (left == 0)
+                        {
+                            backgroundColor = Color.LightGray;
+                            borderColor = Color.LightGray;
+                            horizontalLayoutOptions = LayoutOptions.Start;
+                        }
+                        if (top == 0)
+                        {
+                            backgroundColor = Color.Gray;
+                            borderColor = Color.Gray;
+                        }
 
-                    grid.Children.Add(frame, left++, top);
+                        var label = new Label { Text = col.Value, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), HorizontalOptions = horizontalLayoutOptions, VerticalOptions = LayoutOptions.Center, Margin = 1 };
+                        var frame = new Frame { BorderColor = borderColor, Margin = 0, Padding = 0, Content = label, CornerRadius = 0, BackgroundColor = backgroundColor };
+
+                        grid.Children.Add(frame, left++, top);
+                    }
+                    left = 0;
+                    top++;
                 }
-                left = 0;
-                top++;
-            }
 
-            return grid;
+                return grid;
+            }
         }
 
         protected override void OnAppearing()
@@ -120,6 +123,11 @@ namespace AusBatProtoOneMobileClient
         private double width = 0;
         private double height = 0;
 
+        /// <summary>
+        /// Used to handle screen orientation changes
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height); // Must be called

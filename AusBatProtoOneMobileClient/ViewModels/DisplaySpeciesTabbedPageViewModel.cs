@@ -145,6 +145,9 @@ namespace AusBatProtoOneMobileClient.ViewModels
             Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
 
+        /// <summary>
+        /// Used to encapsulate extracted table data
+        /// </summary>
         public class HtmlTable
         {
             public class Row
@@ -162,6 +165,10 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
 
 
+            /// <summary>
+            /// Used to create a table with first half of data. Retain header and row names
+            /// </summary>
+            /// <returns></returns>
             internal HtmlTable FirstHalf()
             {
                 var startIndex = (int)((float)(Rows[0].Columns.Count) / 2);
@@ -179,6 +186,10 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
 
 
+            /// <summary>
+            /// Used to create a table with second half of data. Retain header and row names
+            /// </summary>
+            /// <returns></returns>
             internal HtmlTable SecondHalf()
             {
                 var startIndex = 1;
