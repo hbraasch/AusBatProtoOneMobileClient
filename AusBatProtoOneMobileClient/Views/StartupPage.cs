@@ -104,6 +104,7 @@ namespace AusBatProtoOneMobileClient
             grid.Children.Add(aboutButton, 0, 6);
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
+            var scrollLayout = new ScrollView { Orientation = ScrollOrientation.Vertical, Content = grid };
 
             var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
 
@@ -112,14 +113,14 @@ namespace AusBatProtoOneMobileClient
 
             var centeredLayout = new AbsoluteLayout
             {
-                Children = {backgroundImage, grid, activityIndicator },
+                Children = {backgroundImage, scrollLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
             AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
-            AbsoluteLayout.SetLayoutFlags(grid, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(grid, new Rectangle(0, 0, 1, 1));
+            AbsoluteLayout.SetLayoutFlags(scrollLayout, AbsoluteLayoutFlags.All);
+            AbsoluteLayout.SetLayoutBounds(scrollLayout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 

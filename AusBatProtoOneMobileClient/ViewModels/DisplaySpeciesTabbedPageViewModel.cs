@@ -7,6 +7,7 @@ using HtmlAgilityPack;
 using Mobile.Helpers;
 using Mobile.Models;
 using Mobile.ViewModels;
+using Newtonsoft.Json;
 using Plugin.SimpleAudioPlayer;
 using System;
 using System.Collections.Generic;
@@ -159,6 +160,44 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             public List<Row> Rows = new List<Row>();
 
+
+
+            internal HtmlTable FirstHalf()
+            {
+                var startIndex = (int)((float)(Rows[0].Columns.Count) / 2);
+                var removeAmount = Rows[0].Columns.Count - startIndex;
+                var newTable = this.Clone() as HtmlTable;
+                foreach (var row in newTable.Rows)
+                {
+                    for (int i = 1; i < removeAmount; i++)
+                    {
+                        row.Columns.RemoveAt(startIndex + 1);
+                    }
+                }
+                return newTable;
+            }
+
+
+
+            internal HtmlTable SecondHalf()
+            {
+                var startIndex = 1;
+                var removeAmount = (int)((float)(Rows[0].Columns.Count) / 2);
+                var newTable = this.Clone() as HtmlTable;
+                foreach (var row in newTable.Rows)
+                {
+                    for (int i = 0; i < removeAmount; i++)
+                    {
+                        row.Columns.RemoveAt(startIndex);
+                    }
+                }
+                return newTable;
+            }
+
+            private HtmlTable Clone()
+            {
+                return JsonConvert.DeserializeObject<HtmlTable>(JsonConvert.SerializeObject(this));
+            }
         }
         private string ConvertHtml(string detailsHtml, out HtmlTable htmlTable)
         {
@@ -171,7 +210,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
             var container = document.DocumentNode.Descendants("table").FirstOrDefault();
             if (container != null)
             {
-                document.DocumentNode.RemoveChild(container);
                 foreach (var row in container.Descendants("tr"))
                 {
                     var htmlRow = new HtmlTable.Row();
@@ -185,13 +223,14 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     }
                     htmlTable.Rows.Add(htmlRow);
                 }
+                document.DocumentNode.SelectSingleNode(container.XPath).Remove();
             }
 
             foreach (var item in document.DocumentNode.Descendants("p"))
             {
                 if (item.InnerText.Contains("Measurement"))
                 {
-                    item.InnerHtml = "<a href='url'>Measurement</a>";
+                    item.InnerHtml = "<a href='url'>Measurements</a>";
                 }
             }
             var stringWriter = new StringWriter();
