@@ -4,6 +4,7 @@ using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.ViewModels.DisplaySpeciesTabbedPageViewModel;
@@ -12,22 +13,24 @@ namespace AusBatProtoOneMobileClient
 {
     public class DisplayMeasurementsPage : ContentPageBase
     {
+        const float TRANSPARENCY = 0.5f;
         DisplayMeasurementsPageViewModel viewModel;
         MenuGenerator menu;
+
         public DisplayMeasurementsPage(DisplayMeasurementsPageViewModel viewModel) : base(viewModel)
         {
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
             NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Measurements", Style = Styles.TitleLabelStyle });
+            BackgroundColor = Color.Black;
+
             Content = GenerateLayout();
 
             menu = new MenuGenerator().Configure()
-                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); }, iconPath: "ic_back.png");
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
                 
             menu.GenerateToolbarItemsForPage(this);
-            menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(DisplayMeasurementsPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
-            menu.FindMenuUnit("back").isVisible = viewModel.IsPageReturnable;
             
         }
 
@@ -44,65 +47,83 @@ namespace AusBatProtoOneMobileClient
                 case DisplayOrientation.Unknown:
                     break;
                 case DisplayOrientation.Landscape:
-                    grids.Add(GenerateGrid(viewModel.MeasurementsTable));
+                    grids.Add(GenerateGrid(viewModel.measurementsTable));
                     break;
                 case DisplayOrientation.Portrait:
-                    grids.Add(GenerateGrid(viewModel.MeasurementsTable.FirstHalf()));
-                    grids.Add(GenerateGrid(viewModel.MeasurementsTable.SecondHalf()));
+                    grids.Add(GenerateGrid(viewModel.measurementsTable.FirstHalf(), viewModel.measurementsTable.SecondHalf()));
                     break;
                 default:
                     break;
             }
 
-            var mainLayout = new StackLayout { VerticalOptions = LayoutOptions.CenterAndExpand };
+            var mainLayout = new StackLayout { HorizontalOptions = LayoutOptions.CenterAndExpand, VerticalOptions = LayoutOptions.Center };
             foreach (var grid in grids)
             {
                 mainLayout.Children.Add(grid);
             }
-            return mainLayout;
+
+            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = viewModel.headImageSource };
+
+            var centeredLayout = new Grid();
+            centeredLayout.Children.Add(backgroundImage);
+            centeredLayout.Children.Add(mainLayout);
+
+            return centeredLayout;
 
             // Helper
-            Grid GenerateGrid(HtmlTable table)
+            Grid GenerateGrid(HtmlTable topTable, HtmlTable bottomTable = null)
             {
                 var grid = new Grid() { Margin = 5, Padding = 0, RowSpacing = 0, ColumnSpacing = 0 };
-                table.Rows.ForEach((row) => {
+                topTable.Rows.ForEach((row) => {
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 });
 
-                table.Rows[0].Columns.ForEach((col) => {
-                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
+                bottomTable?.Rows.ForEach((row) => {
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
                 });
 
+                topTable.Rows[0].Columns.ForEach((col) => {
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+                });
+
+                #region *// Table
                 int left = 0, top = 0;
-                foreach (var row in table.Rows)
+                var combinedRows = topTable.Rows.ToList();
+                if (bottomTable != null) combinedRows.AddRange(bottomTable.Rows);
+                foreach (var row in combinedRows)
                 {
                     foreach (var col in row.Columns)
                     {
                         if (left == 0 && top == 0) { left++; continue; };
+                        if (left == 0 && top == topTable.Rows.Count) { left++; continue; };
 
-                        Color backgroundColor = Color.White;
+                        Color textColor = Color.Black;
+                        Color backgroundColor = Color.White.MultiplyAlpha(TRANSPARENCY);
                         Color borderColor = Color.Black;
                         LayoutOptions horizontalLayoutOptions = LayoutOptions.Center;
                         if (left == 0)
                         {
-                            backgroundColor = Color.LightGray;
-                            borderColor = Color.LightGray;
-                            horizontalLayoutOptions = LayoutOptions.Start;
-                        }
-                        if (top == 0)
-                        {
+                            textColor = Constants.APP_COLOUR;
                             backgroundColor = Color.Gray;
                             borderColor = Color.Gray;
+                            horizontalLayoutOptions = LayoutOptions.Start;
+                        }
+                        if (top == 0 || top == topTable.Rows.Count)
+                        {
+                            textColor = Constants.APP_COLOUR;
+                            backgroundColor = Color.Gray;
+                            borderColor = Color.Black;
                         }
 
-                        var label = new Label { Text = col.Value, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), HorizontalOptions = horizontalLayoutOptions, VerticalOptions = LayoutOptions.Center, Margin = 1 };
-                        var frame = new Frame { BorderColor = borderColor, Margin = 0, Padding = 0, Content = label, CornerRadius = 0, BackgroundColor = backgroundColor };
+                        var label = new Label { Text = col.Value, TextColor = textColor, FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)), HorizontalOptions = horizontalLayoutOptions, VerticalOptions = LayoutOptions.Center, Margin = 1 };
+                        var frame = new Frame { BorderColor = borderColor, HasShadow = false, Margin = 0, Padding = 0, Content = label, CornerRadius = 0, BackgroundColor = backgroundColor };
 
                         grid.Children.Add(frame, left++, top);
                     }
                     left = 0;
                     top++;
-                }
+                } 
+                #endregion
 
                 return grid;
             }

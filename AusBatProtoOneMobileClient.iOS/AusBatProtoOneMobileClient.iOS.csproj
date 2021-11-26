@@ -72,6 +72,7 @@
     <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BaseUrlIOS.cs" />
     <Compile Include="ImageCheckerIOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
@@ -230,5 +231,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\splash_screen_v5%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\measurements.html" />
   </ItemGroup>
 </Project>

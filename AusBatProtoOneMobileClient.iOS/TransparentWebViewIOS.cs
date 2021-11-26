@@ -3,6 +3,7 @@ using AusBatProtoOneMobileClient.Views.Components;
 using Foundation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using UIKit;
@@ -18,9 +19,7 @@ namespace AusBatProtoOneMobileClient.iOS
     // https://www.c-sharpcorner.com/article/xamarin-forms-enable-default-zooming-in-webview/
     public class TransparentWebViewIOS : WkWebViewRenderer
     {
-        float defaultFontSizePercent = 100;
-        static float fontSizePercent = 0;
-        TransparentWebView data;
+
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
@@ -29,7 +28,7 @@ namespace AusBatProtoOneMobileClient.iOS
             this.Opaque = false;
             this.BackgroundColor = Color.Transparent.ToUIColor();
 
-            data = ((TransparentWebView)e.NewElement);
+            var data = ((TransparentWebView)e.NewElement);
             if (data != null) this.NavigationDelegate = new NavigationDelegat(data);
         }
        
@@ -43,6 +42,13 @@ namespace AusBatProtoOneMobileClient.iOS
 
             public override void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
             {
+
+                if (webView.Url.AbsoluteString.Contains("measurements.html"))
+                {
+                    data?.OnMeasurementClickedIOS.Invoke();
+                    return;
+                }
+
                 string fontSize = (data.FontSizePercentage == 0)? $"100%": $"{data.FontSizePercentage}%"; 
                 string jscript = String.Format(@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '{0}'", fontSize);
                 WKJavascriptEvaluationResult handler = (NSObject result, NSError err) => {
@@ -57,6 +63,11 @@ namespace AusBatProtoOneMobileClient.iOS
                 };
                 webView.EvaluateJavaScript(jscript, handler);
 
+            }
+
+            public override void DidFailNavigation(WKWebView webView, WKNavigation navigation, NSError error)
+            {
+                Debug.WriteLine("Failed navigation");
             }
         }
     }

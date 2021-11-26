@@ -16,5 +16,8 @@ namespace AusBatProtoOneMobileClient.Views.Components
             set { SetValue(FontSizePercentageProperty, value); }
         }
 
+
+        public Action OnMeasurementClickedIOS;
+
     }
 }

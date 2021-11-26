@@ -15,15 +15,17 @@ namespace AusBatProtoOneMobileClient.ViewModels
     {
         CommandHelper commandHelper = new CommandHelper();
 
-        public HtmlTable MeasurementsTable { get; set; }
+        public HtmlTable measurementsTable { get; set; }
+        public ImageSource headImageSource;
 
         #region *// Menu related
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsLoggedIn { get; set; } = false;
         #endregion
-        public DisplayMeasurementsPageViewModel(HtmlTable measurementsTable)
+        public DisplayMeasurementsPageViewModel(HtmlTable measurementsTable, ImageSource headImageSource)
         {
-            MeasurementsTable = measurementsTable;
+            this.measurementsTable = measurementsTable;
+            this.headImageSource = headImageSource;
         }
 
         public ICommand Appearance => commandHelper.ProduceDebouncedCommand(() => { });
@@ -39,39 +41,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
             NavigateBack(NavigateReturnType.IsCancelled);
             isBackCancelled = true;
         });
-
-        public ICommand OnDisplayMeasurementsPageMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
-            try
-            {
-                var cts = new CancellationTokenSource();
-                ActivityIndicatorStart("Starting ...", () =>
-                {
-                    cts.Cancel();
-                    ActivityIndicatorStop();
-                });
-
-                // Do work here
-            }
-            catch (Exception ex) when (ex is TaskCanceledException ext)
-            {
-                Debug.Write("Cancelled by user");
-            }
-            catch (Exception ex) when (ex is BusinessException exb)
-            {
-                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
-            }
-            catch (Exception ex)
-            {
-                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
-
-
-
 
 
     }

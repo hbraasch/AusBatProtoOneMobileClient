@@ -20,22 +20,30 @@ namespace AusBatProtoOneMobileClient
 
 
             webView = new TransparentWebView() { Margin = 5 };
-            webView.Navigating += WebViewOnNavigating;
-            webView.SetBinding(TransparentWebView.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.DetailsHtmlSource), BindingMode.OneWay));
-            webView.SetBinding(TransparentWebView.FontSizePercentageProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HtmlFontSizePercentage), BindingMode.OneWay)); 
 
+            #region *// Navigation. Needed to handle Droid and IOS differently. IOS does not trigger the Xamarin Forms [Navigating] event 
+            webView.Navigating += WebViewOnNavigatingDroid;
+            webView.OnMeasurementClickedIOS = () =>
+            {
+                viewModel.OnDisplayMeasurementsTableClicked.Execute(webView);
+            }; 
+            #endregion
+
+            webView.SetBinding(TransparentWebView.SourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.DetailsHtmlSource), BindingMode.OneWay));
+            webView.SetBinding(TransparentWebView.FontSizePercentageProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HtmlFontSizePercentage), BindingMode.OneWay));
 
             NavigationPage.SetTitleView(this, new Label { Text = "Details", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.White;
 
             Content = webView;
-            
+
         }
 
-        private void WebViewOnNavigating(object sender, WebNavigatingEventArgs e)
+
+        private void WebViewOnNavigatingDroid(object sender, WebNavigatingEventArgs e)
         {
             if (!e.Url.StartsWith("url", StringComparison.InvariantCultureIgnoreCase)) {
-                viewModel.OnDisplayTableClicked.Execute(null);
+                viewModel.OnDisplayMeasurementsTableClicked.Execute(webView);
             };
             e.Cancel = true;
         }
@@ -44,6 +52,7 @@ namespace AusBatProtoOneMobileClient
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
             if (isFirstAppearance)
             {
                 isFirstAppearance = false;

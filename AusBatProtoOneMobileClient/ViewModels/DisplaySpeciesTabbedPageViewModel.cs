@@ -56,6 +56,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ObservableCollection<CallDataItem> CallDisplayItems { get; set; }
         public CallDataItem SelectedCallDisplayItem { get; set; }
 
+        public ImageSource HeadImageSource = null;
 
         #region *// Audio
         ISimpleAudioPlayer player;
@@ -68,7 +69,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         #region *// Menu related
         public ICommand InvalidateMenuCommand { get; set; }
-        public bool IsLoggedIn { get; set; } = false;
         public bool IsDetailsDisplay { get; set; }
         #endregion
         public DisplaySpeciesTabbedPageViewModel(Species species)
@@ -90,6 +90,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             vuPlayer = new VuPlayer();
         }
 
+
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => {
 
             var stopWatch = new Stopwatch();
@@ -101,6 +102,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 if (File.Exists(fullFilename))
                 {
                     var imageSource = ImageSource.FromFile(ZippedFiles.GetFullFilename(imageSourceName));
+                    if (fullFilename.Contains("_head")) HeadImageSource = imageSource;
                     imageDataItems.Add(new ImageDataItem { ImageSource = imageSource, OnImageTapped = OnImageTapped });
                 }
                 else
@@ -111,7 +113,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             ImageDataItems = imageDataItems;
 
-            DetailsHtmlSource.Html = ConvertHtml(Species.DetailsHtml, out MeasurementsTable);
+            DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTable); 
 
             DistributionMapImage = ImageSource.FromFile(ZippedFiles.GetFullFilename(Species.DistributionMapImage));
 
@@ -145,6 +147,42 @@ namespace AusBatProtoOneMobileClient.ViewModels
             Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
 
+        public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
+
+        public ICommand OnBackMenuPressed => new Command(() =>
+        {
+            if (IsPlaying)
+            {
+                player.Stop();
+                vuPlayer.Stop();
+            }
+            NavigateBack(NavigateReturnType.IsCancelled);
+        });
+
+        public bool IsHomeEnabled { get; set; }
+        public ICommand OnHomeMenuPressed => new Command(() =>
+        {
+            if (IsPlaying)
+            {
+                player.Stop();
+                vuPlayer.Stop();
+            }
+            NavigateBack(NavigateReturnType.GotoRoot);
+        });
+
+        public bool IsResetFilterEnabled { get; set; }
+        public ICommand OnResetMenuPressed => new Command(() =>
+        {
+            NavigateBack(NavigateReturnType.GotoFilterReset);
+        });
+
+        public bool isBackCancelled = false;
+        public ICommand OnBackButtonPressed => new Command(() =>
+        {
+            NavigateBack(NavigateReturnType.IsCancelled);
+            isBackCancelled = true;
+        });
+
         /// <summary>
         /// Used to encapsulate extracted table data
         /// </summary>
@@ -153,7 +191,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             public class Row
             {
                 public List<Col> Columns = new List<Col>();
- 
+
             }
 
             public class Col
@@ -162,6 +200,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
 
             public List<Row> Rows = new List<Row>();
+
+            public int ColAmount => Rows[0].Columns.Count;
 
 
 
@@ -210,7 +250,21 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 return JsonConvert.DeserializeObject<HtmlTable>(JsonConvert.SerializeObject(this));
             }
         }
-        private string ConvertHtml(string detailsHtml, out HtmlTable htmlTable)
+
+        /// <summary>
+        /// Used to also allow local objects to be linked to 
+        /// </summary>
+        /// <param name="html"></param>
+        /// <param name="htmlTable"></param>
+        /// <returns></returns>
+        private HtmlWebViewSource GenerateSource(string html, out HtmlTable htmlTable)
+        {
+            var source = new HtmlWebViewSource();
+            source.Html = ConvertHtml(html, out htmlTable);
+            source.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+            return source;
+        }
+        public static string ConvertHtml(string detailsHtml, out HtmlTable htmlTable)
         {
             // https://stackoverflow.com/questions/35413763/xamarin-parsing-html
 
@@ -241,7 +295,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             {
                 if (item.InnerText.Contains("Measurement"))
                 {
-                    item.InnerHtml = "<a href='url'>Measurements</a>";
+                    item.InnerHtml = "<a href='measurements.html'>Measurements</a>";
                 }
             }
             var stringWriter = new StringWriter();
@@ -255,42 +309,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
             var page = new DisplayImagePage(viewModel);
             await NavigateToPageAsync(page, viewModel);
         };
-
-        public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
-
-        public ICommand OnBackMenuPressed => new Command(() =>
-        {
-            if (IsPlaying)
-            {
-                player.Stop();
-                vuPlayer.Stop();
-            }
-            NavigateBack(NavigateReturnType.IsCancelled);
-        });
-
-        public bool IsHomeEnabled { get; set; }
-        public ICommand OnHomeMenuPressed => new Command(() =>
-        {
-            if (IsPlaying)
-            {
-                player.Stop();
-                vuPlayer.Stop();
-            }
-            NavigateBack(NavigateReturnType.GotoRoot);
-        });
-
-        public bool IsResetFilterEnabled { get; set; }
-        public ICommand OnResetMenuPressed => new Command(() =>
-        {
-            NavigateBack(NavigateReturnType.GotoFilterReset);
-        });
-
-        public bool isBackCancelled = false;
-        public ICommand OnBackButtonPressed => new Command(() =>
-        {
-            NavigateBack(NavigateReturnType.IsCancelled);
-            isBackCancelled = true;
-        });
 
         public ICommand OnDisplayBatDataMenuPressed => commandHelper.ProduceDebouncedCommand(async () => {
             try
@@ -375,12 +393,15 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        public ICommand OnDisplayTableClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnDisplayMeasurementsTableClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new DisplayMeasurementsPageViewModel(MeasurementsTable);
+
+                var viewModel = new DisplayMeasurementsPageViewModel(MeasurementsTable, HeadImageSource);
                 var page = new DisplayMeasurementsPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
+
+                DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTable);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {
@@ -421,8 +442,9 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 percentage = Math.Min(percentage, 1000);
                 Settings.HtmlFontSizePercentage = percentage;
                 HtmlFontSizePercentage = percentage;
-                DetailsHtmlSource.Html = "";
-                DetailsHtmlSource.Html = Species.DetailsHtml;
+
+                DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTable);
+
                 if (DeviceInfo.Platform == DevicePlatform.Android) webView.Reload(); 
 
 
