@@ -13,7 +13,7 @@ namespace AusBatProtoOneMobileClient
 {
     public class DisplayMeasurementsPage : ContentPageBase
     {
-        const float TRANSPARENCY = 0.5f;
+        const float TRANSPARENCY = 0.7f;
         DisplayMeasurementsPageViewModel viewModel;
         MenuGenerator menu;
 
@@ -97,8 +97,8 @@ namespace AusBatProtoOneMobileClient
                         if (left == 0 && top == 0) { left++; continue; };
                         if (left == 0 && top == topTable.Rows.Count) { left++; continue; };
 
-                        Color textColor = Color.Black;
-                        Color backgroundColor = Color.White.MultiplyAlpha(TRANSPARENCY);
+                        Color textColor = Color.White;
+                        Color backgroundColor = Color.Black.MultiplyAlpha(TRANSPARENCY);
                         Color borderColor = Color.Black;
                         LayoutOptions horizontalLayoutOptions = LayoutOptions.Center;
                         if (left == 0)
