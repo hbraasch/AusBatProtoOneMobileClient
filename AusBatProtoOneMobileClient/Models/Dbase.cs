@@ -313,6 +313,10 @@ namespace AusBatProtoOneMobileClient.Models
             return Filter(bats, selectedRegions);
         }
 
+        /// <summary>
+        /// Not used anymore
+        /// </summary>
+        /// <returns></returns>
         public DbaseVersion LoadVersion()
         {
             try

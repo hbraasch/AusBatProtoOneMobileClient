@@ -45,7 +45,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 });
 
                 // Do work here
-                var codeDataVersion = App.dbase.LoadVersion();
+                var codeDataVersion = new DbaseVersion(VersionTracking.CurrentVersion);
                 var currentDataVersion = Settings.CurrentDataVersion;
                 if (currentDataVersion < codeDataVersion)
                 {
