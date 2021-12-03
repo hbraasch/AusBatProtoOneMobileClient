@@ -1,9 +1,9 @@
 <map version="freeplane 1.9.8">
-<!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
+<!--To view this file, download free mind mapping software Freeplane from https://www.freeplane.org -->
 <node TEXT="AusBat" FOLDED="false" ID="ID_696401721" CREATED="1610381621824" MODIFIED="1635135547442" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
+    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -68,7 +68,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="9" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="10" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Distribution" POSITION="right" ID="ID_1316568271" CREATED="1635135549330" MODIFIED="1635293773024">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
@@ -120,6 +120,11 @@
 <node TEXT="Must get UDID for each tester and add to Provisioning Profile" ID="ID_772292838" CREATED="1635320248232" MODIFIED="1635320281311"/>
 <node TEXT="Set Group as public (then no login)" ID="ID_184695448" CREATED="1635320281998" MODIFIED="1635320321090"/>
 </node>
+</node>
+<node TEXT="Versioning" ID="ID_179456736" CREATED="1638506086664" MODIFIED="1638506092294">
+<node TEXT="Change data version in data_version.json file" ID="ID_731456790" CREATED="1638506092807" MODIFIED="1638506112617"/>
+<node TEXT="Change code version in code_version.json file" ID="ID_328516320" CREATED="1638506116062" MODIFIED="1638506133407"/>
+<node TEXT="Change version in device properties. Set it to data_version" ID="ID_1466621401" CREATED="1638506135231" MODIFIED="1638506310617"/>
 </node>
 </node>
 <node TEXT="Upgrading MacBook" POSITION="left" ID="ID_1260274461" CREATED="1635209452459" MODIFIED="1635210278693">
@@ -271,6 +276,43 @@
   </body>
 </html></richcontent>
 </node>
+</node>
+<node TEXT="Process to convert RTF to HTML" POSITION="left" ID="ID_407010586" CREATED="1638424070503" MODIFIED="1638424101540">
+<edge COLOR="#007c7c"/>
+<richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <p class="MsoNormal">
+      <span>Process to convert the RTF to Html is as follows:<o p="#DEFAULT"></o></span>
+    </p>
+    <p class="MsoNormal">
+      <span>&nbsp;<o p="#DEFAULT"></o></span>
+    </p>
+    <ol start="1" type="1" style="margin-top: 0in">
+      <li class="MsoListParagraph" style="margin-left: 0in">
+        <span>Open the RTF &nbsp;file in WORD.<o p="#DEFAULT"></o></span>
+      </li>
+      <li class="MsoListParagraph" style="margin-left: 0in">
+        <span>Select all text in the file using [Ctrl-A], copy it to clipboard [Ctrl-C] <o p="#DEFAULT"></o></span>
+      </li>
+      <li class="MsoListParagraph" style="margin-left: 0in">
+        <span>Open up the HTML editor at &nbsp;[https://html-online.com/editor/], then select [File-&gt;New document]<o p="#DEFAULT"></o></span>
+      </li>
+      <li class="MsoListParagraph" style="margin-left: 0in">
+        <span>Paste the text into the left-hand side of the editor [Ctrl-V]<o p="#DEFAULT"></o></span>
+      </li>
+      <li class="MsoListParagraph" style="margin-left: 0in">
+        <span>Copy the generated text (HTML) in the right-hand side of the editor to the clipboard &nbsp;by clicking on the right-hand box, then [Ctrl-A, Ctrl-C]<o p="#DEFAULT"></o></span>
+      </li>
+      <li class="MsoListParagraph" style="margin-left: 0in">
+        <span>Paste the clipboard [Ctrl-V] to a &nbsp;new text file which gets named [genusname_speciesname_details.html]. <o p="#DEFAULT"></o></span>
+      </li>
+    </ol>
+  </body>
+</html></richcontent>
 </node>
 </node>
 </map>

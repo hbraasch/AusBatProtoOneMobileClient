@@ -21,6 +21,7 @@
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -177,4 +178,7 @@
     <AndroidAsset Include="Assets\measurements.html" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
+  </PropertyGroup>
 </Project>

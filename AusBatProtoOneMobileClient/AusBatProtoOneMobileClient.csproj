@@ -577,6 +577,7 @@
     <None Remove="Images\sounds.png" />
     <None Remove="Images\text.png" />
     <None Remove="Images\world.png" />
+    <None Remove="Models\code_version.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -772,6 +773,7 @@
     <EmbeddedResource Include="Data\SpeciesDetails\vespadelus_vulturnus_details.html" />
     <EmbeddedResource Include="Data\SpeciesImages\Hires\hires_images.zip" />
     <EmbeddedResource Include="Data\Versioning\data_version.json" />
+    <EmbeddedResource Include="Models\code_version.json" />
   </ItemGroup>
 
   <ItemGroup>

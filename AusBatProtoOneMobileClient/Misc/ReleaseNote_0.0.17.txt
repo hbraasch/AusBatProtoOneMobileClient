@@ -1,1 +1,1 @@
-﻿Measurements table appearance changed
+﻿Changed measurements table appearance
