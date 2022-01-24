@@ -3,7 +3,7 @@
 <node TEXT="AusBat" FOLDED="false" ID="ID_696401721" CREATED="1610381621824" MODIFIED="1635135547442" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
+    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -123,7 +123,7 @@
 </node>
 <node TEXT="Versioning" ID="ID_179456736" CREATED="1638506086664" MODIFIED="1638506092294">
 <node TEXT="Change data version in data_version.json file" ID="ID_731456790" CREATED="1638506092807" MODIFIED="1638506112617"/>
-<node TEXT="Change code version in code_version.json file" ID="ID_328516320" CREATED="1638506116062" MODIFIED="1638506133407"/>
+<node TEXT="(Not anymore.. makes it too complicated) Change code version in code_version.json file (Inside Models folder)" ID="ID_328516320" CREATED="1638506116062" MODIFIED="1643065359729"/>
 <node TEXT="Change version in device properties. Set it to data_version" ID="ID_1466621401" CREATED="1638506135231" MODIFIED="1638506310617"/>
 </node>
 </node>

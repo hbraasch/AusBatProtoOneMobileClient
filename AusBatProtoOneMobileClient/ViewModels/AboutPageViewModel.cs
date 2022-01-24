@@ -29,7 +29,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => 
         {
-            WebViewSource.Html = App.dbase.AboutHtml + $"<p style=\"color: red\">Version: {Settings.CurrentDataVersion}.{TreeApps.Models.Version.Get("Models.code_version.json").Patch}</p>";
+            WebViewSource.Html = App.dbase.AboutHtml + $"<p style=\"color: red\">Version: {Settings.CurrentDataVersion}</p>";
         });
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
