@@ -177,6 +177,9 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\measurements.html" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen_v6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>

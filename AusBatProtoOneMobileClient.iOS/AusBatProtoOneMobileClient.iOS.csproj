@@ -225,16 +225,16 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v5%402x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\splash_screen_v5%403x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\measurements.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen_v6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen_v6%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_screen_v6%403x.png" />
   </ItemGroup>
   <PropertyGroup>
     <PreBuildEvent>C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
