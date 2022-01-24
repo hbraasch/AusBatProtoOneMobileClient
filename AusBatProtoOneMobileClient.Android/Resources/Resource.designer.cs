@@ -17129,55 +17129,58 @@ namespace AusBatProtoOneMobileClient.Droid
 			public const int two_pairs_equal_size_both_bifurcate = 2131165481;
 			
 			// aapt resource value: 0x7F07012A
-			public const int two_pairs_inequal_size_neither_bifid = 2131165482;
+			public const int two_pairs_equal_size_neither_bifid = 2131165482;
 			
 			// aapt resource value: 0x7F07012B
-			public const int two_pairs_larger_bifid = 2131165483;
+			public const int two_pairs_inequal_size_neither_bifid = 2131165483;
 			
 			// aapt resource value: 0x7F07012C
-			public const int upper_pre_molars_one_pair = 2131165484;
+			public const int two_pairs_larger_bifid = 2131165484;
 			
 			// aapt resource value: 0x7F07012D
-			public const int upper_pre_molars_two = 2131165485;
+			public const int upper_pre_molars_one_pair = 2131165485;
 			
 			// aapt resource value: 0x7F07012E
-			public const int vespadelus_baverstocki_head = 2131165486;
+			public const int upper_pre_molars_two = 2131165486;
 			
 			// aapt resource value: 0x7F07012F
-			public const int vespadelus_caurinus_head = 2131165487;
+			public const int vespadelus_baverstocki_head = 2131165487;
 			
 			// aapt resource value: 0x7F070130
-			public const int vespadelus_darlingtoni_head = 2131165488;
+			public const int vespadelus_caurinus_head = 2131165488;
 			
 			// aapt resource value: 0x7F070131
-			public const int vespadelus_douglasorum_head = 2131165489;
+			public const int vespadelus_darlingtoni_head = 2131165489;
 			
 			// aapt resource value: 0x7F070132
-			public const int vespadelus_finlaysoni_head = 2131165490;
+			public const int vespadelus_douglasorum_head = 2131165490;
 			
 			// aapt resource value: 0x7F070133
-			public const int vespadelus_pumilus_head = 2131165491;
+			public const int vespadelus_finlaysoni_head = 2131165491;
 			
 			// aapt resource value: 0x7F070134
-			public const int vespadelus_regulus_head = 2131165492;
+			public const int vespadelus_pumilus_head = 2131165492;
 			
 			// aapt resource value: 0x7F070135
-			public const int vespadelus_troughtoni_head = 2131165493;
+			public const int vespadelus_regulus_head = 2131165493;
 			
 			// aapt resource value: 0x7F070136
-			public const int vespadelus_vulturnus_head = 2131165494;
+			public const int vespadelus_troughtoni_head = 2131165494;
 			
 			// aapt resource value: 0x7F070137
-			public const int wing_third_finger_long = 2131165495;
+			public const int vespadelus_vulturnus_head = 2131165495;
 			
 			// aapt resource value: 0x7F070138
-			public const int wing_third_finger_short = 2131165496;
+			public const int wing_third_finger_long = 2131165496;
 			
 			// aapt resource value: 0x7F070139
-			public const int world = 2131165497;
+			public const int wing_third_finger_short = 2131165497;
 			
 			// aapt resource value: 0x7F07013A
-			public const int xamarin_logo = 2131165498;
+			public const int world = 2131165498;
+			
+			// aapt resource value: 0x7F07013B
+			public const int xamarin_logo = 2131165499;
 			
 			static Drawable()
 			{

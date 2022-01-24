@@ -549,6 +549,7 @@
     <None Remove="Data\SpeciesImages\TragusShape\tragus_orbicular.jpg" />
     <None Remove="Data\SpeciesImages\UpperIncisors\one_pair.jpg" />
     <None Remove="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" />
+    <None Remove="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_neither_bifid.jpg" />
     <None Remove="Data\SpeciesImages\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" />
     <None Remove="Data\SpeciesImages\UpperIncisors\two_pairs_larger_bifid.jpg" />
     <None Remove="Data\SpeciesImages\VespertilionidImages\lobe_small_on_lower_margin_and_cnr_mouth.jpg" />
@@ -952,6 +953,7 @@
     <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_oblong_lanceolate.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_orbicular.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\UpperIncisors\one_pair.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_neither_bifid.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="150,150" />
     <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
