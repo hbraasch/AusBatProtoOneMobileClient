@@ -1,6 +1,7 @@
 ﻿using AusBatProtoOneMobileClient;
 using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.ViewModels;
+using DocGenOneMobileClient.Views;
 using Mobile.Models;
 using System;
 using System.Diagnostics;

@@ -14,12 +14,11 @@ using Mobile.Helpers;
 using TreeApp.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using static AusBatProtoOneMobileClient.Models.KeyTree;
-using AusBatProtoOneMobileClient.Models.Touch;
-using static DocGenOneMobileClient.Views.KeyPageViewModel.FilterSnapShots;
+using static DocGenOneMobileClient.Views.FilterSnapShots;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class KeyPageViewModel : ViewModelBase
+    public partial class KeyPageViewModel : ViewModelBase
     {
         const string FILTER_TITLE = "Filter";
         const string NO_RESULTS_YET = "(0) taxa";
@@ -28,7 +27,7 @@ namespace DocGenOneMobileClient.Views
         {
             StartFromScratch, StartNextLevel, HasMatches, NoMoreMatches, 
         }
-        private FilterState State = FilterState.StartFromScratch;
+        public FilterState State = FilterState.StartFromScratch;
 
         public KeyTreeNodeBase RootKeyTreeNode;
         public KeyTreeNodeBase CurrentPromptKeyTreeNode;
@@ -38,7 +37,6 @@ namespace DocGenOneMobileClient.Views
         public List<CharacterPromptBase> BestPromptCharacters = new List<CharacterPromptBase>();
         public List<CharacterPromptBase> RemovedPromptCharacters = new List<CharacterPromptBase>();
         public bool HasRegionFilterBeenUsed = false;
-        private FilterSnapShots SnapShots { get; set; } = new FilterSnapShots();
 
         public List<int> CurrentRegionIds { get; set; } = new List<int>();
         public abstract class CharacterDisplayItemBase
@@ -95,11 +93,13 @@ namespace DocGenOneMobileClient.Views
 
         CancellationTokenSource cts;
 
+        private FilterSnapShots SnapShots = new FilterSnapShots();
+
 
         #region *// Menu related 
 
         public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0 || CurrentPromptKeyTreeNode.NodeId != RootKeyTreeNode.NodeId;
-        public bool CanUndo => SnapShots.Count  > 0;
+        public bool CanUndo => SnapShots.Count  > 0 || State == FilterState.StartNextLevel;
         #endregion
 
         public KeyPageViewModel()
@@ -164,7 +164,6 @@ namespace DocGenOneMobileClient.Views
                     SnapShots.Clear();
                     break;
                 case FilterState.StartNextLevel:
-                    SnapShots.Clear();
                     #region *// Filter on region if regions selected
                     if (CurrentRegionIds.Count > 0)
                     {
@@ -337,12 +336,13 @@ namespace DocGenOneMobileClient.Views
             try
             {
                 var snapshot = SnapShots.Pop();
-                State = snapshot.BeforeFilterState;
-                CurrentPromptKeyTreeNode = snapshot.BeforePromptKeyTreeNode;
-                UsedPromptCharacters = snapshot.BeforeUsedPromptCharacters;
-                CurrentTriggeredKeyTreeNodes = snapshot.BeforeTriggeredKeyTreeNodes;
-                HasRegionFilterBeenUsed = snapshot.BeforeHasRegionFilterBeenUsed;
-                CurrentRegionIds = snapshot.BeforeRegionIds;
+                if (snapshot == null)
+                {
+                    // Need to return one level up
+                    NavigateBack(NavigateReturnType.UndoFilter);
+                    return;
+                }
+                UndoFilter(snapshot);
 
                 CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
 
@@ -358,7 +358,16 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        
+        private void UndoFilter(KeyFilterSnapShot snapshot)
+        {
+            State = snapshot.BeforeFilterState;
+            CurrentPromptKeyTreeNode = snapshot.BeforePromptKeyTreeNode;
+            UsedPromptCharacters = snapshot.BeforeUsedPromptCharacters;
+            CurrentTriggeredKeyTreeNodes = snapshot.BeforeTriggeredKeyTreeNodes;
+            HasRegionFilterBeenUsed = snapshot.BeforeHasRegionFilterBeenUsed;
+            CurrentRegionIds = snapshot.BeforeRegionIds;
+        }
+
 
         private void ResetFilter(FilterState state, KeyTreeNodeBase rootNode )
         {
@@ -387,7 +396,7 @@ namespace DocGenOneMobileClient.Views
                 await ActivityIndicatorStart();
 
                 var activeCharacterDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o.HasEntry());
-                var snapShot = new FilterSnapShot {
+                var snapShot = new KeyFilterSnapShot {
                     BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode,
                     BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(),
                     BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(),
@@ -490,15 +499,35 @@ namespace DocGenOneMobileClient.Views
                 #endregion
 
 
+                var snapShot = new KeyFilterSnapShot
+                {
+                    BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode,
+                    BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(),
+                    BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(),
+                    BeforeHasRegionFilterBeenUsed = HasRegionFilterBeenUsed,
+                    BeforeFilterState = State,
+                    BeforeRegionIds = CurrentRegionIds
+                };
+
                 var viewModel = new KeyResultPageViewModel(simplifiedTreeNodes) { IsHomeEnabled = true };
                 var page = new KeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
-                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
-                if (resultType == NavigateReturnType.GotoFilterReset) {
+                if (resultType == NavigateReturnType.GotoRoot)
+                {
+                    NavigateBack(NavigateReturnType.GotoRoot);
+                }
+                else if (resultType == NavigateReturnType.GotoFilterReset) {
                     ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                     return;
-                };
-                if (resultType == NavigateReturnType.IsCancelled)
+                }
+                else if (resultType == NavigateReturnType.UndoFilter)
+                {
+                    UndoFilter(snapShot);
+                    CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
+                    InvalidateMenuCommand.Execute(null);
+                    return;
+                }
+                else if (resultType == NavigateReturnType.IsCancelled)
                 {
                     if (viewModel.IsFiterReset)
                     {
@@ -506,14 +535,20 @@ namespace DocGenOneMobileClient.Views
                         return;
                     }
                     return;
-                };
+                }
+                else
+                {
+                    throw new ApplicationException("Should not get here");
+                }
 
+#if false
                 #region *// User requested to go one level down
                 State = FilterState.StartNextLevel;
                 var rootKeyTreeNode = viewModel.SelectedDisplayItem.Content as KeyTreeNodeBase;
                 ResetFilter(FilterState.StartNextLevel, rootKeyTreeNode);
                 Title = $"{FILTER_TITLE} {rootKeyTreeNode.NodeId}";
-                #endregion
+                #endregion  
+#endif
             }
             catch (Exception ex)
             {
@@ -556,36 +591,6 @@ namespace DocGenOneMobileClient.Views
             public int GetHashCode(KeyTreeNodeBase obj)
             {
                 throw new NotImplementedException();
-            }
-        }
-
-        public class FilterSnapShots: List<FilterSnapShot>
-        {
-
-            public class FilterSnapShot
-            {
-                public KeyTreeNodeBase BeforePromptKeyTreeNode;
-                public bool BeforeHasRegionFilterBeenUsed;
-                public List<int> BeforeRegionIds;
-                public List<KeyTreeNodeBase> BeforeTriggeredKeyTreeNodes;
-                public List<CharacterPromptBase> BeforeUsedPromptCharacters;
-                public FilterState BeforeFilterState;
-            }
-
-            public void Push(FilterSnapShot snapshot)
-            {
-                Add(snapshot);
-            }
-
-            public FilterSnapShot Pop()
-            {
-                if (Count > 0)
-                {
-                    var snapShot = this.Last();
-                    this.Remove(snapShot);
-                    return snapShot;
-                }
-                return null;
             }
         }
     }

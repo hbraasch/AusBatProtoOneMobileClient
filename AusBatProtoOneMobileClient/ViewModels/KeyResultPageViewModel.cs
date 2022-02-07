@@ -17,6 +17,8 @@ using TreeApp.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using AusBatProtoOneMobileClient.Data;
 using static AusBatProtoOneMobileClient.Models.KeyTree;
+using static DocGenOneMobileClient.Views.FilterSnapShots;
+using static DocGenOneMobileClient.Views.KeyPageViewModel;
 
 namespace DocGenOneMobileClient.Views
 {
@@ -174,12 +176,30 @@ namespace DocGenOneMobileClient.Views
             {
                 if (SelectedDisplayItem == null) return;
 
+                var snapShot = new KeyResultSnapShot
+                {
+                    selectedKeyTreeNodes = selectedKeyTreeNodes
+                };
+
                 if (SelectedDisplayItem is NodeDisplayItem )
                 {
-                    NavigateBack(NavigateReturnType.IsAccepted);
+                    // Navigate to next level key filter
+                    // NavigateBack(NavigateReturnType.IsAccepted);
+                    var viewModel = new KeyPageViewModel(SelectedDisplayItem.Content, new List<int>());
+                    viewModel.State = FilterState.StartNextLevel;
+                    var page = new KeyPage(viewModel);
+                    var resultType = await NavigateToPageAsync(page, viewModel);
+                    if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                    if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
+                    if (resultType == NavigateReturnType.UndoFilter)
+                    {
+                        selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
+                        DisplayItems = UpdateDisplay();
+                    };
                 }
                 else if (SelectedDisplayItem is LeafNodeDisplayItem lndi)
                 {
+                    // Navigate direct to species
                     var leafKeyNode = SelectedDisplayItem.Content as LeafKeyTreeNode;
                     var species = App.dbase.FindSpecies(leafKeyNode.GenusId, leafKeyNode.SpeciesId);
                     var viewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = true };
@@ -187,6 +207,10 @@ namespace DocGenOneMobileClient.Views
                     var resultType = await NavigateToPageAsync(page, viewModel);
                     if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
                     if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
+                    if (resultType == NavigateReturnType.UndoFilter) {
+                        selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
+                        DisplayItems = UpdateDisplay();
+                    }
                 }
             }
             catch (Exception ex) when (ex is BusinessException exb)
@@ -210,6 +234,22 @@ namespace DocGenOneMobileClient.Views
             {
                 IsFiterReset = true;
                 NavigateBack(NavigateReturnType.IsCancelled);
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
+        public ICommand OnUndoFilterActionClicked => commandHelper.ProduceDebouncedCommand(async () =>
+        {
+            try
+            {
+                NavigateBack(NavigateReturnType.UndoFilter);
             }
             catch (Exception ex)
             {
