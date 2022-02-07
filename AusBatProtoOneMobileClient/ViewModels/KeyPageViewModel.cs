@@ -520,35 +520,30 @@ namespace DocGenOneMobileClient.Views
                     ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                     return;
                 }
-                else if (resultType == NavigateReturnType.UndoFilter)
-                {
-                    UndoFilter(snapShot);
-                    CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-                    InvalidateMenuCommand.Execute(null);
-                    return;
-                }
                 else if (resultType == NavigateReturnType.IsCancelled)
                 {
-                    if (viewModel.IsFiterReset)
+                    if (viewModel.IsFilterReset)
                     {
+                        // Reset called
                         ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                         return;
                     }
-                    return;
+                    else
+                    {
+                        // Just going back
+#if false
+                        UndoFilter(snapShot);
+                        CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
+                        InvalidateMenuCommand.Execute(null); 
+#endif
+                        return;
+                    }
                 }
                 else
                 {
-                    throw new ApplicationException("Should not get here");
+                    throw new ApplicationException($"Unexpected enum [{resultType}] returned");
                 }
 
-#if false
-                #region *// User requested to go one level down
-                State = FilterState.StartNextLevel;
-                var rootKeyTreeNode = viewModel.SelectedDisplayItem.Content as KeyTreeNodeBase;
-                ResetFilter(FilterState.StartNextLevel, rootKeyTreeNode);
-                Title = $"{FILTER_TITLE} {rootKeyTreeNode.NodeId}";
-                #endregion  
-#endif
             }
             catch (Exception ex)
             {

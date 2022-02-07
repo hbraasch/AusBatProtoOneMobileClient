@@ -71,6 +71,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsDetailsDisplay { get; set; }
         #endregion
+
         public DisplaySpeciesTabbedPageViewModel(Species species)
         {
             this.Species = species;
@@ -157,6 +158,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 vuPlayer.Stop();
             }
             NavigateBack(NavigateReturnType.IsCancelled);
+
         });
 
         public bool IsHomeEnabled { get; set; }

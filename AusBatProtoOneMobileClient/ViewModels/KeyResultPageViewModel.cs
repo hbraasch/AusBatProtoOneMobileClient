@@ -25,6 +25,7 @@ namespace DocGenOneMobileClient.Views
     public class KeyResultPageViewModel : ViewModelBase
     {
         List<KeyTreeNodeBase> selectedKeyTreeNodes = null;
+        List<int> currentRegionIds;
         public class DisplayItemBase {
             public KeyTreeNodeBase Content { get; set; }
         }
@@ -66,9 +67,10 @@ namespace DocGenOneMobileClient.Views
         #endregion
 
 
-        public KeyResultPageViewModel(List<KeyTreeNodeBase> selectedKeyTreeNodes)
+        public KeyResultPageViewModel(List<KeyTreeNodeBase> selectedKeyTreeNodes, List<int> currentRegionIds = null)
         {
             this.selectedKeyTreeNodes = selectedKeyTreeNodes;
+            this.currentRegionIds = (currentRegionIds == null) ? new List<int>(): currentRegionIds;
             DisplayItems = new ObservableCollection<DisplayItemBase>();
         }
 
@@ -184,8 +186,7 @@ namespace DocGenOneMobileClient.Views
                 if (SelectedDisplayItem is NodeDisplayItem )
                 {
                     // Navigate to next level key filter
-                    // NavigateBack(NavigateReturnType.IsAccepted);
-                    var viewModel = new KeyPageViewModel(SelectedDisplayItem.Content, new List<int>());
+                    var viewModel = new KeyPageViewModel(SelectedDisplayItem.Content, currentRegionIds);
                     viewModel.State = FilterState.StartNextLevel;
                     var page = new KeyPage(viewModel);
                     var resultType = await NavigateToPageAsync(page, viewModel);
@@ -193,8 +194,8 @@ namespace DocGenOneMobileClient.Views
                     if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
                     if (resultType == NavigateReturnType.UndoFilter)
                     {
-                        selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
-                        DisplayItems = UpdateDisplay();
+                        //selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
+                        //DisplayItems = UpdateDisplay();
                     };
                 }
                 else if (SelectedDisplayItem is LeafNodeDisplayItem lndi)
@@ -208,8 +209,8 @@ namespace DocGenOneMobileClient.Views
                     if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
                     if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
                     if (resultType == NavigateReturnType.UndoFilter) {
-                        selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
-                        DisplayItems = UpdateDisplay();
+                        //selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
+                        //DisplayItems = UpdateDisplay();
                     }
                 }
             }
@@ -227,29 +228,13 @@ namespace DocGenOneMobileClient.Views
             }
         });
 
-        public bool IsFiterReset = false;
+        public bool IsFilterReset = false;
         public ICommand OnResetFiltersClicked => commandHelper.ProduceDebouncedCommand(async () =>
         {
             try
             {
-                IsFiterReset = true;
+                IsFilterReset = true;
                 NavigateBack(NavigateReturnType.IsCancelled);
-            }
-            catch (Exception ex)
-            {
-                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.Message, "OK");
-            }
-            finally
-            {
-                ActivityIndicatorStop();
-            }
-        });
-
-        public ICommand OnUndoFilterActionClicked => commandHelper.ProduceDebouncedCommand(async () =>
-        {
-            try
-            {
-                NavigateBack(NavigateReturnType.UndoFilter);
             }
             catch (Exception ex)
             {

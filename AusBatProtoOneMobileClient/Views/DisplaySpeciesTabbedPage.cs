@@ -64,7 +64,7 @@ namespace AusBatProtoOneMobileClient
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("home", "Home", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
                 .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
-                .AddMenuItem("resetFilter", "Reset", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetMenuPressed.Execute(null); })
+                .AddMenuItem("reset", "Reset", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetMenuPressed.Execute(null); })
                 .AddMenuItem("meas", "Measurements", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnDisplayMeasurementsTableClicked.Execute(null); })
                 .AddMenuItem("scaleText", "Scale text", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { 
                     viewModel.OnScaleTextMenuPressed.Execute(displayBatDetailsTabPage.webView);
@@ -73,7 +73,7 @@ namespace AusBatProtoOneMobileClient
 
             menu.SetVisibilityFactors(viewModel, "IsHomeEnabled", "IsResetFilterEnabled", "IsDetailsDisplay")
                 .ToShowMenuItem("home", true, null, null )
-                .ToShowMenuItem("resetFilter", null, true, null)
+                .ToShowMenuItem("reset", null, true, null)
                 .ToShowMenuItem("scaleText", null, null, true);
 
             menu.GenerateToolbarItemsForPage(this);
