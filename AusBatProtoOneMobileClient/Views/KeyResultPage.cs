@@ -52,7 +52,9 @@ namespace DocGenOneMobileClient.Views
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
             AbsoluteLayout.SetLayoutBounds(activityIndicator, new Rectangle(0.5, .5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Select to filter", Style = Styles.TitleLabelStyle });
+            var titleLabel = new Xamarin.Forms.Label { Text = "Select to filter", Style = Styles.TitleLabelStyle };
+            titleLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.Title), BindingMode.TwoWay));
+            NavigationPage.SetTitleView(this, titleLabel);
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
             Content = finalLayout;
 

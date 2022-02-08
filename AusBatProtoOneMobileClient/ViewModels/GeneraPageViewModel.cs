@@ -157,7 +157,7 @@ namespace DocGenOneMobileClient.Views
         public bool IsHomeEnabled { get; set; }
         public ICommand OnHomeMenuPressed => new Command(() =>
         {
-            NavigateBack(NavigateReturnType.GotoRoot);
+            NavigateBack(NavigateReturnType.GotoHome);
         });
 
         public bool isBackCancelled = false;
@@ -179,31 +179,18 @@ namespace DocGenOneMobileClient.Views
                 if (rootKeyTreeNode.Children.Count == 1 && rootKeyTreeNode.Children[0] is LeafKeyTreeNode lktn)
                 {
                     var species = App.dbase.FindSpecies(lktn.GenusId, lktn.SpeciesId);
-                    var speciesViewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = true };
+                    var speciesViewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = false };
                     var speciesPage = new DisplaySpeciesTabbedPage(speciesViewModel);
                     var speciesResultType = await NavigateToPageAsync(speciesPage, speciesViewModel);
-                    if (speciesResultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
-                    if (speciesResultType == NavigateReturnType.GotoFilterReset) return;
+                    if (speciesResultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
                     return;
                 }
 
                 var viewModel = new KeyPageViewModel(rootKeyTreeNode, new List<int>());
+                viewModel.Title = rootKeyTreeNode.NodeId;
                 var page = new KeyPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
-                switch (resultType)
-                {
-                    case NavigateReturnType.IsCancelled:
-                        break;
-                    case NavigateReturnType.IsAccepted:
-                        break;
-                    case NavigateReturnType.GotoRoot:
-                        NavigateBack(NavigateReturnType.GotoRoot);
-                        break;
-                    case NavigateReturnType.GotoFilterReset:
-                        break;
-                    default:
-                        break;
-                }
+                if (resultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
             }
             catch (Exception ex) when (ex is BusinessException exb)
             {

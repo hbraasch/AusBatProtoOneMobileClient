@@ -339,7 +339,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 var sightingsPageViewModel = new SightingsPageViewModel();
                 var sightingsPage = new SightingsPage(sightingsPageViewModel);
                 var returnType = await NavigateToPageAsync(sightingsPage, sightingsPageViewModel);
-                if (returnType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                if (returnType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {

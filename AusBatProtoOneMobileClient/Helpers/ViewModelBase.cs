@@ -59,7 +59,7 @@ namespace Mobile.ViewModels
 
         public enum NavigateReturnType
         {
-            IsCancelled, IsAccepted, GotoRoot, GotoFilterReset, UndoFilter
+            IsCancelled, IsAccepted, GotoHome, GotoFilterReset
         }
 
         /// <summary>

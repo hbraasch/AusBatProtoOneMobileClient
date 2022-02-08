@@ -169,7 +169,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 player.Stop();
                 vuPlayer.Stop();
             }
-            NavigateBack(NavigateReturnType.GotoRoot);
+            NavigateBack(NavigateReturnType.GotoHome);
         });
 
         public bool IsResetFilterEnabled { get; set; }
@@ -503,7 +503,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 var sightingsPage = new SightingsPage(sightingsPageViewModel);
                 var returnType = await NavigateToPageAsync(sightingsPage, sightingsPageViewModel);
                 if (returnType == NavigateReturnType.IsCancelled) return;
-                if (returnType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                if (returnType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
                 #endregion
 
             }

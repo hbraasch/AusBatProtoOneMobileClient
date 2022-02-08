@@ -20,7 +20,7 @@ namespace DocGenOneMobileClient.Views
 {
     public partial class KeyPageViewModel : ViewModelBase
     {
-        const string FILTER_TITLE = "Filter";
+        const string FILTER_TITLE = "Family";
         const string NO_RESULTS_YET = "(0) taxa";
 
         public enum FilterState
@@ -99,13 +99,10 @@ namespace DocGenOneMobileClient.Views
         #region *// Menu related 
 
         public bool IsResetFilterEnabled => UsedPromptCharacters.Count > 0 || CurrentPromptKeyTreeNode.NodeId != RootKeyTreeNode.NodeId;
-        public bool CanUndo => SnapShots.Count  > 0 || State == FilterState.StartNextLevel;
+        public bool CanUndo => SnapShots.Count  > 0;
+
+        public bool IsBackMenuEnabled => CurrentPromptKeyTreeNode.NodeId != App.dbase.KeyTree.RootNode.NodeId;
         #endregion
-
-        public KeyPageViewModel()
-        {
-
-        }
 
         public KeyPageViewModel(KeyTreeNodeBase currentPromptKeyTreeNode, List<int> currentRegionIds)
         {
@@ -114,7 +111,7 @@ namespace DocGenOneMobileClient.Views
             CurrentTriggeredKeyTreeNodes = new List<KeyTreeNodeBase>();
             CurrentRegionIds = currentRegionIds;
             CharacterDisplayItems = new ObservableCollection<CharacterDisplayItemBase>();
-            Title = $"{FILTER_TITLE}";
+            Title = (CurrentPromptKeyTreeNode.NodeId == App.dbase.KeyTree.RootNode.NodeId) ? $"{FILTER_TITLE}": CurrentPromptKeyTreeNode.NodeId;
             State = FilterState.StartFromScratch;
         }
 
@@ -285,7 +282,7 @@ namespace DocGenOneMobileClient.Views
         public bool IsHomeEnabled { get; set; }
         public ICommand OnHomeMenuPressed => new Command(() =>
         {
-            NavigateBack(NavigateReturnType.GotoRoot);
+            NavigateBack(NavigateReturnType.GotoHome);
         });
 
         public ICommand OnGetRegionsFromUserClicked => commandHelper.ProduceDebouncedCommand(async () =>
@@ -295,8 +292,8 @@ namespace DocGenOneMobileClient.Views
                 var viewModel = new SelectBatRegionsPageViewModel() { SelectedMapRegions = new ObservableCollection<MapRegion>(App.dbase.MapRegions.Where(o=>CurrentRegionIds.Contains(o.Id))) };
                 var page = new SelectBatRegionsPage(viewModel);
                 var returnType = await NavigateToPageAsync(page, viewModel);
+                if (returnType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
                 if (returnType == NavigateReturnType.IsCancelled) return;
-                if (returnType == NavigateReturnType.GotoRoot) { NavigateBack(NavigateReturnType.GotoRoot); return; }
 
                 #region *// Return result
                 var regionDisplayItem = CharacterDisplayItems.FirstOrDefault(o => o is MapRegionsDisplayItem) as MapRegionsDisplayItem;
@@ -339,7 +336,7 @@ namespace DocGenOneMobileClient.Views
                 if (snapshot == null)
                 {
                     // Need to return one level up
-                    NavigateBack(NavigateReturnType.UndoFilter);
+                    NavigateBack(NavigateReturnType.IsCancelled);
                     return;
                 }
                 UndoFilter(snapshot);
@@ -385,7 +382,7 @@ namespace DocGenOneMobileClient.Views
 
             CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
 
-            Title = $"{FILTER_TITLE}";
+            Title = CurrentPromptKeyTreeNode.NodeId;
 
             InvalidateMenuCommand.Execute(null);
         }
@@ -498,25 +495,13 @@ namespace DocGenOneMobileClient.Views
                 }
                 #endregion
 
-
-                var snapShot = new KeyFilterSnapShot
-                {
-                    BeforePromptKeyTreeNode = CurrentPromptKeyTreeNode,
-                    BeforeTriggeredKeyTreeNodes = CurrentTriggeredKeyTreeNodes.ToList(),
-                    BeforeUsedPromptCharacters = UsedPromptCharacters.ToList(),
-                    BeforeHasRegionFilterBeenUsed = HasRegionFilterBeenUsed,
-                    BeforeFilterState = State,
-                    BeforeRegionIds = CurrentRegionIds
-                };
-
-                var viewModel = new KeyResultPageViewModel(simplifiedTreeNodes) { IsHomeEnabled = true };
+                var viewModel = new KeyResultPageViewModel(simplifiedTreeNodes, CurrentRegionIds) { IsHomeEnabled = true };
+                viewModel.Title = CurrentPromptKeyTreeNode.NodeId;
                 var page = new KeyResultPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
-                if (resultType == NavigateReturnType.GotoRoot)
+                if (resultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
+                else if (resultType == NavigateReturnType.GotoFilterReset)
                 {
-                    NavigateBack(NavigateReturnType.GotoRoot);
-                }
-                else if (resultType == NavigateReturnType.GotoFilterReset) {
                     ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                     return;
                 }
@@ -524,26 +509,16 @@ namespace DocGenOneMobileClient.Views
                 {
                     if (viewModel.IsFilterReset)
                     {
-                        // Reset called
+                        // Needs to reset filter
                         ResetFilter(FilterState.StartFromScratch, RootKeyTreeNode);
                         return;
                     }
                     else
                     {
-                        // Just going back
-#if false
-                        UndoFilter(snapShot);
-                        CharacterDisplayItems = UpdateCharacterDisplay(CurrentPromptKeyTreeNode);
-                        InvalidateMenuCommand.Execute(null); 
-#endif
+                        // Simply redisplay current page
                         return;
                     }
                 }
-                else
-                {
-                    throw new ApplicationException($"Unexpected enum [{resultType}] returned");
-                }
-
             }
             catch (Exception ex)
             {

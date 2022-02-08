@@ -59,6 +59,8 @@ namespace DocGenOneMobileClient.Views
 
         CancellationTokenSource cts;
 
+        public string Title { get; set; }
+
 
         #region *// Menu related 
 
@@ -161,7 +163,7 @@ namespace DocGenOneMobileClient.Views
         public bool IsHomeEnabled { get; set; }
         public ICommand OnHomeMenuPressed => new Command(() =>
         {
-            NavigateBack(NavigateReturnType.GotoRoot);
+            NavigateBack(NavigateReturnType.GotoHome);
         });
 
         public bool isBackCancelled = false;
@@ -178,25 +180,16 @@ namespace DocGenOneMobileClient.Views
             {
                 if (SelectedDisplayItem == null) return;
 
-                var snapShot = new KeyResultSnapShot
-                {
-                    selectedKeyTreeNodes = selectedKeyTreeNodes
-                };
-
                 if (SelectedDisplayItem is NodeDisplayItem )
                 {
                     // Navigate to next level key filter
                     var viewModel = new KeyPageViewModel(SelectedDisplayItem.Content, currentRegionIds);
+                    viewModel.Title = SelectedDisplayItem.Content.NodeId;
                     viewModel.State = FilterState.StartNextLevel;
                     var page = new KeyPage(viewModel);
                     var resultType = await NavigateToPageAsync(page, viewModel);
-                    if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                    if (resultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
                     if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
-                    if (resultType == NavigateReturnType.UndoFilter)
-                    {
-                        //selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
-                        //DisplayItems = UpdateDisplay();
-                    };
                 }
                 else if (SelectedDisplayItem is LeafNodeDisplayItem lndi)
                 {
@@ -206,12 +199,8 @@ namespace DocGenOneMobileClient.Views
                     var viewModel = new DisplaySpeciesTabbedPageViewModel(species) { IsHomeEnabled = true, IsResetFilterEnabled = true };
                     var page = new DisplaySpeciesTabbedPage(viewModel);
                     var resultType = await NavigateToPageAsync(page, viewModel);
-                    if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                    if (resultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
                     if (resultType == NavigateReturnType.GotoFilterReset) NavigateBack(NavigateReturnType.GotoFilterReset);
-                    if (resultType == NavigateReturnType.UndoFilter) {
-                        //selectedKeyTreeNodes = snapShot.selectedKeyTreeNodes;
-                        //DisplayItems = UpdateDisplay();
-                    }
                 }
             }
             catch (Exception ex) when (ex is BusinessException exb)

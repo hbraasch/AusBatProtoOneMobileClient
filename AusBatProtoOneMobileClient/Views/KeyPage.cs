@@ -92,9 +92,10 @@ namespace DocGenOneMobileClient.Views
                 .AddMenuItem("reset", "Reset", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetFiltersClicked.Execute(null); })
                 .AddMenuItem("undo", "Undo", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnUndoFilterActionClicked.Execute(null); });
 
-            menu.SetVisibilityFactors(viewModel, "IsResetFilterEnabled", "CanUndo")
-                .ToShowMenuItem("reset", true, null)
-                .ToShowMenuItem("undo", null, true);
+            menu.SetVisibilityFactors(viewModel, "IsResetFilterEnabled", "CanUndo", "IsBackMenuEnabled")
+                .ToShowMenuItem("back", null, null, true)
+                .ToShowMenuItem("reset", true, null, null)
+                .ToShowMenuItem("undo", null, true, null);
 
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(KeyPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));

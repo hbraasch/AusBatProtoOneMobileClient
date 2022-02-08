@@ -161,7 +161,7 @@ namespace DocGenOneMobileClient.Views
                 var viewModel = new DisplaySpeciesTabbedPageViewModel(SelectedItem.Species) { IsHomeEnabled = true };
                 var page = new DisplaySpeciesTabbedPage(viewModel);
                 var resultType = await NavigateToPageAsync(page, viewModel);
-                if (resultType == NavigateReturnType.GotoRoot) NavigateBack(NavigateReturnType.GotoRoot);
+                if (resultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
 
 
             }
