@@ -5,7 +5,11 @@
     "ThreeMet",
     "FurPatternAndColour"
   ],
-  "KeyPrompts": [],
+  "KeyPrompts": [
+    "Forearm length",
+    "3-MET",
+    "Fur pattern and colour"
+  ],
   "KeyImages": [],
   "Pickers": [
     {
@@ -14,15 +18,19 @@
         "BrownMergingToDarkerFurOverHead",
         "BlackWhiteStripesVentralSurfaceAlongWingJuncture",
         "BrownOrGreyBrown",
-        "BlackToGrey",
-        "BlackWhiteStripesVentralSurface"
+        "BlackToGrey"
       ],
       "OptionPrompts": [
         "Brown body, merging to darker fur over the head",
         "Black, white lateral stripes on ventral surface along wing juncture",
         "Brown or grey-brown",
-        "Black to grey, often with light frosting. No white lateral stripes",
-        "Black, white lateral stripes on ventral surface"
+        "Black to grey, often with light frosting. No white lateral stripes"
+      ],
+      "OptionImages": [
+        "brown_body_darker_head.jpg",
+        "black_white_lateral_stripes.jpg",
+        "brown_grey_brown.jpg",
+        "black_grey_light_frosting.jpg"
       ]
     }
   ],
@@ -64,7 +72,7 @@
       "Values": [
         "31-38",
         "30-33",
-        "BlackWhiteStripesVentralSurface"
+        "BlackWhiteStripesVentralSurfaceAlongWingJuncture"
       ]
     }
   ]

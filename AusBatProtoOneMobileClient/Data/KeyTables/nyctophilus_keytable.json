@@ -6,7 +6,12 @@
     "OuterCanineWidth",
     "MuzzlePattern"
   ],
-  "KeyPrompts": [],
+  "KeyPrompts": [
+    "Forearm",
+    "3_Met",
+    "Outer canine width",
+    "Muzzle pattern"
+  ],
   "KeyImages": [],
   "Pickers": [
     {
@@ -15,15 +20,26 @@
         "SimpleRaisedBump",
         "RaisedBumpCentralShallowGroove",
         "YshapedMuzzleGroove",
-        "RaisedBumpCentralGroove"
+        "RaisedBumpCentralGroove",
+        "RaisedBumpBisectedByCentralGroove",
+        "RaisedBumpWithCentralCircularDepression"
       ],
       "OptionPrompts": [
         "Simple raised bump",
         "Raised bump with central shallow groove",
         "\"Y\" shaped groove on muzzle",
-        "Raised bump with central groove"
+        "Raised bump with central groove",
+        "Raised bump bisected by central groove",
+        "Raised bump with central circular depression"
       ],
-      "OptionImages": []
+      "OptionImages": [
+        "simple_raised_bump.jpg",
+        "raised_bump_with_central_shallow_groove.jpg",
+        "y_shaped_groove.jpg",
+        "raised_bump_with_central_groove.jpg",
+        "raised_bump_bisected_by_central_groove.jpg",
+        "simple_raised_bump_with_central_circular_depression.jpg"
+      ]
     }
   ],
   "NodeRows": [
@@ -33,7 +49,7 @@
         "37-47",
         "36-41",
         "4.3-5.4",
-        "SimpleRaisedBump"
+        "RaisedBumpWithCentralCircularDepression"
       ]
     },
     {
@@ -87,7 +103,7 @@
         "30-36",
         "29-35",
         "3.4-3.7",
-        "RaisedBumpCentralGroove"
+        "RaisedBumpBisectedByCentralGroove"
       ]
     },
     {

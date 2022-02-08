@@ -214,6 +214,10 @@
     <None Remove="Data\SpeciesImages\austonomus_australis2.jpg" />
     <None Remove="Data\SpeciesImages\austonomus_australis3.jpg" />
     <None Remove="Data\SpeciesImages\austonomus_australis_head.jpg" />
+    <None Remove="Data\SpeciesImages\ChalinolobusFur\black_grey_light_frosting.jpg" />
+    <None Remove="Data\SpeciesImages\ChalinolobusFur\black_white_lateral_stripes.jpg" />
+    <None Remove="Data\SpeciesImages\ChalinolobusFur\brown_body_darker_head.jpg" />
+    <None Remove="Data\SpeciesImages\ChalinolobusFur\brown_grey_brown.jpg" />
     <None Remove="Data\SpeciesImages\Hires\3Ua32600" />
     <None Remove="Data\SpeciesImages\Hires\CallImages\nyctophilus_major major_call_image.jpg" />
     <None Remove="Data\SpeciesImages\Hires\CallImages\nyctophilus_major tor_call_image.jpg" />
@@ -496,6 +500,12 @@
     <None Remove="Data\SpeciesImages\MuzzleStructure\muzzle_smooth.jpg" />
     <None Remove="Data\SpeciesImages\NostrilShape\nostrils_distinct_tubes.jpg" />
     <None Remove="Data\SpeciesImages\NostrilShape\nostrils_flat_slight_rim.jpg" />
+    <None Remove="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_bisected_by_central_groove.jpg" />
+    <None Remove="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_with_central_groove.jpg" />
+    <None Remove="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_with_central_shallow_groove.jpg" />
+    <None Remove="Data\SpeciesImages\NyctophilusMuzzlePattern\simple_raised_bump.jpg" />
+    <None Remove="Data\SpeciesImages\NyctophilusMuzzlePattern\simple_raised_bump_with_central_circular_depression.jpg" />
+    <None Remove="Data\SpeciesImages\NyctophilusMuzzlePattern\y_shaped_groove.jpg" />
     <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_arnhemensis_nose.jpg" />
     <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_bifax_nose.jpg" />
     <None Remove="Data\SpeciesImages\NyctophilusNoses\nyctophilus_corbeni_nose.jpg" />
@@ -778,11 +788,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.38" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.42" />
     <PackageReference Include="MP3Sharp" Version="1.0.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.4.0" PrivateAssets="All" />
-    <PackageReference Include="Resizetizer.NT" Version="0.2.0">
+    <PackageReference Include="Resizetizer.NT" Version="0.3.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -791,40 +801,53 @@
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_bisected_by_central_groove.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_with_central_groove.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_with_central_shallow_groove.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\simple_raised_bump.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\simple_raised_bump_with_central_circular_depression.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\y_shaped_groove.jpg" BaseSize="100,100" />
   </ItemGroup>
 
   <ItemGroup>
     <SharedImage Include="Data\IconImage\aus_bats_icon.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\dory_semoni_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\dory_stenotis_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_ater_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_diad_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_inornat_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hip_cerv_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FacialFeatures\rhino_aur_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\face_complex_horseshoe.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\face_w_flattened_square_noseleaf.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\none_face_simple.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\nose_small_transverse_leaf.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_fully_enclosed.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_present_not_attached.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_present_projecting_free_greater_8mm.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_present_projecting_through_upper_surface.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tragus_absent.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tragus_entire.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\wing_third_finger_long.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\wing_third_finger_short.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\GeneralKeyImages\three_met_3p1.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\dory_semoni_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\dory_stenotis_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_ater_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_diad_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_inornat_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hip_cerv_facial.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\rhino_aur_facial.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesImages\ChalinolobusFur\black_grey_light_frosting.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\ChalinolobusFur\black_white_lateral_stripes.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\ChalinolobusFur\brown_body_darker_head.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\ChalinolobusFur\brown_grey_brown.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\dory_semoni_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\dory_stenotis_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_ater_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_diad_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hipp_inornat_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\hip_cerv_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FacialFeatures\rhino_aur_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\face_complex_horseshoe.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\face_w_flattened_square_noseleaf.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\none_face_simple.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\nose_small_transverse_leaf.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_fully_enclosed.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_present_not_attached.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_present_projecting_free_greater_8mm.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tail_present_projecting_through_upper_surface.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tragus_absent.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tragus_bifurcate.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\tragus_entire.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\wing_third_finger_long.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\FamilyKeyImages\wing_third_finger_short.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\GeneralKeyImages\three_met_3p1.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\dory_semoni_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\dory_stenotis_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_ater_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_diad_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hipp_inornat_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\hip_cerv_facial.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\HipposideridsFacials\rhino_aur_facial.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\austonomus_australis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\chaerephon_jobensis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\chalinolobus_dwyeri_head.jpg" BaseSize="50,50" />
@@ -897,83 +920,83 @@
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_regulus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_troughtoni_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\vespadelus_vulturnus_head.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\MuzzleStructure\muzzle_smooth.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NostrilShape\nostrils_distinct_tubes.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NostrilShape\nostrils_flat_slight_rim.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_arnhemensis_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_bifax_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_corbeni_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_daedalus_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_geoffroyi_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_gouldii_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_holtorum_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_tor_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_sherrini_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_walkeri_nose.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PreMolars\pre_molars_one_pair.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PreMolars\upper_pre_molars_two.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\macro_mini.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\nyct_robin.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\pero_natal.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_alec.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_conspic.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_polio.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_scap.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\sycon_aust.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map000.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map102.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map103.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map104.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map105.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map106.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map107.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map108.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map201.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map202.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map203.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map301.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map302.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map303.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map304.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map305.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map306.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map307.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map308.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map309.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map310.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map311.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map312.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map400.png" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\TailMembrane\tail_membrane_hairy.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\TailMembrane\tail_membrane_no_fur.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_linear.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_oblong_lanceolate.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_orbicular.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\UpperIncisors\one_pair.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_neither_bifid.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\lobe_small_on_lower_margin_and_cnr_mouth.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\lower_ear_margin_without_lobes.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\muzzle_projecting_leaf_above_nostrils.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\muzzle_smooth.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\nostrils_distinct_tubes.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\nostrils_flat_slight_rim.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\one_pair.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tail_membrane_hairy.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tail_membrane_no_fur.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tragus_linear.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tragus_oblong_lanceolate.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tragus_orbicular.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_larger_bifid.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" BaseSize="150,150" />
-    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" BaseSize="150,150" />
+    <SharedImage Include="Data\SpeciesImages\MuzzleStructure\muzzle_projecting_leaf_above_nostrils.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\MuzzleStructure\muzzle_smooth.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NostrilShape\nostrils_distinct_tubes.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NostrilShape\nostrils_flat_slight_rim.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_arnhemensis_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_bifax_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_corbeni_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_daedalus_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_geoffroyi_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_gouldii_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_holtorum_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_major_tor_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_sherrini_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\NyctophilusNoses\nyctophilus_walkeri_nose.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PreMolars\pre_molars_one_pair.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PreMolars\upper_pre_molars_two.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\macro_mini.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\nyct_robin.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\pero_natal.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_alec.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_conspic.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_polio.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_scap.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\sycon_aust.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map000.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map102.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map103.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map104.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map105.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map106.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map107.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map108.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map201.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map202.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map203.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map301.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map302.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map303.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map304.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map305.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map306.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map307.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map308.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map309.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map310.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map311.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map312.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map400.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\TailMembrane\tail_membrane_hairy.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\TailMembrane\tail_membrane_no_fur.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_linear.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_oblong_lanceolate.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\TragusShape\tragus_orbicular.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\UpperIncisors\one_pair.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_neither_bifid.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\UpperIncisors\two_pairs_larger_bifid.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\lobe_small_on_lower_margin_and_cnr_mouth.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\lower_ear_margin_without_lobes.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\muzzle_projecting_leaf_above_nostrils.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\muzzle_smooth.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\nostrils_distinct_tubes.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\nostrils_flat_slight_rim.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\one_pair.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tail_membrane_hairy.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tail_membrane_no_fur.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tragus_linear.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tragus_oblong_lanceolate.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\tragus_orbicular.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_equal_size_both_bifurcate.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_inequal_size_neither_bifid.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\two_pairs_larger_bifid.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_one_pair.jpg" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\VespertilionidImages\upper_pre_molars_two.jpg" BaseSize="100,100" />
     <SharedImage Include="Images\audio_playback_play.png" BaseSize="50,50" />
     <SharedImage Include="Images\audio_playback_stop.png" BaseSize="50,50" />
     <SharedImage Include="Images\background.png" BaseSize="1000,1000" />
