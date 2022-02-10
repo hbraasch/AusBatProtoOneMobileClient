@@ -1,0 +1,4 @@
+﻿Splash screen updated
+More missing images added
+Undo improved. Now goes down to all levels
+Improved key filter view naming

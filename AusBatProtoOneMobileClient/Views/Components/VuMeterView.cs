@@ -29,13 +29,13 @@ namespace AusBatProtoOneMobileClient.Views.Components
             set { SetValue(ValueProperty, value); }
         }
 
-        public static readonly BindableProperty IsIsDisplayingProperty = BindableProperty.Create("IsDisplaying", typeof(bool), typeof(VuMeterView), true);
+        public static readonly BindableProperty IsDisplayingProperty = BindableProperty.Create("IsDisplaying", typeof(bool), typeof(VuMeterView), true);
 
 
         public bool IsDisplaying
         {
-            get { return (bool)GetValue(IsIsDisplayingProperty); }
-            set { SetValue(IsIsDisplayingProperty, value); }
+            get { return (bool)GetValue(IsDisplayingProperty); }
+            set { SetValue(IsDisplayingProperty, value); }
         }
 
         ProgressBar progressBar;

@@ -21,16 +21,16 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            var carouselView = new CarouselView
+            var imageCarouselView = new CarouselView
             {
                 EmptyView = "Nothing to display",
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
-            carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.CallDisplayItems), BindingMode.TwoWay, source: viewModel));
-            carouselView.SetBinding(CarouselView.TabIndexProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.SelectedCallDisplayItem), BindingMode.TwoWay, source: viewModel));
-            carouselView.SetBinding(CarouselView.IsVisibleProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallImage), BindingMode.TwoWay, source: viewModel));
-            carouselView.ItemTemplate = new DataTemplate(() =>
+            imageCarouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.CallDisplayItems), BindingMode.TwoWay, source: viewModel));
+            imageCarouselView.SetBinding(CarouselView.TabIndexProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.SelectedCallDisplayItem), BindingMode.TwoWay, source: viewModel));
+            imageCarouselView.SetBinding(CarouselView.IsVisibleProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallImage), BindingMode.TwoWay, source: viewModel));
+            imageCarouselView.ItemTemplate = new DataTemplate(() =>
             {
                 var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
                 CachedImage image = new CachedImage
@@ -42,18 +42,19 @@ namespace AusBatProtoOneMobileClient
                 return image;
             });
 
-            var indicatorView = new IndicatorView
+            var imageIndicatorView = new IndicatorView
             {
                 IndicatorColor = Color.LightGray,
+                SelectedIndicatorColor = Constants.APP_COLOUR,
                 HorizontalOptions = LayoutOptions.Center,
                 IndicatorsShape = IndicatorShape.Square,
                 IndicatorSize = 18
             };
-            carouselView.IndicatorView = indicatorView;
+            imageCarouselView.IndicatorView = imageIndicatorView;
 
             var vuMeter = new VuMeterView { HorizontalOptions = LayoutOptions.CenterAndExpand, WidthRequest = 500, Margin = 5 };
             vuMeter.SetBinding(VuMeterView.ValueProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.VuDecibelValue), source: viewModel));
-            vuMeter.SetBinding(VuMeterView.IsIsDisplayingProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallAudio), source: viewModel));
+            vuMeter.SetBinding(VuMeterView.IsDisplayingProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.HasCallAudio), source: viewModel));
 
             var startStopPlaybackButton = new ImageButton() { BackgroundColor = Color.Transparent };
             startStopPlaybackButton.Clicked += (s, e) => { viewModel.OnStartStopPlaybackPressed.Execute(null); };
@@ -70,7 +71,7 @@ namespace AusBatProtoOneMobileClient
             audioPlayGrid.Children.Add(startStopPlaybackButton, 1, 1);
             Grid.SetColumnSpan(vuMeter, 3);
 
-            var mainLayout = new StackLayout { Children = { carouselView, indicatorView, audioPlayGrid } };
+            var mainLayout = new StackLayout { Children = { imageCarouselView, imageIndicatorView, audioPlayGrid } };
 
             NavigationPage.SetTitleView(this, new Label { Text = "Calls", Style = Styles.TitleLabelStyle });
             BackgroundColor = Color.Black;

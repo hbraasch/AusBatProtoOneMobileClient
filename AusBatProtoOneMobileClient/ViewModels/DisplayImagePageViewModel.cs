@@ -28,7 +28,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
 
-        public ICommand OnCloseMenuPressed => new Command(() =>
+        public ICommand OnBackMenuPressed => new Command(() =>
         {
             NavigateBack(NavigateReturnType.IsCancelled);
         });

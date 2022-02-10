@@ -121,8 +121,11 @@ namespace AusBatProtoOneMobileClient.ViewModels
             var callDisplayItems = new ObservableCollection<CallDataItem>();
             if (!Species.CallImages.IsEmpty())
             {
-                // There is a call image
-                callDisplayItems.Add(new CallDataItem { ImageSource = ImageSource.FromFile(ZippedFiles.GetFullFilename(Species.CallImages.First())) });
+                // There are call images
+                foreach (var callImage in Species.CallImages)
+                {
+                    callDisplayItems.Add(new CallDataItem { ImageSource = ImageSource.FromFile(ZippedFiles.GetFullFilename(callImage)) });
+                }
                 HasCallImage = true;
                 HasCallAudio = false;
             }

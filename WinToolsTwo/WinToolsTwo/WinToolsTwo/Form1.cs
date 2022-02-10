@@ -1098,6 +1098,35 @@ namespace WinToolsTwo
             await Task.Delay(200);
             simpleSound.Play();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            folderBrowserDialog1.SelectedPath = RenameFilenameTextBox.Text;
+            folderBrowserDialog1.ShowDialog();
+            RenameFilenameTextBox.Text = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void RenameFilenameConvertButton_Click(object sender, EventArgs e)
+        {
+            if (RenameFilenameExtTextBox.Text.Length == 0)
+            {
+                Debug.WriteLine($"No file extention e.g. [*.json] parameter");
+                return;
+            }
+            var pathFullname = RenameFilenameTextBox.Text;
+            Debug.WriteLine($"Converting files in directory: [{pathFullname}]");
+
+            foreach (var fullFilename in Directory.GetFiles(pathFullname, RenameFilenameExtTextBox.Text))
+            {
+                var filename = Path.GetFileName(fullFilename);
+                var path = Path.GetDirectoryName(fullFilename);
+                var androidName = FormatToAndroidFilename(filename);
+                var newFullFilename = Path.Combine(path, androidName);
+                File.Move(fullFilename, newFullFilename, true);
+                Debug.WriteLine($"Converting file [{filename} to [{androidName}]");
+            }
+            Debug.WriteLine($"Done");
+        }
     }
 }
 

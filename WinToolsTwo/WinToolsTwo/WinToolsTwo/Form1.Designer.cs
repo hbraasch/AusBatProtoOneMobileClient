@@ -46,6 +46,8 @@ namespace WinToolsTwo
             this.buttonGetKeyNode = new System.Windows.Forms.Button();
             this.buttonCreateTree = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.RenameFilenameTextBox = new System.Windows.Forms.TextBox();
+            this.RenameFilenameButton = new System.Windows.Forms.Button();
             this.buttonGenerateJsonFile = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -65,6 +67,7 @@ namespace WinToolsTwo
             this.buttonParseForRegions = new System.Windows.Forms.Button();
             this.textBoxRegionsSource = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.buttonLoadAndPlayMp3File = new System.Windows.Forms.Button();
             this.buttonPlayVuFile = new System.Windows.Forms.Button();
             this.buttonGenerateVuFile = new System.Windows.Forms.Button();
             this.buttonStopAudioTwo = new System.Windows.Forms.Button();
@@ -72,7 +75,9 @@ namespace WinToolsTwo
             this.buttonStopAudio = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.buttonLoadAudio = new System.Windows.Forms.Button();
-            this.buttonLoadAndPlayMp3File = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.RenameFilenameExtTextBox = new System.Windows.Forms.TextBox();
+            this.RenameFilenameConvertButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -256,6 +261,10 @@ namespace WinToolsTwo
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.RenameFilenameConvertButton);
+            this.tabPage3.Controls.Add(this.RenameFilenameExtTextBox);
+            this.tabPage3.Controls.Add(this.RenameFilenameTextBox);
+            this.tabPage3.Controls.Add(this.RenameFilenameButton);
             this.tabPage3.Controls.Add(this.buttonGenerateJsonFile);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.button3);
@@ -268,6 +277,23 @@ namespace WinToolsTwo
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rename";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // RenameFilenameTextBox
+            // 
+            this.RenameFilenameTextBox.Location = new System.Drawing.Point(553, 164);
+            this.RenameFilenameTextBox.Name = "RenameFilenameTextBox";
+            this.RenameFilenameTextBox.Size = new System.Drawing.Size(336, 25);
+            this.RenameFilenameTextBox.TabIndex = 7;
+            // 
+            // RenameFilenameButton
+            // 
+            this.RenameFilenameButton.Location = new System.Drawing.Point(926, 163);
+            this.RenameFilenameButton.Name = "RenameFilenameButton";
+            this.RenameFilenameButton.Size = new System.Drawing.Size(83, 25);
+            this.RenameFilenameButton.TabIndex = 6;
+            this.RenameFilenameButton.Text = "Browse";
+            this.RenameFilenameButton.UseVisualStyleBackColor = true;
+            this.RenameFilenameButton.Click += new System.EventHandler(this.button5_Click);
             // 
             // buttonGenerateJsonFile
             // 
@@ -470,6 +496,16 @@ namespace WinToolsTwo
             this.tabPage5.Text = "Audio";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // buttonLoadAndPlayMp3File
+            // 
+            this.buttonLoadAndPlayMp3File.Location = new System.Drawing.Point(436, 53);
+            this.buttonLoadAndPlayMp3File.Name = "buttonLoadAndPlayMp3File";
+            this.buttonLoadAndPlayMp3File.Size = new System.Drawing.Size(118, 25);
+            this.buttonLoadAndPlayMp3File.TabIndex = 7;
+            this.buttonLoadAndPlayMp3File.Text = "LoadAndPlayMp3File";
+            this.buttonLoadAndPlayMp3File.UseVisualStyleBackColor = true;
+            this.buttonLoadAndPlayMp3File.Click += new System.EventHandler(this.buttonLoadAndPlayMp3File_Click);
+            // 
             // buttonPlayVuFile
             // 
             this.buttonPlayVuFile.Location = new System.Drawing.Point(239, 120);
@@ -536,15 +572,23 @@ namespace WinToolsTwo
             this.buttonLoadAudio.UseVisualStyleBackColor = true;
             this.buttonLoadAudio.Click += new System.EventHandler(this.buttonLoadAudio_Click);
             // 
-            // buttonLoadAndPlayMp3File
+            // RenameFilenameExtTextBox
             // 
-            this.buttonLoadAndPlayMp3File.Location = new System.Drawing.Point(436, 53);
-            this.buttonLoadAndPlayMp3File.Name = "buttonLoadAndPlayMp3File";
-            this.buttonLoadAndPlayMp3File.Size = new System.Drawing.Size(118, 25);
-            this.buttonLoadAndPlayMp3File.TabIndex = 7;
-            this.buttonLoadAndPlayMp3File.Text = "LoadAndPlayMp3File";
-            this.buttonLoadAndPlayMp3File.UseVisualStyleBackColor = true;
-            this.buttonLoadAndPlayMp3File.Click += new System.EventHandler(this.buttonLoadAndPlayMp3File_Click);
+            this.RenameFilenameExtTextBox.Location = new System.Drawing.Point(1040, 164);
+            this.RenameFilenameExtTextBox.Name = "RenameFilenameExtTextBox";
+            this.RenameFilenameExtTextBox.Size = new System.Drawing.Size(96, 25);
+            this.RenameFilenameExtTextBox.TabIndex = 8;
+            this.RenameFilenameExtTextBox.Text = "*.jpg";
+            // 
+            // RenameFilenameConvertButton
+            // 
+            this.RenameFilenameConvertButton.Location = new System.Drawing.Point(1165, 163);
+            this.RenameFilenameConvertButton.Name = "RenameFilenameConvertButton";
+            this.RenameFilenameConvertButton.Size = new System.Drawing.Size(92, 25);
+            this.RenameFilenameConvertButton.TabIndex = 9;
+            this.RenameFilenameConvertButton.Text = "Convert";
+            this.RenameFilenameConvertButton.UseVisualStyleBackColor = true;
+            this.RenameFilenameConvertButton.Click += new System.EventHandler(this.RenameFilenameConvertButton_Click);
             // 
             // Form1
             // 
@@ -559,6 +603,7 @@ namespace WinToolsTwo
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
@@ -612,6 +657,11 @@ namespace WinToolsTwo
         private System.Windows.Forms.Button buttonGenerateVuFile;
         private System.Windows.Forms.Button buttonPlayVuFile;
         private System.Windows.Forms.Button buttonLoadAndPlayMp3File;
+        private System.Windows.Forms.TextBox RenameFilenameTextBox;
+        private System.Windows.Forms.Button RenameFilenameButton;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Button RenameFilenameConvertButton;
+        private System.Windows.Forms.TextBox RenameFilenameExtTextBox;
     }
 }
 

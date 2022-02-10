@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MakeAndroidFilenames": {
+      "commandName": "Project",
+      "commandLineArgs": "*.jpg"
+    }
+  }
+}

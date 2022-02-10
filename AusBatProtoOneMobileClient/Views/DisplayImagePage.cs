@@ -47,7 +47,7 @@ namespace AusBatProtoOneMobileClient
             BackgroundColor = Color.Black;
 
             menu = new MenuGenerator().Configure()
-                .AddMenuItem("close", "Close", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnCloseMenuPressed.Execute(null); });
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
 
             menu.GenerateToolbarItemsForPage(this);
             

@@ -3,7 +3,7 @@
 <node TEXT="AusBat" FOLDED="false" ID="ID_696401721" CREATED="1610381621824" MODIFIED="1635135547442" STYLE="oval">
 <font SIZE="18"/>
 <hook NAME="MapStyle">
-    <properties show_icon_for_attributes="true" fit_to_viewport="false" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
+    <properties fit_to_viewport="false" show_icon_for_attributes="true" show_note_icons="true" edgeColorConfiguration="#808080ff,#ff0000ff,#0000ffff,#00ff00ff,#ff00ffff,#00ffffff,#7c0000ff,#00007cff,#007c00ff,#7c007cff,#007c7cff,#7c7c00ff" associatedTemplateLocation="template:/standard-1.6.mm"/>
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node" STYLE="oval" UNIFORM_SHAPE="true" VGAP_QUANTITY="24 pt">
@@ -68,7 +68,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="10" RULE="ON_BRANCH_CREATION"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="11" RULE="ON_BRANCH_CREATION"/>
 <node TEXT="Distribution" POSITION="right" ID="ID_1316568271" CREATED="1635135549330" MODIFIED="1635293773024">
 <edge COLOR="#00ff00"/>
 <richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
@@ -88,7 +88,7 @@
     </p>
   </body>
 </html></richcontent>
-<node TEXT="IOS" ID="ID_1409679174" CREATED="1635135585761" MODIFIED="1635318071987"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
+<node TEXT="IOS" ID="ID_1409679174" CREATED="1635135585761" MODIFIED="1644304875333"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
   <head>
     
@@ -100,8 +100,12 @@
     <p>
       Set target device [Remote Device] when building. Build [Release]
     </p>
+    <p>
+      Trger file in ..bin/iPhone/Release/AusBat.ipa
+    </p>
   </body>
-</html></richcontent>
+</html>
+</richcontent>
 </node>
 <node TEXT="Android" ID="ID_566895906" CREATED="1635135591881" MODIFIED="1635135690433"><richcontent TYPE="NOTE" CONTENT-TYPE="xml/">
 <html>
@@ -115,11 +119,12 @@
   </body>
 </html></richcontent>
 </node>
-<node TEXT="App Center" FOLDED="true" ID="ID_44342366" CREATED="1635320227952" MODIFIED="1635463626530">
+<node TEXT="App Center" ID="ID_44342366" CREATED="1635320227952" MODIFIED="1635463626530">
 <node TEXT="IOS" ID="ID_1459675838" CREATED="1635320237977" MODIFIED="1635463626529" VSHIFT_QUANTITY="-0.75 pt">
 <node TEXT="Must get UDID for each tester and add to Provisioning Profile" ID="ID_772292838" CREATED="1635320248232" MODIFIED="1635320281311"/>
 <node TEXT="Set Group as public (then no login)" ID="ID_184695448" CREATED="1635320281998" MODIFIED="1635320321090"/>
 </node>
+<node TEXT="Login under Google, treeapps@gmail.com" ID="ID_1828031746" CREATED="1644304945648" MODIFIED="1644304982153"/>
 </node>
 <node TEXT="Versioning" ID="ID_179456736" CREATED="1638506086664" MODIFIED="1638506092294">
 <node TEXT="Change data version in data_version.json file" ID="ID_731456790" CREATED="1638506092807" MODIFIED="1638506112617"/>
@@ -313,6 +318,17 @@
     </ol>
   </body>
 </html></richcontent>
+</node>
+<node TEXT="Images" POSITION="right" ID="ID_435413113" CREATED="1644305609315" MODIFIED="1644305614532">
+<edge COLOR="#7c7c00"/>
+<node TEXT="Small images used in pickers" ID="ID_718194621" CREATED="1644305614534" MODIFIED="1644305626651">
+<node TEXT="Added as Resizetiser.NT images" ID="ID_1672994996" CREATED="1644305626654" MODIFIED="1644305645316"/>
+</node>
+<node TEXT="Large bat images" ID="ID_1055549627" CREATED="1644305648531" MODIFIED="1644305657189">
+<node TEXT="Inside images zip file [hires_images.zip]" ID="ID_638042071" CREATED="1644305657627" MODIFIED="1644305751684"/>
+<node TEXT="All files under Hires (including subfolders) get flatly thrown into zip file" ID="ID_1529959568" CREATED="1644305753059" MODIFIED="1644305952028"/>
+<node TEXT="Zip file is compiled as [Embedded Resource]" ID="ID_1907967382" CREATED="1644305964610" MODIFIED="1644305980779"/>
+</node>
 </node>
 </node>
 </map>

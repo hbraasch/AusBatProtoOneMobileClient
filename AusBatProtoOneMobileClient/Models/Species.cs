@@ -1,4 +1,7 @@
-﻿using AusBatProtoOneMobileClient.Helpers;
+﻿#define OnlyReportMissings
+// #undef OnlyReportMissings
+
+using AusBatProtoOneMobileClient.Helpers;
 using AusBatProtoOneMobileClient.Models;
 using Mobile.Helpers;
 using Newtonsoft.Json;
@@ -18,6 +21,8 @@ namespace AusBatProtoOneMobileClient.Data
 {
     public class Species
     {
+        private bool OnlyReportMissings = true;
+
         public string GenusId { get; set; }
         public string SpeciesId { get; set; }
         public string Name { get; set; }
@@ -31,7 +36,7 @@ namespace AusBatProtoOneMobileClient.Data
         internal void LoadDetails()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
-            Debug.WriteLine($"Start loading species [{speciesName}] details json file");
+            if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] details json file");
             var filename = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_details.html".ToAndroidFilenameFormat();
             try
             {
@@ -61,13 +66,13 @@ namespace AusBatProtoOneMobileClient.Data
             }
             finally
             {
-                Debug.WriteLine($"End loading species [{speciesName}] details json file");
+                if (!OnlyReportMissings) Debug.WriteLine($"End loading species [{speciesName}] details json file");
             }
         }
         internal async Task LoadImages()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
-            Debug.WriteLine($"Start loading species [{speciesName}] general images");
+            if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] general images");
             var toRemoveImages = new List<string>();
             foreach (var imageName in Images)
             {
@@ -97,30 +102,58 @@ namespace AusBatProtoOneMobileClient.Data
                 Debug.WriteLine($"Missing images for species [{speciesName}]");
                 Images.Add("bat.png");
             }
-            Debug.WriteLine($"End loading species [{speciesName}] general images");
+            if (!OnlyReportMissings) Debug.WriteLine($"End loading species [{speciesName}] general images");
         }
         internal void LoadCalls()
         {
-            // Currently only supports one image or one audio per species
+            int MAX_FILE_AMOUNT = 5;
+            // Currently only supports one audio per species
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
-            Debug.WriteLine($"Start loading species [{speciesName}] call data");
-            var imageName = (CallImages.Count != 0) ? CallImages.First(): $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat(); // One image for now
-            var audioName = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_audio.mp3".ToAndroidFilenameFormat();
+            if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] call data");
+            var imageNameX = (CallImages.Count != 0) ? CallImages.First(): $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat(); // One image for now
+            var audioNameX = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_audio.mp3".ToAndroidFilenameFormat();
 
+            CallImages.Clear();
             CallAudios.Clear();
 
-            if (!File.Exists(ZippedFiles.GetFullFilename(imageName)))
+            #region *// Load call images            
+            for (int imageNumber = 0; imageNumber < MAX_FILE_AMOUNT; imageNumber++)
             {
-                if (!File.Exists(ZippedFiles.GetFullFilename(audioName)))
+                var imageName = GenerateNumberedFilename($"{GenusId.ToLower()}_{SpeciesId.ToLower()}", "_call_image", "jpg", imageNumber);
+                if (File.Exists(ZippedFiles.GetFullFilename(imageName)))
                 {
-                    Debug.WriteLine($"Missing call image or audio for[{speciesName}]");
-                }
-                else
-                {                    
-                    CallAudios.Add(audioName);
+                    CallImages.Add(imageName);
+                } 
+            }
+            #endregion
+
+            #region *// Load call audios
+            for (int audioNumber = 0; audioNumber < MAX_FILE_AMOUNT; audioNumber++)
+            {
+                var audioName = GenerateNumberedFilename($"{GenusId.ToLower()}_{SpeciesId.ToLower()}", "_call_audio", "mp3", audioNumber);
+                if (File.Exists(ZippedFiles.GetFullFilename(audioName)))
+                {
+                    CallImages.Add(audioName);
                 }
             }
-            Debug.WriteLine($"End loading species [{speciesName}] call data");
+            #endregion
+            if ((CallImages.Count == 0) && (CallAudios.Count == 0))
+            {
+                Debug.WriteLine($"Missing call image or audio for[{speciesName}]");
+            }
+            else
+            {
+                if (!OnlyReportMissings) Debug.WriteLine($"{CallImages.Count} species [{speciesName}] call data files loaded");
+                if (!OnlyReportMissings) Debug.WriteLine($"{CallAudios.Count} species [{speciesName}] call audio files loaded");
+            }
+
+            if (!OnlyReportMissings) Debug.WriteLine($"End loading species [{speciesName}] call data");
+        }
+
+        private string GenerateNumberedFilename(string speciesName, string postFix, string extension, int imageNumber)
+        {
+            string number = (imageNumber == 0) ? "": imageNumber.ToString("N0");
+            return $"{speciesName}{postFix}{number}.{extension}".ToAndroidFilenameFormat();
         }
 
         public class CallData
@@ -132,13 +165,13 @@ namespace AusBatProtoOneMobileClient.Data
         internal void LoadDistributionMaps()
         {
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
-            Debug.WriteLine($"Start loading species [{speciesName}] distribution map image");
+            if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] distribution map image");
 
             if (!File.Exists(ZippedFiles.GetFullFilename(DistributionMapImage)))
             {
                 Debug.WriteLine($"Missing distribution map for[{speciesName}]");
             }
-            Debug.WriteLine($"End loading species [{speciesName}] distribution map image");
+            if (!OnlyReportMissings) Debug.WriteLine($"End loading species [{speciesName}] distribution map image");
         }
 
         internal Classification GetFamily(Dbase dbase)
