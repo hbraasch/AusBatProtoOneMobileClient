@@ -71,6 +71,7 @@ namespace AusBatProtoOneMobileClient.Data
         }
         internal async Task LoadImages()
         {
+            var hasHeadImage = false;
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] general images");
             var toRemoveImages = new List<string>();
@@ -85,6 +86,7 @@ namespace AusBatProtoOneMobileClient.Data
                         toRemoveImages.Add(imageName);
                         continue;
                     }
+                    hasHeadImage = true;
                 }
                 #region *// Check if hires image exists
                 if (!File.Exists(ZippedFiles.GetFullFilename(imageName)))
@@ -102,6 +104,12 @@ namespace AusBatProtoOneMobileClient.Data
                 Debug.WriteLine($"Missing images for species [{speciesName}]");
                 Images.Add("bat.png");
             }
+
+            if (!hasHeadImage)
+            {
+                Debug.WriteLine($"Missing [head] images for species [{speciesName}]");
+            }
+
             if (!OnlyReportMissings) Debug.WriteLine($"End loading species [{speciesName}] general images");
         }
         internal void LoadCalls()
