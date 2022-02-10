@@ -71,44 +71,52 @@ namespace AusBatProtoOneMobileClient.Data
         }
         internal async Task LoadImages()
         {
-            var hasHeadImage = false;
+            bool hasHeadFile = false;
+            int MAX_FILE_AMOUNT = 5;
+            var toRemoveImages = new List<string>();
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] general images");
-            var toRemoveImages = new List<string>();
-            foreach (var imageName in Images)
+
+            Images.Clear(); 
+
+            #region *// Get all hires image that comply with naming standard
+            var headImageName = $"{speciesName}_head.jpg".ToAndroidFilenameFormat();
+            if (File.Exists(ZippedFiles.GetFullFilename(headImageName)))
             {
-                if (imageName.Contains("head"))
+                // Check if [Resizetizer SharedImage] exists
+                if (!await ImageChecker.DoesImageExist(headImageName))
                 {
-                    // Check if [Resizetizer SharedImage] exists
-                    if (!await ImageChecker.DoesImageExist(imageName))
-                    {
-                        Debug.WriteLine($"Missing Resizetizer SharedImage [{imageName}] for species [{speciesName}]");
-                        toRemoveImages.Add(imageName);
-                        continue;
-                    }
-                    hasHeadImage = true;
+                    Debug.WriteLine($"Missing Resizetizer SharedImage head image [{headImageName}] for species [{speciesName}]");
                 }
-                #region *// Check if hires image exists
-                if (!File.Exists(ZippedFiles.GetFullFilename(imageName)))
+                else
                 {
-                    Debug.WriteLine($"Missing hires image [{imageName}] for species [{speciesName}]");
-                    toRemoveImages.Add(imageName);
-                    continue;
-                } 
-                #endregion
+                    Images.Add(headImageName);
+                    hasHeadFile = true;
+                }
             }
-            toRemoveImages.ForEach(o => Images.Remove(o));
+            else
+            {
+                Debug.WriteLine($"Missing head image for species [{speciesName}]");
+            }
+
+            for (int imageNumber = 0; imageNumber < MAX_FILE_AMOUNT; imageNumber++)
+            {
+                var imageName = GenerateNumberedFilename(speciesName, "", "jpg", imageNumber);
+                if (File.Exists(ZippedFiles.GetFullFilename(imageName)))
+                {
+                    Images.Add(imageName);
+                }
+            }
 
             if (Images.Count == 0)
             {
                 Debug.WriteLine($"Missing images for species [{speciesName}]");
-                Images.Add("bat.png");
             }
-
-            if (!hasHeadImage)
+            if (!hasHeadFile)
             {
-                Debug.WriteLine($"Missing [head] images for species [{speciesName}]");
+                Debug.WriteLine($"Missing head image for species [{speciesName}]");
             }
+            #endregion
 
             if (!OnlyReportMissings) Debug.WriteLine($"End loading species [{speciesName}] general images");
         }
