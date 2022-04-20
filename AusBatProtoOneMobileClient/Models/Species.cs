@@ -21,7 +21,7 @@ namespace AusBatProtoOneMobileClient.Data
 {
     public class Species
     {
-        private bool OnlyReportMissings = true;
+        private bool OnlyReportMissings = false;
 
         public string GenusId { get; set; }
         public string SpeciesId { get; set; }
@@ -32,6 +32,8 @@ namespace AusBatProtoOneMobileClient.Data
         public List<string> CallAudios { get; set; } = new List<string>();
         public List<int> RegionIds { get; set; } = new List<int>();
         public string DistributionMapImage => $"{GenusId}_{SpeciesId}_dist.jpg".ToLower();
+
+        public List<SimilarSpeciesData> SimilarSpecies = new List<SimilarSpeciesData> { };
 
         internal void LoadDetails()
         {
@@ -149,7 +151,7 @@ namespace AusBatProtoOneMobileClient.Data
                 var audioName = GenerateNumberedFilename($"{GenusId.ToLower()}_{SpeciesId.ToLower()}", "_call_audio", "mp3", audioNumber);
                 if (File.Exists(ZippedFiles.GetFullFilename(audioName)))
                 {
-                    CallImages.Add(audioName);
+                    CallAudios.Add(audioName);
                 }
             }
             #endregion
@@ -194,6 +196,12 @@ namespace AusBatProtoOneMobileClient.Data
         {
             var batFamilyId = dbase.Classifications.FirstOrDefault(o => o.Id == GenusId).Parent;
             return dbase.Classifications.FirstOrDefault(o => o.Id == batFamilyId);
+        }
+
+        public class SimilarSpeciesData
+        {
+            public string GenusId { get; set; }
+            public string SpeciesId { get; set; }
         }
     }
 

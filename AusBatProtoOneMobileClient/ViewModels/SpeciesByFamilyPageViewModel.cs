@@ -103,13 +103,16 @@ namespace DocGenOneMobileClient.Views
         {
 
             var list = new ObservableCollection<GroupedSpeciesDisplayItem>();
+            var families = App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Family);
+            var familiesOrdered = families.OrderBy(o => o.Id);
 
-            foreach (var family in App.dbase.Classifications.Where(o => o.Type == Classification.ClassificationType.Family))
+            foreach (var family in familiesOrdered)
             {
                 var genusesInFamily = App.dbase.Classifications.Where(o => o.Parent == family.Id).ToList();
                 var speciesesInFamily = App.dbase.GetAllSpecies(genusesInFamily);
+                var speciesesInFamilyOrdered = speciesesInFamily.OrderBy(species => $"{species.GenusId} {species.SpeciesId}");
                 var familyGroupDisplayItem = new GroupedSpeciesDisplayItem { FamilyName = family.Id };
-                foreach (var species in speciesesInFamily)
+                foreach (var species in speciesesInFamilyOrdered)
                 {
                     if (species != null)
                     {

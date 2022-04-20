@@ -24,16 +24,13 @@ namespace DocGenOneMobileClient.Views
     {
         List<KeyTreeNodeBase> selectedKeyTreeNodes = null;
         public class DisplayItemBase {
+            public string Name { get; set; }
             public KeyTreeNodeBase Content { get; set; }
         }
-        public class NodeDisplayItem : DisplayItemBase
-        {
-            public string Name { get; set; }
-        }
+        public class NodeDisplayItem : DisplayItemBase { }
 
         public class LeafNodeDisplayItem : DisplayItemBase
         {
-            public string SpeciesName { get; set; }
             public string CommonName { get; set; }
             public string ImageSource { get; set; }
 
@@ -103,8 +100,8 @@ namespace DocGenOneMobileClient.Views
         public ObservableCollection<DisplayItemBase> UpdateDisplay()
         {
 
-            var displayItems = new ObservableCollection<DisplayItemBase>();
-            if (selectedKeyTreeNodes.Count == 0) { displayItems.Add(new NoticeDisplayItem { }); return displayItems; }
+            var displayItems = new List<DisplayItemBase>();
+            if (selectedKeyTreeNodes.Count == 0) { displayItems.Add(new NoticeDisplayItem { }); return new ObservableCollection<DisplayItemBase>(displayItems); }
             foreach (var selectedKeyTreeNode in selectedKeyTreeNodes)
             {
                 if (selectedKeyTreeNode is LeafKeyTreeNode lktn)
@@ -112,7 +109,7 @@ namespace DocGenOneMobileClient.Views
                     var species = App.dbase.FindSpecies(lktn.GenusId, lktn.SpeciesId);
                     var imageSource = (species.Images.Count == 0) ? "bat.png": species.Images[0];
                     displayItems.Add(new LeafNodeDisplayItem { 
-                        SpeciesName = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId}",
+                        Name = $"{species.GenusId.ToUpperFirstChar()} {species.SpeciesId}",
                         CommonName = species.Name,
                         ImageSource = imageSource,
                         Content = selectedKeyTreeNode
@@ -127,8 +124,7 @@ namespace DocGenOneMobileClient.Views
                     });
                 }
             }
-
-            return displayItems;
+            return new ObservableCollection<DisplayItemBase>(displayItems.OrderBy(o=>o.Name));
 
         }
 

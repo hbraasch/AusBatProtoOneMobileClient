@@ -593,6 +593,10 @@
     <None Remove="Images\background.png" BaseSize="50,50" />
     <None Remove="Images\ic_hamburger.png" />
     <None Remove="Images\photos.png" />
+    <None Remove="Images\similar.png" />
+    <None Remove="Images\similar2.png" />
+    <None Remove="Images\similar3.png" />
+    <None Remove="Images\similar4.png" />
     <None Remove="Images\sounds.png" />
     <None Remove="Images\text.png" />
     <None Remove="Images\world.png" />
@@ -814,14 +818,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_arnhemensis_head.jpg"  BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_halli_head.jpg"  BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_ridei_head.jpg"  BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_arnhemensis_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_halli_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_ridei_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\pteropus_poliocephalus_head.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\saccolaimus_mixtus_head.jpg"  BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\scoteanax_rueppellii_head.jpg"  BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_orion_head.jpg"  BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\taphozous_kapalgensis_head.jpg"  BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\saccolaimus_mixtus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\scoteanax_rueppellii_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_orion_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\taphozous_kapalgensis_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_bisected_by_central_groove.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_with_central_groove.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\NyctophilusMuzzlePattern\raised_bump_with_central_shallow_groove.jpg" BaseSize="100,100" />
@@ -1018,6 +1022,10 @@
     <SharedImage Include="Images\background.png" BaseSize="1000,1000" />
     <SharedImage Include="Images\ic_hamburger.png" BaseSize="50,50" />
     <SharedImage Include="Images\photos.png" BaseSize="25,25" />
+    <SharedImage Include="Images\similar.png" BaseSize="25,25" />
+    <SharedImage Include="Images\similar2.png" BaseSize="25,25" />
+    <SharedImage Include="Images\similar3.png" BaseSize="25,25" />
+    <SharedImage Include="Images\similar4.png" BaseSize="100,100" />
     <SharedImage Include="Images\sounds.png" BaseSize="25,25" />
     <SharedImage Include="Images\text.png" BaseSize="25,25" />
     <SharedImage Include="Images\world.png" BaseSize="25,25" />

@@ -100,9 +100,9 @@ namespace DocGenOneMobileClient.Views
 
                 var image = new CachedImage
                 {
-                    Aspect = Aspect.AspectFit
+                    Aspect = Aspect.AspectFit,
                 };
-                image.Transformations.Add(new CircleTransformation());
+                image.Transformations.Add(new CircleTransformation() { BorderHexColor = "C0C0C0", BorderSize = 5});
                 image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(SpeciesAtoZPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
                 var grid = new Grid() { Margin = new Thickness(15, 5, 5, 5) };

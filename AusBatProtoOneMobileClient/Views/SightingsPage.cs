@@ -119,7 +119,7 @@ namespace DocGenOneMobileClient.Views
                         ErrorPlaceholder = "bat.png"
                     };
                     image.Transformations.Add(new CircleTransformation());
-                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(DisplayFilteredSpeciesPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
+                    image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(SpeciesByAreaPageViewModel.SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
                     var grid = new Grid() { Margin = 5};
                     grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });

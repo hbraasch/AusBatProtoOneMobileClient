@@ -19,7 +19,7 @@ using AusBatProtoOneMobileClient.Data;
 
 namespace DocGenOneMobileClient.Views
 {
-    public class DisplayFilteredSpeciesPageViewModel : ViewModelBase
+    public class SpeciesByAreaPageViewModel : ViewModelBase
     {
         List<Species> FilteredSpecieses;
 
@@ -61,7 +61,7 @@ namespace DocGenOneMobileClient.Views
 
         #endregion
 
-        public DisplayFilteredSpeciesPageViewModel(List<Species> specieses)
+        public SpeciesByAreaPageViewModel(List<Species> specieses)
         {
             this.FilteredSpecieses = specieses;
             SpeciesGroupDisplayItems = new ObservableCollection<GroupedSpeciesDisplayItem>();
@@ -99,9 +99,9 @@ namespace DocGenOneMobileClient.Views
         {
             var list = new ObservableCollection<GroupedSpeciesDisplayItem>();
 
-            var specieses = App.dbase.Species.OrderBy(species => $"{species.GenusId} {species.SpeciesId}");
+            var specieses = FilteredSpecieses.OrderBy(species => $"{species.GenusId} {species.SpeciesId}");
             GroupedSpeciesDisplayItem familyGroupDisplayItem = null;
-            foreach (var species in FilteredSpecieses)
+            foreach (var species in specieses)
             {
                 var alphabet = species.GenusId.Substring(0, 1).ToUpper();
                 if (!list.ToList().Exists(o => o.Alphabet == alphabet))

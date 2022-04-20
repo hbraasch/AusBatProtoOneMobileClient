@@ -103,14 +103,14 @@ namespace AusBatProtoOneMobileClient
                         LayoutOptions horizontalLayoutOptions = LayoutOptions.Center;
                         if (left == 0)
                         {
-                            textColor = Constants.APP_COLOUR;
+                            textColor = Color.White;
                             backgroundColor = Color.Gray;
                             borderColor = Color.Gray;
                             horizontalLayoutOptions = LayoutOptions.Start;
                         }
                         if (top == 0 || top == topTable.Rows.Count)
                         {
-                            textColor = Constants.APP_COLOUR;
+                            textColor = Color.White;
                             backgroundColor = Color.Gray;
                             borderColor = Color.Black;
                         }

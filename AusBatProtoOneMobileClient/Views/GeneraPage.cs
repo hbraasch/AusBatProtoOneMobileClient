@@ -98,7 +98,7 @@ namespace DocGenOneMobileClient.Views
             {
                 leafNodeDisplayItem = new DataTemplate(() => {
                     var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White, FontAttributes = FontAttributes.Italic };
-                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GeneraPageViewModel.LeafNodeDisplayItem.SpeciesName), BindingMode.TwoWay));
+                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GeneraPageViewModel.LeafNodeDisplayItem.Name), BindingMode.TwoWay));
 
                     var commonNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
                     commonNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(GeneraPageViewModel.LeafNodeDisplayItem.CommonName), BindingMode.TwoWay));

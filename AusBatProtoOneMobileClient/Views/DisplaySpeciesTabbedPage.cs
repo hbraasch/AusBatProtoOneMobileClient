@@ -17,7 +17,8 @@ namespace AusBatProtoOneMobileClient
         DisplaySpeciesImageTabPage displayBatImagesTabPage;
         DisplaySpeciesDetailsTabPage displayBatDetailsTabPage;
         DisplaySpeciesDistributionTabPage displayBatRegionsTabPage;
-        DisplaySpeciesCallTabPage displayBatCallTabPage; 
+        DisplaySpeciesCallTabPage displayBatCallTabPage;
+        DisplaySimilarSpeciesTabPage displaySimilarSpeciesTabPage;
         public DisplaySpeciesTabbedPage(DisplaySpeciesTabbedPageViewModel viewModel)
         {
             this.viewModel = viewModel;
@@ -51,6 +52,19 @@ namespace AusBatProtoOneMobileClient
             if (viewModel.Species.CallImages.Count != 0 || viewModel.Species.CallAudios.Count != 0)
             {
                 Children.Add(displayBatCallTabPage); 
+            }
+            if (viewModel.Species.SimilarSpecies.Count != 0)
+            {
+                displaySimilarSpeciesTabPage = new DisplaySimilarSpeciesTabPage(viewModel);
+                if (DeviceInfo.Platform != DevicePlatform.iOS)
+                {
+                    displaySimilarSpeciesTabPage.IconImageSource = "similar4.png";
+                }
+                else
+                {
+                    displaySimilarSpeciesTabPage.IconImageSource = "similar_ios.png";
+                }
+                Children.Add(displaySimilarSpeciesTabPage);
             }
 
             // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);

@@ -67,6 +67,20 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public double VuDecibelValue { get; set; }
         #endregion
 
+        #region *// Similar species
+        public class SpeciesDisplayItem
+        {
+            public string SpeciesName { get; set; }
+            public string FriendlyName { get; set; }
+            public string ImageSource { get; set; }
+            public Species Species { get; set; }
+        }
+
+        public ObservableCollection<SpeciesDisplayItem> SimilarSpeciesDisplayItems { get; set; }
+
+        public SpeciesDisplayItem SimilarSpeciesSelectedItem { get; set; }
+        #endregion
+
         #region *// Menu related
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsDetailsDisplay { get; set; }
@@ -80,6 +94,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             DetailsHtmlSource = new HtmlWebViewSource();
             CallDisplayItems = new ObservableCollection<CallDataItem>();
             HtmlFontSizePercentage = Settings.HtmlFontSizePercentage;
+            SimilarSpeciesDisplayItems = new ObservableCollection<SpeciesDisplayItem>();
 
             player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.PlaybackEnded += (s, e) => { 
@@ -148,8 +163,12 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
             CallDisplayItems = callDisplayItems;
 
+            SimilarSpeciesDisplayItems = GenerateSimilarSpeciesDisplayItems(Species);
+
             Debug.WriteLine($"Operation took {stopWatch.ElapsedMilliseconds} ms");
         });
+
+
 
         public ICommand OnSubsequentAppearance => commandHelper.ProduceDebouncedCommand(() => { });
 
@@ -187,6 +206,30 @@ namespace AusBatProtoOneMobileClient.ViewModels
             NavigateBack(NavigateReturnType.IsCancelled);
             isBackCancelled = true;
         });
+
+        private ObservableCollection<SpeciesDisplayItem> GenerateSimilarSpeciesDisplayItems(Species species)
+        {
+            var list = new ObservableCollection<SpeciesDisplayItem>();
+
+            foreach (var similarSpeciesId in species.SimilarSpecies)
+            {
+                var similarSpecies = App.dbase.Species.FirstOrDefault(o => o.GenusId == similarSpeciesId.GenusId && o.SpeciesId == similarSpeciesId.SpeciesId);
+                if (similarSpecies == null)
+                {
+                    Debug.WriteLine($"Species with Genus [similarSpeciesId.GenusId] and Species [similarSpeciesId.SpeciesId] does not exist");
+                    continue;
+                }
+                var imageSource = (similarSpecies.Images.Count > 0) ? similarSpecies.Images.First() : "bat.png";
+                list.Add(new SpeciesDisplayItem
+                {
+                    SpeciesName = $"{similarSpecies.GenusId.ToUpperFirstChar()} {similarSpecies.SpeciesId.ToLower()}",
+                    FriendlyName = similarSpecies.Name,
+                    ImageSource = imageSource,
+                    Species = similarSpecies
+                });
+            }
+            return list;
+        }
 
         /// <summary>
         /// Used to encapsulate extracted table data
