@@ -125,11 +125,8 @@ namespace AusBatProtoOneMobileClient.Data
         internal void LoadCalls()
         {
             int MAX_FILE_AMOUNT = 5;
-            // Currently only supports one audio per species
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
             if (!OnlyReportMissings) Debug.WriteLine($"Start loading species [{speciesName}] call data");
-            var imageNameX = (CallImages.Count != 0) ? CallImages.First(): $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_image.jpg".ToAndroidFilenameFormat(); // One image for now
-            var audioNameX = $"{GenusId.ToLower()}_{SpeciesId.ToLower()}_call_audio.mp3".ToAndroidFilenameFormat();
 
             CallImages.Clear();
             CallAudios.Clear();

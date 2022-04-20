@@ -966,7 +966,7 @@
     <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\ptero_scap.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\PteropodidaeHeadPelage\sycon_aust.jpg" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\RegionsMap\map.png" BaseSize="100,100" />
-    <SharedImage Include="Data\SpeciesImages\RegionsMap\map000.png" BaseSize="100,100" />
+    <SharedImage Include="Data\SpeciesImages\RegionsMap\map000.png" BaseSize="500,500" />
     <SharedImage Include="Data\SpeciesImages\RegionsMap\map102.png" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\RegionsMap\map103.png" BaseSize="100,100" />
     <SharedImage Include="Data\SpeciesImages\RegionsMap\map104.png" BaseSize="100,100" />

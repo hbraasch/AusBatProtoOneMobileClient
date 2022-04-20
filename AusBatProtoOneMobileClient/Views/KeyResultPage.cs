@@ -102,7 +102,7 @@ namespace DocGenOneMobileClient.Views
             {
                 leafNodeDisplayItem = new DataTemplate(() => {
                     var speciesNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Color.White, FontAttributes = FontAttributes.Italic };
-                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.SpeciesName), BindingMode.TwoWay));
+                    speciesNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.Name), BindingMode.TwoWay));
 
                     var commonNameLabel = new Label { VerticalTextAlignment = TextAlignment.Center, TextColor = Constants.COMMON_NAME_COLOUR };
                     commonNameLabel.SetBinding(Label.TextProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.CommonName), BindingMode.TwoWay));
@@ -115,7 +115,7 @@ namespace DocGenOneMobileClient.Views
                         HeightRequest = heightRequest,
                         ErrorPlaceholder = "bat.png"
                     };
-                    image.Transformations.Add(new CircleTransformation());
+                    image.Transformations.Add(new CircleTransformation() { BorderHexColor = "C0C0C0", BorderSize = 7 });
                     image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(KeyResultPageViewModel.LeafNodeDisplayItem.ImageSource), BindingMode.OneWay));
 
                     var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5) };

@@ -111,7 +111,7 @@ namespace DocGenOneMobileClient.Views
                         HeightRequest = heightRequest,
                         ErrorPlaceholder = "bat.png"
                     };
-                    image.Transformations.Add(new CircleTransformation());
+                    image.Transformations.Add(new CircleTransformation() { BorderHexColor = "C0C0C0", BorderSize = 7 });
                     image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(GeneraPageViewModel.LeafNodeDisplayItem.ImageSource), BindingMode.OneWay));
 
                     var grid = new Grid() { Margin = new Thickness(10, 5, 5, 5) };

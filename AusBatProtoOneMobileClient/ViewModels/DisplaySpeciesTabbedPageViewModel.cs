@@ -584,7 +584,30 @@ namespace AusBatProtoOneMobileClient.ViewModels
         });
 
 
+        public ICommand OnSimilarSpeciesSelectMenuPressed => commandHelper.ProduceDebouncedCommand(async () =>
+        {
 
-        
+            try
+            {
+                if (SimilarSpeciesSelectedItem == null) return;
+                var viewModel = new DisplaySpeciesTabbedPageViewModel((SimilarSpeciesSelectedItem as SpeciesDisplayItem).Species) { IsHomeEnabled = IsHomeEnabled };
+                var page = new DisplaySpeciesTabbedPage(viewModel);
+                var resultType = await NavigateToPageAsync(page, viewModel);
+                if (resultType == NavigateReturnType.GotoHome) NavigateBack(NavigateReturnType.GotoHome);
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await Application.Current.MainPage.DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
     }
 }
