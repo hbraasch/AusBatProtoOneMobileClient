@@ -318,7 +318,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             HtmlDocument document = new HtmlDocument();
             htmlTable = new HtmlTable();
-            //your html stream
+
+            // Your html stream
             document.LoadHtml(detailsHtml);
             var container = document.DocumentNode.Descendants("table").FirstOrDefault();
             if (container != null)

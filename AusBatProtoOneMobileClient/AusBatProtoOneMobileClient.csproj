@@ -111,7 +111,6 @@
     <None Remove="Data\SpeciesDataSets\scotorepens_orion_dataset.json" />
     <None Remove="Data\SpeciesDataSets\scotorepens_parnaby_dataset.json" />
     <None Remove="Data\SpeciesDataSets\scotorepens_sanborni_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\scotorepens_sp_dataset.json" />
     <None Remove="Data\SpeciesDataSets\setirostris_eleryi_dataset.json" />
     <None Remove="Data\SpeciesDataSets\syconycteris_australis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\taphozous_australis_dataset.json" />
@@ -694,7 +693,6 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_orion_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_parnaby_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_sanborni_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\scotorepens_sp_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\setirostris_eleryi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\syconycteris_australis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\taphozous_australis_dataset.json" />
@@ -772,7 +770,6 @@
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_flaviventris_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_mixtus_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\saccolaimus_saccolaimus_details.html" />
-    <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_sp_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_balstoni_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_greyii_details.html" />
     <EmbeddedResource Include="Data\SpeciesDetails\scotorepens_orion_details.html" />

@@ -25,7 +25,7 @@ namespace AusBatProtoOneMobileClient
             webView.Navigating += WebViewOnNavigatingDroid;
             webView.OnMeasurementClickedIOS = () =>
             {
-                viewModel.OnDisplayMeasurementsTableClicked.Execute(webView);
+                viewModel.OnDisplayMeasurementsTableClicked.Execute(null);
             }; 
             #endregion
 
@@ -43,7 +43,7 @@ namespace AusBatProtoOneMobileClient
         private void WebViewOnNavigatingDroid(object sender, WebNavigatingEventArgs e)
         {
             if (!e.Url.StartsWith("url", StringComparison.InvariantCultureIgnoreCase)) {
-                viewModel.OnDisplayMeasurementsTableClicked.Execute(webView);
+                viewModel.OnDisplayMeasurementsTableClicked.Execute(null);
             };
             e.Cancel = true;
         }
