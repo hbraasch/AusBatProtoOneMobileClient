@@ -2,14 +2,6 @@
   "GenusId": "chalinolobus",
   "SpeciesId": "gouldii",
   "Name": "Gould's Wattled Bat",
-  "DetailsHtml": "chalinolobus_gouldii_details.html",
-  "Images": [
-    "chalinolobus_gouldii_head.jpg",
-    "chalinolobus_gouldii2.jpg"
-  ],
-  "CallImages": [
-    "chalinolobus_gouldii_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     309,
@@ -32,5 +24,19 @@
     104,
     103
   ],
-  "DistributionMapImage": "chalinolobus_gouldii_dist.jpg"
+  "DistributionMapImage": "chalinolobus_gouldii_dist.jpg",
+  "SimilarSpecies": [
+    {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "picatus"
+    },
+     {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "nigrogriseus"
+    },
+     {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "dwyeri"
+     }
+  ]
 }

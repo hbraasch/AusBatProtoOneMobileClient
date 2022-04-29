@@ -1,16 +1,7 @@
 {
   "GenusId": "Rhinonicteris",
   "SpeciesId": "aurantia",
-  "Name": "Grey-headed Flying-fox",
-  "DetailsHtml": "rhinonicteris_aurantia_details.html",
-  "Images": [
-    "rhinonicteris_aurantia1.jpg",
-    "rhinonicteris_aurantia2.jpg",
-    "rhinonicteris_aurantia3.jpg"
-  ],
-  "CallImages": [
-    "rhinonicteris_aurantia_call_image.jpg"
-  ],
-  "RegionIds": [],
+  "Name": "Orange Diamond-faced Bat",
+  "RegionIds": [307, 302, 301, 303],
   "DistributionMapImage": "rhinonicteris_aurantia_dist.jpg"
 }

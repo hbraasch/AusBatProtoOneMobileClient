@@ -2,15 +2,6 @@
   "GenusId": "nyctimene",
   "SpeciesId": "robinsoni",
   "Name": "Eastern Tube-nosed Bat",
-  "DetailsHtml": "nyctimene_robinsoni_details.html",
-  "Images": [
-    "nyctimene_robinsoni_head.jpg",
-    "nyctimene_robinsoni1.jpg",
-    "nyctimene_robinsoni2.jpg"
-  ],
-  "CallImages": [
-    "nyctimene_robinsoni_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103,

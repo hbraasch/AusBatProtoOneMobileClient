@@ -17,7 +17,7 @@ namespace AusBatProtoOneMobileClient.Views.Components
         }
 
 
-        public Action OnMeasurementClickedIOS;
+        public Action<int> OnMeasurementClickedIOS;
 
     }
 }

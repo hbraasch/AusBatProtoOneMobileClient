@@ -2,15 +2,6 @@
   "GenusId": "Vespadelus",
   "SpeciesId": "regulus",
   "Name": "Southern Forest Bat",
-  "DetailsHtml": "vespadelus_regulus_details.html",
-  "Images": [
-    "vespadelus_regulus_head.jpg",
-    "vespadelus_regulus1.jpg",
-    "vespadelus_regulus2.jpg"
-  ],
-  "CallImages": [
-    "vespadelus_regulus_call_image.jpg"
-  ],
   "RegionIds": [
     105,
     106,
@@ -23,5 +14,23 @@
     308,
     108
   ],
-  "DistributionMapImage": "vespadelus_regulus_dist.jpg"
+  "DistributionMapImage": "vespadelus_regulus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "pumilus"
+    },
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "vulturnus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "troughtoni"
+    }
+  ]
 }

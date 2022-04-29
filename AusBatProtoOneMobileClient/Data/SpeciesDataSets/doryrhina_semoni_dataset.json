@@ -2,9 +2,20 @@
   "GenusId": "Doryrhina",
   "SpeciesId": "semoni",
   "Name": "Semon's Leaf-nosed Bat",
-  "DetailsHtml": "doryrhina_semoni_details.html",
-  "Images": [ "doryrhina_semoni_head.jpg", "doryrhina_semoni1.jpg", "doryrhina_semonii2.jpg" ],
-  "CallImages": [ "doryrhina_semoni_call_image.jpg", "doryrhina_semoni_call_image2.jpg" ],
   "RegionIds": [],
-  "DistributionMapImage": "doryrhina_semoni_dist.jpg"
+  "DistributionMapImage": "doryrhina_semoni_dist.jpg",
+  "SimilarSpecies": [
+    {
+      "GenusId": "hipposideros",
+      "SpeciesId": "ater"
+    },
+     {
+      "GenusId": "doryrhina",
+      "SpeciesId": "stenotis"
+    },
+     { 
+      "GenusId": "hipposideros",
+      "SpeciesId": "cervinus"
+    }
+  ]
 }

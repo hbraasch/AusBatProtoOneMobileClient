@@ -2,14 +2,6 @@
   "GenusId": "ozimops",
   "SpeciesId": "planiceps",
   "Name": "South-eastern Free-tailed Bat",
-  "DetailsHtml": "ozimops_planiceps_details.html",
-  "Images": [
-    "ozimops_planiceps_head.jpg",
-    "ozimops_planiceps1.jpg"
-  ],
-  "CallImages": [
-    "ozimops_planiceps_call_image.jpg"
-  ],
   "RegionIds": [
     202,
     106,
@@ -18,5 +10,15 @@
     312,
     311
   ],
-  "DistributionMapImage": "ozimops_planiceps_dist.jpg"
+  "DistributionMapImage": "ozimops_planiceps_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "ozimops",
+      "SpeciesId": "ridei"
+    },
+    { 
+      "GenusId": "ozimops",
+      "SpeciesId": "petersi"
+    }
+  ]
 }

@@ -2,15 +2,6 @@
   "GenusId": "pipistrellus",
   "SpeciesId": "adamsi",
   "Name": "Forest Pipistrelle",
-  "DetailsHtml": "pipistrellus_adamsi_details.html",
-  "Images": [
-    "pipistrellus_adamsi_head.jpg",
-    "pipistrellus_adamsi1.jpg",
-    "pipistrellus_adamsi2.jpg"
-  ],
-  "CallImages": [
-    "pipistrellus_adamsi_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -18,8 +9,6 @@
     306,
     302,
     301,
-    304,
-    305,
     202,
     312,
     203,
@@ -30,5 +19,11 @@
     106,
     107
   ],
-  "DistributionMapImage": "pipistrellus_adamsi_dist.jpg"
+  "DistributionMapImage": "pipistrellus_adamsi_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "pipistrellus",
+      "SpeciesId": "westralis"
+    }
+  ]
 }

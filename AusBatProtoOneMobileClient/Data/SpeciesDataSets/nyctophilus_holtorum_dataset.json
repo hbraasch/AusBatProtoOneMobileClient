@@ -1,16 +1,16 @@
 {
   "GenusId": "Nyctophilus",
   "SpeciesId": "holtorum",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [
-    "nyctophilus_holtorum_face.jpg",
-    "nyctophilus_holtorum.jpg"
-  ],
-  "CallImages": [ "nyctophilus_holtorum_call_image.jpg" ],
+  "Name": "Holt's Long-eared Bat",
   "RegionIds": [
     308,
     309
   ],
-  "DistributionMapImage": "nyctophilus_holtorum_dist.jpg"
+  "DistributionMapImage": "nyctophilus_holtorum_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "major_major"
+    }
+  ]
 }

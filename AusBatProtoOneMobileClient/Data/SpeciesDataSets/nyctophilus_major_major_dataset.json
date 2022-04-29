@@ -2,18 +2,23 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "major_major",
   "Name": "Western Long-eared Bat",
-  "DetailsHtml": "nyctophilus_major major_details.html",
-  "Images": [
-    "nyctophilus_major_major_head.jpg",
-    "nyctophilus_major_major1.jpg",
-    "nyctophilus_major_major2.jpg"
-  ],
-  "CallImages": [
-    "nyctophilus_major_major_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     309
   ],
-  "DistributionMapImage": "nyctophilus_major_major_dist.jpg"
+  "DistributionMapImage": "nyctophilus_major_major_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "holtorum"
+    },
+     {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "geoffroyi"
+    },
+     { 
+      "GenusId": "nyctophilus",
+      "SpeciesId": "major_tor"
+    }
+  ]
 }

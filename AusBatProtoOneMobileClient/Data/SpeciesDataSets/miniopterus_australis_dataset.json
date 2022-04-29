@@ -1,17 +1,26 @@
 {
   "GenusId": "miniopterus",
   "SpeciesId": "australis",
-  "Name": "Little Bent-winged Bat",
-  "DetailsHtml": "miniopterus_australis_details.html",
-  "Images": [ "miniopterus_australis_head.jpg", "miniopterus_australis1.jpg", "miniopterus_australis2.jpg" ],
-  "CallImages": [
-    "miniopterus_australis_call_image.jpg"
-  ],
+  "Name": "Little Long-fingered Bat",
   "RegionIds": [
     102,
     103,
     104,
     105
   ],
-  "DistributionMapImage": "miniopterus_australis_dist.jpg"
+  "DistributionMapImage": "miniopterus_australis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "morio"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     { 
+      "GenusId": "miniopterus",
+      "SpeciesId": "orianae_oceanensis"
+    }
+  ]
 }

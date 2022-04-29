@@ -2,15 +2,6 @@
   "GenusId": "pteropus",
   "SpeciesId": "alecto",
   "Name": "Black Flying-fox",
-  "DetailsHtml": "pteropus_alecto_details.html",
-  "Images": [
-    "pteropus_alecto_head.jpg",
-    "pteropus_alecto2.jpg",
-    "pteropus_alecto3.jpg"
-  ],
-  "CallImages": [
-    "pteropus_alecto_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -26,5 +17,15 @@
     105,
     106
   ],
-  "DistributionMapImage": "pteropus_alecto_dist.jpg"
+  "DistributionMapImage": "pteropus_alecto_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "pteropus",
+      "SpeciesId": "poliocephalus"
+    },
+     {
+      "GenusId": "pteropus",
+      "SpeciesId": "conspicillatus"
+    }
+  ]
 }

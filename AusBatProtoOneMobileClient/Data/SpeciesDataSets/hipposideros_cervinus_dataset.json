@@ -2,14 +2,20 @@
   "GenusId": "hipposideros",
   "SpeciesId": "cervinus",
   "Name": "Fawn Leaf-nosed Bat",
-  "DetailsHtml": "hipposideros_cervinus_details.html",
-  "Images": [
-    "hipposideros_cervinus_head.jpg",
-    "hipposideros_cervinus3.jpg"
-  ],
-  "CallImages": [
-    "hipposideros_cervinus_call_image.jpg"
-  ],
-  "RegionIds": [],
-  "DistributionMapImage": "hipposideros_cervinus_dist.jpg"
+  "RegionIds": [102],
+  "DistributionMapImage": "hipposideros_cervinus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "doryrhina",
+      "SpeciesId": "semoni"
+    },
+     {
+      "GenusId": "doryrhina",
+      "SpeciesId": "stenotis"
+    },
+     { 
+      "GenusId": "hipposideros",
+      "SpeciesId": "ater"
+    }
+  ]
 }

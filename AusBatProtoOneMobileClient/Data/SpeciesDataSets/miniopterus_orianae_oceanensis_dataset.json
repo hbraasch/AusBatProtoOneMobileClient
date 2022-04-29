@@ -1,10 +1,7 @@
 {
   "GenusId": "miniopterus",
   "SpeciesId": "orianae_oceanensis",
-  "Name": "Undefined",
-  "DetailsHtml": "miniopterus_orianae_oceanensis_details.html",
-  "Images": [ "miniopterus_orianae_oceanensis_head.jpg", "miniopterus_orianae_oceanensis.jpg", "miniopterus_orianae_oceanensis1.jpg" ],
-  "CallImages": [ "miniopterus_orianae_oceanensis_call_image.jpg" ],
+  "Name": "Eastern Long-fingered Bat",
   "RegionIds": [
     102,
     103,
@@ -13,5 +10,15 @@
     106,
     107
   ],
-  "DistributionMapImage": "miniopterus_orianae_oceanensis_dist.jpg"
+  "DistributionMapImage": "miniopterus_orianae_oceanensis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "miniopterus",
+      "SpeciesId": "orianae_oceanensis"
+    },
+     {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "gouldii"
+    }
+  ]
 }

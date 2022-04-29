@@ -2,15 +2,6 @@
   "GenusId": "pteropus",
   "SpeciesId": "scapulatus",
   "Name": "Little Red Flying-fox",
-  "DetailsHtml": "pteropus_scapulatus_details.html",
-  "Images": [
-    "pteropus_scapulatus_head.jpg",
-    "pteropus_scapulatus1.jpg",
-    "pteropus_scapulatus2.jpg"
-  ],
-  "CallImages": [
-    "pteropus_scapulatus_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -29,5 +20,20 @@
     107,
     203
   ],
-  "DistributionMapImage": "pteropus_scapulatus_dist.jpg"
+  "DistributionMapImage": "pteropus_scapulatus_dist.jpg",
+
+"SimilarSpecies": [
+    {
+      "GenusId": "pteropus",
+      "SpeciesId": "alecto"
+    },
+     {
+      "GenusId": "pteropus",
+      "SpeciesId": "conspicillatus"
+    },
+     { 
+      "GenusId": "pteropus",
+      "SpeciesId": "poliocephalus"
+    }
+  ]
 }

@@ -2,15 +2,6 @@
   "GenusId": "ozimops",
   "SpeciesId": "lumsdenae",
   "Name": "Northern Free-tail Bat",
-  "DetailsHtml": "ozimops_lumsdenae_details.html",
-  "Images": [
-    "ozimops_lumsdenae_head.jpg",
-    "ozimops_lumsdenae1.jpg",
-    "ozimops_lumsdenae2.jpg"
-  ],
-  "CallImages": [
-    "ozimops_lumsdenae_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -26,5 +17,23 @@
     202,
     105
   ],
-  "DistributionMapImage": "ozimops_lumsdenae_dist.jpg"
+  "DistributionMapImage": "ozimops_lumsdenae_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "ozimops",
+      "SpeciesId": "ridei"
+    },
+     {
+      "GenusId": "ozimops",
+      "SpeciesId": "halli"
+    },
+     { 
+      "GenusId": "ozimops",
+      "SpeciesId": "cobourgianus"
+    },
+     { 
+      "GenusId": "ozimops",
+      "SpeciesId": "petersi"
+    }
+  ]
 }

@@ -2,19 +2,16 @@
   "GenusId": "taphozous",
   "SpeciesId": "australis",
   "Name": "Coastal Sheath-tailed Bat",
-  "DetailsHtml": "taphozous_australis_details.html",
-  "Images": [
-    "taphozous_australis_head.jpg",
-    "taphozous_australis1.jpg",
-    "taphozous_australis2.jpg"
-  ],
-  "CallImages": [
-    "taphozous_australis_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103,
     104
   ],
-  "DistributionMapImage": "taphozous_australis_dist.jpg"
+  "DistributionMapImage": "taphozous_australis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "taphozous",
+      "SpeciesId": "troughtoni"
+    }
+  ]
 }

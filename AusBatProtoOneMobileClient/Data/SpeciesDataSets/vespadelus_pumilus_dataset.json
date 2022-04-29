@@ -1,10 +1,7 @@
 {
   "GenusId": "Vespadelus",
   "SpeciesId": "pumilus",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [ "vespadelus_pumilus_head.jpg", "vespadelus_pumilus.jpg", "vespadelus_pumilus1.jpg" ],
-  "CallImages": [ "vespadelus_pumulis_call_image.jpg", "vespadelus_pumulis_call_image2.jpg" ],
+  "Name": "Eastern Forest Bat",
   "RegionIds": [
     102,
     103,
@@ -12,5 +9,23 @@
     105,
     106
   ],
-  "DistributionMapImage": "vespadelus_pumilus_dist.jpg"
+  "DistributionMapImage": "vespadelus_pumilus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "regulus"
+    },
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "vulturnus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "troughtoni"
+    }
+  ]
 }

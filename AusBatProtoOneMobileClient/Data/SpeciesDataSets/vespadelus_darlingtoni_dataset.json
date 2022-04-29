@@ -1,10 +1,7 @@
 {
   "GenusId": "Vespadelus",
   "SpeciesId": "darlingtoni",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [ "vespadelus_darlingtoni_head.jpg", "vespadelus_darlingtoni.jpg", "vespadelus_darlingtoni1.jpg" ],
-  "CallImages": [ "vespadelus_darlingtoni_call_image.jpg", "vespadelus_darlingtoni_call_image2.jpg" ],
+  "Name": "Large Forest Bat",
   "RegionIds": [
     105,
     106,
@@ -12,5 +9,19 @@
     203,
     108
   ],
-  "DistributionMapImage": "vespadelus_darlingtoni_dist.jpg"
+  "DistributionMapImage": "vespadelus_darlingtoni_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "vulturnus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "regulus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "troughtoni"
+    }
+  ]
 }

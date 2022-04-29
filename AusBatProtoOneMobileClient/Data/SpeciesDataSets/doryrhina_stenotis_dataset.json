@@ -2,9 +2,23 @@
   "GenusId": "Doryrhina",
   "SpeciesId": "stenotis",
   "Name": "Northern Leaf-nosed Bat",
-  "DetailsHtml": "doryrhina_stenotis_details.html",
-  "Images": [ "doryrhina_stenotis_head.jpg", "doryrhina_stenotis.jpg" ],
-  "CallImages": [ "doryrhina_stenotis_call_image.jpg" ],
-  "RegionIds": [],
-  "DistributionMapImage": "doryrhina_stenotis_dist.jpg"
+  "RegionIds": [
+302,
+301,
+303],
+  "DistributionMapImage": "doryrhina_stenotis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "doryrhina",
+      "SpeciesId": "semoni"
+    },
+     {
+      "GenusId": "hipposideros",
+      "SpeciesId": "ater"
+    },
+     { 
+      "GenusId": "hipposideros",
+      "SpeciesId": "cervinus"
+    }
+  ]
 }

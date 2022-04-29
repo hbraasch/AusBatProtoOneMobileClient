@@ -2,15 +2,6 @@
   "GenusId": "scotorepens",
   "SpeciesId": "greyii",
   "Name": "Little Broad-nosed Bat",
-  "DetailsHtml": "scotorepens_greyii_details.html",
-  "Images": [
-    "scotorepens_greyii_head.jpg",
-    "scotorepens_greyii1.jpg",
-    "scotorepens_greyii2.jpg"
-  ],
-  "CallImages": [
-    "scotorepens_greyii_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -27,5 +18,23 @@
     203,
     312
   ],
-  "DistributionMapImage": "scotorepens_greyii_dist.jpg"
+  "DistributionMapImage": "scotorepens_greyii_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "scotorepens",
+      "SpeciesId": "balstoni"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "sanborni"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "orion"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "parnaby"
+    }
+  ]
 }

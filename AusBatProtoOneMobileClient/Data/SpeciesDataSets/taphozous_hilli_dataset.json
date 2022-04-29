@@ -2,11 +2,6 @@
   "GenusId": "taphozous",
   "SpeciesId": "hilli",
   "Name": "Hill's Sheath-tailed Bat",
-  "DetailsHtml": "taphozous_hilli_details.html",
-  "Images": [ "taphozous_hilli_head.jpg", "taphozous_hilli.jpg", "taphozous_hilli1.jpg" ],
-  "CallImages": [
-    "taphozous_hilli_call_image.jpg"
-  ],
   "RegionIds": [
     307,
     309,
@@ -14,5 +9,15 @@
     305,
     304
   ],
-  "DistributionMapImage": "taphozous_hilli_dist.jpg"
+  "DistributionMapImage": "taphozous_hilli_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "taphozous",
+      "SpeciesId": "georgianus"
+    },
+     {
+      "GenusId": "taphazous",
+      "SpeciesId": "troughtoni"
+    }
+       ]
 }

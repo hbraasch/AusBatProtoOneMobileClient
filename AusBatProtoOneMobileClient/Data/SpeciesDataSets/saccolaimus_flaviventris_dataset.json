@@ -2,15 +2,6 @@
   "GenusId": "saccolaimus",
   "SpeciesId": "flaviventris",
   "Name": "Yellow-bellied Sheath-tailed Bat",
-  "DetailsHtml": "saccolaimus_flaviventris_details.html",
-  "Images": [
-    "saccolaimus_flaviventris_head.jpg",
-    "saccolaimus_flaviventris1.jpg",
-    "saccolaimus_flaviventris2.jpg"
-  ],
-  "CallImages": [
-    "saccolaimus_flaviventris_call_image.jpg"
-  ],
   "RegionIds": [
     307,
     308,
@@ -30,5 +21,11 @@
     201,
     102
   ],
-  "DistributionMapImage": "saccolaimus_flaviventris_dist.jpg"
+  "DistributionMapImage": "saccolaimus_flaviventris_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "saccolaimus",
+      "SpeciesId": "saccolaimus"
+    }
+  ]
 }

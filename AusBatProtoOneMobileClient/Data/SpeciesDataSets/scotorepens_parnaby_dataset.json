@@ -1,12 +1,27 @@
 {
   "GenusId": "Scotorepens",
   "SpeciesId": "parnaby",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [ "scotorepens_parnaby_head.jpg", "scotorepens_parnaby.jpg", "scotorepens_parnaby1.jpg" ],
-  "CallImages": [ "scotorepens_parnaby_call_image.jpg" ],
+  "Name": "Scotorepens sp. (Parnaby)",
   "RegionIds": [
     105
   ],
-  "DistributionMapImage": "scotorepens_parnaby_dist.jpg"
+  "DistributionMapImage": "scotorepens_parnaby_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "scotorepens",
+      "SpeciesId": "greyi"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "sanborni"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "orion"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "balstoni"
+    }
+  ]
 }

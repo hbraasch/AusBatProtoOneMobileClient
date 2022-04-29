@@ -2,14 +2,6 @@
   "GenusId": "myotis",
   "SpeciesId": "macropus",
   "Name": "Large-footed Myotis",
-  "DetailsHtml": "myotis_macropus_details.html",
-  "Images": [
-    "myotis_macropus_head.jpg",
-    "myotis_macropus2.jpg"
-  ],
-  "CallImages": [
-    "myotis_macropus_call_image.jpg"
-  ],
   "RegionIds": [
     302,
     301,
@@ -23,5 +15,19 @@
     107,
     203
   ],
-  "DistributionMapImage": "myotis_macropus_dist.jpg"
+  "DistributionMapImage": "myotis_macropus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     {
+      "GenusId": "miniopterus",
+      "SpeciesId": "orianae_oceanensis"
+    },
+     { 
+      "GenusId": "miniopterus",
+      "SpeciesId": "australis"
+    }
+  ]
 }

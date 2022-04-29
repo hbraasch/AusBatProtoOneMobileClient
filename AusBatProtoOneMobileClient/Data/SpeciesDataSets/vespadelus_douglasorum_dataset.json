@@ -1,18 +1,15 @@
 {
   "GenusId": "Vespadelus",
   "SpeciesId": "douglasorum",
-  "Name": "Yellow-lipped Cave Bat",
-  "DetailsHtml": "vespadelus_douglasorum_details.html",
-  "Images": [
-    "vespadelus_douglasorum_head.jpg",
-    "vespadelus_douglasorum1.jpg",
-    "vespadelus_douglasorum2.jpg"
-  ],
-  "CallImages": [
-    "vespadelus_douglasorum_call_image.jpg"
-  ],
+  "Name": "Kimberley Cave Bat",
   "RegionIds": [
     302
   ],
-  "DistributionMapImage": "vespadelus_douglasorum_dist.jpg"
+  "DistributionMapImage": "vespadelus_douglasorum_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "caurinus"
+    }
+  ]
 }

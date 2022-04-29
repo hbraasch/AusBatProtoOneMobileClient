@@ -60,7 +60,6 @@
     <None Remove="Data\SpeciesDataSets\hipposideros_diadema_dataset.json" />
     <None Remove="Data\SpeciesDataSets\hipposideros_inornatus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\macroderma_gigas_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\macroderma_magna_dataset.json" />
     <None Remove="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
     <None Remove="Data\SpeciesDataSets\miniopterus_australis_dataset.json" />
@@ -92,7 +91,6 @@
     <None Remove="Data\SpeciesDataSets\pipistrellus_adamsi_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pipistrellus_murrayi_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pipistrellus_westralis_dataset.json" />
-    <None Remove="Data\SpeciesDataSets\pteropodidae_syconycteris_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pteropus_alecto_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pteropus_conspicillatus_dataset.json" />
     <None Remove="Data\SpeciesDataSets\pteropus_natalis_dataset.json" />
@@ -642,7 +640,6 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_diadema_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\hipposideros_inornatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_gigas_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\macroderma_magna_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\macroglossus_minimus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\micronomus_norfolkensis_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\miniopterus_australis_dataset.json" />
@@ -674,7 +671,6 @@
     <EmbeddedResource Include="Data\SpeciesDataSets\pipistrellus_adamsi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pipistrellus_murrayi_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pipistrellus_westralis_dataset.json" />
-    <EmbeddedResource Include="Data\SpeciesDataSets\pteropodidae_syconycteris_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_alecto_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_conspicillatus_dataset.json" />
     <EmbeddedResource Include="Data\SpeciesDataSets\pteropus_natalis_dataset.json" />

@@ -2,17 +2,16 @@
   "GenusId": "ozimops",
   "SpeciesId": "kitcheneri",
   "Name": "South-western Free-tailed Bat",
-  "DetailsHtml": "ozimops_kitcheneri_details.html",
-  "Images": [
-    "ozimops_kitcheneri_head.jpg"
-  ],
-  "CallImages": [
-    "ozimops_kitcheneri_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     309,
     310
   ],
-  "DistributionMapImage": "ozimops_kitcheneri_dist.jpg"
+  "DistributionMapImage": "ozimops_kitcheneri_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "ozimops",
+      "SpeciesId": "petersi"
+    }
+  ]
 }

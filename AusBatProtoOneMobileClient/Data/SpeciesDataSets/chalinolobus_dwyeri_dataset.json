@@ -2,20 +2,25 @@
   "GenusId": "chalinolobus",
   "SpeciesId": "dwyeri",
   "Name": "Large-eared Pied Bat",
-  "DetailsHtml": "chalinolobus_dwyeri_details.html",
-  "Images": [
-    "chalinolobus_dwyeri_head.jpg",
-    "chalinolobus_dwyeri1.jpg",
-    "chalinolobus_dwyeri2.jpg"
-  ],
-  "CallImages": [
-    "chalinolobus_dwyeri_call_image.jpg"
-  ],
   "RegionIds": [
     104,
     105,
     106,
     202
   ],
-  "DistributionMapImage": "chalinolobus_dwyeri_dist.jpg"
+  "DistributionMapImage": "chalinolobus_dwyeri_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "picatus"
+    },
+     {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "nigrogriseus"
+    },
+     { 
+      "GenusId": "chalinolobus",
+      "SpeciesId": "gouldii"
+    }
+  ]
 }

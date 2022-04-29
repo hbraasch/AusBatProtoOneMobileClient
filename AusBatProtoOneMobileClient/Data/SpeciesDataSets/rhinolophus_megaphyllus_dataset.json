@@ -2,19 +2,23 @@
   "GenusId": "rhinolophus",
   "SpeciesId": "megaphyllus",
   "Name": "Eastern Horseshoe-bat",
-  "DetailsHtml": "rhinolophus_megaphyllus_details.html",
-  "Images": [
-    "rhinolophus_megaphyllus_head.jpg",
-    "rhinolophus_megaphyllus1.jpg",
-    "rhinolophus_megaphyllus2.jpg"
-  ],
-  "CallImages": [
-    "rhinolophus_megaphyllus_call_image.jpg"
-  ],
   "RegionIds": [
     105,
     106,
-    107
+    107,
+    102,
+    103,
+    104
   ],
-  "DistributionMapImage": "rhinolophus_megaphyllus_dist.jpg"
+  "DistributionMapImage": "rhinolophus_megaphyllus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "rhinolophus",
+      "SpeciesId": "robertsi"
+    },
+     {
+      "GenusId": "rhinolophus",
+      "SpeciesId": "intermediate"
+       }
+  ]
 }

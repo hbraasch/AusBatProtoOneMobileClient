@@ -2,15 +2,6 @@
   "GenusId": "scotorepens",
   "SpeciesId": "sanborni",
   "Name": "Northern Broad-nosed Bat",
-  "DetailsHtml": "scotorepens_sanborni_details.html",
-  "Images": [
-    "scotorepens_sanborni_head.jpg",
-    "scotorepens_sanborni1.jpg",
-    "scotorepens_sanborni2.jpg"
-  ],
-  "CallImages": [
-    "scotorepens_sanborni_call_image.jpg"
-  ],
   "RegionIds": [
     302,
     301,
@@ -19,5 +10,23 @@
     103,
     104
   ],
-  "DistributionMapImage": "scotorepens_sanborni_dist.jpg"
+  "DistributionMapImage": "scotorepens_sanborni_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "scotorepens",
+      "SpeciesId": "greyi"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "balstoni"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "orion"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "parnaby"
+    }
+  ]
 }

@@ -2,14 +2,23 @@
   "GenusId": "micronomus",
   "SpeciesId": "norfolkensis",
   "Name": "East Coast Free-tailed Bat",
-  "DetailsHtml": "micronomus_norfolkensis_details.html",
-  "Images": [ "micronomus_norfolkensis_head.jpg", "micronomus_norfolkensis.jpg" ],
-  "CallImages": [
-    "micronomus_norfolkensis_call_image.jpg"
-  ],
   "RegionIds": [
     105,
     106
   ],
-  "DistributionMapImage": "micronomus_norfolkensis_dist.jpg"
+  "DistributionMapImage": "micronomus_norfolkensis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "ozimops",
+      "SpeciesId": "ridei"
+    },
+     {
+      "GenusId": "ozimops",
+      "SpeciesId": "planiceps"
+    },
+     { 
+      "GenusId": "ozimops",
+      "SpeciesId": "lumsdenae"
+    }
+  ]
 }

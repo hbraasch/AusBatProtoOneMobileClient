@@ -2,18 +2,15 @@
   "GenusId": "murina",
   "SpeciesId": "florium",
   "Name": "Flute-nosed Bat",
-  "DetailsHtml": "murina_florium_details.html",
-  "Images": [
-    "murina_florium_head.jpg",
-    "murina_florium1.jpg",
-    "murina_florium2.jpg"
-  ],
-  "CallImages": [
-    "murina_florium_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103
   ],
-  "DistributionMapImage": "murina_florium_dist.jpg"
+  "DistributionMapImage": "murina_florium_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "phoniscus",
+      "SpeciesId": "papuensis"
+    }
+  ]
 }

@@ -1,10 +1,7 @@
 {
   "GenusId": "Vespadelus",
   "SpeciesId": "baverstocki",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [ "vespadelus_baverstocki_head.jpg", "vespadelus_baverstocki.jpg", "vespadelus_baverstocki1.jpg" ],
-  "CallImages": [ "vespadelus_baverstocki_call_image.jpg" ],
+  "Name": "Inland Forest Bat",
   "RegionIds": [
     309,
     305,
@@ -13,5 +10,15 @@
     312,
     202
   ],
-  "DistributionMapImage": "vespadelus_baverstocki_dist.jpg"
+  "DistributionMapImage": "vespadelus_baverstocki_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "vulturnus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "regulus"
+    }
+  ]
 }

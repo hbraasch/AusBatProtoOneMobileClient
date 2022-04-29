@@ -2,15 +2,6 @@
   "GenusId": "chalinolobus",
   "SpeciesId": "morio",
   "Name": "Chocolate Wattled Bat",
-  "DetailsHtml": "chalinolobus_morio_details.html",
-  "Images": [
-    "chalinolobus_morio_head.jpg",
-    "chalinolobus_morio1.jpg",
-    "chalinolobus_morio2.jpg"
-  ],
-  "CallImages": [
-    "chalinolobus_morio_call_image.jpg"
-  ],
   "RegionIds": [
     307,
     305,
@@ -27,5 +18,19 @@
     309,
     308
   ],
-  "DistributionMapImage": "chalinolobus_morio_dist.jpg"
+  "DistributionMapImage": "chalinolobus_morio_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     {
+      "GenusId": "miniopterus",
+      "SpeciesId": "australis"
+    },
+     { 
+      "GenusId": "chalinolobus",
+      "SpeciesId": "gouldii"
+    }
+  ]
 }

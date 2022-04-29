@@ -2,13 +2,6 @@
   "GenusId": "falsistrellus",
   "SpeciesId": "mackenziei",
   "Name": "Western False Pipistrelle",
-  "DetailsHtml": "falsistrellus_mackenziei_details.html",
-  "Images": [
-    "falsistrellus_mackenziei_head.jpg",
-    "falsistrellus_mackenziei1.jpg",
-    "falsistrellus_mackenziei2.jpg"
-  ],
-  "CallImages": [ "falsistrellus_mackenzei_call_image.jpg", "falsistrellus_mackenzei_call_image1.jpg" ],
   "RegionIds": [
     309,
     308

@@ -2,17 +2,15 @@
   "GenusId": "pteropus",
   "SpeciesId": "conspicillatus",
   "Name": "Spectacled Flying-fox",
-  "DetailsHtml": "pteropus_conspicillatus_details.html",
-  "Images": [
-    "pteropus_conspicillatus_head.jpg",
-    "pteropus_conspicillatus1.jpg"
-  ],
-  "CallImages": [
-    "pteropus_conspicillatus_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103
   ],
-  "DistributionMapImage": "pteropus_conspicillatus_dist.jpg"
+  "DistributionMapImage": "pteropus_conspicillatus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "pteropus",
+      "SpeciesId": "alecto"
+    }
+  ]
 }

@@ -2,15 +2,6 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "geoffroyi",
   "Name": "Lesser Long-eared Bat",
-  "DetailsHtml": "nyctophilus_geoffroyi_details.html",
-  "Images": [
-    "nyctophilus_geoffroyi_head.jpg",
-    "nyctophilus_geoffroyi1.jpg",
-    "nyctophilus_geoffroyi2.jpg"
-  ],
-  "CallImages": [
-    "nyctophilus_geoffroyi_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -36,5 +27,31 @@
     311,
     108
   ],
-  "DistributionMapImage": "nyctophilus_geoffroyi_dist.jpg"
+  "DistributionMapImage": "nyctophilus_geoffroyi_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "arnhemensis"
+    },
+     {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "daedalus"
+    },
+     { 
+      "GenusId": "nyctophilus",
+      "SpeciesId": "gouldi"
+    },
+     { 
+      "GenusId": "nyctophilus",
+      "SpeciesId": "bifax"
+    },
+     { 
+      "GenusId": "nyctophilus",
+      "SpeciesId": "sherrini"
+    },
+     { 
+      "GenusId": "nyctophilus",
+      "SpeciesId": "holtorum"
+    }
+  ]
 }

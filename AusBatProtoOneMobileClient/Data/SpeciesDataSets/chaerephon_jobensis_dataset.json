@@ -2,15 +2,6 @@
   "GenusId": "chaerephon",
   "SpeciesId": "jobensis",
   "Name": "Northern Wrinkle-lipped Bat",
-  "DetailsHtml": "chaerephon_jobensis_details.html",
-  "Images": [
-    "chaerephon_jobensis_head.jpg",
-    "chaerephon_jobensis1.jpg",
-    "chaerephon_jobensis2.jpg"
-  ],
-  "CallImages": [
-    "chaerephon_jobensis_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -25,5 +16,11 @@
     104,
     202
   ],
-  "DistributionMapImage": "chaerephon_jobensis_dist.jpg"
+  "DistributionMapImage": "chaerephon_jobensis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "austronomus",
+      "SpeciesId": "australis"
+    } 
+  ]
 }

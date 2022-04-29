@@ -2,15 +2,6 @@
   "GenusId": "taphozous",
   "SpeciesId": "georgianus",
   "Name": "Common Sheath-tailed Bat",
-  "DetailsHtml": "taphozous_georgianus_details.html",
-  "Images": [
-    "taphozous_georgianus_head.jpg",
-    "taphozous_georgianus1.jpg",
-    "taphozous_georgianus2.jpg"
-  ],
-  "CallImages": [
-    "taphozous_georgianus_call_image.jpg"
-  ],
   "RegionIds": [
     307,
     302,
@@ -18,5 +9,11 @@
     304,
     303
   ],
-  "DistributionMapImage": "taphozous_georgianus_dist.jpg"
+  "DistributionMapImage": "taphozous_georgianus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "taphozous",
+      "SpeciesId": "hilli"
+    }
+  ]
 }

@@ -2,15 +2,6 @@
   "GenusId": "pipistrellus",
   "SpeciesId": "westralis",
   "Name": "Northern Pipistrelle",
-  "DetailsHtml": "pipistrellus_westralis_details.html",
-  "Images": [
-    "pipistrellus_westralis_head.jpg",
-    "pipistrellus_westralis1.jpg",
-    "pipistrellus_westralis2.jpg"
-  ],
-  "CallImages": [
-    "pipistrellus_westralis_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -27,5 +18,11 @@
     203,
     312
   ],
-  "DistributionMapImage": "pipistrellus_westralis_dist.jpg"
+  "DistributionMapImage": "pipistrellus_westralis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "pipistrellus",
+      "SpeciesId": "adamsi"
+    }
+  ]
 }

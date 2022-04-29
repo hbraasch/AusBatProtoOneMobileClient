@@ -2,15 +2,6 @@
   "GenusId": "austonomus",
   "SpeciesId": "australis",
   "Name": "White-striped Freetail Bat",
-  "DetailsHtml": "austonomus_australis_details.html",
-  "Images": [
-    "austonomus_australis_head.jpg",
-    "austonomus_australis2.jpg",
-    "austonomus_australis3.jpg"
-  ],
-  "CallImages": [
-    "austonomus_australis_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     309,
@@ -31,14 +22,10 @@
     108
   ],
   "DistributionMapImage": "austonomus_australis_dist.jpg",
-  "SimilarSpecies": [
+"SimilarSpecies": [
     {
       "GenusId": "chaerephon",
       "SpeciesId": "jobensis"
-    },
-    {
-      "GenusId": "chalinolobus",
-      "SpeciesId": "dwyeri"
-    }
+    } 
   ]
 }

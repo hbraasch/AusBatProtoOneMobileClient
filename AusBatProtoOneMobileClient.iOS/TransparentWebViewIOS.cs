@@ -43,9 +43,10 @@ namespace AusBatProtoOneMobileClient.iOS
             public override void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
             {
 
-                if (webView.Url.AbsoluteString.Contains("measurements.html"))
+                if (webView.Url.AbsoluteString.Contains("measurement"))
                 {
-                    data?.OnMeasurementClickedIOS.Invoke();
+                    var index = ExtractIndex(webView.Url.AbsoluteString);
+                    data?.OnMeasurementClickedIOS.Invoke(index);
                     return;
                 }
 
@@ -63,6 +64,18 @@ namespace AusBatProtoOneMobileClient.iOS
                 };
                 webView.EvaluateJavaScript(jscript, handler);
 
+                // Exit
+
+                int ExtractIndex(string url)
+                {
+                    var firstSplit = url.Split('?');
+                    if (firstSplit.Length != 2) throw new ApplicationException("Url is incomplete");
+                    var secondSplit = firstSplit[1].Split('=');
+                    if (firstSplit.Length != 2) throw new ApplicationException("Url has no index parameter");
+                    var success = int.TryParse(secondSplit[1], out var value);
+                    if (!success) throw new ApplicationException("Url index parameter is not a number");
+                    return value;
+                }
             }
 
             public override void DidFailNavigation(WKWebView webView, WKNavigation navigation, NSError error)

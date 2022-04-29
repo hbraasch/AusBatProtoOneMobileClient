@@ -24,9 +24,9 @@ namespace AusBatProtoOneMobileClient
 
             #region *// Navigation. Needed to handle Droid and IOS differently. IOS does not trigger the Xamarin Forms [Navigating] event 
             webView.Navigating += WebViewOnNavigatingDroid;
-            webView.OnMeasurementClickedIOS = () =>
+            webView.OnMeasurementClickedIOS = (index) =>
             {
-                viewModel.OnDisplayMeasurementsTableClicked.Execute(null);
+                viewModel.OnDisplayMeasurementsTableClicked.Execute(index);
             }; 
             #endregion
 

@@ -2,20 +2,21 @@
   "GenusId": "saccolaimus",
   "SpeciesId": "saccolaimus",
   "Name": "Bare-rumped Sheath-tailed Bat",
-  "DetailsHtml": "saccolaimus_saccolaimus_details.html",
-  "Images": [
-    "saccolaimus_saccolaimus_head.jpg",
-    "saccolaimus_saccolaimus2.jpg",
-    "saccolaimus_saccolaimus3.jpg"
-  ],
-  "CallImages": [
-    "saccolaimus_saccolaimus_call_image.jpg"
-  ],
   "RegionIds": [
     301,
     102,
     103,
     104
   ],
-  "DistributionMapImage": "saccolaimus_saccolaimus_dist.jpg"
+  "DistributionMapImage": "saccolaimus_saccolaimus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "saccolaimus",
+      "SpeciesId": "flaviventris"
+    },
+     {
+      "GenusId": "saccolaimus",
+      "SpeciesId": "mixtus"
+    }
+  ]
 }

@@ -2,15 +2,6 @@
   "GenusId": "phoniscus",
   "SpeciesId": "papuensis",
   "Name": "Golden-tipped Bat",
-  "DetailsHtml": "phoniscus_papuensis_details.html",
-  "Images": [
-    "phoniscus_papuensis_head.jpg",
-    "phoniscus_papuensis1.jpg",
-    "phoniscus_papuensis2.jpg"
-  ],
-  "CallImages": [
-    "phoniscus_papuensis_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103,
@@ -19,5 +10,11 @@
     106,
     107
   ],
-  "DistributionMapImage": "phoniscus_papuensis_dist.jpg"
+  "DistributionMapImage": "phoniscus_papuensis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "murina",
+      "SpeciesId": "florium"
+    }
+  ]
 }

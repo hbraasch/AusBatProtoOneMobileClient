@@ -2,15 +2,18 @@
   "GenusId": "ozimops",
   "SpeciesId": "halli",
   "Name": "Cape York Free-tailed Bat",
-  "DetailsHtml": "ozimops_halli_details.html",
-  "Images": [
-    "ozimops_halli2.jpg"
-  ],
-  "CallImages": [
-    "ozimops_halli_call_image.jpg"
-  ],
   "RegionIds": [
     201
   ],
-  "DistributionMapImage": "ozimops_halli_dist.jpg"
+  "DistributionMapImage": "ozimops_halli_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "ozimops",
+      "SpeciesId": "lumsdenae"
+    },
+     {
+      "GenusId": "ozimops",
+      "SpeciesId": "ridei"
+    }
+  ]
 }

@@ -2,17 +2,18 @@
   "GenusId": "rhinolophus",
   "SpeciesId": "intermediate",
   "Name": "Lesser Large-eared Horseshoe-bat",
-  "DetailsHtml": "rhinolophus_intermediate_details.html",
-  "Images": [
-    "rhinolophus_intermediate_head.jpg",
-    "rhinolophus_intermediate1.jpg",
-    "rhinolophus_intermediate2.jpg"
-  ],
-  "CallImages": [
-    "rhinolophus_intermediate_call_image.jpg"
-  ],
   "RegionIds": [
     102
   ],
-  "DistributionMapImage": "rhinolophus_intermediate_dist.jpg"
+  "DistributionMapImage": "rhinolophus_intermediate_dist.jpg",
+ "SimilarSpecies": [
+    {
+      "GenusId": "rhinolophus",
+      "SpeciesId": "robertsi"
+    },
+     {
+      "GenusId": "rhinolophus",
+      "SpeciesId": "megaphyllus"
+    }
+  ]
 }

@@ -2,15 +2,6 @@
   "GenusId": "pteropus",
   "SpeciesId": "natalis",
   "Name": "Christmas Island Flying-fox",
-  "DetailsHtml": "pteropus_natalis_details.html",
-  "Images": [
-    "pteropus_natalis_head.jpg",
-    "pteropus_natalis1.jpg",
-    "pteropus_natalis2.jpg"
-  ],
-  "CallImages": [
-    "pteropus_natalis_call_image.jpg"
-  ],
   "RegionIds": [
     400
   ],

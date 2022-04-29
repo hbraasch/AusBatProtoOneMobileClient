@@ -1,19 +1,19 @@
 {
   "GenusId": "miniopterus",
   "SpeciesId": "orianae_bassanii",
-  "Name": "Southern Bent-winged Bat",
-  "DetailsHtml": "miniopterus_orianae bassanii_details.html",
-  "Images": [
-    "miniopterus_orianae_bassanii_head.jpg",
-    "miniopterus_orianae_bassanii1.jpg",
-    "miniopterus_orianae_bassanii2.jpg"
-  ],
-  "CallImages": [
-    "miniopterus_orianae_bassanii_call_image.jpg",
-    "miniopterus_orianae_bassanii_call_image1.jpg"
-  ],
+  "Name": "Southern Long-fingered Bat",
   "RegionIds": [
     203
   ],
-  "DistributionMapImage": "miniopterus_orianae_bassanii_dist.jpg"
+  "DistributionMapImage": "miniopterus_orianae_bassanii_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "chalinolobus",
+      "SpeciesId": "gouldii"
+    },
+     {
+      "GenusId": "miniopterus",
+      "SpeciesId": "orianae_oceanensis"
+    }
+  ]
 }

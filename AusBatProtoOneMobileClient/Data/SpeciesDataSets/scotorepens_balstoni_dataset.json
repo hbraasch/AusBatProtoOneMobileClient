@@ -2,15 +2,6 @@
   "GenusId": "scotorepens",
   "SpeciesId": "balstoni",
   "Name": "Inland Broad-nosed Bat",
-  "DetailsHtml": "scotorepens_balstoni_details.html",
-  "Images": [
-    "scotorepens_balstoni_head.jpg",
-    "scotorepens_balstoni1.jpg",
-    "scotorepens_balstoni2.jpg"
-  ],
-  "CallImages": [
-    "scotorepens_balstoni_call_image.jpg"
-  ],
   "RegionIds": [
     308,
     307,
@@ -30,5 +21,23 @@
     106,
     107
   ],
-  "DistributionMapImage": "scotorepens_balstoni_dist.jpg"
+  "DistributionMapImage": "scotorepens_balstoni_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "scotorepens",
+      "SpeciesId": "greyi"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "sanborni"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "orion"
+    },
+     {
+      "GenusId": "scotorepens",
+      "SpeciesId": "parnaby"
+    }
+  ]
 }

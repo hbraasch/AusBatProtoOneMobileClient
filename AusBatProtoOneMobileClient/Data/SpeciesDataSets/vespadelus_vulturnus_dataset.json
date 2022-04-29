@@ -1,10 +1,7 @@
 {
   "GenusId": "Vespadelus",
   "SpeciesId": "vulturnus",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [ "vespadelus_vulturnus_head.jpg", "vespadelus_vulturnus.jpg", "vespadelus_vulturnus1.jpg" ],
-  "CallImages": [ "vespadelus-vulturnus_call_image.jpg", "vespadelus-vulturnus_call_image1.jpg" ],
+  "Name": "Little Forest Bat",
   "RegionIds": [
     305,
     202,
@@ -15,5 +12,23 @@
     108,
     312
   ],
-  "DistributionMapImage": "vespadelus_vulturnus_dist.jpg"
+  "DistributionMapImage": "vespadelus_vulturnus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "regulus"
+    },
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "pumilus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "troughtoni"
+    }
+  ]
 }

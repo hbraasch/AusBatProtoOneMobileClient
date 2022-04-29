@@ -2,19 +2,21 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "bifax",
   "Name": "Eastern Long-eared Bat",
-  "DetailsHtml": "nyctophilus_bifax_details.html",
-  "Images": [
-    "nyctophilus_bifax_head.jpg",
-    "nyctophilus_bifax3.jpg"
-  ],
-  "CallImages": [
-    "nyctophilus_bifax_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103,
     104,
     105
   ],
-  "DistributionMapImage": "nyctophilus_bifax_dist.jpg"
+  "DistributionMapImage": "nyctophilus_bifax_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "gouldi"
+    },
+     {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "corbeni"
+    }
+  ]
 }

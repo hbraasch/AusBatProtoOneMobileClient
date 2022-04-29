@@ -2,20 +2,17 @@
   "GenusId": "Vespadelus",
   "SpeciesId": "caurinus",
   "Name": "Northern Cave Bat",
-  "DetailsHtml": "vespadelus_caurinus_details.html",
-  "Images": [
-    "vespadelus_caurinus_head.jpg",
-    "vespadelus_caurinus1.jpg",
-    "vespadelus_caurinus2.jpg"
-  ],
-  "CallImages": [
-    "vespadelus_caurinus_call_image.jpg"
-  ],
   "RegionIds": [
     302,
     301,
     303,
     304
   ],
-  "DistributionMapImage": "vespadelus_caurinus_dist.jpg"
+  "DistributionMapImage": "vespadelus_caurinus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "finlaysoni"
+    }
+  ]
 }

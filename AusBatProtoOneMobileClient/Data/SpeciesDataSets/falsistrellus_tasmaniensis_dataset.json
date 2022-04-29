@@ -2,15 +2,6 @@
   "GenusId": "falsistrellus",
   "SpeciesId": "tasmaniensis",
   "Name": "Eastern False Pipistrelle",
-  "DetailsHtml": "falsistrellus_tasmaniensis_details.html",
-  "Images": [
-    "falsistrellus_tasmaniensis_head.jpg",
-    "falsistrellus_tasmaniensis1.jpg",
-    "falsistrellus_tasmaniensis2.jpg"
-  ],
-  "CallImages": [
-    "falsistrellus_tasmaniensis_call_image.jpg"
-  ],
   "RegionIds": [
     105,
     106,
@@ -18,5 +9,11 @@
     203,
     108
   ],
-  "DistributionMapImage": "falsistrellus_tasmaniensis_dist.jpg"
+  "DistributionMapImage": "falsistrellus_tasmaniensis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "scoteanax",
+      "SpeciesId": "rueppellii"
+    }
+  ]
 }

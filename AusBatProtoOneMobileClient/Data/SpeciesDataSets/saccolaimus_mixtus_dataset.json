@@ -2,16 +2,19 @@
   "GenusId": "saccolaimus",
   "SpeciesId": "mixtus",
   "Name": "Cape York Sheath-tailed Bat",
-  "DetailsHtml": "saccolaimus_mixtus_details.html",
-  "Images": [
-    "saccolaimus_mixtus1.jpg"
-  ],
-  "CallImages": [
-    "saccolaimus_mixtus_call_image.jpg"
-  ],
   "RegionIds": [
     201,
     102
   ],
-  "DistributionMapImage": "saccolaimus_mixtus_dist.jpg"
+  "DistributionMapImage": "saccolaimus_mixtus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "saccolaimus",
+      "SpeciesId": "flaviventris"
+    },
+     {
+      "GenusId": "saccolaimus",
+      "SpeciesId": "saccolaimus"
+    }
+  ]
 }

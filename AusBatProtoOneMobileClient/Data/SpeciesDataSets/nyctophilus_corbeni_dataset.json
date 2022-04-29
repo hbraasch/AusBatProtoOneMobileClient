@@ -2,20 +2,21 @@
   "GenusId": "nyctophilus",
   "SpeciesId": "corbeni",
   "Name": "South-eastern Long-eared Bat",
-  "DetailsHtml": "nyctophilus_corbeni_details.html",
-  "Images": [
-    "nyctophilus_corbeni_head.jpg",
-    "nyctophilus_corbeni1.jpg",
-    "nyctophilus_corbeni2.jpg"
-  ],
-  "CallImages": [
-    "nyctophilus_corbeni_call_image.jpg"
-  ],
   "RegionIds": [
     202,
     203,
     105,
     104
   ],
-  "DistributionMapImage": "nyctophilus_corbeni_dist.jpg"
+  "DistributionMapImage": "nyctophilus_corbeni_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "bifax"
+    },
+     {
+      "GenusId": "nyctophilus",
+      "SpeciesId": "gouldi"
+    }
+  ]
 }

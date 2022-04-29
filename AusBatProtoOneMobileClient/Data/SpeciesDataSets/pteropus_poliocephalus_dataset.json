@@ -2,14 +2,6 @@
   "GenusId": "pteropus",
   "SpeciesId": "poliocephalus",
   "Name": "Grey-headed Flying-fox",
-  "DetailsHtml": "pteropus_poliocephalus_details.html",
-  "Images": [
-    "pteropus_poliocephalus1.jpg",
-    "pteropus_poliocephalus2.jpg"
-  ],
-  "CallImages": [
-    "pteropus_poliocephalus_call_image.jpg"
-  ],
   "RegionIds": [
     105,
     106,
@@ -17,5 +9,15 @@
     203,
     312
   ],
-  "DistributionMapImage": "pteropus_poliocephalus_dist.jpg"
+  "DistributionMapImage": "pteropus_poliocephalus_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "pteropus",
+      "SpeciesId": "alecto"
+    },
+     {
+      "GenusId": "pteropus",
+      "SpeciesId": "scapulatus"
+    }
+  ]
 }

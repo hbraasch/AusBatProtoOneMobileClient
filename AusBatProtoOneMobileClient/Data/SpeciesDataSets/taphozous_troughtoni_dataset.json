@@ -2,20 +2,26 @@
   "GenusId": "taphozous",
   "SpeciesId": "troughtoni",
   "Name": "Troughton's Sheath-tailed Bat",
-  "DetailsHtml": "taphozous_troughtoni_details.html",
-  "Images": [
-    "taphozous_troughtoni_head.jpg",
-    "taphozous_troughtoni1.jpg",
-    "taphozous_troughtoni2.jpg"
-  ],
-  "CallImages": [
-    "taphozous_troughtoni_call_image.jpg"
-  ],
   "RegionIds": [
     103,
     202,
     104,
     105
   ],
-  "DistributionMapImage": "taphozous_troughtoni_dist.jpg"
+  "DistributionMapImage": "taphozous_troughtoni_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "taphozous",
+      "SpeciesId": "hilli"
+    },
+     {
+      "GenusId": "taphozous",
+      "SpeciesId": "australis"
+    },
+     {
+      "GenusId": "taphozous",
+      "SpeciesId": "georgianus"
+    }
+     
+  ]
 }

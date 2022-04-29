@@ -2,12 +2,14 @@
   "GenusId": "Dobsonia",
   "SpeciesId": "magna",
   "Name": "Bare-backed Fruit Bat",
-  "DetailsHtml": null,
-  "DataTag": null,
-  "Images": [ "dobsonia_magna_head.jpg", "dobsonia_magna.jpg", "dobsonia_magna1.jpg" ],
-  "CallImages": [],
   "RegionIds": [
     102
   ],
-  "DistributionMapImage": "dobsonia_magna_dist.jpg"
+  "DistributionMapImage": "dobsonia_magna_dist.jpg",
+  "SimilarSpecies": [
+    {
+      "GenusId": "pteropus",
+      "SpeciesId": "scapulatus"
+    }
+  ]
 }

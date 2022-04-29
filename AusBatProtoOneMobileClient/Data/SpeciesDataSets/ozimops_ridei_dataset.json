@@ -2,14 +2,6 @@
   "GenusId": "ozimops",
   "SpeciesId": "ridei",
   "Name": "Eastern Free-tailed Bat",
-  "DetailsHtml": "ozimops_ridei_details.html",
-  "Images": [
-    "ozimops_ridei1.jpg",
-    "ozimops_ridei2.jpg"
-  ],
-  "CallImages": [
-    "ozimops_ridei_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103,
@@ -21,5 +13,23 @@
     312,
     210
   ],
-  "DistributionMapImage": "ozimops_ridei_dist.jpg"
+  "DistributionMapImage": "ozimops_ridei_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "ozimops",
+      "SpeciesId": "lumsdenae"
+    },
+     {
+      "GenusId": "setirostris",
+      "SpeciesId": "eleryi"
+    },
+     { 
+      "GenusId": "ozimops",
+      "SpeciesId": "planiceps"
+    },
+     { 
+      "GenusId": "ozimops",
+      "SpeciesId": "petersi"
+    }
+  ]
 }

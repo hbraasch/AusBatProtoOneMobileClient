@@ -1,10 +1,7 @@
 {
   "GenusId": "Vespadelus",
   "SpeciesId": "troughtoni",
-  "Name": "Undefined",
-  "DetailsHtml": null,
-  "Images": [ "vespadelus_troughtoni_head.jpg", "vespadelus_troughtoni.jpg" ],
-  "CallImages": [ "vespadelus_troughtoni1.jpg" ],
+  "Name": "Eastern Cave Bat",
   "RegionIds": [
     102,
     103,
@@ -12,5 +9,23 @@
     202,
     105
   ],
-  "DistributionMapImage": "vespadelus_troughtoni_dist.jpg"
+  "DistributionMapImage": "vespadelus_troughtoni_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "darlingtoni"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "regulus"
+    },
+    {
+      "GenusId": "vespadelus",
+      "SpeciesId": "vulturnus"
+    },
+     {
+      "GenusId": "vespadelus",
+      "SpeciesId": "pumilus"
+    }
+  ]
 }

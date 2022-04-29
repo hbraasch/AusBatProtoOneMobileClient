@@ -2,20 +2,17 @@
   "GenusId": "syconycteris",
   "SpeciesId": "australis",
   "Name": "Eastern Blossom Bat",
-  "DetailsHtml": "syconycteris_australis_details.html",
-  "Images": [
-    "syconycteris_australis_head.jpg",
-    "syconycteris_australis1.jpg",
-    "syconycteris_australis2.jpg"
-  ],
-  "CallImages": [
-    "syconycteris_australis_call_image.jpg"
-  ],
   "RegionIds": [
     102,
     103,
     104,
     105
   ],
-  "DistributionMapImage": "syconycteris_australis_dist.jpg"
+  "DistributionMapImage": "syconycteris_australis_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "macroglossus",
+      "SpeciesId": "minimus"
+    }
+  ]
 }

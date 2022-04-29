@@ -2,13 +2,12 @@
   "GenusId": "scoteanax",
   "SpeciesId": "rueppellii",
   "Name": "Greater Broad-nosed Bat",
-  "DetailsHtml": "scoteanax_rueppellii_details.html",
-  "Images": [
-    "scoteanax_rueppellii1.jpg"
-  ],
-  "CallImages": [
-    "scoteanax_rueppellii_call_image.jpg"
-  ],
-  "RegionIds": [103, 104, 105,106],
-  "DistributionMapImage": "scoteanax_rueppellii_dist.jpg"
+  "RegionIds": [103, 104, 105, 106, 107],
+  "DistributionMapImage": "scoteanax_rueppellii_dist.jpg",
+"SimilarSpecies": [
+    {
+      "GenusId": "falsistrellus",
+      "SpeciesId": "tasmaniensis"
+    }
+  ]
 }

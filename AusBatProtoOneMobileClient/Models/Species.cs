@@ -131,7 +131,7 @@ namespace AusBatProtoOneMobileClient.Data
             CallImages.Clear();
             CallAudios.Clear();
 
-            #region *// Load call images            
+            #region *// Load call images using naming standard           
             for (int imageNumber = 0; imageNumber < MAX_FILE_AMOUNT; imageNumber++)
             {
                 var imageName = GenerateNumberedFilename($"{GenusId.ToLower()}_{SpeciesId.ToLower()}", "_call_image", "jpg", imageNumber);
