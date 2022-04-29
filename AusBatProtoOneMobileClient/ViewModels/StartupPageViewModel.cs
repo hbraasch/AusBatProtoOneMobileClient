@@ -148,12 +148,71 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 ActivityIndicatorStop();
             }
         });
-
-        public ICommand OnAboutButtonClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnAcknowledgementsMenuClicked => commandHelper.ProduceDebouncedCommand(async () => {
             try
             {
-                var viewModel = new AboutPageViewModel();
-                var page = new AboutPage(viewModel);
+                var viewModel = new DisplayHtmlPageViewModel()
+                {
+                    Title = "Acknowledgements",
+                    Html = App.dbase.AcknowledgementsHtml
+                };
+                var page = new DisplayHtmlPage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+
+        public ICommand OnCopyrightMenuClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new DisplayHtmlPageViewModel()
+                {
+                    Title = "Copyrights",
+                    Html = App.dbase.CopyrightHtml
+                };
+                var page = new DisplayHtmlPage(viewModel);
+                await NavigateToPageAsync(page, viewModel);
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
+        });
+        public ICommand OnAboutMenuClicked => commandHelper.ProduceDebouncedCommand(async () => {
+            try
+            {
+                var viewModel = new DisplayHtmlPageViewModel() {
+                    Title = "About",
+                    Html = App.dbase.AboutHtml.Replace("<<<TEXT>>>", $"<p style=\"color: white\">{Constants.APP_NAME}</p><p style=\"color: red\">Version: {Settings.CurrentDataVersion}</p>")
+                };
+                var page = new DisplayHtmlPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)

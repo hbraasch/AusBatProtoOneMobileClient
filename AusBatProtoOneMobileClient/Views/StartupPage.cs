@@ -64,21 +64,12 @@ namespace AusBatProtoOneMobileClient
             };
             areaListingButton.Clicked += (s, e) => { viewModel.OnAreaListingsClicked.Execute(null); };
 
-            var aboutButton = new Button
-            {
-                Text = "About",
-                Style = Styles.RoundedButtonStyle,
-                BackgroundColor = Color.DarkGray.MultiplyAlpha(0.5)
-            };
-            aboutButton.Clicked += (s, e) => { viewModel.OnAboutButtonClicked.Execute(null); };
-
-
+            
 
             var grid = new Grid
             {
                 RowDefinitions =
                 {
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) },
@@ -101,7 +92,6 @@ namespace AusBatProtoOneMobileClient
             grid.Children.Add(speciesAtozButton, 0, 3);
             grid.Children.Add(speciesByFamilyButton, 0, 4);
             grid.Children.Add(areaListingButton, 0, 5);
-            grid.Children.Add(aboutButton, 0, 6);
 
             var mainLayout = new StackLayout { Children = { grid }, VerticalOptions = LayoutOptions.Center };
             var scrollLayout = new ScrollView { Orientation = ScrollOrientation.Vertical, Content = grid };
@@ -129,6 +119,9 @@ namespace AusBatProtoOneMobileClient
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("sightings", "Sightings", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnSightingsPressed.Execute(null); })
+                .AddMenuItem("acknowledgements", "Acknowledgements", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnAcknowledgementsMenuClicked.Execute(null); })
+                .AddMenuItem("copyright", "Copyright", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnCopyrightMenuClicked.Execute(null); })
+                .AddMenuItem("about", "About", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnAboutMenuClicked.Execute(null); })
                 .AddMenuItem("dev", "Development", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnSightingsPressed.Execute(null); })
                 .AddSubMenuItem("dev", "init", "Init", ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnInitPressed.Execute(null); });
 

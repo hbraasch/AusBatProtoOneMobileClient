@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <None Remove="Data\About\about.html" />
+    <None Remove="Data\Acknowledgements\Acknowledgements.html" />
+    <None Remove="Data\Copyright\Copyright.html" />
     <None Remove="Data\IconImage\aus_bats_icon.jpg" />
     <None Remove="Data\Introduction\introduction.html" />
     <None Remove="Data\KeyTables\chalinolobus_keytable.json" />
@@ -433,6 +435,7 @@
     <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_intermediate_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_megaphyllus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\rhinolophus_robertsi_head.jpg" />
+    <None Remove="Data\SpeciesImages\Hires\Species\rhinonicteris_aurantia_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\saccolaimus_flaviventris_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\saccolaimus_mixtus_head.jpg" />
     <None Remove="Data\SpeciesImages\Hires\Species\saccolaimus_saccolaimus_head.jpg" />
@@ -602,6 +605,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Data\About\about.html" />
+    <EmbeddedResource Include="Data\Acknowledgements\acknowledgements.html" />
+    <EmbeddedResource Include="Data\Copyright\copyright.html" />
     <EmbeddedResource Include="Data\Introduction\introduction.html" />
     <EmbeddedResource Include="Data\KeyTables\chalinolobus_keytable.json" />
     <EmbeddedResource Include="Data\KeyTables\emballonuridae_keytable.json" />
@@ -815,6 +820,7 @@
     <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_halli_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_ridei_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\pteropus_poliocephalus_head.jpg" BaseSize="50,50" />
+    <SharedImage Include="Data\SpeciesImages\Hires\Species\rhinonicteris_aurantia_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\saccolaimus_mixtus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\scoteanax_rueppellii_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\scotorepens_orion_head.jpg" BaseSize="50,50" />
@@ -892,10 +898,8 @@
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_daedalus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_geoffroyi_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_gouldi_head.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_holtorum_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_major_major_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_major_tor_head.jpg" BaseSize="50,50" />
-    <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_sherrini_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\nyctophilus_walkeri_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_cobourgianus_head.jpg" BaseSize="50,50" />
     <SharedImage Include="Data\SpeciesImages\Hires\Species\ozimops_kitcheneri_head.jpg" BaseSize="50,50" />

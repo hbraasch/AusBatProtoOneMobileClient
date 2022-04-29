@@ -24,6 +24,8 @@ namespace AusBatProtoOneMobileClient.Models
 
 
         public string IntroductionHtml;
+        public string AcknowledgementsHtml;
+        public string CopyrightHtml;
         public string AboutHtml;
         public KeyTree KeyTree;
         public List<Classification> Classifications = new List<Classification>();
@@ -87,6 +89,8 @@ namespace AusBatProtoOneMobileClient.Models
                 await ZippedFiles.Extract();
 
                 dbase.IntroductionHtml = LoadIntroduction();
+                dbase.AcknowledgementsHtml = LoadAcknowledgements();
+                dbase.CopyrightHtml = LoadCopyright();
                 dbase.AboutHtml = LoadAbout();
                 Debug.WriteLine(JsonConvert.SerializeObject(new List<int> { 101, 102 }).ToString());
 
@@ -430,6 +434,62 @@ namespace AusBatProtoOneMobileClient.Models
             }
         }
 
+        private string LoadAcknowledgements()
+        {
+            try
+            {
+                using (Stream stream = FileHelper.GetStreamFromFile("Data.Acknowledgements.acknowledgements.html"))
+                {
+                    if (stream == null)
+                    {
+                        throw new BusinessException("Acknowledgement text does not exist");
+                    }
+
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string result = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(result))
+                        {
+                            throw new BusinessException($"No data inside acknowledgement file");
+                        }
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading acknowledgement file. {ex.Message}");
+            }
+        }
+
+        private string LoadCopyright()
+        {
+            try
+            {
+                using (Stream stream = FileHelper.GetStreamFromFile("Data.Copyright.copyright.html"))
+                {
+                    if (stream == null)
+                    {
+                        throw new BusinessException("Copyright data does not exist");
+                    }
+
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        string result = reader.ReadToEnd();
+                        if (string.IsNullOrEmpty(result))
+                        {
+                            throw new BusinessException($"No data inside copyright file");
+                        }
+                        return result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new BusinessException($"Problem reading copyright file. {ex.Message}");
+            }
+        }
+
         private string LoadAbout()
         {
             try
@@ -438,7 +498,7 @@ namespace AusBatProtoOneMobileClient.Models
                 {
                     if (stream == null)
                     {
-                        throw new BusinessException("About file does not exist");
+                        throw new BusinessException("About data does not exist");
                     }
 
                     using (StreamReader reader = new StreamReader(stream))
@@ -446,7 +506,7 @@ namespace AusBatProtoOneMobileClient.Models
                         string result = reader.ReadToEnd();
                         if (string.IsNullOrEmpty(result))
                         {
-                            throw new BusinessException($"No data inside About file");
+                            throw new BusinessException($"No data inside about file");
                         }
                         return result;
                     }
@@ -454,9 +514,10 @@ namespace AusBatProtoOneMobileClient.Models
             }
             catch (Exception ex)
             {
-                throw new BusinessException($"Problem reading About file. {ex.Message}");
+                throw new BusinessException($"Problem reading about file. {ex.Message}");
             }
         }
+
     }
 
     #region *// Sightings
