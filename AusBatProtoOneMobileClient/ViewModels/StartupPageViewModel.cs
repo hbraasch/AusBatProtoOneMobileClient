@@ -210,7 +210,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             {
                 var viewModel = new DisplayHtmlPageViewModel() {
                     Title = "About",
-                    Html = App.dbase.AboutHtml.Replace("<<<TEXT>>>", $"<p style=\"color: white\">{Constants.APP_NAME}</p><p style=\"color: red\">Version: {Settings.CurrentDataVersion}</p>")
+                    Html = App.dbase.AboutHtml.Replace("<<<TEXT>>>", $"<p style=\"color: #E7E7E7\">{Constants.APP_NAME}</p><p style=\"color: red\">Version: {Settings.CurrentDataVersion}</p>")
                 };
                 var page = new DisplayHtmlPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);

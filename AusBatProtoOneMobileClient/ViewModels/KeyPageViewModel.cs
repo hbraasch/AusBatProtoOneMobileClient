@@ -169,6 +169,7 @@ namespace DocGenOneMobileClient.Views
                     }
                     #endregion
                     BestPromptCharacters = currentPromptKeyTreeNode.PromptCharactersForNextLevel.ToList();
+                    CurrentTriggeredKeyTreeNodes.Clear();
                     break;
                 case FilterState.HasMatches:
                     #region *// Determine which keys needs to be displayed

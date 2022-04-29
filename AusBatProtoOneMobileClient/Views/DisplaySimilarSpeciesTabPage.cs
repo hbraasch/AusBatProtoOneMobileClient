@@ -40,16 +40,13 @@ namespace AusBatProtoOneMobileClient
                 Orientation = ScrollOrientation.Vertical
             };
 
-            var backgroundImage = new Image { Aspect = Aspect.AspectFill, Source = Constants.BACKGROUND_IMAGE };
-
             var finalLayout = new AbsoluteLayout
             {
-                Children = { backgroundImage, listViewLayout, activityIndicator },
+                Children = { listViewLayout, activityIndicator },
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
-            AbsoluteLayout.SetLayoutFlags(backgroundImage, AbsoluteLayoutFlags.All);
-            AbsoluteLayout.SetLayoutBounds(backgroundImage, new Rectangle(0, 0, 1, 1));
+
             AbsoluteLayout.SetLayoutFlags(listViewLayout, AbsoluteLayoutFlags.All);
             AbsoluteLayout.SetLayoutBounds(listViewLayout, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(activityIndicator, AbsoluteLayoutFlags.PositionProportional);
