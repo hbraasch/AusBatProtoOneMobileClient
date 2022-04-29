@@ -31,21 +31,35 @@ namespace AusBatProtoOneMobileClient.Models
         public List<MapRegion> MapRegions = new List<MapRegion>();
         public List<Sighting> Sightings = new List<Sighting>();
 
-        public static Dbase Load()
+        public static Task<Dbase> Load()
         {
-            var folderPath = Path.Combine(FileSystem.AppDataDirectory, "Library");
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-            var filePath = Path.Combine(folderPath, DBASE_FILENAME);
-            if (!File.Exists(filePath))
-            {
-                return new Dbase();
-            }
-            var dbaseJson = File.ReadAllText(filePath);
-            if (dbaseJson.IsEmpty()) return new Dbase();
-            return JsonConvert.DeserializeObject<Dbase>(dbaseJson, settings);
+
+            var tcs = new TaskCompletionSource<Dbase>();
+            Task.Factory.StartNew(() => {
+                try
+                {
+                    var folderPath = Path.Combine(FileSystem.AppDataDirectory, "Library");
+                    if (!Directory.Exists(folderPath))
+                    {
+                        Directory.CreateDirectory(folderPath);
+                    }
+                    var filePath = Path.Combine(folderPath, DBASE_FILENAME);
+                    if (!File.Exists(filePath))
+                    {
+                        tcs.SetResult(new Dbase());
+                    }
+                    var dbaseJson = File.ReadAllText(filePath);
+                    if (dbaseJson.IsEmpty()) tcs.SetResult(new Dbase());
+                    tcs.SetResult(JsonConvert.DeserializeObject<Dbase>(dbaseJson, settings));
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+
+            });
+            return tcs.Task;
+            
         }
         public static void Save(Dbase dbase)
         {

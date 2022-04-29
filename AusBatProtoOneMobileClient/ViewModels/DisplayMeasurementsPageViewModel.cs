@@ -15,14 +15,14 @@ namespace AusBatProtoOneMobileClient.ViewModels
     {
         CommandHelper commandHelper = new CommandHelper();
 
-        public HtmlTable measurementsTable { get; set; }
+        public TableData measurementsTable { get; set; }
         public ImageSource headImageSource;
 
         #region *// Menu related
         public ICommand InvalidateMenuCommand { get; set; }
         public bool IsLoggedIn { get; set; } = false;
         #endregion
-        public DisplayMeasurementsPageViewModel(HtmlTable measurementsTable, ImageSource headImageSource)
+        public DisplayMeasurementsPageViewModel(TableData measurementsTable, ImageSource headImageSource)
         {
             this.measurementsTable = measurementsTable;
             this.headImageSource = headImageSource;

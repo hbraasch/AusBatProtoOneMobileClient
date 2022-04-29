@@ -56,7 +56,9 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 }
                 else
                 {
-                    Debug.WriteLine("Using current data. No need for data initialization");
+                    Debug.WriteLine("Using current data. No need for data initialization. Loading...");
+                    App.dbase = await Dbase.Load();
+                    Debug.WriteLine("Current data loaded");
                 }
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)

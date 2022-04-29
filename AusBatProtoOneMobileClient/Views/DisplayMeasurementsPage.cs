@@ -71,7 +71,7 @@ namespace AusBatProtoOneMobileClient
             return centeredLayout;
 
             // Helper
-            Grid GenerateGrid(HtmlTable topTable, HtmlTable bottomTable = null)
+            Grid GenerateGrid(TableData topTable, TableData bottomTable = null)
             {
                 var grid = new Grid() { Margin = 5, Padding = 0, RowSpacing = 0, ColumnSpacing = 0 };
                 topTable.Rows.ForEach((row) => {

@@ -46,7 +46,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
         public float HtmlFontSizePercentage { get; set; }
 
-        public HtmlTable MeasurementsTable;
+        public List<TableData> MeasurementsTableDatas;
 
         public class CallDataItem
         {
@@ -129,7 +129,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
             ImageDataItems = imageDataItems;
 
-            DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTable); 
+            DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTableDatas); 
 
             DistributionMapImage = ImageSource.FromFile(ZippedFiles.GetFullFilename(Species.DistributionMapImage));
 
@@ -234,7 +234,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         /// <summary>
         /// Used to encapsulate extracted table data
         /// </summary>
-        public class HtmlTable
+        public class TableData
         {
             public class Row
             {
@@ -257,11 +257,11 @@ namespace AusBatProtoOneMobileClient.ViewModels
             /// Used to create a table with first half of data. Retain header and row names
             /// </summary>
             /// <returns></returns>
-            internal HtmlTable FirstHalf()
+            internal TableData FirstHalf()
             {
                 var startIndex = (int)((float)(Rows[0].Columns.Count) / 2);
                 var removeAmount = Rows[0].Columns.Count - startIndex;
-                var newTable = this.Clone() as HtmlTable;
+                var newTable = this.Clone() as TableData;
                 foreach (var row in newTable.Rows)
                 {
                     for (int i = 1; i < removeAmount; i++)
@@ -278,11 +278,11 @@ namespace AusBatProtoOneMobileClient.ViewModels
             /// Used to create a table with second half of data. Retain header and row names
             /// </summary>
             /// <returns></returns>
-            internal HtmlTable SecondHalf()
+            internal TableData SecondHalf()
             {
                 var startIndex = 1;
                 var removeAmount = (int)((float)(Rows[0].Columns.Count) / 2);
-                var newTable = this.Clone() as HtmlTable;
+                var newTable = this.Clone() as TableData;
                 foreach (var row in newTable.Rows)
                 {
                     for (int i = 0; i < removeAmount; i++)
@@ -293,9 +293,9 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 return newTable;
             }
 
-            private HtmlTable Clone()
+            private TableData Clone()
             {
-                return JsonConvert.DeserializeObject<HtmlTable>(JsonConvert.SerializeObject(this));
+                return JsonConvert.DeserializeObject<TableData>(JsonConvert.SerializeObject(this));
             }
         }
 
@@ -303,53 +303,89 @@ namespace AusBatProtoOneMobileClient.ViewModels
         /// Used to also allow local objects to be linked to 
         /// </summary>
         /// <param name="html"></param>
-        /// <param name="htmlTable"></param>
+        /// <param name="tableDatas"></param>
         /// <returns></returns>
-        private HtmlWebViewSource GenerateSource(string html, out HtmlTable htmlTable)
+        private HtmlWebViewSource GenerateSource(string html, out List<TableData> tableDatas)
         {
             var source = new HtmlWebViewSource();
-            source.Html = ConvertHtml(html, out htmlTable);
+            source.Html = ConvertHtml(html, out tableDatas);
             source.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
             return source;
         }
-        public static string ConvertHtml(string detailsHtml, out HtmlTable htmlTable)
+        public static string ConvertHtml(string detailsHtml, out List<TableData> tableDatas)
         {
             // https://stackoverflow.com/questions/35413763/xamarin-parsing-html
 
             HtmlDocument document = new HtmlDocument();
-            htmlTable = new HtmlTable();
-
-            // Your html stream
             document.LoadHtml(detailsHtml);
-            var container = document.DocumentNode.Descendants("table").FirstOrDefault();
-            if (container != null)
-            {
-                foreach (var row in container.Descendants("tr"))
-                {
-                    var htmlRow = new HtmlTable.Row();
-                    foreach (var col in row.Descendants("th"))
-                    {
-                        htmlRow.Columns.Add(new HtmlTable.Col { Value = col.InnerText });
-                    }
-                    foreach (var col in row.Descendants("td"))
-                    {
-                        htmlRow.Columns.Add(new HtmlTable.Col { Value = col.InnerText });
-                    }
-                    htmlTable.Rows.Add(htmlRow);
-                }
-                document.DocumentNode.SelectSingleNode(container.XPath).Remove();
-            }
+            var containers = document.DocumentNode.Descendants("table").ToList();
 
-            foreach (var item in document.DocumentNode.Descendants("p"))
+            #region *// Run through each table, extract data and remove
+            tableDatas = new List<TableData>();
+
+            for (int i = 0; i < containers.Count; i++)
             {
-                if (item.InnerText.Contains("Measurement"))
+                var container = containers[i];
+                var tableData = new TableData();
+
+                if (container != null)
                 {
-                    item.InnerHtml = "<a href='measurements.html'>Measurements</a>";
+#if true
+                    foreach (var row in container.Descendants("tr"))
+                    {
+                        var htmlRow = new TableData.Row();
+                        foreach (var col in row.Descendants("th"))
+                        {
+                            htmlRow.Columns.Add(new TableData.Col { Value = col.InnerText });
+                        }
+                        foreach (var col in row.Descendants("td"))
+                        {
+                            htmlRow.Columns.Add(new TableData.Col { Value = col.InnerText });
+                        }
+                        tableData.Rows.Add(htmlRow);
+                    }
+                    document.DocumentNode.SelectSingleNode(container.XPath).Remove();
+                    tableDatas.Add(tableData);   
+#endif
                 }
             }
+            #endregion
+
+            #region *// Replace [Measurements] string with an indexed hyperlink
+            if (tableDatas.Count == 1)
+            {
+                foreach (var item in document.DocumentNode.Descendants("p"))
+                {
+                    if (item.InnerText.Contains("Measurements"))
+                    {
+                        item.InnerHtml = $"<a href='measurements.html?index={0}'>Measurements</a>";
+                        break;
+                    }
+                }  
+            }
+            else
+            {
+                int hyperlinkCount = 0;
+                foreach (var item in document.DocumentNode.Descendants("p"))
+                {
+                    if (item.InnerText.Contains("Measurements:"))
+                    {
+                        var region = ExtractRegion(item.InnerText);
+                        item.InnerHtml = $"<a href='measurements.html?index={hyperlinkCount++}'>{region}</a>";
+                    }
+                }
+            }
+            #endregion
             var stringWriter = new StringWriter();
             document.Save(stringWriter);
             return stringWriter.ToString();
+        }
+
+        private static string ExtractRegion(string text)
+        {
+            var firstSplit = text.Split(':');
+            if (firstSplit.Length != 2) throw new ApplicationException("Incorrect [Measurements:] tag");
+            return firstSplit[1].Trim();
         }
 
         public Action<ImageSource> OnImageTapped => async (imageSource) =>
@@ -442,15 +478,15 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
         });
 
-        public ICommand OnDisplayMeasurementsTableClicked => commandHelper.ProduceDebouncedCommand(async () => {
+        public ICommand OnDisplayMeasurementsTableClicked => commandHelper.ProduceDebouncedCommand<int>(async (index) => {
             try
             {
 
-                var viewModel = new DisplayMeasurementsPageViewModel(MeasurementsTable, HeadImageSource);
+                var viewModel = new DisplayMeasurementsPageViewModel(MeasurementsTableDatas[index], HeadImageSource);
                 var page = new DisplayMeasurementsPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
 
-                DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTable);
+                DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTableDatas);
             }
             catch (Exception ex) when (ex is TaskCanceledException ext)
             {
@@ -492,7 +528,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 Settings.HtmlFontSizePercentage = percentage;
                 HtmlFontSizePercentage = percentage;
 
-                DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTable);
+                DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTableDatas);
 
                 if (DeviceInfo.Platform == DevicePlatform.Android) webView.Reload(); 
 

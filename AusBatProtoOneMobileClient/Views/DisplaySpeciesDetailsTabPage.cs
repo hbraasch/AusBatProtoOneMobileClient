@@ -4,6 +4,7 @@ using AusBatProtoOneMobileClient.Views.Components;
 using Mobile.Helpers;
 using Mobile.ViewModels;
 using System;
+using System.Linq;
 using Xamarin.Forms;
 
 
@@ -42,10 +43,22 @@ namespace AusBatProtoOneMobileClient
 
         private void WebViewOnNavigatingDroid(object sender, WebNavigatingEventArgs e)
         {
-            if (!e.Url.StartsWith("url", StringComparison.InvariantCultureIgnoreCase)) {
-                viewModel.OnDisplayMeasurementsTableClicked.Execute(null);
+            if (e.Url.Contains("measurements.html")) {
+                var index = ExtractIndex(e.Url);
+                viewModel.OnDisplayMeasurementsTableClicked.Execute(index);
             };
             e.Cancel = true;
+        }
+
+        private int ExtractIndex(string url)
+        {
+            var firstSplit = url.Split('?');
+            if (firstSplit.Length != 2) throw new ApplicationException("Url is incomplete");
+            var secondSplit = firstSplit[1].Split('=');
+            if (firstSplit.Length != 2) throw new ApplicationException("Url has no index parameter");
+            var success = int.TryParse(secondSplit[1], out var value);
+            if (!success) throw new ApplicationException("Url index parameter is not a number");
+            return value;
         }
 
         bool isFirstAppearance = true;
