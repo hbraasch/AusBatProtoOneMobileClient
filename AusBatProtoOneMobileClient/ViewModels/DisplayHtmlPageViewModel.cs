@@ -1,4 +1,5 @@
-﻿using Mobile.Helpers;
+﻿using AusBatProtoOneMobileClient.Views.Components;
+using Mobile.Helpers;
 using Mobile.Models;
 using Mobile.ViewModels;
 using System;
@@ -18,6 +19,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         CommandHelper commandHelper = new CommandHelper();
 
         public string Title { get; set; }
+        public float HtmlFontSizePercentage { get; set; }
         public string Html { get; set; }
         public HtmlWebViewSource WebViewSource { get; set; }
 
@@ -28,6 +30,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public DisplayHtmlPageViewModel()
         {
             WebViewSource = new HtmlWebViewSource();
+            HtmlFontSizePercentage = Settings.HtmlFontSizePercentage;
         }
 
         public ICommand OnFirstAppearance => commandHelper.ProduceDebouncedCommand(() => 
@@ -47,6 +50,52 @@ namespace AusBatProtoOneMobileClient.ViewModels
         {
             NavigateBack(NavigateReturnType.IsCancelled);
             isBackCancelled = true;
+        });
+
+        public ICommand OnScaleTextMenuPressed => commandHelper.ProduceDebouncedCommand<TransparentWebView>(async (webView) => {
+            try
+            {
+
+                var cts = new CancellationTokenSource();
+                ActivityIndicatorStart("Starting ...", () =>
+                {
+                    cts.Cancel();
+                    ActivityIndicatorStop();
+                });
+
+                // Do work here
+
+                var value = await Application.Current.MainPage.DisplayPromptAsync("Font size", "Enter percentage", "OK", "Cancel", initialValue: Settings.HtmlFontSizePercentage.ToString("N0"), keyboard: Keyboard.Text);
+                if (value == null) return;
+                var isValid = float.TryParse(value, out float percentage);
+                if (!isValid) throw new BusinessException("Value entered is not a valid number");
+                percentage = Math.Max(10, percentage);
+                percentage = Math.Min(percentage, 1000);
+                Settings.HtmlFontSizePercentage = percentage;
+                HtmlFontSizePercentage = percentage;
+
+                WebViewSource.Html = Html;
+
+                webView.Reload();  //if (DeviceInfo.Platform == DevicePlatform.Android) webView.Reload();
+
+
+            }
+            catch (Exception ex) when (ex is TaskCanceledException ext)
+            {
+                Debug.Write("Cancelled by user");
+            }
+            catch (Exception ex) when (ex is BusinessException exb)
+            {
+                await DisplayAlert("Notification", exb.CompleteMessage(), "OK");
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Problem: ", ex.CompleteMessage(), "OK");
+            }
+            finally
+            {
+                ActivityIndicatorStop();
+            }
         });
 
     }

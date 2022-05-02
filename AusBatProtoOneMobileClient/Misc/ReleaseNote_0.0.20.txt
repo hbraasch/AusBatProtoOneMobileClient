@@ -1,0 +1,7 @@
+﻿More missing images added
+Returned the ability to display multiple call images and call audios
+Changed to find hires images using file naming convension, not from datasets
+Measurements page headers chages to display as [white]
+Circular head borders added. This is to prevent some images appear offset ot larger
+Larger resolution Australia map
+List ordering fixed

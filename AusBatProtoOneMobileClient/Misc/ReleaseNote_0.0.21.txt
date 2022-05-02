@@ -1,0 +1,9 @@
+﻿[Acknowledgements, Copyright and About] added to startup page dropdown menu
+Data files updated
+Feature to display more than one measurement table per detail page added
+Measurements page headers changed to display [white]
+Circular head borders added. This is to prevent some icon images appear offset or larger
+Larger resolution Australia map added
+List ordering fixed
+[Falsistrellus mackenzei] missing call images fixed
+[Similar species] to species display added 

@@ -236,6 +236,15 @@
   <ItemGroup>
     <BundleResource Include="Resources\splash_screen_v6%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\similar4_ios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\similar4_ios%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\similar4_ios%403x.png" />
+  </ItemGroup>
   <PropertyGroup>
     <PreBuildEvent>C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
   </PropertyGroup>

@@ -209,11 +209,15 @@ namespace DocGenOneMobileClient.Views
 
             try
             {
-                await ActivityIndicatorStart();
 
                 var result = await Application.Current.MainPage.DisplayPromptAsync("Mail", "Enter email address", "Send", "Cancel", keyboard: Keyboard.Email );
                 if (result == null) return;
+
+                await ActivityIndicatorStart();
+
                 await SendEmail($"Mail from {Constants.APP_NAME}", "Please see attachment for sightings data", new List<string> { result });
+
+                // Exit
 
                 async Task SendEmail(string subject, string body, List<string> recipients)
                 {

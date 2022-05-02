@@ -73,7 +73,6 @@ namespace AusBatProtoOneMobileClient.Data
         }
         internal async Task LoadImages()
         {
-            bool hasHeadFile = false;
             int MAX_FILE_AMOUNT = 5;
             var toRemoveImages = new List<string>();
             var speciesName = $"{GenusId.ToUpperFirstChar()} {SpeciesId}";
@@ -83,24 +82,23 @@ namespace AusBatProtoOneMobileClient.Data
 
             #region *// Get all hires image that comply with naming standard
             var headImageName = $"{speciesName}_head.jpg".ToAndroidFilenameFormat();
+            // Check if [Resizetizer SharedImage] exists
+            if (!await ImageChecker.DoesImageExist(headImageName))
+            {
+                Debug.WriteLine($"Missing resizetized head image [{headImageName}] for species [{speciesName}]");
+            }
+
+            // Check if hires image of head exist
             if (File.Exists(ZippedFiles.GetFullFilename(headImageName)))
             {
-                // Check if [Resizetizer SharedImage] exists
-                if (!await ImageChecker.DoesImageExist(headImageName))
-                {
-                    Debug.WriteLine($"Missing Resizetizer SharedImage head image [{headImageName}] for species [{speciesName}]");
-                }
-                else
-                {
-                    Images.Add(headImageName);
-                    hasHeadFile = true;
-                }
+                Images.Add(headImageName);
             }
             else
             {
-                Debug.WriteLine($"Missing head image for species [{speciesName}]");
+                Debug.WriteLine($"Missing hires head image for species [{speciesName}]");
             }
 
+            // Get all other images based on file naming standard
             for (int imageNumber = 0; imageNumber < MAX_FILE_AMOUNT; imageNumber++)
             {
                 var imageName = GenerateNumberedFilename(speciesName, "", "jpg", imageNumber);
@@ -112,11 +110,7 @@ namespace AusBatProtoOneMobileClient.Data
 
             if (Images.Count == 0)
             {
-                Debug.WriteLine($"Missing images for species [{speciesName}]");
-            }
-            if (!hasHeadFile)
-            {
-                Debug.WriteLine($"Missing head image for species [{speciesName}]");
+                Debug.WriteLine($"Missing all hires images for species [{speciesName}]");
             }
             #endregion
 

@@ -85,7 +85,7 @@ namespace DocGenOneMobileClient.Views
                 {
                     Aspect = Aspect.AspectFit
                 };
-                image.Transformations.Add(new CircleTransformation() { BorderHexColor = "C0C0C0", BorderSize = 7 });
+                image.Transformations.Add(new CircleTransformation() { BorderHexColor = Constants.IMAGE_CIRCLE_COLOUR.ToHex(), BorderSize = Constants.IMAGE_CIRCLE_BORDER_SIZE });
                 image.SetBinding(CachedImage.SourceProperty, new Binding(nameof(SpeciesDisplayItem.ImageSource), BindingMode.OneWay));
 
                 var grid = new Grid() { Margin = new Thickness(15, 5, 5, 5) };

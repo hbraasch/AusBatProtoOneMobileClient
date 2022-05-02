@@ -1,3 +1,0 @@
-﻿More missing images added
-Returned the ability to display multiple call images and call audios
-Changed to find hires images using file naming convension, not from datasets

@@ -62,7 +62,7 @@ namespace AusBatProtoOneMobileClient
                 }
                 else
                 {
-                    displaySimilarSpeciesTabPage.IconImageSource = "similar_ios.png";
+                    displaySimilarSpeciesTabPage.IconImageSource = "similar4_ios.png";
                 }
                 Children.Add(displaySimilarSpeciesTabPage);
             }
@@ -79,7 +79,6 @@ namespace AusBatProtoOneMobileClient
                 .AddMenuItem("home", "Home", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })
                 .AddMenuItem("back", "Back", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
                 .AddMenuItem("reset", "Reset", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnResetMenuPressed.Execute(null); })
-                .AddMenuItem("meas", "Measurements", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { viewModel.OnDisplayMeasurementsTableClicked.Execute(null); })
                 .AddMenuItem("scaleText", "Scale text", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) => { 
                     viewModel.OnScaleTextMenuPressed.Execute(displayBatDetailsTabPage.webView);
                 })

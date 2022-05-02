@@ -73,6 +73,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApkHelperDroid.cs" />
     <Compile Include="BaseUrlDroid.cs" />
     <Compile Include="ImageCheckerDroid.cs" />
     <Compile Include="MainActivity.cs" />

@@ -24,6 +24,8 @@ namespace AusBatProtoOneMobileClient
             Dbase.Clear();
             Debugger.Break();
 #endif
+            App.dbase = new Dbase();
+
             VersionTracking.Track();
 
             var viewModel = new StartupPageViewModel();

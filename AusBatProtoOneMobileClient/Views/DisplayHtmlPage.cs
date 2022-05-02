@@ -21,7 +21,7 @@ namespace AusBatProtoOneMobileClient
             this.viewModel = viewModel;
             BindingContext = viewModel;
 
-            webView = (DeviceInfo.Platform != DevicePlatform.UWP) ? new TransparentWebView() { FontSizePercentage = Settings.HtmlFontSizePercentage } : new WebView();
+            webView = new TransparentWebView();
             webView.SetBinding(WebView.SourceProperty, new Binding(nameof(DisplayHtmlPageViewModel.WebViewSource), BindingMode.OneWay));
             webView.Margin = 5;
 
@@ -29,6 +29,7 @@ namespace AusBatProtoOneMobileClient
 
             var titleLabel = new Xamarin.Forms.Label { Text = "Filter results", Style = Styles.TitleLabelStyle };
             titleLabel.SetBinding(Label.TextProperty, new Binding(nameof(DisplayHtmlPageViewModel.Title), BindingMode.OneWay));
+            webView.SetBinding(TransparentWebView.FontSizePercentageProperty, new Binding(nameof(DisplayHtmlPageViewModel.HtmlFontSizePercentage), BindingMode.OneWay));
             NavigationPage.SetTitleView(this, titleLabel);
 
             BackgroundColor = Color.Black;
@@ -36,8 +37,13 @@ namespace AusBatProtoOneMobileClient
             Content = webView;
 
             menu = new MenuGenerator().Configure()
-                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });
-                
+                .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); })
+                .AddMenuItem("scaleText", "Scale text", Xamarin.Forms.ToolbarItemOrder.Secondary, (menuItem) =>
+                {
+                    viewModel.OnScaleTextMenuPressed.Execute(webView);
+                });
+
+
             menu.GenerateToolbarItemsForPage(this);
             menu.SetBinding(MenuGenerator.InvalidateCommandProperty, new Binding(nameof(DisplayHtmlPageViewModel.InvalidateMenuCommand), BindingMode.OneWayToSource, source: viewModel));
             

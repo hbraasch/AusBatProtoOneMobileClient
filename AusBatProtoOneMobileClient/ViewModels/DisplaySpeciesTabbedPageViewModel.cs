@@ -330,7 +330,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
 
                 if (container != null)
                 {
-#if true
                     foreach (var row in container.Descendants("tr"))
                     {
                         var htmlRow = new TableData.Row();
@@ -346,7 +345,6 @@ namespace AusBatProtoOneMobileClient.ViewModels
                     }
                     document.DocumentNode.SelectSingleNode(container.XPath).Remove();
                     tableDatas.Add(tableData);   
-#endif
                 }
             }
             #endregion
@@ -556,7 +554,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             try
             {
                 var cts = new CancellationTokenSource();
-                ActivityIndicatorStart("Starting ...", () =>
+                ActivityIndicatorStart("Reading location ...", () =>
                 {
                     cts.Cancel();
                     ActivityIndicatorStop();

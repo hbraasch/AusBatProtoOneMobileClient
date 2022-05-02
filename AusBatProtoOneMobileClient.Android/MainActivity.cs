@@ -24,15 +24,12 @@ namespace AusBatProtoOneMobileClient.Droid
         protected override void OnResume()
         {
             base.OnResume();
-            Task startupWork = new Task(() => { SimulateStartup(); });
+            Task startupWork = new Task(async () => {
+                // Simulates background work that happens behind the splash screen
+                await Task.Delay(4000);
+                StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+            });
             startupWork.Start();
-        }
-
-        // Simulates background work that happens behind the splash screen
-        void SimulateStartup()
-        {
-            Task.Delay(4000);
-            StartActivity(new Intent(Application.Context, typeof(MainActivity)));
         }
     }
 

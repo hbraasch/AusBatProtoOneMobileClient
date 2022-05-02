@@ -5,6 +5,8 @@ using System.IO.Compression;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
+using static Xamarin.Essentials.Permissions;
 
 namespace AusBatProtoOneMobileClient.Models
 {
@@ -14,7 +16,7 @@ namespace AusBatProtoOneMobileClient.Models
         public static Task Extract()
         {
             var tcs = new TaskCompletionSource<object>();
-            Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(async () => {
                 try
                 {
                     var workFolder = GetWorkFolderFullName();
@@ -25,7 +27,38 @@ namespace AusBatProtoOneMobileClient.Models
                     }
 
                     var zipPath = Path.Combine(workFolder, Constants.HIRES_IMAGES_ZIP_FILE_NAME);
-                    WriteResourceToFile($"AusBatProtoOneMobileClient.Data.SpeciesImages.Hires.{Constants.HIRES_IMAGES_ZIP_FILE_NAME}", zipPath);
+
+                    #region *// Blob file management
+                    var resourceName = $"AusBatProtoOneMobileClient.Data.SpeciesImages.Hires.{Constants.HIRES_IMAGES_ZIP_FILE_NAME}";
+                    var resource = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
+                    if (resource == null)
+                    {
+                        // Embedded resource file exist, so extract
+                        WriteResourceToFile(resourceName, zipPath);
+                    }
+                    else
+                    {
+
+                        #region *// Request access to storage
+                        var status = await CheckAndRequestPermissionAsync(new Permissions.StorageRead());
+                        if (status != PermissionStatus.Granted)
+                        {
+                            throw new ApplicationException("Permission denied to access external storage");
+                        }
+                        status = await CheckAndRequestPermissionAsync(new Permissions.StorageWrite());
+                        if (status != PermissionStatus.Granted)
+                        {
+                            throw new ApplicationException("Permission denied to access external storage");
+                        }
+                        #endregion
+                        // APK expension file should exist, extract
+                        ApkHelper.LoadApkExpansionFile(zipPath);
+                    }
+                    #endregion
+
+
+
+                    
                     ZipFile.ExtractToDirectory(zipPath, FullFolderName);
                     File.Delete(zipPath);
                     tcs.SetResult(null);
@@ -36,6 +69,18 @@ namespace AusBatProtoOneMobileClient.Models
                 }
             });
             return tcs.Task;
+        }
+
+        public static async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)
+            where T : BasePermission
+        {
+            var status = await permission.CheckStatusAsync();
+            if (status != PermissionStatus.Granted)
+            {
+                status = await permission.RequestAsync();
+            }
+
+            return status;
         }
 
         private static void WriteResourceToFile(string resourceName, string fileName)
