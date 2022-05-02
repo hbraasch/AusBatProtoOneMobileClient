@@ -9,9 +9,14 @@ namespace AusBatProtoOneMobileClient.IOS
 {
     public class ApkHelperIOS : IApkHelper
     {
+        public long GetVersionCode()
+        {
+            return 1;
+        }
+
         public void LoadApkExpansionFile(string destFullFilename)
         {
-            throw new ApplicationException("Hires images embedded resource missing from distribution image");
+            throw new ApplicationException("Hires images [embedded resource] missing from distribution image");
         }
     }
 }

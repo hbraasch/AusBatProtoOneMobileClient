@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Reflection;
@@ -31,28 +32,18 @@ namespace AusBatProtoOneMobileClient.Models
                     #region *// Blob file management
                     var resourceName = $"AusBatProtoOneMobileClient.Data.SpeciesImages.Hires.{Constants.HIRES_IMAGES_ZIP_FILE_NAME}";
                     var resource = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName);
-                    if (resource == null)
+                    if (resource != null)
                     {
                         // Embedded resource file exist, so extract
+                        Debug.WriteLine("Hires images extracted from embedded resource file");
                         WriteResourceToFile(resourceName, zipPath);
                     }
                     else
                     {
-
-                        #region *// Request access to storage
-                        var status = await CheckAndRequestPermissionAsync(new Permissions.StorageRead());
-                        if (status != PermissionStatus.Granted)
-                        {
-                            throw new ApplicationException("Permission denied to access external storage");
-                        }
-                        status = await CheckAndRequestPermissionAsync(new Permissions.StorageWrite());
-                        if (status != PermissionStatus.Granted)
-                        {
-                            throw new ApplicationException("Permission denied to access external storage");
-                        }
-                        #endregion
                         // APK expension file should exist, extract
+                        Debug.WriteLine("Hires images extracted from APK expension file file");
                         ApkHelper.LoadApkExpansionFile(zipPath);
+
                     }
                     #endregion
 
@@ -71,17 +62,7 @@ namespace AusBatProtoOneMobileClient.Models
             return tcs.Task;
         }
 
-        public static async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)
-            where T : BasePermission
-        {
-            var status = await permission.CheckStatusAsync();
-            if (status != PermissionStatus.Granted)
-            {
-                status = await permission.RequestAsync();
-            }
 
-            return status;
-        }
 
         private static void WriteResourceToFile(string resourceName, string fileName)
         {

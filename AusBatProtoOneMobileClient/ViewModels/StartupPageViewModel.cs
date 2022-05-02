@@ -18,6 +18,7 @@ using System.Windows.Input;
 using TreeApp.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using static Xamarin.Essentials.Permissions;
 
 namespace AusBatProtoOneMobileClient.ViewModels
 {
@@ -49,6 +50,21 @@ namespace AusBatProtoOneMobileClient.ViewModels
                 var currentDataVersion = Settings.CurrentDataVersion;
                 if (currentDataVersion < codeDataVersion)
                 {
+                    if (DeviceInfo.Platform == DevicePlatform.Android)
+                    {
+                        #region *// Request access to storage
+                        var status = await CheckAndRequestPermissionAsync(new Permissions.StorageRead());
+                        if (status != PermissionStatus.Granted)
+                        {
+                            throw new ApplicationException("Permission denied to access external storage");
+                        }
+                        status = await CheckAndRequestPermissionAsync(new Permissions.StorageWrite());
+                        if (status != PermissionStatus.Granted)
+                        {
+                            throw new ApplicationException("Permission denied to access external storage");
+                        }
+                        #endregion
+                    }
                     SetActivityIndicatorPrompt("Initializing data...");
                     await App.dbase.Init();
                     Settings.CurrentDataVersion = codeDataVersion;
@@ -76,6 +92,19 @@ namespace AusBatProtoOneMobileClient.ViewModels
             finally
             {
                 ActivityIndicatorStop();
+            }
+
+            // Exit
+
+            async Task<PermissionStatus> CheckAndRequestPermissionAsync<T>(T permission)   where T : BasePermission
+            {
+                var status = await permission.CheckStatusAsync();
+                if (status != PermissionStatus.Granted)
+                {
+                    status = await permission.RequestAsync();
+                }
+
+                return status;
             }
         });
 
@@ -210,7 +239,7 @@ namespace AusBatProtoOneMobileClient.ViewModels
             {
                 var viewModel = new DisplayHtmlPageViewModel() {
                     Title = "About",
-                    Html = App.dbase.AboutHtml.Replace("<<<TEXT>>>", $"<p style=\"color: #E7E7E7\">{Constants.APP_NAME}</p><p style=\"color: red\">Version: {Settings.CurrentDataVersion}</p>")
+                    Html = App.dbase.AboutHtml.Replace("<<<TEXT>>>", $"<p style=\"color: #E7E7E7\">{Constants.APP_NAME}</p><p style=\"color: #E7E7E7\">Version text: {Settings.CurrentDataVersion}</p><p style=\"color: #E7E7E7\">Version code: {ApkHelper.GetVersionCode()}</p>")
                 };
                 var page = new DisplayHtmlPage(viewModel);
                 await NavigateToPageAsync(page, viewModel);
