@@ -19,7 +19,7 @@ namespace AusBatProtoOneMobileClient.Droid
                 var packageName = "com.treeapps.ausbat";
                 var storageFullFilename = $"{sharedStore}/Android/obb/{packageName}";
                 var apkVersion = context.PackageManager.GetPackageInfo(context.PackageName, 0).LongVersionCode;
-                var filename = $"main.{apkVersion}.packageName.obb";
+                var filename = $"main.{apkVersion}.{packageName}.obb";
                 var fileFullname = Path.Combine(storageFullFilename, filename);
                 if (!File.Exists(fileFullname))
                 {
