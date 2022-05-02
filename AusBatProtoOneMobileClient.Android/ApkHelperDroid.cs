@@ -31,7 +31,7 @@ namespace AusBatProtoOneMobileClient.Droid
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Unable to load Apk extension file, ex");
+                throw new ApplicationException("Unable to load Apk extension file", ex);
             }
         }
     }

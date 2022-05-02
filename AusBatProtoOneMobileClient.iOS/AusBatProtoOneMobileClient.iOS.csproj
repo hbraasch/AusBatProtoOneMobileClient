@@ -73,6 +73,7 @@
     <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ApkHelperIOS.cs" />
     <Compile Include="BaseUrlIOS.cs" />
     <Compile Include="ImageCheckerIOS.cs" />
     <Compile Include="Main.cs" />
