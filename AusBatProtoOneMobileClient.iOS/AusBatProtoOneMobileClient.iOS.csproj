@@ -14,7 +14,7 @@
     <AssemblyName>AusBatProtoOneMobileClient.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <ProvisioningType>automatic</ProvisioningType>
+    <ProvisioningType>manual</ProvisioningType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
   </PropertyGroup>
@@ -40,6 +40,8 @@
     <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>x86_64</MtouchArch>
+    <CodesignKey>Apple Distribution: Heinrich Braasch (FR8SR546F2)</CodesignKey>
+    <CodesignProvision>XamDistibutionProfile</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,11 +68,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
-    <CodesignKey>Apple Development: Heinrich Braasch (WU37FRXRDT)</CodesignKey>
+    <CodesignKey>Apple Distribution: Heinrich Braasch (FR8SR546F2)</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <BuildIpa>true</BuildIpa>
     <IpaPackageName>AusBat</IpaPackageName>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>XamDistibutionProfile</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ApkHelperIOS.cs" />
@@ -247,6 +249,6 @@
     <BundleResource Include="Resources\similar4_ios%403x.png" />
   </ItemGroup>
   <PropertyGroup>
-    <PreBuildEvent>C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
+    <PreBuildEvent>D:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "D:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
   </PropertyGroup>
 </Project>

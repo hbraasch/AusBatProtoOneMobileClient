@@ -100,7 +100,7 @@ namespace Mobile.ViewModels
             Debug.WriteLine($"Navigated to: {toPage.GetType().Name}");
             toPageViewModel.IsPageReturnable = true;
             var navigationPage = new NavigationPage(toPage) { BarBackgroundColor = Color.Black, BarTextColor = Color.White };
-            await Page.Navigation.PushModalAsync(navigationPage);
+            await Page.Navigation.PushModalAsync(navigationPage, false);
             var result = await toPageViewModel.ExecutionStarts();
             if (Page.Navigation.ModalStack.Count > 0)
             {

@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -183,6 +187,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "C:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
+    <PreBuildEvent>D:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Helpers\IncrementBuild\IncrementBuild.exe "D:\P2\AusBatProtoOneMobileClient\AusBatProtoOneMobileClient\Models\code_version.json"</PreBuildEvent>
   </PropertyGroup>
 </Project>

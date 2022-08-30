@@ -58,11 +58,11 @@ namespace AusBatProtoOneMobileClient
                 displaySimilarSpeciesTabPage = new DisplaySimilarSpeciesTabPage(viewModel);
                 if (DeviceInfo.Platform != DevicePlatform.iOS)
                 {
-                    displaySimilarSpeciesTabPage.IconImageSource = "similar4.png";
+                    displaySimilarSpeciesTabPage.IconImageSource = "similar.png";
                 }
                 else
                 {
-                    displaySimilarSpeciesTabPage.IconImageSource = "similar4_ios.png";
+                    displaySimilarSpeciesTabPage.IconImageSource = "similar.png";
                 }
                 Children.Add(displaySimilarSpeciesTabPage);
             }

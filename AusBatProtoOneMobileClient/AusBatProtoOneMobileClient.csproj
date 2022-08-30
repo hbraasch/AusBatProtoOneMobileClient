@@ -596,9 +596,6 @@
     <None Remove="Images\ic_hamburger.png" />
     <None Remove="Images\photos.png" />
     <None Remove="Images\similar.png" />
-    <None Remove="Images\similar2.png" />
-    <None Remove="Images\similar3.png" />
-    <None Remove="Images\similar4.png" />
     <None Remove="Images\sounds.png" />
     <None Remove="Images\text.png" />
     <None Remove="Images\world.png" />
@@ -1022,9 +1019,6 @@
     <SharedImage Include="Images\ic_hamburger.png" BaseSize="50,50" />
     <SharedImage Include="Images\photos.png" BaseSize="25,25" />
     <SharedImage Include="Images\similar.png" BaseSize="25,25" />
-    <SharedImage Include="Images\similar2.png" BaseSize="25,25" />
-    <SharedImage Include="Images\similar3.png" BaseSize="25,25" />
-    <SharedImage Include="Images\similar4.png" BaseSize="75,75" />
     <SharedImage Include="Images\sounds.png" BaseSize="25,25" />
     <SharedImage Include="Images\text.png" BaseSize="25,25" />
     <SharedImage Include="Images\world.png" BaseSize="25,25" />

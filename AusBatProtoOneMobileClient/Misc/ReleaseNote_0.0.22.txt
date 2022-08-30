@@ -1,0 +1,1 @@
+﻿Added functionality to load an APK > 100 MB 
