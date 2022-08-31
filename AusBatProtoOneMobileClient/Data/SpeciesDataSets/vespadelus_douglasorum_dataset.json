@@ -1,12 +1,11 @@
 {
-  "GenusId": "Vespadelus",
+  "GenusId": "vespadelus",
   "SpeciesId": "douglasorum",
   "Name": "Kimberley Cave Bat",
   "RegionIds": [
     302
   ],
-  "DistributionMapImage": "vespadelus_douglasorum_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "vespadelus",
       "SpeciesId": "caurinus"

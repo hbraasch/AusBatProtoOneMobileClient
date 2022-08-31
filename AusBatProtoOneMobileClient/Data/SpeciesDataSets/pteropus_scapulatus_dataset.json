@@ -20,9 +20,7 @@
     107,
     203
   ],
-  "DistributionMapImage": "pteropus_scapulatus_dist.jpg",
-
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "pteropus",
       "SpeciesId": "alecto"

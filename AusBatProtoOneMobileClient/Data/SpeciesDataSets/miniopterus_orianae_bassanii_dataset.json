@@ -5,8 +5,7 @@
   "RegionIds": [
     203
   ],
-  "DistributionMapImage": "miniopterus_orianae_bassanii_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "chalinolobus",
       "SpeciesId": "gouldii"

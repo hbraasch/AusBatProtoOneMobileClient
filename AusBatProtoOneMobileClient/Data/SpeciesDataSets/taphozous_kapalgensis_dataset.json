@@ -5,8 +5,7 @@
   "RegionIds": [
     301
   ],
-  "DistributionMapImage": "taphozous_kapalgensis_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "taphozous",
       "SpeciesId": "georgianus"

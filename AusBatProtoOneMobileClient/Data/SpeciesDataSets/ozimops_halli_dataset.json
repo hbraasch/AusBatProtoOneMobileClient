@@ -5,8 +5,7 @@
   "RegionIds": [
     201
   ],
-  "DistributionMapImage": "ozimops_halli_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "ozimops",
       "SpeciesId": "lumsdenae"

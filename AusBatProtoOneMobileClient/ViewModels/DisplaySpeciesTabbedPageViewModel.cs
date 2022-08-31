@@ -25,6 +25,7 @@ using static AusBatProtoOneMobileClient.Helpers.VuHelper;
 
 namespace AusBatProtoOneMobileClient.ViewModels
 {
+    [PropertyChanged.AddINotifyPropertyChangedInterface]
     public class DisplaySpeciesTabbedPageViewModel : ViewModelBase
     {
         public Species Species;
@@ -41,6 +42,9 @@ namespace AusBatProtoOneMobileClient.ViewModels
         public ObservableCollection<MapRegion> SelectedMapItems { get; set; }
 
         public ImageSource DistributionMapImage { get; set; }
+
+        [PropertyChanged.DoNotCheckEquality]
+        public int ImageCount { get; set; }
 
 
         public HtmlWebViewSource DetailsHtmlSource { get; set; }
@@ -128,6 +132,8 @@ namespace AusBatProtoOneMobileClient.ViewModels
             }
 
             ImageDataItems = imageDataItems;
+
+            ImageCount = ImageDataItems.Count;
 
             DetailsHtmlSource = GenerateSource(Species.DetailsHtml, out MeasurementsTableDatas); 
 

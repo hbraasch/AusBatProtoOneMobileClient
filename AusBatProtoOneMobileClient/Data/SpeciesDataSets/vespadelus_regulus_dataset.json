@@ -1,5 +1,5 @@
 {
-  "GenusId": "Vespadelus",
+  "GenusId": "vespadelus",
   "SpeciesId": "regulus",
   "Name": "Southern Forest Bat",
   "RegionIds": [
@@ -14,8 +14,7 @@
     308,
     108
   ],
-  "DistributionMapImage": "vespadelus_regulus_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "vespadelus",
       "SpeciesId": "darlingtoni"

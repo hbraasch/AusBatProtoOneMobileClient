@@ -5,8 +5,7 @@
   "RegionIds": [
     108
   ],
-  "DistributionMapImage": "nyctophilus_sherrini_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "nyctophilus",
       "SpeciesId": "geoffroyi"

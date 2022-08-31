@@ -3,8 +3,7 @@
   "SpeciesId": "cervinus",
   "Name": "Fawn Leaf-nosed Bat",
   "RegionIds": [102],
-  "DistributionMapImage": "hipposideros_cervinus_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "doryrhina",
       "SpeciesId": "semoni"

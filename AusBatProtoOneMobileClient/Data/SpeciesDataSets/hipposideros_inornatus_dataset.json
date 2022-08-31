@@ -3,8 +3,7 @@
   "SpeciesId": "inornatus",
   "Name": "Arnhem Leaf-nosed Bat",
   "RegionIds": [301],
-  "DistributionMapImage": "hipposideros_inornatus_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "hipposideros",
       "SpeciesId": "diadema"

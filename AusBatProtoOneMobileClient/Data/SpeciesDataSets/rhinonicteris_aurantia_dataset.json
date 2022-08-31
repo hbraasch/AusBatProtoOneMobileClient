@@ -1,7 +1,6 @@
 {
-  "GenusId": "Rhinonicteris",
+  "GenusId": "rhinonicteris",
   "SpeciesId": "aurantia",
   "Name": "Orange Diamond-faced Bat",
   "RegionIds": [307, 302, 301, 303],
-  "DistributionMapImage": "rhinonicteris_aurantia_dist.jpg"
 }

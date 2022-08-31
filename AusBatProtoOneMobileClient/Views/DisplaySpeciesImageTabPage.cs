@@ -5,6 +5,9 @@ using FFImageLoading.Forms;
 using FFImageLoading.Transformations;
 using Mobile.Helpers;
 using Mobile.ViewModels;
+using System;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using static AusBatProtoOneMobileClient.ViewModels.DisplaySpeciesTabbedPageViewModel;
@@ -23,6 +26,11 @@ namespace AusBatProtoOneMobileClient
                 EmptyView = "Nothing to display",
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
+                Loop = false,
+                ItemsLayout = new LinearItemsLayout(ItemsLayoutOrientation.Horizontal)
+                {
+                    ItemSpacing = 5
+                }
             };
             carouselView.SetBinding(CarouselView.ItemsSourceProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.ImageDataItems), BindingMode.TwoWay, source: viewModel));
             carouselView.ItemTemplate = new DataTemplate(() =>
@@ -47,9 +55,11 @@ namespace AusBatProtoOneMobileClient
                 IndicatorColor = Color.LightGray,
                 SelectedIndicatorColor = Constants.APP_COLOUR,
                 HorizontalOptions = LayoutOptions.Center,
-                IndicatorsShape = IndicatorShape.Square,
-                IndicatorSize = 18
+                IndicatorsShape = IndicatorShape.Circle,
+                IndicatorSize = 20,
+                Count = 5
             };
+            indicatorView.SetBinding(IndicatorView.CountProperty, new Binding(nameof(DisplaySpeciesTabbedPageViewModel.ImageCount), BindingMode.TwoWay, source: viewModel, converter: new TestConverter()));
             carouselView.IndicatorView = indicatorView;
 
             var mainLayout = new StackLayout { Children = { carouselView, indicatorView }, Margin = 5 };
@@ -83,6 +93,19 @@ namespace AusBatProtoOneMobileClient
             else
             {
                 viewModel.OnSubsequentAppearance.Execute(null);
+            }
+        }
+
+        private class TestConverter : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                return (int) value;
+            }
+
+            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+            {
+                return (int)value;
             }
         }
     }

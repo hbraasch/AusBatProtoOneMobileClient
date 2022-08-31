@@ -3,8 +3,7 @@
   "SpeciesId": "rueppellii",
   "Name": "Greater Broad-nosed Bat",
   "RegionIds": [103, 104, 105, 106, 107],
-  "DistributionMapImage": "scoteanax_rueppellii_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "falsistrellus",
       "SpeciesId": "tasmaniensis"

@@ -67,13 +67,12 @@ namespace AusBatProtoOneMobileClient
                 Children.Add(displaySimilarSpeciesTabPage);
             }
 
-            // On<Android>().SetToolbarPlacement(Xamarin.Forms.PlatformConfiguration.AndroidSpecific.ToolbarPlacement.Bottom);
             NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = $"{viewModel.Species.Name}", Style = Styles.TitleLabelStyle });
-            BarBackgroundColor = Xamarin.Forms.Color.Black;
-            BarTextColor = Xamarin.Forms.Color.White;
+            On<Android>().SetIsSwipePagingEnabled(false);
+            BarBackgroundColor = Color.Black;
+            BackgroundColor = Color.Black;
+            BarTextColor =Color.White;
             CurrentPageChanged += (s, e) => { viewModel.IsDetailsDisplay = CurrentPage is DisplaySpeciesDetailsTabPage; menu.Invalidate(); };
-
-            //On<Windows>().SetHeaderIconsEnabled(true);
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("home", "Home", Xamarin.Forms.ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnHomeMenuPressed.Execute(null); })

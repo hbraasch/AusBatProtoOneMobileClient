@@ -1,12 +1,11 @@
 {
-  "GenusId": "Scotorepens",
+  "GenusId": "scotorepens",
   "SpeciesId": "parnaby",
   "Name": "Scotorepens sp. (Parnaby)",
   "RegionIds": [
     105
   ],
-  "DistributionMapImage": "scotorepens_parnaby_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "scotorepens",
       "SpeciesId": "greyi"

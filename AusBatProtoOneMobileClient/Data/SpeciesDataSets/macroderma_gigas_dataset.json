@@ -1,5 +1,5 @@
 {
-  "GenusId": "Macroderma",
+  "GenusId": "macroderma",
   "SpeciesId": "gigas",
   "Name": "Ghost Bat",
   "RegionIds": [
@@ -10,6 +10,5 @@
     301,
     302,
     307
-  ],
-  "DistributionMapImage": "macroderma_gigas_dist.jpg"
+  ]
 }

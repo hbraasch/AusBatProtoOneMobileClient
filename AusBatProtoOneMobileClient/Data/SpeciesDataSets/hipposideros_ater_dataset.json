@@ -3,8 +3,7 @@
   "SpeciesId": "ater",
   "Name": "Dusky Leaf-nosed Bat",
   "RegionIds": [302, 301, 303, 201, 102, 103, 304],
-  "DistributionMapImage": "hipposideros_ater_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "doryrhina",
       "SpeciesId": "semoni"

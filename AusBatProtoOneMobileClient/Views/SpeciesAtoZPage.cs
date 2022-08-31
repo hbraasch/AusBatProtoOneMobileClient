@@ -64,6 +64,7 @@ namespace DocGenOneMobileClient.Views
             NavigationPage.SetTitleView(this, new Xamarin.Forms.Label { Text = "Species", Style = Styles.TitleLabelStyle });
             Content = finalLayout;
             BackgroundImageSource = Constants.BACKGROUND_IMAGE;
+            BackgroundColor = Color.Black;
 
             menu = new MenuGenerator().Configure()
                 .AddMenuItem("back", "Back", ToolbarItemOrder.Primary, (menuItem) => { viewModel.OnBackMenuPressed.Execute(null); });

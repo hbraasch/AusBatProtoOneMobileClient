@@ -2,6 +2,5 @@
   "GenusId": "pipistrellus",
   "SpeciesId": "murrayi",
   "Name": "Christmas Island Pipistrelle",
-  "RegionIds": [],
-  "DistributionMapImage": "pipistrellus_murrayi_dist.jpg"
+  "RegionIds": []
 }

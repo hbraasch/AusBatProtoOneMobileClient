@@ -1,5 +1,5 @@
 {
-  "GenusId": "Vespadelus",
+  "GenusId": "vespadelus",
   "SpeciesId": "troughtoni",
   "Name": "Eastern Cave Bat",
   "RegionIds": [
@@ -9,8 +9,7 @@
     202,
     105
   ],
-  "DistributionMapImage": "vespadelus_troughtoni_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "vespadelus",
       "SpeciesId": "darlingtoni"

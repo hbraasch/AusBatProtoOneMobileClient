@@ -5,8 +5,7 @@
   "RegionIds": [
     102
   ],
-  "DistributionMapImage": "rhinolophus_intermediate_dist.jpg",
- "SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "rhinolophus",
       "SpeciesId": "robertsi"

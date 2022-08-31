@@ -1,5 +1,5 @@
 {
-  "GenusId": "Vespadelus",
+  "GenusId": "vespadelus",
   "SpeciesId": "pumilus",
   "Name": "Eastern Forest Bat",
   "RegionIds": [
@@ -9,8 +9,7 @@
     105,
     106
   ],
-  "DistributionMapImage": "vespadelus_pumilus_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "vespadelus",
       "SpeciesId": "darlingtoni"

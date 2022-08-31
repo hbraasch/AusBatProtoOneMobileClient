@@ -1,13 +1,12 @@
 {
-  "GenusId": "Nyctophilus",
+  "GenusId": "nyctophilus",
   "SpeciesId": "holtorum",
   "Name": "Holt's Long-eared Bat",
   "RegionIds": [
     308,
     309
   ],
-  "DistributionMapImage": "nyctophilus_holtorum_dist.jpg",
-"SimilarSpecies": [
+  "SimilarSpecies": [
     {
       "GenusId": "nyctophilus",
       "SpeciesId": "major_major"
